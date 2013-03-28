@@ -43,7 +43,7 @@ public class FolderTreeModel extends DefaultTreeModel {
 
 			while (folderTreeNodes.hasMoreElements()) {
 				FolderTreeNode curFolderTreeNode = folderTreeNodes.nextElement();
-				FolderUserObject curFolderUserObject = (FolderUserObject) curFolderTreeNode.getUserObject();
+				DlFolder curFolderUserObject = (DlFolder) curFolderTreeNode.getUserObject();
 
 				if (curFolderUserObject.getDlFolder().getFolderId() == folderId) {
 					folderTreeNode = curFolderTreeNode;

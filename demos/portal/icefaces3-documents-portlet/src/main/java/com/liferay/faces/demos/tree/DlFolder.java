@@ -23,13 +23,13 @@ import com.liferay.portlet.documentlibrary.model.DLFolder;
 /**
  * @author  Neil Griffin
  */
-public class FolderUserObject extends IceUserObject {
+public class DlFolder extends IceUserObject {
 
 	private static final long serialVersionUID = 3839613310386352585L;
 
 	private DLFolder dlFolder;
 
-	public FolderUserObject(DefaultMutableTreeNode wrappedTreeNode, DLFolder dlFolder) {
+	public DlFolder(DefaultMutableTreeNode wrappedTreeNode, DLFolder dlFolder) {
 		super(wrappedTreeNode);
 		setLeafIcon("tree_document.gif");
 		setBranchContractedIcon("tree_folder_closed.gif");

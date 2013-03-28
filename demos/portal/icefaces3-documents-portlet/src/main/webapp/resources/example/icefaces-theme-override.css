@@ -1,3 +1,64 @@
+/* NEW STUFF FOR ACE */
+.folder-node {
+	background-position: 0px -2px;
+	background-repeat: no-repeat;
+	height: 20px;
+	width: 19px;
+}
+
+.folder-node-expanded-false {
+	background-image: url("/html/themes/classic/images/common/folder.png");
+}
+
+.folder-node-expanded-true {
+	background-image: url("/html/themes/classic/images/common/folder_open.png");
+}
+
+.folder-node-text {
+	padding-left: 21px;
+}
+
+.icon-padding {
+	background-repeat: no-repeat;
+	padding-right: 3px;
+}
+
+.liferay-add-folder-icon {
+	background-image: url("/html/themes/classic/images/common/add_folder.png");
+	height: 16px;
+	width: 16px;
+}
+
+.liferay-file-entry-icon {
+	background-image: url("/html/themes/classic/images/document_library/add_document.png");
+	height: 16px;
+	width: 16px;
+}
+
+.liferay-add-icon {
+	background-image: url("/html/themes/classic/images/common/add.png");
+	height: 16px;
+	width: 16px;	
+}
+
+.liferay-delete-icon {
+	background-image: url("/html/themes/classic/images/common/delete.png");
+	height: 16px;
+	width: 16px;
+}
+
+.liferay-folder {
+	background-image: url("/html/themes/classic/images/common/folder.png");
+	height: 16px;
+	width: 16px;
+}
+
+.liferay-open-folder {
+	background-image: url("/html/themes/classic/images/common/folder_open.png");
+	height: 16px;
+	width: 16px;
+}
+
 /* START TREE */
 .dlp .selectedNodetrue span{
     font-weight:bold;

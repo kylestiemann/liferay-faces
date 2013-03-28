@@ -104,8 +104,6 @@ public class PreferencesBackingBean {
 					ActionResponse actionResponse = (ActionResponse) portletResponse;
 					actionResponse.setPortletMode(PortletMode.VIEW);
 				}
-
-				docLibModelBean.forceTreeRequery();
 			}
 			catch (Exception e) {
 				logger.error(e.getMessage(), e);

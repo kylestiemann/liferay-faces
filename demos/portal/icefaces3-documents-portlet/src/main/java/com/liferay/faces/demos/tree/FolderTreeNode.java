@@ -40,7 +40,7 @@ public class FolderTreeNode extends DefaultMutableTreeNode {
 	public FolderTreeNode(DLFolder dlFolder, boolean expanded) {
 		super();
 
-		FolderUserObject folderUserObject = new FolderUserObject(this, dlFolder);
+		DlFolder folderUserObject = new DlFolder(this, dlFolder);
 		folderUserObject.setLeaf(false);
 		folderUserObject.setExpanded(expanded);
 		setUserObject(folderUserObject);
@@ -64,7 +64,7 @@ public class FolderTreeNode extends DefaultMutableTreeNode {
 
 	}
 
-	public FolderUserObject getFolderUserObject() {
-		return (FolderUserObject) getUserObject();
+	public DlFolder getFolderUserObject() {
+		return (DlFolder) getUserObject();
 	}
 }

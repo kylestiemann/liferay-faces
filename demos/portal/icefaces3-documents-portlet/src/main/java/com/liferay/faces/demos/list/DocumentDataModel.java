@@ -17,22 +17,25 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+
+import org.icefaces.ace.component.datatable.DataTable;
+import org.icefaces.ace.model.table.LazyDataModel;
+import org.icefaces.ace.model.table.SortCriteria;
 
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
-import com.liferay.faces.util.model.LazyDataModel;
-
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.search.Sort;
+import com.liferay.portal.kernel.search.SortFactoryUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.security.permission.PermissionChecker;
-
+import com.liferay.portal.model.User;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
-import com.liferay.portlet.documentlibrary.service.permission.DLFileEntryPermission;
-import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
+
+//import com.liferay.faces.util.model.LazyDataModel;
 
 
 /**
@@ -46,30 +49,55 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(DocumentDataModel.class);
 
+	// Private Constants
+	private static final String DEFAULT_SORT_CRITERIA = "lastName";
+
 	// Private Data Members
 	private DLFolder dlFolder;
 	private String portalURL;
 	private String pathContext;
-	private PermissionChecker permissionChecker;
 
-	public DocumentDataModel(DLFolder dlFolder, int rowsPerPage, String portalURL, String pathContext,
-		PermissionChecker permissionChecker) {
+	// private PermissionChecker permissionChecker;
+	private int rowsPerPage;
+
+	public DocumentDataModel(DLFolder dlFolder, int rowsPerPage, String portalURL, String pathContext) {
 
 		this.dlFolder = dlFolder;
-		setRowsPerPage(rowsPerPage);
 		this.portalURL = portalURL;
 		this.pathContext = pathContext;
-		this.permissionChecker = permissionChecker;
-		setSortColumn("title");
-		setSortAscending(true);
+		setRowsPerPage(rowsPerPage);
+		setRowCount(countRows());
 	}
 
-	@Override
 	public int countRows() {
-		return findViewableDocuments().size();
+		List<DocLibFileEntry> files = new ArrayList<DocLibFileEntry>();
+
+		try {
+			long folderGroupId = dlFolder.getGroupId();
+			long folderId = dlFolder.getFolderId();
+
+			List<DLFileEntry> dlFileEntries = null;
+
+			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(DEFAULT_SORT_CRITERIA, false);
+
+			dlFileEntries = DLFileEntryServiceUtil.getFileEntries(folderGroupId, folderId, QueryUtil.ALL_POS,
+					QueryUtil.ALL_POS, orderByComparator);
+
+			if (dlFileEntries != null) {
+
+				for (DLFileEntry dlFileEntry : dlFileEntries) {
+
+					files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId, true));
+				}
+			}
+		}
+		catch (Exception e) {
+			logger.error(e.getMessage(), e);
+		}
+
+		return files.size();
 	}
 
-	@Override
 	public void deleteRow(Object primaryKey) throws IOException {
 		long fileEntryId = (Long) primaryKey;
 
@@ -84,74 +112,69 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 		}
 	}
 
+	/**
+	 * This method is called by the ICEfaces {@link DataTable} according to the rows specified in the currently
+	 * displayed page of data.
+	 *
+	 * @param  first          The zero-relative first row index.
+	 * @param  pageSize       The number of rows to fetch.
+	 * @param  sortCriterias  The array of sort criteria objects. Note that since the Liferay API does not support
+	 *                        multiple sort criterias, the length of this array will never be greater than one.
+	 * @param  filters        The query criteria. Note that in order for the filtering to work with the Liferay API, the
+	 *                        end-user must specify complete, matching words. Wildcards and partial matches are not
+	 *                        supported.
+	 */
 	@Override
-	public List<DocLibFileEntry> findRows(int startRow, int finishRow) {
+	public List<DocLibFileEntry> load(int first, int pageSize, SortCriteria[] sortCriterias,
+		Map<String, String> filters) {
 
-		List<DocLibFileEntry> viewableDocuments = findViewableDocuments();
-		int totalViewableDocuments = viewableDocuments.size();
+		List<DocLibFileEntry> files = new ArrayList<DocLibFileEntry>();
+		Sort sort;
 
-		if ((totalViewableDocuments > 0) && (startRow != QueryUtil.ALL_POS) && (finishRow != QueryUtil.ALL_POS)) {
+		// sort
+		if ((sortCriterias != null) && (sortCriterias.length != 0)) {
 
-			if (startRow > totalViewableDocuments) {
-				startRow = totalViewableDocuments;
+			if (!sortCriterias[0].isAscending()) {
+				sort = SortFactoryUtil.getSort(User.class, sortCriterias[0].getPropertyName(), "desc");
 			}
-
-			if (finishRow > totalViewableDocuments) {
-				finishRow = totalViewableDocuments;
+			else {
+				sort = SortFactoryUtil.getSort(User.class, sortCriterias[0].getPropertyName(), "asc");
 			}
-
-			int includeFinishRowToo = finishRow + 1;
-			viewableDocuments = viewableDocuments.subList(startRow, includeFinishRowToo);
+		}
+		else {
+			sort = SortFactoryUtil.getSort(User.class, DEFAULT_SORT_CRITERIA, "asc");
 		}
 
-		return viewableDocuments;
-	}
-
-	protected List<DocLibFileEntry> findViewableDocuments() {
-		List<DocLibFileEntry> viewableDocuments = new ArrayList<DocLibFileEntry>();
-
 		try {
+
 			long folderGroupId = dlFolder.getGroupId();
 			long folderId = dlFolder.getFolderId();
 
 			List<DLFileEntry> dlFileEntries = null;
+			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(sort.getFieldName(),
+					!sort.isReverse());
 
-			if (DLFolderPermission.contains(permissionChecker, folderGroupId, folderId, ActionKeys.VIEW)) {
-				OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(getSortColumn(),
-						isSortAscending());
+			dlFileEntries = DLFileEntryServiceUtil.getFileEntries(folderGroupId, folderId, first, first + pageSize,
+					orderByComparator);
 
-				dlFileEntries = DLFileEntryServiceUtil.getFileEntries(folderGroupId, folderId, QueryUtil.ALL_POS,
-						QueryUtil.ALL_POS, orderByComparator);
+			for (DLFileEntry dlFileEntry : dlFileEntries) {
+				files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId, true));
 			}
 
-			if (dlFileEntries != null) {
-
-				for (DLFileEntry dlFileEntry : dlFileEntries) {
-					boolean permittedToViewDocument = false;
-
-					try {
-						permittedToViewDocument = DLFileEntryPermission.contains(permissionChecker, dlFileEntry,
-								ActionKeys.VIEW);
-					}
-					catch (Exception e) {
-						logger.error(e.getMessage(), e);
-					}
-
-					viewableDocuments.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId,
-							permittedToViewDocument));
-				}
-			}
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
 
-		return viewableDocuments;
+		return files;
+
 	}
 
-	@Override
-	public Object getPrimaryKey(DocLibFileEntry docLibFileEntry) {
-		return docLibFileEntry.getFileEntryId();
+	public int getRowsPerPage() {
+		return rowsPerPage;
 	}
 
+	public void setRowsPerPage(int rowsPerPage) {
+		this.rowsPerPage = rowsPerPage;
+	}
 }

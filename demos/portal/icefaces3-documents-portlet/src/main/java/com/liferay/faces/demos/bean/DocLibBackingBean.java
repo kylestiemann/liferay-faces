@@ -16,57 +16,54 @@ package com.liferay.faces.demos.bean;
 import java.io.File;
 import java.io.FileInputStream;
 import java.text.MessageFormat;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.RequestScoped;
-import javax.faces.context.ExternalContext;
-import javax.faces.context.FacesContext;
+import javax.faces.component.UIViewRoot;
 import javax.faces.event.AbortProcessingException;
 import javax.faces.event.ActionEvent;
+import javax.faces.event.AjaxBehaviorEvent;
 
+import org.icefaces.ace.component.datatable.DataTable;
 import org.icefaces.ace.component.fileentry.FileEntry;
 import org.icefaces.ace.component.fileentry.FileEntryEvent;
 import org.icefaces.ace.component.fileentry.FileEntryResults;
+import org.icefaces.ace.component.tree.Tree;
 
 import com.liferay.faces.bridge.model.UploadedFile;
 import com.liferay.faces.demos.dto.UploadedFileWrapper;
-import com.liferay.faces.demos.tree.FolderTreeNode;
-import com.liferay.faces.demos.tree.FolderUserObject;
+import com.liferay.faces.demos.kyle.FolderTreeNode;
 import com.liferay.faces.portal.context.LiferayFacesContext;
-import com.liferay.faces.util.helper.LongHelper;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
-
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
 import com.liferay.portal.kernel.util.StringPool;
 import com.liferay.portal.kernel.util.StringUtil;
-import com.liferay.portal.security.permission.ActionKeys;
-import com.liferay.portal.security.permission.PermissionChecker;
+import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.ServiceContext;
-
 import com.liferay.portlet.documentlibrary.DuplicateFileException;
 import com.liferay.portlet.documentlibrary.FileNameException;
 import com.liferay.portlet.documentlibrary.FileSizeException;
 import com.liferay.portlet.documentlibrary.SourceFileNameException;
-import com.liferay.portlet.documentlibrary.model.DLFileEntryTypeConstants;
+import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
-import com.liferay.portlet.documentlibrary.service.permission.DLFolderPermission;
-import com.liferay.portlet.dynamicdatamapping.storage.Fields;
 
 
 /**
  * @author  Neil Griffin
+ * @author  KyleStiemann
  */
 @ManagedBean(name = "docLibBackingBean")
 @RequestScoped
 public class DocLibBackingBean {
+
+	private static final String DOCUMENTS_TABLE_PATH = ":f2:l1:c2:pc1:p1:documents";
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(DocLibBackingBean.class);
@@ -74,7 +71,7 @@ public class DocLibBackingBean {
 	// Private Constants
 	private static final long DEFAULT_REPOSITORY_ID = 0L;
 	private static final String JAVA_IO_TMPDIR = "java.io.tmpdir";
-
+	
 	// Injections
 	@ManagedProperty(name = "docLibModelBean", value = "#{docLibModelBean}")
 	private DocLibModelBean docLibModelBean;
@@ -87,16 +84,13 @@ public class DocLibBackingBean {
 	private String folderName;
 	private String folderDescription;
 	private String maxFileSizeKB;
-	private Boolean permittedToAddDocument;
-	private Boolean permittedToAddFolder;
 
 	public void addFolder(ActionEvent actionEvent) throws AbortProcessingException {
 
 		LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
 
 		try {
-			FolderUserObject folderUserObject = docLibModelBean.getSelectedFolderUserObject();
-			DLFolder dlFolder = folderUserObject.getDlFolder();
+			DLFolder dlFolder = docLibModelBean.getSelectedDlFolder();
 			long repositoryId = dlFolder.getRepositoryId();
 
 			if (repositoryId == DEFAULT_REPOSITORY_ID) {
@@ -106,12 +100,12 @@ public class DocLibBackingBean {
 			long parentFolderId = dlFolder.getFolderId();
 			ServiceContext serviceContext = new ServiceContext();
 
-			// Set the permissions such that community members can view the file.
+			// Set the permissions such that community members can view the
+			// file.
 			serviceContext.setAddGroupPermissions(true);
 
 			DLAppServiceUtil.addFolder(repositoryId, parentFolderId, folderName, folderDescription, serviceContext);
 
-			docLibModelBean.forceTreeRequery();
 			docLibViewBean.setPopupRendered(false);
 			logger.debug("Added folderName=[{0}] description=[{1}]", folderName, folderDescription);
 		}
@@ -119,6 +113,35 @@ public class DocLibBackingBean {
 			logger.error(e.getMessage(), e);
 			liferayFacesContext.addGlobalUnexpectedErrorMessage();
 		}
+	}
+
+	public void delete(ActionEvent actionEvent) {
+		
+		LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
+		UIViewRoot uiViewRoot = liferayFacesContext.getViewRoot();
+		DataTable dataTable = (DataTable) uiViewRoot.findComponent(DOCUMENTS_TABLE_PATH);
+		List<DLFileEntry> dlFileEntries = (List<DLFileEntry>) dataTable.getStateMap().getSelected();
+
+		try {
+
+			int i = 0;
+			for (DLFileEntry dlFileEntry : dlFileEntries) {
+				//DLFileEntryServiceUtil.deleteFileEntry(dlFileEntry.getFileEntryId());
+				System.err.println("!@#$ dlFileEntry.name at " +  (i++) + " = " + dlFileEntry.getTitle() + " id = " + dlFileEntry.getFileEntryId());
+			}
+
+			//dataTable.getStateMap().setAllSelected(false);
+
+		}
+		catch (Exception e) {
+			logger.error(e);
+			liferayFacesContext.addGlobalUnexpectedErrorMessage();
+		}
+
+		//docLibModelBean.forceDocumentRequery();
+		//docLibViewBean.setSelectedFilesToZero();
+//		setDeleteEnabled(false);
+
 	}
 
 	public void handleFileUpload(FileEntryEvent fileEntryEvent) {
@@ -134,11 +157,9 @@ public class DocLibBackingBean {
 
 				if (uploadedFile.getStatus() == UploadedFile.Status.FILE_SAVED) {
 
-					FolderUserObject folderUserObject = docLibModelBean.getSelectedFolderUserObject();
-
 					try {
 
-						DLFolder dlFolder = folderUserObject.getDlFolder();
+						DLFolder dlFolder = docLibModelBean.getSelectedDlFolder();
 
 						String name = stripInvalidFileNameCharacters(uploadedFile.getName());
 						String title = name;
@@ -146,20 +167,20 @@ public class DocLibBackingBean {
 						String changeLog = null;
 						File file = new File(uploadedFile.getAbsolutePath());
 						ServiceContext serviceContext = new ServiceContext();
+						serviceContext.setWorkflowAction(WorkflowConstants.ACTION_PUBLISH);
 
-						// Temporary: Make the default setting be that community members can view the file. Need to
-						// develop a "Viewable By" permissions Facelet composite component UI similar to
+						// Temporary: Make the default setting be that community
+						// members can view the file. Need to
+						// develop a "Viewable By" permissions Facelet composite
+						// component UI similar to
 						// portal-web/docroot/html/taglib/ui/input_permissions/page.jsp
 						serviceContext.setAddGroupPermissions(true);
 
 						try {
-							long fileEntryTypeId = DLFileEntryTypeConstants.FILE_ENTRY_TYPE_ID_BASIC_DOCUMENT;
-							Map<String, Fields> fieldsMap = new HashMap<String, Fields>();
 							FileInputStream inputStream = new FileInputStream(file);
-							DLFileEntryServiceUtil.addFileEntry(dlFolder.getGroupId(), dlFolder.getRepositoryId(),
-								dlFolder.getFolderId(), name, uploadedFile.getContentType(), title, description,
-								changeLog, fileEntryTypeId, fieldsMap, file, inputStream, file.length(),
-								serviceContext);
+							DLAppServiceUtil.addFileEntry(dlFolder.getRepositoryId(), dlFolder.getFolderId(), title,
+								uploadedFile.getContentType(), title, description, changeLog, inputStream,
+								file.length(), serviceContext);
 							docLibModelBean.forceDocumentRequery();
 							inputStream.close();
 							file.delete();
@@ -203,16 +224,33 @@ public class DocLibBackingBean {
 		docLibViewBean.setPopupRendered(false);
 	}
 
-	public void treeNodeSelected(ActionEvent actionEvent) {
+	public void selectFolder(DLFolder dlFolder) {
 
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		ExternalContext externalContext = facesContext.getExternalContext();
-		long folderId = LongHelper.toLong(externalContext.getRequestParameterMap().get("folderId"), 0L);
-		FolderTreeNode folderTreeNode = docLibModelBean.getFolderTreeModel().findFolderTreeNode(folderId);
-		FolderUserObject folderUserObject = folderTreeNode.getFolderUserObject();
-		docLibModelBean.setSelectedUserObject(folderUserObject);
-		permittedToAddFolder = null;
-		permittedToAddDocument = null;
+		try {
+
+			docLibViewBean.breadcrumbSelectFolder(dlFolder);
+			docLibViewBean.setSelectedFilesToZero();
+			docLibModelBean.setSelectedDlFolder(dlFolder);
+			docLibModelBean.forceBreadcrumbRequery();
+			docLibModelBean.forceDocumentRequery();
+		}
+		catch (Exception e) {
+			logger.error(e);
+		}
+	}
+
+	public void treeNodeSelected(AjaxBehaviorEvent ajaxBehaviorEvent) {
+
+		Tree tree = (Tree) ajaxBehaviorEvent.getSource();
+		tree.getStateMap();
+
+		FolderTreeNode folderTreeNode = (FolderTreeNode) tree.getStateMap().getSelected().get(0);
+		DLFolder dlFolder = (DLFolder) folderTreeNode.getUserObject();
+		docLibModelBean.setSelectedDlFolder(dlFolder);
+		docLibModelBean.forceBreadcrumbRequery();
+		docLibModelBean.forceDocumentRequery();
+		docLibViewBean.setSelectedFilesToZero();
+
 	}
 
 	protected String stripInvalidFileNameCharacters(String fileName) {
@@ -237,7 +275,7 @@ public class DocLibBackingBean {
 
 		return strippedFileName;
 	}
-
+	
 	public void setDocLibModelBean(DocLibModelBean docLibModelBean) {
 
 		// Injected via ManagedProperty annotation
@@ -288,49 +326,4 @@ public class DocLibBackingBean {
 
 		return maxFileSizeKB;
 	}
-
-	public boolean isPermittedToAddFolder() {
-
-		if (permittedToAddFolder == null) {
-
-			try {
-				LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
-				PermissionChecker permissionChecker = liferayFacesContext.getPermissionChecker();
-				DLFolder selectedDLFolder = docLibModelBean.getSelectedFolderUserObject().getDlFolder();
-				long scopeGroupId = selectedDLFolder.getGroupId();
-				long folderId = selectedDLFolder.getFolderId();
-				permittedToAddFolder = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId,
-						ActionKeys.ADD_FOLDER);
-			}
-			catch (Exception e) {
-				logger.error(e.getMessage(), e);
-			}
-		}
-
-		return permittedToAddFolder;
-	}
-
-	public boolean isPermittedToAddDocument() {
-
-		if (permittedToAddDocument == null) {
-
-			try {
-				LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
-				PermissionChecker permissionChecker = liferayFacesContext.getPermissionChecker();
-				DLFolder selectedDLFolder = docLibModelBean.getSelectedFolderUserObject().getDlFolder();
-				long scopeGroupId = selectedDLFolder.getGroupId();
-				long folderId = selectedDLFolder.getFolderId();
-				permittedToAddDocument = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId,
-						ActionKeys.ADD_DOCUMENT);
-				permittedToAddFolder = DLFolderPermission.contains(permissionChecker, scopeGroupId, folderId,
-						ActionKeys.ADD_FOLDER);
-			}
-			catch (Exception e) {
-				logger.error(e.getMessage(), e);
-			}
-		}
-
-		return permittedToAddDocument;
-	}
-
 }
