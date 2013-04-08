@@ -26,9 +26,12 @@ import org.icefaces.ace.model.table.SortCriteria;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
 import com.liferay.portal.kernel.dao.orm.QueryUtil;
-import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.search.Sort;
+import com.liferay.portal.kernel.search.SortFactoryUtil;
 import com.liferay.portal.kernel.util.OrderByComparator;
+import com.liferay.portal.model.User;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
+import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
 
@@ -50,14 +53,16 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 	private static final String DEFAULT_SORT_CRITERIA = "title";
 
 	// Private Data Members
-	private Folder folder;
+	private DLFolder dlFolder;
 	private String portalURL;
 	private String pathContext;
+
+	// private PermissionChecker permissionChecker;
 	private int rowsPerPage;
 
-	public DocumentDataModel(Folder folder, int rowsPerPage, String portalURL, String pathContext) {
+	public DocumentDataModel(DLFolder dlFolder, int rowsPerPage, String portalURL, String pathContext) {
 
-		this.folder = folder;
+		this.dlFolder = dlFolder;
 		this.portalURL = portalURL;
 		this.pathContext = pathContext;
 		setRowsPerPage(rowsPerPage);
@@ -68,8 +73,8 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 		List<DocLibFileEntry> files = new ArrayList<DocLibFileEntry>();
 
 		try {
-			long folderGroupId = folder.getGroupId();
-			long folderId = folder.getFolderId();
+			long folderGroupId = dlFolder.getGroupId();
+			long folderId = dlFolder.getFolderId();
 
 			List<DLFileEntry> dlFileEntries = null;
 
@@ -82,7 +87,7 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 
 				for (DLFileEntry dlFileEntry : dlFileEntries) {
 
-					files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId));
+					files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId, true));
 				}
 			}
 		}
@@ -98,7 +103,7 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 
 		try {
 			DLFileEntry dlFileEntry = DLFileEntryLocalServiceUtil.getFileEntry(fileEntryId);
-			DLFileEntryServiceUtil.deleteFileEntry(folder.getGroupId(), folder.getFolderId(),
+			DLFileEntryServiceUtil.deleteFileEntry(dlFolder.getGroupId(), dlFolder.getFolderId(),
 				dlFileEntry.getName());
 		}
 		catch (Exception e) {
@@ -124,6 +129,9 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 		Map<String, String> filters) {
 
 		List<DocLibFileEntry> files = new ArrayList<DocLibFileEntry>();
+//		Sort sort;
+System.err.println("HHHHHHHHHHHHHHHHHIIIIIIIIIIIIII");
+		// sort
 
 		String fieldName = DEFAULT_SORT_CRITERIA;
 		boolean ascending = false;
@@ -132,19 +140,25 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 			fieldName = sortCriterias[0].getPropertyName();
 			ascending = sortCriterias[0].isAscending();
 		}
+		
+		
 
 		try {
 
-			long folderGroupId = folder.getGroupId();
-			long folderId = folder.getFolderId();
+			long folderGroupId = dlFolder.getGroupId();
+			long folderId = dlFolder.getFolderId();
 
 			List<DLFileEntry> dlFileEntries = null;
-			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(fieldName, !ascending);
+			System.err.println("!@#$  sort.getFieldName()=" + fieldName);
+			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(fieldName,
+					!ascending);
+			System.err.println("!@#$ orderbyComparator = " + orderByComparator);
+
 			dlFileEntries = DLFileEntryServiceUtil.getFileEntries(folderGroupId, folderId, first, first + pageSize,
 					orderByComparator);
 
 			for (DLFileEntry dlFileEntry : dlFileEntries) {
-				files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId));
+				files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId, true));
 			}
 
 		}

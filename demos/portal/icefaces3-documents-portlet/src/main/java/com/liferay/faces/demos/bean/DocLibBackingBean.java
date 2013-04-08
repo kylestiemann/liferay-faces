@@ -31,13 +31,16 @@ import org.icefaces.ace.component.fileentry.FileEntry;
 import org.icefaces.ace.component.fileentry.FileEntryEvent;
 import org.icefaces.ace.component.fileentry.FileEntryResults;
 import org.icefaces.ace.component.tree.Tree;
+import org.icefaces.ace.model.tree.NodeState;
 
 import com.liferay.faces.bridge.model.UploadedFile;
 import com.liferay.faces.demos.dto.UploadedFileWrapper;
-import com.liferay.faces.demos.kyle.FolderTreeNode;
+import com.liferay.faces.demos.tree.FolderTreeNode;
+import com.liferay.faces.demos.util.DataTableUtil;
 import com.liferay.faces.portal.context.LiferayFacesContext;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
+import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.GetterUtil;
 import com.liferay.portal.kernel.util.PrefsPropsUtil;
 import com.liferay.portal.kernel.util.PropsKeys;
@@ -46,24 +49,23 @@ import com.liferay.portal.kernel.util.StringUtil;
 import com.liferay.portal.kernel.workflow.WorkflowConstants;
 import com.liferay.portal.service.ServiceContext;
 import com.liferay.portlet.documentlibrary.DuplicateFileException;
+import com.liferay.portlet.documentlibrary.DuplicateFolderNameException;
 import com.liferay.portlet.documentlibrary.FileNameException;
 import com.liferay.portlet.documentlibrary.FileSizeException;
+import com.liferay.portlet.documentlibrary.FolderNameException;
 import com.liferay.portlet.documentlibrary.SourceFileNameException;
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
-import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
 import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
 
 
 /**
  * @author  Neil Griffin
- * @author  KyleStiemann
+ * @author  Kyle Stiemann
  */
 @ManagedBean(name = "docLibBackingBean")
 @RequestScoped
 public class DocLibBackingBean {
-
-	private static final String DOCUMENTS_TABLE_PATH = ":f2:l1:c2:pc1:p1:documents";
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(DocLibBackingBean.class);
@@ -71,7 +73,7 @@ public class DocLibBackingBean {
 	// Private Constants
 	private static final long DEFAULT_REPOSITORY_ID = 0L;
 	private static final String JAVA_IO_TMPDIR = "java.io.tmpdir";
-	
+
 	// Injections
 	@ManagedProperty(name = "docLibModelBean", value = "#{docLibModelBean}")
 	private DocLibModelBean docLibModelBean;
@@ -87,50 +89,101 @@ public class DocLibBackingBean {
 
 	public void addFolder(ActionEvent actionEvent) throws AbortProcessingException {
 
+		Folder parentFolder = docLibModelBean.getSelectedFolder();
 		LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
+		long repositoryId = parentFolder.getRepositoryId();
+
+		if (repositoryId == DEFAULT_REPOSITORY_ID) {
+			repositoryId = liferayFacesContext.getScopeGroupId();
+		}
+
+		long parentFolderId = parentFolder.getFolderId();
+		ServiceContext serviceContext = new ServiceContext();
+
+		// Set the permissions such that community members can view the
+		// file.
+		serviceContext.setAddGroupPermissions(true);
+
+		boolean folderDialogRendered = false;
+		
+		Folder childFolder = null;
 
 		try {
-			DLFolder dlFolder = docLibModelBean.getSelectedDlFolder();
-			long repositoryId = dlFolder.getRepositoryId();
-
-			if (repositoryId == DEFAULT_REPOSITORY_ID) {
-				repositoryId = liferayFacesContext.getScopeGroupId();
-			}
-
-			long parentFolderId = dlFolder.getFolderId();
-			ServiceContext serviceContext = new ServiceContext();
-
-			// Set the permissions such that community members can view the
-			// file.
-			serviceContext.setAddGroupPermissions(true);
-
-			DLAppServiceUtil.addFolder(repositoryId, parentFolderId, folderName, folderDescription, serviceContext);
-
-			docLibViewBean.setPopupRendered(false);
-			logger.debug("Added folderName=[{0}] description=[{1}]", folderName, folderDescription);
+			childFolder = DLAppServiceUtil.addFolder(repositoryId, parentFolderId, folderName, folderDescription, serviceContext);
+		}
+		catch (DuplicateFolderNameException e) {
+			liferayFacesContext.addGlobalErrorMessage("please-enter-a-unique-folder-name");
+			folderDialogRendered = true;
+		}
+		catch (DuplicateFileException e) {
+			liferayFacesContext.addGlobalErrorMessage("please-enter-a-unique-folder-name");
+			folderDialogRendered = true;
+		}
+		catch (FolderNameException e) {
+			liferayFacesContext.addGlobalErrorMessage("please-enter-a-valid-name");
+			e.printStackTrace();
+			folderDialogRendered = true;
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
 			liferayFacesContext.addGlobalUnexpectedErrorMessage();
 		}
+
+		docLibViewBean.setAddFolderDialogRendered(folderDialogRendered);
+		docLibViewBean.setPopupRendered(folderDialogRendered);
+
+		FolderTreeNode childFolderTreeNode = new FolderTreeNode(childFolder, true);
+		NodeState childTreeNodeState = new NodeState(); 
+		childTreeNodeState.setExpansionEnabled(true); 
+		childTreeNodeState.setSelectionEnabled(true); 
+		childTreeNodeState.setSelected(false);
+		docLibViewBean.getTreeNodeStateMap().put(childFolderTreeNode, childTreeNodeState);
+
+//		FolderTreeNode folderTreeNode = new FolderTreeNode(parentFolder, true);
+//		List<FolderTreeNode> children = docLibModelBean.getLazyNodeDataModel().loadChildrenForNode(folderTreeNode);
+//		
+//		for(FolderTreeNode child : children) {
+//			Folder childFolder = (Folder)child.getUserObject();
+//			if(childFolder.getName() == folderName) {
+////				try {
+////					System.err.println(((Folder)child.getUserObject()).getParentFolder().getName());
+////				} catch (PortalException e) {
+////					// TODO Auto-generated catch block
+////					e.printStackTrace();
+////				} catch (SystemException e) {
+////					// TODO Auto-generated catch block
+////					e.printStackTrace();
+////				}
+//				NodeState childTreeNodeState = new NodeState(); 
+//				childTreeNodeState.setExpansionEnabled(true); 
+//				childTreeNodeState.setSelectionEnabled(true); 
+//				childTreeNodeState.setSelected(false);
+//				docLibViewBean.getTreeNodeStateMap().put(child, childTreeNodeState); 
+//			}
+//				
+//		}
+
+		logger.debug("Added folderName=[{0}] description=[{1}]", folderName, folderDescription);
+
 	}
 
 	public void delete(ActionEvent actionEvent) {
-		
+
 		LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
 		UIViewRoot uiViewRoot = liferayFacesContext.getViewRoot();
-		DataTable dataTable = (DataTable) uiViewRoot.findComponent(DOCUMENTS_TABLE_PATH);
+		DataTable dataTable = (DataTable) uiViewRoot.findComponent(DataTableUtil.DOCUMENTS_TABLE_PATH);
+		@SuppressWarnings("unchecked")
 		List<DLFileEntry> dlFileEntries = (List<DLFileEntry>) dataTable.getStateMap().getSelected();
 
 		try {
 
 			int i = 0;
+
 			for (DLFileEntry dlFileEntry : dlFileEntries) {
-				//DLFileEntryServiceUtil.deleteFileEntry(dlFileEntry.getFileEntryId());
-				System.err.println("!@#$ dlFileEntry.name at " +  (i++) + " = " + dlFileEntry.getTitle() + " id = " + dlFileEntry.getFileEntryId());
+				DLFileEntryServiceUtil.deleteFileEntry(dlFileEntry.getFileEntryId());
 			}
 
-			//dataTable.getStateMap().setAllSelected(false);
+			dataTable.getStateMap().setAllSelected(false);
 
 		}
 		catch (Exception e) {
@@ -138,13 +191,13 @@ public class DocLibBackingBean {
 			liferayFacesContext.addGlobalUnexpectedErrorMessage();
 		}
 
-		//docLibModelBean.forceDocumentRequery();
-		//docLibViewBean.setSelectedFilesToZero();
-//		setDeleteEnabled(false);
-
+		docLibModelBean.forceDocumentRequery();
+		docLibViewBean.setSelectedFilesToZero();
 	}
 
 	public void handleFileUpload(FileEntryEvent fileEntryEvent) {
+
+		boolean fileDialogRendered = false;
 
 		try {
 			FileEntry fileEntry = (FileEntry) fileEntryEvent.getSource();
@@ -159,7 +212,7 @@ public class DocLibBackingBean {
 
 					try {
 
-						DLFolder dlFolder = docLibModelBean.getSelectedDlFolder();
+						Folder folder = docLibModelBean.getSelectedFolder();
 
 						String name = stripInvalidFileNameCharacters(uploadedFile.getName());
 						String title = name;
@@ -178,7 +231,7 @@ public class DocLibBackingBean {
 
 						try {
 							FileInputStream inputStream = new FileInputStream(file);
-							DLAppServiceUtil.addFileEntry(dlFolder.getRepositoryId(), dlFolder.getFolderId(), title,
+							DLAppServiceUtil.addFileEntry(folder.getRepositoryId(), folder.getFolderId(), title,
 								uploadedFile.getContentType(), title, description, changeLog, inputStream,
 								file.length(), serviceContext);
 							docLibModelBean.forceDocumentRequery();
@@ -187,6 +240,7 @@ public class DocLibBackingBean {
 						}
 						catch (DuplicateFileException e) {
 							liferayFacesContext.addGlobalErrorMessage("please-enter-a-unique-document-name");
+							fileDialogRendered = true;
 						}
 						catch (FileNameException e) {
 
@@ -196,6 +250,7 @@ public class DocLibBackingBean {
 									"document-names-must-end-with-one-of-the-following-extensions");
 							message = message + extensions;
 							liferayFacesContext.addGlobalErrorMessage(message);
+							fileDialogRendered = true;
 						}
 						catch (FileSizeException e) {
 
@@ -203,16 +258,19 @@ public class DocLibBackingBean {
 									"please-enter-a-file-with-a-valid-file-size");
 							message = message + " (" + getMaxFileSizeKB() + "k max)";
 							liferayFacesContext.addGlobalErrorMessage(message);
+							fileDialogRendered = true;
 						}
 						catch (SourceFileNameException e) {
 							liferayFacesContext.addGlobalErrorMessage(
 								"the-source-file-does-not-have-the-same-extension-as-the-original-file");
+							fileDialogRendered = true;
 						}
 
 					}
 					catch (Exception e) {
 						logger.error(e.getMessage(), e);
 						liferayFacesContext.addGlobalUnexpectedErrorMessage();
+						fileDialogRendered = true;
 					}
 				}
 			}
@@ -221,16 +279,22 @@ public class DocLibBackingBean {
 			logger.error(e);
 		}
 
-		docLibViewBean.setPopupRendered(false);
+		docLibViewBean.setAddFileDialogRendered(fileDialogRendered);
+		docLibViewBean.setPopupRendered(fileDialogRendered);
 	}
 
-	public void selectFolder(DLFolder dlFolder) {
+	public void selectFolder(Folder folder) {
 
 		try {
 
-			docLibViewBean.breadcrumbSelectFolder(dlFolder);
+			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
+			UIViewRoot uiViewRoot = liferayFacesContext.getViewRoot();
+			DataTable dataTable = (DataTable) uiViewRoot.findComponent(DataTableUtil.DOCUMENTS_TABLE_PATH);
+			dataTable.resetSorting();
+			dataTable.getStateMap().setAllSelected(false);
+			docLibViewBean.breadcrumbSelectFolder(folder);
 			docLibViewBean.setSelectedFilesToZero();
-			docLibModelBean.setSelectedDlFolder(dlFolder);
+			docLibModelBean.setSelectedFolder(folder);
 			docLibModelBean.forceBreadcrumbRequery();
 			docLibModelBean.forceDocumentRequery();
 		}
@@ -241,12 +305,19 @@ public class DocLibBackingBean {
 
 	public void treeNodeSelected(AjaxBehaviorEvent ajaxBehaviorEvent) {
 
-		Tree tree = (Tree) ajaxBehaviorEvent.getSource();
+		// TODO ask Neil
+		Tree<?> tree = (Tree<?>) ajaxBehaviorEvent.getSource();
 		tree.getStateMap();
 
 		FolderTreeNode folderTreeNode = (FolderTreeNode) tree.getStateMap().getSelected().get(0);
-		DLFolder dlFolder = (DLFolder) folderTreeNode.getUserObject();
-		docLibModelBean.setSelectedDlFolder(dlFolder);
+		Folder folder = (Folder) folderTreeNode.getUserObject();
+		docLibModelBean.setSelectedFolder(folder);
+
+		LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
+		UIViewRoot uiViewRoot = liferayFacesContext.getViewRoot();
+		DataTable dataTable = (DataTable) uiViewRoot.findComponent(DataTableUtil.DOCUMENTS_TABLE_PATH);
+		dataTable.resetSorting();
+		dataTable.getStateMap().setAllSelected(false);
 		docLibModelBean.forceBreadcrumbRequery();
 		docLibModelBean.forceDocumentRequery();
 		docLibViewBean.setSelectedFilesToZero();
@@ -275,7 +346,27 @@ public class DocLibBackingBean {
 
 		return strippedFileName;
 	}
-	
+
+	public void setAddFileDialogRenderedFalse() {
+		docLibViewBean.setAddFileDialogRendered(false);
+		docLibViewBean.setPopupRendered(false);
+	}
+
+	public void setAddFileDialogRenderedTrue() {
+		docLibViewBean.setAddFileDialogRendered(true);
+		docLibViewBean.setPopupRendered(true);
+	}
+
+	public void setAddFolderDialogRenderedFalse() {
+		docLibViewBean.setAddFolderDialogRendered(false);
+		docLibViewBean.setPopupRendered(false);
+	}
+
+	public void setAddFolderDialogRenderedTrue() {
+		docLibViewBean.setAddFolderDialogRendered(true);
+		docLibViewBean.setPopupRendered(true);
+	}
+
 	public void setDocLibModelBean(DocLibModelBean docLibModelBean) {
 
 		// Injected via ManagedProperty annotation

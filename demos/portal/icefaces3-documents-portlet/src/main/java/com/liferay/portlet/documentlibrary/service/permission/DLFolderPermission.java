@@ -28,13 +28,13 @@ package com.liferay.portlet.documentlibrary.service.permission;
 
 import com.liferay.portal.kernel.exception.PortalException;
 import com.liferay.portal.kernel.exception.SystemException;
+import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.staging.permission.StagingPermissionUtil;
 import com.liferay.portal.security.auth.PrincipalException;
 import com.liferay.portal.security.permission.ActionKeys;
 import com.liferay.portal.security.permission.PermissionChecker;
 import com.liferay.portal.util.PortletKeys;
 import com.liferay.portal.util.PropsValues;
-
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 import com.liferay.portlet.documentlibrary.service.DLFolderLocalServiceUtil;
@@ -85,9 +85,9 @@ public class DLFolderPermission {
 				folderId = folder.getParentFolderId();
 
 				if (
-					!permissionChecker.hasOwnerPermission(folder.getCompanyId(), DLFolder.class.getName(),
+					!permissionChecker.hasOwnerPermission(folder.getCompanyId(), Folder.class.getName(),
 							folder.getFolderId(), folder.getUserId(), actionId) &&
-						!permissionChecker.hasPermission(folder.getGroupId(), DLFolder.class.getName(),
+						!permissionChecker.hasPermission(folder.getGroupId(), Folder.class.getName(),
 							folder.getFolderId(), actionId)) {
 
 					return false;
@@ -107,13 +107,13 @@ public class DLFolderPermission {
 
 				folderId = folder.getParentFolderId();
 
-				if (permissionChecker.hasOwnerPermission(folder.getCompanyId(), DLFolder.class.getName(),
+				if (permissionChecker.hasOwnerPermission(folder.getCompanyId(), Folder.class.getName(),
 							folder.getFolderId(), folder.getUserId(), actionId)) {
 
 					return true;
 				}
 
-				if (permissionChecker.hasPermission(folder.getGroupId(), DLFolder.class.getName(), folder.getFolderId(),
+				if (permissionChecker.hasPermission(folder.getGroupId(), Folder.class.getName(), folder.getFolderId(),
 							actionId)) {
 
 					return true;

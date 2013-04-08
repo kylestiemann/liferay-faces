@@ -20,28 +20,22 @@ import java.util.Stack;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.faces.component.UIViewRoot;
-
-import org.icefaces.ace.component.datatable.DataTable;
 
 import com.liferay.faces.demos.dto.UIFolder;
-import com.liferay.faces.demos.kyle.FolderTreeLazyNodeDataModel;
-import com.liferay.faces.demos.kyle.FolderTreeRootNode;
 import com.liferay.faces.demos.list.DocumentDataModel;
+import com.liferay.faces.demos.tree.FolderTreeLazyNodeDataModel;
+import com.liferay.faces.demos.tree.FolderTreeRootNode;
 import com.liferay.faces.demos.util.FolderUtil;
 import com.liferay.faces.portal.context.LiferayFacesContext;
 import com.liferay.faces.util.helper.LongHelper;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
-
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupServiceUtil;
 import com.liferay.portal.theme.ThemeDisplay;
-
-import com.liferay.portlet.documentlibrary.model.DLFileEntry;
-import com.liferay.portlet.documentlibrary.model.DLFolder;
 import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
 
 
@@ -57,17 +51,15 @@ public class DocLibModelBean implements Serializable {
 	// extraneous stacktraces from being thrown
 	// by Mojarra. All of the private data members are marked as transient,
 	// because it's not possible to de-serialize
-	// instances of Liferay's DLFolderImpl class due to classloader prolems.
+	// instances of Liferay's FolderImpl class due to classloader prolems.
 	private static final long serialVersionUID = 6145332622204857486L;
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(DocLibModelBean.class);
 
-	private static final String DOCUMENTS_TABLE_PATH = ":f2:l1:c2:pc1:p1:documents";
-	
 	// Private Data Members
 	private transient DocumentDataModel documentDataModel;
-	private transient DLFolder selectedDlFolder;
+	private transient Folder selectedFolder;
 	private transient FolderTreeLazyNodeDataModel lazyNodeDataModel;
 	private transient List<UIFolder> breadcrumbFolders = null;
 
@@ -76,9 +68,11 @@ public class DocLibModelBean implements Serializable {
 	}
 
 	public void forceDocumentRequery() {
-		
-
 		setDocumentDataModel(null);
+	}
+	
+	public void forceTreeRequery() {
+		setLazyNodeDataModel(null);
 	}
 
 	public List<UIFolder> getBreadcrumbFolders() {
@@ -87,36 +81,36 @@ public class DocLibModelBean implements Serializable {
 
 			breadcrumbFolders = new ArrayList<UIFolder>();
 
-			DLFolder dlFolder = getSelectedDlFolder();
+			Folder folder = getSelectedFolder();
 
 			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
 			Group scopeGroup = liferayFacesContext.getThemeDisplay().getScopeGroup();
-			DLFolder rootDlFolder = FolderUtil.getRootDLFolder(scopeGroup);
+			Folder rootFolder = FolderUtil.getRootFolder(scopeGroup);
 
-			if (dlFolder.getFolderId() == rootDlFolder.getFolderId()) {
+			if (folder.getFolderId() == rootFolder.getFolderId()) {
 
-				breadcrumbFolders.add(new UIFolder(dlFolder, true, true));
+				breadcrumbFolders.add(new UIFolder(folder, true, true));
 			}
 			else {
 
-				Stack<DLFolder> dlFolderStack = new Stack<DLFolder>();
+				Stack<Folder> folderStack = new Stack<Folder>();
 
 				try {
+					
+					while (folder.getParentFolderId() != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
 
-					while (dlFolder.getParentFolderId() != DLFolderConstants.DEFAULT_PARENT_FOLDER_ID) {
-
-						dlFolderStack.push(dlFolder);
-						dlFolder = dlFolder.getParentFolder();
+						folderStack.push(folder);
+						folder = folder.getParentFolder();
 					}
 
-					dlFolderStack.push(dlFolder);
+					folderStack.push(folder);
 
-					breadcrumbFolders.add(new UIFolder(rootDlFolder, true, false));
+					breadcrumbFolders.add(new UIFolder(rootFolder, true, false));
 
-					while (!dlFolderStack.empty()) {
+					while (!folderStack.empty()) {
 
-						DLFolder poppedDlFolder = dlFolderStack.pop();
-						breadcrumbFolders.add(new UIFolder(poppedDlFolder, false, dlFolderStack.empty()));
+						Folder poppedFolder = folderStack.pop();
+						breadcrumbFolders.add(new UIFolder(poppedFolder, false, folderStack.empty()));
 					}
 				}
 				catch (Exception e) {
@@ -132,14 +126,14 @@ public class DocLibModelBean implements Serializable {
 
 		if (documentDataModel == null) {
 
-			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();			
-			DLFolder dlFolder = getSelectedDlFolder();
+			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
+			Folder folder = getSelectedFolder();
 			int rowsPerPage = liferayFacesContext.getPortletPreferenceAsInt("rowsPerPage",
 					SearchContainer.DEFAULT_DELTA);
 			ThemeDisplay themeDisplay = liferayFacesContext.getThemeDisplay();
 			String portalURL = themeDisplay.getPortalURL();
 			String pathContext = themeDisplay.getPathContext();
-			documentDataModel = new DocumentDataModel(dlFolder, rowsPerPage, portalURL, pathContext);
+			documentDataModel = new DocumentDataModel(folder, rowsPerPage, portalURL, pathContext);
 		}
 
 		return documentDataModel;
@@ -193,18 +187,18 @@ public class DocLibModelBean implements Serializable {
 		this.lazyNodeDataModel = lazyNodeDataModel;
 	}
 
-	public DLFolder getSelectedDlFolder() {
+	public Folder getSelectedFolder() {
 
-		if (selectedDlFolder == null) {
+		if (selectedFolder == null) {
 			FolderTreeRootNode folderTreeRootNode = (FolderTreeRootNode) lazyNodeDataModel.getFolderTreeRootNode();
-			selectedDlFolder = (DLFolder) folderTreeRootNode.getUserObject();
+			selectedFolder = (Folder) folderTreeRootNode.getUserObject();
 		}
 
-		return selectedDlFolder;
+		return selectedFolder;
 	}
 
-	public void setSelectedDlFolder(DLFolder selectedDlFolder) {
-		this.selectedDlFolder = selectedDlFolder;
+	public void setSelectedFolder(Folder selectedFolder) {
+		this.selectedFolder = selectedFolder;
 		forceDocumentRequery();
 	}
 }

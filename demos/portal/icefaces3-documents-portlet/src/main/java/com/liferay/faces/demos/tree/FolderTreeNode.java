@@ -13,58 +13,21 @@
  */
 package com.liferay.faces.demos.tree;
 
-import java.util.List;
-
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import com.liferay.faces.util.logging.Logger;
-import com.liferay.faces.util.logging.LoggerFactory;
-
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
-
-import com.liferay.portlet.documentlibrary.model.DLFolder;
-import com.liferay.portlet.documentlibrary.service.DLFolderServiceUtil;
+import com.liferay.portal.kernel.repository.model.Folder;
 
 
 /**
  * @author  Neil Griffin
+ * @author  Kyle Stiemann
  */
 public class FolderTreeNode extends DefaultMutableTreeNode {
 
 	// serialVersionUID
-	private static final long serialVersionUID = 4155954567325991515L;
+	private static final long serialVersionUID = 7306498294791319916L;
 
-	// Logger
-	private static final Logger logger = LoggerFactory.getLogger(FolderTreeNode.class);
-
-	public FolderTreeNode(DLFolder dlFolder, boolean expanded) {
-		super();
-
-		DlFolder folderUserObject = new DlFolder(this, dlFolder);
-		folderUserObject.setLeaf(false);
-		folderUserObject.setExpanded(expanded);
-		setUserObject(folderUserObject);
-		setAllowsChildren(true);
-
-		try {
-			List<DLFolder> childDlFolders = DLFolderServiceUtil.getFolders(dlFolder.getGroupId(),
-					dlFolder.getFolderId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
-
-			if (childDlFolders != null) {
-
-				for (DLFolder childDlFolder : childDlFolders) {
-					FolderTreeNode childFolderTreeNode = new FolderTreeNode(childDlFolder, false);
-					add(childFolderTreeNode);
-				}
-			}
-		}
-		catch (Exception e) {
-			logger.error(e.getMessage(), e);
-		}
-
-	}
-
-	public DlFolder getFolderUserObject() {
-		return (DlFolder) getUserObject();
+	public FolderTreeNode(Folder folder, boolean allowsChildren) {
+		super(folder, allowsChildren);
 	}
 }

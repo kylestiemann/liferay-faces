@@ -16,7 +16,6 @@ package com.liferay.faces.demos.tree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.icesoft.faces.component.tree.IceUserObject;
-
 import com.liferay.portlet.documentlibrary.model.DLFolder;
 
 

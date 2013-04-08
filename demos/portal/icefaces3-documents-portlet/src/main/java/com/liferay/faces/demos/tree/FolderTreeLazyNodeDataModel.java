@@ -11,23 +11,20 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package com.liferay.faces.demos.kyle;
+package com.liferay.faces.demos.tree;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Enumeration;
 import java.util.List;
 
 import org.icefaces.ace.model.tree.LazyNodeDataModel;
 
+import com.liferay.faces.demos.util.FolderUtil;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
-
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.model.Group;
-
-import com.liferay.portlet.documentlibrary.model.DLFolder;
-import com.liferay.portlet.documentlibrary.service.DLFolderServiceUtil;
+import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
 
 
 /**
@@ -39,47 +36,19 @@ public class FolderTreeLazyNodeDataModel extends LazyNodeDataModel<FolderTreeNod
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(FolderTreeLazyNodeDataModel.class);
 
+	// Private Data Members
 	private FolderTreeRootNode folderTreeRootNode;
 
 	public FolderTreeLazyNodeDataModel(Group group) {
 		folderTreeRootNode = new FolderTreeRootNode(group);
 	}
-
-	public FolderTreeNode findFolderTreeNode(long folderId) {
-
-		FolderTreeNode folderTreeNode = null;
-		FolderTreeRootNode folderTreeRootNode = (FolderTreeRootNode) getFolderTreeRootNode();
-		loadChildrenForNode(folderTreeRootNode);
-
-		@SuppressWarnings("unchecked")
-		Enumeration<FolderTreeNode> folderTreeNodes = (Enumeration<FolderTreeNode>)
-			folderTreeRootNode.depthFirstEnumeration();
-
-		if (folderTreeNodes != null) {
-
-			while (folderTreeNodes.hasMoreElements()) {
-				FolderTreeNode curFolderTreeNode = folderTreeNodes.nextElement();
-
-				DLFolder dlFolder = (DLFolder) curFolderTreeNode.getUserObject();
-
-//				System.err.println("curFolderTreeNode = " + curFolderTreeNode + " dlFolder.getFolderId() = " +
-//					dlFolder.getFolderId() + " folderId = " + folderId);
-
-				if (dlFolder.getFolderId() == folderId) {
-					folderTreeNode = curFolderTreeNode;
-				}
-			}
-		}
-
-		return folderTreeNode;
-	}
-
+	
 	@Override
 	public List<FolderTreeNode> loadChildrenForNode(FolderTreeNode folderTreeNode) {
 
 		if (folderTreeNode == null) {
 
-			List<FolderTreeNode> root = new ArrayList();
+			List<FolderTreeNode> root = new ArrayList<FolderTreeNode>();
 			root.add(folderTreeRootNode);
 
 			return root;
@@ -87,17 +56,21 @@ public class FolderTreeLazyNodeDataModel extends LazyNodeDataModel<FolderTreeNod
 		else {
 
 			try {
-				DLFolder dlFolder = (DLFolder) folderTreeNode.getUserObject();
-				List<DLFolder> childDlFolders = DLFolderServiceUtil.getFolders(dlFolder.getGroupId(),
-						dlFolder.getFolderId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+				Folder folder = (Folder) folderTreeNode.getUserObject();
+//				List<Folder> childFolders = FolderUtil.findByR_P(folder.getGroupId(),
+//						folder.getFolderId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
+				
+				List<Folder> childFolders = DLAppServiceUtil.getFolders(folder.getRepositoryId(), folder.getFolderId());
 
-				if (childDlFolders != null) {
-					List<FolderTreeNode> children = new ArrayList();
+				if (childFolders != null) {
+					List<FolderTreeNode> children = new ArrayList<FolderTreeNode>();
 
-					for (DLFolder childDlFolder : childDlFolders) {
-						FolderTreeNode childFolderTreeNode = new FolderTreeNode(childDlFolder, true);
-
+					//int index = 0;
+					for (Folder childFolder : childFolders) {
+						FolderTreeNode childFolderTreeNode = new FolderTreeNode(childFolder, true);
+						//folderTreeNode.insert(childFolderTreeNode, index);
 						children.add(childFolderTreeNode);
+					//	index++;
 					}
 
 					return children;

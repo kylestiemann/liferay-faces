@@ -11,22 +11,13 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package com.liferay.faces.demos.kyle;
-
-import com.liferay.faces.demos.util.FolderUtil;
-import com.liferay.portal.model.Group;
-
+package com.liferay.faces.demos.util;
 
 /**
- * @author  Neil Griffin
  * @author  Kyle Stiemann
  */
-public class FolderTreeRootNode extends FolderTreeNode {
+public class DataTableUtil {
 
-	// serialVersionUID
-	private static final long serialVersionUID = 4051524313215059547L;
+	public static final String DOCUMENTS_TABLE_PATH = ":f2:l1:c2:documents";
 
-	public FolderTreeRootNode(Group group) {
-		super(FolderUtil.getRootDLFolder(group), true);
-	}
 }

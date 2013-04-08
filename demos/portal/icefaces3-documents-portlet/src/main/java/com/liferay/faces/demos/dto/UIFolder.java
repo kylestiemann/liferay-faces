@@ -14,15 +14,14 @@
 package com.liferay.faces.demos.dto;
 
 import com.liferay.faces.util.lang.StringPool;
-
-import com.liferay.portlet.documentlibrary.model.DLFolder;
-import com.liferay.portlet.documentlibrary.model.DLFolderWrapper;
+import com.liferay.portal.kernel.repository.model.Folder;
+import com.liferay.portal.kernel.repository.model.FolderWrapper;
 
 
 /**
- * @author Kyle Stiemann
+ * @author  Kyle Stiemann
  */
-public class UIFolder extends DLFolderWrapper {
+public class UIFolder extends FolderWrapper {
 
 	private static final long serialVersionUID = 662289118150723315L;
 
@@ -32,8 +31,8 @@ public class UIFolder extends DLFolderWrapper {
 	private boolean first;
 	private boolean last;
 
-	public UIFolder(DLFolder dlFolder, boolean first, boolean last) {
-		super(dlFolder);
+	public UIFolder(Folder folder, boolean first, boolean last) {
+		super(folder);
 		this.first = first;
 		this.last = last;
 	}

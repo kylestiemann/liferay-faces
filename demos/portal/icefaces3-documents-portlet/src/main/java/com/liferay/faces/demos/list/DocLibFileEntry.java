@@ -31,15 +31,12 @@ public class DocLibFileEntry extends DLFileEntryWrapper {
 
 	// Private Data Members
 	private String kilobytes;
-	private boolean permittedToView;
 	private String url;
 	private String userName;
 
-	public DocLibFileEntry(DLFileEntry dlFileEntry, String portalURL, String pathContext, long scopeGroupId,
-		boolean permittedToView) {
+	public DocLibFileEntry(DLFileEntry dlFileEntry, String portalURL, String pathContext, long scopeGroupId) {
 		super(dlFileEntry);
 		this.kilobytes = Long.toString(dlFileEntry.getSize() / 1024L) + " KB";
-		this.permittedToView = permittedToView;
 		this.url = portalURL + pathContext + "/documents/" + Long.toString(scopeGroupId) + StringPool.SLASH +
 			dlFileEntry.getFolderId() + StringPool.SLASH +
 			HttpUtil.encodeURL(HtmlUtil.unescape(dlFileEntry.getTitle()));
@@ -47,6 +44,43 @@ public class DocLibFileEntry extends DLFileEntryWrapper {
 
 		// this.url = portalURL + pathContext + "/documents/" + Long.toString(scopeGroupId) + StringPool.SLASH +
 		// dlFileEntry.getUuid();
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj)
+			return true;
+
+		if (obj == null)
+			return false;
+
+		if (getClass() != obj.getClass())
+			return false;
+
+		DocLibFileEntry other = (DocLibFileEntry) obj;
+		DLFileEntry dlFileEntry = getWrappedModel();
+
+		if (dlFileEntry == null) {
+
+			if (other.getWrappedModel() != null)
+				return false;
+		}
+		else if (!dlFileEntry.equals(other.getWrappedModel())) {
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		DLFileEntry dlFileEntry = getWrappedModel();
+		final int prime = 31;
+		int result = 1;
+		result = (prime * result) + ((dlFileEntry == null) ? 0 : dlFileEntry.hashCode());
+
+		return result;
 	}
 
 	public String getKilobytes() {
@@ -60,9 +94,5 @@ public class DocLibFileEntry extends DLFileEntryWrapper {
 	@Override
 	public String getUserName() {
 		return userName;
-	}
-
-	public boolean isPermittedToView() {
-		return permittedToView;
 	}
 }

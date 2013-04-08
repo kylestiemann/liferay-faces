@@ -13,55 +13,21 @@
  */
 package com.liferay.faces.demos.tree;
 
-import com.liferay.portal.kernel.util.StringPool;
-import com.liferay.portal.model.Group;
+import com.liferay.faces.demos.util.FolderUtil;
 
-import com.liferay.portlet.documentlibrary.model.DLFolder;
-import com.liferay.portlet.documentlibrary.model.DLFolderConstants;
-import com.liferay.portlet.documentlibrary.service.persistence.DLFolderUtil;
+import com.liferay.portal.model.Group;
 
 
 /**
  * @author  Neil Griffin
+ * @author  Kyle Stiemann
  */
 public class FolderTreeRootNode extends FolderTreeNode {
 
 	// serialVersionUID
-	private static final long serialVersionUID = 1582222718203645622L;
+	private static final long serialVersionUID = 4051524313215059547L;
 
 	public FolderTreeRootNode(Group group) {
-		super(getRootDLFolder(group), true);
+		super(FolderUtil.getRootFolder(group), true);
 	}
-
-	private static String getGroupName(Group group) {
-
-		String groupName = group.getName();
-		boolean longValue = true;
-
-		try {
-			Long.parseLong(groupName);
-		}
-		catch (NumberFormatException e) {
-			longValue = false;
-		}
-
-		if (longValue) {
-			String friendlyURL = group.getFriendlyURL();
-
-			if (friendlyURL != null) {
-				groupName = friendlyURL.replace(StringPool.SLASH, StringPool.BLANK);
-			}
-		}
-
-		return groupName;
-	}
-
-	private static DLFolder getRootDLFolder(Group group) {
-		DLFolder rootDlFolder = DLFolderUtil.create(DLFolderConstants.DEFAULT_PARENT_FOLDER_ID);
-		rootDlFolder.setGroupId(group.getGroupId());
-		rootDlFolder.setName(getGroupName(group));
-
-		return rootDlFolder;
-	}
-
 }
