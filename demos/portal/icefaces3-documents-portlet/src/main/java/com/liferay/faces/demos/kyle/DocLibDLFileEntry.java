@@ -11,12 +11,11 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package com.liferay.faces.demos.list;
+package com.liferay.faces.demos.kyle;
 
 import com.liferay.portal.kernel.util.HtmlUtil;
 import com.liferay.portal.kernel.util.HttpUtil;
 import com.liferay.portal.kernel.util.StringPool;
-
 import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 import com.liferay.portlet.documentlibrary.model.DLFileEntryWrapper;
 
@@ -24,7 +23,7 @@ import com.liferay.portlet.documentlibrary.model.DLFileEntryWrapper;
 /**
  * @author  Neil Griffin
  */
-public class DocLibFileEntry extends DLFileEntryWrapper {
+public class DocLibDLFileEntry extends DLFileEntryWrapper {
 
 	// serialVersionUID
 	private static final long serialVersionUID = 1890897391510276691L;
@@ -34,16 +33,16 @@ public class DocLibFileEntry extends DLFileEntryWrapper {
 	private String url;
 	private String userName;
 
-	public DocLibFileEntry(DLFileEntry dlFileEntry, String portalURL, String pathContext, long scopeGroupId) {
-		super(dlFileEntry);
-		this.kilobytes = Long.toString(dlFileEntry.getSize() / 1024L) + " KB";
+	public DocLibDLFileEntry(DLFileEntry dlDLFileEntry, String portalURL, String pathContext, long scopeGroupId) {
+		super(dlDLFileEntry);
+		this.kilobytes = Long.toString(dlDLFileEntry.getSize() / 1024L) + " KB";
 		this.url = portalURL + pathContext + "/documents/" + Long.toString(scopeGroupId) + StringPool.SLASH +
-			dlFileEntry.getFolderId() + StringPool.SLASH +
-			HttpUtil.encodeURL(HtmlUtil.unescape(dlFileEntry.getTitle()));
-		this.userName = dlFileEntry.getUserName();
+			dlDLFileEntry.getFolderId() + StringPool.SLASH +
+			HttpUtil.encodeURL(HtmlUtil.unescape(dlDLFileEntry.getTitle()));
+		this.userName = dlDLFileEntry.getUserName();
 
 		// this.url = portalURL + pathContext + "/documents/" + Long.toString(scopeGroupId) + StringPool.SLASH +
-		// dlFileEntry.getUuid();
+		// dlDLFileEntry.getUuid();
 	}
 
 	@Override
@@ -58,15 +57,15 @@ public class DocLibFileEntry extends DLFileEntryWrapper {
 		if (getClass() != obj.getClass())
 			return false;
 
-		DocLibFileEntry other = (DocLibFileEntry) obj;
-		DLFileEntry dlFileEntry = getWrappedModel();
+		DocLibDLFileEntry other = (DocLibDLFileEntry) obj;
+		DLFileEntry dlDLFileEntry = getWrappedModel();
 
-		if (dlFileEntry == null) {
+		if (dlDLFileEntry == null) {
 
 			if (other.getWrappedModel() != null)
 				return false;
 		}
-		else if (!dlFileEntry.equals(other.getWrappedModel())) {
+		else if (!dlDLFileEntry.equals(other.getWrappedModel())) {
 			return false;
 		}
 
@@ -75,10 +74,10 @@ public class DocLibFileEntry extends DLFileEntryWrapper {
 
 	@Override
 	public int hashCode() {
-		DLFileEntry dlFileEntry = getWrappedModel();
+		DLFileEntry dlDLFileEntry = getWrappedModel();
 		final int prime = 31;
 		int result = 1;
-		result = (prime * result) + ((dlFileEntry == null) ? 0 : dlFileEntry.hashCode());
+		result = (prime * result) + ((dlDLFileEntry == null) ? 0 : dlDLFileEntry.hashCode());
 
 		return result;
 	}

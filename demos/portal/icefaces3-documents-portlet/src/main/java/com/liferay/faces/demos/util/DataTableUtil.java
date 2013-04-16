@@ -18,6 +18,7 @@ package com.liferay.faces.demos.util;
  */
 public class DataTableUtil {
 
+	//TODO ask Neil
 	public static final String DOCUMENTS_TABLE_PATH = ":f2:l1:c2:documents";
 
 }

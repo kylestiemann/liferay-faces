@@ -24,19 +24,40 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package com.liferay.portal.util;
+package com.liferay.faces.demos.kyle;
 
-import com.liferay.portal.kernel.util.GetterUtil;
-import com.liferay.portal.kernel.util.PropsKeys;
-import com.liferay.portal.kernel.util.PropsUtil;
+import com.liferay.portal.kernel.exception.PortalException;
+import com.liferay.portal.kernel.staging.permission.StagingPermissionUtil;
+import com.liferay.portal.security.auth.PrincipalException;
+import com.liferay.portal.security.permission.PermissionChecker;
+import com.liferay.portal.util.PortletKeys;
 
 
 /**
- * @author  Brian Wing Shun Chan
+ * @author  Jorge Ferrer
  */
-public class PropsValues {
+public class DLPermission {
 
-	public static boolean PERMISSIONS_VIEW_DYNAMIC_INHERITANCE = GetterUtil.getBoolean(PropsUtil.get(
-				PropsKeys.PERMISSIONS_VIEW_DYNAMIC_INHERITANCE));
+	private static final String _CLASS_NAME = "com.liferay.portlet.documentlibrary";
+
+	public static void check(PermissionChecker permissionChecker, long groupId, String actionId)
+		throws PortalException {
+
+		if (!contains(permissionChecker, groupId, actionId)) {
+			throw new PrincipalException();
+		}
+	}
+
+	public static boolean contains(PermissionChecker permissionChecker, long groupId, String actionId) {
+
+		Boolean hasPermission = StagingPermissionUtil.hasPermission(permissionChecker, groupId, _CLASS_NAME, groupId,
+				PortletKeys.DOCUMENT_LIBRARY, actionId);
+
+		if (hasPermission != null) {
+			return hasPermission.booleanValue();
+		}
+
+		return permissionChecker.hasPermission(groupId, _CLASS_NAME, groupId, actionId);
+	}
 
 }

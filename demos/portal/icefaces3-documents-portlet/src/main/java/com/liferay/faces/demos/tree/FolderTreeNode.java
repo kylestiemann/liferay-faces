@@ -27,7 +27,48 @@ public class FolderTreeNode extends DefaultMutableTreeNode {
 	// serialVersionUID
 	private static final long serialVersionUID = 7306498294791319916L;
 
-	public FolderTreeNode(Folder folder, boolean allowsChildren) {
-		super(folder, allowsChildren);
+	Folder folder;
+	
+	//TODO, I removed the need to pass in allowschildren because all nodes allow children. but ask neil
+	public FolderTreeNode(Folder folder) {
+		super(folder);
+		this.folder = folder;
 	}
+	
+	@Override
+	public boolean equals(Object obj) {
+
+		if (this == obj)
+			return true;
+
+		if (obj == null)
+			return false;
+
+		if (getClass() != obj.getClass())
+			return false;
+
+		FolderTreeNode folderTreeNode = (FolderTreeNode) obj;
+		Folder other = (Folder) folderTreeNode.getUserObject();
+		
+		if (folder == null) {
+
+			if (other != null)
+				return false;
+		}
+		else if (!folder.equals(other)) {
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode() {
+		
+		final int prime = 43;
+		int result = 1;
+		result = (prime * result) + ((folder == null) ? 0 : folder.hashCode());
+
+		return result;
+	}	
 }

@@ -11,7 +11,7 @@
  * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
  * details.
  */
-package com.liferay.faces.demos.list;
+package com.liferay.faces.demos.kyle;
 
 import com.liferay.portal.kernel.util.OrderByComparator;
 

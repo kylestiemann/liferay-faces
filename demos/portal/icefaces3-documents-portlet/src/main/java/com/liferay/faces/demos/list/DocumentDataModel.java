@@ -23,14 +23,15 @@ import org.icefaces.ace.component.datatable.DataTable;
 import org.icefaces.ace.model.table.LazyDataModel;
 import org.icefaces.ace.model.table.SortCriteria;
 
+import com.liferay.faces.demos.dto.UIFileEntry;
+import com.liferay.faces.demos.kyle.DocumentComparatorFactory;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
-import com.liferay.portal.kernel.dao.orm.QueryUtil;
+import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.kernel.util.OrderByComparator;
-import com.liferay.portlet.documentlibrary.model.DLFileEntry;
-import com.liferay.portlet.documentlibrary.service.DLFileEntryLocalServiceUtil;
-import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
+import com.liferay.portal.repository.liferayrepository.model.LiferayFileEntryHack;
+import com.liferay.portlet.documentlibrary.service.DLAppServiceUtil;
 
 //import com.liferay.faces.util.model.LazyDataModel;
 
@@ -38,7 +39,7 @@ import com.liferay.portlet.documentlibrary.service.DLFileEntryServiceUtil;
 /**
  * @author  Neil Griffin
  */
-public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements Serializable {
+public class DocumentDataModel extends LazyDataModel<UIFileEntry> implements Serializable {
 
 	// serialVersionUID
 	private static final long serialVersionUID = 4895165386116316346L;
@@ -65,41 +66,45 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 	}
 
 	public int countRows() {
-		List<DocLibFileEntry> files = new ArrayList<DocLibFileEntry>();
+//		List<FileEntry> files = new ArrayList<FileEntry>();
 
+		int rows = 0;
+		
 		try {
-			long folderGroupId = folder.getGroupId();
-			long folderId = folder.getFolderId();
-
-			List<DLFileEntry> dlFileEntries = null;
-
-			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(DEFAULT_SORT_CRITERIA, false);
-
-			dlFileEntries = DLFileEntryServiceUtil.getFileEntries(folderGroupId, folderId, QueryUtil.ALL_POS,
-					QueryUtil.ALL_POS, orderByComparator);
-
-			if (dlFileEntries != null) {
-
-				for (DLFileEntry dlFileEntry : dlFileEntries) {
-
-					files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId));
-				}
-			}
+//			long folderGroupId = folder.getGroupId();
+//			long folderId = folder.getFolderId();
+//
+//			List<FileEntry> fileEntries = null;
+//
+//			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(DEFAULT_SORT_CRITERIA, false);
+//			System.err.println(folder.getGroupId() + ", " + folder.getFolderId());
+//			System.err.println(rows);
+			rows = DLAppServiceUtil.getFileEntriesCount(folder.getGroupId(), folder.getFolderId(), 0L);
+//			System.err.println(rows);
+//			if (fileEntries != null) {
+//
+//				for (FileEntry fileEntry : fileEntries) {
+//
+//					
+//					files.add(new FileEntry(fileEntry, portalURL, pathContext, folderGroupId));
+//				}
+//			}
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
-
-		return files.size();
+		
+		return rows;
+		
 	}
 
 	public void deleteRow(Object primaryKey) throws IOException {
 		long fileEntryId = (Long) primaryKey;
 
 		try {
-			DLFileEntry dlFileEntry = DLFileEntryLocalServiceUtil.getFileEntry(fileEntryId);
-			DLFileEntryServiceUtil.deleteFileEntry(folder.getGroupId(), folder.getFolderId(),
-				dlFileEntry.getName());
+			FileEntry fileEntry = DLAppServiceUtil.getFileEntry(fileEntryId);
+			DLAppServiceUtil.deleteFileEntryByTitle(folder.getGroupId(), folder.getFolderId(),
+				fileEntry.getTitle());
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
@@ -120,10 +125,10 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 	 *                        supported.
 	 */
 	@Override
-	public List<DocLibFileEntry> load(int first, int pageSize, SortCriteria[] sortCriterias,
+	public List<UIFileEntry> load(int first, int pageSize, SortCriteria[] sortCriterias,
 		Map<String, String> filters) {
 
-		List<DocLibFileEntry> files = new ArrayList<DocLibFileEntry>();
+		List<UIFileEntry> files = new ArrayList<UIFileEntry>();
 
 		String fieldName = DEFAULT_SORT_CRITERIA;
 		boolean ascending = false;
@@ -138,13 +143,18 @@ public class DocumentDataModel extends LazyDataModel<DocLibFileEntry> implements
 			long folderGroupId = folder.getGroupId();
 			long folderId = folder.getFolderId();
 
-			List<DLFileEntry> dlFileEntries = null;
+			List<FileEntry> fileEntries = null;
 			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(fieldName, !ascending);
-			dlFileEntries = DLFileEntryServiceUtil.getFileEntries(folderGroupId, folderId, first, first + pageSize,
+			fileEntries = DLAppServiceUtil.getFileEntries(folderGroupId, folderId, first, first + pageSize,
 					orderByComparator);
 
-			for (DLFileEntry dlFileEntry : dlFileEntries) {
-				files.add(new DocLibFileEntry(dlFileEntry, portalURL, pathContext, folderGroupId));
+			for (FileEntry fileEntry : fileEntries) {
+				
+				if(fileEntry.getClass().getName().equals("com.liferay.portal.repository.liferayrepository.model.LiferayFileEntry")) {
+					fileEntry = new LiferayFileEntryHack(fileEntry);
+				}
+				
+				files.add(new UIFileEntry(fileEntry, portalURL, pathContext, folderGroupId));
 			}
 
 		}

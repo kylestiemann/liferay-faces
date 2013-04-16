@@ -31,8 +31,8 @@ import org.icefaces.ace.model.tree.NodeStateMap;
 import com.liferay.faces.demos.tree.FolderTreeNode;
 import com.liferay.faces.demos.util.DataTableUtil;
 import com.liferay.faces.portal.context.LiferayFacesContext;
+import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
-import com.liferay.portlet.documentlibrary.model.DLFileEntry;
 
 
 /**
@@ -82,20 +82,24 @@ public class DocLibViewBean implements Serializable {
 		Set<Map.Entry<Object, RowState>> entrySet = (Set<Map.Entry<Object, RowState>>) dataTable.getStateMap()
 			.entrySet();
 
-		DLFileEntry unselectedDlFileEntry = (DLFileEntry) unselectEvent.getObject();
+		FileEntry unselectedDlFileEntry = (FileEntry) unselectEvent.getObject();
 
 		for (Map.Entry<Object, RowState> mapEntry : entrySet) {
 
-			DLFileEntry dlFileEntry = (DLFileEntry) mapEntry.getKey();
+			FileEntry fileEntry = (FileEntry) mapEntry.getKey();
 			// Folder folder = (Folder) folderTreeNode.getUserObject();
 
-			if (unselectedDlFileEntry.getFileEntryId() == dlFileEntry.getFileEntryId()) {
+			if (unselectedDlFileEntry.getFileEntryId() == fileEntry.getFileEntryId()) {
 				mapEntry.getValue().setSelected(false);
 			}
 		}
 	}
 
 	public void incrementSelectedFiles(SelectEvent selectEvent) {
+		selectedFiles++;
+	}
+	
+	public void incrementSelectedFiles() {
 		selectedFiles++;
 	}
 

@@ -14,10 +14,15 @@
 			<liferay-ui:info message="#{i18n.replace('upload-documents-no-larger-than-x-k', docLibBackingBean.maxFileSizeKB)}" />
 			<ace:fileEntry id="fileEntryComp" absolutePath="#{docLibBackingBean.fileUploadAbsolutePath}"
 				fileEntryListener="#{docLibBackingBean.handleFileUpload}" />
+			<ui:remove><h:selectOneMenu id="fileEntryTypeId" required="true" value="">
+				<f:selectItems itemLabel="docLibViewBean.fileEntryTypeId" itemValue="" />
+				<f:selectItems itemValue="#{province.provinceId}" itemLabel="#{province.provinceName}"
+					value="#{customersModelBean.provinces}" var="province" />
+			</h:selectOneMenu></ui:remove>
 			<hr />
 			<aui:button-row>
 				<h:commandButton value="#{i18n['upload-document']}" />
-				<h:commandButton action="#{docLibBackingBean.setAddFileDialogRenderedFalse}" immediate="true"
+				<h:commandButton actionListener="#{docLibBackingBean.cancelFileUpload}" immediate="true"
 					value="#{i18n['cancel']}" />
 			</aui:button-row>
 		</ace:dialog>
@@ -34,7 +39,7 @@
 					type="textarea" value="#{docLibBackingBean.folderDescription}" />
 				<aui:button-row>
 					<h:commandButton actionListener="#{docLibBackingBean.addFolder}" value="#{i18n['submit']}">
-						<ace:ajax event="click" execute="@all" render=":f2:l1:c1:pc1:pg2:tree @all" />
+						<ui:remove><ace:ajax event="click" render=":f2:l1:c1:pc1:pg2:tree @this" /></ui:remove>
 					</h:commandButton>
 					<h:commandButton action="#{docLibBackingBean.setAddFolderDialogRenderedFalse}" immediate="true"
 						value="#{i18n['cancel']}" />
@@ -49,7 +54,7 @@
 				<aui:column id="c1" columnWidth="33" first="true" styleClass="lfr-asset-column lfr-asset-column-actions">
 					<liferay-ui:panel-container id="pc1">
 						<liferay-ui:panel id="pg2" title="#{i18n['folders']}">
-							<h:panelGroup id = "pg3" layout="block" styleClass="lfr-asset-summary">
+							<h:panelGroup id="pg3" layout="block" styleClass="lfr-asset-summary">
 								<h:panelGroup styleClass="lfr-asset-avatar">
 									<h:graphicImage alt="#{selectedFolderName}"
 										value="#{liferay.themeImagesURL}/file_system/large/folder_full_document.png" />
@@ -71,7 +76,7 @@
 						</liferay-ui:panel>
 					</liferay-ui:panel-container>
 				</aui:column>
-				<aui:column id="c2" columnWidth="65" >
+				<aui:column id="c2" columnWidth="65">
 					<ui:remove>
 						<!-- Workaround for http://jira.icesoft.org/browse/ICE-9133 is to avoid using liferay-ui:panel -->
 					</ui:remove>
@@ -107,7 +112,7 @@
 									<ace:menuItem id="delete" actionListener="#{docLibBackingBean.delete}"
 										disabled="#{!docLibViewBean.filesSelected}" icon="icon-padding liferay-delete-icon" value="#{i18n['delete']}">
 										<ui:remove>
-										<ace:ajax event="activate" update="documents" execute="@all" />
+											<ace:ajax event="activate" update="documents" execute="@all" />
 										</ui:remove>
 									</ace:menuItem>
 								</ace:menuBar>
@@ -115,22 +120,22 @@
 									rows="#{docLibModelBean.documentDataModel.rowsPerPage}"
 									rowSelectListener="#{docLibViewBean.incrementSelectedFiles}"
 									rowUnselectListener="#{docLibViewBean.decrementSelectedFiles}" selectionMode="multiple" singleSort="true"
-									value="#{docLibModelBean.documentDataModel}" var="dlFileEntry">
-									<ace:column id="fileName" headerText="#{i18n['file-name']}" sortBy="#{dlFileEntry.title}">
-										<h:outputLink target="_blank" value="#{dlFileEntry.url}">
-											<h:graphicImage alt="#{dlFileEntry.extension}"
-												value="#{liferay.themeImagesURL}/file_system/small/#{dlFileEntry.extension}.png" />
-											<h:outputText value="#{dlFileEntry.title}" />
+									value="#{docLibModelBean.documentDataModel}" var="uiFileEntry">
+									<ace:column id="fileName" headerText="#{i18n['file-name']}" sortBy="#{uiFileEntry.title}">
+										<h:outputLink target="_blank" value="#{uiFileEntry.url}">
+											<h:graphicImage alt="#{uiFileEntry.extension}"
+												value="#{liferay.themeImagesURL}/file_system/small/#{uiFileEntry.extension}.png" />
+											<h:outputText value="#{uiFileEntry.title}" />
 										</h:outputLink>
 									</ace:column>
-									<ace:column id="size" headerText="#{i18n['size']}" sortBy="#{dlFileEntry.kilobytes}">
-										<h:outputText value="#{dlFileEntry.kilobytes}" />
+									<ace:column id="size" headerText="#{i18n['size']}" sortBy="#{uiFileEntry.kilobytes}">
+										<h:outputText value="#{uiFileEntry.kilobytes}" />
 									</ace:column>
-									<ace:column id="owner" headerText="#{i18n['owner']}" sortBy="#{dlFileEntry.userName}">
-										<h:outputText value="#{dlFileEntry.userName}" />
+									<ace:column id="owner" headerText="#{i18n['owner']}" sortBy="#{uiFileEntry.userName}">
+										<h:outputText value="#{uiFileEntry.userName}" />
 									</ace:column>
-									<ace:column id="downloads" headerText="#{i18n['downloads']}" sortBy="#{dlFileEntry.readCount}">
-										<h:outputText value="#{dlFileEntry.readCount}" />
+									<ace:column id="downloads" headerText="#{i18n['downloads']}" sortBy="#{uiFileEntry.readCount}">
+										<h:outputText value="#{uiFileEntry.readCount}" />
 									</ace:column>
 								</ace:dataTable>
 								<liferay-ui:info message="there-are-no-documents" rendered="#{docLibModelBean.documentDataModel.rowCount == 0}" />

@@ -19,7 +19,6 @@ import java.util.List;
 
 import org.icefaces.ace.model.tree.LazyNodeDataModel;
 
-import com.liferay.faces.demos.util.FolderUtil;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.Folder;
@@ -42,47 +41,102 @@ public class FolderTreeLazyNodeDataModel extends LazyNodeDataModel<FolderTreeNod
 	public FolderTreeLazyNodeDataModel(Group group) {
 		folderTreeRootNode = new FolderTreeRootNode(group);
 	}
-	
+
 	@Override
 	public List<FolderTreeNode> loadChildrenForNode(FolderTreeNode folderTreeNode) {
 
+//		TODO uncomment to see exception
+//		new Exception().printStackTrace();
 		if (folderTreeNode == null) {
-
 			List<FolderTreeNode> root = new ArrayList<FolderTreeNode>();
 			root.add(folderTreeRootNode);
 
 			return root;
 		}
 		else {
+			Folder folder = (Folder) folderTreeNode.getUserObject();
+			List<Folder> childFolders = Collections.emptyList();
 
 			try {
-				Folder folder = (Folder) folderTreeNode.getUserObject();
-//				List<Folder> childFolders = FolderUtil.findByR_P(folder.getGroupId(),
-//						folder.getFolderId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS, null);
-				
-				List<Folder> childFolders = DLAppServiceUtil.getFolders(folder.getRepositoryId(), folder.getFolderId());
-
-				if (childFolders != null) {
-					List<FolderTreeNode> children = new ArrayList<FolderTreeNode>();
-
-					//int index = 0;
-					for (Folder childFolder : childFolders) {
-						FolderTreeNode childFolderTreeNode = new FolderTreeNode(childFolder, true);
-						//folderTreeNode.insert(childFolderTreeNode, index);
-						children.add(childFolderTreeNode);
-					//	index++;
-					}
-
-					return children;
-				}
+				childFolders = DLAppServiceUtil.getFolders(folder.getRepositoryId(), folder.getFolderId());
 			}
 			catch (Exception e) {
 				logger.error(e.getMessage(), e);
 			}
-		}
 
-		return Collections.emptyList();
+			if (childFolders != null) {
+				List<FolderTreeNode> children = new ArrayList<FolderTreeNode>();
+
+				for (Folder childFolder : childFolders) {
+					children.add(new FolderTreeNode(childFolder));
+				}
+
+				return children;
+			}
+
+			return Collections.emptyList();
+		}
 	}
+
+//	
+//	public List<FolderTreeNode> loadChildrenForNode(Folder folder) {
+//
+//		if (folder == null) {
+//			Folder rootFolder = (Folder) folderTreeRootNode.getUserObject();
+//			List<Folder> childFolders = Collections.emptyList();
+//
+//			try {
+//				childFolders = DLAppServiceUtil.getFolders(rootFolder.getRepositoryId(), rootFolder.getFolderId());
+//			}
+//			catch (Exception e) {
+//				logger.error(e.getMessage(), e);
+//			}
+//
+//			if (childFolders != null) {
+//				List<FolderTreeNode> children = new ArrayList<FolderTreeNode>();
+//
+//				for (Folder childFolder : childFolders) {
+//					children.add(new FolderTreeNode(childFolder, true));
+//				}
+//
+//				return children;
+//			}
+//
+//			return Collections.emptyList();
+//		}
+//		else {
+//
+//			try {
+//				// Folder folder = (Folder) folderTreeNode.getUserObject();
+//				// List<Folder> childFolders =
+//				// FolderUtil.findByR_P(folder.getGroupId(),
+//				// folder.getFolderId(), QueryUtil.ALL_POS, QueryUtil.ALL_POS,
+//				// null);
+//
+//				List<Folder> childFolders = DLAppServiceUtil.getFolders(folder.getRepositoryId(), folder.getFolderId());
+//
+//				if (childFolders != null) {
+//					List<FolderTreeNode> children = new ArrayList<FolderTreeNode>();
+//
+//					// int index = 0;
+//					for (Folder childFolder : childFolders) {
+//						// FolderTreeNode childFolderTreeNode = new FolderTreeNode(childFolder, true);
+//
+//						// folderTreeNode.insert(childFolderTreeNode, index);
+//						children.add(new FolderTreeNode(childFolder, true));
+//						// index++;
+//					}
+//
+//					return children;
+//				}
+//			}
+//			catch (Exception e) {
+//				logger.error(e.getMessage(), e);
+//			}
+//
+//			return Collections.emptyList();
+//		}
+//	}
 
 	public FolderTreeRootNode getFolderTreeRootNode() {
 		return folderTreeRootNode;

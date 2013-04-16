@@ -34,14 +34,16 @@ public class SiteFolder implements Folder {
 
 	private static final long serialVersionUID = 2991646827589745577L;
 
-	String name;
+	private String name;
 	private long groupId;
 	private long repositoryId;
+	//private long primaryKey;
 
 	public SiteFolder(String name, long groupId, long repositoryId) {
 		this.name = name;
 		this.groupId = groupId;
 		this.repositoryId = repositoryId;
+		//this.primaryKey = primaryKey;
 	}
 
 	public boolean containsPermission(PermissionChecker permissionChecker, String actionId) throws PortalException,
@@ -167,6 +169,7 @@ public class SiteFolder implements Folder {
 
 	public long getPrimaryKey() {
 		throw new UnsupportedOperationException();
+		//return primaryKey;
 	}
 
 	public Serializable getPrimaryKeyObj() {

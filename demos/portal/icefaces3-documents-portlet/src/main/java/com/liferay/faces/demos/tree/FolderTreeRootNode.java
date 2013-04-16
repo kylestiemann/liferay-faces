@@ -28,6 +28,6 @@ public class FolderTreeRootNode extends FolderTreeNode {
 	private static final long serialVersionUID = 4051524313215059547L;
 
 	public FolderTreeRootNode(Group group) {
-		super(FolderUtil.getRootFolder(group), true);
+		super(FolderUtil.getRootFolder(group));
 	}
 }

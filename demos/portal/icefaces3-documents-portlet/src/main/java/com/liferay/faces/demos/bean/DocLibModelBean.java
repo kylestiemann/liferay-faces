@@ -32,6 +32,7 @@ import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
 import com.liferay.portal.NoSuchGroupException;
 import com.liferay.portal.kernel.dao.search.SearchContainer;
+import com.liferay.portal.kernel.repository.model.FileEntry;
 import com.liferay.portal.kernel.repository.model.Folder;
 import com.liferay.portal.model.Group;
 import com.liferay.portal.service.GroupServiceUtil;
@@ -62,6 +63,7 @@ public class DocLibModelBean implements Serializable {
 	private transient Folder selectedFolder;
 	private transient FolderTreeLazyNodeDataModel lazyNodeDataModel;
 	private transient List<UIFolder> breadcrumbFolders = null;
+	private transient List<FileEntry> uploadedFileEntries;
 
 	public void forceBreadcrumbRequery() {
 		breadcrumbFolders = null;
@@ -69,10 +71,6 @@ public class DocLibModelBean implements Serializable {
 
 	public void forceDocumentRequery() {
 		setDocumentDataModel(null);
-	}
-	
-	public void forceTreeRequery() {
-		setLazyNodeDataModel(null);
 	}
 
 	public List<UIFolder> getBreadcrumbFolders() {
@@ -200,5 +198,13 @@ public class DocLibModelBean implements Serializable {
 	public void setSelectedFolder(Folder selectedFolder) {
 		this.selectedFolder = selectedFolder;
 		forceDocumentRequery();
+	}
+
+	public List<FileEntry> getUploadedFileEntries() {
+		return uploadedFileEntries;
+	}
+
+	public void setUploadedFileEntries(List<FileEntry> uploadedFileEntries) {
+		this.uploadedFileEntries = uploadedFileEntries;
 	}
 }
