@@ -67,7 +67,6 @@ public class PreferencesBackingBean {
 		List<Group> groups = new ArrayList<Group>();
 
 		try {
-//          groups = GroupLocalServiceUtil.getGroups(QueryUtil.ALL_POS, QueryUtil.ALL_POS);
 			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
 			User user = liferayFacesContext.getUser();
 			groups = user.getGroups();

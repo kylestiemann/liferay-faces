@@ -24,7 +24,6 @@ import org.icefaces.ace.model.table.LazyDataModel;
 import org.icefaces.ace.model.table.SortCriteria;
 
 import com.liferay.faces.demos.dto.UIFileEntry;
-import com.liferay.faces.demos.kyle.DocumentComparatorFactory;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
 import com.liferay.portal.kernel.repository.model.FileEntry;
@@ -66,36 +65,16 @@ public class DocumentDataModel extends LazyDataModel<UIFileEntry> implements Ser
 	}
 
 	public int countRows() {
-//		List<FileEntry> files = new ArrayList<FileEntry>();
-
-		int rows = 0;
 		
+		int rows = 0;
 		try {
-//			long folderGroupId = folder.getGroupId();
-//			long folderId = folder.getFolderId();
-//
-//			List<FileEntry> fileEntries = null;
-//
-//			OrderByComparator orderByComparator = DocumentComparatorFactory.getComparator(DEFAULT_SORT_CRITERIA, false);
-//			System.err.println(folder.getGroupId() + ", " + folder.getFolderId());
-//			System.err.println(rows);
 			rows = DLAppServiceUtil.getFileEntriesCount(folder.getGroupId(), folder.getFolderId(), 0L);
-//			System.err.println(rows);
-//			if (fileEntries != null) {
-//
-//				for (FileEntry fileEntry : fileEntries) {
-//
-//					
-//					files.add(new FileEntry(fileEntry, portalURL, pathContext, folderGroupId));
-//				}
-//			}
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
 		}
 		
-		return rows;
-		
+		return rows;		
 	}
 
 	public void deleteRow(Object primaryKey) throws IOException {

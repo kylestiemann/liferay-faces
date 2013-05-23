@@ -41,9 +41,6 @@ public class UIFileEntry extends FileEntryWrapper {
 			fileEntry.getFolderId() + StringPool.SLASH +
 			HttpUtil.encodeURL(HtmlUtil.unescape(fileEntry.getTitle())));
 		this.userName = fileEntry.getUserName();
-
-		// this.url = portalURL + pathContext + "/documents/" + Long.toString(scopeGroupId) + StringPool.SLASH +
-		// dlDLFileEntry.getUuid();
 	}
 
 	@Override

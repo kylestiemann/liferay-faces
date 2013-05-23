@@ -4,6 +4,7 @@
 	xmlns:aui-cc="http://liferay.com/faces/aui-cc" xmlns:liferay-ui="http://liferay.com/faces/ui"
 	xmlns:ice="http://www.icesoft.com/icefaces/component" xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:icecore="http://www.icefaces.org/icefaces/core" xmlns:ace="http://www.icefaces.org/icefaces/components">
+	<aui:importConstants var="UploadedFileUtil" classType="com.liferay.faces.demos.util.UploadedFileUtil" />
 
 	<h:messages globalOnly="true" />
 	<h:form id="f1" styleClass="aui-form dlp">
@@ -12,18 +13,20 @@
 			<ace:ajax event="close" listener="#{docLibBackingBean.setAddFileDialogRenderedFalse}" />
 			<aui-cc:messages globalOnly="true" />
 			<liferay-ui:info message="#{i18n.replace('upload-documents-no-larger-than-x-k', docLibBackingBean.maxFileSizeKB)}" />
-			<ace:fileEntry id="fileEntryComp" absolutePath="#{docLibBackingBean.fileUploadAbsolutePath}"
+			<ace:fileEntry id="fileEntryComp" absolutePath="#{UploadedFileUtil.JAVA_IO_TMPDIR}"
 				fileEntryListener="#{docLibBackingBean.handleFileUpload}" />
-			<ui:remove><h:selectOneMenu id="fileEntryTypeId" required="true" value="">
-				<f:selectItems itemLabel="docLibViewBean.fileEntryTypeId" itemValue="" />
-				<f:selectItems itemValue="#{province.provinceId}" itemLabel="#{province.provinceName}"
-					value="#{customersModelBean.provinces}" var="province" />
-			</h:selectOneMenu></ui:remove>
+			<hr />
+			<h:selectOneMenu id="fileEntryTypeId" required="true" value="#{docLibModelBean.fileEntryTypeId}">
+				<ui:remove>
+					<f:selectItems itemLabel="#{dlFileEntryType.name}" itemValue="dlFileEntryType.Id" />
+				</ui:remove>
+				<f:selectItems itemValue="#{dlFileEntryType.fileEntryTypeId}" itemLabel="#{dlFileEntryType.name}"
+					value="#{docLibViewBean.dlFileEntryTypes}" var="dlFileEntryType" />
+			</h:selectOneMenu>
 			<hr />
 			<aui:button-row>
 				<h:commandButton value="#{i18n['upload-document']}" />
-				<h:commandButton actionListener="#{docLibBackingBean.cancelFileUpload}" immediate="true"
-					value="#{i18n['cancel']}" />
+				<h:commandButton actionListener="#{docLibBackingBean.cancelFileUpload}" immediate="true" value="#{i18n['cancel']}" />
 			</aui:button-row>
 		</ace:dialog>
 		<ace:dialog id="addFolderDialog" header="#{i18n['add-folder']}" modal="true" widgetVar="addFolderDialog"
@@ -39,7 +42,9 @@
 					type="textarea" value="#{docLibBackingBean.folderDescription}" />
 				<aui:button-row>
 					<h:commandButton actionListener="#{docLibBackingBean.addFolder}" value="#{i18n['submit']}">
-						<ui:remove><ace:ajax event="click" render=":f2:l1:c1:pc1:pg2:tree @this" /></ui:remove>
+						<ui:remove>
+							<ace:ajax event="click" render=":f2:l1:c1:pc1:pg2:tree @this" />
+						</ui:remove>
 					</h:commandButton>
 					<h:commandButton action="#{docLibBackingBean.setAddFolderDialogRenderedFalse}" immediate="true"
 						value="#{i18n['cancel']}" />
@@ -48,6 +53,26 @@
 		</ace:dialog>
 	</h:form>
 	<h:form id="f2">
+		<ace:dialog id="deleteFilesDialog" header="#{i18n['delete-file']}(s)?" modal="true" widgetVar="deleteDialog" width="375"
+			height="120" closable="true" position="center" visible="#{docLibViewBean.deleteFileDialogRendered}">
+			<ace:ajax event="close" listener="#{docLibViewBean.setDeleteFileDialogRenderedFalse}" />
+			<aui-cc:messages globalOnly="true" />
+			<h:outputText value="#{i18n['are-you-sure-you-want-to-delete-the-selected-entries']}" />
+			<aui:button-row>
+				<h:commandButton action="#{docLibBackingBean.deleteFiles}" value="#{i18n['delete-file']}(s)" />
+				<h:commandButton action="#{docLibViewBean.setDeleteFileDialogRenderedFalse}" value="#{i18n['cancel']}" />
+			</aui:button-row>
+		</ace:dialog>
+		<ace:dialog id="deleteFolderDialog" header="#{i18n['delete-folder']}?" modal="true" widgetVar="deleteDialog" width="500"
+			height="115" closable="true" position="center" visible="#{docLibViewBean.deleteFolderDialogRendered}">
+			<ace:ajax event="close" listener="#{docLibViewBean.setDeleteFolderDialogRenderedFalse}" /> 
+			<aui-cc:messages globalOnly="true" />
+			<h:outputText value="#{i18n['are-you-sure-you-want-to-delete-the-selected-folder-and-all-its-contents']}" />
+			<aui:button-row>
+				<h:commandButton action="#{docLibBackingBean.deleteFolder}" value="#{i18n['delete-folder']}" />
+				<h:commandButton action="#{docLibViewBean.setDeleteFolderDialogRenderedFalse}" value="#{i18n['cancel']}" />
+			</aui:button-row>
+		</ace:dialog>
 		<h:panelGroup id="pg1">
 			<aui:layout id="l1">
 				<c:set value="#{docLibModelBean.selectedFolder.name}" var="selectedFolderName" />
@@ -110,7 +135,8 @@
 										</ace:menuItem>
 									</ace:submenu>
 									<ace:menuItem id="delete" actionListener="#{docLibBackingBean.delete}"
-										disabled="#{!docLibViewBean.filesSelected}" icon="icon-padding liferay-delete-icon" value="#{i18n['delete']}">
+										disabled="#{(!docLibViewBean.filesSelected) and docLibViewBean.rootFolderSelected}"
+										icon="icon-padding liferay-delete-icon" value="#{i18n['delete']}">
 										<ui:remove>
 											<ace:ajax event="activate" update="documents" execute="@all" />
 										</ui:remove>

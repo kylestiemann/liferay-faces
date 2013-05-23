@@ -18,6 +18,7 @@ import java.io.File;
 import javax.servlet.http.HttpSessionEvent;
 import javax.servlet.http.HttpSessionListener;
 
+import com.liferay.faces.demos.util.UploadedFileUtil;
 import com.liferay.faces.util.logging.Logger;
 import com.liferay.faces.util.logging.LoggerFactory;
 
@@ -45,20 +46,10 @@ public class UploadedFileCleanupListener implements HttpSessionListener {
 		try {
 
 			String sessionId = httpSessionEvent.getSession().getId();
-			String parent = System.getProperty("java.io.tmpdir");
+			String parent = UploadedFileUtil.JAVA_IO_TMPDIR;
 			String folderName = sessionId;
 			File folder = new File(parent, folderName);
 			folder.delete();
-			//TODO should we just delete everything at the end?
-//			File[] fileList = folder.listFiles().clone();
-//
-//			for (File file : fileList) {
-//
-//				if (file.getName().startsWith(UploadedFileUtil.USER_PORTRAIT)) {
-//					file.delete();
-//				}
-//			}
-
 		}
 		catch (Exception e) {
 			logger.error(e);

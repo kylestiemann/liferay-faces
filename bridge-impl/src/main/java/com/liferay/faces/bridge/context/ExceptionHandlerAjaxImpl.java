@@ -59,6 +59,7 @@ public class ExceptionHandlerAjaxImpl extends ExceptionHandlerWrapper {
 				Throwable throwable = exceptionQueuedEventContext.getException();
 
 				if (throwable != null) {
+					throwable.printStackTrace();
 					logger.error(throwable);
 				}
 				else {

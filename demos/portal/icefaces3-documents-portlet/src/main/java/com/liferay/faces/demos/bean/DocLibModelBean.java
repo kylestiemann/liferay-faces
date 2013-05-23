@@ -64,6 +64,7 @@ public class DocLibModelBean implements Serializable {
 	private transient FolderTreeLazyNodeDataModel lazyNodeDataModel;
 	private transient List<UIFolder> breadcrumbFolders = null;
 	private transient List<FileEntry> uploadedFileEntries;
+	private transient long fileEntryTypeId;
 
 	public void forceBreadcrumbRequery() {
 		breadcrumbFolders = null;
@@ -72,7 +73,7 @@ public class DocLibModelBean implements Serializable {
 	public void forceDocumentRequery() {
 		setDocumentDataModel(null);
 	}
-
+	
 	public List<UIFolder> getBreadcrumbFolders() {
 
 		if (breadcrumbFolders == null) {
@@ -188,7 +189,7 @@ public class DocLibModelBean implements Serializable {
 	public Folder getSelectedFolder() {
 
 		if (selectedFolder == null) {
-			FolderTreeRootNode folderTreeRootNode = (FolderTreeRootNode) lazyNodeDataModel.getFolderTreeRootNode();
+			FolderTreeRootNode folderTreeRootNode = (FolderTreeRootNode) getLazyNodeDataModel().getFolderTreeRootNode();
 			selectedFolder = (Folder) folderTreeRootNode.getUserObject();
 		}
 
@@ -206,5 +207,13 @@ public class DocLibModelBean implements Serializable {
 
 	public void setUploadedFileEntries(List<FileEntry> uploadedFileEntries) {
 		this.uploadedFileEntries = uploadedFileEntries;
+	}
+
+	public long getFileEntryTypeId() {
+		return fileEntryTypeId;
+	}
+
+	public void setFileEntryTypeId(long fileEntryTypeId) {
+		this.fileEntryTypeId = fileEntryTypeId;
 	}
 }
