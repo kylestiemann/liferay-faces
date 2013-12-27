@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:view xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head />
+	<h:body styleClass="example-icefaces-portlet">
+		<ui:include src="styling.xhtml" />
+		<h:form id="f" styleClass="example-icefaces-portlet">
+			<p:accordionPanel id="accordion" rendered="#{customersModelBean.selected != null}" multiple="true">
+				<p:tab title="#{i18n['customer']}">
+					<p:panelGrid columns="3">
+						<p:outputLabel for="firstName" value="#{i18n['firstName']}" />
+						<p:inputText id="firstName" required="true" value="#{customersModelBean.selected.firstName}"
+							valueChangeListener="#{customersModelBean.valueChangeListener}">
+							<f:ajax render="firstName" />
+						</p:inputText>
+						<p:message for="firstName" />
+						<p:outputLabel for="lastName" value="#{i18n['lastName']}" />
+						<p:inputText id="lastName" required="true" value="#{customersModelBean.selected.lastName}"
+							valueChangeListener="#{customersModelBean.valueChangeListener}">
+							<f:ajax render="lastName" />
+						</p:inputText>
+						<p:message for="lastName" />
+					</p:panelGrid>
+				</p:tab>
+				<ui:repeat value="#{customersModelBean.selected.bookings}" var="booking">
+					<p:tab title="#{i18n['booking']}">
+						<p:panelGrid columns="3">
+							<h:outputLabel for="bookingTypeId" value="#{i18n['bookingTypeId']}" />
+							<h:selectOneMenu id="bookingTypeSelect" required="true" value="#{booking.bookingTypeId}">
+								<f:selectItem itemLabel="#{i18n['select']}" itemValue="" />
+								<f:selectItems value="#{listModelBean.bookingTypeSelectItems}" />
+								<f:ajax render="bookingTypeSelect" />
+							</h:selectOneMenu>
+							<p:message for="bookingTypeId" />
+							<p:outputLabel for="startDate" value="#{i18n['startDate']}" />
+							<p:calendar id="startDate" required="true" value="#{booking.startDate}">>
+								<f:ajax render="startDate" />
+							</p:calendar>
+							<p:message for="startDate" />
+							<p:outputLabel for="finishDate" value="#{i18n['finishDate']}" />
+							<p:calendar id="finishDate" required="true" value="#{booking.finishDate}">
+								<f:ajax render="finishDate" />
+							</p:calendar>
+							<p:message for="finishDate" />
+						</p:panelGrid>
+					</p:tab>
+				</ui:repeat>
+			</p:accordionPanel>
+		</h:form>
+		<p:socket channel="/selected">
+			<p:ajax event="message" update="f:accordion" />
+		</p:socket>
+	</h:body>
+</f:view>

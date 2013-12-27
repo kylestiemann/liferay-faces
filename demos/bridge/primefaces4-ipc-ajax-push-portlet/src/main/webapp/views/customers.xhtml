@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<f:view xmlns="http://www.w3.org/1999/xhtml" xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html" xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+	<h:head />
+	<h:body styleClass="example-icefaces-portlet">
+		<ui:include src="styling.xhtml" />
+		<h:form id="f" styleClass="example-icefaces-portlet">
+			<p:dataTable id="c" value="#{customersModelBean.allCustomers}" var="customer">
+				<ui:remove> <!--<p:ajax event="rowSelect" listener="#{customersBackingBean.selectionListener}"/>--></ui:remove>
+				<p:column>
+					<h:commandButton actionListener="#{customersBackingBean.selectionListener}" image="/images/edit.gif" value="#{customer}" >
+						<f:ajax />
+					</h:commandButton>
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="#{i18n['customerId']}" />
+					</f:facet>
+					<h:outputText value="#{customer.customerId}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="#{i18n['firstName']}" />
+					</f:facet>
+					<h:outputText value="#{customer.firstName}" />
+				</p:column>
+				<p:column>
+					<f:facet name="header">
+						<h:outputText value="#{i18n['lastName']}" />
+					</f:facet>
+					<h:outputText value="#{customer.lastName}" />
+				</p:column>
+			</p:dataTable>
+		</h:form>
+	</h:body>
+</f:view>
