@@ -5,33 +5,27 @@
 	<h:head />
 	<h:body styleClass="example-icefaces-portlet">
 		<ui:include src="styling.xhtml" />
-		<h:form id="f" styleClass="example-icefaces-portlet">
-			<p:dataTable id="c" value="#{customersModelBean.allCustomers}" var="customer">
+		<h:form id="f2" styleClass="example-icefaces-portlet">
+			<p:dataTable id="customerDataTable" value="#{customersModelBean.allCustomers}" var="customer">
 				<ui:remove> <!--<p:ajax event="rowSelect" listener="#{customersBackingBean.selectionListener}"/>--></ui:remove>
 				<p:column>
-					<h:commandButton actionListener="#{customersBackingBean.selectionListener}" image="/images/edit.gif" value="#{customer}" >
+					<h:commandButton id="editButton" actionListener="#{customersBackingBean.selectionListener}" image="/images/edit.gif" value="#{customer}">
 						<f:ajax />
-					</h:commandButton>
+					</h:commandButton> 
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="#{i18n['customerId']}" />
-					</f:facet>
+				<p:column headerText="#{i18n['customerId']}">
 					<h:outputText value="#{customer.customerId}" />
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="#{i18n['firstName']}" />
-					</f:facet>
+				<p:column headerText="#{i18n['firstName']}">
 					<h:outputText value="#{customer.firstName}" />
 				</p:column>
-				<p:column>
-					<f:facet name="header">
-						<h:outputText value="#{i18n['lastName']}" />
-					</f:facet>
+				<p:column headerText="#{i18n['lastName']}">
 					<h:outputText value="#{customer.lastName}" />
 				</p:column>
 			</p:dataTable>
 		</h:form>
+		<p:socket channel="/modified">
+			<p:ajax event="message" update=":f2:customerDataTable" />
+		</p:socket>
 	</h:body>
 </f:view>

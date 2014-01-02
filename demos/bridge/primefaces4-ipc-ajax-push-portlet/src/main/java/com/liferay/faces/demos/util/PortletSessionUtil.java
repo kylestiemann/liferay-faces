@@ -30,17 +30,23 @@ public class PortletSessionUtil {
 
 	public static final String CUSTOMER_LIST = "CUSTOMER_LIST";
 	public static final String SELECTED_CUSTOMER = "SELECTED_CUSTOMER";
+	
+	private static PortletSession portletSession;
+	
+	public static void createPortletSession() {
+		FacesContext facesContext = FacesContext.getCurrentInstance();
+		portletSession = (PortletSession) facesContext.getExternalContext().getSession(true);
+	}
+	
+	public static void destroyPortletSession() {
+		portletSession.invalidate();
+	}
 
 	public static Object getSharedSessionAttribute(String key) {
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		PortletSession portletSession = (PortletSession) facesContext.getExternalContext().getSession(false);
-
 		return portletSession.getAttribute(key, PortletSession.APPLICATION_SCOPE);
 	}
 
 	public static void setSharedSessionAttribute(String key, Object value) {
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		PortletSession portletSession = (PortletSession) facesContext.getExternalContext().getSession(false);
 		portletSession.setAttribute(key, value, PortletSession.APPLICATION_SCOPE);
 	}
 }

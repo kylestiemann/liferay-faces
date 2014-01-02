@@ -19,8 +19,6 @@ import javax.annotation.PreDestroy;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;
-import javax.portlet.PortletSession;
 import javax.faces.event.ValueChangeEvent;
 
 import org.primefaces.push.PushContext;
@@ -39,46 +37,41 @@ import com.liferay.faces.demos.util.PortletSessionUtil;
 public class CustomersModelBean {
 
 	// Private Constants
-	private static final String CUSTOMER_RENDER_GROUP = "CUSTOMER_RENDER_GROUP";
 
 	// Injections
 	@ManagedProperty(name = "customerService", value = "#{customerService}")
 	private CustomerService customerService;
-	
-	private Customer customer;
-	private List<Customer> allCustomers;
 
-//	public CustomersModelBean() {
-//		PushRenderer.addCurrentSession(CUSTOMER_RENDER_GROUP);
-//	}
-
-//	@PreDestroy
-//	public void preDestroy() {
-//		PushRenderer.removeCurrentSession(CUSTOMER_RENDER_GROUP);
-//	}
-
-	public String getChannel() {
-		return "/selected";
+	public CustomersModelBean() {
+		PortletSessionUtil.createPortletSession();
 	}
-	
-	protected PortletSession getPortletSession() {
-		FacesContext facesContext = FacesContext.getCurrentInstance();
-		return (PortletSession) facesContext.getExternalContext().getSession(
-				false);
+
+	@PreDestroy
+	public void preDestroy() {
+		PortletSessionUtil.destroyPortletSession();
 	}
 
 	public void valueChangeListener(ValueChangeEvent valueChangeEvent) {
+		
 		PushContext pushContext = PushContextFactory.getDefault().getPushContext();
-		pushContext.push(getChannel(), getSelected().getFirstName().toString());
+		pushContext.push("/modified", "valueChangeEvent");
 	}
 
 	@SuppressWarnings("unchecked")
 	public List<Customer> getAllCustomers() {
+		List<Customer> allCustomers = (List<Customer>) PortletSessionUtil.getSharedSessionAttribute(
+				PortletSessionUtil.CUSTOMER_LIST);
+
 		if (allCustomers == null) {
-			this.allCustomers = customerService.getAllCustomers();
+			allCustomers = customerService.getAllCustomers();
+			PortletSessionUtil.setSharedSessionAttribute(PortletSessionUtil.CUSTOMER_LIST, allCustomers);
 		}
 
 		return allCustomers;
+	}
+
+	public String getChannel() {
+		return "/selected";
 	}
 
 	public CustomerService getCustomerService() {
@@ -92,12 +85,13 @@ public class CustomersModelBean {
 	}
 
 	public Customer getSelected() {
-		return customer;
+		return (Customer) PortletSessionUtil.getSharedSessionAttribute(PortletSessionUtil.SELECTED_CUSTOMER);
 	}
 
 	public void setSelected(Customer customer) {
-		this.customer = customer;
+		
+		PortletSessionUtil.setSharedSessionAttribute(PortletSessionUtil.SELECTED_CUSTOMER, customer);
 		PushContext pushContext = PushContextFactory.getDefault().getPushContext();
-		pushContext.push(getChannel(), customer.getFirstName().toString());
+		pushContext.push("/selected", "selectEvent");
 	}
 }
