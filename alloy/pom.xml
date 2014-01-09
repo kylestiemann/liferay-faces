@@ -1,4 +1,5 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
@@ -119,5 +120,231 @@
 			<version>${project.version}</version>
 		</dependency>
 	</dependencies>
+
+	<properties>
+		<alloyui.version>2.0.0</alloyui.version>
+	</properties>
+
+	<profiles>
+		<profile>
+			<id>build-alloyui-docs</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>build-alloyui-docs</id>
+								<phase>initialize</phase>
+								<configuration>
+									<target>
+										<echo message="Getting alloy-ui-${alloyui.version}.zip..." />
+										<get src="https://github.com/liferay/alloy-ui/archive/${alloyui.version}.zip" dest="target/${alloyui.version}.zip" />
+										<echo message="Done getting alloy-ui-${alloyui.version}.zip." />
+										<echo message="Unzipping ${alloyui.version}.zip..." />
+										<unzip src="target/${alloyui.version}.zip" dest=".alloyui/alloy-build" />
+										<echo message="Done unzipping ${alloyui.version}.zip." />
+										<echo message="Initializing dependencies for alloy-ui-${alloyui.version}.zip..." />
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="sudo npm install -g grunt-cli shifter yogi yuidocjs phantomjs grover istanbul" />
+										</exec>
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="npm install" />
+										</exec>
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="grunt init" />
+										</exec>
+										<echo message="Done initializing dependencies for alloy-ui-${alloyui.version}.zip." />
+										<echo message="Building Docs for alloy-ui-${alloyui.version}.zip..." />
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="grunt api-build" />
+										</exec>
+										<echo message="Done building Docs for alloy-ui-${alloyui.version}.zip." />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.4.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>.alloyui</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>build-alloyui-docs-master</id>
+			<activation>
+				<property>
+					<name>alloyui.version</name>
+					<value>master</value>
+				</property>
+			</activation>
+			<properties>
+				<alloyui.version>master</alloyui.version>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>build-alloyui-docs-master</id>
+								<phase>initialize</phase>
+								<configuration>
+									<target>
+										<echo message="Getting alloy-ui-${alloyui.version}.zip..." />
+										<get src="https://github.com/liferay/alloy-ui/archive/${alloyui.version}.zip" dest="target/${alloyui.version}.zip" />
+										<echo message="Done getting alloy-ui-${alloyui.version}.zip." />
+										<echo message="Unzipping ${alloyui.version}.zip..." />
+										<unzip src="target/${alloyui.version}.zip" dest=".alloyui/alloy-build" />
+										<echo message="Done unzipping ${alloyui.version}.zip." />
+										<echo message="Initializing dependencies for alloy-ui-${alloyui.version}.zip..." />
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="sudo npm install -g grunt-cli shifter yogi yuidocjs phantomjs grover istanbul" />
+										</exec>
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="npm install" />
+										</exec>
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="grunt init" />
+										</exec>
+										<echo message="Done initializing dependencies for alloy-ui-${alloyui.version}.zip." />
+										<echo message="Building Docs for alloy-ui-${alloyui.version}.zip..." />
+										<exec executable="bash" dir=".alloyui/alloy-build/alloy-ui-${alloyui.version}/">
+											<arg value="-c" />
+											<arg value="grunt api" />
+										</exec>
+										<echo message="Done building Docs for alloy-ui-${alloyui.version}.zip." />
+									</target>
+								</configuration>
+								<goals>
+									<goal>run</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-clean-plugin</artifactId>
+						<version>2.4.1</version>
+						<configuration>
+							<filesets>
+								<fileset>
+									<directory>.alloyui</directory>
+								</fileset>
+							</filesets>
+						</configuration>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>generate-alloy</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.codehaus.mojo</groupId>
+						<artifactId>exec-maven-plugin</artifactId>
+						<version>1.2.1</version>
+						<executions>
+							<execution>
+								<goals>
+									<goal>java</goal>
+								</goals>
+								<id>generate-xml</id>
+								<phase>initialize</phase>
+								<configuration>
+									<includeProjectDependencies>false</includeProjectDependencies>
+									<includePluginDependencies>true</includePluginDependencies>
+									<mainClass>com.liferay.alloy.tools.transformer.AlloyDocsTransformer</mainClass>
+									<systemProperties>
+										<systemProperty>
+											<key>transformer.components.excluded</key>
+											<value></value>
+										</systemProperty>
+										<systemProperty>
+											<key>transformer.input.json</key>
+											<value>.alloyui/alloy-build/alloy-ui-${alloyui.version}/api/data.json</value>
+										</systemProperty>
+										<systemProperty>
+											<key>transformer.output.xml</key>
+											<value>target/alloy-generator/data.xml</value>
+										</systemProperty>
+									</systemProperties>
+									<executableDependency>
+										<groupId>com.liferay.alloy</groupId>
+										<artifactId>alloy-generator</artifactId>
+									</executableDependency>
+								</configuration>
+							</execution>
+							<execution>
+								<goals>
+									<goal>java</goal>
+								</goals>
+								<id>generate-alloy-tags</id>
+								<phase>generate-sources</phase>
+								<configuration>
+									<includeProjectDependencies>false</includeProjectDependencies>
+									<includePluginDependencies>true</includePluginDependencies>
+									<mainClass>com.liferay.alloy.tools.builder.FacesBuilder</mainClass>
+									<systemProperties>
+										<systemProperty>
+											<key>builder.components.definitions</key>
+											<value>target/alloy-generator/data.xml</value>
+										</systemProperty>
+										<systemProperty>
+											<key>builder.copyright.year</key>
+											<value>2013</value>
+										</systemProperty>
+										<systemProperty>
+											<key>builder.faces.output.dir</key>
+											<value>target/alloy-faces-source/src/main/java</value>
+										</systemProperty>
+										<systemProperty>
+											<key>builder.faces.version</key>
+											<value>3.2.4-SANPSHOT</value>
+										</systemProperty>
+									</systemProperties>
+									<executableDependency>
+										<groupId>com.liferay.alloy</groupId>
+										<artifactId>alloy-generator</artifactId>
+									</executableDependency>
+								</configuration>
+							</execution>
+						</executions>
+						<dependencies>
+							<dependency>
+								<groupId>com.liferay.alloy</groupId>
+								<artifactId>alloy-generator</artifactId>
+								<version>0.1.0</version>
+							</dependency>
+						</dependencies>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
 
 </project>
