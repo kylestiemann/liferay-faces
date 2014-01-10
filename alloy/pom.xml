@@ -302,7 +302,6 @@
 								<goals>
 									<goal>java</goal>
 								</goals>
-								<id>generate-alloy-tags</id>
 								<phase>generate-sources</phase>
 								<configuration>
 									<includeProjectDependencies>false</includeProjectDependencies>
@@ -310,21 +309,8 @@
 									<mainClass>com.liferay.alloy.tools.builder.FacesBuilder</mainClass>
 									<systemProperties>
 										<systemProperty>
-											<key>builder.components.definitions</key>
-											<value>target/alloy-generator/data.xml</value>
-										</systemProperty>
-										<systemProperty>
-											<key>builder.copyright.year</key>
-											<value>2013</value>
-										</systemProperty>
-										<systemProperty>
-											<key>builder.faces.output.dir</key>
-<!-- 											<value>target/alloy-faces-source/src/main/java</value> -->
-											<value>src/main/java</value>
-										</systemProperty>
-										<systemProperty>
-											<key>builder.faces.version</key>
-											<value>3.2.4-SANPSHOT</value>
+											<key>build-ext</key>
+											<value>generator.properties</value>
 										</systemProperty>
 									</systemProperties>
 									<executableDependency>
