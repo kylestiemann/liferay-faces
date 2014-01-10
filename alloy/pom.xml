@@ -280,16 +280,8 @@
 									<mainClass>com.liferay.alloy.tools.transformer.AlloyDocsTransformer</mainClass>
 									<systemProperties>
 										<systemProperty>
-											<key>transformer.components.excluded</key>
-											<value></value>
-										</systemProperty>
-										<systemProperty>
-											<key>transformer.input.json</key>
-											<value>.alloyui/alloy-build/alloy-ui-${alloyui.version}/api/data.json</value>
-										</systemProperty>
-										<systemProperty>
-											<key>transformer.output.xml</key>
-											<value>target/alloy-generator/data.xml</value>
+											<key>build-ext</key>
+											<value>generator.properties</value>
 										</systemProperty>
 									</systemProperties>
 									<executableDependency>
