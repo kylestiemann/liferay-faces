@@ -50,7 +50,8 @@ public abstract class TogglerRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, toggler);
 
@@ -58,19 +59,19 @@ public abstract class TogglerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAnimated(responseWriter, toggler);
-		responseWriter.write(StringPool.COMMA);
-		renderAnimating(responseWriter, toggler);
-		responseWriter.write(StringPool.COMMA);
-		renderBindDOMEvents(responseWriter, toggler);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, toggler);
-		responseWriter.write(StringPool.COMMA);
-		renderExpanded(responseWriter, toggler);
-		responseWriter.write(StringPool.COMMA);
-		renderHeader(responseWriter, toggler);
-		responseWriter.write(StringPool.COMMA);
-		renderTransition(responseWriter, toggler);
+		renderAnimated(bufferedResponseWriter, toggler);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAnimating(bufferedResponseWriter, toggler);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderBindDOMEvents(bufferedResponseWriter, toggler);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, toggler);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderExpanded(bufferedResponseWriter, toggler);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHeader(bufferedResponseWriter, toggler);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTransition(bufferedResponseWriter, toggler);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

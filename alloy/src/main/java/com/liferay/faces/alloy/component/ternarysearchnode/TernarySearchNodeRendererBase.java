@@ -50,7 +50,8 @@ public abstract class TernarySearchNodeRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, ternarySearchNode);
 
@@ -58,15 +59,15 @@ public abstract class TernarySearchNodeRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCharacter(responseWriter, ternarySearchNode);
-		responseWriter.write(StringPool.COMMA);
-		renderChild(responseWriter, ternarySearchNode);
-		responseWriter.write(StringPool.COMMA);
-		renderLargerNode(responseWriter, ternarySearchNode);
-		responseWriter.write(StringPool.COMMA);
-		renderSmallerNode(responseWriter, ternarySearchNode);
-		responseWriter.write(StringPool.COMMA);
-		renderWord(responseWriter, ternarySearchNode);
+		renderCharacter(bufferedResponseWriter, ternarySearchNode);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderChild(bufferedResponseWriter, ternarySearchNode);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLargerNode(bufferedResponseWriter, ternarySearchNode);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSmallerNode(bufferedResponseWriter, ternarySearchNode);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderWord(bufferedResponseWriter, ternarySearchNode);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

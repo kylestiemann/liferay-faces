@@ -50,7 +50,8 @@ public abstract class FormValidatorRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, formValidator);
 
@@ -58,41 +59,41 @@ public abstract class FormValidatorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderContainerErrorClass(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderContainerValidClass(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderErrorClass(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderExtractRules(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderFieldContainer(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderFieldStrings(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderLabelCssClass(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderMessageContainer(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderRules(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderSelectText(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderShowAllMessages(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderShowMessages(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderStackErrorContainer(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderValidClass(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderValidateOnBlur(responseWriter, formValidator);
-		responseWriter.write(StringPool.COMMA);
-		renderValidateOnInput(responseWriter, formValidator);
+		renderBoundingBox(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainerErrorClass(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainerValidClass(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderErrorClass(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderExtractRules(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFieldContainer(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFieldStrings(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabelCssClass(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMessageContainer(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRules(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelectText(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowAllMessages(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowMessages(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStackErrorContainer(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValidClass(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValidateOnBlur(bufferedResponseWriter, formValidator);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValidateOnInput(bufferedResponseWriter, formValidator);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, datePicker);
 
@@ -58,29 +59,29 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveInput(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderAutoHide(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderCalendar(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderDateSeparator(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderMask(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderPanes(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderPopover(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderPopoverCssClass(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderValueExtractor(responseWriter, datePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderValueFormatter(responseWriter, datePicker);
+		renderActiveInput(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAutoHide(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCalendar(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDateSeparator(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMask(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPanes(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPopover(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPopoverCssClass(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueExtractor(bufferedResponseWriter, datePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueFormatter(bufferedResponseWriter, datePicker);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

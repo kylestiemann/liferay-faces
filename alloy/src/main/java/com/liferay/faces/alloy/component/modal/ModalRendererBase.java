@@ -50,7 +50,8 @@ public abstract class ModalRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, modal);
 
@@ -58,15 +59,15 @@ public abstract class ModalRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderModalBodyContent(responseWriter, modal);
-		responseWriter.write(StringPool.COMMA);
-		renderDestroyOnHide(responseWriter, modal);
-		responseWriter.write(StringPool.COMMA);
-		renderDraggable(responseWriter, modal);
-		responseWriter.write(StringPool.COMMA);
-		renderResizable(responseWriter, modal);
-		responseWriter.write(StringPool.COMMA);
-		renderToolbars(responseWriter, modal);
+		renderModalBodyContent(bufferedResponseWriter, modal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDestroyOnHide(bufferedResponseWriter, modal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDraggable(bufferedResponseWriter, modal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderResizable(bufferedResponseWriter, modal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderToolbars(bufferedResponseWriter, modal);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

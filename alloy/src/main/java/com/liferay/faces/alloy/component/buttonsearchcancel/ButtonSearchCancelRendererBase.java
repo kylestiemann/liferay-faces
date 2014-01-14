@@ -50,7 +50,8 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, buttonSearchCancel);
 
@@ -58,15 +59,15 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderContainer(responseWriter, buttonSearchCancel);
-		responseWriter.write(StringPool.COMMA);
-		renderGutter(responseWriter, buttonSearchCancel);
-		responseWriter.write(StringPool.COMMA);
-		renderIconClass(responseWriter, buttonSearchCancel);
-		responseWriter.write(StringPool.COMMA);
-		renderTrigger(responseWriter, buttonSearchCancel);
-		responseWriter.write(StringPool.COMMA);
-		renderZIndex(responseWriter, buttonSearchCancel);
+		renderContainer(bufferedResponseWriter, buttonSearchCancel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderGutter(bufferedResponseWriter, buttonSearchCancel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIconClass(bufferedResponseWriter, buttonSearchCancel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTrigger(bufferedResponseWriter, buttonSearchCancel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderZIndex(bufferedResponseWriter, buttonSearchCancel);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

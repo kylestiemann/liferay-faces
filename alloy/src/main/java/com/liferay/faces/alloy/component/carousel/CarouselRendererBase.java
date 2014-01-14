@@ -50,7 +50,8 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, carousel);
 
@@ -58,25 +59,25 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveIndex(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderAnimationTime(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderIntervalTime(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderItemSelector(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderNodeMenu(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderNodeMenuItemSelector(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderPlaying(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, carousel);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, carousel);
+		renderActiveIndex(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAnimationTime(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIntervalTime(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderItemSelector(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNodeMenu(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNodeMenuItemSelector(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPlaying(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, carousel);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, carousel);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

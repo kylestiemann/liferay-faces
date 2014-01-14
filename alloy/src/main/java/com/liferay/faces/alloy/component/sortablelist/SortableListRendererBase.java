@@ -50,7 +50,8 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, sortableList);
 
@@ -58,23 +59,23 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDd(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderDropCondition(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderDropContainer(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderDropOn(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderHelper(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderNodes(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderPlaceholder(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderProxy(responseWriter, sortableList);
-		responseWriter.write(StringPool.COMMA);
-		renderSortCondition(responseWriter, sortableList);
+		renderDd(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDropCondition(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDropContainer(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDropOn(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHelper(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNodes(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPlaceholder(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderProxy(bufferedResponseWriter, sortableList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSortCondition(bufferedResponseWriter, sortableList);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

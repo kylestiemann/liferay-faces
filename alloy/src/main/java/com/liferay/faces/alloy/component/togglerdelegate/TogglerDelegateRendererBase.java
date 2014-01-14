@@ -50,7 +50,8 @@ public abstract class TogglerDelegateRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, togglerDelegate);
 
@@ -58,19 +59,19 @@ public abstract class TogglerDelegateRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAnimated(responseWriter, togglerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderCloseAllOnExpand(responseWriter, togglerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, togglerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, togglerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderExpanded(responseWriter, togglerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderHeader(responseWriter, togglerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderTransition(responseWriter, togglerDelegate);
+		renderAnimated(bufferedResponseWriter, togglerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCloseAllOnExpand(bufferedResponseWriter, togglerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, togglerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, togglerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderExpanded(bufferedResponseWriter, togglerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHeader(bufferedResponseWriter, togglerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTransition(bufferedResponseWriter, togglerDelegate);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

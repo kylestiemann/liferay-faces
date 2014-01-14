@@ -50,7 +50,8 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, thumbRating);
 
@@ -58,41 +59,41 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCanReset(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClasses(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderDefaultSelected(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderDisabled(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderElements(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderHiddenInput(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderInputName(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderLabel(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderLabelNode(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderSelectedIndex(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderShowTitle(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderSize(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderTitle(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, thumbRating);
-		responseWriter.write(StringPool.COMMA);
-		renderThumbratingValue(responseWriter, thumbRating);
+		renderCanReset(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClasses(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDefaultSelected(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDisabled(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderElements(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHiddenInput(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderInputName(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabel(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabelNode(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelectedIndex(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowTitle(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSize(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTitle(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, thumbRating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderThumbratingValue(bufferedResponseWriter, thumbRating);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

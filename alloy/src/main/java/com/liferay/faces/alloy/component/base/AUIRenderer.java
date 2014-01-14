@@ -6,7 +6,7 @@ import java.util.Map;
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-//import javax.faces.context.ResponseWriter;
+import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
@@ -104,4 +104,48 @@ public abstract class AUIRenderer extends Renderer {
 			ScriptDataUtil.append(scriptData, portletId, bufferedResponseWriter.toString(), getModule());
 		}
 	}
+
+	protected void renderArray(
+		ResponseWriter responseWriter, String attributeName,
+		Object attributeValue) throws IOException {
+
+		// TODO
+	}
+
+	protected void renderBoolean(
+		ResponseWriter responseWriter, String attributeName,
+		Object attributeValue) throws IOException {
+
+		responseWriter.write(attributeName);
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(String.valueOf(attributeValue));
+	}
+
+	protected void renderNumber(
+		ResponseWriter responseWriter, String attributeName,
+		Object attributeValue) throws IOException {
+
+		responseWriter.write(attributeName);
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(String.valueOf(attributeValue));
+	}
+
+	protected void renderObject(
+		ResponseWriter responseWriter, String attributeName,
+		Object attributeValue) throws IOException {
+
+		// TODO
+	}
+
+	protected void renderString(
+		ResponseWriter responseWriter, String attributeName,
+		Object attributeValue) throws IOException {
+
+		responseWriter.write(attributeName);
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.QUOTE);
+		responseWriter.write(String.valueOf(attributeValue));
+		responseWriter.write(StringPool.QUOTE);
+	}
+
 }

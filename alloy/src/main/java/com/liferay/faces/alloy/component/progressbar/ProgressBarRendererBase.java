@@ -50,7 +50,8 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, progressBar);
 
@@ -58,31 +59,31 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderHeight(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderLabel(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderMax(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderMin(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderOrientation(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderRatio(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderStep(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderTextNode(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, progressBar);
-		responseWriter.write(StringPool.COMMA);
-		renderProgressbarValue(responseWriter, progressBar);
+		renderCssClass(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHeight(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabel(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMax(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMin(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOrientation(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRatio(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStep(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTextNode(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, progressBar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderProgressbarValue(bufferedResponseWriter, progressBar);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

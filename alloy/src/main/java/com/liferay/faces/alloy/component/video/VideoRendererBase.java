@@ -50,7 +50,8 @@ public abstract class VideoRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, video);
 
@@ -58,25 +59,25 @@ public abstract class VideoRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderFixedAttributes(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderFlashVars(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderOgvUrl(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderPoster(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderSwfUrl(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderUrl(responseWriter, video);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, video);
+		renderCssClass(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFixedAttributes(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFlashVars(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOgvUrl(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPoster(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSwfUrl(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUrl(bufferedResponseWriter, video);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, video);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

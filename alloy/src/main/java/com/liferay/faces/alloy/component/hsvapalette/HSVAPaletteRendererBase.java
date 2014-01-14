@@ -50,7 +50,8 @@ public abstract class HSVAPaletteRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, hSVAPalette);
 
@@ -58,13 +59,13 @@ public abstract class HSVAPaletteRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderControls(responseWriter, hSVAPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderFieldValidator(responseWriter, hSVAPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderSelected(responseWriter, hSVAPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, hSVAPalette);
+		renderControls(bufferedResponseWriter, hSVAPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFieldValidator(bufferedResponseWriter, hSVAPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelected(bufferedResponseWriter, hSVAPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, hSVAPalette);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

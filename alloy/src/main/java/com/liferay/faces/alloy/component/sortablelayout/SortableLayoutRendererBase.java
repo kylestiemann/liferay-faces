@@ -50,7 +50,8 @@ public abstract class SortableLayoutRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, sortableLayout);
 
@@ -58,23 +59,23 @@ public abstract class SortableLayoutRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDelegateConfig(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderDragNodes(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderDropContainer(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderDropNodes(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderGroups(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderLazyStart(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderPlaceholder(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderProxy(responseWriter, sortableLayout);
-		responseWriter.write(StringPool.COMMA);
-		renderProxyNode(responseWriter, sortableLayout);
+		renderDelegateConfig(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDragNodes(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDropContainer(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDropNodes(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderGroups(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLazyStart(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPlaceholder(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderProxy(bufferedResponseWriter, sortableLayout);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderProxyNode(bufferedResponseWriter, sortableLayout);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

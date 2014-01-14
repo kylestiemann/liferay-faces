@@ -50,7 +50,8 @@ public abstract class TooltipDelegateRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, tooltipDelegate);
 
@@ -58,19 +59,19 @@ public abstract class TooltipDelegateRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(responseWriter, tooltipDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, tooltipDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderDuration(responseWriter, tooltipDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderOpacity(responseWriter, tooltipDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderTriggerHideEvent(responseWriter, tooltipDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderTriggerShowEvent(responseWriter, tooltipDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderZIndex(responseWriter, tooltipDelegate);
+		renderAlign(bufferedResponseWriter, tooltipDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, tooltipDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDuration(bufferedResponseWriter, tooltipDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOpacity(bufferedResponseWriter, tooltipDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTriggerHideEvent(bufferedResponseWriter, tooltipDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTriggerShowEvent(bufferedResponseWriter, tooltipDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderZIndex(bufferedResponseWriter, tooltipDelegate);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

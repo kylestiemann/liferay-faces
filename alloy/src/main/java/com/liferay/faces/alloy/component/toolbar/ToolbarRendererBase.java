@@ -50,7 +50,8 @@ public abstract class ToolbarRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, toolbar);
 
@@ -58,17 +59,17 @@ public abstract class ToolbarRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderToolbarChildren(responseWriter, toolbar);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, toolbar);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, toolbar);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, toolbar);
-		responseWriter.write(StringPool.COMMA);
-		renderToolbarRenderer(responseWriter, toolbar);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, toolbar);
+		renderToolbarChildren(bufferedResponseWriter, toolbar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, toolbar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, toolbar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, toolbar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderToolbarRenderer(bufferedResponseWriter, toolbar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, toolbar);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class AriaRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, aria);
 
@@ -58,17 +59,17 @@ public abstract class AriaRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAttributeNode(responseWriter, aria);
-		responseWriter.write(StringPool.COMMA);
-		renderAttributeValueFormat(responseWriter, aria);
-		responseWriter.write(StringPool.COMMA);
-		renderAriaAttributes(responseWriter, aria);
-		responseWriter.write(StringPool.COMMA);
-		renderRoleName(responseWriter, aria);
-		responseWriter.write(StringPool.COMMA);
-		renderRoleNode(responseWriter, aria);
-		responseWriter.write(StringPool.COMMA);
-		renderValidateW3C(responseWriter, aria);
+		renderAttributeNode(bufferedResponseWriter, aria);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAttributeValueFormat(bufferedResponseWriter, aria);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAriaAttributes(bufferedResponseWriter, aria);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRoleName(bufferedResponseWriter, aria);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRoleNode(bufferedResponseWriter, aria);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValidateW3C(bufferedResponseWriter, aria);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

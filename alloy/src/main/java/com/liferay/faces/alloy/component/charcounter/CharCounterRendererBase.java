@@ -50,7 +50,8 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, charCounter);
 
@@ -58,11 +59,11 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCounter(responseWriter, charCounter);
-		responseWriter.write(StringPool.COMMA);
-		renderInput(responseWriter, charCounter);
-		responseWriter.write(StringPool.COMMA);
-		renderMaxLength(responseWriter, charCounter);
+		renderCounter(bufferedResponseWriter, charCounter);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderInput(bufferedResponseWriter, charCounter);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMaxLength(bufferedResponseWriter, charCounter);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

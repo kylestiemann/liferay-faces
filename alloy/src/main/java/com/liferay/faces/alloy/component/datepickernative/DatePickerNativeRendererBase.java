@@ -50,7 +50,8 @@ public abstract class DatePickerNativeRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, datePickerNative);
 
@@ -58,23 +59,23 @@ public abstract class DatePickerNativeRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveInput(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderDateSeparator(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderMask(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderNativeMask(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderNativeType(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderValueExtractor(responseWriter, datePickerNative);
-		responseWriter.write(StringPool.COMMA);
-		renderValueFormatter(responseWriter, datePickerNative);
+		renderActiveInput(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDateSeparator(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMask(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNativeMask(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNativeType(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueExtractor(bufferedResponseWriter, datePickerNative);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueFormatter(bufferedResponseWriter, datePickerNative);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

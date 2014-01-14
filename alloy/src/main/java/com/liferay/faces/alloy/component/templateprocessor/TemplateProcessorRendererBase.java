@@ -50,7 +50,8 @@ public abstract class TemplateProcessorRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, templateProcessor);
 
@@ -58,11 +59,11 @@ public abstract class TemplateProcessorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(responseWriter, templateProcessor);
-		responseWriter.write(StringPool.COMMA);
-		renderHost(responseWriter, templateProcessor);
-		responseWriter.write(StringPool.COMMA);
-		renderVariables(responseWriter, templateProcessor);
+		renderDirectives(bufferedResponseWriter, templateProcessor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHost(bufferedResponseWriter, templateProcessor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVariables(bufferedResponseWriter, templateProcessor);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

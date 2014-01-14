@@ -50,7 +50,8 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, treeData);
 
@@ -58,11 +59,11 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreedataChildren(responseWriter, treeData);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, treeData);
-		responseWriter.write(StringPool.COMMA);
-		renderIndex(responseWriter, treeData);
+		renderTreedataChildren(bufferedResponseWriter, treeData);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, treeData);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIndex(bufferedResponseWriter, treeData);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

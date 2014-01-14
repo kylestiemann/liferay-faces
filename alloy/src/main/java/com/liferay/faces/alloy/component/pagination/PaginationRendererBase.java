@@ -50,7 +50,8 @@ public abstract class PaginationRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, pagination);
 
@@ -58,27 +59,27 @@ public abstract class PaginationRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCircular(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderFormatter(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderItems(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderOffset(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderPaginationPage(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderTotal(responseWriter, pagination);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, pagination);
+		renderCircular(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFormatter(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderItems(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOffset(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPaginationPage(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTotal(bufferedResponseWriter, pagination);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, pagination);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

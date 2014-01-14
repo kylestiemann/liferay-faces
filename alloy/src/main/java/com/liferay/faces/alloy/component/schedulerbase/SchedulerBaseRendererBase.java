@@ -50,7 +50,8 @@ public abstract class SchedulerBaseRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, schedulerBase);
 
@@ -58,31 +59,31 @@ public abstract class SchedulerBaseRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveView(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderDate(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderEventRecorder(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderFirstDayOfWeek(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderNavigationDateFormatter(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderTodayDate(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderViewDate(responseWriter, schedulerBase);
-		responseWriter.write(StringPool.COMMA);
-		renderViews(responseWriter, schedulerBase);
+		renderActiveView(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDate(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderEventRecorder(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFirstDayOfWeek(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNavigationDateFormatter(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTodayDate(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderViewDate(bufferedResponseWriter, schedulerBase);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderViews(bufferedResponseWriter, schedulerBase);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

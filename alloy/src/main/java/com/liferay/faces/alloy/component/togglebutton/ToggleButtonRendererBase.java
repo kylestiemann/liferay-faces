@@ -50,7 +50,8 @@ public abstract class ToggleButtonRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, toggleButton);
 
@@ -58,15 +59,15 @@ public abstract class ToggleButtonRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(responseWriter, toggleButton);
-		responseWriter.write(StringPool.COMMA);
-		renderIcon(responseWriter, toggleButton);
-		responseWriter.write(StringPool.COMMA);
-		renderIconAlign(responseWriter, toggleButton);
-		responseWriter.write(StringPool.COMMA);
-		renderIconElement(responseWriter, toggleButton);
-		responseWriter.write(StringPool.COMMA);
-		renderPrimary(responseWriter, toggleButton);
+		renderCssClass(bufferedResponseWriter, toggleButton);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIcon(bufferedResponseWriter, toggleButton);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIconAlign(bufferedResponseWriter, toggleButton);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIconElement(bufferedResponseWriter, toggleButton);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPrimary(bufferedResponseWriter, toggleButton);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

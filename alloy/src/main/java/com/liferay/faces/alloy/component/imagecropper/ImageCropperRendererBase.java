@@ -50,7 +50,8 @@ public abstract class ImageCropperRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, imageCropper);
 
@@ -58,33 +59,33 @@ public abstract class ImageCropperRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCropHeight(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderCropWidth(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderMinHeight(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderMinWidth(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderMovable(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderPreserveRatio(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderRegion(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderResizable(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderX(responseWriter, imageCropper);
-		responseWriter.write(StringPool.COMMA);
-		renderY(responseWriter, imageCropper);
+		renderCropHeight(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCropWidth(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMinHeight(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMinWidth(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMovable(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPreserveRatio(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRegion(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderResizable(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderX(bufferedResponseWriter, imageCropper);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderY(bufferedResponseWriter, imageCropper);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
