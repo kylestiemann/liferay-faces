@@ -50,7 +50,8 @@ public abstract class HSVAPaletteModalRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, hSVAPaletteModal);
 
@@ -58,19 +59,19 @@ public abstract class HSVAPaletteModalRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderHsvapalettemodalBodyContent(responseWriter, hSVAPaletteModal);
-		responseWriter.write(StringPool.COMMA);
-		renderDestroyOnHide(responseWriter, hSVAPaletteModal);
-		responseWriter.write(StringPool.COMMA);
-		renderDraggable(responseWriter, hSVAPaletteModal);
-		responseWriter.write(StringPool.COMMA);
-		renderHsv(responseWriter, hSVAPaletteModal);
-		responseWriter.write(StringPool.COMMA);
-		renderResizable(responseWriter, hSVAPaletteModal);
-		responseWriter.write(StringPool.COMMA);
-		renderSelected(responseWriter, hSVAPaletteModal);
-		responseWriter.write(StringPool.COMMA);
-		renderToolbars(responseWriter, hSVAPaletteModal);
+		renderHsvapalettemodalBodyContent(bufferedResponseWriter, hSVAPaletteModal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDestroyOnHide(bufferedResponseWriter, hSVAPaletteModal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDraggable(bufferedResponseWriter, hSVAPaletteModal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHsv(bufferedResponseWriter, hSVAPaletteModal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderResizable(bufferedResponseWriter, hSVAPaletteModal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelected(bufferedResponseWriter, hSVAPaletteModal);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderToolbars(bufferedResponseWriter, hSVAPaletteModal);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

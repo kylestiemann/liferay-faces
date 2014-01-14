@@ -50,7 +50,8 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, treeViewDD);
 
@@ -58,31 +59,31 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreeviewddChildren(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderDropAction(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderHelper(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderIndex(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderLastSelected(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderLastY(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderLazyLoad(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderNode(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderNodeContent(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderScrollDelay(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderSelectOnToggle(responseWriter, treeViewDD);
-		responseWriter.write(StringPool.COMMA);
-		renderType(responseWriter, treeViewDD);
+		renderTreeviewddChildren(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDropAction(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHelper(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIndex(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLastSelected(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLastY(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLazyLoad(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNode(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNodeContent(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderScrollDelay(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelectOnToggle(bufferedResponseWriter, treeViewDD);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderType(bufferedResponseWriter, treeViewDD);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

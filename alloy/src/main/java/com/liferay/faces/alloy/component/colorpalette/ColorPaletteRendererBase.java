@@ -50,7 +50,8 @@ public abstract class ColorPaletteRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, colorPalette);
 
@@ -58,17 +59,17 @@ public abstract class ColorPaletteRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderColumns(responseWriter, colorPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderContainerNode(responseWriter, colorPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderFormatter(responseWriter, colorPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderItems(responseWriter, colorPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderSelected(responseWriter, colorPalette);
-		responseWriter.write(StringPool.COMMA);
-		renderToggleSelection(responseWriter, colorPalette);
+		renderColumns(bufferedResponseWriter, colorPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainerNode(bufferedResponseWriter, colorPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFormatter(bufferedResponseWriter, colorPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderItems(bufferedResponseWriter, colorPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelected(bufferedResponseWriter, colorPalette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderToggleSelection(bufferedResponseWriter, colorPalette);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

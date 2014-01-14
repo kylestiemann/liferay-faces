@@ -50,7 +50,8 @@ public abstract class AudioRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, audio);
 
@@ -58,29 +59,29 @@ public abstract class AudioRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderFixedAttributes(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderFlashVars(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderOggUrl(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderSwfHeight(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderSwfUrl(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderSwfWidth(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderType(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderUrl(responseWriter, audio);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, audio);
+		renderCssClass(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFixedAttributes(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFlashVars(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOggUrl(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSwfHeight(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSwfUrl(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSwfWidth(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderType(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUrl(bufferedResponseWriter, audio);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, audio);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

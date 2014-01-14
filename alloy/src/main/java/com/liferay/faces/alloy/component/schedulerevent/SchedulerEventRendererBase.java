@@ -50,7 +50,8 @@ public abstract class SchedulerEventRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, schedulerEvent);
 
@@ -58,35 +59,35 @@ public abstract class SchedulerEventRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAllDay(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderColor(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderColorBrightnessFactor(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderColorSaturationFactor(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderDisabled(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderEndDate(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderMeeting(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderNode(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderReminder(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderRepeated(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderScheduler(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderStartDate(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderTitleDateFormat(responseWriter, schedulerEvent);
-		responseWriter.write(StringPool.COMMA);
-		renderVisible(responseWriter, schedulerEvent);
+		renderAllDay(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderColor(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderColorBrightnessFactor(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderColorSaturationFactor(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDisabled(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderEndDate(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMeeting(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNode(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderReminder(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRepeated(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderScheduler(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStartDate(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTitleDateFormat(bufferedResponseWriter, schedulerEvent);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVisible(bufferedResponseWriter, schedulerEvent);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

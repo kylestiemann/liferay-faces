@@ -50,7 +50,8 @@ public abstract class FormBuilderAvailableFieldRendererBase extends AUIRenderer 
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, formBuilderAvailableField);
 
@@ -58,37 +59,37 @@ public abstract class FormBuilderAvailableFieldRendererBase extends AUIRenderer 
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDraggable(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderHiddenAttributes(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderIconClass(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderFormbuilderavailablefieldId(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderLabel(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderName(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderNode(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderOptions(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderPredefinedValue(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderReadOnlyAttributes(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderRequired(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderShowLabel(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderTip(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderType(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderUnique(responseWriter, formBuilderAvailableField);
-		responseWriter.write(StringPool.COMMA);
-		renderWidth(responseWriter, formBuilderAvailableField);
+		renderDraggable(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHiddenAttributes(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIconClass(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFormbuilderavailablefieldId(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabel(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderName(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNode(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOptions(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPredefinedValue(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderReadOnlyAttributes(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRequired(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowLabel(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTip(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderType(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUnique(bufferedResponseWriter, formBuilderAvailableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderWidth(bufferedResponseWriter, formBuilderAvailableField);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

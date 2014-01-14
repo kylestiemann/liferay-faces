@@ -50,7 +50,8 @@ public abstract class ColorPickerPopoverRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, colorPickerPopover);
 
@@ -58,35 +59,35 @@ public abstract class ColorPickerPopoverRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderColorpickerpopoverBodyContent(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderColor(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderColorPalette(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderCurrentTrigger(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderDefaultColor(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderHsvPalette(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderRecentColors(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderRenderColorPalette(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderRenderHSVPalette(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderTrigger(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderTriggerEvent(responseWriter, colorPickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderVisible(responseWriter, colorPickerPopover);
+		renderAlign(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderColorpickerpopoverBodyContent(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderColor(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderColorPalette(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCurrentTrigger(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDefaultColor(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHsvPalette(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRecentColors(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRenderColorPalette(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRenderHSVPalette(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTrigger(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTriggerEvent(bufferedResponseWriter, colorPickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVisible(bufferedResponseWriter, colorPickerPopover);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, aceEditor);
 
@@ -58,25 +59,25 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderHeight(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderHighlightActiveLine(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderMode(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderReadOnly(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderShowPrintMargin(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderTabSize(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderUseSoftTabs(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderUseWrapMode(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderAceeditorValue(responseWriter, aceEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderWidth(responseWriter, aceEditor);
+		renderHeight(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHighlightActiveLine(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMode(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderReadOnly(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowPrintMargin(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTabSize(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseSoftTabs(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseWrapMode(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAceeditorValue(bufferedResponseWriter, aceEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderWidth(bufferedResponseWriter, aceEditor);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class FreemarkerRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, freemarker);
 
@@ -58,15 +59,15 @@ public abstract class FreemarkerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(responseWriter, freemarker);
-		responseWriter.write(StringPool.COMMA);
-		renderDirectivesMatcher(responseWriter, freemarker);
-		responseWriter.write(StringPool.COMMA);
-		renderHost(responseWriter, freemarker);
-		responseWriter.write(StringPool.COMMA);
-		renderVariables(responseWriter, freemarker);
-		responseWriter.write(StringPool.COMMA);
-		renderVariablesMatcher(responseWriter, freemarker);
+		renderDirectives(bufferedResponseWriter, freemarker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDirectivesMatcher(bufferedResponseWriter, freemarker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHost(bufferedResponseWriter, freemarker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVariables(bufferedResponseWriter, freemarker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVariablesMatcher(bufferedResponseWriter, freemarker);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

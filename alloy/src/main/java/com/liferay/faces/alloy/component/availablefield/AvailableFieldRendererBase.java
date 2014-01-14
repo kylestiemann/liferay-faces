@@ -50,7 +50,8 @@ public abstract class AvailableFieldRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, availableField);
 
@@ -58,17 +59,17 @@ public abstract class AvailableFieldRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDraggable(responseWriter, availableField);
-		responseWriter.write(StringPool.COMMA);
-		renderIconClass(responseWriter, availableField);
-		responseWriter.write(StringPool.COMMA);
-		renderAvailablefieldId(responseWriter, availableField);
-		responseWriter.write(StringPool.COMMA);
-		renderLabel(responseWriter, availableField);
-		responseWriter.write(StringPool.COMMA);
-		renderNode(responseWriter, availableField);
-		responseWriter.write(StringPool.COMMA);
-		renderType(responseWriter, availableField);
+		renderDraggable(bufferedResponseWriter, availableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIconClass(bufferedResponseWriter, availableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAvailablefieldId(bufferedResponseWriter, availableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabel(bufferedResponseWriter, availableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNode(bufferedResponseWriter, availableField);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderType(bufferedResponseWriter, availableField);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

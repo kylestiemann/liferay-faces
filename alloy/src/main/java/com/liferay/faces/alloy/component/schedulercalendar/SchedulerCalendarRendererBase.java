@@ -50,7 +50,8 @@ public abstract class SchedulerCalendarRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, schedulerCalendar);
 
@@ -58,17 +59,17 @@ public abstract class SchedulerCalendarRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderColor(responseWriter, schedulerCalendar);
-		responseWriter.write(StringPool.COMMA);
-		renderDisabled(responseWriter, schedulerCalendar);
-		responseWriter.write(StringPool.COMMA);
-		renderName(responseWriter, schedulerCalendar);
-		responseWriter.write(StringPool.COMMA);
-		renderPalette(responseWriter, schedulerCalendar);
-		responseWriter.write(StringPool.COMMA);
-		renderScheduler(responseWriter, schedulerCalendar);
-		responseWriter.write(StringPool.COMMA);
-		renderVisible(responseWriter, schedulerCalendar);
+		renderColor(bufferedResponseWriter, schedulerCalendar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDisabled(bufferedResponseWriter, schedulerCalendar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderName(bufferedResponseWriter, schedulerCalendar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPalette(bufferedResponseWriter, schedulerCalendar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderScheduler(bufferedResponseWriter, schedulerCalendar);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVisible(bufferedResponseWriter, schedulerCalendar);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

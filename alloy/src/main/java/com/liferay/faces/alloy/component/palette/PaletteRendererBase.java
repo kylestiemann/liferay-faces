@@ -50,7 +50,8 @@ public abstract class PaletteRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, palette);
 
@@ -58,17 +59,17 @@ public abstract class PaletteRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderColumns(responseWriter, palette);
-		responseWriter.write(StringPool.COMMA);
-		renderContainerNode(responseWriter, palette);
-		responseWriter.write(StringPool.COMMA);
-		renderFormatter(responseWriter, palette);
-		responseWriter.write(StringPool.COMMA);
-		renderItems(responseWriter, palette);
-		responseWriter.write(StringPool.COMMA);
-		renderSelected(responseWriter, palette);
-		responseWriter.write(StringPool.COMMA);
-		renderToggleSelection(responseWriter, palette);
+		renderColumns(bufferedResponseWriter, palette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainerNode(bufferedResponseWriter, palette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFormatter(bufferedResponseWriter, palette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderItems(bufferedResponseWriter, palette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelected(bufferedResponseWriter, palette);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderToggleSelection(bufferedResponseWriter, palette);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class DataTableHighlightRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, dataTableHighlight);
 
@@ -58,17 +59,17 @@ public abstract class DataTableHighlightRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveBorderWidth(responseWriter, dataTableHighlight);
-		responseWriter.write(StringPool.COMMA);
-		renderHighlightRange(responseWriter, dataTableHighlight);
-		responseWriter.write(StringPool.COMMA);
-		renderOverlayActiveNode(responseWriter, dataTableHighlight);
-		responseWriter.write(StringPool.COMMA);
-		renderOverlayNode(responseWriter, dataTableHighlight);
-		responseWriter.write(StringPool.COMMA);
-		renderRangeBorderWidth(responseWriter, dataTableHighlight);
-		responseWriter.write(StringPool.COMMA);
-		renderType(responseWriter, dataTableHighlight);
+		renderActiveBorderWidth(bufferedResponseWriter, dataTableHighlight);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHighlightRange(bufferedResponseWriter, dataTableHighlight);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOverlayActiveNode(bufferedResponseWriter, dataTableHighlight);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOverlayNode(bufferedResponseWriter, dataTableHighlight);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRangeBorderWidth(bufferedResponseWriter, dataTableHighlight);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderType(bufferedResponseWriter, dataTableHighlight);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

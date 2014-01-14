@@ -50,7 +50,8 @@ public abstract class TextCellEditorRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, textCellEditor);
 
@@ -58,33 +59,33 @@ public abstract class TextCellEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderEditable(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderElementName(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderFooterContent(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderHideOnSave(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderInputFormatter(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderOutputFormatter(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderShowToolbar(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderTabIndex(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderToolbar(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderUnescapeValue(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderValidator(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderTextcelleditorValue(responseWriter, textCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderVisible(responseWriter, textCellEditor);
+		renderEditable(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderElementName(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFooterContent(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideOnSave(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderInputFormatter(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOutputFormatter(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowToolbar(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTabIndex(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderToolbar(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUnescapeValue(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValidator(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTextcelleditorValue(bufferedResponseWriter, textCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVisible(bufferedResponseWriter, textCellEditor);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

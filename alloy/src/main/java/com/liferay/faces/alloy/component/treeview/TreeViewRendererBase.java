@@ -50,7 +50,8 @@ public abstract class TreeViewRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, treeView);
 
@@ -58,19 +59,19 @@ public abstract class TreeViewRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreeviewChildren(responseWriter, treeView);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, treeView);
-		responseWriter.write(StringPool.COMMA);
-		renderIndex(responseWriter, treeView);
-		responseWriter.write(StringPool.COMMA);
-		renderLastSelected(responseWriter, treeView);
-		responseWriter.write(StringPool.COMMA);
-		renderLazyLoad(responseWriter, treeView);
-		responseWriter.write(StringPool.COMMA);
-		renderSelectOnToggle(responseWriter, treeView);
-		responseWriter.write(StringPool.COMMA);
-		renderType(responseWriter, treeView);
+		renderTreeviewChildren(bufferedResponseWriter, treeView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, treeView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIndex(bufferedResponseWriter, treeView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLastSelected(bufferedResponseWriter, treeView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLazyLoad(bufferedResponseWriter, treeView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelectOnToggle(bufferedResponseWriter, treeView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderType(bufferedResponseWriter, treeView);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

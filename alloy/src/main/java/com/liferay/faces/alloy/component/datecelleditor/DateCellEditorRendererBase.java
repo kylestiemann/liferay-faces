@@ -50,7 +50,8 @@ public abstract class DateCellEditorRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, dateCellEditor);
 
@@ -58,15 +59,15 @@ public abstract class DateCellEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDatecelleditorBodyContent(responseWriter, dateCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderCalendar(responseWriter, dateCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderDateFormat(responseWriter, dateCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderInputFormatter(responseWriter, dateCellEditor);
-		responseWriter.write(StringPool.COMMA);
-		renderOutputFormatter(responseWriter, dateCellEditor);
+		renderDatecelleditorBodyContent(bufferedResponseWriter, dateCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCalendar(bufferedResponseWriter, dateCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDateFormat(bufferedResponseWriter, dateCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderInputFormatter(bufferedResponseWriter, dateCellEditor);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderOutputFormatter(bufferedResponseWriter, dateCellEditor);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

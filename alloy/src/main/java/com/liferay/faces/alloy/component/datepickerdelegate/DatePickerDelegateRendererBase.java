@@ -50,7 +50,8 @@ public abstract class DatePickerDelegateRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, datePickerDelegate);
 
@@ -58,19 +59,19 @@ public abstract class DatePickerDelegateRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveInput(responseWriter, datePickerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, datePickerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, datePickerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderDateSeparator(responseWriter, datePickerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderMask(responseWriter, datePickerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderValueExtractor(responseWriter, datePickerDelegate);
-		responseWriter.write(StringPool.COMMA);
-		renderValueFormatter(responseWriter, datePickerDelegate);
+		renderActiveInput(bufferedResponseWriter, datePickerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, datePickerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, datePickerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDateSeparator(bufferedResponseWriter, datePickerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMask(bufferedResponseWriter, datePickerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueExtractor(bufferedResponseWriter, datePickerDelegate);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueFormatter(bufferedResponseWriter, datePickerDelegate);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

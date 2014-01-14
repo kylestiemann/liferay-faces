@@ -50,7 +50,8 @@ public abstract class DataTableSelectionRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, dataTableSelection);
 
@@ -58,15 +59,15 @@ public abstract class DataTableSelectionRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveCell(responseWriter, dataTableSelection);
-		responseWriter.write(StringPool.COMMA);
-		renderActiveCoord(responseWriter, dataTableSelection);
-		responseWriter.write(StringPool.COMMA);
-		renderActiveRow(responseWriter, dataTableSelection);
-		responseWriter.write(StringPool.COMMA);
-		renderSelection(responseWriter, dataTableSelection);
-		responseWriter.write(StringPool.COMMA);
-		renderTabIndex(responseWriter, dataTableSelection);
+		renderActiveCell(bufferedResponseWriter, dataTableSelection);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderActiveCoord(bufferedResponseWriter, dataTableSelection);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderActiveRow(bufferedResponseWriter, dataTableSelection);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelection(bufferedResponseWriter, dataTableSelection);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTabIndex(bufferedResponseWriter, dataTableSelection);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

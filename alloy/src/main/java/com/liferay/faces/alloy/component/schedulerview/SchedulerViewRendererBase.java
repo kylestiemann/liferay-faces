@@ -50,7 +50,8 @@ public abstract class SchedulerViewRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, schedulerView);
 
@@ -58,37 +59,37 @@ public abstract class SchedulerViewRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderSchedulerviewBodyContent(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderFilterFn(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderHeight(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderIsoTime(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderName(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderNavigationDateFormatter(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderNextDate(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderPrevDate(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderScheduler(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderScrollable(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderTriggerNode(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, schedulerView);
-		responseWriter.write(StringPool.COMMA);
-		renderVisible(responseWriter, schedulerView);
+		renderSchedulerviewBodyContent(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderFilterFn(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHeight(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderIsoTime(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderName(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNavigationDateFormatter(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderNextDate(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPrevDate(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderScheduler(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderScrollable(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTriggerNode(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, schedulerView);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVisible(bufferedResponseWriter, schedulerView);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

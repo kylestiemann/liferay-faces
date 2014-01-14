@@ -50,7 +50,8 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, fieldSupport);
 
@@ -58,9 +59,9 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderFields(responseWriter, fieldSupport);
-		responseWriter.write(StringPool.COMMA);
-		renderMaxFields(responseWriter, fieldSupport);
+		renderFields(bufferedResponseWriter, fieldSupport);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMaxFields(bufferedResponseWriter, fieldSupport);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

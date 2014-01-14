@@ -50,7 +50,8 @@ public abstract class TimePickerRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, timePicker);
 
@@ -58,29 +59,29 @@ public abstract class TimePickerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveInput(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderAutoHide(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderAutocomplete(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderContainer(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderContent(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderDateSeparator(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderMask(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderPopover(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderPopoverCssClass(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderValueExtractor(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderValueFormatter(responseWriter, timePicker);
-		responseWriter.write(StringPool.COMMA);
-		renderTimepickerValues(responseWriter, timePicker);
+		renderActiveInput(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAutoHide(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderAutocomplete(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContainer(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderContent(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDateSeparator(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderMask(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPopover(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPopoverCssClass(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueExtractor(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderValueFormatter(bufferedResponseWriter, timePicker);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTimepickerValues(bufferedResponseWriter, timePicker);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

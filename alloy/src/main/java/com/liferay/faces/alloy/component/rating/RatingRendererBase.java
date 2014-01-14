@@ -50,7 +50,8 @@ public abstract class RatingRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, rating);
 
@@ -58,41 +59,41 @@ public abstract class RatingRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCanReset(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClass(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderCssClasses(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderDefaultSelected(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderDisabled(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderElements(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderHiddenInput(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderHideClass(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderInputName(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderLabel(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderLabelNode(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderRender(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderSelectedIndex(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderShowTitle(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderSize(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderTitle(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderUseARIA(responseWriter, rating);
-		responseWriter.write(StringPool.COMMA);
-		renderRatingValue(responseWriter, rating);
+		renderCanReset(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClass(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderCssClasses(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDefaultSelected(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDisabled(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderElements(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHiddenInput(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHideClass(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderInputName(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabel(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLabelNode(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRender(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelectedIndex(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderShowTitle(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSize(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderTitle(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderUseARIA(bufferedResponseWriter, rating);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderRatingValue(bufferedResponseWriter, rating);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class PropertyListRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, propertyList);
 
@@ -58,15 +59,15 @@ public abstract class PropertyListRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderColumns(responseWriter, propertyList);
-		responseWriter.write(StringPool.COMMA);
-		renderEditEvent(responseWriter, propertyList);
-		responseWriter.write(StringPool.COMMA);
-		renderScrollable(responseWriter, propertyList);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, propertyList);
-		responseWriter.write(StringPool.COMMA);
-		renderWidth(responseWriter, propertyList);
+		renderColumns(bufferedResponseWriter, propertyList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderEditEvent(bufferedResponseWriter, propertyList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderScrollable(bufferedResponseWriter, propertyList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, propertyList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderWidth(bufferedResponseWriter, propertyList);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

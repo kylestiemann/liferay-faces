@@ -50,7 +50,8 @@ public abstract class AutoCompleteListRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, autoCompleteList);
 
@@ -58,17 +59,17 @@ public abstract class AutoCompleteListRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderHost(responseWriter, autoCompleteList);
-		responseWriter.write(StringPool.COMMA);
-		renderListNode(responseWriter, autoCompleteList);
-		responseWriter.write(StringPool.COMMA);
-		renderLoadingMessage(responseWriter, autoCompleteList);
-		responseWriter.write(StringPool.COMMA);
-		renderResults(responseWriter, autoCompleteList);
-		responseWriter.write(StringPool.COMMA);
-		renderSelectedEntry(responseWriter, autoCompleteList);
-		responseWriter.write(StringPool.COMMA);
-		renderStrings(responseWriter, autoCompleteList);
+		renderHost(bufferedResponseWriter, autoCompleteList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderListNode(bufferedResponseWriter, autoCompleteList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderLoadingMessage(bufferedResponseWriter, autoCompleteList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderResults(bufferedResponseWriter, autoCompleteList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderSelectedEntry(bufferedResponseWriter, autoCompleteList);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderStrings(bufferedResponseWriter, autoCompleteList);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

@@ -50,7 +50,8 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, velocity);
 
@@ -58,15 +59,15 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(responseWriter, velocity);
-		responseWriter.write(StringPool.COMMA);
-		renderDirectivesMatcher(responseWriter, velocity);
-		responseWriter.write(StringPool.COMMA);
-		renderHost(responseWriter, velocity);
-		responseWriter.write(StringPool.COMMA);
-		renderVariables(responseWriter, velocity);
-		responseWriter.write(StringPool.COMMA);
-		renderVariablesMatcher(responseWriter, velocity);
+		renderDirectives(bufferedResponseWriter, velocity);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderDirectivesMatcher(bufferedResponseWriter, velocity);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderHost(bufferedResponseWriter, velocity);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVariables(bufferedResponseWriter, velocity);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderVariablesMatcher(bufferedResponseWriter, velocity);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);

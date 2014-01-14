@@ -50,7 +50,8 @@ public abstract class DatePickerPopoverRendererBase extends AUIRenderer {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
+		facesContext.setResponseWriter(bufferedResponseWriter);
 
 		beginJavaScript(facesContext, datePickerPopover);
 
@@ -58,11 +59,11 @@ public abstract class DatePickerPopoverRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAutoHide(responseWriter, datePickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderPopover(responseWriter, datePickerPopover);
-		responseWriter.write(StringPool.COMMA);
-		renderPopoverCssClass(responseWriter, datePickerPopover);
+		renderAutoHide(bufferedResponseWriter, datePickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPopover(bufferedResponseWriter, datePickerPopover);
+		bufferedResponseWriter.write(StringPool.COMMA);
+		renderPopoverCssClass(bufferedResponseWriter, datePickerPopover);
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
