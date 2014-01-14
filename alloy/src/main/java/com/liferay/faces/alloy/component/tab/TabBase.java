@@ -25,11 +25,11 @@ public abstract class TabBase extends javax.faces.component.UIPanel {
 	private static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
 	private static final String ON_DISABLED_CHANGE = "onDisabledChange";
 
-	protected java.lang.Object getDisabled() {
-		return (java.lang.Object) getStateHelper().eval(DISABLED, null);
+	protected java.lang.String getDisabled() {
+		return (java.lang.String) getStateHelper().eval(DISABLED, null);
 	}
 
-	protected void setDisabled(java.lang.Object disabled) {
+	protected void setDisabled(java.lang.String disabled) {
 		getStateHelper().put(DISABLED, disabled);
 	}
 

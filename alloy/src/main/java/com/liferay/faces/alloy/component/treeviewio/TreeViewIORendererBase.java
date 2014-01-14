@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TreeViewIORendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TREE_IO = "aui-tree-io";
+	private static final String AUI_MODULE_NAME = "aui-tree-io";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TreeViewIO treeViewIO = (TreeViewIO) uiComponent;
 		encodeHTML(facesContext, treeViewIO);
 		encodeJavaScript(facesContext, treeViewIO);
@@ -47,37 +49,34 @@ public abstract class TreeViewIORendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TreeViewIO treeViewIO) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, treeViewIO, AUI_TREE_IO);
+		beginJavaScript(facesContext, treeViewIO);
 
 		bufferedResponseWriter.write("var treeViewIO = new Y.TreeViewIO");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(treeViewIO.getIo() != null)
-		{
+		renderIo(responseWriter, treeViewIO);
 
-			bufferedResponseWriter.write("io: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeViewIO.getIo().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, treeViewIO, AUI_TREE_IO);
-		
+
+		handleBuffer(facesContext, treeViewIO);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderIo(ResponseWriter responseWriter, TreeViewIO treeViewIO) throws IOException {
+		renderObject(responseWriter, "io", treeViewIO.getIo());
 	}
 
 }

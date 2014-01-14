@@ -85,11 +85,11 @@ public abstract class SchedulerBaseBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(DATE, date);
 	}
 
-	protected java.lang.Object getEventRecorder() {
-		return (java.lang.Object) getStateHelper().eval(EVENT_RECORDER, null);
+	protected java.lang.String getEventRecorder() {
+		return (java.lang.String) getStateHelper().eval(EVENT_RECORDER, null);
 	}
 
-	protected void setEventRecorder(java.lang.Object eventRecorder) {
+	protected void setEventRecorder(java.lang.String eventRecorder) {
 		getStateHelper().put(EVENT_RECORDER, eventRecorder);
 	}
 
@@ -149,19 +149,19 @@ public abstract class SchedulerBaseBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(USE_ARIA, useARIA);
 	}
 
-	protected java.lang.Object getViewDate() {
-		return (java.lang.Object) getStateHelper().eval(VIEW_DATE, null);
+	protected java.lang.String getViewDate() {
+		return (java.lang.String) getStateHelper().eval(VIEW_DATE, null);
 	}
 
-	protected void setViewDate(java.lang.Object viewDate) {
+	protected void setViewDate(java.lang.String viewDate) {
 		getStateHelper().put(VIEW_DATE, viewDate);
 	}
 
-	protected java.lang.Object getViews() {
-		return (java.lang.Object) getStateHelper().eval(VIEWS, null);
+	protected java.lang.String getViews() {
+		return (java.lang.String) getStateHelper().eval(VIEWS, null);
 	}
 
-	protected void setViews(java.lang.Object views) {
+	protected void setViews(java.lang.String views) {
 		getStateHelper().put(VIEWS, views);
 	}
 

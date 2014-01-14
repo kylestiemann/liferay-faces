@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ProgressBarRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_PROGRESSBAR = "aui-progressbar";
+	private static final String AUI_MODULE_NAME = "aui-progressbar";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ProgressBar progressBar = (ProgressBar) uiComponent;
 		encodeHTML(facesContext, progressBar);
 		encodeJavaScript(facesContext, progressBar);
@@ -47,169 +49,106 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ProgressBar progressBar) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, progressBar, AUI_PROGRESSBAR);
+		beginJavaScript(facesContext, progressBar);
 
 		bufferedResponseWriter.write("var progressBar = new Y.ProgressBar");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(progressBar.getCssClass() != null)
-		{
+		renderCssClass(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderMax(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderMin(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderOrientation(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderRatio(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderStep(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderTextNode(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, progressBar);
+		responseWriter.write(StringPool.COMMA);
+		renderProgressbarValue(responseWriter, progressBar);
 
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getMax() != null)
-		{
-
-			bufferedResponseWriter.write("max: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getMax().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getMin() != null)
-		{
-
-			bufferedResponseWriter.write("min: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getMin().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getOrientation() != null)
-		{
-
-			bufferedResponseWriter.write("orientation: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getOrientation().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getRatio() != null)
-		{
-
-			bufferedResponseWriter.write("ratio: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getRatio().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getStep() != null)
-		{
-
-			bufferedResponseWriter.write("step: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getStep().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getTextNode() != null)
-		{
-
-			bufferedResponseWriter.write("textNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getTextNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(progressBar.getProgressbarValue() != null)
-		{
-
-			bufferedResponseWriter.write("progressbarValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(progressBar.getProgressbarValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, progressBar, AUI_PROGRESSBAR);
-		
+
+		handleBuffer(facesContext, progressBar);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "cssClass", progressBar.getCssClass());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderNumber(responseWriter, "height", progressBar.getHeight());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "hideClass", progressBar.getHideClass());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "label", progressBar.getLabel());
+	}
+
+	protected void renderMax(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderNumber(responseWriter, "max", progressBar.getMax());
+	}
+
+	protected void renderMin(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderNumber(responseWriter, "min", progressBar.getMin());
+	}
+
+	protected void renderOrientation(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "orientation", progressBar.getOrientation());
+	}
+
+	protected void renderRatio(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderNumber(responseWriter, "ratio", progressBar.getRatio());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "render", progressBar.getRender());
+	}
+
+	protected void renderStep(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderNumber(responseWriter, "step", progressBar.getStep());
+	}
+
+	protected void renderTextNode(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "textNode", progressBar.getTextNode());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderBoolean(responseWriter, "useARIA", progressBar.getUseARIA());
+	}
+
+	protected void renderProgressbarValue(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
+		renderString(responseWriter, "progressbarValue", progressBar.getProgressbarValue());
 	}
 
 }

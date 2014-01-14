@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DataTableSelectionRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_SELECTION = "aui-datatable-selection";
+	private static final String AUI_MODULE_NAME = "aui-datatable-selection";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DataTableSelection dataTableSelection = (DataTableSelection) uiComponent;
 		encodeHTML(facesContext, dataTableSelection);
 		encodeJavaScript(facesContext, dataTableSelection);
@@ -47,81 +49,58 @@ public abstract class DataTableSelectionRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DataTableSelection dataTableSelection) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, dataTableSelection, AUI_DATATABLE_SELECTION);
+		beginJavaScript(facesContext, dataTableSelection);
 
 		bufferedResponseWriter.write("var dataTableSelection = new Y.DataTableSelection");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(dataTableSelection.getActiveCell() != null)
-		{
+		renderActiveCell(responseWriter, dataTableSelection);
+		responseWriter.write(StringPool.COMMA);
+		renderActiveCoord(responseWriter, dataTableSelection);
+		responseWriter.write(StringPool.COMMA);
+		renderActiveRow(responseWriter, dataTableSelection);
+		responseWriter.write(StringPool.COMMA);
+		renderSelection(responseWriter, dataTableSelection);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, dataTableSelection);
 
-			bufferedResponseWriter.write("activeCell: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dataTableSelection.getActiveCell().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dataTableSelection.getActiveCoord() != null)
-		{
-
-			bufferedResponseWriter.write("activeCoord: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dataTableSelection.getActiveCoord().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dataTableSelection.getActiveRow() != null)
-		{
-
-			bufferedResponseWriter.write("activeRow: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dataTableSelection.getActiveRow().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dataTableSelection.getSelection() != null)
-		{
-
-			bufferedResponseWriter.write("selection: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dataTableSelection.getSelection().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dataTableSelection.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dataTableSelection.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, dataTableSelection, AUI_DATATABLE_SELECTION);
-		
+
+		handleBuffer(facesContext, dataTableSelection);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderActiveCell(ResponseWriter responseWriter, DataTableSelection dataTableSelection) throws IOException {
+		renderString(responseWriter, "activeCell", dataTableSelection.getActiveCell());
+	}
+
+	protected void renderActiveCoord(ResponseWriter responseWriter, DataTableSelection dataTableSelection) throws IOException {
+		renderArray(responseWriter, "activeCoord", dataTableSelection.getActiveCoord());
+	}
+
+	protected void renderActiveRow(ResponseWriter responseWriter, DataTableSelection dataTableSelection) throws IOException {
+		renderString(responseWriter, "activeRow", dataTableSelection.getActiveRow());
+	}
+
+	protected void renderSelection(ResponseWriter responseWriter, DataTableSelection dataTableSelection) throws IOException {
+		renderString(responseWriter, "selection", dataTableSelection.getSelection());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, DataTableSelection dataTableSelection) throws IOException {
+		renderNumber(responseWriter, "tabIndex", dataTableSelection.getTabIndex());
 	}
 
 }

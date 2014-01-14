@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class SchedulerTableViewDDRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SCHEDULER_VIEW_TABLE_DD = "aui-scheduler-view-table-dd";
+	private static final String AUI_MODULE_NAME = "aui-scheduler-view-table-dd";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		SchedulerTableViewDD schedulerTableViewDD = (SchedulerTableViewDD) uiComponent;
 		encodeHTML(facesContext, schedulerTableViewDD);
 		encodeJavaScript(facesContext, schedulerTableViewDD);
@@ -47,37 +49,34 @@ public abstract class SchedulerTableViewDDRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, schedulerTableViewDD, AUI_SCHEDULER_VIEW_TABLE_DD);
+		beginJavaScript(facesContext, schedulerTableViewDD);
 
 		bufferedResponseWriter.write("var schedulerTableViewDD = new Y.SchedulerTableViewDD");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(schedulerTableViewDD.getDelegateConfig() != null)
-		{
+		renderDelegateConfig(responseWriter, schedulerTableViewDD);
 
-			bufferedResponseWriter.write("delegateConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableViewDD.getDelegateConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, schedulerTableViewDD, AUI_SCHEDULER_VIEW_TABLE_DD);
-		
+
+		handleBuffer(facesContext, schedulerTableViewDD);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDelegateConfig(ResponseWriter responseWriter, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
+		renderObject(responseWriter, "delegateConfig", schedulerTableViewDD.getDelegateConfig());
 	}
 
 }

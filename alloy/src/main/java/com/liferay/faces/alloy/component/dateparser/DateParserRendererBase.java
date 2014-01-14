@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DateParserRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATYPE_DATE_PARSE = "aui-datatype-date-parse";
+	private static final String AUI_MODULE_NAME = "aui-datatype-date-parse";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DateParser dateParser = (DateParser) uiComponent;
 		encodeHTML(facesContext, dateParser);
 		encodeJavaScript(facesContext, dateParser);
@@ -47,26 +49,29 @@ public abstract class DateParserRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DateParser dateParser) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, dateParser, AUI_DATATYPE_DATE_PARSE);
+		beginJavaScript(facesContext, dateParser);
 
 		bufferedResponseWriter.write("var dateParser = new Y.DateParser");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, dateParser, AUI_DATATYPE_DATE_PARSE);
-		
+
+		handleBuffer(facesContext, dateParser);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
 	}
 
 }

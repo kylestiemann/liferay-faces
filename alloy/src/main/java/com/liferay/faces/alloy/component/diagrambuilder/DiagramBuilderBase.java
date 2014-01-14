@@ -110,27 +110,27 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(AVAILABLE_FIELDS_DRAG_CONFIG, availableFieldsDragConfig);
 	}
 
-	protected java.lang.Object getCanvas() {
-		return (java.lang.Object) getStateHelper().eval(CANVAS, null);
+	protected java.lang.String getCanvas() {
+		return (java.lang.String) getStateHelper().eval(CANVAS, null);
 	}
 
-	protected void setCanvas(java.lang.Object canvas) {
+	protected void setCanvas(java.lang.String canvas) {
 		getStateHelper().put(CANVAS, canvas);
 	}
 
-	protected java.lang.Object getConnector() {
-		return (java.lang.Object) getStateHelper().eval(CONNECTOR, null);
+	protected java.lang.String getConnector() {
+		return (java.lang.String) getStateHelper().eval(CONNECTOR, null);
 	}
 
-	protected void setConnector(java.lang.Object connector) {
+	protected void setConnector(java.lang.String connector) {
 		getStateHelper().put(CONNECTOR, connector);
 	}
 
-	protected java.lang.Object getContentContainer() {
-		return (java.lang.Object) getStateHelper().eval(CONTENT_CONTAINER, null);
+	protected java.lang.String getContentContainer() {
+		return (java.lang.String) getStateHelper().eval(CONTENT_CONTAINER, null);
 	}
 
-	protected void setContentContainer(java.lang.Object contentContainer) {
+	protected void setContentContainer(java.lang.String contentContainer) {
 		getStateHelper().put(CONTENT_CONTAINER, contentContainer);
 	}
 
@@ -150,11 +150,11 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(DROP_CONFIG, dropConfig);
 	}
 
-	protected java.lang.Object getDropContainer() {
-		return (java.lang.Object) getStateHelper().eval(DROP_CONTAINER, null);
+	protected java.lang.String getDropContainer() {
+		return (java.lang.String) getStateHelper().eval(DROP_CONTAINER, null);
 	}
 
-	protected void setDropContainer(java.lang.Object dropContainer) {
+	protected void setDropContainer(java.lang.String dropContainer) {
 		getStateHelper().put(DROP_CONTAINER, dropContainer);
 	}
 
@@ -166,11 +166,11 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(FIELDS, fields);
 	}
 
-	protected java.lang.Object getFieldsContainer() {
-		return (java.lang.Object) getStateHelper().eval(FIELDS_CONTAINER, null);
+	protected java.lang.String getFieldsContainer() {
+		return (java.lang.String) getStateHelper().eval(FIELDS_CONTAINER, null);
 	}
 
-	protected void setFieldsContainer(java.lang.Object fieldsContainer) {
+	protected void setFieldsContainer(java.lang.String fieldsContainer) {
 		getStateHelper().put(FIELDS_CONTAINER, fieldsContainer);
 	}
 
@@ -246,11 +246,11 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.Object getSuggestConnectorOverlay() {
-		return (java.lang.Object) getStateHelper().eval(SUGGEST_CONNECTOR_OVERLAY, null);
+	protected java.lang.String getSuggestConnectorOverlay() {
+		return (java.lang.String) getStateHelper().eval(SUGGEST_CONNECTOR_OVERLAY, null);
 	}
 
-	protected void setSuggestConnectorOverlay(java.lang.Object suggestConnectorOverlay) {
+	protected void setSuggestConnectorOverlay(java.lang.String suggestConnectorOverlay) {
 		getStateHelper().put(SUGGEST_CONNECTOR_OVERLAY, suggestConnectorOverlay);
 	}
 
@@ -270,11 +270,11 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(TOOLBAR, toolbar);
 	}
 
-	protected java.lang.Object getToolbarContainer() {
-		return (java.lang.Object) getStateHelper().eval(TOOLBAR_CONTAINER, null);
+	protected java.lang.String getToolbarContainer() {
+		return (java.lang.String) getStateHelper().eval(TOOLBAR_CONTAINER, null);
 	}
 
-	protected void setToolbarContainer(java.lang.Object toolbarContainer) {
+	protected void setToolbarContainer(java.lang.String toolbarContainer) {
 		getStateHelper().put(TOOLBAR_CONTAINER, toolbarContainer);
 	}
 

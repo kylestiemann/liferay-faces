@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FieldSupportRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DIAGRAM_BUILDER_BASE = "aui-diagram-builder-base";
+	private static final String AUI_MODULE_NAME = "aui-diagram-builder-base";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		FieldSupport fieldSupport = (FieldSupport) uiComponent;
 		encodeHTML(facesContext, fieldSupport);
 		encodeJavaScript(facesContext, fieldSupport);
@@ -47,48 +49,40 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, FieldSupport fieldSupport) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, fieldSupport, AUI_DIAGRAM_BUILDER_BASE);
+		beginJavaScript(facesContext, fieldSupport);
 
 		bufferedResponseWriter.write("var fieldSupport = new Y.FieldSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(fieldSupport.getFields() != null)
-		{
+		renderFields(responseWriter, fieldSupport);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxFields(responseWriter, fieldSupport);
 
-			bufferedResponseWriter.write("fields: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(fieldSupport.getFields().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(fieldSupport.getMaxFields() != null)
-		{
-
-			bufferedResponseWriter.write("maxFields: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(fieldSupport.getMaxFields().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, fieldSupport, AUI_DIAGRAM_BUILDER_BASE);
-		
+
+		handleBuffer(facesContext, fieldSupport);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderFields(ResponseWriter responseWriter, FieldSupport fieldSupport) throws IOException {
+		renderArray(responseWriter, "fields", fieldSupport.getFields());
+	}
+
+	protected void renderMaxFields(ResponseWriter responseWriter, FieldSupport fieldSupport) throws IOException {
+		renderNumber(responseWriter, "maxFields", fieldSupport.getMaxFields());
 	}
 
 }

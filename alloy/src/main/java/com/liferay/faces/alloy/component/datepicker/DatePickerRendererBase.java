@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DatePickerRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATEPICKER = "aui-datepicker";
+	private static final String AUI_MODULE_NAME = "aui-datepicker";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DatePicker datePicker = (DatePicker) uiComponent;
 		encodeHTML(facesContext, datePicker);
 		encodeJavaScript(facesContext, datePicker);
@@ -47,158 +49,100 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DatePicker datePicker) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, datePicker, AUI_DATEPICKER);
+		beginJavaScript(facesContext, datePicker);
 
 		bufferedResponseWriter.write("var datePicker = new Y.DatePicker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(datePicker.getActiveInput() != null)
-		{
+		renderActiveInput(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderAutoHide(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderCalendar(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderContainer(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderContent(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderDateSeparator(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderMask(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderPanes(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderPopover(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderPopoverCssClass(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderValueExtractor(responseWriter, datePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderValueFormatter(responseWriter, datePicker);
 
-			bufferedResponseWriter.write("activeInput: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getActiveInput().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getAutoHide() != null)
-		{
-
-			bufferedResponseWriter.write("autoHide: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getAutoHide().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getCalendar() != null)
-		{
-
-			bufferedResponseWriter.write("calendar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getCalendar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getContainer() != null)
-		{
-
-			bufferedResponseWriter.write("container: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getContent() != null)
-		{
-
-			bufferedResponseWriter.write("content: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getDateSeparator() != null)
-		{
-
-			bufferedResponseWriter.write("dateSeparator: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getDateSeparator().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getMask() != null)
-		{
-
-			bufferedResponseWriter.write("mask: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getMask().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getPanes() != null)
-		{
-
-			bufferedResponseWriter.write("panes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getPanes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getPopover() != null)
-		{
-
-			bufferedResponseWriter.write("popover: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getPopover().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getPopoverCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("popoverCssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getPopoverCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getValueExtractor() != null)
-		{
-
-			bufferedResponseWriter.write("valueExtractor: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getValueExtractor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePicker.getValueFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("valueFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePicker.getValueFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, datePicker, AUI_DATEPICKER);
-		
+
+		handleBuffer(facesContext, datePicker);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderActiveInput(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "activeInput", datePicker.getActiveInput());
+	}
+
+	protected void renderAutoHide(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderBoolean(responseWriter, "autoHide", datePicker.getAutoHide());
+	}
+
+	protected void renderCalendar(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "calendar", datePicker.getCalendar());
+	}
+
+	protected void renderContainer(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "container", datePicker.getContainer());
+	}
+
+	protected void renderContent(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "content", datePicker.getContent());
+	}
+
+	protected void renderDateSeparator(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "dateSeparator", datePicker.getDateSeparator());
+	}
+
+	protected void renderMask(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "mask", datePicker.getMask());
+	}
+
+	protected void renderPanes(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderNumber(responseWriter, "panes", datePicker.getPanes());
+	}
+
+	protected void renderPopover(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "popover", datePicker.getPopover());
+	}
+
+	protected void renderPopoverCssClass(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "popoverCssClass", datePicker.getPopoverCssClass());
+	}
+
+	protected void renderValueExtractor(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "valueExtractor", datePicker.getValueExtractor());
+	}
+
+	protected void renderValueFormatter(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
+		renderString(responseWriter, "valueFormatter", datePicker.getValueFormatter());
 	}
 
 }

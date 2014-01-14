@@ -72,11 +72,11 @@ public abstract class SchedulerCalendarBase extends javax.faces.component.UIPane
 		getStateHelper().put(PALETTE, palette);
 	}
 
-	protected java.lang.Object getScheduler() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULER, null);
+	protected java.lang.String getScheduler() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER, null);
 	}
 
-	protected void setScheduler(java.lang.Object scheduler) {
+	protected void setScheduler(java.lang.String scheduler) {
 		getStateHelper().put(SCHEDULER, scheduler);
 	}
 

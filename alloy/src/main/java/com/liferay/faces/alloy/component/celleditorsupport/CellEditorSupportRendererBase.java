@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class CellEditorSupportRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_EDIT = "aui-datatable-edit";
+	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		CellEditorSupport cellEditorSupport = (CellEditorSupport) uiComponent;
 		encodeHTML(facesContext, cellEditorSupport);
 		encodeJavaScript(facesContext, cellEditorSupport);
@@ -47,37 +49,34 @@ public abstract class CellEditorSupportRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, CellEditorSupport cellEditorSupport) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, cellEditorSupport, AUI_DATATABLE_EDIT);
+		beginJavaScript(facesContext, cellEditorSupport);
 
 		bufferedResponseWriter.write("var cellEditorSupport = new Y.CellEditorSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(cellEditorSupport.getEditEvent() != null)
-		{
+		renderEditEvent(responseWriter, cellEditorSupport);
 
-			bufferedResponseWriter.write("editEvent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(cellEditorSupport.getEditEvent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, cellEditorSupport, AUI_DATATABLE_EDIT);
-		
+
+		handleBuffer(facesContext, cellEditorSupport);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderEditEvent(ResponseWriter responseWriter, CellEditorSupport cellEditorSupport) throws IOException {
+		renderString(responseWriter, "editEvent", cellEditorSupport.getEditEvent());
 	}
 
 }

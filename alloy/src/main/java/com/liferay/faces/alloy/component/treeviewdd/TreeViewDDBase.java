@@ -125,11 +125,11 @@ public abstract class TreeViewDDBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LAZY_LOAD, lazyLoad);
 	}
 
-	protected java.lang.Object getNode() {
-		return (java.lang.Object) getStateHelper().eval(NODE, null);
+	protected java.lang.String getNode() {
+		return (java.lang.String) getStateHelper().eval(NODE, null);
 	}
 
-	protected void setNode(java.lang.Object node) {
+	protected void setNode(java.lang.String node) {
 		getStateHelper().put(NODE, node);
 	}
 

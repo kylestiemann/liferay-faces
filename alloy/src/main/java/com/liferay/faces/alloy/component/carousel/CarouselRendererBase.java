@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class CarouselRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_CAROUSEL = "aui-carousel";
+	private static final String AUI_MODULE_NAME = "aui-carousel";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Carousel carousel = (Carousel) uiComponent;
 		encodeHTML(facesContext, carousel);
 		encodeJavaScript(facesContext, carousel);
@@ -47,136 +49,88 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Carousel carousel) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, carousel, AUI_CAROUSEL);
+		beginJavaScript(facesContext, carousel);
 
 		bufferedResponseWriter.write("var carousel = new Y.Carousel");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(carousel.getActiveIndex() != null)
-		{
+		renderActiveIndex(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderAnimationTime(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderIntervalTime(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderItemSelector(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderNodeMenu(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderNodeMenuItemSelector(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderPlaying(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, carousel);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, carousel);
 
-			bufferedResponseWriter.write("activeIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getActiveIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getAnimationTime() != null)
-		{
-
-			bufferedResponseWriter.write("animationTime: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getAnimationTime().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getIntervalTime() != null)
-		{
-
-			bufferedResponseWriter.write("intervalTime: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getIntervalTime().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getItemSelector() != null)
-		{
-
-			bufferedResponseWriter.write("itemSelector: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getItemSelector().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getNodeMenu() != null)
-		{
-
-			bufferedResponseWriter.write("nodeMenu: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getNodeMenu().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getNodeMenuItemSelector() != null)
-		{
-
-			bufferedResponseWriter.write("nodeMenuItemSelector: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getNodeMenuItemSelector().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getPlaying() != null)
-		{
-
-			bufferedResponseWriter.write("playing: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getPlaying().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(carousel.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(carousel.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, carousel, AUI_CAROUSEL);
-		
+
+		handleBuffer(facesContext, carousel);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderActiveIndex(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderNumber(responseWriter, "activeIndex", carousel.getActiveIndex());
+	}
+
+	protected void renderAnimationTime(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderNumber(responseWriter, "animationTime", carousel.getAnimationTime());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderString(responseWriter, "hideClass", carousel.getHideClass());
+	}
+
+	protected void renderIntervalTime(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderNumber(responseWriter, "intervalTime", carousel.getIntervalTime());
+	}
+
+	protected void renderItemSelector(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderString(responseWriter, "itemSelector", carousel.getItemSelector());
+	}
+
+	protected void renderNodeMenu(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderString(responseWriter, "nodeMenu", carousel.getNodeMenu());
+	}
+
+	protected void renderNodeMenuItemSelector(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderString(responseWriter, "nodeMenuItemSelector", carousel.getNodeMenuItemSelector());
+	}
+
+	protected void renderPlaying(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderBoolean(responseWriter, "playing", carousel.getPlaying());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderString(responseWriter, "render", carousel.getRender());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, Carousel carousel) throws IOException {
+		renderBoolean(responseWriter, "useARIA", carousel.getUseARIA());
 	}
 
 }

@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TextCellEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_EDIT = "aui-datatable-edit";
+	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TextCellEditor textCellEditor = (TextCellEditor) uiComponent;
 		encodeHTML(facesContext, textCellEditor);
 		encodeJavaScript(facesContext, textCellEditor);
@@ -47,180 +49,112 @@ public abstract class TextCellEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TextCellEditor textCellEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, textCellEditor, AUI_DATATABLE_EDIT);
+		beginJavaScript(facesContext, textCellEditor);
 
 		bufferedResponseWriter.write("var textCellEditor = new Y.TextCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(textCellEditor.getEditable() != null)
-		{
+		renderEditable(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderElementName(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderFooterContent(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderHideOnSave(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderInputFormatter(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderOutputFormatter(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderShowToolbar(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbar(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderUnescapeValue(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderValidator(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderTextcelleditorValue(responseWriter, textCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, textCellEditor);
 
-			bufferedResponseWriter.write("editable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getEditable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getElementName() != null)
-		{
-
-			bufferedResponseWriter.write("elementName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getElementName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getFooterContent() != null)
-		{
-
-			bufferedResponseWriter.write("footerContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getFooterContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getHideOnSave() != null)
-		{
-
-			bufferedResponseWriter.write("hideOnSave: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getHideOnSave().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getInputFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("inputFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getInputFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getOutputFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("outputFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getOutputFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getShowToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("showToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getShowToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("toolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getUnescapeValue() != null)
-		{
-
-			bufferedResponseWriter.write("unescapeValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getUnescapeValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getValidator() != null)
-		{
-
-			bufferedResponseWriter.write("validator: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getValidator().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getTextcelleditorValue() != null)
-		{
-
-			bufferedResponseWriter.write("textcelleditorValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getTextcelleditorValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(textCellEditor.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(textCellEditor.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, textCellEditor, AUI_DATATABLE_EDIT);
-		
+
+		handleBuffer(facesContext, textCellEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderEditable(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderBoolean(responseWriter, "editable", textCellEditor.getEditable());
+	}
+
+	protected void renderElementName(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderString(responseWriter, "elementName", textCellEditor.getElementName());
+	}
+
+	protected void renderFooterContent(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderString(responseWriter, "footerContent", textCellEditor.getFooterContent());
+	}
+
+	protected void renderHideOnSave(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderBoolean(responseWriter, "hideOnSave", textCellEditor.getHideOnSave());
+	}
+
+	protected void renderInputFormatter(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderString(responseWriter, "inputFormatter", textCellEditor.getInputFormatter());
+	}
+
+	protected void renderOutputFormatter(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderString(responseWriter, "outputFormatter", textCellEditor.getOutputFormatter());
+	}
+
+	protected void renderShowToolbar(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderBoolean(responseWriter, "showToolbar", textCellEditor.getShowToolbar());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderObject(responseWriter, "strings", textCellEditor.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderNumber(responseWriter, "tabIndex", textCellEditor.getTabIndex());
+	}
+
+	protected void renderToolbar(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderObject(responseWriter, "toolbar", textCellEditor.getToolbar());
+	}
+
+	protected void renderUnescapeValue(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderBoolean(responseWriter, "unescapeValue", textCellEditor.getUnescapeValue());
+	}
+
+	protected void renderValidator(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderObject(responseWriter, "validator", textCellEditor.getValidator());
+	}
+
+	protected void renderTextcelleditorValue(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderString(responseWriter, "textcelleditorValue", textCellEditor.getTextcelleditorValue());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, TextCellEditor textCellEditor) throws IOException {
+		renderBoolean(responseWriter, "visible", textCellEditor.getVisible());
 	}
 
 }

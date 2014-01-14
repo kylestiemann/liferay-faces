@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class SchedulerTableViewRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SCHEDULER_VIEW_TABLE = "aui-scheduler-view-table";
+	private static final String AUI_MODULE_NAME = "aui-scheduler-view-table";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		SchedulerTableView schedulerTableView = (SchedulerTableView) uiComponent;
 		encodeHTML(facesContext, schedulerTableView);
 		encodeJavaScript(facesContext, schedulerTableView);
@@ -47,301 +49,178 @@ public abstract class SchedulerTableViewRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, SchedulerTableView schedulerTableView) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, schedulerTableView, AUI_SCHEDULER_VIEW_TABLE);
+		beginJavaScript(facesContext, schedulerTableView);
 
 		bufferedResponseWriter.write("var schedulerTableView = new Y.SchedulerTableView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(schedulerTableView.getSchedulertableviewBodyContent() != null)
-		{
+		renderSchedulertableviewBodyContent(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderColHeaderDaysNode(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderDisplayDaysInterval(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderDisplayRows(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderFilterFn(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderFixedHeight(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderDateFormatter(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderTableNode(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderIsoTime(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderNavigationDateFormatter(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderNextDate(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderPrevDate(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderRowsContainerNode(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderScheduler(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderScrollable(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderTableGridNode(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderTriggerNode(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, schedulerTableView);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, schedulerTableView);
 
-			bufferedResponseWriter.write("schedulertableviewBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getSchedulertableviewBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getColHeaderDaysNode() != null)
-		{
-
-			bufferedResponseWriter.write("colHeaderDaysNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getColHeaderDaysNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getDisplayDaysInterval() != null)
-		{
-
-			bufferedResponseWriter.write("displayDaysInterval: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getDisplayDaysInterval().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getDisplayRows() != null)
-		{
-
-			bufferedResponseWriter.write("displayRows: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getDisplayRows().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getFilterFn() != null)
-		{
-
-			bufferedResponseWriter.write("filterFn: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getFilterFn().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getFixedHeight() != null)
-		{
-
-			bufferedResponseWriter.write("fixedHeight: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getFixedHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getHeaderDateFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("headerDateFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getHeaderDateFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getHeaderTableNode() != null)
-		{
-
-			bufferedResponseWriter.write("headerTableNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getHeaderTableNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getIsoTime() != null)
-		{
-
-			bufferedResponseWriter.write("isoTime: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getIsoTime().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getNavigationDateFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("navigationDateFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getNavigationDateFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getNextDate() != null)
-		{
-
-			bufferedResponseWriter.write("nextDate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getNextDate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getPrevDate() != null)
-		{
-
-			bufferedResponseWriter.write("prevDate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getPrevDate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getRowsContainerNode() != null)
-		{
-
-			bufferedResponseWriter.write("rowsContainerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getRowsContainerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getScheduler() != null)
-		{
-
-			bufferedResponseWriter.write("scheduler: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getScheduler().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getScrollable() != null)
-		{
-
-			bufferedResponseWriter.write("scrollable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getScrollable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getTableGridNode() != null)
-		{
-
-			bufferedResponseWriter.write("tableGridNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getTableGridNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getTriggerNode() != null)
-		{
-
-			bufferedResponseWriter.write("triggerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getTriggerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerTableView.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerTableView.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, schedulerTableView, AUI_SCHEDULER_VIEW_TABLE);
-		
+
+		handleBuffer(facesContext, schedulerTableView);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderSchedulertableviewBodyContent(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "schedulertableviewBodyContent", schedulerTableView.getSchedulertableviewBodyContent());
+	}
+
+	protected void renderColHeaderDaysNode(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "colHeaderDaysNode", schedulerTableView.getColHeaderDaysNode());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "cssClass", schedulerTableView.getCssClass());
+	}
+
+	protected void renderDisplayDaysInterval(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderNumber(responseWriter, "displayDaysInterval", schedulerTableView.getDisplayDaysInterval());
+	}
+
+	protected void renderDisplayRows(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderNumber(responseWriter, "displayRows", schedulerTableView.getDisplayRows());
+	}
+
+	protected void renderFilterFn(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "filterFn", schedulerTableView.getFilterFn());
+	}
+
+	protected void renderFixedHeight(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderBoolean(responseWriter, "fixedHeight", schedulerTableView.getFixedHeight());
+	}
+
+	protected void renderHeaderDateFormatter(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "headerDateFormatter", schedulerTableView.getHeaderDateFormatter());
+	}
+
+	protected void renderHeaderTableNode(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "headerTableNode", schedulerTableView.getHeaderTableNode());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderNumber(responseWriter, "height", schedulerTableView.getHeight());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "hideClass", schedulerTableView.getHideClass());
+	}
+
+	protected void renderIsoTime(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderBoolean(responseWriter, "isoTime", schedulerTableView.getIsoTime());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "name", schedulerTableView.getName());
+	}
+
+	protected void renderNavigationDateFormatter(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "navigationDateFormatter", schedulerTableView.getNavigationDateFormatter());
+	}
+
+	protected void renderNextDate(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "nextDate", schedulerTableView.getNextDate());
+	}
+
+	protected void renderPrevDate(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "prevDate", schedulerTableView.getPrevDate());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "render", schedulerTableView.getRender());
+	}
+
+	protected void renderRowsContainerNode(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "rowsContainerNode", schedulerTableView.getRowsContainerNode());
+	}
+
+	protected void renderScheduler(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "scheduler", schedulerTableView.getScheduler());
+	}
+
+	protected void renderScrollable(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderBoolean(responseWriter, "scrollable", schedulerTableView.getScrollable());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "strings", schedulerTableView.getStrings());
+	}
+
+	protected void renderTableGridNode(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "tableGridNode", schedulerTableView.getTableGridNode());
+	}
+
+	protected void renderTriggerNode(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderString(responseWriter, "triggerNode", schedulerTableView.getTriggerNode());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderBoolean(responseWriter, "useARIA", schedulerTableView.getUseARIA());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, SchedulerTableView schedulerTableView) throws IOException {
+		renderBoolean(responseWriter, "visible", schedulerTableView.getVisible());
 	}
 
 }

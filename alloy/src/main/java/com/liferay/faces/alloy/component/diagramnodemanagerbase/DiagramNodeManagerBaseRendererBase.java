@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DiagramNodeManagerBaseRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DIAGRAM_BUILDER_IMPL = "aui-diagram-builder-impl";
+	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DiagramNodeManagerBase diagramNodeManagerBase = (DiagramNodeManagerBase) uiComponent;
 		encodeHTML(facesContext, diagramNodeManagerBase);
 		encodeJavaScript(facesContext, diagramNodeManagerBase);
@@ -47,26 +49,29 @@ public abstract class DiagramNodeManagerBaseRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, diagramNodeManagerBase, AUI_DIAGRAM_BUILDER_IMPL);
+		beginJavaScript(facesContext, diagramNodeManagerBase);
 
 		bufferedResponseWriter.write("var diagramNodeManagerBase = new Y.DiagramNodeManagerBase");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, diagramNodeManagerBase, AUI_DIAGRAM_BUILDER_IMPL);
-		
+
+		handleBuffer(facesContext, diagramNodeManagerBase);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
 	}
 
 }

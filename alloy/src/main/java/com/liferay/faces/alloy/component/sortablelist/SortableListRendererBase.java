@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class SortableListRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SORTABLE_LIST = "aui-sortable-list";
+	private static final String AUI_MODULE_NAME = "aui-sortable-list";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		SortableList sortableList = (SortableList) uiComponent;
 		encodeHTML(facesContext, sortableList);
 		encodeJavaScript(facesContext, sortableList);
@@ -47,125 +49,82 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, SortableList sortableList) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, sortableList, AUI_SORTABLE_LIST);
+		beginJavaScript(facesContext, sortableList);
 
 		bufferedResponseWriter.write("var sortableList = new Y.SortableList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(sortableList.getDd() != null)
-		{
+		renderDd(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderDropCondition(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderDropContainer(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderDropOn(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderHelper(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderNodes(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderPlaceholder(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderProxy(responseWriter, sortableList);
+		responseWriter.write(StringPool.COMMA);
+		renderSortCondition(responseWriter, sortableList);
 
-			bufferedResponseWriter.write("dd: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getDd().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getDropCondition() != null)
-		{
-
-			bufferedResponseWriter.write("dropCondition: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getDropCondition().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getDropContainer() != null)
-		{
-
-			bufferedResponseWriter.write("dropContainer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getDropContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getDropOn() != null)
-		{
-
-			bufferedResponseWriter.write("dropOn: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getDropOn().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getHelper() != null)
-		{
-
-			bufferedResponseWriter.write("helper: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getHelper().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getNodes() != null)
-		{
-
-			bufferedResponseWriter.write("nodes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getNodes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getPlaceholder() != null)
-		{
-
-			bufferedResponseWriter.write("placeholder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getPlaceholder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getProxy() != null)
-		{
-
-			bufferedResponseWriter.write("proxy: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getProxy().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableList.getSortCondition() != null)
-		{
-
-			bufferedResponseWriter.write("sortCondition: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableList.getSortCondition().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, sortableList, AUI_SORTABLE_LIST);
-		
+
+		handleBuffer(facesContext, sortableList);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDd(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "dd", sortableList.getDd());
+	}
+
+	protected void renderDropCondition(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "dropCondition", sortableList.getDropCondition());
+	}
+
+	protected void renderDropContainer(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "dropContainer", sortableList.getDropContainer());
+	}
+
+	protected void renderDropOn(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "dropOn", sortableList.getDropOn());
+	}
+
+	protected void renderHelper(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "helper", sortableList.getHelper());
+	}
+
+	protected void renderNodes(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "nodes", sortableList.getNodes());
+	}
+
+	protected void renderPlaceholder(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "placeholder", sortableList.getPlaceholder());
+	}
+
+	protected void renderProxy(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "proxy", sortableList.getProxy());
+	}
+
+	protected void renderSortCondition(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
+		renderString(responseWriter, "sortCondition", sortableList.getSortCondition());
 	}
 
 }

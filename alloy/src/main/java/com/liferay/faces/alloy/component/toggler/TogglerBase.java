@@ -67,11 +67,11 @@ public abstract class TogglerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(BIND_DOMEVENTS, bindDOMEvents);
 	}
 
-	protected java.lang.Object getContent() {
-		return (java.lang.Object) getStateHelper().eval(CONTENT, null);
+	protected java.lang.String getContent() {
+		return (java.lang.String) getStateHelper().eval(CONTENT, null);
 	}
 
-	protected void setContent(java.lang.Object content) {
+	protected void setContent(java.lang.String content) {
 		getStateHelper().put(CONTENT, content);
 	}
 
@@ -83,11 +83,11 @@ public abstract class TogglerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(EXPANDED, expanded);
 	}
 
-	protected java.lang.Object getHeader() {
-		return (java.lang.Object) getStateHelper().eval(HEADER, null);
+	protected java.lang.String getHeader() {
+		return (java.lang.String) getStateHelper().eval(HEADER, null);
 	}
 
-	protected void setHeader(java.lang.Object header) {
+	protected void setHeader(java.lang.String header) {
 		getStateHelper().put(HEADER, header);
 	}
 

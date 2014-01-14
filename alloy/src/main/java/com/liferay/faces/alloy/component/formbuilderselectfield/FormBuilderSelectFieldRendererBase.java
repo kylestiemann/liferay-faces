@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FormBuilderSelectFieldRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_FORM_BUILDER_FIELD_SELECT = "aui-form-builder-field-select";
+	private static final String AUI_MODULE_NAME = "aui-form-builder-field-select";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		FormBuilderSelectField formBuilderSelectField = (FormBuilderSelectField) uiComponent;
 		encodeHTML(facesContext, formBuilderSelectField);
 		encodeJavaScript(facesContext, formBuilderSelectField);
@@ -47,378 +49,220 @@ public abstract class FormBuilderSelectFieldRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, FormBuilderSelectField formBuilderSelectField) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, formBuilderSelectField, AUI_FORM_BUILDER_FIELD_SELECT);
+		beginJavaScript(facesContext, formBuilderSelectField);
 
 		bufferedResponseWriter.write("var formBuilderSelectField = new Y.FormBuilderSelectField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(formBuilderSelectField.getAcceptChildren() != null)
-		{
+		renderAcceptChildren(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderBuilder(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderControlsToolbar(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderDataType(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderDropZoneNode(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderHiddenAttributes(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuilderselectfieldId(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelNode(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderLocalizationMap(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderMultiple(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderOptionTemplate(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderOptions(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuilderselectfieldParent(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderPredefinedValue(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnly(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnlyAttributes(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequired(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequiredFlagNode(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderShowLabel(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplate(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplateNode(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderTip(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderTipFlagNode(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderType(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderUnique(responseWriter, formBuilderSelectField);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, formBuilderSelectField);
 
-			bufferedResponseWriter.write("acceptChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getAcceptChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getBuilder() != null)
-		{
-
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getControlsToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("controlsToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getControlsToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getDataType() != null)
-		{
-
-			bufferedResponseWriter.write("dataType: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getDataType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getDropZoneNode() != null)
-		{
-
-			bufferedResponseWriter.write("dropZoneNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getDropZoneNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getHiddenAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("hiddenAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getHiddenAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getFormbuilderselectfieldId() != null)
-		{
-
-			bufferedResponseWriter.write("formbuilderselectfieldId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getFormbuilderselectfieldId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("labelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getLocalizationMap() != null)
-		{
-
-			bufferedResponseWriter.write("localizationMap: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getLocalizationMap().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getMultiple() != null)
-		{
-
-			bufferedResponseWriter.write("multiple: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getMultiple().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getOptionTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("optionTemplate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getOptionTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getOptions() != null)
-		{
-
-			bufferedResponseWriter.write("options: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getOptions().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getFormbuilderselectfieldParent() != null)
-		{
-
-			bufferedResponseWriter.write("formbuilderselectfieldParent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getFormbuilderselectfieldParent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getPredefinedValue() != null)
-		{
-
-			bufferedResponseWriter.write("predefinedValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getPredefinedValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getReadOnly() != null)
-		{
-
-			bufferedResponseWriter.write("readOnly: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getReadOnly().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getReadOnlyAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("readOnlyAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getReadOnlyAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getRequired() != null)
-		{
-
-			bufferedResponseWriter.write("required: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getRequired().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getRequiredFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("requiredFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getRequiredFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getShowLabel() != null)
-		{
-
-			bufferedResponseWriter.write("showLabel: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getShowLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("template: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getTemplateNode() != null)
-		{
-
-			bufferedResponseWriter.write("templateNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getTemplateNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getTip() != null)
-		{
-
-			bufferedResponseWriter.write("tip: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getTip().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getTipFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("tipFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getTipFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getType() != null)
-		{
-
-			bufferedResponseWriter.write("type: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getUnique() != null)
-		{
-
-			bufferedResponseWriter.write("unique: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getUnique().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderSelectField.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderSelectField.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, formBuilderSelectField, AUI_FORM_BUILDER_FIELD_SELECT);
-		
+
+		handleBuffer(facesContext, formBuilderSelectField);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "acceptChildren", formBuilderSelectField.getAcceptChildren());
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "builder", formBuilderSelectField.getBuilder());
+	}
+
+	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderObject(responseWriter, "controlsToolbar", formBuilderSelectField.getControlsToolbar());
+	}
+
+	protected void renderDataType(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "dataType", formBuilderSelectField.getDataType());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "disabled", formBuilderSelectField.getDisabled());
+	}
+
+	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "dropZoneNode", formBuilderSelectField.getDropZoneNode());
+	}
+
+	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderArray(responseWriter, "hiddenAttributes", formBuilderSelectField.getHiddenAttributes());
+	}
+
+	protected void renderFormbuilderselectfieldId(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "formbuilderselectfieldId", formBuilderSelectField.getFormbuilderselectfieldId());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "label", formBuilderSelectField.getLabel());
+	}
+
+	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "labelNode", formBuilderSelectField.getLabelNode());
+	}
+
+	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderObject(responseWriter, "localizationMap", formBuilderSelectField.getLocalizationMap());
+	}
+
+	protected void renderMultiple(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "multiple", formBuilderSelectField.getMultiple());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "name", formBuilderSelectField.getName());
+	}
+
+	protected void renderOptionTemplate(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "optionTemplate", formBuilderSelectField.getOptionTemplate());
+	}
+
+	protected void renderOptions(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderObject(responseWriter, "options", formBuilderSelectField.getOptions());
+	}
+
+	protected void renderFormbuilderselectfieldParent(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "formbuilderselectfieldParent", formBuilderSelectField.getFormbuilderselectfieldParent());
+	}
+
+	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "predefinedValue", formBuilderSelectField.getPredefinedValue());
+	}
+
+	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "readOnly", formBuilderSelectField.getReadOnly());
+	}
+
+	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderArray(responseWriter, "readOnlyAttributes", formBuilderSelectField.getReadOnlyAttributes());
+	}
+
+	protected void renderRequired(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "required", formBuilderSelectField.getRequired());
+	}
+
+	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "requiredFlagNode", formBuilderSelectField.getRequiredFlagNode());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "selected", formBuilderSelectField.getSelected());
+	}
+
+	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "showLabel", formBuilderSelectField.getShowLabel());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderObject(responseWriter, "strings", formBuilderSelectField.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderNumber(responseWriter, "tabIndex", formBuilderSelectField.getTabIndex());
+	}
+
+	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "template", formBuilderSelectField.getTemplate());
+	}
+
+	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "templateNode", formBuilderSelectField.getTemplateNode());
+	}
+
+	protected void renderTip(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "tip", formBuilderSelectField.getTip());
+	}
+
+	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "tipFlagNode", formBuilderSelectField.getTipFlagNode());
+	}
+
+	protected void renderType(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderString(responseWriter, "type", formBuilderSelectField.getType());
+	}
+
+	protected void renderUnique(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderBoolean(responseWriter, "unique", formBuilderSelectField.getUnique());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		renderNumber(responseWriter, "zIndex", formBuilderSelectField.getZIndex());
 	}
 
 }

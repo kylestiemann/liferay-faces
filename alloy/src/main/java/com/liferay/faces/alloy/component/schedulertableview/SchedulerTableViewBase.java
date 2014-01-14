@@ -105,11 +105,11 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(SCHEDULERTABLEVIEW_BODY_CONTENT, schedulertableviewBodyContent);
 	}
 
-	protected java.lang.Object getColHeaderDaysNode() {
-		return (java.lang.Object) getStateHelper().eval(COL_HEADER_DAYS_NODE, null);
+	protected java.lang.String getColHeaderDaysNode() {
+		return (java.lang.String) getStateHelper().eval(COL_HEADER_DAYS_NODE, null);
 	}
 
-	protected void setColHeaderDaysNode(java.lang.Object colHeaderDaysNode) {
+	protected void setColHeaderDaysNode(java.lang.String colHeaderDaysNode) {
 		getStateHelper().put(COL_HEADER_DAYS_NODE, colHeaderDaysNode);
 	}
 
@@ -137,11 +137,11 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(DISPLAY_ROWS, displayRows);
 	}
 
-	protected java.lang.Object getFilterFn() {
-		return (java.lang.Object) getStateHelper().eval(FILTER_FN, null);
+	protected java.lang.String getFilterFn() {
+		return (java.lang.String) getStateHelper().eval(FILTER_FN, null);
 	}
 
-	protected void setFilterFn(java.lang.Object filterFn) {
+	protected void setFilterFn(java.lang.String filterFn) {
 		getStateHelper().put(FILTER_FN, filterFn);
 	}
 
@@ -161,11 +161,11 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(HEADER_DATE_FORMATTER, headerDateFormatter);
 	}
 
-	protected java.lang.Object getHeaderTableNode() {
-		return (java.lang.Object) getStateHelper().eval(HEADER_TABLE_NODE, null);
+	protected java.lang.String getHeaderTableNode() {
+		return (java.lang.String) getStateHelper().eval(HEADER_TABLE_NODE, null);
 	}
 
-	protected void setHeaderTableNode(java.lang.Object headerTableNode) {
+	protected void setHeaderTableNode(java.lang.String headerTableNode) {
 		getStateHelper().put(HEADER_TABLE_NODE, headerTableNode);
 	}
 
@@ -209,19 +209,19 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(NAVIGATION_DATE_FORMATTER, navigationDateFormatter);
 	}
 
-	protected java.lang.Object getNextDate() {
-		return (java.lang.Object) getStateHelper().eval(NEXT_DATE, null);
+	protected java.lang.String getNextDate() {
+		return (java.lang.String) getStateHelper().eval(NEXT_DATE, null);
 	}
 
-	protected void setNextDate(java.lang.Object nextDate) {
+	protected void setNextDate(java.lang.String nextDate) {
 		getStateHelper().put(NEXT_DATE, nextDate);
 	}
 
-	protected java.lang.Object getPrevDate() {
-		return (java.lang.Object) getStateHelper().eval(PREV_DATE, null);
+	protected java.lang.String getPrevDate() {
+		return (java.lang.String) getStateHelper().eval(PREV_DATE, null);
 	}
 
-	protected void setPrevDate(java.lang.Object prevDate) {
+	protected void setPrevDate(java.lang.String prevDate) {
 		getStateHelper().put(PREV_DATE, prevDate);
 	}
 
@@ -233,19 +233,19 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(RENDER, render);
 	}
 
-	protected java.lang.Object getRowsContainerNode() {
-		return (java.lang.Object) getStateHelper().eval(ROWS_CONTAINER_NODE, null);
+	protected java.lang.String getRowsContainerNode() {
+		return (java.lang.String) getStateHelper().eval(ROWS_CONTAINER_NODE, null);
 	}
 
-	protected void setRowsContainerNode(java.lang.Object rowsContainerNode) {
+	protected void setRowsContainerNode(java.lang.String rowsContainerNode) {
 		getStateHelper().put(ROWS_CONTAINER_NODE, rowsContainerNode);
 	}
 
-	protected java.lang.Object getScheduler() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULER, null);
+	protected java.lang.String getScheduler() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER, null);
 	}
 
-	protected void setScheduler(java.lang.Object scheduler) {
+	protected void setScheduler(java.lang.String scheduler) {
 		getStateHelper().put(SCHEDULER, scheduler);
 	}
 
@@ -257,27 +257,27 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(SCROLLABLE, scrollable);
 	}
 
-	protected java.lang.Object getStrings() {
-		return (java.lang.Object) getStateHelper().eval(STRINGS, null);
+	protected java.lang.String getStrings() {
+		return (java.lang.String) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.Object strings) {
+	protected void setStrings(java.lang.String strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.Object getTableGridNode() {
-		return (java.lang.Object) getStateHelper().eval(TABLE_GRID_NODE, null);
+	protected java.lang.String getTableGridNode() {
+		return (java.lang.String) getStateHelper().eval(TABLE_GRID_NODE, null);
 	}
 
-	protected void setTableGridNode(java.lang.Object tableGridNode) {
+	protected void setTableGridNode(java.lang.String tableGridNode) {
 		getStateHelper().put(TABLE_GRID_NODE, tableGridNode);
 	}
 
-	protected java.lang.Object getTriggerNode() {
-		return (java.lang.Object) getStateHelper().eval(TRIGGER_NODE, null);
+	protected java.lang.String getTriggerNode() {
+		return (java.lang.String) getStateHelper().eval(TRIGGER_NODE, null);
 	}
 
-	protected void setTriggerNode(java.lang.Object triggerNode) {
+	protected void setTriggerNode(java.lang.String triggerNode) {
 		getStateHelper().put(TRIGGER_NODE, triggerNode);
 	}
 

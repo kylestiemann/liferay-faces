@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ImageGalleryRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_IMAGE_VIEWER_GALLERY = "aui-image-viewer-gallery";
+	private static final String AUI_MODULE_NAME = "aui-image-viewer-gallery";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ImageGallery imageGallery = (ImageGallery) uiComponent;
 		encodeHTML(facesContext, imageGallery);
 		encodeJavaScript(facesContext, imageGallery);
@@ -47,477 +49,274 @@ public abstract class ImageGalleryRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ImageGallery imageGallery) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, imageGallery, AUI_IMAGE_VIEWER_GALLERY);
+		beginJavaScript(facesContext, imageGallery);
 
 		bufferedResponseWriter.write("var imageGallery = new Y.ImageGallery");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(imageGallery.getAnim() != null)
-		{
+		renderAnim(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderAutoPlay(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderImagegalleryBodyContent(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderCaption(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderCaptionEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderCaptionFromTitle(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderCentered(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderCloseEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderControlLeftEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderControlRightEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderCurrentIndex(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderDelay(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderImage(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderImageAnim(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderInfoEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderInfoTemplate(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderLinks(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderLoader(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderLoading(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderLoadingEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxHeight(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxWidth(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderModal(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPagination(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPaginationEl(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPaginationInstance(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPaused(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPausedLabel(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPlaying(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPlayingLabel(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderPreloadAllImages(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderRepeat(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderShowClose(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderShowControls(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderShowPlayer(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbar(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderTotalLinks(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderUseOriginalImage(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, imageGallery);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, imageGallery);
 
-			bufferedResponseWriter.write("anim: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getAnim().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getAutoPlay() != null)
-		{
-
-			bufferedResponseWriter.write("autoPlay: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getAutoPlay().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getImagegalleryBodyContent() != null)
-		{
-
-			bufferedResponseWriter.write("imagegalleryBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getImagegalleryBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getCaption() != null)
-		{
-
-			bufferedResponseWriter.write("caption: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getCaption().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getCaptionEl() != null)
-		{
-
-			bufferedResponseWriter.write("captionEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getCaptionEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getCaptionFromTitle() != null)
-		{
-
-			bufferedResponseWriter.write("captionFromTitle: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getCaptionFromTitle().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getCentered() != null)
-		{
-
-			bufferedResponseWriter.write("centered: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getCentered().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getCloseEl() != null)
-		{
-
-			bufferedResponseWriter.write("closeEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getCloseEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getControlLeftEl() != null)
-		{
-
-			bufferedResponseWriter.write("controlLeftEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getControlLeftEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getControlRightEl() != null)
-		{
-
-			bufferedResponseWriter.write("controlRightEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getControlRightEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getCurrentIndex() != null)
-		{
-
-			bufferedResponseWriter.write("currentIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getCurrentIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getDelay() != null)
-		{
-
-			bufferedResponseWriter.write("delay: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getDelay().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getImage() != null)
-		{
-
-			bufferedResponseWriter.write("image: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getImage().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getImageAnim() != null)
-		{
-
-			bufferedResponseWriter.write("imageAnim: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getImageAnim().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getInfoEl() != null)
-		{
-
-			bufferedResponseWriter.write("infoEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getInfoEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getInfoTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("infoTemplate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getInfoTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getLinks() != null)
-		{
-
-			bufferedResponseWriter.write("links: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getLinks().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getLoader() != null)
-		{
-
-			bufferedResponseWriter.write("loader: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getLoader().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getLoading() != null)
-		{
-
-			bufferedResponseWriter.write("loading: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getLoading().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getLoadingEl() != null)
-		{
-
-			bufferedResponseWriter.write("loadingEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getLoadingEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getMaxHeight() != null)
-		{
-
-			bufferedResponseWriter.write("maxHeight: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getMaxHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getMaxWidth() != null)
-		{
-
-			bufferedResponseWriter.write("maxWidth: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getMaxWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getModal() != null)
-		{
-
-			bufferedResponseWriter.write("modal: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getModal().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPagination() != null)
-		{
-
-			bufferedResponseWriter.write("pagination: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPagination().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPaginationEl() != null)
-		{
-
-			bufferedResponseWriter.write("paginationEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPaginationEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPaginationInstance() != null)
-		{
-
-			bufferedResponseWriter.write("paginationInstance: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPaginationInstance().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPaused() != null)
-		{
-
-			bufferedResponseWriter.write("paused: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPaused().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPausedLabel() != null)
-		{
-
-			bufferedResponseWriter.write("pausedLabel: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPausedLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPlaying() != null)
-		{
-
-			bufferedResponseWriter.write("playing: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPlaying().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPlayingLabel() != null)
-		{
-
-			bufferedResponseWriter.write("playingLabel: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPlayingLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getPreloadAllImages() != null)
-		{
-
-			bufferedResponseWriter.write("preloadAllImages: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getPreloadAllImages().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getRepeat() != null)
-		{
-
-			bufferedResponseWriter.write("repeat: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getRepeat().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getShowClose() != null)
-		{
-
-			bufferedResponseWriter.write("showClose: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getShowClose().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getShowControls() != null)
-		{
-
-			bufferedResponseWriter.write("showControls: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getShowControls().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getShowPlayer() != null)
-		{
-
-			bufferedResponseWriter.write("showPlayer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getShowPlayer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("toolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getTotalLinks() != null)
-		{
-
-			bufferedResponseWriter.write("totalLinks: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getTotalLinks().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getUseOriginalImage() != null)
-		{
-
-			bufferedResponseWriter.write("useOriginalImage: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getUseOriginalImage().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageGallery.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageGallery.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, imageGallery, AUI_IMAGE_VIEWER_GALLERY);
-		
+
+		handleBuffer(facesContext, imageGallery);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAnim(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "anim", imageGallery.getAnim());
+	}
+
+	protected void renderAutoPlay(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "autoPlay", imageGallery.getAutoPlay());
+	}
+
+	protected void renderImagegalleryBodyContent(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "imagegalleryBodyContent", imageGallery.getImagegalleryBodyContent());
+	}
+
+	protected void renderCaption(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "caption", imageGallery.getCaption());
+	}
+
+	protected void renderCaptionEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "captionEl", imageGallery.getCaptionEl());
+	}
+
+	protected void renderCaptionFromTitle(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "captionFromTitle", imageGallery.getCaptionFromTitle());
+	}
+
+	protected void renderCentered(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "centered", imageGallery.getCentered());
+	}
+
+	protected void renderCloseEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "closeEl", imageGallery.getCloseEl());
+	}
+
+	protected void renderControlLeftEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "controlLeftEl", imageGallery.getControlLeftEl());
+	}
+
+	protected void renderControlRightEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "controlRightEl", imageGallery.getControlRightEl());
+	}
+
+	protected void renderCurrentIndex(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderNumber(responseWriter, "currentIndex", imageGallery.getCurrentIndex());
+	}
+
+	protected void renderDelay(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderNumber(responseWriter, "delay", imageGallery.getDelay());
+	}
+
+	protected void renderImage(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "image", imageGallery.getImage());
+	}
+
+	protected void renderImageAnim(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderObject(responseWriter, "imageAnim", imageGallery.getImageAnim());
+	}
+
+	protected void renderInfoEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "infoEl", imageGallery.getInfoEl());
+	}
+
+	protected void renderInfoTemplate(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "infoTemplate", imageGallery.getInfoTemplate());
+	}
+
+	protected void renderLinks(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "links", imageGallery.getLinks());
+	}
+
+	protected void renderLoader(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "loader", imageGallery.getLoader());
+	}
+
+	protected void renderLoading(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "loading", imageGallery.getLoading());
+	}
+
+	protected void renderLoadingEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "loadingEl", imageGallery.getLoadingEl());
+	}
+
+	protected void renderMaxHeight(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderNumber(responseWriter, "maxHeight", imageGallery.getMaxHeight());
+	}
+
+	protected void renderMaxWidth(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderNumber(responseWriter, "maxWidth", imageGallery.getMaxWidth());
+	}
+
+	protected void renderModal(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "modal", imageGallery.getModal());
+	}
+
+	protected void renderPagination(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderObject(responseWriter, "pagination", imageGallery.getPagination());
+	}
+
+	protected void renderPaginationEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "paginationEl", imageGallery.getPaginationEl());
+	}
+
+	protected void renderPaginationInstance(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "paginationInstance", imageGallery.getPaginationInstance());
+	}
+
+	protected void renderPaused(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "paused", imageGallery.getPaused());
+	}
+
+	protected void renderPausedLabel(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "pausedLabel", imageGallery.getPausedLabel());
+	}
+
+	protected void renderPlaying(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "playing", imageGallery.getPlaying());
+	}
+
+	protected void renderPlayingLabel(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "playingLabel", imageGallery.getPlayingLabel());
+	}
+
+	protected void renderPreloadAllImages(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "preloadAllImages", imageGallery.getPreloadAllImages());
+	}
+
+	protected void renderRepeat(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "repeat", imageGallery.getRepeat());
+	}
+
+	protected void renderShowClose(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "showClose", imageGallery.getShowClose());
+	}
+
+	protected void renderShowControls(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "showControls", imageGallery.getShowControls());
+	}
+
+	protected void renderShowPlayer(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "showPlayer", imageGallery.getShowPlayer());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderNumber(responseWriter, "tabIndex", imageGallery.getTabIndex());
+	}
+
+	protected void renderToolbar(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderString(responseWriter, "toolbar", imageGallery.getToolbar());
+	}
+
+	protected void renderTotalLinks(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "totalLinks", imageGallery.getTotalLinks());
+	}
+
+	protected void renderUseOriginalImage(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "useOriginalImage", imageGallery.getUseOriginalImage());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderBoolean(responseWriter, "visible", imageGallery.getVisible());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
+		renderNumber(responseWriter, "zIndex", imageGallery.getZIndex());
 	}
 
 }

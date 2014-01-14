@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class CharCounterRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_CHAR_COUNTER = "aui-char-counter";
+	private static final String AUI_MODULE_NAME = "aui-char-counter";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		CharCounter charCounter = (CharCounter) uiComponent;
 		encodeHTML(facesContext, charCounter);
 		encodeJavaScript(facesContext, charCounter);
@@ -47,59 +49,46 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, CharCounter charCounter) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, charCounter, AUI_CHAR_COUNTER);
+		beginJavaScript(facesContext, charCounter);
 
 		bufferedResponseWriter.write("var charCounter = new Y.CharCounter");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(charCounter.getCounter() != null)
-		{
+		renderCounter(responseWriter, charCounter);
+		responseWriter.write(StringPool.COMMA);
+		renderInput(responseWriter, charCounter);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxLength(responseWriter, charCounter);
 
-			bufferedResponseWriter.write("counter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(charCounter.getCounter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(charCounter.getInput() != null)
-		{
-
-			bufferedResponseWriter.write("input: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(charCounter.getInput().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(charCounter.getMaxLength() != null)
-		{
-
-			bufferedResponseWriter.write("maxLength: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(charCounter.getMaxLength().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, charCounter, AUI_CHAR_COUNTER);
-		
+
+		handleBuffer(facesContext, charCounter);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCounter(ResponseWriter responseWriter, CharCounter charCounter) throws IOException {
+		renderString(responseWriter, "counter", charCounter.getCounter());
+	}
+
+	protected void renderInput(ResponseWriter responseWriter, CharCounter charCounter) throws IOException {
+		renderString(responseWriter, "input", charCounter.getInput());
+	}
+
+	protected void renderMaxLength(ResponseWriter responseWriter, CharCounter charCounter) throws IOException {
+		renderNumber(responseWriter, "maxLength", charCounter.getMaxLength());
 	}
 
 }

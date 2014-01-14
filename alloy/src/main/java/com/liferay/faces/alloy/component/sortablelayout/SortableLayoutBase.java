@@ -73,19 +73,19 @@ public abstract class SortableLayoutBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(DROP_CONTAINER, dropContainer);
 	}
 
-	protected java.lang.Object getDropNodes() {
-		return (java.lang.Object) getStateHelper().eval(DROP_NODES, null);
+	protected java.lang.String getDropNodes() {
+		return (java.lang.String) getStateHelper().eval(DROP_NODES, null);
 	}
 
-	protected void setDropNodes(java.lang.Object dropNodes) {
+	protected void setDropNodes(java.lang.String dropNodes) {
 		getStateHelper().put(DROP_NODES, dropNodes);
 	}
 
-	protected java.lang.Object getGroups() {
-		return (java.lang.Object) getStateHelper().eval(GROUPS, null);
+	protected java.lang.String getGroups() {
+		return (java.lang.String) getStateHelper().eval(GROUPS, null);
 	}
 
-	protected void setGroups(java.lang.Object groups) {
+	protected void setGroups(java.lang.String groups) {
 		getStateHelper().put(GROUPS, groups);
 	}
 
@@ -97,27 +97,27 @@ public abstract class SortableLayoutBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LAZY_START, lazyStart);
 	}
 
-	protected java.lang.Object getPlaceholder() {
-		return (java.lang.Object) getStateHelper().eval(PLACEHOLDER, null);
+	protected java.lang.String getPlaceholder() {
+		return (java.lang.String) getStateHelper().eval(PLACEHOLDER, null);
 	}
 
-	protected void setPlaceholder(java.lang.Object placeholder) {
+	protected void setPlaceholder(java.lang.String placeholder) {
 		getStateHelper().put(PLACEHOLDER, placeholder);
 	}
 
-	protected java.lang.Object getProxy() {
-		return (java.lang.Object) getStateHelper().eval(PROXY, null);
+	protected java.lang.String getProxy() {
+		return (java.lang.String) getStateHelper().eval(PROXY, null);
 	}
 
-	protected void setProxy(java.lang.Object proxy) {
+	protected void setProxy(java.lang.String proxy) {
 		getStateHelper().put(PROXY, proxy);
 	}
 
-	protected java.lang.Object getProxyNode() {
-		return (java.lang.Object) getStateHelper().eval(PROXY_NODE, null);
+	protected java.lang.String getProxyNode() {
+		return (java.lang.String) getStateHelper().eval(PROXY_NODE, null);
 	}
 
-	protected void setProxyNode(java.lang.Object proxyNode) {
+	protected void setProxyNode(java.lang.String proxyNode) {
 		getStateHelper().put(PROXY_NODE, proxyNode);
 	}
 

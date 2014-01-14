@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FreemarkerRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_ACE_AUTOCOMPLETE_FREEMARKER = "aui-ace-autocomplete-freemarker";
+	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-freemarker";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Freemarker freemarker = (Freemarker) uiComponent;
 		encodeHTML(facesContext, freemarker);
 		encodeJavaScript(facesContext, freemarker);
@@ -47,81 +49,58 @@ public abstract class FreemarkerRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Freemarker freemarker) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, freemarker, AUI_ACE_AUTOCOMPLETE_FREEMARKER);
+		beginJavaScript(facesContext, freemarker);
 
 		bufferedResponseWriter.write("var freemarker = new Y.Freemarker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(freemarker.getDirectives() != null)
-		{
+		renderDirectives(responseWriter, freemarker);
+		responseWriter.write(StringPool.COMMA);
+		renderDirectivesMatcher(responseWriter, freemarker);
+		responseWriter.write(StringPool.COMMA);
+		renderHost(responseWriter, freemarker);
+		responseWriter.write(StringPool.COMMA);
+		renderVariables(responseWriter, freemarker);
+		responseWriter.write(StringPool.COMMA);
+		renderVariablesMatcher(responseWriter, freemarker);
 
-			bufferedResponseWriter.write("directives: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(freemarker.getDirectives().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(freemarker.getDirectivesMatcher() != null)
-		{
-
-			bufferedResponseWriter.write("directivesMatcher: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(freemarker.getDirectivesMatcher().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(freemarker.getHost() != null)
-		{
-
-			bufferedResponseWriter.write("host: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(freemarker.getHost().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(freemarker.getVariables() != null)
-		{
-
-			bufferedResponseWriter.write("variables: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(freemarker.getVariables().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(freemarker.getVariablesMatcher() != null)
-		{
-
-			bufferedResponseWriter.write("variablesMatcher: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(freemarker.getVariablesMatcher().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, freemarker, AUI_ACE_AUTOCOMPLETE_FREEMARKER);
-		
+
+		handleBuffer(facesContext, freemarker);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDirectives(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
+		renderArray(responseWriter, "directives", freemarker.getDirectives());
+	}
+
+	protected void renderDirectivesMatcher(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
+		renderString(responseWriter, "directivesMatcher", freemarker.getDirectivesMatcher());
+	}
+
+	protected void renderHost(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
+		renderObject(responseWriter, "host", freemarker.getHost());
+	}
+
+	protected void renderVariables(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
+		renderObject(responseWriter, "variables", freemarker.getVariables());
+	}
+
+	protected void renderVariablesMatcher(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
+		renderString(responseWriter, "variablesMatcher", freemarker.getVariablesMatcher());
 	}
 
 }

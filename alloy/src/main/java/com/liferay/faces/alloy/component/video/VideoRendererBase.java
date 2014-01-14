@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class VideoRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_VIDEO = "aui-video";
+	private static final String AUI_MODULE_NAME = "aui-video";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Video video = (Video) uiComponent;
 		encodeHTML(facesContext, video);
 		encodeJavaScript(facesContext, video);
@@ -47,136 +49,88 @@ public abstract class VideoRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Video video) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, video, AUI_VIDEO);
+		beginJavaScript(facesContext, video);
 
 		bufferedResponseWriter.write("var video = new Y.Video");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(video.getCssClass() != null)
-		{
+		renderCssClass(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderFixedAttributes(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderFlashVars(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderOgvUrl(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderPoster(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderSwfUrl(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderUrl(responseWriter, video);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, video);
 
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getFixedAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("fixedAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getFixedAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getFlashVars() != null)
-		{
-
-			bufferedResponseWriter.write("flashVars: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getFlashVars().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getOgvUrl() != null)
-		{
-
-			bufferedResponseWriter.write("ogvUrl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getOgvUrl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getPoster() != null)
-		{
-
-			bufferedResponseWriter.write("poster: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getPoster().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getSwfUrl() != null)
-		{
-
-			bufferedResponseWriter.write("swfUrl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getSwfUrl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getUrl() != null)
-		{
-
-			bufferedResponseWriter.write("url: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getUrl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(video.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(video.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, video, AUI_VIDEO);
-		
+
+		handleBuffer(facesContext, video);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, Video video) throws IOException {
+		renderString(responseWriter, "cssClass", video.getCssClass());
+	}
+
+	protected void renderFixedAttributes(ResponseWriter responseWriter, Video video) throws IOException {
+		renderObject(responseWriter, "fixedAttributes", video.getFixedAttributes());
+	}
+
+	protected void renderFlashVars(ResponseWriter responseWriter, Video video) throws IOException {
+		renderObject(responseWriter, "flashVars", video.getFlashVars());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, Video video) throws IOException {
+		renderString(responseWriter, "hideClass", video.getHideClass());
+	}
+
+	protected void renderOgvUrl(ResponseWriter responseWriter, Video video) throws IOException {
+		renderString(responseWriter, "ogvUrl", video.getOgvUrl());
+	}
+
+	protected void renderPoster(ResponseWriter responseWriter, Video video) throws IOException {
+		renderString(responseWriter, "poster", video.getPoster());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, Video video) throws IOException {
+		renderBoolean(responseWriter, "render", video.getRender());
+	}
+
+	protected void renderSwfUrl(ResponseWriter responseWriter, Video video) throws IOException {
+		renderString(responseWriter, "swfUrl", video.getSwfUrl());
+	}
+
+	protected void renderUrl(ResponseWriter responseWriter, Video video) throws IOException {
+		renderString(responseWriter, "url", video.getUrl());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, Video video) throws IOException {
+		renderBoolean(responseWriter, "useARIA", video.getUseARIA());
 	}
 
 }

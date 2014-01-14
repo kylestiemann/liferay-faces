@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TabRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TABVIEW = "aui-tabview";
+	private static final String AUI_MODULE_NAME = "aui-tabview";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Tab tab = (Tab) uiComponent;
 		encodeHTML(facesContext, tab);
 		encodeJavaScript(facesContext, tab);
@@ -47,37 +49,34 @@ public abstract class TabRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Tab tab) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, tab, AUI_TABVIEW);
+		beginJavaScript(facesContext, tab);
 
 		bufferedResponseWriter.write("var tab = new Y.Tab");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(tab.getDisabled() != null)
-		{
+		renderDisabled(responseWriter, tab);
 
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(tab.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, tab, AUI_TABVIEW);
-		
+
+		handleBuffer(facesContext, tab);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, Tab tab) throws IOException {
+		renderString(responseWriter, "disabled", tab.getDisabled());
 	}
 
 }

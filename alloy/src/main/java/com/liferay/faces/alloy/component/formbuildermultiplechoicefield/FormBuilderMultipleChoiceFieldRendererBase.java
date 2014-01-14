@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FormBuilderMultipleChoiceFieldRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_FORM_BUILDER_FIELD_MULTIPLE_CHOICE = "aui-form-builder-field-multiple-choice";
+	private static final String AUI_MODULE_NAME = "aui-form-builder-field-multiple-choice";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		FormBuilderMultipleChoiceField formBuilderMultipleChoiceField = (FormBuilderMultipleChoiceField) uiComponent;
 		encodeHTML(facesContext, formBuilderMultipleChoiceField);
 		encodeJavaScript(facesContext, formBuilderMultipleChoiceField);
@@ -47,367 +49,214 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends AUIRend
 	protected void encodeJavaScript(FacesContext facesContext, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, formBuilderMultipleChoiceField, AUI_FORM_BUILDER_FIELD_MULTIPLE_CHOICE);
+		beginJavaScript(facesContext, formBuilderMultipleChoiceField);
 
 		bufferedResponseWriter.write("var formBuilderMultipleChoiceField = new Y.FormBuilderMultipleChoiceField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(formBuilderMultipleChoiceField.getAcceptChildren() != null)
-		{
+		renderAcceptChildren(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderBuilder(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderControlsToolbar(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderDataType(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderDropZoneNode(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderHiddenAttributes(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuildermultiplechoicefieldId(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelNode(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderLocalizationMap(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderOptionTemplate(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderOptions(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuildermultiplechoicefieldParent(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderPredefinedValue(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnly(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnlyAttributes(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequired(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequiredFlagNode(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderShowLabel(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplate(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplateNode(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderTip(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderTipFlagNode(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderType(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderUnique(responseWriter, formBuilderMultipleChoiceField);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, formBuilderMultipleChoiceField);
 
-			bufferedResponseWriter.write("acceptChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getAcceptChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getBuilder() != null)
-		{
-
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getControlsToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("controlsToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getControlsToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getDataType() != null)
-		{
-
-			bufferedResponseWriter.write("dataType: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getDataType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getDropZoneNode() != null)
-		{
-
-			bufferedResponseWriter.write("dropZoneNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getDropZoneNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getHiddenAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("hiddenAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getHiddenAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId() != null)
-		{
-
-			bufferedResponseWriter.write("formbuildermultiplechoicefieldId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("labelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getLocalizationMap() != null)
-		{
-
-			bufferedResponseWriter.write("localizationMap: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getLocalizationMap().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getOptionTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("optionTemplate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getOptionTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getOptions() != null)
-		{
-
-			bufferedResponseWriter.write("options: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getOptions().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent() != null)
-		{
-
-			bufferedResponseWriter.write("formbuildermultiplechoicefieldParent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getPredefinedValue() != null)
-		{
-
-			bufferedResponseWriter.write("predefinedValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getPredefinedValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getReadOnly() != null)
-		{
-
-			bufferedResponseWriter.write("readOnly: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getReadOnly().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getReadOnlyAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("readOnlyAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getReadOnlyAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getRequired() != null)
-		{
-
-			bufferedResponseWriter.write("required: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getRequired().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getRequiredFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("requiredFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getRequiredFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getShowLabel() != null)
-		{
-
-			bufferedResponseWriter.write("showLabel: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getShowLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("template: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getTemplateNode() != null)
-		{
-
-			bufferedResponseWriter.write("templateNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getTemplateNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getTip() != null)
-		{
-
-			bufferedResponseWriter.write("tip: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getTip().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getTipFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("tipFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getTipFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getType() != null)
-		{
-
-			bufferedResponseWriter.write("type: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getUnique() != null)
-		{
-
-			bufferedResponseWriter.write("unique: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getUnique().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderMultipleChoiceField.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderMultipleChoiceField.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, formBuilderMultipleChoiceField, AUI_FORM_BUILDER_FIELD_MULTIPLE_CHOICE);
-		
+
+		handleBuffer(facesContext, formBuilderMultipleChoiceField);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "acceptChildren", formBuilderMultipleChoiceField.getAcceptChildren());
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "builder", formBuilderMultipleChoiceField.getBuilder());
+	}
+
+	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderObject(responseWriter, "controlsToolbar", formBuilderMultipleChoiceField.getControlsToolbar());
+	}
+
+	protected void renderDataType(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "dataType", formBuilderMultipleChoiceField.getDataType());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "disabled", formBuilderMultipleChoiceField.getDisabled());
+	}
+
+	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "dropZoneNode", formBuilderMultipleChoiceField.getDropZoneNode());
+	}
+
+	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderArray(responseWriter, "hiddenAttributes", formBuilderMultipleChoiceField.getHiddenAttributes());
+	}
+
+	protected void renderFormbuildermultiplechoicefieldId(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "formbuildermultiplechoicefieldId", formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "label", formBuilderMultipleChoiceField.getLabel());
+	}
+
+	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "labelNode", formBuilderMultipleChoiceField.getLabelNode());
+	}
+
+	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderObject(responseWriter, "localizationMap", formBuilderMultipleChoiceField.getLocalizationMap());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "name", formBuilderMultipleChoiceField.getName());
+	}
+
+	protected void renderOptionTemplate(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "optionTemplate", formBuilderMultipleChoiceField.getOptionTemplate());
+	}
+
+	protected void renderOptions(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderObject(responseWriter, "options", formBuilderMultipleChoiceField.getOptions());
+	}
+
+	protected void renderFormbuildermultiplechoicefieldParent(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "formbuildermultiplechoicefieldParent", formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent());
+	}
+
+	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "predefinedValue", formBuilderMultipleChoiceField.getPredefinedValue());
+	}
+
+	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "readOnly", formBuilderMultipleChoiceField.getReadOnly());
+	}
+
+	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderArray(responseWriter, "readOnlyAttributes", formBuilderMultipleChoiceField.getReadOnlyAttributes());
+	}
+
+	protected void renderRequired(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "required", formBuilderMultipleChoiceField.getRequired());
+	}
+
+	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "requiredFlagNode", formBuilderMultipleChoiceField.getRequiredFlagNode());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "selected", formBuilderMultipleChoiceField.getSelected());
+	}
+
+	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "showLabel", formBuilderMultipleChoiceField.getShowLabel());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderObject(responseWriter, "strings", formBuilderMultipleChoiceField.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderNumber(responseWriter, "tabIndex", formBuilderMultipleChoiceField.getTabIndex());
+	}
+
+	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "template", formBuilderMultipleChoiceField.getTemplate());
+	}
+
+	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "templateNode", formBuilderMultipleChoiceField.getTemplateNode());
+	}
+
+	protected void renderTip(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "tip", formBuilderMultipleChoiceField.getTip());
+	}
+
+	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "tipFlagNode", formBuilderMultipleChoiceField.getTipFlagNode());
+	}
+
+	protected void renderType(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderString(responseWriter, "type", formBuilderMultipleChoiceField.getType());
+	}
+
+	protected void renderUnique(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderBoolean(responseWriter, "unique", formBuilderMultipleChoiceField.getUnique());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		renderNumber(responseWriter, "zIndex", formBuilderMultipleChoiceField.getZIndex());
 	}
 
 }

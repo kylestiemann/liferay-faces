@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DatePickerPopoverRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATEPICKER_POPOVER = "aui-datepicker-popover";
+	private static final String AUI_MODULE_NAME = "aui-datepicker-popover";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DatePickerPopover datePickerPopover = (DatePickerPopover) uiComponent;
 		encodeHTML(facesContext, datePickerPopover);
 		encodeJavaScript(facesContext, datePickerPopover);
@@ -47,59 +49,46 @@ public abstract class DatePickerPopoverRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DatePickerPopover datePickerPopover) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, datePickerPopover, AUI_DATEPICKER_POPOVER);
+		beginJavaScript(facesContext, datePickerPopover);
 
 		bufferedResponseWriter.write("var datePickerPopover = new Y.DatePickerPopover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(datePickerPopover.getAutoHide() != null)
-		{
+		renderAutoHide(responseWriter, datePickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderPopover(responseWriter, datePickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderPopoverCssClass(responseWriter, datePickerPopover);
 
-			bufferedResponseWriter.write("autoHide: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePickerPopover.getAutoHide().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePickerPopover.getPopover() != null)
-		{
-
-			bufferedResponseWriter.write("popover: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePickerPopover.getPopover().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(datePickerPopover.getPopoverCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("popoverCssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(datePickerPopover.getPopoverCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, datePickerPopover, AUI_DATEPICKER_POPOVER);
-		
+
+		handleBuffer(facesContext, datePickerPopover);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAutoHide(ResponseWriter responseWriter, DatePickerPopover datePickerPopover) throws IOException {
+		renderBoolean(responseWriter, "autoHide", datePickerPopover.getAutoHide());
+	}
+
+	protected void renderPopover(ResponseWriter responseWriter, DatePickerPopover datePickerPopover) throws IOException {
+		renderString(responseWriter, "popover", datePickerPopover.getPopover());
+	}
+
+	protected void renderPopoverCssClass(ResponseWriter responseWriter, DatePickerPopover datePickerPopover) throws IOException {
+		renderString(responseWriter, "popoverCssClass", datePickerPopover.getPopoverCssClass());
 	}
 
 }

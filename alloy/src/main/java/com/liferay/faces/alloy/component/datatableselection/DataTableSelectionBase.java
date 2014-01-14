@@ -37,11 +37,11 @@ public abstract class DataTableSelectionBase extends javax.faces.component.UIPan
 	private static final String ON_SELECTION_CHANGE = "onSelectionChange";
 	private static final String ON_TAB_INDEX_CHANGE = "onTabIndexChange";
 
-	protected java.lang.Object getActiveCell() {
-		return (java.lang.Object) getStateHelper().eval(ACTIVE_CELL, null);
+	protected java.lang.String getActiveCell() {
+		return (java.lang.String) getStateHelper().eval(ACTIVE_CELL, null);
 	}
 
-	protected void setActiveCell(java.lang.Object activeCell) {
+	protected void setActiveCell(java.lang.String activeCell) {
 		getStateHelper().put(ACTIVE_CELL, activeCell);
 	}
 
@@ -53,19 +53,19 @@ public abstract class DataTableSelectionBase extends javax.faces.component.UIPan
 		getStateHelper().put(ACTIVE_COORD, activeCoord);
 	}
 
-	protected java.lang.Object getActiveRow() {
-		return (java.lang.Object) getStateHelper().eval(ACTIVE_ROW, null);
+	protected java.lang.String getActiveRow() {
+		return (java.lang.String) getStateHelper().eval(ACTIVE_ROW, null);
 	}
 
-	protected void setActiveRow(java.lang.Object activeRow) {
+	protected void setActiveRow(java.lang.String activeRow) {
 		getStateHelper().put(ACTIVE_ROW, activeRow);
 	}
 
-	protected java.lang.Object getSelection() {
-		return (java.lang.Object) getStateHelper().eval(SELECTION, null);
+	protected java.lang.String getSelection() {
+		return (java.lang.String) getStateHelper().eval(SELECTION, null);
 	}
 
-	protected void setSelection(java.lang.Object selection) {
+	protected void setSelection(java.lang.String selection) {
 		getStateHelper().put(SELECTION, selection);
 	}
 

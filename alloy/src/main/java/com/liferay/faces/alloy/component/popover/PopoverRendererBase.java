@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class PopoverRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_POPOVER = "aui-popover";
+	private static final String AUI_MODULE_NAME = "aui-popover";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Popover popover = (Popover) uiComponent;
 		encodeHTML(facesContext, popover);
 		encodeJavaScript(facesContext, popover);
@@ -47,433 +49,250 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Popover popover) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, popover, AUI_POPOVER);
+		beginJavaScript(facesContext, popover);
 
 		bufferedResponseWriter.write("var popover = new Y.Popover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(popover.getAlign() != null)
-		{
+		renderAlign(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderAlignOn(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderPopoverBodyContent(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderBoundingBox(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderCentered(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderConstrain(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderContentBox(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderDestroyed(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderFillHeight(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderFocusOn(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderFocused(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderFooterContent(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderContent(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderHideOn(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderPopoverId(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderInitialized(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderPopoverLocale(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderMaskNode(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderModal(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderPreventOverlap(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderRendered(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderShim(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderSrcNode(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbarPosition(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbars(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderTriggerToggleEvent(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderWidth(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderX(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderXy(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderY(responseWriter, popover);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, popover);
 
-			bufferedResponseWriter.write("align: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getAlign().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getAlignOn() != null)
-		{
-
-			bufferedResponseWriter.write("alignOn: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getAlignOn().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getPopoverBodyContent() != null)
-		{
-
-			bufferedResponseWriter.write("popoverBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getPopoverBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getBoundingBox() != null)
-		{
-
-			bufferedResponseWriter.write("boundingBox: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getBoundingBox().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getCentered() != null)
-		{
-
-			bufferedResponseWriter.write("centered: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getCentered().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getConstrain() != null)
-		{
-
-			bufferedResponseWriter.write("constrain: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getConstrain().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getContentBox() != null)
-		{
-
-			bufferedResponseWriter.write("contentBox: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getContentBox().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getDestroyed() != null)
-		{
-
-			bufferedResponseWriter.write("destroyed: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getDestroyed().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getFillHeight() != null)
-		{
-
-			bufferedResponseWriter.write("fillHeight: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getFillHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getFocusOn() != null)
-		{
-
-			bufferedResponseWriter.write("focusOn: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getFocusOn().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getFocused() != null)
-		{
-
-			bufferedResponseWriter.write("focused: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getFocused().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getFooterContent() != null)
-		{
-
-			bufferedResponseWriter.write("footerContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getFooterContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getHeaderContent() != null)
-		{
-
-			bufferedResponseWriter.write("headerContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getHeaderContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getHideOn() != null)
-		{
-
-			bufferedResponseWriter.write("hideOn: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getHideOn().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getPopoverId() != null)
-		{
-
-			bufferedResponseWriter.write("popoverId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getPopoverId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getInitialized() != null)
-		{
-
-			bufferedResponseWriter.write("initialized: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getInitialized().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getPopoverLocale() != null)
-		{
-
-			bufferedResponseWriter.write("popoverLocale: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getPopoverLocale().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getMaskNode() != null)
-		{
-
-			bufferedResponseWriter.write("maskNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getMaskNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getModal() != null)
-		{
-
-			bufferedResponseWriter.write("modal: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getModal().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getPreventOverlap() != null)
-		{
-
-			bufferedResponseWriter.write("preventOverlap: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getPreventOverlap().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getRendered() != null)
-		{
-
-			bufferedResponseWriter.write("rendered: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getRendered().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getShim() != null)
-		{
-
-			bufferedResponseWriter.write("shim: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getShim().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getSrcNode() != null)
-		{
-
-			bufferedResponseWriter.write("srcNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getSrcNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getToolbarPosition() != null)
-		{
-
-			bufferedResponseWriter.write("toolbarPosition: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getToolbarPosition().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getToolbars() != null)
-		{
-
-			bufferedResponseWriter.write("toolbars: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getToolbars().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getTriggerToggleEvent() != null)
-		{
-
-			bufferedResponseWriter.write("triggerToggleEvent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getTriggerToggleEvent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getWidth() != null)
-		{
-
-			bufferedResponseWriter.write("width: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getX() != null)
-		{
-
-			bufferedResponseWriter.write("x: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getX().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getXy() != null)
-		{
-
-			bufferedResponseWriter.write("xy: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getXy().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getY() != null)
-		{
-
-			bufferedResponseWriter.write("y: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getY().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(popover.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(popover.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, popover, AUI_POPOVER);
-		
+
+		handleBuffer(facesContext, popover);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAlign(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderObject(responseWriter, "align", popover.getAlign());
+	}
+
+	protected void renderAlignOn(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderArray(responseWriter, "alignOn", popover.getAlignOn());
+	}
+
+	protected void renderPopoverBodyContent(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "popoverBodyContent", popover.getPopoverBodyContent());
+	}
+
+	protected void renderBoundingBox(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "boundingBox", popover.getBoundingBox());
+	}
+
+	protected void renderCentered(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "centered", popover.getCentered());
+	}
+
+	protected void renderConstrain(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "constrain", popover.getConstrain());
+	}
+
+	protected void renderContentBox(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "contentBox", popover.getContentBox());
+	}
+
+	protected void renderDestroyed(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "destroyed", popover.getDestroyed());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "disabled", popover.getDisabled());
+	}
+
+	protected void renderFillHeight(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "fillHeight", popover.getFillHeight());
+	}
+
+	protected void renderFocusOn(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderArray(responseWriter, "focusOn", popover.getFocusOn());
+	}
+
+	protected void renderFocused(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "focused", popover.getFocused());
+	}
+
+	protected void renderFooterContent(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "footerContent", popover.getFooterContent());
+	}
+
+	protected void renderHeaderContent(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "headerContent", popover.getHeaderContent());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "height", popover.getHeight());
+	}
+
+	protected void renderHideOn(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderArray(responseWriter, "hideOn", popover.getHideOn());
+	}
+
+	protected void renderPopoverId(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "popoverId", popover.getPopoverId());
+	}
+
+	protected void renderInitialized(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "initialized", popover.getInitialized());
+	}
+
+	protected void renderPopoverLocale(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "popoverLocale", popover.getPopoverLocale());
+	}
+
+	protected void renderMaskNode(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "maskNode", popover.getMaskNode());
+	}
+
+	protected void renderModal(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "modal", popover.getModal());
+	}
+
+	protected void renderPreventOverlap(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "preventOverlap", popover.getPreventOverlap());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "render", popover.getRender());
+	}
+
+	protected void renderRendered(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "rendered", popover.getRendered());
+	}
+
+	protected void renderShim(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "shim", popover.getShim());
+	}
+
+	protected void renderSrcNode(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "srcNode", popover.getSrcNode());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderObject(responseWriter, "strings", popover.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderNumber(responseWriter, "tabIndex", popover.getTabIndex());
+	}
+
+	protected void renderToolbarPosition(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderObject(responseWriter, "toolbarPosition", popover.getToolbarPosition());
+	}
+
+	protected void renderToolbars(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "toolbars", popover.getToolbars());
+	}
+
+	protected void renderTriggerToggleEvent(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "triggerToggleEvent", popover.getTriggerToggleEvent());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderBoolean(responseWriter, "visible", popover.getVisible());
+	}
+
+	protected void renderWidth(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderString(responseWriter, "width", popover.getWidth());
+	}
+
+	protected void renderX(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderNumber(responseWriter, "x", popover.getX());
+	}
+
+	protected void renderXy(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderArray(responseWriter, "xy", popover.getXy());
+	}
+
+	protected void renderY(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderNumber(responseWriter, "y", popover.getY());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, Popover popover) throws IOException {
+		renderNumber(responseWriter, "zIndex", popover.getZIndex());
 	}
 
 }

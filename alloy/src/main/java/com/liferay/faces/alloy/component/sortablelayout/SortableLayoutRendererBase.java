@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class SortableLayoutRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SORTABLE_LAYOUT = "aui-sortable-layout";
+	private static final String AUI_MODULE_NAME = "aui-sortable-layout";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		SortableLayout sortableLayout = (SortableLayout) uiComponent;
 		encodeHTML(facesContext, sortableLayout);
 		encodeJavaScript(facesContext, sortableLayout);
@@ -47,125 +49,82 @@ public abstract class SortableLayoutRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, SortableLayout sortableLayout) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, sortableLayout, AUI_SORTABLE_LAYOUT);
+		beginJavaScript(facesContext, sortableLayout);
 
 		bufferedResponseWriter.write("var sortableLayout = new Y.SortableLayout");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(sortableLayout.getDelegateConfig() != null)
-		{
+		renderDelegateConfig(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderDragNodes(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderDropContainer(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderDropNodes(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderGroups(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderLazyStart(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderPlaceholder(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderProxy(responseWriter, sortableLayout);
+		responseWriter.write(StringPool.COMMA);
+		renderProxyNode(responseWriter, sortableLayout);
 
-			bufferedResponseWriter.write("delegateConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getDelegateConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getDragNodes() != null)
-		{
-
-			bufferedResponseWriter.write("dragNodes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getDragNodes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getDropContainer() != null)
-		{
-
-			bufferedResponseWriter.write("dropContainer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getDropContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getDropNodes() != null)
-		{
-
-			bufferedResponseWriter.write("dropNodes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getDropNodes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getGroups() != null)
-		{
-
-			bufferedResponseWriter.write("groups: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getGroups().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getLazyStart() != null)
-		{
-
-			bufferedResponseWriter.write("lazyStart: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getLazyStart().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getPlaceholder() != null)
-		{
-
-			bufferedResponseWriter.write("placeholder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getPlaceholder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getProxy() != null)
-		{
-
-			bufferedResponseWriter.write("proxy: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getProxy().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(sortableLayout.getProxyNode() != null)
-		{
-
-			bufferedResponseWriter.write("proxyNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(sortableLayout.getProxyNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, sortableLayout, AUI_SORTABLE_LAYOUT);
-		
+
+		handleBuffer(facesContext, sortableLayout);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDelegateConfig(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderObject(responseWriter, "delegateConfig", sortableLayout.getDelegateConfig());
+	}
+
+	protected void renderDragNodes(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "dragNodes", sortableLayout.getDragNodes());
+	}
+
+	protected void renderDropContainer(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "dropContainer", sortableLayout.getDropContainer());
+	}
+
+	protected void renderDropNodes(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "dropNodes", sortableLayout.getDropNodes());
+	}
+
+	protected void renderGroups(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "groups", sortableLayout.getGroups());
+	}
+
+	protected void renderLazyStart(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderBoolean(responseWriter, "lazyStart", sortableLayout.getLazyStart());
+	}
+
+	protected void renderPlaceholder(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "placeholder", sortableLayout.getPlaceholder());
+	}
+
+	protected void renderProxy(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "proxy", sortableLayout.getProxy());
+	}
+
+	protected void renderProxyNode(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
+		renderString(responseWriter, "proxyNode", sortableLayout.getProxyNode());
 	}
 
 }

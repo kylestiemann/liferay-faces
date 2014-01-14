@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TogglerRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TOGGLER = "aui-toggler";
+	private static final String AUI_MODULE_NAME = "aui-toggler";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Toggler toggler = (Toggler) uiComponent;
 		encodeHTML(facesContext, toggler);
 		encodeJavaScript(facesContext, toggler);
@@ -47,103 +49,70 @@ public abstract class TogglerRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Toggler toggler) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, toggler, AUI_TOGGLER);
+		beginJavaScript(facesContext, toggler);
 
 		bufferedResponseWriter.write("var toggler = new Y.Toggler");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(toggler.getAnimated() != null)
-		{
+		renderAnimated(responseWriter, toggler);
+		responseWriter.write(StringPool.COMMA);
+		renderAnimating(responseWriter, toggler);
+		responseWriter.write(StringPool.COMMA);
+		renderBindDOMEvents(responseWriter, toggler);
+		responseWriter.write(StringPool.COMMA);
+		renderContent(responseWriter, toggler);
+		responseWriter.write(StringPool.COMMA);
+		renderExpanded(responseWriter, toggler);
+		responseWriter.write(StringPool.COMMA);
+		renderHeader(responseWriter, toggler);
+		responseWriter.write(StringPool.COMMA);
+		renderTransition(responseWriter, toggler);
 
-			bufferedResponseWriter.write("animated: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getAnimated().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggler.getAnimating() != null)
-		{
-
-			bufferedResponseWriter.write("animating: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getAnimating().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggler.getBindDOMEvents() != null)
-		{
-
-			bufferedResponseWriter.write("bindDOMEvents: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getBindDOMEvents().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggler.getContent() != null)
-		{
-
-			bufferedResponseWriter.write("content: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggler.getExpanded() != null)
-		{
-
-			bufferedResponseWriter.write("expanded: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getExpanded().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggler.getHeader() != null)
-		{
-
-			bufferedResponseWriter.write("header: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getHeader().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggler.getTransition() != null)
-		{
-
-			bufferedResponseWriter.write("transition: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggler.getTransition().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, toggler, AUI_TOGGLER);
-		
+
+		handleBuffer(facesContext, toggler);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAnimated(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderBoolean(responseWriter, "animated", toggler.getAnimated());
+	}
+
+	protected void renderAnimating(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderBoolean(responseWriter, "animating", toggler.getAnimating());
+	}
+
+	protected void renderBindDOMEvents(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderBoolean(responseWriter, "bindDOMEvents", toggler.getBindDOMEvents());
+	}
+
+	protected void renderContent(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderString(responseWriter, "content", toggler.getContent());
+	}
+
+	protected void renderExpanded(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderBoolean(responseWriter, "expanded", toggler.getExpanded());
+	}
+
+	protected void renderHeader(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderString(responseWriter, "header", toggler.getHeader());
+	}
+
+	protected void renderTransition(ResponseWriter responseWriter, Toggler toggler) throws IOException {
+		renderObject(responseWriter, "transition", toggler.getTransition());
 	}
 
 }

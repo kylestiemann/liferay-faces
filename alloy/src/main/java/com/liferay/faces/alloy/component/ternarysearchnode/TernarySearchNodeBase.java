@@ -45,11 +45,11 @@ public abstract class TernarySearchNodeBase extends javax.faces.component.UIPane
 		getStateHelper().put(CHARACTER, character);
 	}
 
-	protected java.lang.Object getChild() {
-		return (java.lang.Object) getStateHelper().eval(CHILD, null);
+	protected java.lang.String getChild() {
+		return (java.lang.String) getStateHelper().eval(CHILD, null);
 	}
 
-	protected void setChild(java.lang.Object child) {
+	protected void setChild(java.lang.String child) {
 		getStateHelper().put(CHILD, child);
 	}
 

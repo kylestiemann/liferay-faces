@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ToggleButtonRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_BUTTON = "aui-button";
+	private static final String AUI_MODULE_NAME = "aui-button";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ToggleButton toggleButton = (ToggleButton) uiComponent;
 		encodeHTML(facesContext, toggleButton);
 		encodeJavaScript(facesContext, toggleButton);
@@ -47,81 +49,58 @@ public abstract class ToggleButtonRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ToggleButton toggleButton) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, toggleButton, AUI_BUTTON);
+		beginJavaScript(facesContext, toggleButton);
 
 		bufferedResponseWriter.write("var toggleButton = new Y.ToggleButton");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(toggleButton.getCssClass() != null)
-		{
+		renderCssClass(responseWriter, toggleButton);
+		responseWriter.write(StringPool.COMMA);
+		renderIcon(responseWriter, toggleButton);
+		responseWriter.write(StringPool.COMMA);
+		renderIconAlign(responseWriter, toggleButton);
+		responseWriter.write(StringPool.COMMA);
+		renderIconElement(responseWriter, toggleButton);
+		responseWriter.write(StringPool.COMMA);
+		renderPrimary(responseWriter, toggleButton);
 
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggleButton.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggleButton.getIcon() != null)
-		{
-
-			bufferedResponseWriter.write("icon: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggleButton.getIcon().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggleButton.getIconAlign() != null)
-		{
-
-			bufferedResponseWriter.write("iconAlign: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggleButton.getIconAlign().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggleButton.getIconElement() != null)
-		{
-
-			bufferedResponseWriter.write("iconElement: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggleButton.getIconElement().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toggleButton.getPrimary() != null)
-		{
-
-			bufferedResponseWriter.write("primary: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toggleButton.getPrimary().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, toggleButton, AUI_BUTTON);
-		
+
+		handleBuffer(facesContext, toggleButton);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
+		renderString(responseWriter, "cssClass", toggleButton.getCssClass());
+	}
+
+	protected void renderIcon(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
+		renderString(responseWriter, "icon", toggleButton.getIcon());
+	}
+
+	protected void renderIconAlign(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
+		renderString(responseWriter, "iconAlign", toggleButton.getIconAlign());
+	}
+
+	protected void renderIconElement(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
+		renderString(responseWriter, "iconElement", toggleButton.getIconElement());
+	}
+
+	protected void renderPrimary(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
+		renderBoolean(responseWriter, "primary", toggleButton.getPrimary());
 	}
 
 }

@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_BUTTON = "aui-button";
+	private static final String AUI_MODULE_NAME = "aui-button";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ButtonSearchCancel buttonSearchCancel = (ButtonSearchCancel) uiComponent;
 		encodeHTML(facesContext, buttonSearchCancel);
 		encodeJavaScript(facesContext, buttonSearchCancel);
@@ -47,81 +49,58 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ButtonSearchCancel buttonSearchCancel) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, buttonSearchCancel, AUI_BUTTON);
+		beginJavaScript(facesContext, buttonSearchCancel);
 
 		bufferedResponseWriter.write("var buttonSearchCancel = new Y.ButtonSearchCancel");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(buttonSearchCancel.getContainer() != null)
-		{
+		renderContainer(responseWriter, buttonSearchCancel);
+		responseWriter.write(StringPool.COMMA);
+		renderGutter(responseWriter, buttonSearchCancel);
+		responseWriter.write(StringPool.COMMA);
+		renderIconClass(responseWriter, buttonSearchCancel);
+		responseWriter.write(StringPool.COMMA);
+		renderTrigger(responseWriter, buttonSearchCancel);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, buttonSearchCancel);
 
-			bufferedResponseWriter.write("container: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(buttonSearchCancel.getContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(buttonSearchCancel.getGutter() != null)
-		{
-
-			bufferedResponseWriter.write("gutter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(buttonSearchCancel.getGutter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(buttonSearchCancel.getIconClass() != null)
-		{
-
-			bufferedResponseWriter.write("iconClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(buttonSearchCancel.getIconClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(buttonSearchCancel.getTrigger() != null)
-		{
-
-			bufferedResponseWriter.write("trigger: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(buttonSearchCancel.getTrigger().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(buttonSearchCancel.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(buttonSearchCancel.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, buttonSearchCancel, AUI_BUTTON);
-		
+
+		handleBuffer(facesContext, buttonSearchCancel);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderContainer(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		renderString(responseWriter, "container", buttonSearchCancel.getContainer());
+	}
+
+	protected void renderGutter(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		renderArray(responseWriter, "gutter", buttonSearchCancel.getGutter());
+	}
+
+	protected void renderIconClass(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		renderString(responseWriter, "iconClass", buttonSearchCancel.getIconClass());
+	}
+
+	protected void renderTrigger(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		renderString(responseWriter, "trigger", buttonSearchCancel.getTrigger());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		renderNumber(responseWriter, "zIndex", buttonSearchCancel.getZIndex());
 	}
 
 }

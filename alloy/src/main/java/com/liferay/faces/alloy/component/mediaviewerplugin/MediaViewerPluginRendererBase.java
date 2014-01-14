@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class MediaViewerPluginRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_MEDIA_VIEWER_PLUGIN = "aui-media-viewer-plugin";
+	private static final String AUI_MODULE_NAME = "aui-media-viewer-plugin";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		MediaViewerPlugin mediaViewerPlugin = (MediaViewerPlugin) uiComponent;
 		encodeHTML(facesContext, mediaViewerPlugin);
 		encodeJavaScript(facesContext, mediaViewerPlugin);
@@ -47,37 +49,34 @@ public abstract class MediaViewerPluginRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, mediaViewerPlugin, AUI_MEDIA_VIEWER_PLUGIN);
+		beginJavaScript(facesContext, mediaViewerPlugin);
 
 		bufferedResponseWriter.write("var mediaViewerPlugin = new Y.MediaViewerPlugin");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(mediaViewerPlugin.getProviders() != null)
-		{
+		renderProviders(responseWriter, mediaViewerPlugin);
 
-			bufferedResponseWriter.write("providers: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(mediaViewerPlugin.getProviders().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, mediaViewerPlugin, AUI_MEDIA_VIEWER_PLUGIN);
-		
+
+		handleBuffer(facesContext, mediaViewerPlugin);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderProviders(ResponseWriter responseWriter, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		renderObject(responseWriter, "providers", mediaViewerPlugin.getProviders());
 	}
 
 }

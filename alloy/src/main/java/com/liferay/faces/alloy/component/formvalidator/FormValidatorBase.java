@@ -76,11 +76,11 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 	private static final String ON_VALIDATE_ON_BLUR_CHANGE = "onValidateOnBlurChange";
 	private static final String ON_VALIDATE_ON_INPUT_CHANGE = "onValidateOnInputChange";
 
-	protected java.lang.Object getBoundingBox() {
-		return (java.lang.Object) getStateHelper().eval(BOUNDING_BOX, null);
+	protected java.lang.String getBoundingBox() {
+		return (java.lang.String) getStateHelper().eval(BOUNDING_BOX, null);
 	}
 
-	protected void setBoundingBox(java.lang.Object boundingBox) {
+	protected void setBoundingBox(java.lang.String boundingBox) {
 		getStateHelper().put(BOUNDING_BOX, boundingBox);
 	}
 
@@ -140,11 +140,11 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LABEL_CSS_CLASS, labelCssClass);
 	}
 
-	protected java.lang.Object getMessageContainer() {
-		return (java.lang.Object) getStateHelper().eval(MESSAGE_CONTAINER, null);
+	protected java.lang.String getMessageContainer() {
+		return (java.lang.String) getStateHelper().eval(MESSAGE_CONTAINER, null);
 	}
 
-	protected void setMessageContainer(java.lang.Object messageContainer) {
+	protected void setMessageContainer(java.lang.String messageContainer) {
 		getStateHelper().put(MESSAGE_CONTAINER, messageContainer);
 	}
 
@@ -180,19 +180,19 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(SHOW_MESSAGES, showMessages);
 	}
 
-	protected java.lang.Object getStackErrorContainer() {
-		return (java.lang.Object) getStateHelper().eval(STACK_ERROR_CONTAINER, null);
+	protected java.lang.String getStackErrorContainer() {
+		return (java.lang.String) getStateHelper().eval(STACK_ERROR_CONTAINER, null);
 	}
 
-	protected void setStackErrorContainer(java.lang.Object stackErrorContainer) {
+	protected void setStackErrorContainer(java.lang.String stackErrorContainer) {
 		getStateHelper().put(STACK_ERROR_CONTAINER, stackErrorContainer);
 	}
 
-	protected java.lang.Object getStrings() {
-		return (java.lang.Object) getStateHelper().eval(STRINGS, null);
+	protected java.lang.String getStrings() {
+		return (java.lang.String) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.Object strings) {
+	protected void setStrings(java.lang.String strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 

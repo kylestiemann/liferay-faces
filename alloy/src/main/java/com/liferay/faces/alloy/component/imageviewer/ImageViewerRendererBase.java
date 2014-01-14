@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ImageViewerRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_IMAGE_VIEWER_BASE = "aui-image-viewer-base";
+	private static final String AUI_MODULE_NAME = "aui-image-viewer-base";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ImageViewer imageViewer = (ImageViewer) uiComponent;
 		encodeHTML(facesContext, imageViewer);
 		encodeJavaScript(facesContext, imageViewer);
@@ -47,334 +49,196 @@ public abstract class ImageViewerRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ImageViewer imageViewer) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, imageViewer, AUI_IMAGE_VIEWER_BASE);
+		beginJavaScript(facesContext, imageViewer);
 
 		bufferedResponseWriter.write("var imageViewer = new Y.ImageViewer");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(imageViewer.getAnim() != null)
-		{
+		renderAnim(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderImageviewerBodyContent(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderCaption(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderCaptionEl(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderCaptionFromTitle(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderCentered(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderCloseEl(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderControlLeftEl(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderControlRightEl(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderCurrentIndex(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderImage(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderImageAnim(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderInfoEl(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderInfoTemplate(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderLinks(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderLoader(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderLoading(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderLoadingEl(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxHeight(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxWidth(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderModal(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderPreloadAllImages(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderShowClose(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderShowControls(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderTotalLinks(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, imageViewer);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, imageViewer);
 
-			bufferedResponseWriter.write("anim: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getAnim().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getImageviewerBodyContent() != null)
-		{
-
-			bufferedResponseWriter.write("imageviewerBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getImageviewerBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getCaption() != null)
-		{
-
-			bufferedResponseWriter.write("caption: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getCaption().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getCaptionEl() != null)
-		{
-
-			bufferedResponseWriter.write("captionEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getCaptionEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getCaptionFromTitle() != null)
-		{
-
-			bufferedResponseWriter.write("captionFromTitle: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getCaptionFromTitle().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getCentered() != null)
-		{
-
-			bufferedResponseWriter.write("centered: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getCentered().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getCloseEl() != null)
-		{
-
-			bufferedResponseWriter.write("closeEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getCloseEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getControlLeftEl() != null)
-		{
-
-			bufferedResponseWriter.write("controlLeftEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getControlLeftEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getControlRightEl() != null)
-		{
-
-			bufferedResponseWriter.write("controlRightEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getControlRightEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getCurrentIndex() != null)
-		{
-
-			bufferedResponseWriter.write("currentIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getCurrentIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getImage() != null)
-		{
-
-			bufferedResponseWriter.write("image: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getImage().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getImageAnim() != null)
-		{
-
-			bufferedResponseWriter.write("imageAnim: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getImageAnim().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getInfoEl() != null)
-		{
-
-			bufferedResponseWriter.write("infoEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getInfoEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getInfoTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("infoTemplate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getInfoTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getLinks() != null)
-		{
-
-			bufferedResponseWriter.write("links: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getLinks().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getLoader() != null)
-		{
-
-			bufferedResponseWriter.write("loader: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getLoader().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getLoading() != null)
-		{
-
-			bufferedResponseWriter.write("loading: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getLoading().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getLoadingEl() != null)
-		{
-
-			bufferedResponseWriter.write("loadingEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getLoadingEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getMaxHeight() != null)
-		{
-
-			bufferedResponseWriter.write("maxHeight: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getMaxHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getMaxWidth() != null)
-		{
-
-			bufferedResponseWriter.write("maxWidth: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getMaxWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getModal() != null)
-		{
-
-			bufferedResponseWriter.write("modal: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getModal().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getPreloadAllImages() != null)
-		{
-
-			bufferedResponseWriter.write("preloadAllImages: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getPreloadAllImages().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getShowClose() != null)
-		{
-
-			bufferedResponseWriter.write("showClose: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getShowClose().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getShowControls() != null)
-		{
-
-			bufferedResponseWriter.write("showControls: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getShowControls().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getTotalLinks() != null)
-		{
-
-			bufferedResponseWriter.write("totalLinks: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getTotalLinks().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(imageViewer.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(imageViewer.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, imageViewer, AUI_IMAGE_VIEWER_BASE);
-		
+
+		handleBuffer(facesContext, imageViewer);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAnim(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "anim", imageViewer.getAnim());
+	}
+
+	protected void renderImageviewerBodyContent(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "imageviewerBodyContent", imageViewer.getImageviewerBodyContent());
+	}
+
+	protected void renderCaption(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "caption", imageViewer.getCaption());
+	}
+
+	protected void renderCaptionEl(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "captionEl", imageViewer.getCaptionEl());
+	}
+
+	protected void renderCaptionFromTitle(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "captionFromTitle", imageViewer.getCaptionFromTitle());
+	}
+
+	protected void renderCentered(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "centered", imageViewer.getCentered());
+	}
+
+	protected void renderCloseEl(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "closeEl", imageViewer.getCloseEl());
+	}
+
+	protected void renderControlLeftEl(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "controlLeftEl", imageViewer.getControlLeftEl());
+	}
+
+	protected void renderControlRightEl(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "controlRightEl", imageViewer.getControlRightEl());
+	}
+
+	protected void renderCurrentIndex(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderNumber(responseWriter, "currentIndex", imageViewer.getCurrentIndex());
+	}
+
+	protected void renderImage(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "image", imageViewer.getImage());
+	}
+
+	protected void renderImageAnim(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderObject(responseWriter, "imageAnim", imageViewer.getImageAnim());
+	}
+
+	protected void renderInfoEl(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "infoEl", imageViewer.getInfoEl());
+	}
+
+	protected void renderInfoTemplate(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "infoTemplate", imageViewer.getInfoTemplate());
+	}
+
+	protected void renderLinks(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "links", imageViewer.getLinks());
+	}
+
+	protected void renderLoader(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "loader", imageViewer.getLoader());
+	}
+
+	protected void renderLoading(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "loading", imageViewer.getLoading());
+	}
+
+	protected void renderLoadingEl(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderString(responseWriter, "loadingEl", imageViewer.getLoadingEl());
+	}
+
+	protected void renderMaxHeight(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderNumber(responseWriter, "maxHeight", imageViewer.getMaxHeight());
+	}
+
+	protected void renderMaxWidth(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderNumber(responseWriter, "maxWidth", imageViewer.getMaxWidth());
+	}
+
+	protected void renderModal(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "modal", imageViewer.getModal());
+	}
+
+	protected void renderPreloadAllImages(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "preloadAllImages", imageViewer.getPreloadAllImages());
+	}
+
+	protected void renderShowClose(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "showClose", imageViewer.getShowClose());
+	}
+
+	protected void renderShowControls(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "showControls", imageViewer.getShowControls());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderNumber(responseWriter, "tabIndex", imageViewer.getTabIndex());
+	}
+
+	protected void renderTotalLinks(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "totalLinks", imageViewer.getTotalLinks());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderBoolean(responseWriter, "visible", imageViewer.getVisible());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, ImageViewer imageViewer) throws IOException {
+		renderNumber(responseWriter, "zIndex", imageViewer.getZIndex());
 	}
 
 }

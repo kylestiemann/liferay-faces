@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DropDownCellEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_EDIT = "aui-datatable-edit";
+	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DropDownCellEditor dropDownCellEditor = (DropDownCellEditor) uiComponent;
 		encodeHTML(facesContext, dropDownCellEditor);
 		encodeJavaScript(facesContext, dropDownCellEditor);
@@ -47,37 +49,34 @@ public abstract class DropDownCellEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DropDownCellEditor dropDownCellEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, dropDownCellEditor, AUI_DATATABLE_EDIT);
+		beginJavaScript(facesContext, dropDownCellEditor);
 
 		bufferedResponseWriter.write("var dropDownCellEditor = new Y.DropDownCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(dropDownCellEditor.getMultiple() != null)
-		{
+		renderMultiple(responseWriter, dropDownCellEditor);
 
-			bufferedResponseWriter.write("multiple: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dropDownCellEditor.getMultiple().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, dropDownCellEditor, AUI_DATATABLE_EDIT);
-		
+
+		handleBuffer(facesContext, dropDownCellEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderMultiple(ResponseWriter responseWriter, DropDownCellEditor dropDownCellEditor) throws IOException {
+		renderBoolean(responseWriter, "multiple", dropDownCellEditor.getMultiple());
 	}
 
 }

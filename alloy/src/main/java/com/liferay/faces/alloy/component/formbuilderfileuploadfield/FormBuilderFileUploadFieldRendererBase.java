@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FormBuilderFileUploadFieldRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_FORM_BUILDER_FIELD_UPLOAD = "aui-form-builder-field-upload";
+	private static final String AUI_MODULE_NAME = "aui-form-builder-field-upload";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		FormBuilderFileUploadField formBuilderFileUploadField = (FormBuilderFileUploadField) uiComponent;
 		encodeHTML(facesContext, formBuilderFileUploadField);
 		encodeJavaScript(facesContext, formBuilderFileUploadField);
@@ -47,345 +49,202 @@ public abstract class FormBuilderFileUploadFieldRendererBase extends AUIRenderer
 	protected void encodeJavaScript(FacesContext facesContext, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, formBuilderFileUploadField, AUI_FORM_BUILDER_FIELD_UPLOAD);
+		beginJavaScript(facesContext, formBuilderFileUploadField);
 
 		bufferedResponseWriter.write("var formBuilderFileUploadField = new Y.FormBuilderFileUploadField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(formBuilderFileUploadField.getAcceptChildren() != null)
-		{
+		renderAcceptChildren(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderBuilder(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderControlsToolbar(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderDataType(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderDropZoneNode(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderHiddenAttributes(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuilderfileuploadfieldId(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelNode(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderLocalizationMap(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuilderfileuploadfieldParent(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderPredefinedValue(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnly(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnlyAttributes(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequired(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequiredFlagNode(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderShowLabel(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplate(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplateNode(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderTip(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderTipFlagNode(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderType(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderUnique(responseWriter, formBuilderFileUploadField);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, formBuilderFileUploadField);
 
-			bufferedResponseWriter.write("acceptChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getAcceptChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getBuilder() != null)
-		{
-
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getControlsToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("controlsToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getControlsToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getDataType() != null)
-		{
-
-			bufferedResponseWriter.write("dataType: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getDataType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getDropZoneNode() != null)
-		{
-
-			bufferedResponseWriter.write("dropZoneNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getDropZoneNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getHiddenAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("hiddenAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getHiddenAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getFormbuilderfileuploadfieldId() != null)
-		{
-
-			bufferedResponseWriter.write("formbuilderfileuploadfieldId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getFormbuilderfileuploadfieldId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("labelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getLocalizationMap() != null)
-		{
-
-			bufferedResponseWriter.write("localizationMap: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getLocalizationMap().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getFormbuilderfileuploadfieldParent() != null)
-		{
-
-			bufferedResponseWriter.write("formbuilderfileuploadfieldParent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getFormbuilderfileuploadfieldParent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getPredefinedValue() != null)
-		{
-
-			bufferedResponseWriter.write("predefinedValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getPredefinedValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getReadOnly() != null)
-		{
-
-			bufferedResponseWriter.write("readOnly: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getReadOnly().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getReadOnlyAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("readOnlyAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getReadOnlyAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getRequired() != null)
-		{
-
-			bufferedResponseWriter.write("required: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getRequired().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getRequiredFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("requiredFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getRequiredFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getShowLabel() != null)
-		{
-
-			bufferedResponseWriter.write("showLabel: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getShowLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("template: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getTemplateNode() != null)
-		{
-
-			bufferedResponseWriter.write("templateNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getTemplateNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getTip() != null)
-		{
-
-			bufferedResponseWriter.write("tip: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getTip().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getTipFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("tipFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getTipFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getType() != null)
-		{
-
-			bufferedResponseWriter.write("type: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getUnique() != null)
-		{
-
-			bufferedResponseWriter.write("unique: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getUnique().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderFileUploadField.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderFileUploadField.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, formBuilderFileUploadField, AUI_FORM_BUILDER_FIELD_UPLOAD);
-		
+
+		handleBuffer(facesContext, formBuilderFileUploadField);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "acceptChildren", formBuilderFileUploadField.getAcceptChildren());
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "builder", formBuilderFileUploadField.getBuilder());
+	}
+
+	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderObject(responseWriter, "controlsToolbar", formBuilderFileUploadField.getControlsToolbar());
+	}
+
+	protected void renderDataType(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "dataType", formBuilderFileUploadField.getDataType());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "disabled", formBuilderFileUploadField.getDisabled());
+	}
+
+	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "dropZoneNode", formBuilderFileUploadField.getDropZoneNode());
+	}
+
+	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderArray(responseWriter, "hiddenAttributes", formBuilderFileUploadField.getHiddenAttributes());
+	}
+
+	protected void renderFormbuilderfileuploadfieldId(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "formbuilderfileuploadfieldId", formBuilderFileUploadField.getFormbuilderfileuploadfieldId());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "label", formBuilderFileUploadField.getLabel());
+	}
+
+	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "labelNode", formBuilderFileUploadField.getLabelNode());
+	}
+
+	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderObject(responseWriter, "localizationMap", formBuilderFileUploadField.getLocalizationMap());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "name", formBuilderFileUploadField.getName());
+	}
+
+	protected void renderFormbuilderfileuploadfieldParent(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "formbuilderfileuploadfieldParent", formBuilderFileUploadField.getFormbuilderfileuploadfieldParent());
+	}
+
+	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "predefinedValue", formBuilderFileUploadField.getPredefinedValue());
+	}
+
+	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "readOnly", formBuilderFileUploadField.getReadOnly());
+	}
+
+	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderArray(responseWriter, "readOnlyAttributes", formBuilderFileUploadField.getReadOnlyAttributes());
+	}
+
+	protected void renderRequired(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "required", formBuilderFileUploadField.getRequired());
+	}
+
+	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "requiredFlagNode", formBuilderFileUploadField.getRequiredFlagNode());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "selected", formBuilderFileUploadField.getSelected());
+	}
+
+	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "showLabel", formBuilderFileUploadField.getShowLabel());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderObject(responseWriter, "strings", formBuilderFileUploadField.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderNumber(responseWriter, "tabIndex", formBuilderFileUploadField.getTabIndex());
+	}
+
+	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "template", formBuilderFileUploadField.getTemplate());
+	}
+
+	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "templateNode", formBuilderFileUploadField.getTemplateNode());
+	}
+
+	protected void renderTip(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "tip", formBuilderFileUploadField.getTip());
+	}
+
+	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "tipFlagNode", formBuilderFileUploadField.getTipFlagNode());
+	}
+
+	protected void renderType(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderString(responseWriter, "type", formBuilderFileUploadField.getType());
+	}
+
+	protected void renderUnique(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderBoolean(responseWriter, "unique", formBuilderFileUploadField.getUnique());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		renderNumber(responseWriter, "zIndex", formBuilderFileUploadField.getZIndex());
 	}
 
 }

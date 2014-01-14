@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FormBuilderFieldRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_FORM_BUILDER_FIELD_BASE = "aui-form-builder-field-base";
+	private static final String AUI_MODULE_NAME = "aui-form-builder-field-base";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		FormBuilderField formBuilderField = (FormBuilderField) uiComponent;
 		encodeHTML(facesContext, formBuilderField);
 		encodeJavaScript(facesContext, formBuilderField);
@@ -47,345 +49,202 @@ public abstract class FormBuilderFieldRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, FormBuilderField formBuilderField) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, formBuilderField, AUI_FORM_BUILDER_FIELD_BASE);
+		beginJavaScript(facesContext, formBuilderField);
 
 		bufferedResponseWriter.write("var formBuilderField = new Y.FormBuilderField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(formBuilderField.getAcceptChildren() != null)
-		{
+		renderAcceptChildren(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderBuilder(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderControlsToolbar(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderDataType(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderDropZoneNode(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderHiddenAttributes(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuilderfieldId(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelNode(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderLocalizationMap(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderFormbuilderfieldParent(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderPredefinedValue(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnly(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnlyAttributes(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequired(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderRequiredFlagNode(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderShowLabel(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplate(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplateNode(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderTip(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderTipFlagNode(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderType(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderUnique(responseWriter, formBuilderField);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, formBuilderField);
 
-			bufferedResponseWriter.write("acceptChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getAcceptChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getBuilder() != null)
-		{
-
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getControlsToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("controlsToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getControlsToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getDataType() != null)
-		{
-
-			bufferedResponseWriter.write("dataType: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getDataType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getDropZoneNode() != null)
-		{
-
-			bufferedResponseWriter.write("dropZoneNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getDropZoneNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getHiddenAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("hiddenAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getHiddenAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getFormbuilderfieldId() != null)
-		{
-
-			bufferedResponseWriter.write("formbuilderfieldId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getFormbuilderfieldId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("labelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getLocalizationMap() != null)
-		{
-
-			bufferedResponseWriter.write("localizationMap: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getLocalizationMap().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getFormbuilderfieldParent() != null)
-		{
-
-			bufferedResponseWriter.write("formbuilderfieldParent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getFormbuilderfieldParent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getPredefinedValue() != null)
-		{
-
-			bufferedResponseWriter.write("predefinedValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getPredefinedValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getReadOnly() != null)
-		{
-
-			bufferedResponseWriter.write("readOnly: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getReadOnly().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getReadOnlyAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("readOnlyAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getReadOnlyAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getRequired() != null)
-		{
-
-			bufferedResponseWriter.write("required: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getRequired().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getRequiredFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("requiredFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getRequiredFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getShowLabel() != null)
-		{
-
-			bufferedResponseWriter.write("showLabel: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getShowLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("template: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getTemplateNode() != null)
-		{
-
-			bufferedResponseWriter.write("templateNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getTemplateNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getTip() != null)
-		{
-
-			bufferedResponseWriter.write("tip: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getTip().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getTipFlagNode() != null)
-		{
-
-			bufferedResponseWriter.write("tipFlagNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getTipFlagNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getType() != null)
-		{
-
-			bufferedResponseWriter.write("type: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getUnique() != null)
-		{
-
-			bufferedResponseWriter.write("unique: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getUnique().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilderField.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilderField.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, formBuilderField, AUI_FORM_BUILDER_FIELD_BASE);
-		
+
+		handleBuffer(facesContext, formBuilderField);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "acceptChildren", formBuilderField.getAcceptChildren());
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "builder", formBuilderField.getBuilder());
+	}
+
+	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderObject(responseWriter, "controlsToolbar", formBuilderField.getControlsToolbar());
+	}
+
+	protected void renderDataType(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "dataType", formBuilderField.getDataType());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "disabled", formBuilderField.getDisabled());
+	}
+
+	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "dropZoneNode", formBuilderField.getDropZoneNode());
+	}
+
+	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderArray(responseWriter, "hiddenAttributes", formBuilderField.getHiddenAttributes());
+	}
+
+	protected void renderFormbuilderfieldId(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "formbuilderfieldId", formBuilderField.getFormbuilderfieldId());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "label", formBuilderField.getLabel());
+	}
+
+	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "labelNode", formBuilderField.getLabelNode());
+	}
+
+	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderObject(responseWriter, "localizationMap", formBuilderField.getLocalizationMap());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "name", formBuilderField.getName());
+	}
+
+	protected void renderFormbuilderfieldParent(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "formbuilderfieldParent", formBuilderField.getFormbuilderfieldParent());
+	}
+
+	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "predefinedValue", formBuilderField.getPredefinedValue());
+	}
+
+	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "readOnly", formBuilderField.getReadOnly());
+	}
+
+	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderArray(responseWriter, "readOnlyAttributes", formBuilderField.getReadOnlyAttributes());
+	}
+
+	protected void renderRequired(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "required", formBuilderField.getRequired());
+	}
+
+	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "requiredFlagNode", formBuilderField.getRequiredFlagNode());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "selected", formBuilderField.getSelected());
+	}
+
+	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "showLabel", formBuilderField.getShowLabel());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderObject(responseWriter, "strings", formBuilderField.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderNumber(responseWriter, "tabIndex", formBuilderField.getTabIndex());
+	}
+
+	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "template", formBuilderField.getTemplate());
+	}
+
+	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "templateNode", formBuilderField.getTemplateNode());
+	}
+
+	protected void renderTip(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "tip", formBuilderField.getTip());
+	}
+
+	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "tipFlagNode", formBuilderField.getTipFlagNode());
+	}
+
+	protected void renderType(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderString(responseWriter, "type", formBuilderField.getType());
+	}
+
+	protected void renderUnique(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderBoolean(responseWriter, "unique", formBuilderField.getUnique());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderField formBuilderField) throws IOException {
+		renderNumber(responseWriter, "zIndex", formBuilderField.getZIndex());
 	}
 
 }

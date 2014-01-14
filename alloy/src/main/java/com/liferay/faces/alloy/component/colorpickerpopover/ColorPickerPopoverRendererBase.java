@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ColorPickerPopoverRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_COLOR_PICKER_POPOVER = "aui-color-picker-popover";
+	private static final String AUI_MODULE_NAME = "aui-color-picker-popover";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ColorPickerPopover colorPickerPopover = (ColorPickerPopover) uiComponent;
 		encodeHTML(facesContext, colorPickerPopover);
 		encodeJavaScript(facesContext, colorPickerPopover);
@@ -47,191 +49,118 @@ public abstract class ColorPickerPopoverRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ColorPickerPopover colorPickerPopover) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, colorPickerPopover, AUI_COLOR_PICKER_POPOVER);
+		beginJavaScript(facesContext, colorPickerPopover);
 
 		bufferedResponseWriter.write("var colorPickerPopover = new Y.ColorPickerPopover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(colorPickerPopover.getAlign() != null)
-		{
+		renderAlign(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderColorpickerpopoverBodyContent(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderColor(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderColorPalette(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderCurrentTrigger(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderDefaultColor(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderHsvPalette(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderRecentColors(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderRenderColorPalette(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderRenderHSVPalette(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderTrigger(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderTriggerEvent(responseWriter, colorPickerPopover);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, colorPickerPopover);
 
-			bufferedResponseWriter.write("align: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getAlign().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getColorpickerpopoverBodyContent() != null)
-		{
-
-			bufferedResponseWriter.write("colorpickerpopoverBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getColorpickerpopoverBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getColor() != null)
-		{
-
-			bufferedResponseWriter.write("color: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getColor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getColorPalette() != null)
-		{
-
-			bufferedResponseWriter.write("colorPalette: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getColorPalette().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getCurrentTrigger() != null)
-		{
-
-			bufferedResponseWriter.write("currentTrigger: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getCurrentTrigger().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getDefaultColor() != null)
-		{
-
-			bufferedResponseWriter.write("defaultColor: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getDefaultColor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getHsvPalette() != null)
-		{
-
-			bufferedResponseWriter.write("hsvPalette: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getHsvPalette().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getRecentColors() != null)
-		{
-
-			bufferedResponseWriter.write("recentColors: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getRecentColors().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getRenderColorPalette() != null)
-		{
-
-			bufferedResponseWriter.write("renderColorPalette: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getRenderColorPalette().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getRenderHSVPalette() != null)
-		{
-
-			bufferedResponseWriter.write("renderHSVPalette: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getRenderHSVPalette().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getTrigger() != null)
-		{
-
-			bufferedResponseWriter.write("trigger: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getTrigger().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getTriggerEvent() != null)
-		{
-
-			bufferedResponseWriter.write("triggerEvent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getTriggerEvent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPickerPopover.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPickerPopover.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, colorPickerPopover, AUI_COLOR_PICKER_POPOVER);
-		
+
+		handleBuffer(facesContext, colorPickerPopover);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAlign(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderObject(responseWriter, "align", colorPickerPopover.getAlign());
+	}
+
+	protected void renderColorpickerpopoverBodyContent(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "colorpickerpopoverBodyContent", colorPickerPopover.getColorpickerpopoverBodyContent());
+	}
+
+	protected void renderColor(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "color", colorPickerPopover.getColor());
+	}
+
+	protected void renderColorPalette(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderObject(responseWriter, "colorPalette", colorPickerPopover.getColorPalette());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "cssClass", colorPickerPopover.getCssClass());
+	}
+
+	protected void renderCurrentTrigger(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "currentTrigger", colorPickerPopover.getCurrentTrigger());
+	}
+
+	protected void renderDefaultColor(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "defaultColor", colorPickerPopover.getDefaultColor());
+	}
+
+	protected void renderHsvPalette(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderObject(responseWriter, "hsvPalette", colorPickerPopover.getHsvPalette());
+	}
+
+	protected void renderRecentColors(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderObject(responseWriter, "recentColors", colorPickerPopover.getRecentColors());
+	}
+
+	protected void renderRenderColorPalette(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderBoolean(responseWriter, "renderColorPalette", colorPickerPopover.getRenderColorPalette());
+	}
+
+	protected void renderRenderHSVPalette(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderBoolean(responseWriter, "renderHSVPalette", colorPickerPopover.getRenderHSVPalette());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderObject(responseWriter, "strings", colorPickerPopover.getStrings());
+	}
+
+	protected void renderTrigger(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "trigger", colorPickerPopover.getTrigger());
+	}
+
+	protected void renderTriggerEvent(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderString(responseWriter, "triggerEvent", colorPickerPopover.getTriggerEvent());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, ColorPickerPopover colorPickerPopover) throws IOException {
+		renderBoolean(responseWriter, "visible", colorPickerPopover.getVisible());
 	}
 
 }

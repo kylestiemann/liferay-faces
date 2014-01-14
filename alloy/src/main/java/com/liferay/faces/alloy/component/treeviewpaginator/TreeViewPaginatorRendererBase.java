@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TreeViewPaginatorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TREE_PAGINATOR = "aui-tree-paginator";
+	private static final String AUI_MODULE_NAME = "aui-tree-paginator";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TreeViewPaginator treeViewPaginator = (TreeViewPaginator) uiComponent;
 		encodeHTML(facesContext, treeViewPaginator);
 		encodeJavaScript(facesContext, treeViewPaginator);
@@ -47,37 +49,34 @@ public abstract class TreeViewPaginatorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TreeViewPaginator treeViewPaginator) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, treeViewPaginator, AUI_TREE_PAGINATOR);
+		beginJavaScript(facesContext, treeViewPaginator);
 
 		bufferedResponseWriter.write("var treeViewPaginator = new Y.TreeViewPaginator");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(treeViewPaginator.getPaginator() != null)
-		{
+		renderPaginator(responseWriter, treeViewPaginator);
 
-			bufferedResponseWriter.write("paginator: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeViewPaginator.getPaginator().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, treeViewPaginator, AUI_TREE_PAGINATOR);
-		
+
+		handleBuffer(facesContext, treeViewPaginator);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderPaginator(ResponseWriter responseWriter, TreeViewPaginator treeViewPaginator) throws IOException {
+		renderObject(responseWriter, "paginator", treeViewPaginator.getPaginator());
 	}
 
 }

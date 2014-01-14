@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class SchedulerDayViewRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SCHEDULER_VIEW_DAY = "aui-scheduler-view-day";
+	private static final String AUI_MODULE_NAME = "aui-scheduler-view-day";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		SchedulerDayView schedulerDayView = (SchedulerDayView) uiComponent;
 		encodeHTML(facesContext, schedulerDayView);
 		encodeJavaScript(facesContext, schedulerDayView);
@@ -47,378 +49,220 @@ public abstract class SchedulerDayViewRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, SchedulerDayView schedulerDayView) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, schedulerDayView, AUI_SCHEDULER_VIEW_DAY);
+		beginJavaScript(facesContext, schedulerDayView);
 
 		bufferedResponseWriter.write("var schedulerDayView = new Y.SchedulerDayView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(schedulerDayView.getSchedulerdayviewBodyContent() != null)
-		{
+		renderSchedulerdayviewBodyContent(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderColDaysNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderColHeaderDaysNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderDays(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderDelegateConfig(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderEventWidth(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderFilterFn(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderDateFormatter(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderTableNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderView(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderViewConfig(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeaderViewLabelNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderHourHeight(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderIsoTime(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderMarkercellsNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderNavigationDateFormatter(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderNextDate(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderPrevDate(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderResizerNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderScheduler(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderScrollable(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderTableNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderTimesNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderTriggerNode(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, schedulerDayView);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, schedulerDayView);
 
-			bufferedResponseWriter.write("schedulerdayviewBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getSchedulerdayviewBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getColDaysNode() != null)
-		{
-
-			bufferedResponseWriter.write("colDaysNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getColDaysNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getColHeaderDaysNode() != null)
-		{
-
-			bufferedResponseWriter.write("colHeaderDaysNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getColHeaderDaysNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getDays() != null)
-		{
-
-			bufferedResponseWriter.write("days: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getDays().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getDelegateConfig() != null)
-		{
-
-			bufferedResponseWriter.write("delegateConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getDelegateConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getEventWidth() != null)
-		{
-
-			bufferedResponseWriter.write("eventWidth: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getEventWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getFilterFn() != null)
-		{
-
-			bufferedResponseWriter.write("filterFn: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getFilterFn().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHeaderDateFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("headerDateFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHeaderDateFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHeaderTableNode() != null)
-		{
-
-			bufferedResponseWriter.write("headerTableNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHeaderTableNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHeaderView() != null)
-		{
-
-			bufferedResponseWriter.write("headerView: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHeaderView().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHeaderViewConfig() != null)
-		{
-
-			bufferedResponseWriter.write("headerViewConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHeaderViewConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHeaderViewLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("headerViewLabelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHeaderViewLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getHourHeight() != null)
-		{
-
-			bufferedResponseWriter.write("hourHeight: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getHourHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getIsoTime() != null)
-		{
-
-			bufferedResponseWriter.write("isoTime: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getIsoTime().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getMarkercellsNode() != null)
-		{
-
-			bufferedResponseWriter.write("markercellsNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getMarkercellsNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getNavigationDateFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("navigationDateFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getNavigationDateFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getNextDate() != null)
-		{
-
-			bufferedResponseWriter.write("nextDate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getNextDate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getPrevDate() != null)
-		{
-
-			bufferedResponseWriter.write("prevDate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getPrevDate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getResizerNode() != null)
-		{
-
-			bufferedResponseWriter.write("resizerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getResizerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getScheduler() != null)
-		{
-
-			bufferedResponseWriter.write("scheduler: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getScheduler().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getScrollable() != null)
-		{
-
-			bufferedResponseWriter.write("scrollable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getScrollable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getTableNode() != null)
-		{
-
-			bufferedResponseWriter.write("tableNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getTableNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getTimesNode() != null)
-		{
-
-			bufferedResponseWriter.write("timesNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getTimesNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getTriggerNode() != null)
-		{
-
-			bufferedResponseWriter.write("triggerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getTriggerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerDayView.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerDayView.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, schedulerDayView, AUI_SCHEDULER_VIEW_DAY);
-		
+
+		handleBuffer(facesContext, schedulerDayView);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderSchedulerdayviewBodyContent(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "schedulerdayviewBodyContent", schedulerDayView.getSchedulerdayviewBodyContent());
+	}
+
+	protected void renderColDaysNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "colDaysNode", schedulerDayView.getColDaysNode());
+	}
+
+	protected void renderColHeaderDaysNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "colHeaderDaysNode", schedulerDayView.getColHeaderDaysNode());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "cssClass", schedulerDayView.getCssClass());
+	}
+
+	protected void renderDays(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderNumber(responseWriter, "days", schedulerDayView.getDays());
+	}
+
+	protected void renderDelegateConfig(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderObject(responseWriter, "delegateConfig", schedulerDayView.getDelegateConfig());
+	}
+
+	protected void renderEventWidth(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderNumber(responseWriter, "eventWidth", schedulerDayView.getEventWidth());
+	}
+
+	protected void renderFilterFn(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "filterFn", schedulerDayView.getFilterFn());
+	}
+
+	protected void renderHeaderDateFormatter(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "headerDateFormatter", schedulerDayView.getHeaderDateFormatter());
+	}
+
+	protected void renderHeaderTableNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "headerTableNode", schedulerDayView.getHeaderTableNode());
+	}
+
+	protected void renderHeaderView(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderBoolean(responseWriter, "headerView", schedulerDayView.getHeaderView());
+	}
+
+	protected void renderHeaderViewConfig(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderObject(responseWriter, "headerViewConfig", schedulerDayView.getHeaderViewConfig());
+	}
+
+	protected void renderHeaderViewLabelNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "headerViewLabelNode", schedulerDayView.getHeaderViewLabelNode());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderNumber(responseWriter, "height", schedulerDayView.getHeight());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "hideClass", schedulerDayView.getHideClass());
+	}
+
+	protected void renderHourHeight(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderNumber(responseWriter, "hourHeight", schedulerDayView.getHourHeight());
+	}
+
+	protected void renderIsoTime(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderBoolean(responseWriter, "isoTime", schedulerDayView.getIsoTime());
+	}
+
+	protected void renderMarkercellsNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "markercellsNode", schedulerDayView.getMarkercellsNode());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "name", schedulerDayView.getName());
+	}
+
+	protected void renderNavigationDateFormatter(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "navigationDateFormatter", schedulerDayView.getNavigationDateFormatter());
+	}
+
+	protected void renderNextDate(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "nextDate", schedulerDayView.getNextDate());
+	}
+
+	protected void renderPrevDate(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "prevDate", schedulerDayView.getPrevDate());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "render", schedulerDayView.getRender());
+	}
+
+	protected void renderResizerNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "resizerNode", schedulerDayView.getResizerNode());
+	}
+
+	protected void renderScheduler(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "scheduler", schedulerDayView.getScheduler());
+	}
+
+	protected void renderScrollable(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderBoolean(responseWriter, "scrollable", schedulerDayView.getScrollable());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "strings", schedulerDayView.getStrings());
+	}
+
+	protected void renderTableNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "tableNode", schedulerDayView.getTableNode());
+	}
+
+	protected void renderTimesNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "timesNode", schedulerDayView.getTimesNode());
+	}
+
+	protected void renderTriggerNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderString(responseWriter, "triggerNode", schedulerDayView.getTriggerNode());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderBoolean(responseWriter, "useARIA", schedulerDayView.getUseARIA());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
+		renderBoolean(responseWriter, "visible", schedulerDayView.getVisible());
 	}
 
 }

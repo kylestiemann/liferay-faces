@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class HSVPaletteRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_HSV_PALETTE = "aui-hsv-palette";
+	private static final String AUI_MODULE_NAME = "aui-hsv-palette";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		HSVPalette hSVPalette = (HSVPalette) uiComponent;
 		encodeHTML(facesContext, hSVPalette);
 		encodeJavaScript(facesContext, hSVPalette);
@@ -47,70 +49,52 @@ public abstract class HSVPaletteRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, HSVPalette hSVPalette) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, hSVPalette, AUI_HSV_PALETTE);
+		beginJavaScript(facesContext, hSVPalette);
 
 		bufferedResponseWriter.write("var hSVPalette = new Y.HSVPalette");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(hSVPalette.getControls() != null)
-		{
+		renderControls(responseWriter, hSVPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderFieldValidator(responseWriter, hSVPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, hSVPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, hSVPalette);
 
-			bufferedResponseWriter.write("controls: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVPalette.getControls().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVPalette.getFieldValidator() != null)
-		{
-
-			bufferedResponseWriter.write("fieldValidator: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVPalette.getFieldValidator().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVPalette.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVPalette.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVPalette.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVPalette.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, hSVPalette, AUI_HSV_PALETTE);
-		
+
+		handleBuffer(facesContext, hSVPalette);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderControls(ResponseWriter responseWriter, HSVPalette hSVPalette) throws IOException {
+		renderBoolean(responseWriter, "controls", hSVPalette.getControls());
+	}
+
+	protected void renderFieldValidator(ResponseWriter responseWriter, HSVPalette hSVPalette) throws IOException {
+		renderObject(responseWriter, "fieldValidator", hSVPalette.getFieldValidator());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, HSVPalette hSVPalette) throws IOException {
+		renderString(responseWriter, "selected", hSVPalette.getSelected());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, HSVPalette hSVPalette) throws IOException {
+		renderObject(responseWriter, "strings", hSVPalette.getStrings());
 	}
 
 }

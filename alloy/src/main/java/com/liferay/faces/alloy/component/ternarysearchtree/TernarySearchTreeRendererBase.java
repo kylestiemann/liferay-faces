@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TernarySearchTreeRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SEARCH_TERNARY_SEARCH_TREE = "aui-search-ternary-search-tree";
+	private static final String AUI_MODULE_NAME = "aui-search-ternary-search-tree";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TernarySearchTree ternarySearchTree = (TernarySearchTree) uiComponent;
 		encodeHTML(facesContext, ternarySearchTree);
 		encodeJavaScript(facesContext, ternarySearchTree);
@@ -47,26 +49,29 @@ public abstract class TernarySearchTreeRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TernarySearchTree ternarySearchTree) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, ternarySearchTree, AUI_SEARCH_TERNARY_SEARCH_TREE);
+		beginJavaScript(facesContext, ternarySearchTree);
 
 		bufferedResponseWriter.write("var ternarySearchTree = new Y.TernarySearchTree");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, ternarySearchTree, AUI_SEARCH_TERNARY_SEARCH_TREE);
-		
+
+		handleBuffer(facesContext, ternarySearchTree);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
 	}
 
 }

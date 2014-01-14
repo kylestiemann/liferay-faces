@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class NodeRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_NODE_BASE = "aui-node-base";
+	private static final String AUI_MODULE_NAME = "aui-node-base";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Node node = (Node) uiComponent;
 		encodeHTML(facesContext, node);
 		encodeJavaScript(facesContext, node);
@@ -47,26 +49,29 @@ public abstract class NodeRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Node node) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, node, AUI_NODE_BASE);
+		beginJavaScript(facesContext, node);
 
 		bufferedResponseWriter.write("var node = new Y.Node");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, node, AUI_NODE_BASE);
-		
+
+		handleBuffer(facesContext, node);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
 	}
 
 }

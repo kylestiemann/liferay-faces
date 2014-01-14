@@ -99,11 +99,11 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(COLOR_SATURATION_FACTOR, colorSaturationFactor);
 	}
 
-	protected java.lang.Object getContent() {
-		return (java.lang.Object) getStateHelper().eval(CONTENT, null);
+	protected java.lang.String getContent() {
+		return (java.lang.String) getStateHelper().eval(CONTENT, null);
 	}
 
-	protected void setContent(java.lang.Object content) {
+	protected void setContent(java.lang.String content) {
 		getStateHelper().put(CONTENT, content);
 	}
 
@@ -115,11 +115,11 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(DISABLED, disabled);
 	}
 
-	protected java.lang.Object getEndDate() {
-		return (java.lang.Object) getStateHelper().eval(END_DATE, null);
+	protected java.lang.String getEndDate() {
+		return (java.lang.String) getStateHelper().eval(END_DATE, null);
 	}
 
-	protected void setEndDate(java.lang.Object endDate) {
+	protected void setEndDate(java.lang.String endDate) {
 		getStateHelper().put(END_DATE, endDate);
 	}
 
@@ -131,11 +131,11 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(MEETING, meeting);
 	}
 
-	protected java.lang.Object getNode() {
-		return (java.lang.Object) getStateHelper().eval(NODE, null);
+	protected java.lang.String getNode() {
+		return (java.lang.String) getStateHelper().eval(NODE, null);
 	}
 
-	protected void setNode(java.lang.Object node) {
+	protected void setNode(java.lang.String node) {
 		getStateHelper().put(NODE, node);
 	}
 
@@ -155,19 +155,19 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(REPEATED, repeated);
 	}
 
-	protected java.lang.Object getScheduler() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULER, null);
+	protected java.lang.String getScheduler() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER, null);
 	}
 
-	protected void setScheduler(java.lang.Object scheduler) {
+	protected void setScheduler(java.lang.String scheduler) {
 		getStateHelper().put(SCHEDULER, scheduler);
 	}
 
-	protected java.lang.Object getStartDate() {
-		return (java.lang.Object) getStateHelper().eval(START_DATE, null);
+	protected java.lang.String getStartDate() {
+		return (java.lang.String) getStateHelper().eval(START_DATE, null);
 	}
 
-	protected void setStartDate(java.lang.Object startDate) {
+	protected void setStartDate(java.lang.String startDate) {
 		getStateHelper().put(START_DATE, startDate);
 	}
 

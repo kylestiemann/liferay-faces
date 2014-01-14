@@ -49,11 +49,11 @@ public abstract class SortableListBase extends javax.faces.component.UIPanel {
 	private static final String ON_PROXY_CHANGE = "onProxyChange";
 	private static final String ON_SORT_CONDITION_CHANGE = "onSortConditionChange";
 
-	protected java.lang.Object getDd() {
-		return (java.lang.Object) getStateHelper().eval(DD, null);
+	protected java.lang.String getDd() {
+		return (java.lang.String) getStateHelper().eval(DD, null);
 	}
 
-	protected void setDd(java.lang.Object dd) {
+	protected void setDd(java.lang.String dd) {
 		getStateHelper().put(DD, dd);
 	}
 
@@ -81,35 +81,35 @@ public abstract class SortableListBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(DROP_ON, dropOn);
 	}
 
-	protected java.lang.Object getHelper() {
-		return (java.lang.Object) getStateHelper().eval(HELPER, null);
+	protected java.lang.String getHelper() {
+		return (java.lang.String) getStateHelper().eval(HELPER, null);
 	}
 
-	protected void setHelper(java.lang.Object helper) {
+	protected void setHelper(java.lang.String helper) {
 		getStateHelper().put(HELPER, helper);
 	}
 
-	protected java.lang.Object getNodes() {
-		return (java.lang.Object) getStateHelper().eval(NODES, null);
+	protected java.lang.String getNodes() {
+		return (java.lang.String) getStateHelper().eval(NODES, null);
 	}
 
-	protected void setNodes(java.lang.Object nodes) {
+	protected void setNodes(java.lang.String nodes) {
 		getStateHelper().put(NODES, nodes);
 	}
 
-	protected java.lang.Object getPlaceholder() {
-		return (java.lang.Object) getStateHelper().eval(PLACEHOLDER, null);
+	protected java.lang.String getPlaceholder() {
+		return (java.lang.String) getStateHelper().eval(PLACEHOLDER, null);
 	}
 
-	protected void setPlaceholder(java.lang.Object placeholder) {
+	protected void setPlaceholder(java.lang.String placeholder) {
 		getStateHelper().put(PLACEHOLDER, placeholder);
 	}
 
-	protected java.lang.Object getProxy() {
-		return (java.lang.Object) getStateHelper().eval(PROXY, null);
+	protected java.lang.String getProxy() {
+		return (java.lang.String) getStateHelper().eval(PROXY, null);
 	}
 
-	protected void setProxy(java.lang.Object proxy) {
+	protected void setProxy(java.lang.String proxy) {
 		getStateHelper().put(PROXY, proxy);
 	}
 

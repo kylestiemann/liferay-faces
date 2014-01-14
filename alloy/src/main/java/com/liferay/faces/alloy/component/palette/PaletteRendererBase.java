@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class PaletteRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_PALETTE = "aui-palette";
+	private static final String AUI_MODULE_NAME = "aui-palette";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Palette palette = (Palette) uiComponent;
 		encodeHTML(facesContext, palette);
 		encodeJavaScript(facesContext, palette);
@@ -47,92 +49,64 @@ public abstract class PaletteRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Palette palette) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, palette, AUI_PALETTE);
+		beginJavaScript(facesContext, palette);
 
 		bufferedResponseWriter.write("var palette = new Y.Palette");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(palette.getColumns() != null)
-		{
+		renderColumns(responseWriter, palette);
+		responseWriter.write(StringPool.COMMA);
+		renderContainerNode(responseWriter, palette);
+		responseWriter.write(StringPool.COMMA);
+		renderFormatter(responseWriter, palette);
+		responseWriter.write(StringPool.COMMA);
+		renderItems(responseWriter, palette);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, palette);
+		responseWriter.write(StringPool.COMMA);
+		renderToggleSelection(responseWriter, palette);
 
-			bufferedResponseWriter.write("columns: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(palette.getColumns().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(palette.getContainerNode() != null)
-		{
-
-			bufferedResponseWriter.write("containerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(palette.getContainerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(palette.getFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("formatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(palette.getFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(palette.getItems() != null)
-		{
-
-			bufferedResponseWriter.write("items: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(palette.getItems().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(palette.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(palette.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(palette.getToggleSelection() != null)
-		{
-
-			bufferedResponseWriter.write("toggleSelection: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(palette.getToggleSelection().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, palette, AUI_PALETTE);
-		
+
+		handleBuffer(facesContext, palette);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderColumns(ResponseWriter responseWriter, Palette palette) throws IOException {
+		renderNumber(responseWriter, "columns", palette.getColumns());
+	}
+
+	protected void renderContainerNode(ResponseWriter responseWriter, Palette palette) throws IOException {
+		renderString(responseWriter, "containerNode", palette.getContainerNode());
+	}
+
+	protected void renderFormatter(ResponseWriter responseWriter, Palette palette) throws IOException {
+		renderString(responseWriter, "formatter", palette.getFormatter());
+	}
+
+	protected void renderItems(ResponseWriter responseWriter, Palette palette) throws IOException {
+		renderArray(responseWriter, "items", palette.getItems());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, Palette palette) throws IOException {
+		renderNumber(responseWriter, "selected", palette.getSelected());
+	}
+
+	protected void renderToggleSelection(ResponseWriter responseWriter, Palette palette) throws IOException {
+		renderBoolean(responseWriter, "toggleSelection", palette.getToggleSelection());
 	}
 
 }

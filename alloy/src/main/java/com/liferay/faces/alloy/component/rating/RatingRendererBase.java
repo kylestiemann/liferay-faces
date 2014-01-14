@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class RatingRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_RATING = "aui-rating";
+	private static final String AUI_MODULE_NAME = "aui-rating";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Rating rating = (Rating) uiComponent;
 		encodeHTML(facesContext, rating);
 		encodeJavaScript(facesContext, rating);
@@ -47,224 +49,136 @@ public abstract class RatingRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Rating rating) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, rating, AUI_RATING);
+		beginJavaScript(facesContext, rating);
 
 		bufferedResponseWriter.write("var rating = new Y.Rating");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(rating.getCanReset() != null)
-		{
+		renderCanReset(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClasses(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderDefaultSelected(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderElements(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderHiddenInput(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderInputName(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelNode(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderSelectedIndex(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderShowTitle(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderSize(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderTitle(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, rating);
+		responseWriter.write(StringPool.COMMA);
+		renderRatingValue(responseWriter, rating);
 
-			bufferedResponseWriter.write("canReset: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getCanReset().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getCssClasses() != null)
-		{
-
-			bufferedResponseWriter.write("cssClasses: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getCssClasses().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getDefaultSelected() != null)
-		{
-
-			bufferedResponseWriter.write("defaultSelected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getDefaultSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getElements() != null)
-		{
-
-			bufferedResponseWriter.write("elements: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getElements().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getHiddenInput() != null)
-		{
-
-			bufferedResponseWriter.write("hiddenInput: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getHiddenInput().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getInputName() != null)
-		{
-
-			bufferedResponseWriter.write("inputName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getInputName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("labelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getSelectedIndex() != null)
-		{
-
-			bufferedResponseWriter.write("selectedIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getSelectedIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getShowTitle() != null)
-		{
-
-			bufferedResponseWriter.write("showTitle: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getShowTitle().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getSize() != null)
-		{
-
-			bufferedResponseWriter.write("size: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getSize().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getTitle() != null)
-		{
-
-			bufferedResponseWriter.write("title: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getTitle().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(rating.getRatingValue() != null)
-		{
-
-			bufferedResponseWriter.write("ratingValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(rating.getRatingValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, rating, AUI_RATING);
-		
+
+		handleBuffer(facesContext, rating);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCanReset(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderBoolean(responseWriter, "canReset", rating.getCanReset());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "cssClass", rating.getCssClass());
+	}
+
+	protected void renderCssClasses(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderObject(responseWriter, "cssClasses", rating.getCssClasses());
+	}
+
+	protected void renderDefaultSelected(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderNumber(responseWriter, "defaultSelected", rating.getDefaultSelected());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderBoolean(responseWriter, "disabled", rating.getDisabled());
+	}
+
+	protected void renderElements(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "elements", rating.getElements());
+	}
+
+	protected void renderHiddenInput(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "hiddenInput", rating.getHiddenInput());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "hideClass", rating.getHideClass());
+	}
+
+	protected void renderInputName(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "inputName", rating.getInputName());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "label", rating.getLabel());
+	}
+
+	protected void renderLabelNode(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "labelNode", rating.getLabelNode());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "render", rating.getRender());
+	}
+
+	protected void renderSelectedIndex(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderNumber(responseWriter, "selectedIndex", rating.getSelectedIndex());
+	}
+
+	protected void renderShowTitle(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderBoolean(responseWriter, "showTitle", rating.getShowTitle());
+	}
+
+	protected void renderSize(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderNumber(responseWriter, "size", rating.getSize());
+	}
+
+	protected void renderTitle(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "title", rating.getTitle());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderBoolean(responseWriter, "useARIA", rating.getUseARIA());
+	}
+
+	protected void renderRatingValue(ResponseWriter responseWriter, Rating rating) throws IOException {
+		renderString(responseWriter, "ratingValue", rating.getRatingValue());
 	}
 
 }

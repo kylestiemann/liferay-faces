@@ -45,11 +45,11 @@ public abstract class FreemarkerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(DIRECTIVES, directives);
 	}
 
-	protected java.lang.Object getDirectivesMatcher() {
-		return (java.lang.Object) getStateHelper().eval(DIRECTIVES_MATCHER, null);
+	protected java.lang.String getDirectivesMatcher() {
+		return (java.lang.String) getStateHelper().eval(DIRECTIVES_MATCHER, null);
 	}
 
-	protected void setDirectivesMatcher(java.lang.Object directivesMatcher) {
+	protected void setDirectivesMatcher(java.lang.String directivesMatcher) {
 		getStateHelper().put(DIRECTIVES_MATCHER, directivesMatcher);
 	}
 
@@ -69,11 +69,11 @@ public abstract class FreemarkerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(VARIABLES, variables);
 	}
 
-	protected java.lang.Object getVariablesMatcher() {
-		return (java.lang.Object) getStateHelper().eval(VARIABLES_MATCHER, null);
+	protected java.lang.String getVariablesMatcher() {
+		return (java.lang.String) getStateHelper().eval(VARIABLES_MATCHER, null);
 	}
 
-	protected void setVariablesMatcher(java.lang.Object variablesMatcher) {
+	protected void setVariablesMatcher(java.lang.String variablesMatcher) {
 		getStateHelper().put(VARIABLES_MATCHER, variablesMatcher);
 	}
 

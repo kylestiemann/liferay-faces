@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TreeDataRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TREE_DATA = "aui-tree-data";
+	private static final String AUI_MODULE_NAME = "aui-tree-data";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TreeData treeData = (TreeData) uiComponent;
 		encodeHTML(facesContext, treeData);
 		encodeJavaScript(facesContext, treeData);
@@ -47,59 +49,46 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TreeData treeData) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, treeData, AUI_TREE_DATA);
+		beginJavaScript(facesContext, treeData);
 
 		bufferedResponseWriter.write("var treeData = new Y.TreeData");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(treeData.getTreedataChildren() != null)
-		{
+		renderTreedataChildren(responseWriter, treeData);
+		responseWriter.write(StringPool.COMMA);
+		renderContainer(responseWriter, treeData);
+		responseWriter.write(StringPool.COMMA);
+		renderIndex(responseWriter, treeData);
 
-			bufferedResponseWriter.write("treedataChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeData.getTreedataChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeData.getContainer() != null)
-		{
-
-			bufferedResponseWriter.write("container: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeData.getContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeData.getIndex() != null)
-		{
-
-			bufferedResponseWriter.write("index: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeData.getIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, treeData, AUI_TREE_DATA);
-		
+
+		handleBuffer(facesContext, treeData);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderTreedataChildren(ResponseWriter responseWriter, TreeData treeData) throws IOException {
+		renderArray(responseWriter, "treedataChildren", treeData.getTreedataChildren());
+	}
+
+	protected void renderContainer(ResponseWriter responseWriter, TreeData treeData) throws IOException {
+		renderString(responseWriter, "container", treeData.getContainer());
+	}
+
+	protected void renderIndex(ResponseWriter responseWriter, TreeData treeData) throws IOException {
+		renderObject(responseWriter, "index", treeData.getIndex());
 	}
 
 }

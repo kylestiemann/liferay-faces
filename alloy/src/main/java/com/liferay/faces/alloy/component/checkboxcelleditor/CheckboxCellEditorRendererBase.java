@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class CheckboxCellEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_EDIT = "aui-datatable-edit";
+	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		CheckboxCellEditor checkboxCellEditor = (CheckboxCellEditor) uiComponent;
 		encodeHTML(facesContext, checkboxCellEditor);
 		encodeJavaScript(facesContext, checkboxCellEditor);
@@ -47,37 +49,34 @@ public abstract class CheckboxCellEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, CheckboxCellEditor checkboxCellEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, checkboxCellEditor, AUI_DATATABLE_EDIT);
+		beginJavaScript(facesContext, checkboxCellEditor);
 
 		bufferedResponseWriter.write("var checkboxCellEditor = new Y.CheckboxCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(checkboxCellEditor.getSelectedAttrName() != null)
-		{
+		renderSelectedAttrName(responseWriter, checkboxCellEditor);
 
-			bufferedResponseWriter.write("selectedAttrName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(checkboxCellEditor.getSelectedAttrName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, checkboxCellEditor, AUI_DATATABLE_EDIT);
-		
+
+		handleBuffer(facesContext, checkboxCellEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderSelectedAttrName(ResponseWriter responseWriter, CheckboxCellEditor checkboxCellEditor) throws IOException {
+		renderString(responseWriter, "selectedAttrName", checkboxCellEditor.getSelectedAttrName());
 	}
 
 }

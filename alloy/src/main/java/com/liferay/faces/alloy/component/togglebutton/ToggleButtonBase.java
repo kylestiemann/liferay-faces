@@ -45,11 +45,11 @@ public abstract class ToggleButtonBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CSS_CLASS, cssClass);
 	}
 
-	protected java.lang.Object getIcon() {
-		return (java.lang.Object) getStateHelper().eval(ICON, null);
+	protected java.lang.String getIcon() {
+		return (java.lang.String) getStateHelper().eval(ICON, null);
 	}
 
-	protected void setIcon(java.lang.Object icon) {
+	protected void setIcon(java.lang.String icon) {
 		getStateHelper().put(ICON, icon);
 	}
 
@@ -61,11 +61,11 @@ public abstract class ToggleButtonBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_ALIGN, iconAlign);
 	}
 
-	protected java.lang.Object getIconElement() {
-		return (java.lang.Object) getStateHelper().eval(ICON_ELEMENT, null);
+	protected java.lang.String getIconElement() {
+		return (java.lang.String) getStateHelper().eval(ICON_ELEMENT, null);
 	}
 
-	protected void setIconElement(java.lang.Object iconElement) {
+	protected void setIconElement(java.lang.String iconElement) {
 		getStateHelper().put(ICON_ELEMENT, iconElement);
 	}
 

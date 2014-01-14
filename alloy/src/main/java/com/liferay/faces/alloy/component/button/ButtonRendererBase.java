@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ButtonRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_BUTTON = "aui-button";
+	private static final String AUI_MODULE_NAME = "aui-button";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Button button = (Button) uiComponent;
 		encodeHTML(facesContext, button);
 		encodeJavaScript(facesContext, button);
@@ -47,268 +49,160 @@ public abstract class ButtonRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Button button) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, button, AUI_BUTTON);
+		beginJavaScript(facesContext, button);
 
 		bufferedResponseWriter.write("var button = new Y.Button");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(button.getBoundingBox() != null)
-		{
+		renderBoundingBox(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderContentBox(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderDestroyed(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderFocused(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderIcon(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderIconAlign(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderIconElement(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderButtonId(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderInitialized(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderButtonLocale(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderPrimary(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderRendered(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderSrcNode(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, button);
+		responseWriter.write(StringPool.COMMA);
+		renderWidth(responseWriter, button);
 
-			bufferedResponseWriter.write("boundingBox: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getBoundingBox().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getContentBox() != null)
-		{
-
-			bufferedResponseWriter.write("contentBox: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getContentBox().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getDestroyed() != null)
-		{
-
-			bufferedResponseWriter.write("destroyed: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getDestroyed().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getFocused() != null)
-		{
-
-			bufferedResponseWriter.write("focused: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getFocused().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getIcon() != null)
-		{
-
-			bufferedResponseWriter.write("icon: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getIcon().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getIconAlign() != null)
-		{
-
-			bufferedResponseWriter.write("iconAlign: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getIconAlign().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getIconElement() != null)
-		{
-
-			bufferedResponseWriter.write("iconElement: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getIconElement().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getButtonId() != null)
-		{
-
-			bufferedResponseWriter.write("buttonId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getButtonId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getInitialized() != null)
-		{
-
-			bufferedResponseWriter.write("initialized: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getInitialized().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getButtonLocale() != null)
-		{
-
-			bufferedResponseWriter.write("buttonLocale: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getButtonLocale().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getPrimary() != null)
-		{
-
-			bufferedResponseWriter.write("primary: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getPrimary().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getRendered() != null)
-		{
-
-			bufferedResponseWriter.write("rendered: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getRendered().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getSrcNode() != null)
-		{
-
-			bufferedResponseWriter.write("srcNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getSrcNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(button.getWidth() != null)
-		{
-
-			bufferedResponseWriter.write("width: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(button.getWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, button, AUI_BUTTON);
-		
+
+		handleBuffer(facesContext, button);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderBoundingBox(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "boundingBox", button.getBoundingBox());
+	}
+
+	protected void renderContentBox(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "contentBox", button.getContentBox());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "cssClass", button.getCssClass());
+	}
+
+	protected void renderDestroyed(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "destroyed", button.getDestroyed());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "disabled", button.getDisabled());
+	}
+
+	protected void renderFocused(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "focused", button.getFocused());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "height", button.getHeight());
+	}
+
+	protected void renderIcon(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "icon", button.getIcon());
+	}
+
+	protected void renderIconAlign(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "iconAlign", button.getIconAlign());
+	}
+
+	protected void renderIconElement(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "iconElement", button.getIconElement());
+	}
+
+	protected void renderButtonId(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "buttonId", button.getButtonId());
+	}
+
+	protected void renderInitialized(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "initialized", button.getInitialized());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "label", button.getLabel());
+	}
+
+	protected void renderButtonLocale(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "buttonLocale", button.getButtonLocale());
+	}
+
+	protected void renderPrimary(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "primary", button.getPrimary());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "render", button.getRender());
+	}
+
+	protected void renderRendered(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "rendered", button.getRendered());
+	}
+
+	protected void renderSrcNode(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "srcNode", button.getSrcNode());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, Button button) throws IOException {
+		renderObject(responseWriter, "strings", button.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, Button button) throws IOException {
+		renderNumber(responseWriter, "tabIndex", button.getTabIndex());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, Button button) throws IOException {
+		renderBoolean(responseWriter, "visible", button.getVisible());
+	}
+
+	protected void renderWidth(ResponseWriter responseWriter, Button button) throws IOException {
+		renderString(responseWriter, "width", button.getWidth());
 	}
 
 }

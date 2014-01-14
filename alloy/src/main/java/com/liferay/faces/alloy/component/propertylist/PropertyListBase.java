@@ -61,19 +61,19 @@ public abstract class PropertyListBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(SCROLLABLE, scrollable);
 	}
 
-	protected java.lang.Object getStrings() {
-		return (java.lang.Object) getStateHelper().eval(STRINGS, null);
+	protected java.lang.String getStrings() {
+		return (java.lang.String) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.Object strings) {
+	protected void setStrings(java.lang.String strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.Object getWidth() {
-		return (java.lang.Object) getStateHelper().eval(WIDTH, null);
+	protected java.lang.String getWidth() {
+		return (java.lang.String) getStateHelper().eval(WIDTH, null);
 	}
 
-	protected void setWidth(java.lang.Object width) {
+	protected void setWidth(java.lang.String width) {
 		getStateHelper().put(WIDTH, width);
 	}
 

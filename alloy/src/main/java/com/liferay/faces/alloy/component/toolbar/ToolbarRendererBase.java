@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ToolbarRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TOOLBAR = "aui-toolbar";
+	private static final String AUI_MODULE_NAME = "aui-toolbar";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Toolbar toolbar = (Toolbar) uiComponent;
 		encodeHTML(facesContext, toolbar);
 		encodeJavaScript(facesContext, toolbar);
@@ -47,92 +49,64 @@ public abstract class ToolbarRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Toolbar toolbar) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, toolbar, AUI_TOOLBAR);
+		beginJavaScript(facesContext, toolbar);
 
 		bufferedResponseWriter.write("var toolbar = new Y.Toolbar");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(toolbar.getToolbarChildren() != null)
-		{
+		renderToolbarChildren(responseWriter, toolbar);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, toolbar);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, toolbar);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, toolbar);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbarRenderer(responseWriter, toolbar);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, toolbar);
 
-			bufferedResponseWriter.write("toolbarChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toolbar.getToolbarChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toolbar.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toolbar.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toolbar.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toolbar.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toolbar.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toolbar.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toolbar.getToolbarRenderer() != null)
-		{
-
-			bufferedResponseWriter.write("toolbarRenderer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toolbar.getToolbarRenderer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(toolbar.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(toolbar.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, toolbar, AUI_TOOLBAR);
-		
+
+		handleBuffer(facesContext, toolbar);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderToolbarChildren(ResponseWriter responseWriter, Toolbar toolbar) throws IOException {
+		renderArray(responseWriter, "toolbarChildren", toolbar.getToolbarChildren());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, Toolbar toolbar) throws IOException {
+		renderString(responseWriter, "cssClass", toolbar.getCssClass());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, Toolbar toolbar) throws IOException {
+		renderString(responseWriter, "hideClass", toolbar.getHideClass());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, Toolbar toolbar) throws IOException {
+		renderString(responseWriter, "render", toolbar.getRender());
+	}
+
+	protected void renderToolbarRenderer(ResponseWriter responseWriter, Toolbar toolbar) throws IOException {
+		renderString(responseWriter, "toolbarRenderer", toolbar.getToolbarRenderer());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, Toolbar toolbar) throws IOException {
+		renderBoolean(responseWriter, "useARIA", toolbar.getUseARIA());
 	}
 
 }

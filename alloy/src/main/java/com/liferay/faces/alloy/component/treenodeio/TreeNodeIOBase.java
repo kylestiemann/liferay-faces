@@ -108,11 +108,11 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ALWAYS_SHOW_HIT_AREA, alwaysShowHitArea);
 	}
 
-	protected java.lang.Object getBoundingBox() {
-		return (java.lang.Object) getStateHelper().eval(BOUNDING_BOX, null);
+	protected java.lang.String getBoundingBox() {
+		return (java.lang.String) getStateHelper().eval(BOUNDING_BOX, null);
 	}
 
-	protected void setBoundingBox(java.lang.Object boundingBox) {
+	protected void setBoundingBox(java.lang.String boundingBox) {
 		getStateHelper().put(BOUNDING_BOX, boundingBox);
 	}
 
@@ -140,11 +140,11 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CONTAINER, container);
 	}
 
-	protected java.lang.Object getContentBox() {
-		return (java.lang.Object) getStateHelper().eval(CONTENT_BOX, null);
+	protected java.lang.String getContentBox() {
+		return (java.lang.String) getStateHelper().eval(CONTENT_BOX, null);
 	}
 
-	protected void setContentBox(java.lang.Object contentBox) {
+	protected void setContentBox(java.lang.String contentBox) {
 		getStateHelper().put(CONTENT_BOX, contentBox);
 	}
 
@@ -300,11 +300,11 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(RENDERED, rendered);
 	}
 
-	protected java.lang.Object getTabIndex() {
-		return (java.lang.Object) getStateHelper().eval(TAB_INDEX, null);
+	protected java.lang.String getTabIndex() {
+		return (java.lang.String) getStateHelper().eval(TAB_INDEX, null);
 	}
 
-	protected void setTabIndex(java.lang.Object tabIndex) {
+	protected void setTabIndex(java.lang.String tabIndex) {
 		getStateHelper().put(TAB_INDEX, tabIndex);
 	}
 

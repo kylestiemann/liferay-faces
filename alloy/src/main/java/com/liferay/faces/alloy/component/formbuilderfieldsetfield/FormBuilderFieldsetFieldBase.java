@@ -133,11 +133,11 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(CONTROLS_TOOLBAR, controlsToolbar);
 	}
 
-	protected java.lang.Object getDataType() {
-		return (java.lang.Object) getStateHelper().eval(DATA_TYPE, null);
+	protected java.lang.String getDataType() {
+		return (java.lang.String) getStateHelper().eval(DATA_TYPE, null);
 	}
 
-	protected void setDataType(java.lang.Object dataType) {
+	protected void setDataType(java.lang.String dataType) {
 		getStateHelper().put(DATA_TYPE, dataType);
 	}
 
@@ -149,11 +149,11 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(DISABLED, disabled);
 	}
 
-	protected java.lang.Object getDropZoneNode() {
-		return (java.lang.Object) getStateHelper().eval(DROP_ZONE_NODE, null);
+	protected java.lang.String getDropZoneNode() {
+		return (java.lang.String) getStateHelper().eval(DROP_ZONE_NODE, null);
 	}
 
-	protected void setDropZoneNode(java.lang.Object dropZoneNode) {
+	protected void setDropZoneNode(java.lang.String dropZoneNode) {
 		getStateHelper().put(DROP_ZONE_NODE, dropZoneNode);
 	}
 
@@ -165,11 +165,11 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	protected java.lang.Object getFormbuilderfieldsetfieldId() {
-		return (java.lang.Object) getStateHelper().eval(FORMBUILDERFIELDSETFIELD_ID, null);
+	protected java.lang.String getFormbuilderfieldsetfieldId() {
+		return (java.lang.String) getStateHelper().eval(FORMBUILDERFIELDSETFIELD_ID, null);
 	}
 
-	protected void setFormbuilderfieldsetfieldId(java.lang.Object formbuilderfieldsetfieldId) {
+	protected void setFormbuilderfieldsetfieldId(java.lang.String formbuilderfieldsetfieldId) {
 		getStateHelper().put(FORMBUILDERFIELDSETFIELD_ID, formbuilderfieldsetfieldId);
 	}
 
@@ -181,11 +181,11 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(LABEL, label);
 	}
 
-	protected java.lang.Object getLabelNode() {
-		return (java.lang.Object) getStateHelper().eval(LABEL_NODE, null);
+	protected java.lang.String getLabelNode() {
+		return (java.lang.String) getStateHelper().eval(LABEL_NODE, null);
 	}
 
-	protected void setLabelNode(java.lang.Object labelNode) {
+	protected void setLabelNode(java.lang.String labelNode) {
 		getStateHelper().put(LABEL_NODE, labelNode);
 	}
 
@@ -197,19 +197,19 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(LOCALIZATION_MAP, localizationMap);
 	}
 
-	protected java.lang.Object getName() {
-		return (java.lang.Object) getStateHelper().eval(NAME, null);
+	protected java.lang.String getName() {
+		return (java.lang.String) getStateHelper().eval(NAME, null);
 	}
 
-	protected void setName(java.lang.Object name) {
+	protected void setName(java.lang.String name) {
 		getStateHelper().put(NAME, name);
 	}
 
-	protected java.lang.Object getFormbuilderfieldsetfieldParent() {
-		return (java.lang.Object) getStateHelper().eval(FORMBUILDERFIELDSETFIELD_PARENT, null);
+	protected java.lang.String getFormbuilderfieldsetfieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORMBUILDERFIELDSETFIELD_PARENT, null);
 	}
 
-	protected void setFormbuilderfieldsetfieldParent(java.lang.Object formbuilderfieldsetfieldParent) {
+	protected void setFormbuilderfieldsetfieldParent(java.lang.String formbuilderfieldsetfieldParent) {
 		getStateHelper().put(FORMBUILDERFIELDSETFIELD_PARENT, formbuilderfieldsetfieldParent);
 	}
 
@@ -245,11 +245,11 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(REQUIRED, required);
 	}
 
-	protected java.lang.Object getRequiredFlagNode() {
-		return (java.lang.Object) getStateHelper().eval(REQUIRED_FLAG_NODE, null);
+	protected java.lang.String getRequiredFlagNode() {
+		return (java.lang.String) getStateHelper().eval(REQUIRED_FLAG_NODE, null);
 	}
 
-	protected void setRequiredFlagNode(java.lang.Object requiredFlagNode) {
+	protected void setRequiredFlagNode(java.lang.String requiredFlagNode) {
 		getStateHelper().put(REQUIRED_FLAG_NODE, requiredFlagNode);
 	}
 
@@ -285,19 +285,19 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(TAB_INDEX, tabIndex);
 	}
 
-	protected java.lang.Object getTemplate() {
-		return (java.lang.Object) getStateHelper().eval(TEMPLATE, null);
+	protected java.lang.String getTemplate() {
+		return (java.lang.String) getStateHelper().eval(TEMPLATE, null);
 	}
 
-	protected void setTemplate(java.lang.Object template) {
+	protected void setTemplate(java.lang.String template) {
 		getStateHelper().put(TEMPLATE, template);
 	}
 
-	protected java.lang.Object getTemplateNode() {
-		return (java.lang.Object) getStateHelper().eval(TEMPLATE_NODE, null);
+	protected java.lang.String getTemplateNode() {
+		return (java.lang.String) getStateHelper().eval(TEMPLATE_NODE, null);
 	}
 
-	protected void setTemplateNode(java.lang.Object templateNode) {
+	protected void setTemplateNode(java.lang.String templateNode) {
 		getStateHelper().put(TEMPLATE_NODE, templateNode);
 	}
 
@@ -309,11 +309,11 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(TIP, tip);
 	}
 
-	protected java.lang.Object getTipFlagNode() {
-		return (java.lang.Object) getStateHelper().eval(TIP_FLAG_NODE, null);
+	protected java.lang.String getTipFlagNode() {
+		return (java.lang.String) getStateHelper().eval(TIP_FLAG_NODE, null);
 	}
 
-	protected void setTipFlagNode(java.lang.Object tipFlagNode) {
+	protected void setTipFlagNode(java.lang.String tipFlagNode) {
 		getStateHelper().put(TIP_FLAG_NODE, tipFlagNode);
 	}
 

@@ -365,11 +365,11 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(TOOLBAR_POSITION, toolbarPosition);
 	}
 
-	protected java.lang.Object getToolbars() {
-		return (java.lang.Object) getStateHelper().eval(TOOLBARS, null);
+	protected java.lang.String getToolbars() {
+		return (java.lang.String) getStateHelper().eval(TOOLBARS, null);
 	}
 
-	protected void setToolbars(java.lang.Object toolbars) {
+	protected void setToolbars(java.lang.String toolbars) {
 		getStateHelper().put(TOOLBARS, toolbars);
 	}
 

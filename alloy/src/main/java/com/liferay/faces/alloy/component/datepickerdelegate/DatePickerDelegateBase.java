@@ -43,19 +43,19 @@ public abstract class DatePickerDelegateBase extends javax.faces.component.UIPan
 	private static final String ON_VALUE_EXTRACTOR_CHANGE = "onValueExtractorChange";
 	private static final String ON_VALUE_FORMATTER_CHANGE = "onValueFormatterChange";
 
-	protected java.lang.Object getActiveInput() {
-		return (java.lang.Object) getStateHelper().eval(ACTIVE_INPUT, null);
+	protected java.lang.String getActiveInput() {
+		return (java.lang.String) getStateHelper().eval(ACTIVE_INPUT, null);
 	}
 
-	protected void setActiveInput(java.lang.Object activeInput) {
+	protected void setActiveInput(java.lang.String activeInput) {
 		getStateHelper().put(ACTIVE_INPUT, activeInput);
 	}
 
-	protected java.lang.Object getContainer() {
-		return (java.lang.Object) getStateHelper().eval(CONTAINER, null);
+	protected java.lang.String getContainer() {
+		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.Object container) {
+	protected void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 

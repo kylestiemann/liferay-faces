@@ -58,11 +58,11 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 	private static final String ON_VALUE_FORMATTER_CHANGE = "onValueFormatterChange";
 	private static final String ON_VALUES_CHANGE = "onValuesChange";
 
-	protected java.lang.Object getActiveInput() {
-		return (java.lang.Object) getStateHelper().eval(ACTIVE_INPUT, null);
+	protected java.lang.String getActiveInput() {
+		return (java.lang.String) getStateHelper().eval(ACTIVE_INPUT, null);
 	}
 
-	protected void setActiveInput(java.lang.Object activeInput) {
+	protected void setActiveInput(java.lang.String activeInput) {
 		getStateHelper().put(ACTIVE_INPUT, activeInput);
 	}
 
@@ -74,19 +74,19 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(AUTO_HIDE, autoHide);
 	}
 
-	protected java.lang.Object getAutocomplete() {
-		return (java.lang.Object) getStateHelper().eval(AUTOCOMPLETE, null);
+	protected java.lang.String getAutocomplete() {
+		return (java.lang.String) getStateHelper().eval(AUTOCOMPLETE, null);
 	}
 
-	protected void setAutocomplete(java.lang.Object autocomplete) {
+	protected void setAutocomplete(java.lang.String autocomplete) {
 		getStateHelper().put(AUTOCOMPLETE, autocomplete);
 	}
 
-	protected java.lang.Object getContainer() {
-		return (java.lang.Object) getStateHelper().eval(CONTAINER, null);
+	protected java.lang.String getContainer() {
+		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.Object container) {
+	protected void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 
@@ -114,11 +114,11 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(MASK, mask);
 	}
 
-	protected java.lang.Object getPopover() {
-		return (java.lang.Object) getStateHelper().eval(POPOVER, null);
+	protected java.lang.String getPopover() {
+		return (java.lang.String) getStateHelper().eval(POPOVER, null);
 	}
 
-	protected void setPopover(java.lang.Object popover) {
+	protected void setPopover(java.lang.String popover) {
 		getStateHelper().put(POPOVER, popover);
 	}
 

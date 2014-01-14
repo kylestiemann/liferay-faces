@@ -72,11 +72,11 @@ public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel
 		getStateHelper().put(RESULTS, results);
 	}
 
-	protected java.lang.Object getSelectedEntry() {
-		return (java.lang.Object) getStateHelper().eval(SELECTED_ENTRY, null);
+	protected java.lang.String getSelectedEntry() {
+		return (java.lang.String) getStateHelper().eval(SELECTED_ENTRY, null);
 	}
 
-	protected void setSelectedEntry(java.lang.Object selectedEntry) {
+	protected void setSelectedEntry(java.lang.String selectedEntry) {
 		getStateHelper().put(SELECTED_ENTRY, selectedEntry);
 	}
 

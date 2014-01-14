@@ -87,11 +87,11 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(BUILDER, builder);
 	}
 
-	protected java.lang.Object getConnectors() {
-		return (java.lang.Object) getStateHelper().eval(CONNECTORS, null);
+	protected java.lang.String getConnectors() {
+		return (java.lang.String) getStateHelper().eval(CONNECTORS, null);
 	}
 
-	protected void setConnectors(java.lang.Object connectors) {
+	protected void setConnectors(java.lang.String connectors) {
 		getStateHelper().put(CONNECTORS, connectors);
 	}
 
@@ -199,11 +199,11 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(TAB_INDEX, tabIndex);
 	}
 
-	protected java.lang.Object getTransitions() {
-		return (java.lang.Object) getStateHelper().eval(TRANSITIONS, null);
+	protected java.lang.String getTransitions() {
+		return (java.lang.String) getStateHelper().eval(TRANSITIONS, null);
 	}
 
-	protected void setTransitions(java.lang.Object transitions) {
+	protected void setTransitions(java.lang.String transitions) {
 		getStateHelper().put(TRANSITIONS, transitions);
 	}
 

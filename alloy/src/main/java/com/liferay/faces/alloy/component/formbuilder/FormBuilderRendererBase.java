@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class FormBuilderRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_FORM_BUILDER_BASE = "aui-form-builder-base";
+	private static final String AUI_MODULE_NAME = "aui-form-builder-base";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		FormBuilder formBuilder = (FormBuilder) uiComponent;
 		encodeHTML(facesContext, formBuilder);
 		encodeJavaScript(facesContext, formBuilder);
@@ -47,257 +49,154 @@ public abstract class FormBuilderRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, FormBuilder formBuilder) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, formBuilder, AUI_FORM_BUILDER_BASE);
+		beginJavaScript(facesContext, formBuilder);
 
 		bufferedResponseWriter.write("var formBuilder = new Y.FormBuilder");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(formBuilder.getAllowRemoveRequiredFields() != null)
-		{
+		renderAllowRemoveRequiredFields(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderAvailableFields(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderAvailableFieldsDragConfig(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderCanvas(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderContentContainer(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderDropConfig(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderDropContainer(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderEnableEditing(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderFields(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderFieldsContainer(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderFieldsSortableListConfig(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderMaxFields(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderPropertyList(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderTabView(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbar(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbarContainer(responseWriter, formBuilder);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, formBuilder);
 
-			bufferedResponseWriter.write("allowRemoveRequiredFields: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getAllowRemoveRequiredFields().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getAvailableFields() != null)
-		{
-
-			bufferedResponseWriter.write("availableFields: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getAvailableFields().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getAvailableFieldsDragConfig() != null)
-		{
-
-			bufferedResponseWriter.write("availableFieldsDragConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getAvailableFieldsDragConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getCanvas() != null)
-		{
-
-			bufferedResponseWriter.write("canvas: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getCanvas().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getContentContainer() != null)
-		{
-
-			bufferedResponseWriter.write("contentContainer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getContentContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getDropConfig() != null)
-		{
-
-			bufferedResponseWriter.write("dropConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getDropConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getDropContainer() != null)
-		{
-
-			bufferedResponseWriter.write("dropContainer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getDropContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getEnableEditing() != null)
-		{
-
-			bufferedResponseWriter.write("enableEditing: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getEnableEditing().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getFields() != null)
-		{
-
-			bufferedResponseWriter.write("fields: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getFields().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getFieldsContainer() != null)
-		{
-
-			bufferedResponseWriter.write("fieldsContainer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getFieldsContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getFieldsSortableListConfig() != null)
-		{
-
-			bufferedResponseWriter.write("fieldsSortableListConfig: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getFieldsSortableListConfig().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getMaxFields() != null)
-		{
-
-			bufferedResponseWriter.write("maxFields: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getMaxFields().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getPropertyList() != null)
-		{
-
-			bufferedResponseWriter.write("propertyList: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getPropertyList().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getTabView() != null)
-		{
-
-			bufferedResponseWriter.write("tabView: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getTabView().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("toolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getToolbarContainer() != null)
-		{
-
-			bufferedResponseWriter.write("toolbarContainer: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getToolbarContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(formBuilder.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(formBuilder.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, formBuilder, AUI_FORM_BUILDER_BASE);
-		
+
+		handleBuffer(facesContext, formBuilder);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAllowRemoveRequiredFields(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderBoolean(responseWriter, "allowRemoveRequiredFields", formBuilder.getAllowRemoveRequiredFields());
+	}
+
+	protected void renderAvailableFields(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderArray(responseWriter, "availableFields", formBuilder.getAvailableFields());
+	}
+
+	protected void renderAvailableFieldsDragConfig(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "availableFieldsDragConfig", formBuilder.getAvailableFieldsDragConfig());
+	}
+
+	protected void renderCanvas(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "canvas", formBuilder.getCanvas());
+	}
+
+	protected void renderContentContainer(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "contentContainer", formBuilder.getContentContainer());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "cssClass", formBuilder.getCssClass());
+	}
+
+	protected void renderDropConfig(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "dropConfig", formBuilder.getDropConfig());
+	}
+
+	protected void renderDropContainer(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "dropContainer", formBuilder.getDropContainer());
+	}
+
+	protected void renderEnableEditing(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderBoolean(responseWriter, "enableEditing", formBuilder.getEnableEditing());
+	}
+
+	protected void renderFields(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderArray(responseWriter, "fields", formBuilder.getFields());
+	}
+
+	protected void renderFieldsContainer(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "fieldsContainer", formBuilder.getFieldsContainer());
+	}
+
+	protected void renderFieldsSortableListConfig(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "fieldsSortableListConfig", formBuilder.getFieldsSortableListConfig());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "hideClass", formBuilder.getHideClass());
+	}
+
+	protected void renderMaxFields(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderNumber(responseWriter, "maxFields", formBuilder.getMaxFields());
+	}
+
+	protected void renderPropertyList(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "propertyList", formBuilder.getPropertyList());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "render", formBuilder.getRender());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "strings", formBuilder.getStrings());
+	}
+
+	protected void renderTabView(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "tabView", formBuilder.getTabView());
+	}
+
+	protected void renderToolbar(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderObject(responseWriter, "toolbar", formBuilder.getToolbar());
+	}
+
+	protected void renderToolbarContainer(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderString(responseWriter, "toolbarContainer", formBuilder.getToolbarContainer());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, FormBuilder formBuilder) throws IOException {
+		renderBoolean(responseWriter, "useARIA", formBuilder.getUseARIA());
 	}
 
 }

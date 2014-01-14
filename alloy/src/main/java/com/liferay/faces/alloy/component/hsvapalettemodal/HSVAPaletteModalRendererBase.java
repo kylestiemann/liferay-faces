@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class HSVAPaletteModalRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_HSV_PALETTE_MODAL = "aui-hsv-palette-modal";
+	private static final String AUI_MODULE_NAME = "aui-hsv-palette-modal";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		HSVAPaletteModal hSVAPaletteModal = (HSVAPaletteModal) uiComponent;
 		encodeHTML(facesContext, hSVAPaletteModal);
 		encodeJavaScript(facesContext, hSVAPaletteModal);
@@ -47,103 +49,70 @@ public abstract class HSVAPaletteModalRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, hSVAPaletteModal, AUI_HSV_PALETTE_MODAL);
+		beginJavaScript(facesContext, hSVAPaletteModal);
 
 		bufferedResponseWriter.write("var hSVAPaletteModal = new Y.HSVAPaletteModal");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(hSVAPaletteModal.getHsvapalettemodalBodyContent() != null)
-		{
+		renderHsvapalettemodalBodyContent(responseWriter, hSVAPaletteModal);
+		responseWriter.write(StringPool.COMMA);
+		renderDestroyOnHide(responseWriter, hSVAPaletteModal);
+		responseWriter.write(StringPool.COMMA);
+		renderDraggable(responseWriter, hSVAPaletteModal);
+		responseWriter.write(StringPool.COMMA);
+		renderHsv(responseWriter, hSVAPaletteModal);
+		responseWriter.write(StringPool.COMMA);
+		renderResizable(responseWriter, hSVAPaletteModal);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, hSVAPaletteModal);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbars(responseWriter, hSVAPaletteModal);
 
-			bufferedResponseWriter.write("hsvapalettemodalBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getHsvapalettemodalBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVAPaletteModal.getDestroyOnHide() != null)
-		{
-
-			bufferedResponseWriter.write("destroyOnHide: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getDestroyOnHide().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVAPaletteModal.getDraggable() != null)
-		{
-
-			bufferedResponseWriter.write("draggable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getDraggable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVAPaletteModal.getHsv() != null)
-		{
-
-			bufferedResponseWriter.write("hsv: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getHsv().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVAPaletteModal.getResizable() != null)
-		{
-
-			bufferedResponseWriter.write("resizable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getResizable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVAPaletteModal.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(hSVAPaletteModal.getToolbars() != null)
-		{
-
-			bufferedResponseWriter.write("toolbars: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(hSVAPaletteModal.getToolbars().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, hSVAPaletteModal, AUI_HSV_PALETTE_MODAL);
-		
+
+		handleBuffer(facesContext, hSVAPaletteModal);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderHsvapalettemodalBodyContent(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderString(responseWriter, "hsvapalettemodalBodyContent", hSVAPaletteModal.getHsvapalettemodalBodyContent());
+	}
+
+	protected void renderDestroyOnHide(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderBoolean(responseWriter, "destroyOnHide", hSVAPaletteModal.getDestroyOnHide());
+	}
+
+	protected void renderDraggable(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderObject(responseWriter, "draggable", hSVAPaletteModal.getDraggable());
+	}
+
+	protected void renderHsv(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderObject(responseWriter, "hsv", hSVAPaletteModal.getHsv());
+	}
+
+	protected void renderResizable(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderObject(responseWriter, "resizable", hSVAPaletteModal.getResizable());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderString(responseWriter, "selected", hSVAPaletteModal.getSelected());
+	}
+
+	protected void renderToolbars(ResponseWriter responseWriter, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		renderString(responseWriter, "toolbars", hSVAPaletteModal.getToolbars());
 	}
 
 }

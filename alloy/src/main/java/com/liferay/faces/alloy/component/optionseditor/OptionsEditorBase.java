@@ -25,11 +25,11 @@ public abstract class OptionsEditorBase extends javax.faces.component.UIPanel {
 	private static final String AFTER_EDITABLE_CHANGE = "afterEditableChange";
 	private static final String ON_EDITABLE_CHANGE = "onEditableChange";
 
-	protected java.lang.Object getEditable() {
-		return (java.lang.Object) getStateHelper().eval(EDITABLE, null);
+	protected java.lang.String getEditable() {
+		return (java.lang.String) getStateHelper().eval(EDITABLE, null);
 	}
 
-	protected void setEditable(java.lang.Object editable) {
+	protected void setEditable(java.lang.String editable) {
 		getStateHelper().put(EDITABLE, editable);
 	}
 

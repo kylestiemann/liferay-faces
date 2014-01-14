@@ -40,11 +40,11 @@ public abstract class AriaBase extends javax.faces.component.UIPanel {
 	private static final String ON_ROLE_NODE_CHANGE = "onRoleNodeChange";
 	private static final String ON_VALIDATE_W3_CCHANGE = "onValidateW3CChange";
 
-	protected java.lang.Object getAttributeNode() {
-		return (java.lang.Object) getStateHelper().eval(ATTRIBUTE_NODE, null);
+	protected java.lang.String getAttributeNode() {
+		return (java.lang.String) getStateHelper().eval(ATTRIBUTE_NODE, null);
 	}
 
-	protected void setAttributeNode(java.lang.Object attributeNode) {
+	protected void setAttributeNode(java.lang.String attributeNode) {
 		getStateHelper().put(ATTRIBUTE_NODE, attributeNode);
 	}
 
@@ -72,11 +72,11 @@ public abstract class AriaBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ROLE_NAME, roleName);
 	}
 
-	protected java.lang.Object getRoleNode() {
-		return (java.lang.Object) getStateHelper().eval(ROLE_NODE, null);
+	protected java.lang.String getRoleNode() {
+		return (java.lang.String) getStateHelper().eval(ROLE_NODE, null);
 	}
 
-	protected void setRoleNode(java.lang.Object roleNode) {
+	protected void setRoleNode(java.lang.String roleNode) {
 		getStateHelper().put(ROLE_NODE, roleNode);
 	}
 

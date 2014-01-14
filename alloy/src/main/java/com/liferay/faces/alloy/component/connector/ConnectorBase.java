@@ -90,11 +90,11 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ARROW_POINTS, arrowPoints);
 	}
 
-	protected java.lang.Object getBuilder() {
-		return (java.lang.Object) getStateHelper().eval(BUILDER, null);
+	protected java.lang.String getBuilder() {
+		return (java.lang.String) getStateHelper().eval(BUILDER, null);
 	}
 
-	protected void setBuilder(java.lang.Object builder) {
+	protected void setBuilder(java.lang.String builder) {
 		getStateHelper().put(BUILDER, builder);
 	}
 
@@ -106,11 +106,11 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(COLOR, color);
 	}
 
-	protected java.lang.Object getCoord() {
-		return (java.lang.Object) getStateHelper().eval(COORD, null);
+	protected java.lang.String getCoord() {
+		return (java.lang.String) getStateHelper().eval(COORD, null);
 	}
 
-	protected void setCoord(java.lang.Object coord) {
+	protected void setCoord(java.lang.String coord) {
 		getStateHelper().put(COORD, coord);
 	}
 
@@ -170,19 +170,19 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(SELECTED, selected);
 	}
 
-	protected java.lang.Object getShape() {
-		return (java.lang.Object) getStateHelper().eval(SHAPE, null);
+	protected java.lang.String getShape() {
+		return (java.lang.String) getStateHelper().eval(SHAPE, null);
 	}
 
-	protected void setShape(java.lang.Object shape) {
+	protected void setShape(java.lang.String shape) {
 		getStateHelper().put(SHAPE, shape);
 	}
 
-	protected java.lang.Object getShapeArrow() {
-		return (java.lang.Object) getStateHelper().eval(SHAPE_ARROW, null);
+	protected java.lang.String getShapeArrow() {
+		return (java.lang.String) getStateHelper().eval(SHAPE_ARROW, null);
 	}
 
-	protected void setShapeArrow(java.lang.Object shapeArrow) {
+	protected void setShapeArrow(java.lang.String shapeArrow) {
 		getStateHelper().put(SHAPE_ARROW, shapeArrow);
 	}
 

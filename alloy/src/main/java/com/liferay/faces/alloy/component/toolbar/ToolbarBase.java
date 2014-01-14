@@ -72,11 +72,11 @@ public abstract class ToolbarBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(RENDER, render);
 	}
 
-	protected java.lang.Object getToolbarRenderer() {
-		return (java.lang.Object) getStateHelper().eval(TOOLBAR_RENDERER, null);
+	protected java.lang.String getToolbarRenderer() {
+		return (java.lang.String) getStateHelper().eval(TOOLBAR_RENDERER, null);
 	}
 
-	protected void setToolbarRenderer(java.lang.Object toolbarRenderer) {
+	protected void setToolbarRenderer(java.lang.String toolbarRenderer) {
 		getStateHelper().put(TOOLBAR_RENDERER, toolbarRenderer);
 	}
 

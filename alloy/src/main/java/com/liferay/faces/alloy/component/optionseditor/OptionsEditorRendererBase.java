@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class OptionsEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_FORM_BUILDER_FIELD_MULTIPLE_CHOICE = "aui-form-builder-field-multiple-choice";
+	private static final String AUI_MODULE_NAME = "aui-form-builder-field-multiple-choice";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		OptionsEditor optionsEditor = (OptionsEditor) uiComponent;
 		encodeHTML(facesContext, optionsEditor);
 		encodeJavaScript(facesContext, optionsEditor);
@@ -47,37 +49,34 @@ public abstract class OptionsEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, OptionsEditor optionsEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, optionsEditor, AUI_FORM_BUILDER_FIELD_MULTIPLE_CHOICE);
+		beginJavaScript(facesContext, optionsEditor);
 
 		bufferedResponseWriter.write("var optionsEditor = new Y.OptionsEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(optionsEditor.getEditable() != null)
-		{
+		renderEditable(responseWriter, optionsEditor);
 
-			bufferedResponseWriter.write("editable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(optionsEditor.getEditable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, optionsEditor, AUI_FORM_BUILDER_FIELD_MULTIPLE_CHOICE);
-		
+
+		handleBuffer(facesContext, optionsEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderEditable(ResponseWriter responseWriter, OptionsEditor optionsEditor) throws IOException {
+		renderString(responseWriter, "editable", optionsEditor.getEditable());
 	}
 
 }

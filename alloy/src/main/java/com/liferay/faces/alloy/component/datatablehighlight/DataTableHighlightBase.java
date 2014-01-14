@@ -56,19 +56,19 @@ public abstract class DataTableHighlightBase extends javax.faces.component.UIPan
 		getStateHelper().put(HIGHLIGHT_RANGE, highlightRange);
 	}
 
-	protected java.lang.Object getOverlayActiveNode() {
-		return (java.lang.Object) getStateHelper().eval(OVERLAY_ACTIVE_NODE, null);
+	protected java.lang.String getOverlayActiveNode() {
+		return (java.lang.String) getStateHelper().eval(OVERLAY_ACTIVE_NODE, null);
 	}
 
-	protected void setOverlayActiveNode(java.lang.Object overlayActiveNode) {
+	protected void setOverlayActiveNode(java.lang.String overlayActiveNode) {
 		getStateHelper().put(OVERLAY_ACTIVE_NODE, overlayActiveNode);
 	}
 
-	protected java.lang.Object getOverlayNode() {
-		return (java.lang.Object) getStateHelper().eval(OVERLAY_NODE, null);
+	protected java.lang.String getOverlayNode() {
+		return (java.lang.String) getStateHelper().eval(OVERLAY_NODE, null);
 	}
 
-	protected void setOverlayNode(java.lang.Object overlayNode) {
+	protected void setOverlayNode(java.lang.String overlayNode) {
 		getStateHelper().put(OVERLAY_NODE, overlayNode);
 	}
 
@@ -80,11 +80,11 @@ public abstract class DataTableHighlightBase extends javax.faces.component.UIPan
 		getStateHelper().put(RANGE_BORDER_WIDTH, rangeBorderWidth);
 	}
 
-	protected java.lang.Object getType() {
-		return (java.lang.Object) getStateHelper().eval(TYPE, null);
+	protected java.lang.String getType() {
+		return (java.lang.String) getStateHelper().eval(TYPE, null);
 	}
 
-	protected void setType(java.lang.Object type) {
+	protected void setType(java.lang.String type) {
 		getStateHelper().put(TYPE, type);
 	}
 

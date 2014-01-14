@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class PropertyListRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_PROPERTY_LIST = "aui-datatable-property-list";
+	private static final String AUI_MODULE_NAME = "aui-datatable-property-list";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		PropertyList propertyList = (PropertyList) uiComponent;
 		encodeHTML(facesContext, propertyList);
 		encodeJavaScript(facesContext, propertyList);
@@ -47,81 +49,58 @@ public abstract class PropertyListRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, PropertyList propertyList) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, propertyList, AUI_DATATABLE_PROPERTY_LIST);
+		beginJavaScript(facesContext, propertyList);
 
 		bufferedResponseWriter.write("var propertyList = new Y.PropertyList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(propertyList.getColumns() != null)
-		{
+		renderColumns(responseWriter, propertyList);
+		responseWriter.write(StringPool.COMMA);
+		renderEditEvent(responseWriter, propertyList);
+		responseWriter.write(StringPool.COMMA);
+		renderScrollable(responseWriter, propertyList);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, propertyList);
+		responseWriter.write(StringPool.COMMA);
+		renderWidth(responseWriter, propertyList);
 
-			bufferedResponseWriter.write("columns: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(propertyList.getColumns().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(propertyList.getEditEvent() != null)
-		{
-
-			bufferedResponseWriter.write("editEvent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(propertyList.getEditEvent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(propertyList.getScrollable() != null)
-		{
-
-			bufferedResponseWriter.write("scrollable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(propertyList.getScrollable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(propertyList.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(propertyList.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(propertyList.getWidth() != null)
-		{
-
-			bufferedResponseWriter.write("width: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(propertyList.getWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, propertyList, AUI_DATATABLE_PROPERTY_LIST);
-		
+
+		handleBuffer(facesContext, propertyList);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderColumns(ResponseWriter responseWriter, PropertyList propertyList) throws IOException {
+		renderString(responseWriter, "columns", propertyList.getColumns());
+	}
+
+	protected void renderEditEvent(ResponseWriter responseWriter, PropertyList propertyList) throws IOException {
+		renderString(responseWriter, "editEvent", propertyList.getEditEvent());
+	}
+
+	protected void renderScrollable(ResponseWriter responseWriter, PropertyList propertyList) throws IOException {
+		renderBoolean(responseWriter, "scrollable", propertyList.getScrollable());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, PropertyList propertyList) throws IOException {
+		renderString(responseWriter, "strings", propertyList.getStrings());
+	}
+
+	protected void renderWidth(ResponseWriter responseWriter, PropertyList propertyList) throws IOException {
+		renderString(responseWriter, "width", propertyList.getWidth());
 	}
 
 }

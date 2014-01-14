@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ModalRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_MODAL = "aui-modal";
+	private static final String AUI_MODULE_NAME = "aui-modal";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Modal modal = (Modal) uiComponent;
 		encodeHTML(facesContext, modal);
 		encodeJavaScript(facesContext, modal);
@@ -47,81 +49,58 @@ public abstract class ModalRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Modal modal) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, modal, AUI_MODAL);
+		beginJavaScript(facesContext, modal);
 
 		bufferedResponseWriter.write("var modal = new Y.Modal");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(modal.getModalBodyContent() != null)
-		{
+		renderModalBodyContent(responseWriter, modal);
+		responseWriter.write(StringPool.COMMA);
+		renderDestroyOnHide(responseWriter, modal);
+		responseWriter.write(StringPool.COMMA);
+		renderDraggable(responseWriter, modal);
+		responseWriter.write(StringPool.COMMA);
+		renderResizable(responseWriter, modal);
+		responseWriter.write(StringPool.COMMA);
+		renderToolbars(responseWriter, modal);
 
-			bufferedResponseWriter.write("modalBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(modal.getModalBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(modal.getDestroyOnHide() != null)
-		{
-
-			bufferedResponseWriter.write("destroyOnHide: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(modal.getDestroyOnHide().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(modal.getDraggable() != null)
-		{
-
-			bufferedResponseWriter.write("draggable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(modal.getDraggable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(modal.getResizable() != null)
-		{
-
-			bufferedResponseWriter.write("resizable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(modal.getResizable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(modal.getToolbars() != null)
-		{
-
-			bufferedResponseWriter.write("toolbars: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(modal.getToolbars().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, modal, AUI_MODAL);
-		
+
+		handleBuffer(facesContext, modal);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderModalBodyContent(ResponseWriter responseWriter, Modal modal) throws IOException {
+		renderString(responseWriter, "modalBodyContent", modal.getModalBodyContent());
+	}
+
+	protected void renderDestroyOnHide(ResponseWriter responseWriter, Modal modal) throws IOException {
+		renderBoolean(responseWriter, "destroyOnHide", modal.getDestroyOnHide());
+	}
+
+	protected void renderDraggable(ResponseWriter responseWriter, Modal modal) throws IOException {
+		renderObject(responseWriter, "draggable", modal.getDraggable());
+	}
+
+	protected void renderResizable(ResponseWriter responseWriter, Modal modal) throws IOException {
+		renderObject(responseWriter, "resizable", modal.getResizable());
+	}
+
+	protected void renderToolbars(ResponseWriter responseWriter, Modal modal) throws IOException {
+		renderString(responseWriter, "toolbars", modal.getToolbars());
 	}
 
 }

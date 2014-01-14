@@ -107,11 +107,11 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 		getStateHelper().put(CSS_CLASS, cssClass);
 	}
 
-	protected java.lang.Object getCurrentTrigger() {
-		return (java.lang.Object) getStateHelper().eval(CURRENT_TRIGGER, null);
+	protected java.lang.String getCurrentTrigger() {
+		return (java.lang.String) getStateHelper().eval(CURRENT_TRIGGER, null);
 	}
 
-	protected void setCurrentTrigger(java.lang.Object currentTrigger) {
+	protected void setCurrentTrigger(java.lang.String currentTrigger) {
 		getStateHelper().put(CURRENT_TRIGGER, currentTrigger);
 	}
 
@@ -163,11 +163,11 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.Object getTrigger() {
-		return (java.lang.Object) getStateHelper().eval(TRIGGER, null);
+	protected java.lang.String getTrigger() {
+		return (java.lang.String) getStateHelper().eval(TRIGGER, null);
 	}
 
-	protected void setTrigger(java.lang.Object trigger) {
+	protected void setTrigger(java.lang.String trigger) {
 		getStateHelper().put(TRIGGER, trigger);
 	}
 

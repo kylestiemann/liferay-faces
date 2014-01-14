@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DiagramNodeForkRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DIAGRAM_BUILDER_IMPL = "aui-diagram-builder-impl";
+	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DiagramNodeFork diagramNodeFork = (DiagramNodeFork) uiComponent;
 		encodeHTML(facesContext, diagramNodeFork);
 		encodeJavaScript(facesContext, diagramNodeFork);
@@ -47,235 +49,142 @@ public abstract class DiagramNodeForkRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeFork diagramNodeFork) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, diagramNodeFork, AUI_DIAGRAM_BUILDER_IMPL);
+		beginJavaScript(facesContext, diagramNodeFork);
 
 		bufferedResponseWriter.write("var diagramNodeFork = new Y.DiagramNodeFork");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(diagramNodeFork.getBuilder() != null)
-		{
+		renderBuilder(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderConnectors(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderControlsToolbar(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderDescription(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderGraphic(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderHighlightBoundaryStroke(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderHighlighted(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderRequired(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeBoundary(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeInvite(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderTransitions(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderType(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderWidth(responseWriter, diagramNodeFork);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, diagramNodeFork);
 
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getConnectors() != null)
-		{
-
-			bufferedResponseWriter.write("connectors: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getConnectors().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getControlsToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("controlsToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getControlsToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getDescription() != null)
-		{
-
-			bufferedResponseWriter.write("description: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getDescription().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getGraphic() != null)
-		{
-
-			bufferedResponseWriter.write("graphic: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getGraphic().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getHighlightBoundaryStroke() != null)
-		{
-
-			bufferedResponseWriter.write("highlightBoundaryStroke: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getHighlightBoundaryStroke().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getHighlighted() != null)
-		{
-
-			bufferedResponseWriter.write("highlighted: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getHighlighted().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getRequired() != null)
-		{
-
-			bufferedResponseWriter.write("required: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getRequired().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getShapeBoundary() != null)
-		{
-
-			bufferedResponseWriter.write("shapeBoundary: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getShapeBoundary().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getShapeInvite() != null)
-		{
-
-			bufferedResponseWriter.write("shapeInvite: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getShapeInvite().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getTransitions() != null)
-		{
-
-			bufferedResponseWriter.write("transitions: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getTransitions().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getType() != null)
-		{
-
-			bufferedResponseWriter.write("type: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getWidth() != null)
-		{
-
-			bufferedResponseWriter.write("width: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeFork.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeFork.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, diagramNodeFork, AUI_DIAGRAM_BUILDER_IMPL);
-		
+
+		handleBuffer(facesContext, diagramNodeFork);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderString(responseWriter, "builder", diagramNodeFork.getBuilder());
+	}
+
+	protected void renderConnectors(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderString(responseWriter, "connectors", diagramNodeFork.getConnectors());
+	}
+
+	protected void renderControlsToolbar(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderObject(responseWriter, "controlsToolbar", diagramNodeFork.getControlsToolbar());
+	}
+
+	protected void renderDescription(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderString(responseWriter, "description", diagramNodeFork.getDescription());
+	}
+
+	protected void renderGraphic(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderObject(responseWriter, "graphic", diagramNodeFork.getGraphic());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderNumber(responseWriter, "height", diagramNodeFork.getHeight());
+	}
+
+	protected void renderHighlightBoundaryStroke(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderObject(responseWriter, "highlightBoundaryStroke", diagramNodeFork.getHighlightBoundaryStroke());
+	}
+
+	protected void renderHighlighted(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderBoolean(responseWriter, "highlighted", diagramNodeFork.getHighlighted());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderString(responseWriter, "name", diagramNodeFork.getName());
+	}
+
+	protected void renderRequired(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderBoolean(responseWriter, "required", diagramNodeFork.getRequired());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderBoolean(responseWriter, "selected", diagramNodeFork.getSelected());
+	}
+
+	protected void renderShapeBoundary(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderObject(responseWriter, "shapeBoundary", diagramNodeFork.getShapeBoundary());
+	}
+
+	protected void renderShapeInvite(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderObject(responseWriter, "shapeInvite", diagramNodeFork.getShapeInvite());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderObject(responseWriter, "strings", diagramNodeFork.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderNumber(responseWriter, "tabIndex", diagramNodeFork.getTabIndex());
+	}
+
+	protected void renderTransitions(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderString(responseWriter, "transitions", diagramNodeFork.getTransitions());
+	}
+
+	protected void renderType(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderString(responseWriter, "type", diagramNodeFork.getType());
+	}
+
+	protected void renderWidth(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderNumber(responseWriter, "width", diagramNodeFork.getWidth());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
+		renderNumber(responseWriter, "zIndex", diagramNodeFork.getZIndex());
 	}
 
 }

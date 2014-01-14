@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class AriaRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_ARIA = "aui-aria";
+	private static final String AUI_MODULE_NAME = "aui-aria";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Aria aria = (Aria) uiComponent;
 		encodeHTML(facesContext, aria);
 		encodeJavaScript(facesContext, aria);
@@ -47,92 +49,64 @@ public abstract class AriaRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Aria aria) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, aria, AUI_ARIA);
+		beginJavaScript(facesContext, aria);
 
 		bufferedResponseWriter.write("var aria = new Y.Aria");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(aria.getAttributeNode() != null)
-		{
+		renderAttributeNode(responseWriter, aria);
+		responseWriter.write(StringPool.COMMA);
+		renderAttributeValueFormat(responseWriter, aria);
+		responseWriter.write(StringPool.COMMA);
+		renderAriaAttributes(responseWriter, aria);
+		responseWriter.write(StringPool.COMMA);
+		renderRoleName(responseWriter, aria);
+		responseWriter.write(StringPool.COMMA);
+		renderRoleNode(responseWriter, aria);
+		responseWriter.write(StringPool.COMMA);
+		renderValidateW3C(responseWriter, aria);
 
-			bufferedResponseWriter.write("attributeNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aria.getAttributeNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aria.getAttributeValueFormat() != null)
-		{
-
-			bufferedResponseWriter.write("attributeValueFormat: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aria.getAttributeValueFormat().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aria.getAriaAttributes() != null)
-		{
-
-			bufferedResponseWriter.write("ariaAttributes: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aria.getAriaAttributes().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aria.getRoleName() != null)
-		{
-
-			bufferedResponseWriter.write("roleName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aria.getRoleName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aria.getRoleNode() != null)
-		{
-
-			bufferedResponseWriter.write("roleNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aria.getRoleNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aria.getValidateW3C() != null)
-		{
-
-			bufferedResponseWriter.write("validateW3C: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aria.getValidateW3C().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, aria, AUI_ARIA);
-		
+
+		handleBuffer(facesContext, aria);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAttributeNode(ResponseWriter responseWriter, Aria aria) throws IOException {
+		renderString(responseWriter, "attributeNode", aria.getAttributeNode());
+	}
+
+	protected void renderAttributeValueFormat(ResponseWriter responseWriter, Aria aria) throws IOException {
+		renderString(responseWriter, "attributeValueFormat", aria.getAttributeValueFormat());
+	}
+
+	protected void renderAriaAttributes(ResponseWriter responseWriter, Aria aria) throws IOException {
+		renderObject(responseWriter, "ariaAttributes", aria.getAriaAttributes());
+	}
+
+	protected void renderRoleName(ResponseWriter responseWriter, Aria aria) throws IOException {
+		renderString(responseWriter, "roleName", aria.getRoleName());
+	}
+
+	protected void renderRoleNode(ResponseWriter responseWriter, Aria aria) throws IOException {
+		renderString(responseWriter, "roleNode", aria.getRoleNode());
+	}
+
+	protected void renderValidateW3C(ResponseWriter responseWriter, Aria aria) throws IOException {
+		renderBoolean(responseWriter, "validateW3C", aria.getValidateW3C());
 	}
 
 }

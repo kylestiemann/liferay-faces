@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class VelocityRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_ACE_AUTOCOMPLETE_VELOCITY = "aui-ace-autocomplete-velocity";
+	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-velocity";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Velocity velocity = (Velocity) uiComponent;
 		encodeHTML(facesContext, velocity);
 		encodeJavaScript(facesContext, velocity);
@@ -47,81 +49,58 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Velocity velocity) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, velocity, AUI_ACE_AUTOCOMPLETE_VELOCITY);
+		beginJavaScript(facesContext, velocity);
 
 		bufferedResponseWriter.write("var velocity = new Y.Velocity");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(velocity.getDirectives() != null)
-		{
+		renderDirectives(responseWriter, velocity);
+		responseWriter.write(StringPool.COMMA);
+		renderDirectivesMatcher(responseWriter, velocity);
+		responseWriter.write(StringPool.COMMA);
+		renderHost(responseWriter, velocity);
+		responseWriter.write(StringPool.COMMA);
+		renderVariables(responseWriter, velocity);
+		responseWriter.write(StringPool.COMMA);
+		renderVariablesMatcher(responseWriter, velocity);
 
-			bufferedResponseWriter.write("directives: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(velocity.getDirectives().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(velocity.getDirectivesMatcher() != null)
-		{
-
-			bufferedResponseWriter.write("directivesMatcher: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(velocity.getDirectivesMatcher().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(velocity.getHost() != null)
-		{
-
-			bufferedResponseWriter.write("host: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(velocity.getHost().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(velocity.getVariables() != null)
-		{
-
-			bufferedResponseWriter.write("variables: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(velocity.getVariables().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(velocity.getVariablesMatcher() != null)
-		{
-
-			bufferedResponseWriter.write("variablesMatcher: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(velocity.getVariablesMatcher().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, velocity, AUI_ACE_AUTOCOMPLETE_VELOCITY);
-		
+
+		handleBuffer(facesContext, velocity);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDirectives(ResponseWriter responseWriter, Velocity velocity) throws IOException {
+		renderArray(responseWriter, "directives", velocity.getDirectives());
+	}
+
+	protected void renderDirectivesMatcher(ResponseWriter responseWriter, Velocity velocity) throws IOException {
+		renderString(responseWriter, "directivesMatcher", velocity.getDirectivesMatcher());
+	}
+
+	protected void renderHost(ResponseWriter responseWriter, Velocity velocity) throws IOException {
+		renderObject(responseWriter, "host", velocity.getHost());
+	}
+
+	protected void renderVariables(ResponseWriter responseWriter, Velocity velocity) throws IOException {
+		renderObject(responseWriter, "variables", velocity.getVariables());
+	}
+
+	protected void renderVariablesMatcher(ResponseWriter responseWriter, Velocity velocity) throws IOException {
+		renderString(responseWriter, "variablesMatcher", velocity.getVariablesMatcher());
 	}
 
 }

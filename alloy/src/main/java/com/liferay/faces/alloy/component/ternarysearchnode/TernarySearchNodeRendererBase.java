@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TernarySearchNodeRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SEARCH_TERNARY_SEARCH_NODE = "aui-search-ternary-search-node";
+	private static final String AUI_MODULE_NAME = "aui-search-ternary-search-node";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TernarySearchNode ternarySearchNode = (TernarySearchNode) uiComponent;
 		encodeHTML(facesContext, ternarySearchNode);
 		encodeJavaScript(facesContext, ternarySearchNode);
@@ -47,81 +49,58 @@ public abstract class TernarySearchNodeRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TernarySearchNode ternarySearchNode) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, ternarySearchNode, AUI_SEARCH_TERNARY_SEARCH_NODE);
+		beginJavaScript(facesContext, ternarySearchNode);
 
 		bufferedResponseWriter.write("var ternarySearchNode = new Y.TernarySearchNode");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(ternarySearchNode.getCharacter() != null)
-		{
+		renderCharacter(responseWriter, ternarySearchNode);
+		responseWriter.write(StringPool.COMMA);
+		renderChild(responseWriter, ternarySearchNode);
+		responseWriter.write(StringPool.COMMA);
+		renderLargerNode(responseWriter, ternarySearchNode);
+		responseWriter.write(StringPool.COMMA);
+		renderSmallerNode(responseWriter, ternarySearchNode);
+		responseWriter.write(StringPool.COMMA);
+		renderWord(responseWriter, ternarySearchNode);
 
-			bufferedResponseWriter.write("character: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(ternarySearchNode.getCharacter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(ternarySearchNode.getChild() != null)
-		{
-
-			bufferedResponseWriter.write("child: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(ternarySearchNode.getChild().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(ternarySearchNode.getLargerNode() != null)
-		{
-
-			bufferedResponseWriter.write("largerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(ternarySearchNode.getLargerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(ternarySearchNode.getSmallerNode() != null)
-		{
-
-			bufferedResponseWriter.write("smallerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(ternarySearchNode.getSmallerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(ternarySearchNode.getWord() != null)
-		{
-
-			bufferedResponseWriter.write("word: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(ternarySearchNode.getWord().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, ternarySearchNode, AUI_SEARCH_TERNARY_SEARCH_NODE);
-		
+
+		handleBuffer(facesContext, ternarySearchNode);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCharacter(ResponseWriter responseWriter, TernarySearchNode ternarySearchNode) throws IOException {
+		renderString(responseWriter, "character", ternarySearchNode.getCharacter());
+	}
+
+	protected void renderChild(ResponseWriter responseWriter, TernarySearchNode ternarySearchNode) throws IOException {
+		renderString(responseWriter, "child", ternarySearchNode.getChild());
+	}
+
+	protected void renderLargerNode(ResponseWriter responseWriter, TernarySearchNode ternarySearchNode) throws IOException {
+		renderString(responseWriter, "largerNode", ternarySearchNode.getLargerNode());
+	}
+
+	protected void renderSmallerNode(ResponseWriter responseWriter, TernarySearchNode ternarySearchNode) throws IOException {
+		renderString(responseWriter, "smallerNode", ternarySearchNode.getSmallerNode());
+	}
+
+	protected void renderWord(ResponseWriter responseWriter, TernarySearchNode ternarySearchNode) throws IOException {
+		renderString(responseWriter, "word", ternarySearchNode.getWord());
 	}
 
 }

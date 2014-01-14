@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class AceEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_ACE_EDITOR = "aui-ace-editor";
+	private static final String AUI_MODULE_NAME = "aui-ace-editor";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		AceEditor aceEditor = (AceEditor) uiComponent;
 		encodeHTML(facesContext, aceEditor);
 		encodeJavaScript(facesContext, aceEditor);
@@ -47,136 +49,88 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, AceEditor aceEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, aceEditor, AUI_ACE_EDITOR);
+		beginJavaScript(facesContext, aceEditor);
 
 		bufferedResponseWriter.write("var aceEditor = new Y.AceEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(aceEditor.getHeight() != null)
-		{
+		renderHeight(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderHighlightActiveLine(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderMode(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderReadOnly(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderShowPrintMargin(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderTabSize(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderUseSoftTabs(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderUseWrapMode(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderAceeditorValue(responseWriter, aceEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderWidth(responseWriter, aceEditor);
 
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getHighlightActiveLine() != null)
-		{
-
-			bufferedResponseWriter.write("highlightActiveLine: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getHighlightActiveLine().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getMode() != null)
-		{
-
-			bufferedResponseWriter.write("mode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getMode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getReadOnly() != null)
-		{
-
-			bufferedResponseWriter.write("readOnly: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getReadOnly().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getShowPrintMargin() != null)
-		{
-
-			bufferedResponseWriter.write("showPrintMargin: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getShowPrintMargin().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getTabSize() != null)
-		{
-
-			bufferedResponseWriter.write("tabSize: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getTabSize().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getUseSoftTabs() != null)
-		{
-
-			bufferedResponseWriter.write("useSoftTabs: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getUseSoftTabs().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getUseWrapMode() != null)
-		{
-
-			bufferedResponseWriter.write("useWrapMode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getUseWrapMode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getAceeditorValue() != null)
-		{
-
-			bufferedResponseWriter.write("aceeditorValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getAceeditorValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(aceEditor.getWidth() != null)
-		{
-
-			bufferedResponseWriter.write("width: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(aceEditor.getWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, aceEditor, AUI_ACE_EDITOR);
-		
+
+		handleBuffer(facesContext, aceEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderNumber(responseWriter, "height", aceEditor.getHeight());
+	}
+
+	protected void renderHighlightActiveLine(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderBoolean(responseWriter, "highlightActiveLine", aceEditor.getHighlightActiveLine());
+	}
+
+	protected void renderMode(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderString(responseWriter, "mode", aceEditor.getMode());
+	}
+
+	protected void renderReadOnly(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderBoolean(responseWriter, "readOnly", aceEditor.getReadOnly());
+	}
+
+	protected void renderShowPrintMargin(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderBoolean(responseWriter, "showPrintMargin", aceEditor.getShowPrintMargin());
+	}
+
+	protected void renderTabSize(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderNumber(responseWriter, "tabSize", aceEditor.getTabSize());
+	}
+
+	protected void renderUseSoftTabs(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderBoolean(responseWriter, "useSoftTabs", aceEditor.getUseSoftTabs());
+	}
+
+	protected void renderUseWrapMode(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderBoolean(responseWriter, "useWrapMode", aceEditor.getUseWrapMode());
+	}
+
+	protected void renderAceeditorValue(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderString(responseWriter, "aceeditorValue", aceEditor.getAceeditorValue());
+	}
+
+	protected void renderWidth(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
+		renderNumber(responseWriter, "width", aceEditor.getWidth());
 	}
 
 }

@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class RadioCellEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_EDIT = "aui-datatable-edit";
+	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		RadioCellEditor radioCellEditor = (RadioCellEditor) uiComponent;
 		encodeHTML(facesContext, radioCellEditor);
 		encodeJavaScript(facesContext, radioCellEditor);
@@ -47,26 +49,29 @@ public abstract class RadioCellEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, RadioCellEditor radioCellEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, radioCellEditor, AUI_DATATABLE_EDIT);
+		beginJavaScript(facesContext, radioCellEditor);
 
 		bufferedResponseWriter.write("var radioCellEditor = new Y.RadioCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, radioCellEditor, AUI_DATATABLE_EDIT);
-		
+
+		handleBuffer(facesContext, radioCellEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
 	}
 
 }

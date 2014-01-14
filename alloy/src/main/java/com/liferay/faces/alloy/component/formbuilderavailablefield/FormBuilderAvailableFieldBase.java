@@ -110,11 +110,11 @@ public abstract class FormBuilderAvailableFieldBase extends javax.faces.componen
 		getStateHelper().put(LABEL, label);
 	}
 
-	protected java.lang.Object getName() {
-		return (java.lang.Object) getStateHelper().eval(NAME, null);
+	protected java.lang.String getName() {
+		return (java.lang.String) getStateHelper().eval(NAME, null);
 	}
 
-	protected void setName(java.lang.Object name) {
+	protected void setName(java.lang.String name) {
 		getStateHelper().put(NAME, name);
 	}
 
@@ -134,11 +134,11 @@ public abstract class FormBuilderAvailableFieldBase extends javax.faces.componen
 		getStateHelper().put(OPTIONS, options);
 	}
 
-	protected java.lang.Object getPredefinedValue() {
-		return (java.lang.Object) getStateHelper().eval(PREDEFINED_VALUE, null);
+	protected java.lang.String getPredefinedValue() {
+		return (java.lang.String) getStateHelper().eval(PREDEFINED_VALUE, null);
 	}
 
-	protected void setPredefinedValue(java.lang.Object predefinedValue) {
+	protected void setPredefinedValue(java.lang.String predefinedValue) {
 		getStateHelper().put(PREDEFINED_VALUE, predefinedValue);
 	}
 
@@ -190,11 +190,11 @@ public abstract class FormBuilderAvailableFieldBase extends javax.faces.componen
 		getStateHelper().put(UNIQUE, unique);
 	}
 
-	protected java.lang.Object getWidth() {
-		return (java.lang.Object) getStateHelper().eval(WIDTH, null);
+	protected java.lang.String getWidth() {
+		return (java.lang.String) getStateHelper().eval(WIDTH, null);
 	}
 
-	protected void setWidth(java.lang.Object width) {
+	protected void setWidth(java.lang.String width) {
 		getStateHelper().put(WIDTH, width);
 	}
 

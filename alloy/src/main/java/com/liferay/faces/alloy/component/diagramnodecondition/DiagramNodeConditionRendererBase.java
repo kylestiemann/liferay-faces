@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DiagramNodeConditionRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DIAGRAM_BUILDER_IMPL = "aui-diagram-builder-impl";
+	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DiagramNodeCondition diagramNodeCondition = (DiagramNodeCondition) uiComponent;
 		encodeHTML(facesContext, diagramNodeCondition);
 		encodeJavaScript(facesContext, diagramNodeCondition);
@@ -47,235 +49,142 @@ public abstract class DiagramNodeConditionRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeCondition diagramNodeCondition) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, diagramNodeCondition, AUI_DIAGRAM_BUILDER_IMPL);
+		beginJavaScript(facesContext, diagramNodeCondition);
 
 		bufferedResponseWriter.write("var diagramNodeCondition = new Y.DiagramNodeCondition");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(diagramNodeCondition.getBuilder() != null)
-		{
+		renderBuilder(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderConnectors(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderControlsToolbar(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderDescription(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderGraphic(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderHeight(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderHighlightBoundaryStroke(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderHighlighted(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderRequired(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeBoundary(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeInvite(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderTransitions(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderType(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderWidth(responseWriter, diagramNodeCondition);
+		responseWriter.write(StringPool.COMMA);
+		renderZIndex(responseWriter, diagramNodeCondition);
 
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getConnectors() != null)
-		{
-
-			bufferedResponseWriter.write("connectors: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getConnectors().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getControlsToolbar() != null)
-		{
-
-			bufferedResponseWriter.write("controlsToolbar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getControlsToolbar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getDescription() != null)
-		{
-
-			bufferedResponseWriter.write("description: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getDescription().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getGraphic() != null)
-		{
-
-			bufferedResponseWriter.write("graphic: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getGraphic().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getHeight() != null)
-		{
-
-			bufferedResponseWriter.write("height: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getHeight().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getHighlightBoundaryStroke() != null)
-		{
-
-			bufferedResponseWriter.write("highlightBoundaryStroke: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getHighlightBoundaryStroke().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getHighlighted() != null)
-		{
-
-			bufferedResponseWriter.write("highlighted: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getHighlighted().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getRequired() != null)
-		{
-
-			bufferedResponseWriter.write("required: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getRequired().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getShapeBoundary() != null)
-		{
-
-			bufferedResponseWriter.write("shapeBoundary: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getShapeBoundary().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getShapeInvite() != null)
-		{
-
-			bufferedResponseWriter.write("shapeInvite: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getShapeInvite().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getTransitions() != null)
-		{
-
-			bufferedResponseWriter.write("transitions: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getTransitions().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getType() != null)
-		{
-
-			bufferedResponseWriter.write("type: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getType().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getWidth() != null)
-		{
-
-			bufferedResponseWriter.write("width: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getWidth().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(diagramNodeCondition.getZIndex() != null)
-		{
-
-			bufferedResponseWriter.write("zIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(diagramNodeCondition.getZIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, diagramNodeCondition, AUI_DIAGRAM_BUILDER_IMPL);
-		
+
+		handleBuffer(facesContext, diagramNodeCondition);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderString(responseWriter, "builder", diagramNodeCondition.getBuilder());
+	}
+
+	protected void renderConnectors(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderString(responseWriter, "connectors", diagramNodeCondition.getConnectors());
+	}
+
+	protected void renderControlsToolbar(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderObject(responseWriter, "controlsToolbar", diagramNodeCondition.getControlsToolbar());
+	}
+
+	protected void renderDescription(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderString(responseWriter, "description", diagramNodeCondition.getDescription());
+	}
+
+	protected void renderGraphic(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderObject(responseWriter, "graphic", diagramNodeCondition.getGraphic());
+	}
+
+	protected void renderHeight(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderNumber(responseWriter, "height", diagramNodeCondition.getHeight());
+	}
+
+	protected void renderHighlightBoundaryStroke(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderObject(responseWriter, "highlightBoundaryStroke", diagramNodeCondition.getHighlightBoundaryStroke());
+	}
+
+	protected void renderHighlighted(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderBoolean(responseWriter, "highlighted", diagramNodeCondition.getHighlighted());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderString(responseWriter, "name", diagramNodeCondition.getName());
+	}
+
+	protected void renderRequired(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderBoolean(responseWriter, "required", diagramNodeCondition.getRequired());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderBoolean(responseWriter, "selected", diagramNodeCondition.getSelected());
+	}
+
+	protected void renderShapeBoundary(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderObject(responseWriter, "shapeBoundary", diagramNodeCondition.getShapeBoundary());
+	}
+
+	protected void renderShapeInvite(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderObject(responseWriter, "shapeInvite", diagramNodeCondition.getShapeInvite());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderObject(responseWriter, "strings", diagramNodeCondition.getStrings());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderNumber(responseWriter, "tabIndex", diagramNodeCondition.getTabIndex());
+	}
+
+	protected void renderTransitions(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderString(responseWriter, "transitions", diagramNodeCondition.getTransitions());
+	}
+
+	protected void renderType(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderString(responseWriter, "type", diagramNodeCondition.getType());
+	}
+
+	protected void renderWidth(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderNumber(responseWriter, "width", diagramNodeCondition.getWidth());
+	}
+
+	protected void renderZIndex(ResponseWriter responseWriter, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		renderNumber(responseWriter, "zIndex", diagramNodeCondition.getZIndex());
 	}
 
 }

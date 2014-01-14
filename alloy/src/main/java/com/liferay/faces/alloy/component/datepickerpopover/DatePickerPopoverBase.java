@@ -39,11 +39,11 @@ public abstract class DatePickerPopoverBase extends javax.faces.component.UIPane
 		getStateHelper().put(AUTO_HIDE, autoHide);
 	}
 
-	protected java.lang.Object getPopover() {
-		return (java.lang.Object) getStateHelper().eval(POPOVER, null);
+	protected java.lang.String getPopover() {
+		return (java.lang.String) getStateHelper().eval(POPOVER, null);
 	}
 
-	protected void setPopover(java.lang.Object popover) {
+	protected void setPopover(java.lang.String popover) {
 		getStateHelper().put(POPOVER, popover);
 	}
 

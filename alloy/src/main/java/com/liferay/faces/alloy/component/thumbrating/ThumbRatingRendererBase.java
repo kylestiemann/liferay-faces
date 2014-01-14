@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ThumbRatingRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_RATING = "aui-rating";
+	private static final String AUI_MODULE_NAME = "aui-rating";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ThumbRating thumbRating = (ThumbRating) uiComponent;
 		encodeHTML(facesContext, thumbRating);
 		encodeJavaScript(facesContext, thumbRating);
@@ -47,224 +49,136 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ThumbRating thumbRating) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, thumbRating, AUI_RATING);
+		beginJavaScript(facesContext, thumbRating);
 
 		bufferedResponseWriter.write("var thumbRating = new Y.ThumbRating");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(thumbRating.getCanReset() != null)
-		{
+		renderCanReset(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClass(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClasses(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderDefaultSelected(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderElements(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderHiddenInput(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderHideClass(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderInputName(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelNode(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderRender(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderSelectedIndex(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderShowTitle(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderSize(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderTitle(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderUseARIA(responseWriter, thumbRating);
+		responseWriter.write(StringPool.COMMA);
+		renderThumbratingValue(responseWriter, thumbRating);
 
-			bufferedResponseWriter.write("canReset: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getCanReset().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("cssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getCssClasses() != null)
-		{
-
-			bufferedResponseWriter.write("cssClasses: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getCssClasses().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getDefaultSelected() != null)
-		{
-
-			bufferedResponseWriter.write("defaultSelected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getDefaultSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getElements() != null)
-		{
-
-			bufferedResponseWriter.write("elements: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getElements().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getHiddenInput() != null)
-		{
-
-			bufferedResponseWriter.write("hiddenInput: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getHiddenInput().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getHideClass() != null)
-		{
-
-			bufferedResponseWriter.write("hideClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getHideClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getInputName() != null)
-		{
-
-			bufferedResponseWriter.write("inputName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getInputName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getLabelNode() != null)
-		{
-
-			bufferedResponseWriter.write("labelNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getLabelNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getRender() != null)
-		{
-
-			bufferedResponseWriter.write("render: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getRender().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getSelectedIndex() != null)
-		{
-
-			bufferedResponseWriter.write("selectedIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getSelectedIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getShowTitle() != null)
-		{
-
-			bufferedResponseWriter.write("showTitle: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getShowTitle().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getSize() != null)
-		{
-
-			bufferedResponseWriter.write("size: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getSize().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getTitle() != null)
-		{
-
-			bufferedResponseWriter.write("title: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getTitle().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getUseARIA() != null)
-		{
-
-			bufferedResponseWriter.write("useARIA: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getUseARIA().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(thumbRating.getThumbratingValue() != null)
-		{
-
-			bufferedResponseWriter.write("thumbratingValue: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(thumbRating.getThumbratingValue().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, thumbRating, AUI_RATING);
-		
+
+		handleBuffer(facesContext, thumbRating);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderCanReset(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderBoolean(responseWriter, "canReset", thumbRating.getCanReset());
+	}
+
+	protected void renderCssClass(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "cssClass", thumbRating.getCssClass());
+	}
+
+	protected void renderCssClasses(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderObject(responseWriter, "cssClasses", thumbRating.getCssClasses());
+	}
+
+	protected void renderDefaultSelected(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderNumber(responseWriter, "defaultSelected", thumbRating.getDefaultSelected());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderBoolean(responseWriter, "disabled", thumbRating.getDisabled());
+	}
+
+	protected void renderElements(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "elements", thumbRating.getElements());
+	}
+
+	protected void renderHiddenInput(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "hiddenInput", thumbRating.getHiddenInput());
+	}
+
+	protected void renderHideClass(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "hideClass", thumbRating.getHideClass());
+	}
+
+	protected void renderInputName(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "inputName", thumbRating.getInputName());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "label", thumbRating.getLabel());
+	}
+
+	protected void renderLabelNode(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "labelNode", thumbRating.getLabelNode());
+	}
+
+	protected void renderRender(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "render", thumbRating.getRender());
+	}
+
+	protected void renderSelectedIndex(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderNumber(responseWriter, "selectedIndex", thumbRating.getSelectedIndex());
+	}
+
+	protected void renderShowTitle(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderBoolean(responseWriter, "showTitle", thumbRating.getShowTitle());
+	}
+
+	protected void renderSize(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderNumber(responseWriter, "size", thumbRating.getSize());
+	}
+
+	protected void renderTitle(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "title", thumbRating.getTitle());
+	}
+
+	protected void renderUseARIA(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderBoolean(responseWriter, "useARIA", thumbRating.getUseARIA());
+	}
+
+	protected void renderThumbratingValue(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
+		renderString(responseWriter, "thumbratingValue", thumbRating.getThumbratingValue());
 	}
 
 }

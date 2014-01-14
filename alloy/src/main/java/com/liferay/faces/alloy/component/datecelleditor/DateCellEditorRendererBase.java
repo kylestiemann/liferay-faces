@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class DateCellEditorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DATATABLE_EDIT = "aui-datatable-edit";
+	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		DateCellEditor dateCellEditor = (DateCellEditor) uiComponent;
 		encodeHTML(facesContext, dateCellEditor);
 		encodeJavaScript(facesContext, dateCellEditor);
@@ -47,81 +49,58 @@ public abstract class DateCellEditorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, DateCellEditor dateCellEditor) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, dateCellEditor, AUI_DATATABLE_EDIT);
+		beginJavaScript(facesContext, dateCellEditor);
 
 		bufferedResponseWriter.write("var dateCellEditor = new Y.DateCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(dateCellEditor.getDatecelleditorBodyContent() != null)
-		{
+		renderDatecelleditorBodyContent(responseWriter, dateCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderCalendar(responseWriter, dateCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderDateFormat(responseWriter, dateCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderInputFormatter(responseWriter, dateCellEditor);
+		responseWriter.write(StringPool.COMMA);
+		renderOutputFormatter(responseWriter, dateCellEditor);
 
-			bufferedResponseWriter.write("datecelleditorBodyContent: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dateCellEditor.getDatecelleditorBodyContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dateCellEditor.getCalendar() != null)
-		{
-
-			bufferedResponseWriter.write("calendar: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dateCellEditor.getCalendar().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dateCellEditor.getDateFormat() != null)
-		{
-
-			bufferedResponseWriter.write("dateFormat: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dateCellEditor.getDateFormat().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dateCellEditor.getInputFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("inputFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dateCellEditor.getInputFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(dateCellEditor.getOutputFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("outputFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(dateCellEditor.getOutputFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, dateCellEditor, AUI_DATATABLE_EDIT);
-		
+
+		handleBuffer(facesContext, dateCellEditor);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDatecelleditorBodyContent(ResponseWriter responseWriter, DateCellEditor dateCellEditor) throws IOException {
+		renderString(responseWriter, "datecelleditorBodyContent", dateCellEditor.getDatecelleditorBodyContent());
+	}
+
+	protected void renderCalendar(ResponseWriter responseWriter, DateCellEditor dateCellEditor) throws IOException {
+		renderObject(responseWriter, "calendar", dateCellEditor.getCalendar());
+	}
+
+	protected void renderDateFormat(ResponseWriter responseWriter, DateCellEditor dateCellEditor) throws IOException {
+		renderString(responseWriter, "dateFormat", dateCellEditor.getDateFormat());
+	}
+
+	protected void renderInputFormatter(ResponseWriter responseWriter, DateCellEditor dateCellEditor) throws IOException {
+		renderString(responseWriter, "inputFormatter", dateCellEditor.getInputFormatter());
+	}
+
+	protected void renderOutputFormatter(ResponseWriter responseWriter, DateCellEditor dateCellEditor) throws IOException {
+		renderString(responseWriter, "outputFormatter", dateCellEditor.getOutputFormatter());
 	}
 
 }

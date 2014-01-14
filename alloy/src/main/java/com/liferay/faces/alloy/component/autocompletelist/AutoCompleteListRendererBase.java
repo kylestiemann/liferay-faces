@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class AutoCompleteListRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_ACE_AUTOCOMPLETE_LIST = "aui-ace-autocomplete-list";
+	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-list";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		AutoCompleteList autoCompleteList = (AutoCompleteList) uiComponent;
 		encodeHTML(facesContext, autoCompleteList);
 		encodeJavaScript(facesContext, autoCompleteList);
@@ -47,92 +49,64 @@ public abstract class AutoCompleteListRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, AutoCompleteList autoCompleteList) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, autoCompleteList, AUI_ACE_AUTOCOMPLETE_LIST);
+		beginJavaScript(facesContext, autoCompleteList);
 
 		bufferedResponseWriter.write("var autoCompleteList = new Y.AutoCompleteList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(autoCompleteList.getHost() != null)
-		{
+		renderHost(responseWriter, autoCompleteList);
+		responseWriter.write(StringPool.COMMA);
+		renderListNode(responseWriter, autoCompleteList);
+		responseWriter.write(StringPool.COMMA);
+		renderLoadingMessage(responseWriter, autoCompleteList);
+		responseWriter.write(StringPool.COMMA);
+		renderResults(responseWriter, autoCompleteList);
+		responseWriter.write(StringPool.COMMA);
+		renderSelectedEntry(responseWriter, autoCompleteList);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, autoCompleteList);
 
-			bufferedResponseWriter.write("host: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(autoCompleteList.getHost().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(autoCompleteList.getListNode() != null)
-		{
-
-			bufferedResponseWriter.write("listNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(autoCompleteList.getListNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(autoCompleteList.getLoadingMessage() != null)
-		{
-
-			bufferedResponseWriter.write("loadingMessage: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(autoCompleteList.getLoadingMessage().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(autoCompleteList.getResults() != null)
-		{
-
-			bufferedResponseWriter.write("results: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(autoCompleteList.getResults().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(autoCompleteList.getSelectedEntry() != null)
-		{
-
-			bufferedResponseWriter.write("selectedEntry: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(autoCompleteList.getSelectedEntry().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(autoCompleteList.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(autoCompleteList.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, autoCompleteList, AUI_ACE_AUTOCOMPLETE_LIST);
-		
+
+		handleBuffer(facesContext, autoCompleteList);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderHost(ResponseWriter responseWriter, AutoCompleteList autoCompleteList) throws IOException {
+		renderObject(responseWriter, "host", autoCompleteList.getHost());
+	}
+
+	protected void renderListNode(ResponseWriter responseWriter, AutoCompleteList autoCompleteList) throws IOException {
+		renderString(responseWriter, "listNode", autoCompleteList.getListNode());
+	}
+
+	protected void renderLoadingMessage(ResponseWriter responseWriter, AutoCompleteList autoCompleteList) throws IOException {
+		renderString(responseWriter, "loadingMessage", autoCompleteList.getLoadingMessage());
+	}
+
+	protected void renderResults(ResponseWriter responseWriter, AutoCompleteList autoCompleteList) throws IOException {
+		renderArray(responseWriter, "results", autoCompleteList.getResults());
+	}
+
+	protected void renderSelectedEntry(ResponseWriter responseWriter, AutoCompleteList autoCompleteList) throws IOException {
+		renderString(responseWriter, "selectedEntry", autoCompleteList.getSelectedEntry());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, AutoCompleteList autoCompleteList) throws IOException {
+		renderObject(responseWriter, "strings", autoCompleteList.getStrings());
 	}
 
 }

@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TreeNodeIORendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TREE_NODE = "aui-tree-node";
+	private static final String AUI_MODULE_NAME = "aui-tree-node";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TreeNodeIO treeNodeIO = (TreeNodeIO) uiComponent;
 		encodeHTML(facesContext, treeNodeIO);
 		encodeJavaScript(facesContext, treeNodeIO);
@@ -47,312 +49,184 @@ public abstract class TreeNodeIORendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TreeNodeIO treeNodeIO) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, treeNodeIO, AUI_TREE_NODE);
+		beginJavaScript(facesContext, treeNodeIO);
 
 		bufferedResponseWriter.write("var treeNodeIO = new Y.TreeNodeIO");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(treeNodeIO.getAlwaysShowHitArea() != null)
-		{
+		renderAlwaysShowHitArea(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderBoundingBox(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderCache(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderTreenodeioChildren(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderContainer(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderContentBox(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderCssClasses(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderDraggable(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderExpanded(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderHitAreaEl(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderIconEl(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderTreenodeioId(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderIndex(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderIo(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderLabel(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderLabelEl(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderLeaf(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderLoaded(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderLoading(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderNextSibling(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderOwnerTree(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderPaginator(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderParentNode(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderPrevSibling(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderRendered(responseWriter, treeNodeIO);
+		responseWriter.write(StringPool.COMMA);
+		renderTabIndex(responseWriter, treeNodeIO);
 
-			bufferedResponseWriter.write("alwaysShowHitArea: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getAlwaysShowHitArea().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getBoundingBox() != null)
-		{
-
-			bufferedResponseWriter.write("boundingBox: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getBoundingBox().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getCache() != null)
-		{
-
-			bufferedResponseWriter.write("cache: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getCache().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getTreenodeioChildren() != null)
-		{
-
-			bufferedResponseWriter.write("treenodeioChildren: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getTreenodeioChildren().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getContainer() != null)
-		{
-
-			bufferedResponseWriter.write("container: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getContentBox() != null)
-		{
-
-			bufferedResponseWriter.write("contentBox: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getContentBox().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getCssClasses() != null)
-		{
-
-			bufferedResponseWriter.write("cssClasses: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getCssClasses().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getDraggable() != null)
-		{
-
-			bufferedResponseWriter.write("draggable: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getDraggable().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getExpanded() != null)
-		{
-
-			bufferedResponseWriter.write("expanded: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getExpanded().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getHitAreaEl() != null)
-		{
-
-			bufferedResponseWriter.write("hitAreaEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getHitAreaEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getIconEl() != null)
-		{
-
-			bufferedResponseWriter.write("iconEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getIconEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getTreenodeioId() != null)
-		{
-
-			bufferedResponseWriter.write("treenodeioId: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getTreenodeioId().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getIndex() != null)
-		{
-
-			bufferedResponseWriter.write("index: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getIo() != null)
-		{
-
-			bufferedResponseWriter.write("io: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getIo().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getLabel() != null)
-		{
-
-			bufferedResponseWriter.write("label: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getLabel().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getLabelEl() != null)
-		{
-
-			bufferedResponseWriter.write("labelEl: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getLabelEl().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getLeaf() != null)
-		{
-
-			bufferedResponseWriter.write("leaf: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getLeaf().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getLoaded() != null)
-		{
-
-			bufferedResponseWriter.write("loaded: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getLoaded().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getLoading() != null)
-		{
-
-			bufferedResponseWriter.write("loading: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getLoading().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getNextSibling() != null)
-		{
-
-			bufferedResponseWriter.write("nextSibling: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getNextSibling().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getOwnerTree() != null)
-		{
-
-			bufferedResponseWriter.write("ownerTree: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getOwnerTree().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getPaginator() != null)
-		{
-
-			bufferedResponseWriter.write("paginator: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getPaginator().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getParentNode() != null)
-		{
-
-			bufferedResponseWriter.write("parentNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getParentNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getPrevSibling() != null)
-		{
-
-			bufferedResponseWriter.write("prevSibling: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getPrevSibling().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getRendered() != null)
-		{
-
-			bufferedResponseWriter.write("rendered: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getRendered().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(treeNodeIO.getTabIndex() != null)
-		{
-
-			bufferedResponseWriter.write("tabIndex: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(treeNodeIO.getTabIndex().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, treeNodeIO, AUI_TREE_NODE);
-		
+
+		handleBuffer(facesContext, treeNodeIO);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAlwaysShowHitArea(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "alwaysShowHitArea", treeNodeIO.getAlwaysShowHitArea());
+	}
+
+	protected void renderBoundingBox(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "boundingBox", treeNodeIO.getBoundingBox());
+	}
+
+	protected void renderCache(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "cache", treeNodeIO.getCache());
+	}
+
+	protected void renderTreenodeioChildren(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderArray(responseWriter, "treenodeioChildren", treeNodeIO.getTreenodeioChildren());
+	}
+
+	protected void renderContainer(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "container", treeNodeIO.getContainer());
+	}
+
+	protected void renderContentBox(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "contentBox", treeNodeIO.getContentBox());
+	}
+
+	protected void renderCssClasses(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderObject(responseWriter, "cssClasses", treeNodeIO.getCssClasses());
+	}
+
+	protected void renderDraggable(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "draggable", treeNodeIO.getDraggable());
+	}
+
+	protected void renderExpanded(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "expanded", treeNodeIO.getExpanded());
+	}
+
+	protected void renderHitAreaEl(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "hitAreaEl", treeNodeIO.getHitAreaEl());
+	}
+
+	protected void renderIconEl(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "iconEl", treeNodeIO.getIconEl());
+	}
+
+	protected void renderTreenodeioId(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "treenodeioId", treeNodeIO.getTreenodeioId());
+	}
+
+	protected void renderIndex(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderObject(responseWriter, "index", treeNodeIO.getIndex());
+	}
+
+	protected void renderIo(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderObject(responseWriter, "io", treeNodeIO.getIo());
+	}
+
+	protected void renderLabel(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "label", treeNodeIO.getLabel());
+	}
+
+	protected void renderLabelEl(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "labelEl", treeNodeIO.getLabelEl());
+	}
+
+	protected void renderLeaf(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "leaf", treeNodeIO.getLeaf());
+	}
+
+	protected void renderLoaded(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "loaded", treeNodeIO.getLoaded());
+	}
+
+	protected void renderLoading(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "loading", treeNodeIO.getLoading());
+	}
+
+	protected void renderNextSibling(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "nextSibling", treeNodeIO.getNextSibling());
+	}
+
+	protected void renderOwnerTree(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "ownerTree", treeNodeIO.getOwnerTree());
+	}
+
+	protected void renderPaginator(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderObject(responseWriter, "paginator", treeNodeIO.getPaginator());
+	}
+
+	protected void renderParentNode(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "parentNode", treeNodeIO.getParentNode());
+	}
+
+	protected void renderPrevSibling(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "prevSibling", treeNodeIO.getPrevSibling());
+	}
+
+	protected void renderRendered(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderBoolean(responseWriter, "rendered", treeNodeIO.getRendered());
+	}
+
+	protected void renderTabIndex(ResponseWriter responseWriter, TreeNodeIO treeNodeIO) throws IOException {
+		renderString(responseWriter, "tabIndex", treeNodeIO.getTabIndex());
 	}
 
 }

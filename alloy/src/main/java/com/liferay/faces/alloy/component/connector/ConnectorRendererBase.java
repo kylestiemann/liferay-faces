@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ConnectorRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_DIAGRAM_BUILDER_CONNECTOR = "aui-diagram-builder-connector";
+	private static final String AUI_MODULE_NAME = "aui-diagram-builder-connector";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		Connector connector = (Connector) uiComponent;
 		encodeHTML(facesContext, connector);
 		encodeJavaScript(facesContext, connector);
@@ -47,246 +49,148 @@ public abstract class ConnectorRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, Connector connector) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, connector, AUI_DIAGRAM_BUILDER_CONNECTOR);
+		beginJavaScript(facesContext, connector);
 
 		bufferedResponseWriter.write("var connector = new Y.Connector");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(connector.getArrowPoints() != null)
-		{
+		renderArrowPoints(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderBuilder(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderColor(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderCoord(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderGraphic(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderLazyDraw(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderName(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderNodeName(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderP1(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderP2(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShape(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeArrow(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeArrowHover(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeArrowSelected(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeHover(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShapeSelected(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderShowName(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderTransition(responseWriter, connector);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, connector);
 
-			bufferedResponseWriter.write("arrowPoints: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getArrowPoints().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getBuilder() != null)
-		{
-
-			bufferedResponseWriter.write("builder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getBuilder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getColor() != null)
-		{
-
-			bufferedResponseWriter.write("color: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getColor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getCoord() != null)
-		{
-
-			bufferedResponseWriter.write("coord: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getCoord().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getGraphic() != null)
-		{
-
-			bufferedResponseWriter.write("graphic: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getGraphic().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getLazyDraw() != null)
-		{
-
-			bufferedResponseWriter.write("lazyDraw: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getLazyDraw().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getName() != null)
-		{
-
-			bufferedResponseWriter.write("name: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getNodeName() != null)
-		{
-
-			bufferedResponseWriter.write("nodeName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getNodeName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getP1() != null)
-		{
-
-			bufferedResponseWriter.write("p1: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getP1().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getP2() != null)
-		{
-
-			bufferedResponseWriter.write("p2: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getP2().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShape() != null)
-		{
-
-			bufferedResponseWriter.write("shape: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShape().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShapeArrow() != null)
-		{
-
-			bufferedResponseWriter.write("shapeArrow: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShapeArrow().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShapeArrowHover() != null)
-		{
-
-			bufferedResponseWriter.write("shapeArrowHover: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShapeArrowHover().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShapeArrowSelected() != null)
-		{
-
-			bufferedResponseWriter.write("shapeArrowSelected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShapeArrowSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShapeHover() != null)
-		{
-
-			bufferedResponseWriter.write("shapeHover: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShapeHover().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShapeSelected() != null)
-		{
-
-			bufferedResponseWriter.write("shapeSelected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShapeSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getShowName() != null)
-		{
-
-			bufferedResponseWriter.write("showName: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getShowName().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getTransition() != null)
-		{
-
-			bufferedResponseWriter.write("transition: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getTransition().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(connector.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(connector.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, connector, AUI_DIAGRAM_BUILDER_CONNECTOR);
-		
+
+		handleBuffer(facesContext, connector);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderArrowPoints(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "arrowPoints", connector.getArrowPoints());
+	}
+
+	protected void renderBuilder(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "builder", connector.getBuilder());
+	}
+
+	protected void renderColor(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "color", connector.getColor());
+	}
+
+	protected void renderCoord(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "coord", connector.getCoord());
+	}
+
+	protected void renderGraphic(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "graphic", connector.getGraphic());
+	}
+
+	protected void renderLazyDraw(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderBoolean(responseWriter, "lazyDraw", connector.getLazyDraw());
+	}
+
+	protected void renderName(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "name", connector.getName());
+	}
+
+	protected void renderNodeName(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "nodeName", connector.getNodeName());
+	}
+
+	protected void renderP1(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderArray(responseWriter, "p1", connector.getP1());
+	}
+
+	protected void renderP2(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderArray(responseWriter, "p2", connector.getP2());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderBoolean(responseWriter, "selected", connector.getSelected());
+	}
+
+	protected void renderShape(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "shape", connector.getShape());
+	}
+
+	protected void renderShapeArrow(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderString(responseWriter, "shapeArrow", connector.getShapeArrow());
+	}
+
+	protected void renderShapeArrowHover(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderObject(responseWriter, "shapeArrowHover", connector.getShapeArrowHover());
+	}
+
+	protected void renderShapeArrowSelected(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderObject(responseWriter, "shapeArrowSelected", connector.getShapeArrowSelected());
+	}
+
+	protected void renderShapeHover(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderObject(responseWriter, "shapeHover", connector.getShapeHover());
+	}
+
+	protected void renderShapeSelected(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderObject(responseWriter, "shapeSelected", connector.getShapeSelected());
+	}
+
+	protected void renderShowName(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderBoolean(responseWriter, "showName", connector.getShowName());
+	}
+
+	protected void renderTransition(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderObject(responseWriter, "transition", connector.getTransition());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, Connector connector) throws IOException {
+		renderBoolean(responseWriter, "visible", connector.getVisible());
 	}
 
 }

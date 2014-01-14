@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class TimePickerRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_TIMEPICKER = "aui-timepicker";
+	private static final String AUI_MODULE_NAME = "aui-timepicker";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		TimePicker timePicker = (TimePicker) uiComponent;
 		encodeHTML(facesContext, timePicker);
 		encodeJavaScript(facesContext, timePicker);
@@ -47,158 +49,100 @@ public abstract class TimePickerRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, TimePicker timePicker) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, timePicker, AUI_TIMEPICKER);
+		beginJavaScript(facesContext, timePicker);
 
 		bufferedResponseWriter.write("var timePicker = new Y.TimePicker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(timePicker.getActiveInput() != null)
-		{
+		renderActiveInput(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderAutoHide(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderAutocomplete(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderContainer(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderContent(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderDateSeparator(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderMask(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderPopover(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderPopoverCssClass(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderValueExtractor(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderValueFormatter(responseWriter, timePicker);
+		responseWriter.write(StringPool.COMMA);
+		renderTimepickerValues(responseWriter, timePicker);
 
-			bufferedResponseWriter.write("activeInput: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getActiveInput().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getAutoHide() != null)
-		{
-
-			bufferedResponseWriter.write("autoHide: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getAutoHide().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getAutocomplete() != null)
-		{
-
-			bufferedResponseWriter.write("autocomplete: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getAutocomplete().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getContainer() != null)
-		{
-
-			bufferedResponseWriter.write("container: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getContainer().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getContent() != null)
-		{
-
-			bufferedResponseWriter.write("content: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getDateSeparator() != null)
-		{
-
-			bufferedResponseWriter.write("dateSeparator: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getDateSeparator().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getMask() != null)
-		{
-
-			bufferedResponseWriter.write("mask: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getMask().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getPopover() != null)
-		{
-
-			bufferedResponseWriter.write("popover: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getPopover().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getPopoverCssClass() != null)
-		{
-
-			bufferedResponseWriter.write("popoverCssClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getPopoverCssClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getValueExtractor() != null)
-		{
-
-			bufferedResponseWriter.write("valueExtractor: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getValueExtractor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getValueFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("valueFormatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getValueFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(timePicker.getTimepickerValues() != null)
-		{
-
-			bufferedResponseWriter.write("timepickerValues: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(timePicker.getTimepickerValues().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, timePicker, AUI_TIMEPICKER);
-		
+
+		handleBuffer(facesContext, timePicker);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderActiveInput(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "activeInput", timePicker.getActiveInput());
+	}
+
+	protected void renderAutoHide(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderBoolean(responseWriter, "autoHide", timePicker.getAutoHide());
+	}
+
+	protected void renderAutocomplete(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "autocomplete", timePicker.getAutocomplete());
+	}
+
+	protected void renderContainer(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "container", timePicker.getContainer());
+	}
+
+	protected void renderContent(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "content", timePicker.getContent());
+	}
+
+	protected void renderDateSeparator(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "dateSeparator", timePicker.getDateSeparator());
+	}
+
+	protected void renderMask(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "mask", timePicker.getMask());
+	}
+
+	protected void renderPopover(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "popover", timePicker.getPopover());
+	}
+
+	protected void renderPopoverCssClass(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "popoverCssClass", timePicker.getPopoverCssClass());
+	}
+
+	protected void renderValueExtractor(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "valueExtractor", timePicker.getValueExtractor());
+	}
+
+	protected void renderValueFormatter(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderString(responseWriter, "valueFormatter", timePicker.getValueFormatter());
+	}
+
+	protected void renderTimepickerValues(ResponseWriter responseWriter, TimePicker timePicker) throws IOException {
+		renderArray(responseWriter, "timepickerValues", timePicker.getTimepickerValues());
 	}
 
 }

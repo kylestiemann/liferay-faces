@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class SchedulerEventRecorderRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_SCHEDULER_EVENT_RECORDER = "aui-scheduler-event-recorder";
+	private static final String AUI_MODULE_NAME = "aui-scheduler-event-recorder";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		SchedulerEventRecorder schedulerEventRecorder = (SchedulerEventRecorder) uiComponent;
 		encodeHTML(facesContext, schedulerEventRecorder);
 		encodeJavaScript(facesContext, schedulerEventRecorder);
@@ -47,268 +49,160 @@ public abstract class SchedulerEventRecorderRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, schedulerEventRecorder, AUI_SCHEDULER_EVENT_RECORDER);
+		beginJavaScript(facesContext, schedulerEventRecorder);
 
 		bufferedResponseWriter.write("var schedulerEventRecorder = new Y.SchedulerEventRecorder");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(schedulerEventRecorder.getAllDay() != null)
-		{
+		renderAllDay(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderColor(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderColorBrightnessFactor(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderColorSaturationFactor(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderContent(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderDateFormat(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderDisabled(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderDuration(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderEndDate(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderEvent(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderEventClass(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderMeeting(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderNode(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderPopover(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderReminder(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderRepeated(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderScheduler(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderStartDate(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderStrings(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderTemplate(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderTitleDateFormat(responseWriter, schedulerEventRecorder);
+		responseWriter.write(StringPool.COMMA);
+		renderVisible(responseWriter, schedulerEventRecorder);
 
-			bufferedResponseWriter.write("allDay: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getAllDay().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getColor() != null)
-		{
-
-			bufferedResponseWriter.write("color: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getColor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getColorBrightnessFactor() != null)
-		{
-
-			bufferedResponseWriter.write("colorBrightnessFactor: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getColorBrightnessFactor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getColorSaturationFactor() != null)
-		{
-
-			bufferedResponseWriter.write("colorSaturationFactor: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getColorSaturationFactor().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getContent() != null)
-		{
-
-			bufferedResponseWriter.write("content: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getContent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getDateFormat() != null)
-		{
-
-			bufferedResponseWriter.write("dateFormat: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getDateFormat().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getDisabled() != null)
-		{
-
-			bufferedResponseWriter.write("disabled: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getDisabled().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getDuration() != null)
-		{
-
-			bufferedResponseWriter.write("duration: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getDuration().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getEndDate() != null)
-		{
-
-			bufferedResponseWriter.write("endDate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getEndDate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getEvent() != null)
-		{
-
-			bufferedResponseWriter.write("event: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getEvent().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getEventClass() != null)
-		{
-
-			bufferedResponseWriter.write("eventClass: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getEventClass().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getMeeting() != null)
-		{
-
-			bufferedResponseWriter.write("meeting: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getMeeting().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getNode() != null)
-		{
-
-			bufferedResponseWriter.write("node: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getPopover() != null)
-		{
-
-			bufferedResponseWriter.write("popover: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getPopover().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getReminder() != null)
-		{
-
-			bufferedResponseWriter.write("reminder: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getReminder().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getRepeated() != null)
-		{
-
-			bufferedResponseWriter.write("repeated: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getRepeated().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getScheduler() != null)
-		{
-
-			bufferedResponseWriter.write("scheduler: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getScheduler().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getStartDate() != null)
-		{
-
-			bufferedResponseWriter.write("startDate: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getStartDate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getStrings() != null)
-		{
-
-			bufferedResponseWriter.write("strings: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getStrings().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getTemplate() != null)
-		{
-
-			bufferedResponseWriter.write("template: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getTemplate().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getTitleDateFormat() != null)
-		{
-
-			bufferedResponseWriter.write("titleDateFormat: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getTitleDateFormat().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(schedulerEventRecorder.getVisible() != null)
-		{
-
-			bufferedResponseWriter.write("visible: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(schedulerEventRecorder.getVisible().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, schedulerEventRecorder, AUI_SCHEDULER_EVENT_RECORDER);
-		
+
+		handleBuffer(facesContext, schedulerEventRecorder);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderAllDay(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderBoolean(responseWriter, "allDay", schedulerEventRecorder.getAllDay());
+	}
+
+	protected void renderColor(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "color", schedulerEventRecorder.getColor());
+	}
+
+	protected void renderColorBrightnessFactor(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderNumber(responseWriter, "colorBrightnessFactor", schedulerEventRecorder.getColorBrightnessFactor());
+	}
+
+	protected void renderColorSaturationFactor(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderNumber(responseWriter, "colorSaturationFactor", schedulerEventRecorder.getColorSaturationFactor());
+	}
+
+	protected void renderContent(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "content", schedulerEventRecorder.getContent());
+	}
+
+	protected void renderDateFormat(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "dateFormat", schedulerEventRecorder.getDateFormat());
+	}
+
+	protected void renderDisabled(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderBoolean(responseWriter, "disabled", schedulerEventRecorder.getDisabled());
+	}
+
+	protected void renderDuration(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderNumber(responseWriter, "duration", schedulerEventRecorder.getDuration());
+	}
+
+	protected void renderEndDate(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "endDate", schedulerEventRecorder.getEndDate());
+	}
+
+	protected void renderEvent(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "event", schedulerEventRecorder.getEvent());
+	}
+
+	protected void renderEventClass(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "eventClass", schedulerEventRecorder.getEventClass());
+	}
+
+	protected void renderMeeting(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderBoolean(responseWriter, "meeting", schedulerEventRecorder.getMeeting());
+	}
+
+	protected void renderNode(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "node", schedulerEventRecorder.getNode());
+	}
+
+	protected void renderPopover(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderObject(responseWriter, "popover", schedulerEventRecorder.getPopover());
+	}
+
+	protected void renderReminder(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderBoolean(responseWriter, "reminder", schedulerEventRecorder.getReminder());
+	}
+
+	protected void renderRepeated(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderBoolean(responseWriter, "repeated", schedulerEventRecorder.getRepeated());
+	}
+
+	protected void renderScheduler(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "scheduler", schedulerEventRecorder.getScheduler());
+	}
+
+	protected void renderStartDate(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "startDate", schedulerEventRecorder.getStartDate());
+	}
+
+	protected void renderStrings(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderObject(responseWriter, "strings", schedulerEventRecorder.getStrings());
+	}
+
+	protected void renderTemplate(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "template", schedulerEventRecorder.getTemplate());
+	}
+
+	protected void renderTitleDateFormat(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderString(responseWriter, "titleDateFormat", schedulerEventRecorder.getTitleDateFormat());
+	}
+
+	protected void renderVisible(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		renderBoolean(responseWriter, "visible", schedulerEventRecorder.getVisible());
 	}
 
 }

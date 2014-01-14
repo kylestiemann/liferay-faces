@@ -23,6 +23,7 @@ import com.liferay.faces.alloy.component.base.AUIRenderer;
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
+
 /**
  * @author Eduardo Lundgren
  * @author Bruno Basto
@@ -31,12 +32,13 @@ import com.liferay.faces.util.lang.StringPool;
 public abstract class ColorPaletteRendererBase extends AUIRenderer {
 
 	// Private Constants
-	private static final String  AUI_COLOR_PALETTE = "aui-color-palette";
+	private static final String AUI_MODULE_NAME = "aui-color-palette";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		super.encodeBegin(facesContext, uiComponent);
+
 		ColorPalette colorPalette = (ColorPalette) uiComponent;
 		encodeHTML(facesContext, colorPalette);
 		encodeJavaScript(facesContext, colorPalette);
@@ -47,92 +49,64 @@ public abstract class ColorPaletteRendererBase extends AUIRenderer {
 	protected void encodeJavaScript(FacesContext facesContext, ColorPalette colorPalette) throws IOException {
 
 		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-		
+
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		beginJavaScript(facesContext, colorPalette, AUI_COLOR_PALETTE);
+		beginJavaScript(facesContext, colorPalette);
 
 		bufferedResponseWriter.write("var colorPalette = new Y.ColorPalette");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
-		if(colorPalette.getColumns() != null)
-		{
+		renderColumns(responseWriter, colorPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderContainerNode(responseWriter, colorPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderFormatter(responseWriter, colorPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderItems(responseWriter, colorPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderSelected(responseWriter, colorPalette);
+		responseWriter.write(StringPool.COMMA);
+		renderToggleSelection(responseWriter, colorPalette);
 
-			bufferedResponseWriter.write("columns: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPalette.getColumns().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPalette.getContainerNode() != null)
-		{
-
-			bufferedResponseWriter.write("containerNode: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPalette.getContainerNode().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPalette.getFormatter() != null)
-		{
-
-			bufferedResponseWriter.write("formatter: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPalette.getFormatter().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPalette.getItems() != null)
-		{
-
-			bufferedResponseWriter.write("items: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPalette.getItems().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPalette.getSelected() != null)
-		{
-
-			bufferedResponseWriter.write("selected: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPalette.getSelected().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		if(colorPalette.getToggleSelection() != null)
-		{
-
-			bufferedResponseWriter.write("toggleSelection: ");
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(colorPalette.getToggleSelection().toString());
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-		}
-
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-		
+
 		endJavaScript(facesContext);
-		
-		handleBuffer(facesContext, colorPalette, AUI_COLOR_PALETTE);
-		
+
+		handleBuffer(facesContext, colorPalette);
+
 		facesContext.setResponseWriter(backupResponseWriter);
+	}
+
+	protected String getModule() {
+		return AUI_MODULE_NAME;
+	}
+
+	protected void renderColumns(ResponseWriter responseWriter, ColorPalette colorPalette) throws IOException {
+		renderNumber(responseWriter, "columns", colorPalette.getColumns());
+	}
+
+	protected void renderContainerNode(ResponseWriter responseWriter, ColorPalette colorPalette) throws IOException {
+		renderString(responseWriter, "containerNode", colorPalette.getContainerNode());
+	}
+
+	protected void renderFormatter(ResponseWriter responseWriter, ColorPalette colorPalette) throws IOException {
+		renderString(responseWriter, "formatter", colorPalette.getFormatter());
+	}
+
+	protected void renderItems(ResponseWriter responseWriter, ColorPalette colorPalette) throws IOException {
+		renderArray(responseWriter, "items", colorPalette.getItems());
+	}
+
+	protected void renderSelected(ResponseWriter responseWriter, ColorPalette colorPalette) throws IOException {
+		renderNumber(responseWriter, "selected", colorPalette.getSelected());
+	}
+
+	protected void renderToggleSelection(ResponseWriter responseWriter, ColorPalette colorPalette) throws IOException {
+		renderBoolean(responseWriter, "toggleSelection", colorPalette.getToggleSelection());
 	}
 
 }

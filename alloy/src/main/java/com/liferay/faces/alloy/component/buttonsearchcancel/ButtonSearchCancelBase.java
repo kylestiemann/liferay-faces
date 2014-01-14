@@ -37,11 +37,11 @@ public abstract class ButtonSearchCancelBase extends javax.faces.component.UIPan
 	private static final String ON_TRIGGER_CHANGE = "onTriggerChange";
 	private static final String ON_ZINDEX_CHANGE = "onZIndexChange";
 
-	protected java.lang.Object getContainer() {
-		return (java.lang.Object) getStateHelper().eval(CONTAINER, null);
+	protected java.lang.String getContainer() {
+		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.Object container) {
+	protected void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 

@@ -120,11 +120,11 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(COLOR_SATURATION_FACTOR, colorSaturationFactor);
 	}
 
-	protected java.lang.Object getContent() {
-		return (java.lang.Object) getStateHelper().eval(CONTENT, null);
+	protected java.lang.String getContent() {
+		return (java.lang.String) getStateHelper().eval(CONTENT, null);
 	}
 
-	protected void setContent(java.lang.Object content) {
+	protected void setContent(java.lang.String content) {
 		getStateHelper().put(CONTENT, content);
 	}
 
@@ -152,27 +152,27 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(DURATION, duration);
 	}
 
-	protected java.lang.Object getEndDate() {
-		return (java.lang.Object) getStateHelper().eval(END_DATE, null);
+	protected java.lang.String getEndDate() {
+		return (java.lang.String) getStateHelper().eval(END_DATE, null);
 	}
 
-	protected void setEndDate(java.lang.Object endDate) {
+	protected void setEndDate(java.lang.String endDate) {
 		getStateHelper().put(END_DATE, endDate);
 	}
 
-	protected java.lang.Object getEvent() {
-		return (java.lang.Object) getStateHelper().eval(EVENT, null);
+	protected java.lang.String getEvent() {
+		return (java.lang.String) getStateHelper().eval(EVENT, null);
 	}
 
-	protected void setEvent(java.lang.Object event) {
+	protected void setEvent(java.lang.String event) {
 		getStateHelper().put(EVENT, event);
 	}
 
-	protected java.lang.Object getEventClass() {
-		return (java.lang.Object) getStateHelper().eval(EVENT_CLASS, null);
+	protected java.lang.String getEventClass() {
+		return (java.lang.String) getStateHelper().eval(EVENT_CLASS, null);
 	}
 
-	protected void setEventClass(java.lang.Object eventClass) {
+	protected void setEventClass(java.lang.String eventClass) {
 		getStateHelper().put(EVENT_CLASS, eventClass);
 	}
 
@@ -184,11 +184,11 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(MEETING, meeting);
 	}
 
-	protected java.lang.Object getNode() {
-		return (java.lang.Object) getStateHelper().eval(NODE, null);
+	protected java.lang.String getNode() {
+		return (java.lang.String) getStateHelper().eval(NODE, null);
 	}
 
-	protected void setNode(java.lang.Object node) {
+	protected void setNode(java.lang.String node) {
 		getStateHelper().put(NODE, node);
 	}
 
@@ -216,19 +216,19 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(REPEATED, repeated);
 	}
 
-	protected java.lang.Object getScheduler() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULER, null);
+	protected java.lang.String getScheduler() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER, null);
 	}
 
-	protected void setScheduler(java.lang.Object scheduler) {
+	protected void setScheduler(java.lang.String scheduler) {
 		getStateHelper().put(SCHEDULER, scheduler);
 	}
 
-	protected java.lang.Object getStartDate() {
-		return (java.lang.Object) getStateHelper().eval(START_DATE, null);
+	protected java.lang.String getStartDate() {
+		return (java.lang.String) getStateHelper().eval(START_DATE, null);
 	}
 
-	protected void setStartDate(java.lang.Object startDate) {
+	protected void setStartDate(java.lang.String startDate) {
 		getStateHelper().put(START_DATE, startDate);
 	}
 
@@ -240,11 +240,11 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.Object getTemplate() {
-		return (java.lang.Object) getStateHelper().eval(TEMPLATE, null);
+	protected java.lang.String getTemplate() {
+		return (java.lang.String) getStateHelper().eval(TEMPLATE, null);
 	}
 
-	protected void setTemplate(java.lang.Object template) {
+	protected void setTemplate(java.lang.String template) {
 		getStateHelper().put(TEMPLATE, template);
 	}
 

@@ -86,11 +86,11 @@ public abstract class SchedulerViewBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CSS_CLASS, cssClass);
 	}
 
-	protected java.lang.Object getFilterFn() {
-		return (java.lang.Object) getStateHelper().eval(FILTER_FN, null);
+	protected java.lang.String getFilterFn() {
+		return (java.lang.String) getStateHelper().eval(FILTER_FN, null);
 	}
 
-	protected void setFilterFn(java.lang.Object filterFn) {
+	protected void setFilterFn(java.lang.String filterFn) {
 		getStateHelper().put(FILTER_FN, filterFn);
 	}
 
@@ -134,19 +134,19 @@ public abstract class SchedulerViewBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(NAVIGATION_DATE_FORMATTER, navigationDateFormatter);
 	}
 
-	protected java.lang.Object getNextDate() {
-		return (java.lang.Object) getStateHelper().eval(NEXT_DATE, null);
+	protected java.lang.String getNextDate() {
+		return (java.lang.String) getStateHelper().eval(NEXT_DATE, null);
 	}
 
-	protected void setNextDate(java.lang.Object nextDate) {
+	protected void setNextDate(java.lang.String nextDate) {
 		getStateHelper().put(NEXT_DATE, nextDate);
 	}
 
-	protected java.lang.Object getPrevDate() {
-		return (java.lang.Object) getStateHelper().eval(PREV_DATE, null);
+	protected java.lang.String getPrevDate() {
+		return (java.lang.String) getStateHelper().eval(PREV_DATE, null);
 	}
 
-	protected void setPrevDate(java.lang.Object prevDate) {
+	protected void setPrevDate(java.lang.String prevDate) {
 		getStateHelper().put(PREV_DATE, prevDate);
 	}
 
@@ -158,11 +158,11 @@ public abstract class SchedulerViewBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(RENDER, render);
 	}
 
-	protected java.lang.Object getScheduler() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULER, null);
+	protected java.lang.String getScheduler() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER, null);
 	}
 
-	protected void setScheduler(java.lang.Object scheduler) {
+	protected void setScheduler(java.lang.String scheduler) {
 		getStateHelper().put(SCHEDULER, scheduler);
 	}
 
@@ -174,11 +174,11 @@ public abstract class SchedulerViewBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(SCROLLABLE, scrollable);
 	}
 
-	protected java.lang.Object getTriggerNode() {
-		return (java.lang.Object) getStateHelper().eval(TRIGGER_NODE, null);
+	protected java.lang.String getTriggerNode() {
+		return (java.lang.String) getStateHelper().eval(TRIGGER_NODE, null);
 	}
 
-	protected void setTriggerNode(java.lang.Object triggerNode) {
+	protected void setTriggerNode(java.lang.String triggerNode) {
 		getStateHelper().put(TRIGGER_NODE, triggerNode);
 	}
 
