@@ -18,13 +18,8 @@ import com.liferay.portal.kernel.servlet.taglib.aui.ScriptData;
 import com.liferay.portal.model.Portlet;
 
 public abstract class AUIRenderer extends Renderer {
-
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
-		super.encodeBegin(facesContext, uiComponent);
-	}
 	
-	protected void beginJavaScript(FacesContext facesContext, UIComponent uiComponent, String moduleName) throws IOException {
+	protected void beginJavaScript(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 		
 		bufferedResponseWriter.write(StringPool.FORWARD_SLASH);
@@ -39,7 +34,7 @@ public abstract class AUIRenderer extends Renderer {
 			bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 			bufferedResponseWriter.write(StringPool.NEW_LINE);
 			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(moduleName);
+			bufferedResponseWriter.write(getModule());
 			bufferedResponseWriter.write(StringPool.COMMA);
 			bufferedResponseWriter.write(StringPool.APOSTROPHE);
 			bufferedResponseWriter.write(StringPool.NEW_LINE);
@@ -47,6 +42,11 @@ public abstract class AUIRenderer extends Renderer {
 			bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
+	}
+	
+	@Override
+	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+		super.encodeBegin(facesContext, uiComponent);
 	}
 	
 	protected void endJavaScript(FacesContext facesContext) throws IOException {
@@ -68,8 +68,10 @@ public abstract class AUIRenderer extends Renderer {
 		bufferedResponseWriter.write(StringPool.CDATA_CLOSE);
 		bufferedResponseWriter.write(StringPool.NEW_LINE);
 	}
+	
+	protected abstract String getModule();
 
-	protected void handleBuffer(FacesContext facesContext, UIComponent uiComponent, String moduleName) {
+	protected void handleBuffer(FacesContext facesContext, UIComponent uiComponent) {
 
 		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
@@ -99,7 +101,7 @@ public abstract class AUIRenderer extends Renderer {
 				portletId = portlet.getPortletId();
 			}
 
-			ScriptDataUtil.append(scriptData, portletId, bufferedResponseWriter.toString(), moduleName);
+			ScriptDataUtil.append(scriptData, portletId, bufferedResponseWriter.toString(), getModule());
 		}
 	}
 }
