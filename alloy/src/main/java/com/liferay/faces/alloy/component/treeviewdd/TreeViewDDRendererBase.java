@@ -20,6 +20,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import com.liferay.faces.alloy.component.base.AUIRenderer;
+import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
 /**
@@ -28,6 +29,9 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Nathan Cavanaugh
  */
 public abstract class TreeViewDDRendererBase extends AUIRenderer {
+
+	// Private Constants
+	private static final String  AUI_TREE_VIEW = "aui-tree-view";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
@@ -42,192 +46,170 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 
 	protected void encodeJavaScript(FacesContext facesContext, TreeViewDD treeViewDD) throws IOException {
 
-		ResponseWriter responseWriter = facesContext.getResponseWriter();
+		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
+		
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		responseWriter.startElement("script", treeViewDD);
-		responseWriter.writeAttribute("type", "text/javascript", null);
+		beginJavaScript(facesContext, treeViewDD, AUI_TREE_VIEW);
 
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.SPACE);
-		responseWriter.write(StringPool.CDATA_OPEN);
-		responseWriter.write(StringPool.NEW_LINE);
-
-		responseWriter.write("YUI().use");
-		responseWriter.write(StringPool.OPEN_PARENTHESIS);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write("'aui-treeviewdd',");
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write("function(Y) ");
-		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write("var treeViewDD = new Y.TreeViewDD");
-		responseWriter.write(StringPool.OPEN_PARENTHESIS);
-		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		responseWriter.write(StringPool.NEW_LINE);
+		bufferedResponseWriter.write("var treeViewDD = new Y.TreeViewDD");
+		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
+		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
 		if(treeViewDD.getTreeviewddChildren() != null)
 		{
 
-			responseWriter.write("treeviewddChildren: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getTreeviewddChildren().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("treeviewddChildren: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getTreeviewddChildren().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getContainer() != null)
 		{
 
-			responseWriter.write("container: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getContainer().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("container: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getContainer().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getDropAction() != null)
 		{
 
-			responseWriter.write("dropAction: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getDropAction().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("dropAction: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getDropAction().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getHelper() != null)
 		{
 
-			responseWriter.write("helper: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getHelper().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("helper: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getHelper().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getIndex() != null)
 		{
 
-			responseWriter.write("index: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getIndex().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("index: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getIndex().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getLastSelected() != null)
 		{
 
-			responseWriter.write("lastSelected: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getLastSelected().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("lastSelected: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getLastSelected().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getLastY() != null)
 		{
 
-			responseWriter.write("lastY: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getLastY().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("lastY: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getLastY().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getLazyLoad() != null)
 		{
 
-			responseWriter.write("lazyLoad: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getLazyLoad().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("lazyLoad: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getLazyLoad().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getNode() != null)
 		{
 
-			responseWriter.write("node: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getNode().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("node: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getNode().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getNodeContent() != null)
 		{
 
-			responseWriter.write("nodeContent: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getNodeContent().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("nodeContent: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getNodeContent().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getScrollDelay() != null)
 		{
 
-			responseWriter.write("scrollDelay: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getScrollDelay().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("scrollDelay: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getScrollDelay().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getSelectOnToggle() != null)
 		{
 
-			responseWriter.write("selectOnToggle: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getSelectOnToggle().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("selectOnToggle: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getSelectOnToggle().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(treeViewDD.getType() != null)
 		{
 
-			responseWriter.write("type: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(treeViewDD.getType().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("type: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(treeViewDD.getType().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		responseWriter.write(StringPool.SEMICOLON);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		responseWriter.write(StringPool.SEMICOLON);
-
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.SPACE);
-		responseWriter.write(StringPool.CDATA_CLOSE);
-		responseWriter.write(StringPool.NEW_LINE);
-
-		responseWriter.endElement("script");
-		responseWriter.write(StringPool.NEW_LINE);
+		bufferedResponseWriter.write(StringPool.NEW_LINE);
+		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		
+		endJavaScript(facesContext);
+		
+		handleBuffer(facesContext, treeViewDD, AUI_TREE_VIEW);
+		
+		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 }

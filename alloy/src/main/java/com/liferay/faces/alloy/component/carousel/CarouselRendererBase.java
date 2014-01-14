@@ -20,6 +20,7 @@ import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
 import com.liferay.faces.alloy.component.base.AUIRenderer;
+import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
 import com.liferay.faces.util.lang.StringPool;
 
 /**
@@ -28,6 +29,9 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Nathan Cavanaugh
  */
 public abstract class CarouselRendererBase extends AUIRenderer {
+
+	// Private Constants
+	private static final String  AUI_CAROUSEL = "aui-carousel";
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
@@ -42,159 +46,137 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 
 	protected void encodeJavaScript(FacesContext facesContext, Carousel carousel) throws IOException {
 
-		ResponseWriter responseWriter = facesContext.getResponseWriter();
+		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
+		
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
-		responseWriter.startElement("script", carousel);
-		responseWriter.writeAttribute("type", "text/javascript", null);
+		beginJavaScript(facesContext, carousel, AUI_CAROUSEL);
 
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.SPACE);
-		responseWriter.write(StringPool.CDATA_OPEN);
-		responseWriter.write(StringPool.NEW_LINE);
-
-		responseWriter.write("YUI().use");
-		responseWriter.write(StringPool.OPEN_PARENTHESIS);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write("'aui-carousel',");
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write("function(Y) ");
-		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write("var carousel = new Y.Carousel");
-		responseWriter.write(StringPool.OPEN_PARENTHESIS);
-		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
-		responseWriter.write(StringPool.NEW_LINE);
+		bufferedResponseWriter.write("var carousel = new Y.Carousel");
+		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
+		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		bufferedResponseWriter.write(StringPool.NEW_LINE);
 
 		if(carousel.getActiveIndex() != null)
 		{
 
-			responseWriter.write("activeIndex: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getActiveIndex().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("activeIndex: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getActiveIndex().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getAnimationTime() != null)
 		{
 
-			responseWriter.write("animationTime: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getAnimationTime().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("animationTime: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getAnimationTime().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getHideClass() != null)
 		{
 
-			responseWriter.write("hideClass: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getHideClass().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("hideClass: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getHideClass().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getIntervalTime() != null)
 		{
 
-			responseWriter.write("intervalTime: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getIntervalTime().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("intervalTime: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getIntervalTime().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getItemSelector() != null)
 		{
 
-			responseWriter.write("itemSelector: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getItemSelector().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("itemSelector: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getItemSelector().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getNodeMenu() != null)
 		{
 
-			responseWriter.write("nodeMenu: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getNodeMenu().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("nodeMenu: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getNodeMenu().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getNodeMenuItemSelector() != null)
 		{
 
-			responseWriter.write("nodeMenuItemSelector: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getNodeMenuItemSelector().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("nodeMenuItemSelector: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getNodeMenuItemSelector().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getPlaying() != null)
 		{
 
-			responseWriter.write("playing: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getPlaying().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("playing: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getPlaying().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getRender() != null)
 		{
 
-			responseWriter.write("render: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getRender().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("render: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getRender().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
 		if(carousel.getUseARIA() != null)
 		{
 
-			responseWriter.write("useARIA: ");
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(carousel.getUseARIA().toString());
-			responseWriter.write(StringPool.APOSTROPHE);
-			responseWriter.write(StringPool.COMMA);
-			responseWriter.write(StringPool.NEW_LINE);
+			bufferedResponseWriter.write("useARIA: ");
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(carousel.getUseARIA().toString());
+			bufferedResponseWriter.write(StringPool.APOSTROPHE);
+			bufferedResponseWriter.write(StringPool.COMMA);
+			bufferedResponseWriter.write(StringPool.NEW_LINE);
 		}
 
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		responseWriter.write(StringPool.SEMICOLON);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		responseWriter.write(StringPool.SEMICOLON);
-
-		responseWriter.write(StringPool.NEW_LINE);
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.FORWARD_SLASH);
-		responseWriter.write(StringPool.SPACE);
-		responseWriter.write(StringPool.CDATA_CLOSE);
-		responseWriter.write(StringPool.NEW_LINE);
-
-		responseWriter.endElement("script");
-		responseWriter.write(StringPool.NEW_LINE);
+		bufferedResponseWriter.write(StringPool.NEW_LINE);
+		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		
+		endJavaScript(facesContext);
+		
+		handleBuffer(facesContext, carousel, AUI_CAROUSEL);
+		
+		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 }
