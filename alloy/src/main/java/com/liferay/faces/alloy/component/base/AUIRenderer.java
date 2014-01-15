@@ -6,7 +6,6 @@ import java.util.Map;
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import javax.faces.context.ResponseWriter;
 import javax.faces.render.Renderer;
 
 import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
@@ -105,47 +104,68 @@ public abstract class AUIRenderer extends Renderer {
 		}
 	}
 
-	protected void renderArray(
-		ResponseWriter responseWriter, String attributeName,
-		Object attributeValue) throws IOException {
+	protected String renderArray(String attributeName, Object attributeValue)
+		throws IOException {
 
-		// TODO
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(String.valueOf(attributeValue));
+		
+		return sb.toString();
 	}
 
-	protected void renderBoolean(
-		ResponseWriter responseWriter, String attributeName,
-		Object attributeValue) throws IOException {
+	protected String renderBoolean(String attributeName, Object attributeValue)
+		throws IOException {
 
-		responseWriter.write(attributeName);
-		responseWriter.write(StringPool.COLON);
-		responseWriter.write(String.valueOf(attributeValue));
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(String.valueOf(attributeValue));
+		
+		return sb.toString();
 	}
 
-	protected void renderNumber(
-		ResponseWriter responseWriter, String attributeName,
-		Object attributeValue) throws IOException {
+	protected String renderNumber(String attributeName, Object attributeValue)
+		throws IOException {
 
-		responseWriter.write(attributeName);
-		responseWriter.write(StringPool.COLON);
-		responseWriter.write(String.valueOf(attributeValue));
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(String.valueOf(attributeValue));
+		
+		return sb.toString();
 	}
 
-	protected void renderObject(
-		ResponseWriter responseWriter, String attributeName,
-		Object attributeValue) throws IOException {
+	protected String renderObject(String attributeName, Object attributeValue)
+		throws IOException {
 
-		// TODO
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(StringPool.QUOTE);
+		sb.append(String.valueOf(attributeValue));
+		sb.append(StringPool.QUOTE);
+		
+		return sb.toString();
 	}
 
-	protected void renderString(
-		ResponseWriter responseWriter, String attributeName,
-		Object attributeValue) throws IOException {
+	protected String renderString(String attributeName, Object attributeValue)
+		throws IOException {
+		
+		StringBuilder sb = new StringBuilder();
 
-		responseWriter.write(attributeName);
-		responseWriter.write(StringPool.COLON);
-		responseWriter.write(StringPool.QUOTE);
-		responseWriter.write(String.valueOf(attributeValue));
-		responseWriter.write(StringPool.QUOTE);
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(StringPool.QUOTE);
+		sb.append(String.valueOf(attributeValue));
+		sb.append(StringPool.QUOTE);
+		
+		return sb.toString();
 	}
 
 }
