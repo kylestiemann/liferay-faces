@@ -36,26 +36,11 @@ public abstract class TooltipDelegateRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tooltip";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TooltipDelegate tooltipDelegate = (TooltipDelegate) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TooltipDelegate tooltipDelegate = (TooltipDelegate) uiComponent;
-		encodeHTML(facesContext, tooltipDelegate);
-		encodeJavaScript(facesContext, tooltipDelegate);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TooltipDelegate tooltipDelegate) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TooltipDelegate tooltipDelegate) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, tooltipDelegate);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var tooltipDelegate = new A.TooltipDelegate");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -87,12 +72,6 @@ public abstract class TooltipDelegateRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, tooltipDelegate);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

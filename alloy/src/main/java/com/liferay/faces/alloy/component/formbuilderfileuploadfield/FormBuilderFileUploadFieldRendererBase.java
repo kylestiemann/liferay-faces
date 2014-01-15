@@ -36,26 +36,11 @@ public abstract class FormBuilderFileUploadFieldRendererBase extends AUIRenderer
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-upload";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilderFileUploadField formBuilderFileUploadField = (FormBuilderFileUploadField) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilderFileUploadField formBuilderFileUploadField = (FormBuilderFileUploadField) uiComponent;
-		encodeHTML(facesContext, formBuilderFileUploadField);
-		encodeJavaScript(facesContext, formBuilderFileUploadField);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilderFileUploadField);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilderFileUploadField = new A.FormBuilderFileUploadField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -107,12 +92,6 @@ public abstract class FormBuilderFileUploadFieldRendererBase extends AUIRenderer
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilderFileUploadField);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

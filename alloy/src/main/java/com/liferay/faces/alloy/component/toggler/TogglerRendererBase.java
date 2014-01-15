@@ -36,26 +36,11 @@ public abstract class TogglerRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-toggler";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Toggler toggler = (Toggler) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Toggler toggler = (Toggler) uiComponent;
-		encodeHTML(facesContext, toggler);
-		encodeJavaScript(facesContext, toggler);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Toggler toggler) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Toggler toggler) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, toggler);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var toggler = new A.Toggler");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -87,12 +72,6 @@ public abstract class TogglerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, toggler);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

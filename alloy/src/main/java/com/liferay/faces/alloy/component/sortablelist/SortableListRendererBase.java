@@ -36,26 +36,11 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-sortable-list";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SortableList sortableList = (SortableList) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SortableList sortableList = (SortableList) uiComponent;
-		encodeHTML(facesContext, sortableList);
-		encodeJavaScript(facesContext, sortableList);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SortableList sortableList) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SortableList sortableList) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, sortableList);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var sortableList = new A.SortableList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -89,12 +74,6 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, sortableList);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class SchedulerDayViewRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-view-day";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerDayView schedulerDayView = (SchedulerDayView) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerDayView schedulerDayView = (SchedulerDayView) uiComponent;
-		encodeHTML(facesContext, schedulerDayView);
-		encodeJavaScript(facesContext, schedulerDayView);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerDayView schedulerDayView) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerDayView schedulerDayView) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerDayView);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerDayView = new A.SchedulerDayView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -122,12 +107,6 @@ public abstract class SchedulerDayViewRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerDayView);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

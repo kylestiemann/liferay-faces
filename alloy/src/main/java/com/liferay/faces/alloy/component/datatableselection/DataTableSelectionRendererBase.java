@@ -36,26 +36,11 @@ public abstract class DataTableSelectionRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-selection";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DataTableSelection dataTableSelection = (DataTableSelection) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DataTableSelection dataTableSelection = (DataTableSelection) uiComponent;
-		encodeHTML(facesContext, dataTableSelection);
-		encodeJavaScript(facesContext, dataTableSelection);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DataTableSelection dataTableSelection) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DataTableSelection dataTableSelection) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, dataTableSelection);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var dataTableSelection = new A.DataTableSelection");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -83,12 +68,6 @@ public abstract class DataTableSelectionRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, dataTableSelection);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

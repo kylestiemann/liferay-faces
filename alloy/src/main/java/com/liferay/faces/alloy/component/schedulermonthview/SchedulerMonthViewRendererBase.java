@@ -36,26 +36,11 @@ public abstract class SchedulerMonthViewRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-view-month";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerMonthView schedulerMonthView = (SchedulerMonthView) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerMonthView schedulerMonthView = (SchedulerMonthView) uiComponent;
-		encodeHTML(facesContext, schedulerMonthView);
-		encodeJavaScript(facesContext, schedulerMonthView);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerMonthView schedulerMonthView) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerMonthView schedulerMonthView) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerMonthView);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerMonthView = new A.SchedulerMonthView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -115,12 +100,6 @@ public abstract class SchedulerMonthViewRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerMonthView);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

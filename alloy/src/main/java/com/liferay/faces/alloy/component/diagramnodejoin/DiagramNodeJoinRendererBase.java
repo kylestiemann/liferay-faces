@@ -36,26 +36,11 @@ public abstract class DiagramNodeJoinRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DiagramNodeJoin diagramNodeJoin = (DiagramNodeJoin) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DiagramNodeJoin diagramNodeJoin = (DiagramNodeJoin) uiComponent;
-		encodeHTML(facesContext, diagramNodeJoin);
-		encodeJavaScript(facesContext, diagramNodeJoin);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DiagramNodeJoin diagramNodeJoin) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeJoin diagramNodeJoin) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, diagramNodeJoin);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var diagramNodeJoin = new A.DiagramNodeJoin");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -122,12 +107,6 @@ public abstract class DiagramNodeJoinRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, diagramNodeJoin);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

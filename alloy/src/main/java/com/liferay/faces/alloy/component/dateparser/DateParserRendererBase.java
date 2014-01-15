@@ -36,26 +36,11 @@ public abstract class DateParserRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatype-date-parse";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DateParser dateParser = (DateParser) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DateParser dateParser = (DateParser) uiComponent;
-		encodeHTML(facesContext, dateParser);
-		encodeJavaScript(facesContext, dateParser);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DateParser dateParser) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DateParser dateParser) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, dateParser);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var dateParser = new A.DateParser");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -78,12 +63,6 @@ public abstract class DateParserRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, dateParser);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

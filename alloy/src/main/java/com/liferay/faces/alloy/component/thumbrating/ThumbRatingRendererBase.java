@@ -36,26 +36,11 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-rating";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ThumbRating thumbRating = (ThumbRating) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ThumbRating thumbRating = (ThumbRating) uiComponent;
-		encodeHTML(facesContext, thumbRating);
-		encodeJavaScript(facesContext, thumbRating);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ThumbRating thumbRating) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ThumbRating thumbRating) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, thumbRating);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var thumbRating = new A.ThumbRating");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -110,12 +95,6 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, thumbRating);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class SchedulerAgendaViewRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-view-agenda";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerAgendaView schedulerAgendaView = (SchedulerAgendaView) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerAgendaView schedulerAgendaView = (SchedulerAgendaView) uiComponent;
-		encodeHTML(facesContext, schedulerAgendaView);
-		encodeJavaScript(facesContext, schedulerAgendaView);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerAgendaView schedulerAgendaView) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerAgendaView schedulerAgendaView) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerAgendaView);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerAgendaView = new A.SchedulerAgendaView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -113,12 +98,6 @@ public abstract class SchedulerAgendaViewRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerAgendaView);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class TabRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tabview";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Tab tab = (Tab) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Tab tab = (Tab) uiComponent;
-		encodeHTML(facesContext, tab);
-		encodeJavaScript(facesContext, tab);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Tab tab) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Tab tab) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, tab);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var tab = new A.Tab");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -83,12 +68,6 @@ public abstract class TabRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, tab);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

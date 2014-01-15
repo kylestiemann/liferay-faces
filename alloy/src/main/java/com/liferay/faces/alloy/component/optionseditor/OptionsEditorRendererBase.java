@@ -36,26 +36,11 @@ public abstract class OptionsEditorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-multiple-choice";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		OptionsEditor optionsEditor = (OptionsEditor) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		OptionsEditor optionsEditor = (OptionsEditor) uiComponent;
-		encodeHTML(facesContext, optionsEditor);
-		encodeJavaScript(facesContext, optionsEditor);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, OptionsEditor optionsEditor) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, OptionsEditor optionsEditor) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, optionsEditor);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var optionsEditor = new A.OptionsEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class OptionsEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, optionsEditor);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

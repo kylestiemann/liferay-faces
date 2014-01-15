@@ -36,26 +36,11 @@ public abstract class TextAreaCellEditorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TextAreaCellEditor textAreaCellEditor = (TextAreaCellEditor) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TextAreaCellEditor textAreaCellEditor = (TextAreaCellEditor) uiComponent;
-		encodeHTML(facesContext, textAreaCellEditor);
-		encodeJavaScript(facesContext, textAreaCellEditor);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TextAreaCellEditor textAreaCellEditor) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TextAreaCellEditor textAreaCellEditor) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, textAreaCellEditor);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var textAreaCellEditor = new A.TextAreaCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -78,12 +63,6 @@ public abstract class TextAreaCellEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, textAreaCellEditor);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

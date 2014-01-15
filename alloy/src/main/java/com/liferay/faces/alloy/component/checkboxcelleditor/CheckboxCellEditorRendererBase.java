@@ -36,26 +36,11 @@ public abstract class CheckboxCellEditorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		CheckboxCellEditor checkboxCellEditor = (CheckboxCellEditor) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		CheckboxCellEditor checkboxCellEditor = (CheckboxCellEditor) uiComponent;
-		encodeHTML(facesContext, checkboxCellEditor);
-		encodeJavaScript(facesContext, checkboxCellEditor);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, CheckboxCellEditor checkboxCellEditor) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, CheckboxCellEditor checkboxCellEditor) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, checkboxCellEditor);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var checkboxCellEditor = new A.CheckboxCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class CheckboxCellEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, checkboxCellEditor);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

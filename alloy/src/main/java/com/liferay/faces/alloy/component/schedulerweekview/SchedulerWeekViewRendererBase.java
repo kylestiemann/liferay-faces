@@ -36,26 +36,11 @@ public abstract class SchedulerWeekViewRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-view-week";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerWeekView schedulerWeekView = (SchedulerWeekView) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerWeekView schedulerWeekView = (SchedulerWeekView) uiComponent;
-		encodeHTML(facesContext, schedulerWeekView);
-		encodeJavaScript(facesContext, schedulerWeekView);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerWeekView schedulerWeekView) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerWeekView schedulerWeekView) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerWeekView);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerWeekView = new A.SchedulerWeekView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -122,12 +107,6 @@ public abstract class SchedulerWeekViewRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerWeekView);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

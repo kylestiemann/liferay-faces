@@ -36,26 +36,11 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-popover";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Popover popover = (Popover) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Popover popover = (Popover) uiComponent;
-		encodeHTML(facesContext, popover);
-		encodeJavaScript(facesContext, popover);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Popover popover) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Popover popover) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, popover);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var popover = new A.Popover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -100,6 +85,8 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 		renderXy(renrederedAttributes, popover);
 		renderY(renrederedAttributes, popover);
 		renderZIndex(renrederedAttributes, popover);
+		renderAlignNode(renrederedAttributes, popover);
+		renderAlignNodeLabel(renrederedAttributes, popover);
 
 		Iterator<String> it = renrederedAttributes.iterator();
 
@@ -115,12 +102,6 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, popover);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {
@@ -346,6 +327,18 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 	protected void renderZIndex(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
 		if (popover.getZIndex() != null) {
 			renrederedAttributes.add(renderNumber("zIndex", popover.getZIndex()));
+		}
+	}
+
+	protected void renderAlignNode(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getAlignNode() != null) {
+			renrederedAttributes.add(renderString("alignNode", popover.getAlignNode()));
+		}
+	}
+
+	protected void renderAlignNodeLabel(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getAlignNodeLabel() != null) {
+			renrederedAttributes.add(renderString("alignNodeLabel", popover.getAlignNodeLabel()));
 		}
 	}
 

@@ -31778,7 +31778,7 @@ Like the `id` attribute, `clientId` may be used to retrieve model
 instances from lists. Unlike the `id` attribute, `clientId` is
 automatically generated, and is only intended to be used on the client
 during the current pageview.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulereventClientId</name>
+			<name>clientId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -32148,7 +32148,7 @@ Like the `id` attribute, `clientId` may be used to retrieve model
 instances from lists. Unlike the `id` attribute, `clientId` is
 automatically generated, and is only intended to be used on the client
 during the current pageview.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulereventrecorderClientId</name>
+			<name>clientId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>

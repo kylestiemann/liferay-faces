@@ -36,26 +36,11 @@ public abstract class ConnectorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-connector";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Connector connector = (Connector) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Connector connector = (Connector) uiComponent;
-		encodeHTML(facesContext, connector);
-		encodeJavaScript(facesContext, connector);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Connector connector) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Connector connector) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, connector);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var connector = new A.Connector");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -100,12 +85,6 @@ public abstract class ConnectorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, connector);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class ImageCropperRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-image-cropper";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ImageCropper imageCropper = (ImageCropper) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ImageCropper imageCropper = (ImageCropper) uiComponent;
-		encodeHTML(facesContext, imageCropper);
-		encodeJavaScript(facesContext, imageCropper);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ImageCropper imageCropper) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ImageCropper imageCropper) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, imageCropper);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var imageCropper = new A.ImageCropper");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -107,12 +92,6 @@ public abstract class ImageCropperRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, imageCropper);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

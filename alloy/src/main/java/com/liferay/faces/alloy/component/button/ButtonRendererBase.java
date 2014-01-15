@@ -36,26 +36,11 @@ public abstract class ButtonRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-button";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Button button = (Button) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Button button = (Button) uiComponent;
-		encodeHTML(facesContext, button);
-		encodeJavaScript(facesContext, button);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Button button) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Button button) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, button);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var button = new A.Button");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -100,12 +85,6 @@ public abstract class ButtonRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, button);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

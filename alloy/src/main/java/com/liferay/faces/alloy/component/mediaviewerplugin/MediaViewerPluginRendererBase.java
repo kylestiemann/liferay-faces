@@ -36,26 +36,11 @@ public abstract class MediaViewerPluginRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-media-viewer-plugin";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		MediaViewerPlugin mediaViewerPlugin = (MediaViewerPlugin) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		MediaViewerPlugin mediaViewerPlugin = (MediaViewerPlugin) uiComponent;
-		encodeHTML(facesContext, mediaViewerPlugin);
-		encodeJavaScript(facesContext, mediaViewerPlugin);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, MediaViewerPlugin mediaViewerPlugin) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, MediaViewerPlugin mediaViewerPlugin) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, mediaViewerPlugin);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var mediaViewerPlugin = new A.MediaViewerPlugin");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -82,12 +67,6 @@ public abstract class MediaViewerPluginRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, mediaViewerPlugin);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

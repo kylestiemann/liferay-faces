@@ -36,26 +36,11 @@ public abstract class TreeViewPaginatorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-paginator";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TreeViewPaginator treeViewPaginator = (TreeViewPaginator) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TreeViewPaginator treeViewPaginator = (TreeViewPaginator) uiComponent;
-		encodeHTML(facesContext, treeViewPaginator);
-		encodeJavaScript(facesContext, treeViewPaginator);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TreeViewPaginator treeViewPaginator) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TreeViewPaginator treeViewPaginator) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, treeViewPaginator);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var treeViewPaginator = new A.TreeViewPaginator");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class TreeViewPaginatorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, treeViewPaginator);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

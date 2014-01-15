@@ -36,26 +36,11 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-editor";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		AceEditor aceEditor = (AceEditor) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		AceEditor aceEditor = (AceEditor) uiComponent;
-		encodeHTML(facesContext, aceEditor);
-		encodeJavaScript(facesContext, aceEditor);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, AceEditor aceEditor) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, AceEditor aceEditor) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, aceEditor);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var aceEditor = new A.AceEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -102,12 +87,6 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, aceEditor);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

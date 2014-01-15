@@ -36,26 +36,11 @@ public abstract class NodeRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-node-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Node node = (Node) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Node node = (Node) uiComponent;
-		encodeHTML(facesContext, node);
-		encodeJavaScript(facesContext, node);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Node node) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Node node) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, node);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var node = new A.Node");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -78,12 +63,6 @@ public abstract class NodeRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, node);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

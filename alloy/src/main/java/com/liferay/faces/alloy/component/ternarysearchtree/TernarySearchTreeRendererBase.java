@@ -36,26 +36,11 @@ public abstract class TernarySearchTreeRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-search-ternary-search-tree";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TernarySearchTree ternarySearchTree = (TernarySearchTree) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TernarySearchTree ternarySearchTree = (TernarySearchTree) uiComponent;
-		encodeHTML(facesContext, ternarySearchTree);
-		encodeJavaScript(facesContext, ternarySearchTree);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TernarySearchTree ternarySearchTree) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TernarySearchTree ternarySearchTree) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, ternarySearchTree);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var ternarySearchTree = new A.TernarySearchTree");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -80,12 +65,6 @@ public abstract class TernarySearchTreeRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, ternarySearchTree);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

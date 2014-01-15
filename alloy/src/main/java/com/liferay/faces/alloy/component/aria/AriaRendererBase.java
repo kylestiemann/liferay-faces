@@ -36,26 +36,11 @@ public abstract class AriaRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-aria";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Aria aria = (Aria) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Aria aria = (Aria) uiComponent;
-		encodeHTML(facesContext, aria);
-		encodeJavaScript(facesContext, aria);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Aria aria) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Aria aria) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, aria);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var aria = new A.Aria");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -87,12 +72,6 @@ public abstract class AriaRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, aria);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

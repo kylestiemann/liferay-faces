@@ -36,26 +36,11 @@ public abstract class AutoCompleteListRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-list";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		AutoCompleteList autoCompleteList = (AutoCompleteList) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		AutoCompleteList autoCompleteList = (AutoCompleteList) uiComponent;
-		encodeHTML(facesContext, autoCompleteList);
-		encodeJavaScript(facesContext, autoCompleteList);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, AutoCompleteList autoCompleteList) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, AutoCompleteList autoCompleteList) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, autoCompleteList);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var autoCompleteList = new A.AutoCompleteList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -121,12 +106,6 @@ public abstract class AutoCompleteListRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, autoCompleteList);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class ColorPickerPopoverRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-color-picker-popover";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ColorPickerPopover colorPickerPopover = (ColorPickerPopover) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ColorPickerPopover colorPickerPopover = (ColorPickerPopover) uiComponent;
-		encodeHTML(facesContext, colorPickerPopover);
-		encodeJavaScript(facesContext, colorPickerPopover);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ColorPickerPopover colorPickerPopover) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ColorPickerPopover colorPickerPopover) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, colorPickerPopover);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var colorPickerPopover = new A.ColorPickerPopover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -126,12 +111,6 @@ public abstract class ColorPickerPopoverRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, colorPickerPopover);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

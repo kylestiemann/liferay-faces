@@ -36,26 +36,11 @@ public abstract class ImageViewerRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-image-viewer-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ImageViewer imageViewer = (ImageViewer) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ImageViewer imageViewer = (ImageViewer) uiComponent;
-		encodeHTML(facesContext, imageViewer);
-		encodeJavaScript(facesContext, imageViewer);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ImageViewer imageViewer) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ImageViewer imageViewer) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, imageViewer);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var imageViewer = new A.ImageViewer");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -133,12 +118,6 @@ public abstract class ImageViewerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, imageViewer);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {
