@@ -36,26 +36,11 @@ public abstract class ToolbarRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-toolbar";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Toolbar toolbar = (Toolbar) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Toolbar toolbar = (Toolbar) uiComponent;
-		encodeHTML(facesContext, toolbar);
-		encodeJavaScript(facesContext, toolbar);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Toolbar toolbar) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Toolbar toolbar) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, toolbar);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var toolbar = new A.Toolbar");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -99,12 +84,6 @@ public abstract class ToolbarRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, toolbar);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

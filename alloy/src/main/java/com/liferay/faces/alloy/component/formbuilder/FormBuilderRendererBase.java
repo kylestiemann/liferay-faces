@@ -36,26 +36,11 @@ public abstract class FormBuilderRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilder formBuilder = (FormBuilder) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilder formBuilder = (FormBuilder) uiComponent;
-		encodeHTML(facesContext, formBuilder);
-		encodeJavaScript(facesContext, formBuilder);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilder formBuilder) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilder formBuilder) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilder);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilder = new A.FormBuilder");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -113,12 +98,6 @@ public abstract class FormBuilderRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilder);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

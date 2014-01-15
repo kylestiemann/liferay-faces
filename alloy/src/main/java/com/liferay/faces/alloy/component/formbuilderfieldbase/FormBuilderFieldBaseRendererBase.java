@@ -36,26 +36,11 @@ public abstract class FormBuilderFieldBaseRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilderFieldBase formBuilderFieldBase = (FormBuilderFieldBase) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilderFieldBase formBuilderFieldBase = (FormBuilderFieldBase) uiComponent;
-		encodeHTML(facesContext, formBuilderFieldBase);
-		encodeJavaScript(facesContext, formBuilderFieldBase);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilderFieldBase formBuilderFieldBase) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilderFieldBase formBuilderFieldBase) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilderFieldBase);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilderFieldBase = new A.FormBuilderFieldBase");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -78,12 +63,6 @@ public abstract class FormBuilderFieldBaseRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilderFieldBase);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

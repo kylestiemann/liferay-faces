@@ -36,26 +36,11 @@ public abstract class DiagramBuilderRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DiagramBuilder diagramBuilder = (DiagramBuilder) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DiagramBuilder diagramBuilder = (DiagramBuilder) uiComponent;
-		encodeHTML(facesContext, diagramBuilder);
-		encodeJavaScript(facesContext, diagramBuilder);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DiagramBuilder diagramBuilder) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DiagramBuilder diagramBuilder) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, diagramBuilder);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var diagramBuilder = new A.DiagramBuilder");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -116,12 +101,6 @@ public abstract class DiagramBuilderRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, diagramBuilder);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

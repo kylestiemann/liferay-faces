@@ -36,26 +36,11 @@ public abstract class ImageGalleryRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-image-viewer-gallery";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ImageGallery imageGallery = (ImageGallery) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ImageGallery imageGallery = (ImageGallery) uiComponent;
-		encodeHTML(facesContext, imageGallery);
-		encodeJavaScript(facesContext, imageGallery);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ImageGallery imageGallery) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ImageGallery imageGallery) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, imageGallery);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var imageGallery = new A.ImageGallery");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -146,12 +131,6 @@ public abstract class ImageGalleryRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, imageGallery);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

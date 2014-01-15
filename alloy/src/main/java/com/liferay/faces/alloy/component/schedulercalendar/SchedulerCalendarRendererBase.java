@@ -36,26 +36,11 @@ public abstract class SchedulerCalendarRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-base-calendar";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerCalendar schedulerCalendar = (SchedulerCalendar) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerCalendar schedulerCalendar = (SchedulerCalendar) uiComponent;
-		encodeHTML(facesContext, schedulerCalendar);
-		encodeJavaScript(facesContext, schedulerCalendar);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerCalendar schedulerCalendar) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerCalendar schedulerCalendar) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerCalendar);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerCalendar = new A.SchedulerCalendar");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -86,12 +71,6 @@ public abstract class SchedulerCalendarRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerCalendar);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class PaletteRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-palette";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Palette palette = (Palette) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Palette palette = (Palette) uiComponent;
-		encodeHTML(facesContext, palette);
-		encodeJavaScript(facesContext, palette);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Palette palette) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Palette palette) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, palette);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var palette = new A.Palette");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -100,12 +85,6 @@ public abstract class PaletteRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, palette);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

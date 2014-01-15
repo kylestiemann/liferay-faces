@@ -36,26 +36,11 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-view";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TreeViewDD treeViewDD = (TreeViewDD) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TreeViewDD treeViewDD = (TreeViewDD) uiComponent;
-		encodeHTML(facesContext, treeViewDD);
-		encodeJavaScript(facesContext, treeViewDD);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TreeViewDD treeViewDD) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TreeViewDD treeViewDD) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, treeViewDD);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var treeViewDD = new A.TreeViewDD");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -93,12 +78,6 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, treeViewDD);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-data";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TreeData treeData = (TreeData) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TreeData treeData = (TreeData) uiComponent;
-		encodeHTML(facesContext, treeData);
-		encodeJavaScript(facesContext, treeData);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TreeData treeData) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TreeData treeData) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, treeData);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var treeData = new A.TreeData");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -83,12 +68,6 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, treeData);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

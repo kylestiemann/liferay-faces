@@ -36,26 +36,11 @@ public abstract class DiagramNodeConditionRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DiagramNodeCondition diagramNodeCondition = (DiagramNodeCondition) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DiagramNodeCondition diagramNodeCondition = (DiagramNodeCondition) uiComponent;
-		encodeHTML(facesContext, diagramNodeCondition);
-		encodeJavaScript(facesContext, diagramNodeCondition);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DiagramNodeCondition diagramNodeCondition) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeCondition diagramNodeCondition) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, diagramNodeCondition);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var diagramNodeCondition = new A.DiagramNodeCondition");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -122,12 +107,6 @@ public abstract class DiagramNodeConditionRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, diagramNodeCondition);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

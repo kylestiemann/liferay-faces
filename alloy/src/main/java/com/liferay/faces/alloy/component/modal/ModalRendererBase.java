@@ -36,26 +36,11 @@ public abstract class ModalRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-modal";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Modal modal = (Modal) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Modal modal = (Modal) uiComponent;
-		encodeHTML(facesContext, modal);
-		encodeJavaScript(facesContext, modal);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Modal modal) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Modal modal) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, modal);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var modal = new A.Modal");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -117,12 +102,6 @@ public abstract class ModalRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, modal);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

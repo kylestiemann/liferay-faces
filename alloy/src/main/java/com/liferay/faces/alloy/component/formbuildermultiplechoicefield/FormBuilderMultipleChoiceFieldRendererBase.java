@@ -36,26 +36,11 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends AUIRend
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-multiple-choice";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilderMultipleChoiceField formBuilderMultipleChoiceField = (FormBuilderMultipleChoiceField) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilderMultipleChoiceField formBuilderMultipleChoiceField = (FormBuilderMultipleChoiceField) uiComponent;
-		encodeHTML(facesContext, formBuilderMultipleChoiceField);
-		encodeJavaScript(facesContext, formBuilderMultipleChoiceField);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilderMultipleChoiceField);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilderMultipleChoiceField = new A.FormBuilderMultipleChoiceField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -109,12 +94,6 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends AUIRend
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilderMultipleChoiceField);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

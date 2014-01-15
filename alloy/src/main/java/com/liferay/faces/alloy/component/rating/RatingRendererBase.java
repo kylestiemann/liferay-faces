@@ -36,26 +36,11 @@ public abstract class RatingRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-rating";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Rating rating = (Rating) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Rating rating = (Rating) uiComponent;
-		encodeHTML(facesContext, rating);
-		encodeJavaScript(facesContext, rating);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Rating rating) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Rating rating) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, rating);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var rating = new A.Rating");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -110,12 +95,6 @@ public abstract class RatingRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, rating);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

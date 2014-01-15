@@ -36,26 +36,11 @@ public abstract class DiagramNodeManagerBaseRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DiagramNodeManagerBase diagramNodeManagerBase = (DiagramNodeManagerBase) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DiagramNodeManagerBase diagramNodeManagerBase = (DiagramNodeManagerBase) uiComponent;
-		encodeHTML(facesContext, diagramNodeManagerBase);
-		encodeJavaScript(facesContext, diagramNodeManagerBase);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, diagramNodeManagerBase);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var diagramNodeManagerBase = new A.DiagramNodeManagerBase");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -80,12 +65,6 @@ public abstract class DiagramNodeManagerBaseRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, diagramNodeManagerBase);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

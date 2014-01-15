@@ -36,26 +36,11 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-progressbar";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ProgressBar progressBar = (ProgressBar) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ProgressBar progressBar = (ProgressBar) uiComponent;
-		encodeHTML(facesContext, progressBar);
-		encodeJavaScript(facesContext, progressBar);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ProgressBar progressBar) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ProgressBar progressBar) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, progressBar);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var progressBar = new A.ProgressBar");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -105,12 +90,6 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, progressBar);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

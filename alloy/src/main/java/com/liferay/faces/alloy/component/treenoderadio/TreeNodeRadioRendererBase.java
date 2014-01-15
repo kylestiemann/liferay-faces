@@ -36,26 +36,11 @@ public abstract class TreeNodeRadioRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-node";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TreeNodeRadio treeNodeRadio = (TreeNodeRadio) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TreeNodeRadio treeNodeRadio = (TreeNodeRadio) uiComponent;
-		encodeHTML(facesContext, treeNodeRadio);
-		encodeJavaScript(facesContext, treeNodeRadio);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TreeNodeRadio treeNodeRadio) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TreeNodeRadio treeNodeRadio) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, treeNodeRadio);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var treeNodeRadio = new A.TreeNodeRadio");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -110,12 +95,6 @@ public abstract class TreeNodeRadioRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, treeNodeRadio);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

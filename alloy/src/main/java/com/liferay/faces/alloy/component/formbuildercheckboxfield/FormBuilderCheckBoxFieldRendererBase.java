@@ -36,26 +36,11 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-checkbox";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilderCheckBoxField formBuilderCheckBoxField = (FormBuilderCheckBoxField) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilderCheckBoxField formBuilderCheckBoxField = (FormBuilderCheckBoxField) uiComponent;
-		encodeHTML(facesContext, formBuilderCheckBoxField);
-		encodeJavaScript(facesContext, formBuilderCheckBoxField);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilderCheckBoxField);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilderCheckBoxField = new A.FormBuilderCheckBoxField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -107,12 +92,6 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilderCheckBoxField);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

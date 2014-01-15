@@ -36,26 +36,11 @@ public abstract class SchedulerEventRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-base-event";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerEvent schedulerEvent = (SchedulerEvent) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerEvent schedulerEvent = (SchedulerEvent) uiComponent;
-		encodeHTML(facesContext, schedulerEvent);
-		encodeJavaScript(facesContext, schedulerEvent);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerEvent schedulerEvent) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerEvent schedulerEvent) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerEvent);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerEvent = new A.SchedulerEvent");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -97,12 +82,6 @@ public abstract class SchedulerEventRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerEvent);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

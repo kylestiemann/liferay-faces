@@ -58,6 +58,8 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 	private static final String XY = "xy";
 	private static final String Y = "y";
 	private static final String Z_INDEX = "zIndex";
+	private static final String ALIGN_NODE = "alignNode";
+	private static final String ALIGN_NODE_LABEL = "alignNodeLabel";
 	private static final String AFTER_ALIGN_CHANGE = "afterAlignChange";
 	private static final String AFTER_ALIGN_ON_CHANGE = "afterAlignOnChange";
 	private static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
@@ -427,6 +429,22 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 
 	public void setZIndex(java.lang.Object zIndex) {
 		getStateHelper().put(Z_INDEX, zIndex);
+	}
+
+	public java.lang.String getAlignNode() {
+		return (java.lang.String) getStateHelper().eval(ALIGN_NODE, null);
+	}
+
+	public void setAlignNode(java.lang.String alignNode) {
+		getStateHelper().put(ALIGN_NODE, alignNode);
+	}
+
+	public java.lang.String getAlignNodeLabel() {
+		return (java.lang.String) getStateHelper().eval(ALIGN_NODE_LABEL, null);
+	}
+
+	public void setAlignNodeLabel(java.lang.String alignNodeLabel) {
+		getStateHelper().put(ALIGN_NODE_LABEL, alignNodeLabel);
 	}
 
 	public java.lang.String getAfterAlignChange() {

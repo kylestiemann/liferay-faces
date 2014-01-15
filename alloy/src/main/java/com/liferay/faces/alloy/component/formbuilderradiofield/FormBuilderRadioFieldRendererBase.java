@@ -36,26 +36,11 @@ public abstract class FormBuilderRadioFieldRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-radio";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilderRadioField formBuilderRadioField = (FormBuilderRadioField) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilderRadioField formBuilderRadioField = (FormBuilderRadioField) uiComponent;
-		encodeHTML(facesContext, formBuilderRadioField);
-		encodeJavaScript(facesContext, formBuilderRadioField);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilderRadioField formBuilderRadioField) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilderRadioField formBuilderRadioField) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilderRadioField);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilderRadioField = new A.FormBuilderRadioField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -109,12 +94,6 @@ public abstract class FormBuilderRadioFieldRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilderRadioField);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

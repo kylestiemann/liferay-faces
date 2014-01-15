@@ -36,26 +36,11 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FieldSupport fieldSupport = (FieldSupport) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FieldSupport fieldSupport = (FieldSupport) uiComponent;
-		encodeHTML(facesContext, fieldSupport);
-		encodeJavaScript(facesContext, fieldSupport);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FieldSupport fieldSupport) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FieldSupport fieldSupport) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, fieldSupport);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var fieldSupport = new A.FieldSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -80,12 +65,6 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, fieldSupport);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

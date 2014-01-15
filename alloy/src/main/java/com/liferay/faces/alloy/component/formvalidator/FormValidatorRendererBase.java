@@ -36,26 +36,11 @@ public abstract class FormValidatorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-validator";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormValidator formValidator = (FormValidator) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormValidator formValidator = (FormValidator) uiComponent;
-		encodeHTML(facesContext, formValidator);
-		encodeJavaScript(facesContext, formValidator);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormValidator formValidator) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormValidator formValidator) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formValidator);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formValidator = new A.FormValidator");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -98,12 +83,6 @@ public abstract class FormValidatorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formValidator);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

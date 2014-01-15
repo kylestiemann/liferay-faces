@@ -36,26 +36,11 @@ public abstract class HSVAPaletteModalRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-hsv-palette-modal";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		HSVAPaletteModal hSVAPaletteModal = (HSVAPaletteModal) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		HSVAPaletteModal hSVAPaletteModal = (HSVAPaletteModal) uiComponent;
-		encodeHTML(facesContext, hSVAPaletteModal);
-		encodeJavaScript(facesContext, hSVAPaletteModal);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, HSVAPaletteModal hSVAPaletteModal) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, HSVAPaletteModal hSVAPaletteModal) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, hSVAPaletteModal);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var hSVAPaletteModal = new A.HSVAPaletteModal");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -119,12 +104,6 @@ public abstract class HSVAPaletteModalRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, hSVAPaletteModal);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

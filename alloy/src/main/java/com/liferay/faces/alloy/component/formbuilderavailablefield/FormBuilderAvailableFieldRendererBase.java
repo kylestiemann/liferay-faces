@@ -36,26 +36,11 @@ public abstract class FormBuilderAvailableFieldRendererBase extends AUIRenderer 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		FormBuilderAvailableField formBuilderAvailableField = (FormBuilderAvailableField) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		FormBuilderAvailableField formBuilderAvailableField = (FormBuilderAvailableField) uiComponent;
-		encodeHTML(facesContext, formBuilderAvailableField);
-		encodeJavaScript(facesContext, formBuilderAvailableField);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, FormBuilderAvailableField formBuilderAvailableField) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, formBuilderAvailableField);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var formBuilderAvailableField = new A.FormBuilderAvailableField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -96,12 +81,6 @@ public abstract class FormBuilderAvailableFieldRendererBase extends AUIRenderer 
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, formBuilderAvailableField);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

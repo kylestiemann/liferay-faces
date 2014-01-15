@@ -36,26 +36,11 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-char-counter";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		CharCounter charCounter = (CharCounter) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		CharCounter charCounter = (CharCounter) uiComponent;
-		encodeHTML(facesContext, charCounter);
-		encodeJavaScript(facesContext, charCounter);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, CharCounter charCounter) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, CharCounter charCounter) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, charCounter);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var charCounter = new A.CharCounter");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -83,12 +68,6 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, charCounter);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

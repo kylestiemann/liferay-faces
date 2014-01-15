@@ -36,26 +36,11 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-velocity";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Velocity velocity = (Velocity) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Velocity velocity = (Velocity) uiComponent;
-		encodeHTML(facesContext, velocity);
-		encodeJavaScript(facesContext, velocity);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Velocity velocity) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Velocity velocity) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, velocity);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var velocity = new A.Velocity");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -83,12 +68,6 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, velocity);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

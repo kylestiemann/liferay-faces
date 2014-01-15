@@ -13,10 +13,11 @@
  */
 package com.liferay.faces.alloy.component.diagramnodemanagerbase;
 
+import java.io.IOException;
+
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.render.FacesRenderer;
-
-import java.io.IOException;
 
 
 /**
@@ -29,10 +30,8 @@ import java.io.IOException;
 )
 public class DiagramNodeManagerBaseRenderer extends DiagramNodeManagerBaseRendererBase {
 
-	@Override
-	protected void encodeHTML(FacesContext facesContext, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
-		// TODO Auto-generated method stub
-		
+	@Override 
+	protected void encodeHTMLBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 	}
 
 }

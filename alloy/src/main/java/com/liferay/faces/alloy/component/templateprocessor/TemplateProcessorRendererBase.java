@@ -36,26 +36,11 @@ public abstract class TemplateProcessorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-templateprocessor";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TemplateProcessor templateProcessor = (TemplateProcessor) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TemplateProcessor templateProcessor = (TemplateProcessor) uiComponent;
-		encodeHTML(facesContext, templateProcessor);
-		encodeJavaScript(facesContext, templateProcessor);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TemplateProcessor templateProcessor) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TemplateProcessor templateProcessor) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, templateProcessor);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var templateProcessor = new A.TemplateProcessor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -83,12 +68,6 @@ public abstract class TemplateProcessorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, templateProcessor);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

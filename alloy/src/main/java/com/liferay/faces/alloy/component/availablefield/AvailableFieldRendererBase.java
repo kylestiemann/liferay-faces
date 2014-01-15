@@ -36,26 +36,11 @@ public abstract class AvailableFieldRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-base";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		AvailableField availableField = (AvailableField) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		AvailableField availableField = (AvailableField) uiComponent;
-		encodeHTML(facesContext, availableField);
-		encodeJavaScript(facesContext, availableField);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, AvailableField availableField) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, AvailableField availableField) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, availableField);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var availableField = new A.AvailableField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -86,12 +71,6 @@ public abstract class AvailableFieldRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, availableField);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class PropertyListRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-property-list";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		PropertyList propertyList = (PropertyList) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		PropertyList propertyList = (PropertyList) uiComponent;
-		encodeHTML(facesContext, propertyList);
-		encodeJavaScript(facesContext, propertyList);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, PropertyList propertyList) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, PropertyList propertyList) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, propertyList);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var propertyList = new A.PropertyList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -115,12 +100,6 @@ public abstract class PropertyListRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, propertyList);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

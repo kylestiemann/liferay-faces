@@ -36,26 +36,11 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-carousel";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Carousel carousel = (Carousel) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Carousel carousel = (Carousel) uiComponent;
-		encodeHTML(facesContext, carousel);
-		encodeJavaScript(facesContext, carousel);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Carousel carousel) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Carousel carousel) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, carousel);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var carousel = new A.Carousel");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -88,12 +73,6 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, carousel);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

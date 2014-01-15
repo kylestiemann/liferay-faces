@@ -36,26 +36,11 @@ public abstract class ButtonGroupRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-button";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ButtonGroup buttonGroup = (ButtonGroup) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ButtonGroup buttonGroup = (ButtonGroup) uiComponent;
-		encodeHTML(facesContext, buttonGroup);
-		encodeJavaScript(facesContext, buttonGroup);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ButtonGroup buttonGroup) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ButtonGroup buttonGroup) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, buttonGroup);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var buttonGroup = new A.ButtonGroup");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class ButtonGroupRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, buttonGroup);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

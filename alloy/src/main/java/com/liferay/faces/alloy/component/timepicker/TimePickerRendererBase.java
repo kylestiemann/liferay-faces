@@ -36,26 +36,11 @@ public abstract class TimePickerRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-timepicker";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TimePicker timePicker = (TimePicker) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TimePicker timePicker = (TimePicker) uiComponent;
-		encodeHTML(facesContext, timePicker);
-		encodeJavaScript(facesContext, timePicker);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TimePicker timePicker) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TimePicker timePicker) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, timePicker);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var timePicker = new A.TimePicker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -92,12 +77,6 @@ public abstract class TimePickerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, timePicker);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

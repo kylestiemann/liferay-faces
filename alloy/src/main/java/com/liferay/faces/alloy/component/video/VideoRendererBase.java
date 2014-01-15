@@ -36,26 +36,11 @@ public abstract class VideoRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-video";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		Video video = (Video) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		Video video = (Video) uiComponent;
-		encodeHTML(facesContext, video);
-		encodeJavaScript(facesContext, video);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, Video video) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, Video video) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, video);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var video = new A.Video");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -103,12 +88,6 @@ public abstract class VideoRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, video);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

@@ -36,26 +36,11 @@ public abstract class CellEditorSupportRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		CellEditorSupport cellEditorSupport = (CellEditorSupport) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		CellEditorSupport cellEditorSupport = (CellEditorSupport) uiComponent;
-		encodeHTML(facesContext, cellEditorSupport);
-		encodeJavaScript(facesContext, cellEditorSupport);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, CellEditorSupport cellEditorSupport) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, CellEditorSupport cellEditorSupport) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, cellEditorSupport);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var cellEditorSupport = new A.CellEditorSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class CellEditorSupportRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, cellEditorSupport);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

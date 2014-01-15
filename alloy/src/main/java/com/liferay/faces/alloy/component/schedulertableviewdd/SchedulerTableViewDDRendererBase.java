@@ -36,26 +36,11 @@ public abstract class SchedulerTableViewDDRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-view-table-dd";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		SchedulerTableViewDD schedulerTableViewDD = (SchedulerTableViewDD) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		SchedulerTableViewDD schedulerTableViewDD = (SchedulerTableViewDD) uiComponent;
-		encodeHTML(facesContext, schedulerTableViewDD);
-		encodeJavaScript(facesContext, schedulerTableViewDD);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, SchedulerTableViewDD schedulerTableViewDD) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, schedulerTableViewDD);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var schedulerTableViewDD = new A.SchedulerTableViewDD");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class SchedulerTableViewDDRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, schedulerTableViewDD);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

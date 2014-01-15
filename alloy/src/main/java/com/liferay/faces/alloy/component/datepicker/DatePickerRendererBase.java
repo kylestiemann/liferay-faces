@@ -36,26 +36,11 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datepicker";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DatePicker datePicker = (DatePicker) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DatePicker datePicker = (DatePicker) uiComponent;
-		encodeHTML(facesContext, datePicker);
-		encodeJavaScript(facesContext, datePicker);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DatePicker datePicker) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DatePicker datePicker) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, datePicker);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var datePicker = new A.DatePicker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -92,12 +77,6 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, datePicker);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

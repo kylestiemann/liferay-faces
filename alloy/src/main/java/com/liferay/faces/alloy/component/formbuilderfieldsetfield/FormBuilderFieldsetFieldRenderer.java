@@ -13,10 +13,11 @@
  */
 package com.liferay.faces.alloy.component.formbuilderfieldsetfield;
 
+import java.io.IOException;
+
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.render.FacesRenderer;
-
-import java.io.IOException;
 
 
 /**
@@ -29,10 +30,8 @@ import java.io.IOException;
 )
 public class FormBuilderFieldsetFieldRenderer extends FormBuilderFieldsetFieldRendererBase {
 
-	@Override
-	protected void encodeHTML(FacesContext facesContext, FormBuilderFieldsetField formBuilderFieldsetField) throws IOException {
-		// TODO Auto-generated method stub
-		
+	@Override 
+	protected void encodeHTMLBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 	}
 
 }

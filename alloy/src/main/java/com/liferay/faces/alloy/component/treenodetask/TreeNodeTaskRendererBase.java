@@ -36,26 +36,11 @@ public abstract class TreeNodeTaskRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-node";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		TreeNodeTask treeNodeTask = (TreeNodeTask) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		TreeNodeTask treeNodeTask = (TreeNodeTask) uiComponent;
-		encodeHTML(facesContext, treeNodeTask);
-		encodeJavaScript(facesContext, treeNodeTask);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, TreeNodeTask treeNodeTask) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, TreeNodeTask treeNodeTask) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, treeNodeTask);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var treeNodeTask = new A.TreeNodeTask");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -110,12 +95,6 @@ public abstract class TreeNodeTaskRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, treeNodeTask);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

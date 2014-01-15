@@ -36,26 +36,11 @@ public abstract class HSVPaletteRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-hsv-palette";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		HSVPalette hSVPalette = (HSVPalette) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		HSVPalette hSVPalette = (HSVPalette) uiComponent;
-		encodeHTML(facesContext, hSVPalette);
-		encodeJavaScript(facesContext, hSVPalette);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, HSVPalette hSVPalette) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, HSVPalette hSVPalette) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, hSVPalette);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var hSVPalette = new A.HSVPalette");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -97,12 +82,6 @@ public abstract class HSVPaletteRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, hSVPalette);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

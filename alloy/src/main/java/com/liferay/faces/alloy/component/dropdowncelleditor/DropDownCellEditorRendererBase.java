@@ -36,26 +36,11 @@ public abstract class DropDownCellEditorRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DropDownCellEditor dropDownCellEditor = (DropDownCellEditor) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DropDownCellEditor dropDownCellEditor = (DropDownCellEditor) uiComponent;
-		encodeHTML(facesContext, dropDownCellEditor);
-		encodeJavaScript(facesContext, dropDownCellEditor);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DropDownCellEditor dropDownCellEditor) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DropDownCellEditor dropDownCellEditor) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, dropDownCellEditor);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var dropDownCellEditor = new A.DropDownCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -79,12 +64,6 @@ public abstract class DropDownCellEditorRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, dropDownCellEditor);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

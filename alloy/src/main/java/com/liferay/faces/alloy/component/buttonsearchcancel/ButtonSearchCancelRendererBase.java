@@ -36,26 +36,11 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-button";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		ButtonSearchCancel buttonSearchCancel = (ButtonSearchCancel) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		ButtonSearchCancel buttonSearchCancel = (ButtonSearchCancel) uiComponent;
-		encodeHTML(facesContext, buttonSearchCancel);
-		encodeJavaScript(facesContext, buttonSearchCancel);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, ButtonSearchCancel buttonSearchCancel) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, ButtonSearchCancel buttonSearchCancel) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, buttonSearchCancel);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var buttonSearchCancel = new A.ButtonSearchCancel");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -85,12 +70,6 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, buttonSearchCancel);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {

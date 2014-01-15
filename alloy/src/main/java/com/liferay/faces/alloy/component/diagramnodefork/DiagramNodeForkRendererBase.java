@@ -36,26 +36,11 @@ public abstract class DiagramNodeForkRendererBase extends AUIRenderer {
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	@Override
-	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
+	
+		DiagramNodeFork diagramNodeFork = (DiagramNodeFork) component; 
 
-		super.encodeBegin(facesContext, uiComponent);
-
-		DiagramNodeFork diagramNodeFork = (DiagramNodeFork) uiComponent;
-		encodeHTML(facesContext, diagramNodeFork);
-		encodeJavaScript(facesContext, diagramNodeFork);
-	}
-
-	protected abstract void encodeHTML(FacesContext facesContext, DiagramNodeFork diagramNodeFork) throws IOException;
-
-	protected void encodeJavaScript(FacesContext facesContext, DiagramNodeFork diagramNodeFork) throws IOException {
-
-		ResponseWriter backupResponseWriter = facesContext.getResponseWriter();
-
-		BufferedResponseWriter bufferedResponseWriter = new BufferedResponseWriter();
-		facesContext.setResponseWriter(bufferedResponseWriter);
-
-		beginJavaScript(facesContext, diagramNodeFork);
+		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
 
 		bufferedResponseWriter.write("var diagramNodeFork = new A.DiagramNodeFork");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
@@ -122,12 +107,6 @@ public abstract class DiagramNodeForkRendererBase extends AUIRenderer {
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
-
-		endJavaScript(facesContext);
-
-		handleBuffer(facesContext, diagramNodeFork);
-
-		facesContext.setResponseWriter(backupResponseWriter);
 	}
 
 	protected String getModule() {
