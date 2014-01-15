@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.imagegallery;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,94 +57,94 @@ public abstract class ImageGalleryRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, imageGallery);
 
-		bufferedResponseWriter.write("var imageGallery = new Y.ImageGallery");
+		bufferedResponseWriter.write("var imageGallery = new A.ImageGallery");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAnim(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAutoPlay(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderImagegalleryBodyContent(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCaption(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCaptionEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCaptionFromTitle(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCentered(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCloseEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlLeftEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlRightEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCurrentIndex(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDelay(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderImage(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderImageAnim(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInfoEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInfoTemplate(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLinks(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLoader(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLoading(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLoadingEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMaxHeight(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMaxWidth(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderModal(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPagination(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPaginationEl(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPaginationInstance(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPaused(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPausedLabel(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPlaying(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPlayingLabel(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPreloadAllImages(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRepeat(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowClose(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowControls(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowPlayer(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbar(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTotalLinks(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseOriginalImage(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, imageGallery);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, imageGallery);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlign(renrederedAttributes, imageGallery);
+		renderAlignOn(renrederedAttributes, imageGallery);
+		renderAnim(renrederedAttributes, imageGallery);
+		renderAutoPlay(renrederedAttributes, imageGallery);
+		renderImagegalleryBodyContent(renrederedAttributes, imageGallery);
+		renderBoundingBox(renrederedAttributes, imageGallery);
+		renderCaption(renrederedAttributes, imageGallery);
+		renderCaptionEl(renrederedAttributes, imageGallery);
+		renderCaptionFromTitle(renrederedAttributes, imageGallery);
+		renderCentered(renrederedAttributes, imageGallery);
+		renderCloseEl(renrederedAttributes, imageGallery);
+		renderConstrain(renrederedAttributes, imageGallery);
+		renderContentBox(renrederedAttributes, imageGallery);
+		renderControlLeftEl(renrederedAttributes, imageGallery);
+		renderControlRightEl(renrederedAttributes, imageGallery);
+		renderCurrentIndex(renrederedAttributes, imageGallery);
+		renderDelay(renrederedAttributes, imageGallery);
+		renderDestroyed(renrederedAttributes, imageGallery);
+		renderDisabled(renrederedAttributes, imageGallery);
+		renderFillHeight(renrederedAttributes, imageGallery);
+		renderFocusOn(renrederedAttributes, imageGallery);
+		renderFocused(renrederedAttributes, imageGallery);
+		renderFooterContent(renrederedAttributes, imageGallery);
+		renderHeaderContent(renrederedAttributes, imageGallery);
+		renderHeight(renrederedAttributes, imageGallery);
+		renderImagegalleryId(renrederedAttributes, imageGallery);
+		renderImage(renrederedAttributes, imageGallery);
+		renderImageAnim(renrederedAttributes, imageGallery);
+		renderInfoEl(renrederedAttributes, imageGallery);
+		renderInfoTemplate(renrederedAttributes, imageGallery);
+		renderInitialized(renrederedAttributes, imageGallery);
+		renderLinks(renrederedAttributes, imageGallery);
+		renderLoader(renrederedAttributes, imageGallery);
+		renderLoading(renrederedAttributes, imageGallery);
+		renderLoadingEl(renrederedAttributes, imageGallery);
+		renderImagegalleryLocale(renrederedAttributes, imageGallery);
+		renderMaskNode(renrederedAttributes, imageGallery);
+		renderMaxHeight(renrederedAttributes, imageGallery);
+		renderMaxWidth(renrederedAttributes, imageGallery);
+		renderModal(renrederedAttributes, imageGallery);
+		renderPagination(renrederedAttributes, imageGallery);
+		renderPaginationEl(renrederedAttributes, imageGallery);
+		renderPaginationInstance(renrederedAttributes, imageGallery);
+		renderPaused(renrederedAttributes, imageGallery);
+		renderPausedLabel(renrederedAttributes, imageGallery);
+		renderPlaying(renrederedAttributes, imageGallery);
+		renderPlayingLabel(renrederedAttributes, imageGallery);
+		renderPreloadAllImages(renrederedAttributes, imageGallery);
+		renderPreventOverlap(renrederedAttributes, imageGallery);
+		renderRender(renrederedAttributes, imageGallery);
+		renderRendered(renrederedAttributes, imageGallery);
+		renderRepeat(renrederedAttributes, imageGallery);
+		renderShim(renrederedAttributes, imageGallery);
+		renderShowClose(renrederedAttributes, imageGallery);
+		renderShowControls(renrederedAttributes, imageGallery);
+		renderShowPlayer(renrederedAttributes, imageGallery);
+		renderSrcNode(renrederedAttributes, imageGallery);
+		renderStrings(renrederedAttributes, imageGallery);
+		renderTabIndex(renrederedAttributes, imageGallery);
+		renderToolbar(renrederedAttributes, imageGallery);
+		renderTotalLinks(renrederedAttributes, imageGallery);
+		renderUseOriginalImage(renrederedAttributes, imageGallery);
+		renderVisible(renrederedAttributes, imageGallery);
+		renderWidth(renrederedAttributes, imageGallery);
+		renderX(renrederedAttributes, imageGallery);
+		renderXy(renrederedAttributes, imageGallery);
+		renderY(renrederedAttributes, imageGallery);
+		renderZIndex(renrederedAttributes, imageGallery);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -156,168 +158,412 @@ public abstract class ImageGalleryRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAnim(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "anim", imageGallery.getAnim());
+	protected void renderAlign(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getAlign() != null) {
+			renrederedAttributes.add(renderObject("align", imageGallery.getAlign()));
+		}
 	}
 
-	protected void renderAutoPlay(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "autoPlay", imageGallery.getAutoPlay());
+	protected void renderAlignOn(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getAlignOn() != null) {
+			renrederedAttributes.add(renderArray("alignOn", imageGallery.getAlignOn()));
+		}
 	}
 
-	protected void renderImagegalleryBodyContent(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "imagegalleryBodyContent", imageGallery.getImagegalleryBodyContent());
+	protected void renderAnim(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getAnim() != null) {
+			renrederedAttributes.add(renderBoolean("anim", imageGallery.getAnim()));
+		}
 	}
 
-	protected void renderCaption(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "caption", imageGallery.getCaption());
+	protected void renderAutoPlay(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getAutoPlay() != null) {
+			renrederedAttributes.add(renderBoolean("autoPlay", imageGallery.getAutoPlay()));
+		}
 	}
 
-	protected void renderCaptionEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "captionEl", imageGallery.getCaptionEl());
+	protected void renderImagegalleryBodyContent(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getImagegalleryBodyContent() != null) {
+			renrederedAttributes.add(renderString("imagegalleryBodyContent", imageGallery.getImagegalleryBodyContent()));
+		}
 	}
 
-	protected void renderCaptionFromTitle(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "captionFromTitle", imageGallery.getCaptionFromTitle());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", imageGallery.getBoundingBox()));
+		}
 	}
 
-	protected void renderCentered(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "centered", imageGallery.getCentered());
+	protected void renderCaption(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getCaption() != null) {
+			renrederedAttributes.add(renderString("caption", imageGallery.getCaption()));
+		}
 	}
 
-	protected void renderCloseEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "closeEl", imageGallery.getCloseEl());
+	protected void renderCaptionEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getCaptionEl() != null) {
+			renrederedAttributes.add(renderString("captionEl", imageGallery.getCaptionEl()));
+		}
 	}
 
-	protected void renderControlLeftEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "controlLeftEl", imageGallery.getControlLeftEl());
+	protected void renderCaptionFromTitle(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getCaptionFromTitle() != null) {
+			renrederedAttributes.add(renderBoolean("captionFromTitle", imageGallery.getCaptionFromTitle()));
+		}
 	}
 
-	protected void renderControlRightEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "controlRightEl", imageGallery.getControlRightEl());
+	protected void renderCentered(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getCentered() != null) {
+			renrederedAttributes.add(renderBoolean("centered", imageGallery.getCentered()));
+		}
 	}
 
-	protected void renderCurrentIndex(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderNumber(responseWriter, "currentIndex", imageGallery.getCurrentIndex());
+	protected void renderCloseEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getCloseEl() != null) {
+			renrederedAttributes.add(renderString("closeEl", imageGallery.getCloseEl()));
+		}
 	}
 
-	protected void renderDelay(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderNumber(responseWriter, "delay", imageGallery.getDelay());
+	protected void renderConstrain(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getConstrain() != null) {
+			renrederedAttributes.add(renderString("constrain", imageGallery.getConstrain()));
+		}
 	}
 
-	protected void renderImage(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "image", imageGallery.getImage());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", imageGallery.getContentBox()));
+		}
 	}
 
-	protected void renderImageAnim(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderObject(responseWriter, "imageAnim", imageGallery.getImageAnim());
+	protected void renderControlLeftEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getControlLeftEl() != null) {
+			renrederedAttributes.add(renderString("controlLeftEl", imageGallery.getControlLeftEl()));
+		}
 	}
 
-	protected void renderInfoEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "infoEl", imageGallery.getInfoEl());
+	protected void renderControlRightEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getControlRightEl() != null) {
+			renrederedAttributes.add(renderString("controlRightEl", imageGallery.getControlRightEl()));
+		}
 	}
 
-	protected void renderInfoTemplate(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "infoTemplate", imageGallery.getInfoTemplate());
+	protected void renderCurrentIndex(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getCurrentIndex() != null) {
+			renrederedAttributes.add(renderNumber("currentIndex", imageGallery.getCurrentIndex()));
+		}
 	}
 
-	protected void renderLinks(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "links", imageGallery.getLinks());
+	protected void renderDelay(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getDelay() != null) {
+			renrederedAttributes.add(renderNumber("delay", imageGallery.getDelay()));
+		}
 	}
 
-	protected void renderLoader(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "loader", imageGallery.getLoader());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", imageGallery.getDestroyed()));
+		}
 	}
 
-	protected void renderLoading(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "loading", imageGallery.getLoading());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", imageGallery.getDisabled()));
+		}
 	}
 
-	protected void renderLoadingEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "loadingEl", imageGallery.getLoadingEl());
+	protected void renderFillHeight(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getFillHeight() != null) {
+			renrederedAttributes.add(renderString("fillHeight", imageGallery.getFillHeight()));
+		}
 	}
 
-	protected void renderMaxHeight(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderNumber(responseWriter, "maxHeight", imageGallery.getMaxHeight());
+	protected void renderFocusOn(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getFocusOn() != null) {
+			renrederedAttributes.add(renderArray("focusOn", imageGallery.getFocusOn()));
+		}
 	}
 
-	protected void renderMaxWidth(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderNumber(responseWriter, "maxWidth", imageGallery.getMaxWidth());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", imageGallery.getFocused()));
+		}
 	}
 
-	protected void renderModal(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "modal", imageGallery.getModal());
+	protected void renderFooterContent(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getFooterContent() != null) {
+			renrederedAttributes.add(renderString("footerContent", imageGallery.getFooterContent()));
+		}
 	}
 
-	protected void renderPagination(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderObject(responseWriter, "pagination", imageGallery.getPagination());
+	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getHeaderContent() != null) {
+			renrederedAttributes.add(renderString("headerContent", imageGallery.getHeaderContent()));
+		}
 	}
 
-	protected void renderPaginationEl(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "paginationEl", imageGallery.getPaginationEl());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", imageGallery.getHeight()));
+		}
 	}
 
-	protected void renderPaginationInstance(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "paginationInstance", imageGallery.getPaginationInstance());
+	protected void renderImagegalleryId(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getImagegalleryId() != null) {
+			renrederedAttributes.add(renderString("imagegalleryId", imageGallery.getImagegalleryId()));
+		}
 	}
 
-	protected void renderPaused(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "paused", imageGallery.getPaused());
+	protected void renderImage(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getImage() != null) {
+			renrederedAttributes.add(renderString("image", imageGallery.getImage()));
+		}
 	}
 
-	protected void renderPausedLabel(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "pausedLabel", imageGallery.getPausedLabel());
+	protected void renderImageAnim(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getImageAnim() != null) {
+			renrederedAttributes.add(renderObject("imageAnim", imageGallery.getImageAnim()));
+		}
 	}
 
-	protected void renderPlaying(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "playing", imageGallery.getPlaying());
+	protected void renderInfoEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getInfoEl() != null) {
+			renrederedAttributes.add(renderString("infoEl", imageGallery.getInfoEl()));
+		}
 	}
 
-	protected void renderPlayingLabel(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "playingLabel", imageGallery.getPlayingLabel());
+	protected void renderInfoTemplate(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getInfoTemplate() != null) {
+			renrederedAttributes.add(renderString("infoTemplate", imageGallery.getInfoTemplate()));
+		}
 	}
 
-	protected void renderPreloadAllImages(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "preloadAllImages", imageGallery.getPreloadAllImages());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", imageGallery.getInitialized()));
+		}
 	}
 
-	protected void renderRepeat(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "repeat", imageGallery.getRepeat());
+	protected void renderLinks(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getLinks() != null) {
+			renrederedAttributes.add(renderString("links", imageGallery.getLinks()));
+		}
 	}
 
-	protected void renderShowClose(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "showClose", imageGallery.getShowClose());
+	protected void renderLoader(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getLoader() != null) {
+			renrederedAttributes.add(renderString("loader", imageGallery.getLoader()));
+		}
 	}
 
-	protected void renderShowControls(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "showControls", imageGallery.getShowControls());
+	protected void renderLoading(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getLoading() != null) {
+			renrederedAttributes.add(renderBoolean("loading", imageGallery.getLoading()));
+		}
 	}
 
-	protected void renderShowPlayer(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "showPlayer", imageGallery.getShowPlayer());
+	protected void renderLoadingEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getLoadingEl() != null) {
+			renrederedAttributes.add(renderString("loadingEl", imageGallery.getLoadingEl()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderNumber(responseWriter, "tabIndex", imageGallery.getTabIndex());
+	protected void renderImagegalleryLocale(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getImagegalleryLocale() != null) {
+			renrederedAttributes.add(renderString("imagegalleryLocale", imageGallery.getImagegalleryLocale()));
+		}
 	}
 
-	protected void renderToolbar(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderString(responseWriter, "toolbar", imageGallery.getToolbar());
+	protected void renderMaskNode(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getMaskNode() != null) {
+			renrederedAttributes.add(renderString("maskNode", imageGallery.getMaskNode()));
+		}
 	}
 
-	protected void renderTotalLinks(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "totalLinks", imageGallery.getTotalLinks());
+	protected void renderMaxHeight(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getMaxHeight() != null) {
+			renrederedAttributes.add(renderNumber("maxHeight", imageGallery.getMaxHeight()));
+		}
 	}
 
-	protected void renderUseOriginalImage(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "useOriginalImage", imageGallery.getUseOriginalImage());
+	protected void renderMaxWidth(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getMaxWidth() != null) {
+			renrederedAttributes.add(renderNumber("maxWidth", imageGallery.getMaxWidth()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderBoolean(responseWriter, "visible", imageGallery.getVisible());
+	protected void renderModal(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getModal() != null) {
+			renrederedAttributes.add(renderBoolean("modal", imageGallery.getModal()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, ImageGallery imageGallery) throws IOException {
-		renderNumber(responseWriter, "zIndex", imageGallery.getZIndex());
+	protected void renderPagination(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPagination() != null) {
+			renrederedAttributes.add(renderObject("pagination", imageGallery.getPagination()));
+		}
+	}
+
+	protected void renderPaginationEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPaginationEl() != null) {
+			renrederedAttributes.add(renderString("paginationEl", imageGallery.getPaginationEl()));
+		}
+	}
+
+	protected void renderPaginationInstance(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPaginationInstance() != null) {
+			renrederedAttributes.add(renderString("paginationInstance", imageGallery.getPaginationInstance()));
+		}
+	}
+
+	protected void renderPaused(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPaused() != null) {
+			renrederedAttributes.add(renderBoolean("paused", imageGallery.getPaused()));
+		}
+	}
+
+	protected void renderPausedLabel(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPausedLabel() != null) {
+			renrederedAttributes.add(renderString("pausedLabel", imageGallery.getPausedLabel()));
+		}
+	}
+
+	protected void renderPlaying(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPlaying() != null) {
+			renrederedAttributes.add(renderBoolean("playing", imageGallery.getPlaying()));
+		}
+	}
+
+	protected void renderPlayingLabel(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPlayingLabel() != null) {
+			renrederedAttributes.add(renderString("playingLabel", imageGallery.getPlayingLabel()));
+		}
+	}
+
+	protected void renderPreloadAllImages(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPreloadAllImages() != null) {
+			renrederedAttributes.add(renderBoolean("preloadAllImages", imageGallery.getPreloadAllImages()));
+		}
+	}
+
+	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getPreventOverlap() != null) {
+			renrederedAttributes.add(renderBoolean("preventOverlap", imageGallery.getPreventOverlap()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getRender() != null) {
+			renrederedAttributes.add(renderString("render", imageGallery.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", imageGallery.getRendered()));
+		}
+	}
+
+	protected void renderRepeat(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getRepeat() != null) {
+			renrederedAttributes.add(renderBoolean("repeat", imageGallery.getRepeat()));
+		}
+	}
+
+	protected void renderShim(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getShim() != null) {
+			renrederedAttributes.add(renderBoolean("shim", imageGallery.getShim()));
+		}
+	}
+
+	protected void renderShowClose(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getShowClose() != null) {
+			renrederedAttributes.add(renderBoolean("showClose", imageGallery.getShowClose()));
+		}
+	}
+
+	protected void renderShowControls(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getShowControls() != null) {
+			renrederedAttributes.add(renderBoolean("showControls", imageGallery.getShowControls()));
+		}
+	}
+
+	protected void renderShowPlayer(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getShowPlayer() != null) {
+			renrederedAttributes.add(renderBoolean("showPlayer", imageGallery.getShowPlayer()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", imageGallery.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", imageGallery.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", imageGallery.getTabIndex()));
+		}
+	}
+
+	protected void renderToolbar(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getToolbar() != null) {
+			renrederedAttributes.add(renderString("toolbar", imageGallery.getToolbar()));
+		}
+	}
+
+	protected void renderTotalLinks(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getTotalLinks() != null) {
+			renrederedAttributes.add(renderBoolean("totalLinks", imageGallery.getTotalLinks()));
+		}
+	}
+
+	protected void renderUseOriginalImage(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getUseOriginalImage() != null) {
+			renrederedAttributes.add(renderBoolean("useOriginalImage", imageGallery.getUseOriginalImage()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", imageGallery.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", imageGallery.getWidth()));
+		}
+	}
+
+	protected void renderX(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getX() != null) {
+			renrederedAttributes.add(renderNumber("x", imageGallery.getX()));
+		}
+	}
+
+	protected void renderXy(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getXy() != null) {
+			renrederedAttributes.add(renderArray("xy", imageGallery.getXy()));
+		}
+	}
+
+	protected void renderY(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getY() != null) {
+			renrederedAttributes.add(renderNumber("y", imageGallery.getY()));
+		}
+	}
+
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
+		if (imageGallery.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", imageGallery.getZIndex()));
+		}
 	}
 
 }

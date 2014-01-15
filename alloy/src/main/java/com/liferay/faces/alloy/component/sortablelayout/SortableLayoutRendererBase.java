@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.sortablelayout;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,30 +57,37 @@ public abstract class SortableLayoutRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, sortableLayout);
 
-		bufferedResponseWriter.write("var sortableLayout = new Y.SortableLayout");
+		bufferedResponseWriter.write("var sortableLayout = new A.SortableLayout");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDelegateConfig(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDragNodes(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropContainer(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropNodes(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderGroups(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLazyStart(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPlaceholder(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderProxy(bufferedResponseWriter, sortableLayout);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderProxyNode(bufferedResponseWriter, sortableLayout);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDelegateConfig(renrederedAttributes, sortableLayout);
+		renderDestroyed(renrederedAttributes, sortableLayout);
+		renderDragNodes(renrederedAttributes, sortableLayout);
+		renderDropContainer(renrederedAttributes, sortableLayout);
+		renderDropNodes(renrederedAttributes, sortableLayout);
+		renderGroups(renrederedAttributes, sortableLayout);
+		renderInitialized(renrederedAttributes, sortableLayout);
+		renderLazyStart(renrederedAttributes, sortableLayout);
+		renderPlaceholder(renrederedAttributes, sortableLayout);
+		renderProxy(renrederedAttributes, sortableLayout);
+		renderProxyNode(renrederedAttributes, sortableLayout);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -92,40 +101,70 @@ public abstract class SortableLayoutRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDelegateConfig(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderObject(responseWriter, "delegateConfig", sortableLayout.getDelegateConfig());
+	protected void renderDelegateConfig(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getDelegateConfig() != null) {
+			renrederedAttributes.add(renderObject("delegateConfig", sortableLayout.getDelegateConfig()));
+		}
 	}
 
-	protected void renderDragNodes(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "dragNodes", sortableLayout.getDragNodes());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", sortableLayout.getDestroyed()));
+		}
 	}
 
-	protected void renderDropContainer(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "dropContainer", sortableLayout.getDropContainer());
+	protected void renderDragNodes(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getDragNodes() != null) {
+			renrederedAttributes.add(renderString("dragNodes", sortableLayout.getDragNodes()));
+		}
 	}
 
-	protected void renderDropNodes(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "dropNodes", sortableLayout.getDropNodes());
+	protected void renderDropContainer(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getDropContainer() != null) {
+			renrederedAttributes.add(renderString("dropContainer", sortableLayout.getDropContainer()));
+		}
 	}
 
-	protected void renderGroups(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "groups", sortableLayout.getGroups());
+	protected void renderDropNodes(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getDropNodes() != null) {
+			renrederedAttributes.add(renderString("dropNodes", sortableLayout.getDropNodes()));
+		}
 	}
 
-	protected void renderLazyStart(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderBoolean(responseWriter, "lazyStart", sortableLayout.getLazyStart());
+	protected void renderGroups(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getGroups() != null) {
+			renrederedAttributes.add(renderString("groups", sortableLayout.getGroups()));
+		}
 	}
 
-	protected void renderPlaceholder(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "placeholder", sortableLayout.getPlaceholder());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", sortableLayout.getInitialized()));
+		}
 	}
 
-	protected void renderProxy(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "proxy", sortableLayout.getProxy());
+	protected void renderLazyStart(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getLazyStart() != null) {
+			renrederedAttributes.add(renderBoolean("lazyStart", sortableLayout.getLazyStart()));
+		}
 	}
 
-	protected void renderProxyNode(ResponseWriter responseWriter, SortableLayout sortableLayout) throws IOException {
-		renderString(responseWriter, "proxyNode", sortableLayout.getProxyNode());
+	protected void renderPlaceholder(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getPlaceholder() != null) {
+			renrederedAttributes.add(renderString("placeholder", sortableLayout.getPlaceholder()));
+		}
+	}
+
+	protected void renderProxy(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getProxy() != null) {
+			renrederedAttributes.add(renderString("proxy", sortableLayout.getProxy()));
+		}
+	}
+
+	protected void renderProxyNode(ArrayList<String> renrederedAttributes, SortableLayout sortableLayout) throws IOException {
+		if (sortableLayout.getProxyNode() != null) {
+			renrederedAttributes.add(renderString("proxyNode", sortableLayout.getProxyNode()));
+		}
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.datepickerpopover;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,18 +57,29 @@ public abstract class DatePickerPopoverRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, datePickerPopover);
 
-		bufferedResponseWriter.write("var datePickerPopover = new Y.DatePickerPopover");
+		bufferedResponseWriter.write("var datePickerPopover = new A.DatePickerPopover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAutoHide(bufferedResponseWriter, datePickerPopover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopover(bufferedResponseWriter, datePickerPopover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopoverCssClass(bufferedResponseWriter, datePickerPopover);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAutoHide(renrederedAttributes, datePickerPopover);
+		renderPopover(renrederedAttributes, datePickerPopover);
+		renderPopoverCssClass(renrederedAttributes, datePickerPopover);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -80,16 +93,22 @@ public abstract class DatePickerPopoverRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAutoHide(ResponseWriter responseWriter, DatePickerPopover datePickerPopover) throws IOException {
-		renderBoolean(responseWriter, "autoHide", datePickerPopover.getAutoHide());
+	protected void renderAutoHide(ArrayList<String> renrederedAttributes, DatePickerPopover datePickerPopover) throws IOException {
+		if (datePickerPopover.getAutoHide() != null) {
+			renrederedAttributes.add(renderBoolean("autoHide", datePickerPopover.getAutoHide()));
+		}
 	}
 
-	protected void renderPopover(ResponseWriter responseWriter, DatePickerPopover datePickerPopover) throws IOException {
-		renderString(responseWriter, "popover", datePickerPopover.getPopover());
+	protected void renderPopover(ArrayList<String> renrederedAttributes, DatePickerPopover datePickerPopover) throws IOException {
+		if (datePickerPopover.getPopover() != null) {
+			renrederedAttributes.add(renderString("popover", datePickerPopover.getPopover()));
+		}
 	}
 
-	protected void renderPopoverCssClass(ResponseWriter responseWriter, DatePickerPopover datePickerPopover) throws IOException {
-		renderString(responseWriter, "popoverCssClass", datePickerPopover.getPopoverCssClass());
+	protected void renderPopoverCssClass(ArrayList<String> renrederedAttributes, DatePickerPopover datePickerPopover) throws IOException {
+		if (datePickerPopover.getPopoverCssClass() != null) {
+			renrederedAttributes.add(renderString("popoverCssClass", datePickerPopover.getPopoverCssClass()));
+		}
 	}
 
 }

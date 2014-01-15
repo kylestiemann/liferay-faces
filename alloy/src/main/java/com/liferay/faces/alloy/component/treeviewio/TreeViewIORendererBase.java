@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treeviewio;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class TreeViewIORendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeViewIO);
 
-		bufferedResponseWriter.write("var treeViewIO = new Y.TreeViewIO");
+		bufferedResponseWriter.write("var treeViewIO = new A.TreeViewIO");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderIo(bufferedResponseWriter, treeViewIO);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderIo(renrederedAttributes, treeViewIO);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class TreeViewIORendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderIo(ResponseWriter responseWriter, TreeViewIO treeViewIO) throws IOException {
-		renderObject(responseWriter, "io", treeViewIO.getIo());
+	protected void renderIo(ArrayList<String> renrederedAttributes, TreeViewIO treeViewIO) throws IOException {
+		if (treeViewIO.getIo() != null) {
+			renrederedAttributes.add(renderObject("io", treeViewIO.getIo()));
+		}
 	}
 
 }

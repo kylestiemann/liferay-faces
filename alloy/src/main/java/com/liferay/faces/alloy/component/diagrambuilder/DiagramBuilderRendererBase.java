@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.diagrambuilder;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,60 +57,64 @@ public abstract class DiagramBuilderRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, diagramBuilder);
 
-		bufferedResponseWriter.write("var diagramBuilder = new Y.DiagramBuilder");
+		bufferedResponseWriter.write("var diagramBuilder = new A.DiagramBuilder");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAvailableFields(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAvailableFieldsDragConfig(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCanvas(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderConnector(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContentContainer(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropConfig(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropContainer(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFields(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFieldsContainer(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFieldsDragConfig(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderGraphic(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHighlightDropZones(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMaxFields(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPropertyList(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowSuggestConnector(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSuggestConnectorOverlay(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabView(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbar(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbarContainer(bufferedResponseWriter, diagramBuilder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, diagramBuilder);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAvailableFields(renrederedAttributes, diagramBuilder);
+		renderAvailableFieldsDragConfig(renrederedAttributes, diagramBuilder);
+		renderBoundingBox(renrederedAttributes, diagramBuilder);
+		renderCanvas(renrederedAttributes, diagramBuilder);
+		renderConnector(renrederedAttributes, diagramBuilder);
+		renderContentBox(renrederedAttributes, diagramBuilder);
+		renderContentContainer(renrederedAttributes, diagramBuilder);
+		renderCssClass(renrederedAttributes, diagramBuilder);
+		renderDestroyed(renrederedAttributes, diagramBuilder);
+		renderDisabled(renrederedAttributes, diagramBuilder);
+		renderDropConfig(renrederedAttributes, diagramBuilder);
+		renderDropContainer(renrederedAttributes, diagramBuilder);
+		renderFields(renrederedAttributes, diagramBuilder);
+		renderFieldsContainer(renrederedAttributes, diagramBuilder);
+		renderFieldsDragConfig(renrederedAttributes, diagramBuilder);
+		renderFocused(renrederedAttributes, diagramBuilder);
+		renderGraphic(renrederedAttributes, diagramBuilder);
+		renderHeight(renrederedAttributes, diagramBuilder);
+		renderHideClass(renrederedAttributes, diagramBuilder);
+		renderHighlightDropZones(renrederedAttributes, diagramBuilder);
+		renderDiagrambuilderId(renrederedAttributes, diagramBuilder);
+		renderInitialized(renrederedAttributes, diagramBuilder);
+		renderDiagrambuilderLocale(renrederedAttributes, diagramBuilder);
+		renderMaxFields(renrederedAttributes, diagramBuilder);
+		renderPropertyList(renrederedAttributes, diagramBuilder);
+		renderRender(renrederedAttributes, diagramBuilder);
+		renderRendered(renrederedAttributes, diagramBuilder);
+		renderShowSuggestConnector(renrederedAttributes, diagramBuilder);
+		renderSrcNode(renrederedAttributes, diagramBuilder);
+		renderStrings(renrederedAttributes, diagramBuilder);
+		renderSuggestConnectorOverlay(renrederedAttributes, diagramBuilder);
+		renderTabIndex(renrederedAttributes, diagramBuilder);
+		renderTabView(renrederedAttributes, diagramBuilder);
+		renderToolbar(renrederedAttributes, diagramBuilder);
+		renderToolbarContainer(renrederedAttributes, diagramBuilder);
+		renderUseARIA(renrederedAttributes, diagramBuilder);
+		renderVisible(renrederedAttributes, diagramBuilder);
+		renderWidth(renrederedAttributes, diagramBuilder);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -122,100 +128,232 @@ public abstract class DiagramBuilderRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAvailableFields(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderArray(responseWriter, "availableFields", diagramBuilder.getAvailableFields());
+	protected void renderAvailableFields(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getAvailableFields() != null) {
+			renrederedAttributes.add(renderArray("availableFields", diagramBuilder.getAvailableFields()));
+		}
 	}
 
-	protected void renderAvailableFieldsDragConfig(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "availableFieldsDragConfig", diagramBuilder.getAvailableFieldsDragConfig());
+	protected void renderAvailableFieldsDragConfig(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getAvailableFieldsDragConfig() != null) {
+			renrederedAttributes.add(renderObject("availableFieldsDragConfig", diagramBuilder.getAvailableFieldsDragConfig()));
+		}
 	}
 
-	protected void renderCanvas(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "canvas", diagramBuilder.getCanvas());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", diagramBuilder.getBoundingBox()));
+		}
 	}
 
-	protected void renderConnector(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "connector", diagramBuilder.getConnector());
+	protected void renderCanvas(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getCanvas() != null) {
+			renrederedAttributes.add(renderString("canvas", diagramBuilder.getCanvas()));
+		}
 	}
 
-	protected void renderContentContainer(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "contentContainer", diagramBuilder.getContentContainer());
+	protected void renderConnector(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getConnector() != null) {
+			renrederedAttributes.add(renderString("connector", diagramBuilder.getConnector()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "cssClass", diagramBuilder.getCssClass());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", diagramBuilder.getContentBox()));
+		}
 	}
 
-	protected void renderDropConfig(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "dropConfig", diagramBuilder.getDropConfig());
+	protected void renderContentContainer(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getContentContainer() != null) {
+			renrederedAttributes.add(renderString("contentContainer", diagramBuilder.getContentContainer()));
+		}
 	}
 
-	protected void renderDropContainer(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "dropContainer", diagramBuilder.getDropContainer());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", diagramBuilder.getCssClass()));
+		}
 	}
 
-	protected void renderFields(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderArray(responseWriter, "fields", diagramBuilder.getFields());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", diagramBuilder.getDestroyed()));
+		}
 	}
 
-	protected void renderFieldsContainer(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "fieldsContainer", diagramBuilder.getFieldsContainer());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", diagramBuilder.getDisabled()));
+		}
 	}
 
-	protected void renderFieldsDragConfig(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "fieldsDragConfig", diagramBuilder.getFieldsDragConfig());
+	protected void renderDropConfig(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getDropConfig() != null) {
+			renrederedAttributes.add(renderObject("dropConfig", diagramBuilder.getDropConfig()));
+		}
 	}
 
-	protected void renderGraphic(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "graphic", diagramBuilder.getGraphic());
+	protected void renderDropContainer(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getDropContainer() != null) {
+			renrederedAttributes.add(renderString("dropContainer", diagramBuilder.getDropContainer()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "hideClass", diagramBuilder.getHideClass());
+	protected void renderFields(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getFields() != null) {
+			renrederedAttributes.add(renderArray("fields", diagramBuilder.getFields()));
+		}
 	}
 
-	protected void renderHighlightDropZones(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderBoolean(responseWriter, "highlightDropZones", diagramBuilder.getHighlightDropZones());
+	protected void renderFieldsContainer(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getFieldsContainer() != null) {
+			renrederedAttributes.add(renderString("fieldsContainer", diagramBuilder.getFieldsContainer()));
+		}
 	}
 
-	protected void renderMaxFields(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderNumber(responseWriter, "maxFields", diagramBuilder.getMaxFields());
+	protected void renderFieldsDragConfig(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getFieldsDragConfig() != null) {
+			renrederedAttributes.add(renderObject("fieldsDragConfig", diagramBuilder.getFieldsDragConfig()));
+		}
 	}
 
-	protected void renderPropertyList(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "propertyList", diagramBuilder.getPropertyList());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", diagramBuilder.getFocused()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "render", diagramBuilder.getRender());
+	protected void renderGraphic(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getGraphic() != null) {
+			renrederedAttributes.add(renderObject("graphic", diagramBuilder.getGraphic()));
+		}
 	}
 
-	protected void renderShowSuggestConnector(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderBoolean(responseWriter, "showSuggestConnector", diagramBuilder.getShowSuggestConnector());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", diagramBuilder.getHeight()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "strings", diagramBuilder.getStrings());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", diagramBuilder.getHideClass()));
+		}
 	}
 
-	protected void renderSuggestConnectorOverlay(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "suggestConnectorOverlay", diagramBuilder.getSuggestConnectorOverlay());
+	protected void renderHighlightDropZones(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getHighlightDropZones() != null) {
+			renrederedAttributes.add(renderBoolean("highlightDropZones", diagramBuilder.getHighlightDropZones()));
+		}
 	}
 
-	protected void renderTabView(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "tabView", diagramBuilder.getTabView());
+	protected void renderDiagrambuilderId(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getDiagrambuilderId() != null) {
+			renrederedAttributes.add(renderString("diagrambuilderId", diagramBuilder.getDiagrambuilderId()));
+		}
 	}
 
-	protected void renderToolbar(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderObject(responseWriter, "toolbar", diagramBuilder.getToolbar());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", diagramBuilder.getInitialized()));
+		}
 	}
 
-	protected void renderToolbarContainer(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderString(responseWriter, "toolbarContainer", diagramBuilder.getToolbarContainer());
+	protected void renderDiagrambuilderLocale(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getDiagrambuilderLocale() != null) {
+			renrederedAttributes.add(renderString("diagrambuilderLocale", diagramBuilder.getDiagrambuilderLocale()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, DiagramBuilder diagramBuilder) throws IOException {
-		renderBoolean(responseWriter, "useARIA", diagramBuilder.getUseARIA());
+	protected void renderMaxFields(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getMaxFields() != null) {
+			renrederedAttributes.add(renderNumber("maxFields", diagramBuilder.getMaxFields()));
+		}
+	}
+
+	protected void renderPropertyList(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getPropertyList() != null) {
+			renrederedAttributes.add(renderObject("propertyList", diagramBuilder.getPropertyList()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getRender() != null) {
+			renrederedAttributes.add(renderString("render", diagramBuilder.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", diagramBuilder.getRendered()));
+		}
+	}
+
+	protected void renderShowSuggestConnector(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getShowSuggestConnector() != null) {
+			renrederedAttributes.add(renderBoolean("showSuggestConnector", diagramBuilder.getShowSuggestConnector()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", diagramBuilder.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", diagramBuilder.getStrings()));
+		}
+	}
+
+	protected void renderSuggestConnectorOverlay(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getSuggestConnectorOverlay() != null) {
+			renrederedAttributes.add(renderString("suggestConnectorOverlay", diagramBuilder.getSuggestConnectorOverlay()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", diagramBuilder.getTabIndex()));
+		}
+	}
+
+	protected void renderTabView(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getTabView() != null) {
+			renrederedAttributes.add(renderObject("tabView", diagramBuilder.getTabView()));
+		}
+	}
+
+	protected void renderToolbar(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getToolbar() != null) {
+			renrederedAttributes.add(renderObject("toolbar", diagramBuilder.getToolbar()));
+		}
+	}
+
+	protected void renderToolbarContainer(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getToolbarContainer() != null) {
+			renrederedAttributes.add(renderString("toolbarContainer", diagramBuilder.getToolbarContainer()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", diagramBuilder.getUseARIA()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", diagramBuilder.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		if (diagramBuilder.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", diagramBuilder.getWidth()));
+		}
 	}
 
 }

@@ -25,27 +25,27 @@ public abstract class TreeViewPaginatorBase extends javax.faces.component.UIPane
 	private static final String AFTER_PAGINATOR_CHANGE = "afterPaginatorChange";
 	private static final String ON_PAGINATOR_CHANGE = "onPaginatorChange";
 
-	protected java.lang.Object getPaginator() {
+	public java.lang.Object getPaginator() {
 		return (java.lang.Object) getStateHelper().eval(PAGINATOR, null);
 	}
 
-	protected void setPaginator(java.lang.Object paginator) {
+	public void setPaginator(java.lang.Object paginator) {
 		getStateHelper().put(PAGINATOR, paginator);
 	}
 
-	protected java.lang.String getAfterPaginatorChange() {
+	public java.lang.String getAfterPaginatorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PAGINATOR_CHANGE, null);
 	}
 
-	protected void setAfterPaginatorChange(java.lang.String afterPaginatorChange) {
+	public void setAfterPaginatorChange(java.lang.String afterPaginatorChange) {
 		getStateHelper().put(AFTER_PAGINATOR_CHANGE, afterPaginatorChange);
 	}
 
-	protected java.lang.String getOnPaginatorChange() {
+	public java.lang.String getOnPaginatorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PAGINATOR_CHANGE, null);
 	}
 
-	protected void setOnPaginatorChange(java.lang.String onPaginatorChange) {
+	public void setOnPaginatorChange(java.lang.String onPaginatorChange) {
 		getStateHelper().put(ON_PAGINATOR_CHANGE, onPaginatorChange);
 	}
 

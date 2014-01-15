@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.velocity;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,22 +57,31 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, velocity);
 
-		bufferedResponseWriter.write("var velocity = new Y.Velocity");
+		bufferedResponseWriter.write("var velocity = new A.Velocity");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(bufferedResponseWriter, velocity);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDirectivesMatcher(bufferedResponseWriter, velocity);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHost(bufferedResponseWriter, velocity);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVariables(bufferedResponseWriter, velocity);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVariablesMatcher(bufferedResponseWriter, velocity);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDirectives(renrederedAttributes, velocity);
+		renderDirectivesMatcher(renrederedAttributes, velocity);
+		renderHost(renrederedAttributes, velocity);
+		renderVariables(renrederedAttributes, velocity);
+		renderVariablesMatcher(renrederedAttributes, velocity);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -84,24 +95,34 @@ public abstract class VelocityRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDirectives(ResponseWriter responseWriter, Velocity velocity) throws IOException {
-		renderArray(responseWriter, "directives", velocity.getDirectives());
+	protected void renderDirectives(ArrayList<String> renrederedAttributes, Velocity velocity) throws IOException {
+		if (velocity.getDirectives() != null) {
+			renrederedAttributes.add(renderArray("directives", velocity.getDirectives()));
+		}
 	}
 
-	protected void renderDirectivesMatcher(ResponseWriter responseWriter, Velocity velocity) throws IOException {
-		renderString(responseWriter, "directivesMatcher", velocity.getDirectivesMatcher());
+	protected void renderDirectivesMatcher(ArrayList<String> renrederedAttributes, Velocity velocity) throws IOException {
+		if (velocity.getDirectivesMatcher() != null) {
+			renrederedAttributes.add(renderString("directivesMatcher", velocity.getDirectivesMatcher()));
+		}
 	}
 
-	protected void renderHost(ResponseWriter responseWriter, Velocity velocity) throws IOException {
-		renderObject(responseWriter, "host", velocity.getHost());
+	protected void renderHost(ArrayList<String> renrederedAttributes, Velocity velocity) throws IOException {
+		if (velocity.getHost() != null) {
+			renrederedAttributes.add(renderObject("host", velocity.getHost()));
+		}
 	}
 
-	protected void renderVariables(ResponseWriter responseWriter, Velocity velocity) throws IOException {
-		renderObject(responseWriter, "variables", velocity.getVariables());
+	protected void renderVariables(ArrayList<String> renrederedAttributes, Velocity velocity) throws IOException {
+		if (velocity.getVariables() != null) {
+			renrederedAttributes.add(renderObject("variables", velocity.getVariables()));
+		}
 	}
 
-	protected void renderVariablesMatcher(ResponseWriter responseWriter, Velocity velocity) throws IOException {
-		renderString(responseWriter, "variablesMatcher", velocity.getVariablesMatcher());
+	protected void renderVariablesMatcher(ArrayList<String> renrederedAttributes, Velocity velocity) throws IOException {
+		if (velocity.getVariablesMatcher() != null) {
+			renrederedAttributes.add(renderString("variablesMatcher", velocity.getVariablesMatcher()));
+		}
 	}
 
 }

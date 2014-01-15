@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.popover;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,86 +57,63 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, popover);
 
-		bufferedResponseWriter.write("var popover = new Y.Popover");
+		bufferedResponseWriter.write("var popover = new A.Popover");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAlignOn(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopoverBodyContent(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBoundingBox(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCentered(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderConstrain(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContentBox(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDestroyed(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFillHeight(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFocusOn(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFocused(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFooterContent(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderContent(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideOn(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopoverId(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInitialized(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopoverLocale(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMaskNode(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderModal(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPreventOverlap(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRendered(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShim(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSrcNode(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbarPosition(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbars(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTriggerToggleEvent(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderX(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderXy(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderY(bufferedResponseWriter, popover);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, popover);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlign(renrederedAttributes, popover);
+		renderAlignOn(renrederedAttributes, popover);
+		renderPopoverBodyContent(renrederedAttributes, popover);
+		renderBoundingBox(renrederedAttributes, popover);
+		renderCentered(renrederedAttributes, popover);
+		renderConstrain(renrederedAttributes, popover);
+		renderContentBox(renrederedAttributes, popover);
+		renderDestroyed(renrederedAttributes, popover);
+		renderDisabled(renrederedAttributes, popover);
+		renderFillHeight(renrederedAttributes, popover);
+		renderFocusOn(renrederedAttributes, popover);
+		renderFocused(renrederedAttributes, popover);
+		renderFooterContent(renrederedAttributes, popover);
+		renderHeaderContent(renrederedAttributes, popover);
+		renderHeight(renrederedAttributes, popover);
+		renderHideOn(renrederedAttributes, popover);
+		renderPopoverId(renrederedAttributes, popover);
+		renderInitialized(renrederedAttributes, popover);
+		renderPopoverLocale(renrederedAttributes, popover);
+		renderMaskNode(renrederedAttributes, popover);
+		renderModal(renrederedAttributes, popover);
+		renderPreventOverlap(renrederedAttributes, popover);
+		renderRender(renrederedAttributes, popover);
+		renderRendered(renrederedAttributes, popover);
+		renderShim(renrederedAttributes, popover);
+		renderSrcNode(renrederedAttributes, popover);
+		renderStrings(renrederedAttributes, popover);
+		renderTabIndex(renrederedAttributes, popover);
+		renderToolbarPosition(renrederedAttributes, popover);
+		renderToolbars(renrederedAttributes, popover);
+		renderTriggerToggleEvent(renrederedAttributes, popover);
+		renderVisible(renrederedAttributes, popover);
+		renderWidth(renrederedAttributes, popover);
+		renderX(renrederedAttributes, popover);
+		renderXy(renrederedAttributes, popover);
+		renderY(renrederedAttributes, popover);
+		renderZIndex(renrederedAttributes, popover);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -148,152 +127,226 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderObject(responseWriter, "align", popover.getAlign());
+	protected void renderAlign(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getAlign() != null) {
+			renrederedAttributes.add(renderObject("align", popover.getAlign()));
+		}
 	}
 
-	protected void renderAlignOn(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderArray(responseWriter, "alignOn", popover.getAlignOn());
+	protected void renderAlignOn(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getAlignOn() != null) {
+			renrederedAttributes.add(renderArray("alignOn", popover.getAlignOn()));
+		}
 	}
 
-	protected void renderPopoverBodyContent(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "popoverBodyContent", popover.getPopoverBodyContent());
+	protected void renderPopoverBodyContent(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getPopoverBodyContent() != null) {
+			renrederedAttributes.add(renderString("popoverBodyContent", popover.getPopoverBodyContent()));
+		}
 	}
 
-	protected void renderBoundingBox(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "boundingBox", popover.getBoundingBox());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", popover.getBoundingBox()));
+		}
 	}
 
-	protected void renderCentered(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "centered", popover.getCentered());
+	protected void renderCentered(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getCentered() != null) {
+			renrederedAttributes.add(renderString("centered", popover.getCentered()));
+		}
 	}
 
-	protected void renderConstrain(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "constrain", popover.getConstrain());
+	protected void renderConstrain(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getConstrain() != null) {
+			renrederedAttributes.add(renderString("constrain", popover.getConstrain()));
+		}
 	}
 
-	protected void renderContentBox(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "contentBox", popover.getContentBox());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", popover.getContentBox()));
+		}
 	}
 
-	protected void renderDestroyed(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "destroyed", popover.getDestroyed());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", popover.getDestroyed()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "disabled", popover.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", popover.getDisabled()));
+		}
 	}
 
-	protected void renderFillHeight(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "fillHeight", popover.getFillHeight());
+	protected void renderFillHeight(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getFillHeight() != null) {
+			renrederedAttributes.add(renderString("fillHeight", popover.getFillHeight()));
+		}
 	}
 
-	protected void renderFocusOn(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderArray(responseWriter, "focusOn", popover.getFocusOn());
+	protected void renderFocusOn(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getFocusOn() != null) {
+			renrederedAttributes.add(renderArray("focusOn", popover.getFocusOn()));
+		}
 	}
 
-	protected void renderFocused(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "focused", popover.getFocused());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", popover.getFocused()));
+		}
 	}
 
-	protected void renderFooterContent(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "footerContent", popover.getFooterContent());
+	protected void renderFooterContent(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getFooterContent() != null) {
+			renrederedAttributes.add(renderString("footerContent", popover.getFooterContent()));
+		}
 	}
 
-	protected void renderHeaderContent(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "headerContent", popover.getHeaderContent());
+	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getHeaderContent() != null) {
+			renrederedAttributes.add(renderString("headerContent", popover.getHeaderContent()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "height", popover.getHeight());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", popover.getHeight()));
+		}
 	}
 
-	protected void renderHideOn(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderArray(responseWriter, "hideOn", popover.getHideOn());
+	protected void renderHideOn(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getHideOn() != null) {
+			renrederedAttributes.add(renderArray("hideOn", popover.getHideOn()));
+		}
 	}
 
-	protected void renderPopoverId(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "popoverId", popover.getPopoverId());
+	protected void renderPopoverId(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getPopoverId() != null) {
+			renrederedAttributes.add(renderString("popoverId", popover.getPopoverId()));
+		}
 	}
 
-	protected void renderInitialized(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "initialized", popover.getInitialized());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", popover.getInitialized()));
+		}
 	}
 
-	protected void renderPopoverLocale(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "popoverLocale", popover.getPopoverLocale());
+	protected void renderPopoverLocale(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getPopoverLocale() != null) {
+			renrederedAttributes.add(renderString("popoverLocale", popover.getPopoverLocale()));
+		}
 	}
 
-	protected void renderMaskNode(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "maskNode", popover.getMaskNode());
+	protected void renderMaskNode(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getMaskNode() != null) {
+			renrederedAttributes.add(renderString("maskNode", popover.getMaskNode()));
+		}
 	}
 
-	protected void renderModal(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "modal", popover.getModal());
+	protected void renderModal(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getModal() != null) {
+			renrederedAttributes.add(renderBoolean("modal", popover.getModal()));
+		}
 	}
 
-	protected void renderPreventOverlap(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "preventOverlap", popover.getPreventOverlap());
+	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getPreventOverlap() != null) {
+			renrederedAttributes.add(renderBoolean("preventOverlap", popover.getPreventOverlap()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "render", popover.getRender());
+	protected void renderRender(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getRender() != null) {
+			renrederedAttributes.add(renderString("render", popover.getRender()));
+		}
 	}
 
-	protected void renderRendered(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "rendered", popover.getRendered());
+	protected void renderRendered(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", popover.getRendered()));
+		}
 	}
 
-	protected void renderShim(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "shim", popover.getShim());
+	protected void renderShim(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getShim() != null) {
+			renrederedAttributes.add(renderBoolean("shim", popover.getShim()));
+		}
 	}
 
-	protected void renderSrcNode(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "srcNode", popover.getSrcNode());
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", popover.getSrcNode()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderObject(responseWriter, "strings", popover.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", popover.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderNumber(responseWriter, "tabIndex", popover.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", popover.getTabIndex()));
+		}
 	}
 
-	protected void renderToolbarPosition(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderObject(responseWriter, "toolbarPosition", popover.getToolbarPosition());
+	protected void renderToolbarPosition(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getToolbarPosition() != null) {
+			renrederedAttributes.add(renderObject("toolbarPosition", popover.getToolbarPosition()));
+		}
 	}
 
-	protected void renderToolbars(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "toolbars", popover.getToolbars());
+	protected void renderToolbars(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getToolbars() != null) {
+			renrederedAttributes.add(renderString("toolbars", popover.getToolbars()));
+		}
 	}
 
-	protected void renderTriggerToggleEvent(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "triggerToggleEvent", popover.getTriggerToggleEvent());
+	protected void renderTriggerToggleEvent(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getTriggerToggleEvent() != null) {
+			renrederedAttributes.add(renderString("triggerToggleEvent", popover.getTriggerToggleEvent()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderBoolean(responseWriter, "visible", popover.getVisible());
+	protected void renderVisible(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", popover.getVisible()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderString(responseWriter, "width", popover.getWidth());
+	protected void renderWidth(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", popover.getWidth()));
+		}
 	}
 
-	protected void renderX(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderNumber(responseWriter, "x", popover.getX());
+	protected void renderX(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getX() != null) {
+			renrederedAttributes.add(renderNumber("x", popover.getX()));
+		}
 	}
 
-	protected void renderXy(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderArray(responseWriter, "xy", popover.getXy());
+	protected void renderXy(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getXy() != null) {
+			renrederedAttributes.add(renderArray("xy", popover.getXy()));
+		}
 	}
 
-	protected void renderY(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderNumber(responseWriter, "y", popover.getY());
+	protected void renderY(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getY() != null) {
+			renrederedAttributes.add(renderNumber("y", popover.getY()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, Popover popover) throws IOException {
-		renderNumber(responseWriter, "zIndex", popover.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", popover.getZIndex()));
+		}
 	}
 
 }

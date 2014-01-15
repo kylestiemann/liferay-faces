@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulereventrecorder;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,56 +57,52 @@ public abstract class SchedulerEventRecorderRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerEventRecorder);
 
-		bufferedResponseWriter.write("var schedulerEventRecorder = new Y.SchedulerEventRecorder");
+		bufferedResponseWriter.write("var schedulerEventRecorder = new A.SchedulerEventRecorder");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAllDay(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColor(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColorBrightnessFactor(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColorSaturationFactor(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContent(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDateFormat(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDuration(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderEndDate(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderEvent(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderEventClass(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMeeting(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNode(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopover(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReminder(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRepeated(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScheduler(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStartDate(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplate(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTitleDateFormat(bufferedResponseWriter, schedulerEventRecorder);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, schedulerEventRecorder);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAllDay(renrederedAttributes, schedulerEventRecorder);
+		renderSchedulereventrecorderClientId(renrederedAttributes, schedulerEventRecorder);
+		renderColor(renrederedAttributes, schedulerEventRecorder);
+		renderColorBrightnessFactor(renrederedAttributes, schedulerEventRecorder);
+		renderColorSaturationFactor(renrederedAttributes, schedulerEventRecorder);
+		renderContent(renrederedAttributes, schedulerEventRecorder);
+		renderDateFormat(renrederedAttributes, schedulerEventRecorder);
+		renderDestroyed(renrederedAttributes, schedulerEventRecorder);
+		renderDisabled(renrederedAttributes, schedulerEventRecorder);
+		renderDuration(renrederedAttributes, schedulerEventRecorder);
+		renderEndDate(renrederedAttributes, schedulerEventRecorder);
+		renderEvent(renrederedAttributes, schedulerEventRecorder);
+		renderEventClass(renrederedAttributes, schedulerEventRecorder);
+		renderSchedulereventrecorderId(renrederedAttributes, schedulerEventRecorder);
+		renderInitialized(renrederedAttributes, schedulerEventRecorder);
+		renderMeeting(renrederedAttributes, schedulerEventRecorder);
+		renderNode(renrederedAttributes, schedulerEventRecorder);
+		renderPopover(renrederedAttributes, schedulerEventRecorder);
+		renderReminder(renrederedAttributes, schedulerEventRecorder);
+		renderRepeated(renrederedAttributes, schedulerEventRecorder);
+		renderScheduler(renrederedAttributes, schedulerEventRecorder);
+		renderStartDate(renrederedAttributes, schedulerEventRecorder);
+		renderStrings(renrederedAttributes, schedulerEventRecorder);
+		renderTemplate(renrederedAttributes, schedulerEventRecorder);
+		renderTitleDateFormat(renrederedAttributes, schedulerEventRecorder);
+		renderVisible(renrederedAttributes, schedulerEventRecorder);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -118,92 +116,160 @@ public abstract class SchedulerEventRecorderRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAllDay(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderBoolean(responseWriter, "allDay", schedulerEventRecorder.getAllDay());
+	protected void renderAllDay(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getAllDay() != null) {
+			renrederedAttributes.add(renderBoolean("allDay", schedulerEventRecorder.getAllDay()));
+		}
 	}
 
-	protected void renderColor(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "color", schedulerEventRecorder.getColor());
+	protected void renderSchedulereventrecorderClientId(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getSchedulereventrecorderClientId() != null) {
+			renrederedAttributes.add(renderString("schedulereventrecorderClientId", schedulerEventRecorder.getSchedulereventrecorderClientId()));
+		}
 	}
 
-	protected void renderColorBrightnessFactor(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderNumber(responseWriter, "colorBrightnessFactor", schedulerEventRecorder.getColorBrightnessFactor());
+	protected void renderColor(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getColor() != null) {
+			renrederedAttributes.add(renderString("color", schedulerEventRecorder.getColor()));
+		}
 	}
 
-	protected void renderColorSaturationFactor(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderNumber(responseWriter, "colorSaturationFactor", schedulerEventRecorder.getColorSaturationFactor());
+	protected void renderColorBrightnessFactor(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getColorBrightnessFactor() != null) {
+			renrederedAttributes.add(renderNumber("colorBrightnessFactor", schedulerEventRecorder.getColorBrightnessFactor()));
+		}
 	}
 
-	protected void renderContent(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "content", schedulerEventRecorder.getContent());
+	protected void renderColorSaturationFactor(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getColorSaturationFactor() != null) {
+			renrederedAttributes.add(renderNumber("colorSaturationFactor", schedulerEventRecorder.getColorSaturationFactor()));
+		}
 	}
 
-	protected void renderDateFormat(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "dateFormat", schedulerEventRecorder.getDateFormat());
+	protected void renderContent(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getContent() != null) {
+			renrederedAttributes.add(renderString("content", schedulerEventRecorder.getContent()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderBoolean(responseWriter, "disabled", schedulerEventRecorder.getDisabled());
+	protected void renderDateFormat(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getDateFormat() != null) {
+			renrederedAttributes.add(renderString("dateFormat", schedulerEventRecorder.getDateFormat()));
+		}
 	}
 
-	protected void renderDuration(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderNumber(responseWriter, "duration", schedulerEventRecorder.getDuration());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", schedulerEventRecorder.getDestroyed()));
+		}
 	}
 
-	protected void renderEndDate(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "endDate", schedulerEventRecorder.getEndDate());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", schedulerEventRecorder.getDisabled()));
+		}
 	}
 
-	protected void renderEvent(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "event", schedulerEventRecorder.getEvent());
+	protected void renderDuration(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getDuration() != null) {
+			renrederedAttributes.add(renderNumber("duration", schedulerEventRecorder.getDuration()));
+		}
 	}
 
-	protected void renderEventClass(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "eventClass", schedulerEventRecorder.getEventClass());
+	protected void renderEndDate(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getEndDate() != null) {
+			renrederedAttributes.add(renderString("endDate", schedulerEventRecorder.getEndDate()));
+		}
 	}
 
-	protected void renderMeeting(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderBoolean(responseWriter, "meeting", schedulerEventRecorder.getMeeting());
+	protected void renderEvent(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getEvent() != null) {
+			renrederedAttributes.add(renderString("event", schedulerEventRecorder.getEvent()));
+		}
 	}
 
-	protected void renderNode(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "node", schedulerEventRecorder.getNode());
+	protected void renderEventClass(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getEventClass() != null) {
+			renrederedAttributes.add(renderString("eventClass", schedulerEventRecorder.getEventClass()));
+		}
 	}
 
-	protected void renderPopover(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderObject(responseWriter, "popover", schedulerEventRecorder.getPopover());
+	protected void renderSchedulereventrecorderId(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getSchedulereventrecorderId() != null) {
+			renrederedAttributes.add(renderString("schedulereventrecorderId", schedulerEventRecorder.getSchedulereventrecorderId()));
+		}
 	}
 
-	protected void renderReminder(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderBoolean(responseWriter, "reminder", schedulerEventRecorder.getReminder());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", schedulerEventRecorder.getInitialized()));
+		}
 	}
 
-	protected void renderRepeated(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderBoolean(responseWriter, "repeated", schedulerEventRecorder.getRepeated());
+	protected void renderMeeting(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getMeeting() != null) {
+			renrederedAttributes.add(renderBoolean("meeting", schedulerEventRecorder.getMeeting()));
+		}
 	}
 
-	protected void renderScheduler(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "scheduler", schedulerEventRecorder.getScheduler());
+	protected void renderNode(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getNode() != null) {
+			renrederedAttributes.add(renderString("node", schedulerEventRecorder.getNode()));
+		}
 	}
 
-	protected void renderStartDate(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "startDate", schedulerEventRecorder.getStartDate());
+	protected void renderPopover(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getPopover() != null) {
+			renrederedAttributes.add(renderObject("popover", schedulerEventRecorder.getPopover()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderObject(responseWriter, "strings", schedulerEventRecorder.getStrings());
+	protected void renderReminder(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getReminder() != null) {
+			renrederedAttributes.add(renderBoolean("reminder", schedulerEventRecorder.getReminder()));
+		}
 	}
 
-	protected void renderTemplate(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "template", schedulerEventRecorder.getTemplate());
+	protected void renderRepeated(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getRepeated() != null) {
+			renrederedAttributes.add(renderBoolean("repeated", schedulerEventRecorder.getRepeated()));
+		}
 	}
 
-	protected void renderTitleDateFormat(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderString(responseWriter, "titleDateFormat", schedulerEventRecorder.getTitleDateFormat());
+	protected void renderScheduler(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getScheduler() != null) {
+			renrederedAttributes.add(renderString("scheduler", schedulerEventRecorder.getScheduler()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		renderBoolean(responseWriter, "visible", schedulerEventRecorder.getVisible());
+	protected void renderStartDate(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getStartDate() != null) {
+			renrederedAttributes.add(renderString("startDate", schedulerEventRecorder.getStartDate()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", schedulerEventRecorder.getStrings()));
+		}
+	}
+
+	protected void renderTemplate(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getTemplate() != null) {
+			renrederedAttributes.add(renderString("template", schedulerEventRecorder.getTemplate()));
+		}
+	}
+
+	protected void renderTitleDateFormat(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getTitleDateFormat() != null) {
+			renrederedAttributes.add(renderString("titleDateFormat", schedulerEventRecorder.getTitleDateFormat()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		if (schedulerEventRecorder.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", schedulerEventRecorder.getVisible()));
+		}
 	}
 
 }

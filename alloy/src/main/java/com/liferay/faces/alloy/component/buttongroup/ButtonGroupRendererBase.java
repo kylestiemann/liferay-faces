@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.buttongroup;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,13 +57,27 @@ public abstract class ButtonGroupRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, buttonGroup);
 
-		bufferedResponseWriter.write("var buttonGroup = new Y.ButtonGroup");
+		bufferedResponseWriter.write("var buttonGroup = new A.ButtonGroup");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderType(renrederedAttributes, buttonGroup);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -73,6 +89,12 @@ public abstract class ButtonGroupRendererBase extends AUIRenderer {
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
+	}
+
+	protected void renderType(ArrayList<String> renrederedAttributes, ButtonGroup buttonGroup) throws IOException {
+		if (buttonGroup.getType() != null) {
+			renrederedAttributes.add(renderString("type", buttonGroup.getType()));
+		}
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.hsvapalette;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,20 +57,45 @@ public abstract class HSVAPaletteRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, hSVAPalette);
 
-		bufferedResponseWriter.write("var hSVAPalette = new Y.HSVAPalette");
+		bufferedResponseWriter.write("var hSVAPalette = new A.HSVAPalette");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderControls(bufferedResponseWriter, hSVAPalette);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFieldValidator(bufferedResponseWriter, hSVAPalette);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, hSVAPalette);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, hSVAPalette);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, hSVAPalette);
+		renderContentBox(renrederedAttributes, hSVAPalette);
+		renderControls(renrederedAttributes, hSVAPalette);
+		renderDestroyed(renrederedAttributes, hSVAPalette);
+		renderDisabled(renrederedAttributes, hSVAPalette);
+		renderFieldValidator(renrederedAttributes, hSVAPalette);
+		renderFocused(renrederedAttributes, hSVAPalette);
+		renderHeight(renrederedAttributes, hSVAPalette);
+		renderHsvapaletteId(renrederedAttributes, hSVAPalette);
+		renderInitialized(renrederedAttributes, hSVAPalette);
+		renderHsvapaletteLocale(renrederedAttributes, hSVAPalette);
+		renderRender(renrederedAttributes, hSVAPalette);
+		renderRendered(renrederedAttributes, hSVAPalette);
+		renderSelected(renrederedAttributes, hSVAPalette);
+		renderSrcNode(renrederedAttributes, hSVAPalette);
+		renderStrings(renrederedAttributes, hSVAPalette);
+		renderTabIndex(renrederedAttributes, hSVAPalette);
+		renderVisible(renrederedAttributes, hSVAPalette);
+		renderWidth(renrederedAttributes, hSVAPalette);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -82,20 +109,118 @@ public abstract class HSVAPaletteRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderControls(ResponseWriter responseWriter, HSVAPalette hSVAPalette) throws IOException {
-		renderBoolean(responseWriter, "controls", hSVAPalette.getControls());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", hSVAPalette.getBoundingBox()));
+		}
 	}
 
-	protected void renderFieldValidator(ResponseWriter responseWriter, HSVAPalette hSVAPalette) throws IOException {
-		renderObject(responseWriter, "fieldValidator", hSVAPalette.getFieldValidator());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", hSVAPalette.getContentBox()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, HSVAPalette hSVAPalette) throws IOException {
-		renderString(responseWriter, "selected", hSVAPalette.getSelected());
+	protected void renderControls(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getControls() != null) {
+			renrederedAttributes.add(renderBoolean("controls", hSVAPalette.getControls()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, HSVAPalette hSVAPalette) throws IOException {
-		renderObject(responseWriter, "strings", hSVAPalette.getStrings());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", hSVAPalette.getDestroyed()));
+		}
+	}
+
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", hSVAPalette.getDisabled()));
+		}
+	}
+
+	protected void renderFieldValidator(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getFieldValidator() != null) {
+			renrederedAttributes.add(renderObject("fieldValidator", hSVAPalette.getFieldValidator()));
+		}
+	}
+
+	protected void renderFocused(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", hSVAPalette.getFocused()));
+		}
+	}
+
+	protected void renderHeight(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", hSVAPalette.getHeight()));
+		}
+	}
+
+	protected void renderHsvapaletteId(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getHsvapaletteId() != null) {
+			renrederedAttributes.add(renderString("hsvapaletteId", hSVAPalette.getHsvapaletteId()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", hSVAPalette.getInitialized()));
+		}
+	}
+
+	protected void renderHsvapaletteLocale(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getHsvapaletteLocale() != null) {
+			renrederedAttributes.add(renderString("hsvapaletteLocale", hSVAPalette.getHsvapaletteLocale()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getRender() != null) {
+			renrederedAttributes.add(renderString("render", hSVAPalette.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", hSVAPalette.getRendered()));
+		}
+	}
+
+	protected void renderSelected(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getSelected() != null) {
+			renrederedAttributes.add(renderString("selected", hSVAPalette.getSelected()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", hSVAPalette.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", hSVAPalette.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", hSVAPalette.getTabIndex()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", hSVAPalette.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		if (hSVAPalette.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", hSVAPalette.getWidth()));
+		}
 	}
 
 }

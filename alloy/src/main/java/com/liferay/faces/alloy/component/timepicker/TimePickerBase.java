@@ -27,6 +27,8 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 	private static final String CONTAINER = "container";
 	private static final String CONTENT = "content";
 	private static final String DATE_SEPARATOR = "dateSeparator";
+	private static final String DESTROYED = "destroyed";
+	private static final String INITIALIZED = "initialized";
 	private static final String MASK = "mask";
 	private static final String POPOVER = "popover";
 	private static final String POPOVER_CSS_CLASS = "popoverCssClass";
@@ -39,6 +41,8 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 	private static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
 	private static final String AFTER_CONTENT_CHANGE = "afterContentChange";
 	private static final String AFTER_DATE_SEPARATOR_CHANGE = "afterDateSeparatorChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_MASK_CHANGE = "afterMaskChange";
 	private static final String AFTER_POPOVER_CHANGE = "afterPopoverChange";
 	private static final String AFTER_POPOVER_CSS_CLASS_CHANGE = "afterPopoverCssClassChange";
@@ -51,6 +55,8 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 	private static final String ON_CONTAINER_CHANGE = "onContainerChange";
 	private static final String ON_CONTENT_CHANGE = "onContentChange";
 	private static final String ON_DATE_SEPARATOR_CHANGE = "onDateSeparatorChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_MASK_CHANGE = "onMaskChange";
 	private static final String ON_POPOVER_CHANGE = "onPopoverChange";
 	private static final String ON_POPOVER_CSS_CLASS_CHANGE = "onPopoverCssClassChange";
@@ -58,291 +64,339 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 	private static final String ON_VALUE_FORMATTER_CHANGE = "onValueFormatterChange";
 	private static final String ON_VALUES_CHANGE = "onValuesChange";
 
-	protected java.lang.String getActiveInput() {
+	public java.lang.String getActiveInput() {
 		return (java.lang.String) getStateHelper().eval(ACTIVE_INPUT, null);
 	}
 
-	protected void setActiveInput(java.lang.String activeInput) {
+	public void setActiveInput(java.lang.String activeInput) {
 		getStateHelper().put(ACTIVE_INPUT, activeInput);
 	}
 
-	protected java.lang.Boolean getAutoHide() {
+	public java.lang.Boolean getAutoHide() {
 		return (java.lang.Boolean) getStateHelper().eval(AUTO_HIDE, null);
 	}
 
-	protected void setAutoHide(java.lang.Boolean autoHide) {
+	public void setAutoHide(java.lang.Boolean autoHide) {
 		getStateHelper().put(AUTO_HIDE, autoHide);
 	}
 
-	protected java.lang.String getAutocomplete() {
+	public java.lang.String getAutocomplete() {
 		return (java.lang.String) getStateHelper().eval(AUTOCOMPLETE, null);
 	}
 
-	protected void setAutocomplete(java.lang.String autocomplete) {
+	public void setAutocomplete(java.lang.String autocomplete) {
 		getStateHelper().put(AUTOCOMPLETE, autocomplete);
 	}
 
-	protected java.lang.String getContainer() {
+	public java.lang.String getContainer() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.String container) {
+	public void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 
-	protected java.lang.String getContent() {
+	public java.lang.String getContent() {
 		return (java.lang.String) getStateHelper().eval(CONTENT, null);
 	}
 
-	protected void setContent(java.lang.String content) {
+	public void setContent(java.lang.String content) {
 		getStateHelper().put(CONTENT, content);
 	}
 
-	protected java.lang.String getDateSeparator() {
+	public java.lang.String getDateSeparator() {
 		return (java.lang.String) getStateHelper().eval(DATE_SEPARATOR, null);
 	}
 
-	protected void setDateSeparator(java.lang.String dateSeparator) {
+	public void setDateSeparator(java.lang.String dateSeparator) {
 		getStateHelper().put(DATE_SEPARATOR, dateSeparator);
 	}
 
-	protected java.lang.String getMask() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.String getMask() {
 		return (java.lang.String) getStateHelper().eval(MASK, null);
 	}
 
-	protected void setMask(java.lang.String mask) {
+	public void setMask(java.lang.String mask) {
 		getStateHelper().put(MASK, mask);
 	}
 
-	protected java.lang.String getPopover() {
+	public java.lang.String getPopover() {
 		return (java.lang.String) getStateHelper().eval(POPOVER, null);
 	}
 
-	protected void setPopover(java.lang.String popover) {
+	public void setPopover(java.lang.String popover) {
 		getStateHelper().put(POPOVER, popover);
 	}
 
-	protected java.lang.String getPopoverCssClass() {
+	public java.lang.String getPopoverCssClass() {
 		return (java.lang.String) getStateHelper().eval(POPOVER_CSS_CLASS, null);
 	}
 
-	protected void setPopoverCssClass(java.lang.String popoverCssClass) {
+	public void setPopoverCssClass(java.lang.String popoverCssClass) {
 		getStateHelper().put(POPOVER_CSS_CLASS, popoverCssClass);
 	}
 
-	protected java.lang.Object getValueExtractor() {
+	public java.lang.Object getValueExtractor() {
 		return (java.lang.Object) getStateHelper().eval(VALUE_EXTRACTOR, null);
 	}
 
-	protected void setValueExtractor(java.lang.Object valueExtractor) {
+	public void setValueExtractor(java.lang.Object valueExtractor) {
 		getStateHelper().put(VALUE_EXTRACTOR, valueExtractor);
 	}
 
-	protected java.lang.Object getValueFormatter() {
+	public java.lang.Object getValueFormatter() {
 		return (java.lang.Object) getStateHelper().eval(VALUE_FORMATTER, null);
 	}
 
-	protected void setValueFormatter(java.lang.Object valueFormatter) {
+	public void setValueFormatter(java.lang.Object valueFormatter) {
 		getStateHelper().put(VALUE_FORMATTER, valueFormatter);
 	}
 
-	protected java.lang.Object getTimepickerValues() {
+	public java.lang.Object getTimepickerValues() {
 		return (java.lang.Object) getStateHelper().eval(TIMEPICKER_VALUES, null);
 	}
 
-	protected void setTimepickerValues(java.lang.Object timepickerValues) {
+	public void setTimepickerValues(java.lang.Object timepickerValues) {
 		getStateHelper().put(TIMEPICKER_VALUES, timepickerValues);
 	}
 
-	protected java.lang.String getAfterActiveInputChange() {
+	public java.lang.String getAfterActiveInputChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ACTIVE_INPUT_CHANGE, null);
 	}
 
-	protected void setAfterActiveInputChange(java.lang.String afterActiveInputChange) {
+	public void setAfterActiveInputChange(java.lang.String afterActiveInputChange) {
 		getStateHelper().put(AFTER_ACTIVE_INPUT_CHANGE, afterActiveInputChange);
 	}
 
-	protected java.lang.String getAfterAutoHideChange() {
+	public java.lang.String getAfterAutoHideChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_AUTO_HIDE_CHANGE, null);
 	}
 
-	protected void setAfterAutoHideChange(java.lang.String afterAutoHideChange) {
+	public void setAfterAutoHideChange(java.lang.String afterAutoHideChange) {
 		getStateHelper().put(AFTER_AUTO_HIDE_CHANGE, afterAutoHideChange);
 	}
 
-	protected java.lang.String getAfterAutocompleteChange() {
+	public java.lang.String getAfterAutocompleteChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_AUTOCOMPLETE_CHANGE, null);
 	}
 
-	protected void setAfterAutocompleteChange(java.lang.String afterAutocompleteChange) {
+	public void setAfterAutocompleteChange(java.lang.String afterAutocompleteChange) {
 		getStateHelper().put(AFTER_AUTOCOMPLETE_CHANGE, afterAutocompleteChange);
 	}
 
-	protected java.lang.String getAfterContainerChange() {
+	public java.lang.String getAfterContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterContainerChange(java.lang.String afterContainerChange) {
+	public void setAfterContainerChange(java.lang.String afterContainerChange) {
 		getStateHelper().put(AFTER_CONTAINER_CHANGE, afterContainerChange);
 	}
 
-	protected java.lang.String getAfterContentChange() {
+	public java.lang.String getAfterContentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTENT_CHANGE, null);
 	}
 
-	protected void setAfterContentChange(java.lang.String afterContentChange) {
+	public void setAfterContentChange(java.lang.String afterContentChange) {
 		getStateHelper().put(AFTER_CONTENT_CHANGE, afterContentChange);
 	}
 
-	protected java.lang.String getAfterDateSeparatorChange() {
+	public java.lang.String getAfterDateSeparatorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DATE_SEPARATOR_CHANGE, null);
 	}
 
-	protected void setAfterDateSeparatorChange(java.lang.String afterDateSeparatorChange) {
+	public void setAfterDateSeparatorChange(java.lang.String afterDateSeparatorChange) {
 		getStateHelper().put(AFTER_DATE_SEPARATOR_CHANGE, afterDateSeparatorChange);
 	}
 
-	protected java.lang.String getAfterMaskChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterMaskChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_MASK_CHANGE, null);
 	}
 
-	protected void setAfterMaskChange(java.lang.String afterMaskChange) {
+	public void setAfterMaskChange(java.lang.String afterMaskChange) {
 		getStateHelper().put(AFTER_MASK_CHANGE, afterMaskChange);
 	}
 
-	protected java.lang.String getAfterPopoverChange() {
+	public java.lang.String getAfterPopoverChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_POPOVER_CHANGE, null);
 	}
 
-	protected void setAfterPopoverChange(java.lang.String afterPopoverChange) {
+	public void setAfterPopoverChange(java.lang.String afterPopoverChange) {
 		getStateHelper().put(AFTER_POPOVER_CHANGE, afterPopoverChange);
 	}
 
-	protected java.lang.String getAfterPopoverCssClassChange() {
+	public java.lang.String getAfterPopoverCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_POPOVER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterPopoverCssClassChange(java.lang.String afterPopoverCssClassChange) {
+	public void setAfterPopoverCssClassChange(java.lang.String afterPopoverCssClassChange) {
 		getStateHelper().put(AFTER_POPOVER_CSS_CLASS_CHANGE, afterPopoverCssClassChange);
 	}
 
-	protected java.lang.String getAfterValueExtractorChange() {
+	public java.lang.String getAfterValueExtractorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALUE_EXTRACTOR_CHANGE, null);
 	}
 
-	protected void setAfterValueExtractorChange(java.lang.String afterValueExtractorChange) {
+	public void setAfterValueExtractorChange(java.lang.String afterValueExtractorChange) {
 		getStateHelper().put(AFTER_VALUE_EXTRACTOR_CHANGE, afterValueExtractorChange);
 	}
 
-	protected java.lang.String getAfterValueFormatterChange() {
+	public java.lang.String getAfterValueFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALUE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setAfterValueFormatterChange(java.lang.String afterValueFormatterChange) {
+	public void setAfterValueFormatterChange(java.lang.String afterValueFormatterChange) {
 		getStateHelper().put(AFTER_VALUE_FORMATTER_CHANGE, afterValueFormatterChange);
 	}
 
-	protected java.lang.String getAfterValuesChange() {
+	public java.lang.String getAfterValuesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALUES_CHANGE, null);
 	}
 
-	protected void setAfterValuesChange(java.lang.String afterValuesChange) {
+	public void setAfterValuesChange(java.lang.String afterValuesChange) {
 		getStateHelper().put(AFTER_VALUES_CHANGE, afterValuesChange);
 	}
 
-	protected java.lang.String getOnActiveInputChange() {
+	public java.lang.String getOnActiveInputChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ACTIVE_INPUT_CHANGE, null);
 	}
 
-	protected void setOnActiveInputChange(java.lang.String onActiveInputChange) {
+	public void setOnActiveInputChange(java.lang.String onActiveInputChange) {
 		getStateHelper().put(ON_ACTIVE_INPUT_CHANGE, onActiveInputChange);
 	}
 
-	protected java.lang.String getOnAutoHideChange() {
+	public java.lang.String getOnAutoHideChange() {
 		return (java.lang.String) getStateHelper().eval(ON_AUTO_HIDE_CHANGE, null);
 	}
 
-	protected void setOnAutoHideChange(java.lang.String onAutoHideChange) {
+	public void setOnAutoHideChange(java.lang.String onAutoHideChange) {
 		getStateHelper().put(ON_AUTO_HIDE_CHANGE, onAutoHideChange);
 	}
 
-	protected java.lang.String getOnAutocompleteChange() {
+	public java.lang.String getOnAutocompleteChange() {
 		return (java.lang.String) getStateHelper().eval(ON_AUTOCOMPLETE_CHANGE, null);
 	}
 
-	protected void setOnAutocompleteChange(java.lang.String onAutocompleteChange) {
+	public void setOnAutocompleteChange(java.lang.String onAutocompleteChange) {
 		getStateHelper().put(ON_AUTOCOMPLETE_CHANGE, onAutocompleteChange);
 	}
 
-	protected java.lang.String getOnContainerChange() {
+	public java.lang.String getOnContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnContainerChange(java.lang.String onContainerChange) {
+	public void setOnContainerChange(java.lang.String onContainerChange) {
 		getStateHelper().put(ON_CONTAINER_CHANGE, onContainerChange);
 	}
 
-	protected java.lang.String getOnContentChange() {
+	public java.lang.String getOnContentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTENT_CHANGE, null);
 	}
 
-	protected void setOnContentChange(java.lang.String onContentChange) {
+	public void setOnContentChange(java.lang.String onContentChange) {
 		getStateHelper().put(ON_CONTENT_CHANGE, onContentChange);
 	}
 
-	protected java.lang.String getOnDateSeparatorChange() {
+	public java.lang.String getOnDateSeparatorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DATE_SEPARATOR_CHANGE, null);
 	}
 
-	protected void setOnDateSeparatorChange(java.lang.String onDateSeparatorChange) {
+	public void setOnDateSeparatorChange(java.lang.String onDateSeparatorChange) {
 		getStateHelper().put(ON_DATE_SEPARATOR_CHANGE, onDateSeparatorChange);
 	}
 
-	protected java.lang.String getOnMaskChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnMaskChange() {
 		return (java.lang.String) getStateHelper().eval(ON_MASK_CHANGE, null);
 	}
 
-	protected void setOnMaskChange(java.lang.String onMaskChange) {
+	public void setOnMaskChange(java.lang.String onMaskChange) {
 		getStateHelper().put(ON_MASK_CHANGE, onMaskChange);
 	}
 
-	protected java.lang.String getOnPopoverChange() {
+	public java.lang.String getOnPopoverChange() {
 		return (java.lang.String) getStateHelper().eval(ON_POPOVER_CHANGE, null);
 	}
 
-	protected void setOnPopoverChange(java.lang.String onPopoverChange) {
+	public void setOnPopoverChange(java.lang.String onPopoverChange) {
 		getStateHelper().put(ON_POPOVER_CHANGE, onPopoverChange);
 	}
 
-	protected java.lang.String getOnPopoverCssClassChange() {
+	public java.lang.String getOnPopoverCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_POPOVER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setOnPopoverCssClassChange(java.lang.String onPopoverCssClassChange) {
+	public void setOnPopoverCssClassChange(java.lang.String onPopoverCssClassChange) {
 		getStateHelper().put(ON_POPOVER_CSS_CLASS_CHANGE, onPopoverCssClassChange);
 	}
 
-	protected java.lang.String getOnValueExtractorChange() {
+	public java.lang.String getOnValueExtractorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALUE_EXTRACTOR_CHANGE, null);
 	}
 
-	protected void setOnValueExtractorChange(java.lang.String onValueExtractorChange) {
+	public void setOnValueExtractorChange(java.lang.String onValueExtractorChange) {
 		getStateHelper().put(ON_VALUE_EXTRACTOR_CHANGE, onValueExtractorChange);
 	}
 
-	protected java.lang.String getOnValueFormatterChange() {
+	public java.lang.String getOnValueFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALUE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setOnValueFormatterChange(java.lang.String onValueFormatterChange) {
+	public void setOnValueFormatterChange(java.lang.String onValueFormatterChange) {
 		getStateHelper().put(ON_VALUE_FORMATTER_CHANGE, onValueFormatterChange);
 	}
 
-	protected java.lang.String getOnValuesChange() {
+	public java.lang.String getOnValuesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALUES_CHANGE, null);
 	}
 
-	protected void setOnValuesChange(java.lang.String onValuesChange) {
+	public void setOnValuesChange(java.lang.String onValuesChange) {
 		getStateHelper().put(ON_VALUES_CHANGE, onValuesChange);
 	}
 

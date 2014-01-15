@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.aria;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,24 +57,35 @@ public abstract class AriaRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, aria);
 
-		bufferedResponseWriter.write("var aria = new Y.Aria");
+		bufferedResponseWriter.write("var aria = new A.Aria");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAttributeNode(bufferedResponseWriter, aria);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAttributeValueFormat(bufferedResponseWriter, aria);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAriaAttributes(bufferedResponseWriter, aria);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRoleName(bufferedResponseWriter, aria);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRoleNode(bufferedResponseWriter, aria);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValidateW3C(bufferedResponseWriter, aria);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAttributeNode(renrederedAttributes, aria);
+		renderAttributeValueFormat(renrederedAttributes, aria);
+		renderAriaAttributes(renrederedAttributes, aria);
+		renderDestroyed(renrederedAttributes, aria);
+		renderHost(renrederedAttributes, aria);
+		renderInitialized(renrederedAttributes, aria);
+		renderRoleName(renrederedAttributes, aria);
+		renderRoleNode(renrederedAttributes, aria);
+		renderValidateW3C(renrederedAttributes, aria);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -86,28 +99,58 @@ public abstract class AriaRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAttributeNode(ResponseWriter responseWriter, Aria aria) throws IOException {
-		renderString(responseWriter, "attributeNode", aria.getAttributeNode());
+	protected void renderAttributeNode(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getAttributeNode() != null) {
+			renrederedAttributes.add(renderString("attributeNode", aria.getAttributeNode()));
+		}
 	}
 
-	protected void renderAttributeValueFormat(ResponseWriter responseWriter, Aria aria) throws IOException {
-		renderString(responseWriter, "attributeValueFormat", aria.getAttributeValueFormat());
+	protected void renderAttributeValueFormat(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getAttributeValueFormat() != null) {
+			renrederedAttributes.add(renderString("attributeValueFormat", aria.getAttributeValueFormat()));
+		}
 	}
 
-	protected void renderAriaAttributes(ResponseWriter responseWriter, Aria aria) throws IOException {
-		renderObject(responseWriter, "ariaAttributes", aria.getAriaAttributes());
+	protected void renderAriaAttributes(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getAriaAttributes() != null) {
+			renrederedAttributes.add(renderObject("ariaAttributes", aria.getAriaAttributes()));
+		}
 	}
 
-	protected void renderRoleName(ResponseWriter responseWriter, Aria aria) throws IOException {
-		renderString(responseWriter, "roleName", aria.getRoleName());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", aria.getDestroyed()));
+		}
 	}
 
-	protected void renderRoleNode(ResponseWriter responseWriter, Aria aria) throws IOException {
-		renderString(responseWriter, "roleNode", aria.getRoleNode());
+	protected void renderHost(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getHost() != null) {
+			renrederedAttributes.add(renderString("host", aria.getHost()));
+		}
 	}
 
-	protected void renderValidateW3C(ResponseWriter responseWriter, Aria aria) throws IOException {
-		renderBoolean(responseWriter, "validateW3C", aria.getValidateW3C());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", aria.getInitialized()));
+		}
+	}
+
+	protected void renderRoleName(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getRoleName() != null) {
+			renrederedAttributes.add(renderString("roleName", aria.getRoleName()));
+		}
+	}
+
+	protected void renderRoleNode(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getRoleNode() != null) {
+			renrederedAttributes.add(renderString("roleNode", aria.getRoleNode()));
+		}
+	}
+
+	protected void renderValidateW3C(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
+		if (aria.getValidateW3C() != null) {
+			renrederedAttributes.add(renderBoolean("validateW3C", aria.getValidateW3C()));
+		}
 	}
 
 }

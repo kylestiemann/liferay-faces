@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.formbuildercheckboxfield;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,70 +57,55 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, formBuilderCheckBoxField);
 
-		bufferedResponseWriter.write("var formBuilderCheckBoxField = new Y.FormBuilderCheckBoxField");
+		bufferedResponseWriter.write("var formBuilderCheckBoxField = new A.FormBuilderCheckBoxField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBuilder(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDataType(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropZoneNode(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenAttributes(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuildercheckboxfieldId(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLocalizationMap(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuildercheckboxfieldParent(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPredefinedValue(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnly(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnlyAttributes(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequiredFlagNode(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowLabel(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplate(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplateNode(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTip(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTipFlagNode(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUnique(bufferedResponseWriter, formBuilderCheckBoxField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, formBuilderCheckBoxField);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAcceptChildren(renrederedAttributes, formBuilderCheckBoxField);
+		renderBuilder(renrederedAttributes, formBuilderCheckBoxField);
+		renderControlsToolbar(renrederedAttributes, formBuilderCheckBoxField);
+		renderDataType(renrederedAttributes, formBuilderCheckBoxField);
+		renderDisabled(renrederedAttributes, formBuilderCheckBoxField);
+		renderDropZoneNode(renrederedAttributes, formBuilderCheckBoxField);
+		renderHiddenAttributes(renrederedAttributes, formBuilderCheckBoxField);
+		renderFormbuildercheckboxfieldId(renrederedAttributes, formBuilderCheckBoxField);
+		renderLabel(renrederedAttributes, formBuilderCheckBoxField);
+		renderLabelNode(renrederedAttributes, formBuilderCheckBoxField);
+		renderLocalizationMap(renrederedAttributes, formBuilderCheckBoxField);
+		renderName(renrederedAttributes, formBuilderCheckBoxField);
+		renderFormbuildercheckboxfieldParent(renrederedAttributes, formBuilderCheckBoxField);
+		renderPredefinedValue(renrederedAttributes, formBuilderCheckBoxField);
+		renderReadOnly(renrederedAttributes, formBuilderCheckBoxField);
+		renderReadOnlyAttributes(renrederedAttributes, formBuilderCheckBoxField);
+		renderRequired(renrederedAttributes, formBuilderCheckBoxField);
+		renderRequiredFlagNode(renrederedAttributes, formBuilderCheckBoxField);
+		renderSelected(renrederedAttributes, formBuilderCheckBoxField);
+		renderShowLabel(renrederedAttributes, formBuilderCheckBoxField);
+		renderStrings(renrederedAttributes, formBuilderCheckBoxField);
+		renderTabIndex(renrederedAttributes, formBuilderCheckBoxField);
+		renderTemplate(renrederedAttributes, formBuilderCheckBoxField);
+		renderTemplateNode(renrederedAttributes, formBuilderCheckBoxField);
+		renderTip(renrederedAttributes, formBuilderCheckBoxField);
+		renderTipFlagNode(renrederedAttributes, formBuilderCheckBoxField);
+		renderType(renrederedAttributes, formBuilderCheckBoxField);
+		renderUnique(renrederedAttributes, formBuilderCheckBoxField);
+		renderZIndex(renrederedAttributes, formBuilderCheckBoxField);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -132,120 +119,178 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "acceptChildren", formBuilderCheckBoxField.getAcceptChildren());
+	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getAcceptChildren() != null) {
+			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderCheckBoxField.getAcceptChildren()));
+		}
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "builder", formBuilderCheckBoxField.getBuilder());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getBuilder() != null) {
+			renrederedAttributes.add(renderBoolean("builder", formBuilderCheckBoxField.getBuilder()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", formBuilderCheckBoxField.getControlsToolbar());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderCheckBoxField.getControlsToolbar()));
+		}
 	}
 
-	protected void renderDataType(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "dataType", formBuilderCheckBoxField.getDataType());
+	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getDataType() != null) {
+			renrederedAttributes.add(renderString("dataType", formBuilderCheckBoxField.getDataType()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "disabled", formBuilderCheckBoxField.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", formBuilderCheckBoxField.getDisabled()));
+		}
 	}
 
-	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "dropZoneNode", formBuilderCheckBoxField.getDropZoneNode());
+	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getDropZoneNode() != null) {
+			renrederedAttributes.add(renderString("dropZoneNode", formBuilderCheckBoxField.getDropZoneNode()));
+		}
 	}
 
-	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderArray(responseWriter, "hiddenAttributes", formBuilderCheckBoxField.getHiddenAttributes());
+	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getHiddenAttributes() != null) {
+			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderCheckBoxField.getHiddenAttributes()));
+		}
 	}
 
-	protected void renderFormbuildercheckboxfieldId(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "formbuildercheckboxfieldId", formBuilderCheckBoxField.getFormbuildercheckboxfieldId());
+	protected void renderFormbuildercheckboxfieldId(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getFormbuildercheckboxfieldId() != null) {
+			renrederedAttributes.add(renderString("formbuildercheckboxfieldId", formBuilderCheckBoxField.getFormbuildercheckboxfieldId()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "label", formBuilderCheckBoxField.getLabel());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", formBuilderCheckBoxField.getLabel()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "labelNode", formBuilderCheckBoxField.getLabelNode());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", formBuilderCheckBoxField.getLabelNode()));
+		}
 	}
 
-	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderObject(responseWriter, "localizationMap", formBuilderCheckBoxField.getLocalizationMap());
+	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getLocalizationMap() != null) {
+			renrederedAttributes.add(renderObject("localizationMap", formBuilderCheckBoxField.getLocalizationMap()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "name", formBuilderCheckBoxField.getName());
+	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getName() != null) {
+			renrederedAttributes.add(renderString("name", formBuilderCheckBoxField.getName()));
+		}
 	}
 
-	protected void renderFormbuildercheckboxfieldParent(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "formbuildercheckboxfieldParent", formBuilderCheckBoxField.getFormbuildercheckboxfieldParent());
+	protected void renderFormbuildercheckboxfieldParent(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getFormbuildercheckboxfieldParent() != null) {
+			renrederedAttributes.add(renderString("formbuildercheckboxfieldParent", formBuilderCheckBoxField.getFormbuildercheckboxfieldParent()));
+		}
 	}
 
-	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "predefinedValue", formBuilderCheckBoxField.getPredefinedValue());
+	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getPredefinedValue() != null) {
+			renrederedAttributes.add(renderBoolean("predefinedValue", formBuilderCheckBoxField.getPredefinedValue()));
+		}
 	}
 
-	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "readOnly", formBuilderCheckBoxField.getReadOnly());
+	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getReadOnly() != null) {
+			renrederedAttributes.add(renderBoolean("readOnly", formBuilderCheckBoxField.getReadOnly()));
+		}
 	}
 
-	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderArray(responseWriter, "readOnlyAttributes", formBuilderCheckBoxField.getReadOnlyAttributes());
+	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getReadOnlyAttributes() != null) {
+			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderCheckBoxField.getReadOnlyAttributes()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "required", formBuilderCheckBoxField.getRequired());
+	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", formBuilderCheckBoxField.getRequired()));
+		}
 	}
 
-	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "requiredFlagNode", formBuilderCheckBoxField.getRequiredFlagNode());
+	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getRequiredFlagNode() != null) {
+			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderCheckBoxField.getRequiredFlagNode()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "selected", formBuilderCheckBoxField.getSelected());
+	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", formBuilderCheckBoxField.getSelected()));
+		}
 	}
 
-	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "showLabel", formBuilderCheckBoxField.getShowLabel());
+	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getShowLabel() != null) {
+			renrederedAttributes.add(renderBoolean("showLabel", formBuilderCheckBoxField.getShowLabel()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderObject(responseWriter, "strings", formBuilderCheckBoxField.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", formBuilderCheckBoxField.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderNumber(responseWriter, "tabIndex", formBuilderCheckBoxField.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", formBuilderCheckBoxField.getTabIndex()));
+		}
 	}
 
-	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "template", formBuilderCheckBoxField.getTemplate());
+	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getTemplate() != null) {
+			renrederedAttributes.add(renderString("template", formBuilderCheckBoxField.getTemplate()));
+		}
 	}
 
-	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "templateNode", formBuilderCheckBoxField.getTemplateNode());
+	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getTemplateNode() != null) {
+			renrederedAttributes.add(renderString("templateNode", formBuilderCheckBoxField.getTemplateNode()));
+		}
 	}
 
-	protected void renderTip(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "tip", formBuilderCheckBoxField.getTip());
+	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getTip() != null) {
+			renrederedAttributes.add(renderString("tip", formBuilderCheckBoxField.getTip()));
+		}
 	}
 
-	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "tipFlagNode", formBuilderCheckBoxField.getTipFlagNode());
+	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getTipFlagNode() != null) {
+			renrederedAttributes.add(renderString("tipFlagNode", formBuilderCheckBoxField.getTipFlagNode()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderString(responseWriter, "type", formBuilderCheckBoxField.getType());
+	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getType() != null) {
+			renrederedAttributes.add(renderString("type", formBuilderCheckBoxField.getType()));
+		}
 	}
 
-	protected void renderUnique(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderBoolean(responseWriter, "unique", formBuilderCheckBoxField.getUnique());
+	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getUnique() != null) {
+			renrederedAttributes.add(renderBoolean("unique", formBuilderCheckBoxField.getUnique()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
-		renderNumber(responseWriter, "zIndex", formBuilderCheckBoxField.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
+		if (formBuilderCheckBoxField.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", formBuilderCheckBoxField.getZIndex()));
+		}
 	}
 
 }

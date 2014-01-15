@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.freemarker;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,22 +57,31 @@ public abstract class FreemarkerRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, freemarker);
 
-		bufferedResponseWriter.write("var freemarker = new Y.Freemarker");
+		bufferedResponseWriter.write("var freemarker = new A.Freemarker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(bufferedResponseWriter, freemarker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDirectivesMatcher(bufferedResponseWriter, freemarker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHost(bufferedResponseWriter, freemarker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVariables(bufferedResponseWriter, freemarker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVariablesMatcher(bufferedResponseWriter, freemarker);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDirectives(renrederedAttributes, freemarker);
+		renderDirectivesMatcher(renrederedAttributes, freemarker);
+		renderHost(renrederedAttributes, freemarker);
+		renderVariables(renrederedAttributes, freemarker);
+		renderVariablesMatcher(renrederedAttributes, freemarker);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -84,24 +95,34 @@ public abstract class FreemarkerRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDirectives(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
-		renderArray(responseWriter, "directives", freemarker.getDirectives());
+	protected void renderDirectives(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
+		if (freemarker.getDirectives() != null) {
+			renrederedAttributes.add(renderArray("directives", freemarker.getDirectives()));
+		}
 	}
 
-	protected void renderDirectivesMatcher(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
-		renderString(responseWriter, "directivesMatcher", freemarker.getDirectivesMatcher());
+	protected void renderDirectivesMatcher(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
+		if (freemarker.getDirectivesMatcher() != null) {
+			renrederedAttributes.add(renderString("directivesMatcher", freemarker.getDirectivesMatcher()));
+		}
 	}
 
-	protected void renderHost(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
-		renderObject(responseWriter, "host", freemarker.getHost());
+	protected void renderHost(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
+		if (freemarker.getHost() != null) {
+			renrederedAttributes.add(renderObject("host", freemarker.getHost()));
+		}
 	}
 
-	protected void renderVariables(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
-		renderObject(responseWriter, "variables", freemarker.getVariables());
+	protected void renderVariables(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
+		if (freemarker.getVariables() != null) {
+			renrederedAttributes.add(renderObject("variables", freemarker.getVariables()));
+		}
 	}
 
-	protected void renderVariablesMatcher(ResponseWriter responseWriter, Freemarker freemarker) throws IOException {
-		renderString(responseWriter, "variablesMatcher", freemarker.getVariablesMatcher());
+	protected void renderVariablesMatcher(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
+		if (freemarker.getVariablesMatcher() != null) {
+			renrederedAttributes.add(renderString("variablesMatcher", freemarker.getVariablesMatcher()));
+		}
 	}
 
 }

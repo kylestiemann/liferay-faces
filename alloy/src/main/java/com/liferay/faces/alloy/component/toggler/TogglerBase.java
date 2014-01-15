@@ -25,189 +25,243 @@ public abstract class TogglerBase extends javax.faces.component.UIPanel {
 	private static final String ANIMATING = "animating";
 	private static final String BIND_DOMEVENTS = "bindDOMEvents";
 	private static final String CONTENT = "content";
+	private static final String DESTROYED = "destroyed";
 	private static final String EXPANDED = "expanded";
 	private static final String HEADER = "header";
+	private static final String INITIALIZED = "initialized";
 	private static final String TRANSITION = "transition";
 	private static final String AFTER_ANIMATED_CHANGE = "afterAnimatedChange";
 	private static final String AFTER_ANIMATING_CHANGE = "afterAnimatingChange";
 	private static final String AFTER_BIND_DOMEVENTS_CHANGE = "afterBindDOMEventsChange";
 	private static final String AFTER_CONTENT_CHANGE = "afterContentChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
 	private static final String AFTER_EXPANDED_CHANGE = "afterExpandedChange";
 	private static final String AFTER_HEADER_CHANGE = "afterHeaderChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_TRANSITION_CHANGE = "afterTransitionChange";
 	private static final String ON_ANIMATED_CHANGE = "onAnimatedChange";
 	private static final String ON_ANIMATING_CHANGE = "onAnimatingChange";
 	private static final String ON_BIND_DOMEVENTS_CHANGE = "onBindDOMEventsChange";
 	private static final String ON_CONTENT_CHANGE = "onContentChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
 	private static final String ON_EXPANDED_CHANGE = "onExpandedChange";
 	private static final String ON_HEADER_CHANGE = "onHeaderChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_TRANSITION_CHANGE = "onTransitionChange";
 
-	protected java.lang.Boolean getAnimated() {
+	public java.lang.Boolean getAnimated() {
 		return (java.lang.Boolean) getStateHelper().eval(ANIMATED, null);
 	}
 
-	protected void setAnimated(java.lang.Boolean animated) {
+	public void setAnimated(java.lang.Boolean animated) {
 		getStateHelper().put(ANIMATED, animated);
 	}
 
-	protected java.lang.Boolean getAnimating() {
+	public java.lang.Boolean getAnimating() {
 		return (java.lang.Boolean) getStateHelper().eval(ANIMATING, null);
 	}
 
-	protected void setAnimating(java.lang.Boolean animating) {
+	public void setAnimating(java.lang.Boolean animating) {
 		getStateHelper().put(ANIMATING, animating);
 	}
 
-	protected java.lang.Boolean getBindDOMEvents() {
+	public java.lang.Boolean getBindDOMEvents() {
 		return (java.lang.Boolean) getStateHelper().eval(BIND_DOMEVENTS, null);
 	}
 
-	protected void setBindDOMEvents(java.lang.Boolean bindDOMEvents) {
+	public void setBindDOMEvents(java.lang.Boolean bindDOMEvents) {
 		getStateHelper().put(BIND_DOMEVENTS, bindDOMEvents);
 	}
 
-	protected java.lang.String getContent() {
+	public java.lang.String getContent() {
 		return (java.lang.String) getStateHelper().eval(CONTENT, null);
 	}
 
-	protected void setContent(java.lang.String content) {
+	public void setContent(java.lang.String content) {
 		getStateHelper().put(CONTENT, content);
 	}
 
-	protected java.lang.Boolean getExpanded() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Boolean getExpanded() {
 		return (java.lang.Boolean) getStateHelper().eval(EXPANDED, null);
 	}
 
-	protected void setExpanded(java.lang.Boolean expanded) {
+	public void setExpanded(java.lang.Boolean expanded) {
 		getStateHelper().put(EXPANDED, expanded);
 	}
 
-	protected java.lang.String getHeader() {
+	public java.lang.String getHeader() {
 		return (java.lang.String) getStateHelper().eval(HEADER, null);
 	}
 
-	protected void setHeader(java.lang.String header) {
+	public void setHeader(java.lang.String header) {
 		getStateHelper().put(HEADER, header);
 	}
 
-	protected java.lang.Object getTransition() {
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.Object getTransition() {
 		return (java.lang.Object) getStateHelper().eval(TRANSITION, null);
 	}
 
-	protected void setTransition(java.lang.Object transition) {
+	public void setTransition(java.lang.Object transition) {
 		getStateHelper().put(TRANSITION, transition);
 	}
 
-	protected java.lang.String getAfterAnimatedChange() {
+	public java.lang.String getAfterAnimatedChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ANIMATED_CHANGE, null);
 	}
 
-	protected void setAfterAnimatedChange(java.lang.String afterAnimatedChange) {
+	public void setAfterAnimatedChange(java.lang.String afterAnimatedChange) {
 		getStateHelper().put(AFTER_ANIMATED_CHANGE, afterAnimatedChange);
 	}
 
-	protected java.lang.String getAfterAnimatingChange() {
+	public java.lang.String getAfterAnimatingChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ANIMATING_CHANGE, null);
 	}
 
-	protected void setAfterAnimatingChange(java.lang.String afterAnimatingChange) {
+	public void setAfterAnimatingChange(java.lang.String afterAnimatingChange) {
 		getStateHelper().put(AFTER_ANIMATING_CHANGE, afterAnimatingChange);
 	}
 
-	protected java.lang.String getAfterBindDOMEventsChange() {
+	public java.lang.String getAfterBindDOMEventsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BIND_DOMEVENTS_CHANGE, null);
 	}
 
-	protected void setAfterBindDOMEventsChange(java.lang.String afterBindDOMEventsChange) {
+	public void setAfterBindDOMEventsChange(java.lang.String afterBindDOMEventsChange) {
 		getStateHelper().put(AFTER_BIND_DOMEVENTS_CHANGE, afterBindDOMEventsChange);
 	}
 
-	protected java.lang.String getAfterContentChange() {
+	public java.lang.String getAfterContentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTENT_CHANGE, null);
 	}
 
-	protected void setAfterContentChange(java.lang.String afterContentChange) {
+	public void setAfterContentChange(java.lang.String afterContentChange) {
 		getStateHelper().put(AFTER_CONTENT_CHANGE, afterContentChange);
 	}
 
-	protected java.lang.String getAfterExpandedChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterExpandedChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_EXPANDED_CHANGE, null);
 	}
 
-	protected void setAfterExpandedChange(java.lang.String afterExpandedChange) {
+	public void setAfterExpandedChange(java.lang.String afterExpandedChange) {
 		getStateHelper().put(AFTER_EXPANDED_CHANGE, afterExpandedChange);
 	}
 
-	protected java.lang.String getAfterHeaderChange() {
+	public java.lang.String getAfterHeaderChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HEADER_CHANGE, null);
 	}
 
-	protected void setAfterHeaderChange(java.lang.String afterHeaderChange) {
+	public void setAfterHeaderChange(java.lang.String afterHeaderChange) {
 		getStateHelper().put(AFTER_HEADER_CHANGE, afterHeaderChange);
 	}
 
-	protected java.lang.String getAfterTransitionChange() {
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterTransitionChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TRANSITION_CHANGE, null);
 	}
 
-	protected void setAfterTransitionChange(java.lang.String afterTransitionChange) {
+	public void setAfterTransitionChange(java.lang.String afterTransitionChange) {
 		getStateHelper().put(AFTER_TRANSITION_CHANGE, afterTransitionChange);
 	}
 
-	protected java.lang.String getOnAnimatedChange() {
+	public java.lang.String getOnAnimatedChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ANIMATED_CHANGE, null);
 	}
 
-	protected void setOnAnimatedChange(java.lang.String onAnimatedChange) {
+	public void setOnAnimatedChange(java.lang.String onAnimatedChange) {
 		getStateHelper().put(ON_ANIMATED_CHANGE, onAnimatedChange);
 	}
 
-	protected java.lang.String getOnAnimatingChange() {
+	public java.lang.String getOnAnimatingChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ANIMATING_CHANGE, null);
 	}
 
-	protected void setOnAnimatingChange(java.lang.String onAnimatingChange) {
+	public void setOnAnimatingChange(java.lang.String onAnimatingChange) {
 		getStateHelper().put(ON_ANIMATING_CHANGE, onAnimatingChange);
 	}
 
-	protected java.lang.String getOnBindDOMEventsChange() {
+	public java.lang.String getOnBindDOMEventsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BIND_DOMEVENTS_CHANGE, null);
 	}
 
-	protected void setOnBindDOMEventsChange(java.lang.String onBindDOMEventsChange) {
+	public void setOnBindDOMEventsChange(java.lang.String onBindDOMEventsChange) {
 		getStateHelper().put(ON_BIND_DOMEVENTS_CHANGE, onBindDOMEventsChange);
 	}
 
-	protected java.lang.String getOnContentChange() {
+	public java.lang.String getOnContentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTENT_CHANGE, null);
 	}
 
-	protected void setOnContentChange(java.lang.String onContentChange) {
+	public void setOnContentChange(java.lang.String onContentChange) {
 		getStateHelper().put(ON_CONTENT_CHANGE, onContentChange);
 	}
 
-	protected java.lang.String getOnExpandedChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnExpandedChange() {
 		return (java.lang.String) getStateHelper().eval(ON_EXPANDED_CHANGE, null);
 	}
 
-	protected void setOnExpandedChange(java.lang.String onExpandedChange) {
+	public void setOnExpandedChange(java.lang.String onExpandedChange) {
 		getStateHelper().put(ON_EXPANDED_CHANGE, onExpandedChange);
 	}
 
-	protected java.lang.String getOnHeaderChange() {
+	public java.lang.String getOnHeaderChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HEADER_CHANGE, null);
 	}
 
-	protected void setOnHeaderChange(java.lang.String onHeaderChange) {
+	public void setOnHeaderChange(java.lang.String onHeaderChange) {
 		getStateHelper().put(ON_HEADER_CHANGE, onHeaderChange);
 	}
 
-	protected java.lang.String getOnTransitionChange() {
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnTransitionChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TRANSITION_CHANGE, null);
 	}
 
-	protected void setOnTransitionChange(java.lang.String onTransitionChange) {
+	public void setOnTransitionChange(java.lang.String onTransitionChange) {
 		getStateHelper().put(ON_TRANSITION_CHANGE, onTransitionChange);
 	}
 

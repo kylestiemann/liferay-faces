@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulerevents;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,13 +57,28 @@ public abstract class SchedulerEventsRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerEvents);
 
-		bufferedResponseWriter.write("var schedulerEvents = new Y.SchedulerEvents");
+		bufferedResponseWriter.write("var schedulerEvents = new A.SchedulerEvents");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDestroyed(renrederedAttributes, schedulerEvents);
+		renderInitialized(renrederedAttributes, schedulerEvents);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -73,6 +90,18 @@ public abstract class SchedulerEventsRendererBase extends AUIRenderer {
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerEvents schedulerEvents) throws IOException {
+		if (schedulerEvents.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", schedulerEvents.getDestroyed()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerEvents schedulerEvents) throws IOException {
+		if (schedulerEvents.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", schedulerEvents.getInitialized()));
+		}
 	}
 
 }

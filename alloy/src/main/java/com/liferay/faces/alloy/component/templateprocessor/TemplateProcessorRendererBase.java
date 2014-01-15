@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.templateprocessor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,18 +57,31 @@ public abstract class TemplateProcessorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, templateProcessor);
 
-		bufferedResponseWriter.write("var templateProcessor = new Y.TemplateProcessor");
+		bufferedResponseWriter.write("var templateProcessor = new A.TemplateProcessor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(bufferedResponseWriter, templateProcessor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHost(bufferedResponseWriter, templateProcessor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVariables(bufferedResponseWriter, templateProcessor);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDestroyed(renrederedAttributes, templateProcessor);
+		renderDirectives(renrederedAttributes, templateProcessor);
+		renderHost(renrederedAttributes, templateProcessor);
+		renderInitialized(renrederedAttributes, templateProcessor);
+		renderVariables(renrederedAttributes, templateProcessor);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -80,16 +95,34 @@ public abstract class TemplateProcessorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDirectives(ResponseWriter responseWriter, TemplateProcessor templateProcessor) throws IOException {
-		renderArray(responseWriter, "directives", templateProcessor.getDirectives());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TemplateProcessor templateProcessor) throws IOException {
+		if (templateProcessor.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", templateProcessor.getDestroyed()));
+		}
 	}
 
-	protected void renderHost(ResponseWriter responseWriter, TemplateProcessor templateProcessor) throws IOException {
-		renderObject(responseWriter, "host", templateProcessor.getHost());
+	protected void renderDirectives(ArrayList<String> renrederedAttributes, TemplateProcessor templateProcessor) throws IOException {
+		if (templateProcessor.getDirectives() != null) {
+			renrederedAttributes.add(renderArray("directives", templateProcessor.getDirectives()));
+		}
 	}
 
-	protected void renderVariables(ResponseWriter responseWriter, TemplateProcessor templateProcessor) throws IOException {
-		renderObject(responseWriter, "variables", templateProcessor.getVariables());
+	protected void renderHost(ArrayList<String> renrederedAttributes, TemplateProcessor templateProcessor) throws IOException {
+		if (templateProcessor.getHost() != null) {
+			renrederedAttributes.add(renderObject("host", templateProcessor.getHost()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TemplateProcessor templateProcessor) throws IOException {
+		if (templateProcessor.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", templateProcessor.getInitialized()));
+		}
+	}
+
+	protected void renderVariables(ArrayList<String> renrederedAttributes, TemplateProcessor templateProcessor) throws IOException {
+		if (templateProcessor.getVariables() != null) {
+			renrederedAttributes.add(renderObject("variables", templateProcessor.getVariables()));
+		}
 	}
 
 }

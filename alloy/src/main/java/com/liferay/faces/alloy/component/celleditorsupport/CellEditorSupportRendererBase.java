@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.celleditorsupport;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class CellEditorSupportRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, cellEditorSupport);
 
-		bufferedResponseWriter.write("var cellEditorSupport = new Y.CellEditorSupport");
+		bufferedResponseWriter.write("var cellEditorSupport = new A.CellEditorSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderEditEvent(bufferedResponseWriter, cellEditorSupport);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderEditEvent(renrederedAttributes, cellEditorSupport);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class CellEditorSupportRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderEditEvent(ResponseWriter responseWriter, CellEditorSupport cellEditorSupport) throws IOException {
-		renderString(responseWriter, "editEvent", cellEditorSupport.getEditEvent());
+	protected void renderEditEvent(ArrayList<String> renrederedAttributes, CellEditorSupport cellEditorSupport) throws IOException {
+		if (cellEditorSupport.getEditEvent() != null) {
+			renrederedAttributes.add(renderString("editEvent", cellEditorSupport.getEditEvent()));
+		}
 	}
 
 }

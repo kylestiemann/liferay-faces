@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.togglebutton;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,22 +57,32 @@ public abstract class ToggleButtonRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, toggleButton);
 
-		bufferedResponseWriter.write("var toggleButton = new Y.ToggleButton");
+		bufferedResponseWriter.write("var toggleButton = new A.ToggleButton");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(bufferedResponseWriter, toggleButton);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIcon(bufferedResponseWriter, toggleButton);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconAlign(bufferedResponseWriter, toggleButton);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconElement(bufferedResponseWriter, toggleButton);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrimary(bufferedResponseWriter, toggleButton);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderCssClass(renrederedAttributes, toggleButton);
+		renderIcon(renrederedAttributes, toggleButton);
+		renderIconAlign(renrederedAttributes, toggleButton);
+		renderIconElement(renrederedAttributes, toggleButton);
+		renderPrimary(renrederedAttributes, toggleButton);
+		renderType(renrederedAttributes, toggleButton);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -84,24 +96,40 @@ public abstract class ToggleButtonRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
-		renderString(responseWriter, "cssClass", toggleButton.getCssClass());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, ToggleButton toggleButton) throws IOException {
+		if (toggleButton.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", toggleButton.getCssClass()));
+		}
 	}
 
-	protected void renderIcon(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
-		renderString(responseWriter, "icon", toggleButton.getIcon());
+	protected void renderIcon(ArrayList<String> renrederedAttributes, ToggleButton toggleButton) throws IOException {
+		if (toggleButton.getIcon() != null) {
+			renrederedAttributes.add(renderString("icon", toggleButton.getIcon()));
+		}
 	}
 
-	protected void renderIconAlign(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
-		renderString(responseWriter, "iconAlign", toggleButton.getIconAlign());
+	protected void renderIconAlign(ArrayList<String> renrederedAttributes, ToggleButton toggleButton) throws IOException {
+		if (toggleButton.getIconAlign() != null) {
+			renrederedAttributes.add(renderString("iconAlign", toggleButton.getIconAlign()));
+		}
 	}
 
-	protected void renderIconElement(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
-		renderString(responseWriter, "iconElement", toggleButton.getIconElement());
+	protected void renderIconElement(ArrayList<String> renrederedAttributes, ToggleButton toggleButton) throws IOException {
+		if (toggleButton.getIconElement() != null) {
+			renrederedAttributes.add(renderString("iconElement", toggleButton.getIconElement()));
+		}
 	}
 
-	protected void renderPrimary(ResponseWriter responseWriter, ToggleButton toggleButton) throws IOException {
-		renderBoolean(responseWriter, "primary", toggleButton.getPrimary());
+	protected void renderPrimary(ArrayList<String> renrederedAttributes, ToggleButton toggleButton) throws IOException {
+		if (toggleButton.getPrimary() != null) {
+			renrederedAttributes.add(renderBoolean("primary", toggleButton.getPrimary()));
+		}
+	}
+
+	protected void renderType(ArrayList<String> renrederedAttributes, ToggleButton toggleButton) throws IOException {
+		if (toggleButton.getType() != null) {
+			renrederedAttributes.add(renderString("type", toggleButton.getType()));
+		}
 	}
 
 }

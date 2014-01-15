@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.datepickernative;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,30 +57,37 @@ public abstract class DatePickerNativeRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, datePickerNative);
 
-		bufferedResponseWriter.write("var datePickerNative = new Y.DatePickerNative");
+		bufferedResponseWriter.write("var datePickerNative = new A.DatePickerNative");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveInput(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContent(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDateSeparator(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMask(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNativeMask(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNativeType(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValueExtractor(bufferedResponseWriter, datePickerNative);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValueFormatter(bufferedResponseWriter, datePickerNative);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderActiveInput(renrederedAttributes, datePickerNative);
+		renderContainer(renrederedAttributes, datePickerNative);
+		renderContent(renrederedAttributes, datePickerNative);
+		renderDateSeparator(renrederedAttributes, datePickerNative);
+		renderDestroyed(renrederedAttributes, datePickerNative);
+		renderInitialized(renrederedAttributes, datePickerNative);
+		renderMask(renrederedAttributes, datePickerNative);
+		renderNativeMask(renrederedAttributes, datePickerNative);
+		renderNativeType(renrederedAttributes, datePickerNative);
+		renderValueExtractor(renrederedAttributes, datePickerNative);
+		renderValueFormatter(renrederedAttributes, datePickerNative);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -92,40 +101,70 @@ public abstract class DatePickerNativeRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActiveInput(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "activeInput", datePickerNative.getActiveInput());
+	protected void renderActiveInput(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getActiveInput() != null) {
+			renrederedAttributes.add(renderString("activeInput", datePickerNative.getActiveInput()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "container", datePickerNative.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", datePickerNative.getContainer()));
+		}
 	}
 
-	protected void renderContent(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "content", datePickerNative.getContent());
+	protected void renderContent(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getContent() != null) {
+			renrederedAttributes.add(renderString("content", datePickerNative.getContent()));
+		}
 	}
 
-	protected void renderDateSeparator(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "dateSeparator", datePickerNative.getDateSeparator());
+	protected void renderDateSeparator(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getDateSeparator() != null) {
+			renrederedAttributes.add(renderString("dateSeparator", datePickerNative.getDateSeparator()));
+		}
 	}
 
-	protected void renderMask(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "mask", datePickerNative.getMask());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", datePickerNative.getDestroyed()));
+		}
 	}
 
-	protected void renderNativeMask(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "nativeMask", datePickerNative.getNativeMask());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", datePickerNative.getInitialized()));
+		}
 	}
 
-	protected void renderNativeType(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "nativeType", datePickerNative.getNativeType());
+	protected void renderMask(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getMask() != null) {
+			renrederedAttributes.add(renderString("mask", datePickerNative.getMask()));
+		}
 	}
 
-	protected void renderValueExtractor(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "valueExtractor", datePickerNative.getValueExtractor());
+	protected void renderNativeMask(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getNativeMask() != null) {
+			renrederedAttributes.add(renderString("nativeMask", datePickerNative.getNativeMask()));
+		}
 	}
 
-	protected void renderValueFormatter(ResponseWriter responseWriter, DatePickerNative datePickerNative) throws IOException {
-		renderString(responseWriter, "valueFormatter", datePickerNative.getValueFormatter());
+	protected void renderNativeType(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getNativeType() != null) {
+			renrederedAttributes.add(renderString("nativeType", datePickerNative.getNativeType()));
+		}
+	}
+
+	protected void renderValueExtractor(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getValueExtractor() != null) {
+			renrederedAttributes.add(renderString("valueExtractor", datePickerNative.getValueExtractor()));
+		}
+	}
+
+	protected void renderValueFormatter(ArrayList<String> renrederedAttributes, DatePickerNative datePickerNative) throws IOException {
+		if (datePickerNative.getValueFormatter() != null) {
+			renrederedAttributes.add(renderString("valueFormatter", datePickerNative.getValueFormatter()));
+		}
 	}
 
 }

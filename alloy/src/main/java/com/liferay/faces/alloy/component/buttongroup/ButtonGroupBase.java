@@ -21,5 +21,32 @@ package com.liferay.faces.alloy.component.buttongroup;
  */
 public abstract class ButtonGroupBase extends javax.faces.component.UIPanel {
 
+	private static final String TYPE = "type";
+	private static final String AFTER_TYPE_CHANGE = "afterTypeChange";
+	private static final String ON_TYPE_CHANGE = "onTypeChange";
+
+	public java.lang.String getType() {
+		return (java.lang.String) getStateHelper().eval(TYPE, null);
+	}
+
+	public void setType(java.lang.String type) {
+		getStateHelper().put(TYPE, type);
+	}
+
+	public java.lang.String getAfterTypeChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TYPE_CHANGE, null);
+	}
+
+	public void setAfterTypeChange(java.lang.String afterTypeChange) {
+		getStateHelper().put(AFTER_TYPE_CHANGE, afterTypeChange);
+	}
+
+	public java.lang.String getOnTypeChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TYPE_CHANGE, null);
+	}
+
+	public void setOnTypeChange(java.lang.String onTypeChange) {
+		getStateHelper().put(ON_TYPE_CHANGE, onTypeChange);
+	}
 
 }

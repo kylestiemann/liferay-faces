@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.datepicker;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,36 +57,40 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, datePicker);
 
-		bufferedResponseWriter.write("var datePicker = new Y.DatePicker");
+		bufferedResponseWriter.write("var datePicker = new A.DatePicker");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveInput(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAutoHide(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCalendar(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContent(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDateSeparator(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMask(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPanes(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopover(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPopoverCssClass(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValueExtractor(bufferedResponseWriter, datePicker);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValueFormatter(bufferedResponseWriter, datePicker);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderActiveInput(renrederedAttributes, datePicker);
+		renderAutoHide(renrederedAttributes, datePicker);
+		renderCalendar(renrederedAttributes, datePicker);
+		renderContainer(renrederedAttributes, datePicker);
+		renderContent(renrederedAttributes, datePicker);
+		renderDateSeparator(renrederedAttributes, datePicker);
+		renderDestroyed(renrederedAttributes, datePicker);
+		renderInitialized(renrederedAttributes, datePicker);
+		renderMask(renrederedAttributes, datePicker);
+		renderPanes(renrederedAttributes, datePicker);
+		renderPopover(renrederedAttributes, datePicker);
+		renderPopoverCssClass(renrederedAttributes, datePicker);
+		renderValueExtractor(renrederedAttributes, datePicker);
+		renderValueFormatter(renrederedAttributes, datePicker);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -98,52 +104,88 @@ public abstract class DatePickerRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActiveInput(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "activeInput", datePicker.getActiveInput());
+	protected void renderActiveInput(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getActiveInput() != null) {
+			renrederedAttributes.add(renderString("activeInput", datePicker.getActiveInput()));
+		}
 	}
 
-	protected void renderAutoHide(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderBoolean(responseWriter, "autoHide", datePicker.getAutoHide());
+	protected void renderAutoHide(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getAutoHide() != null) {
+			renrederedAttributes.add(renderBoolean("autoHide", datePicker.getAutoHide()));
+		}
 	}
 
-	protected void renderCalendar(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "calendar", datePicker.getCalendar());
+	protected void renderCalendar(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getCalendar() != null) {
+			renrederedAttributes.add(renderString("calendar", datePicker.getCalendar()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "container", datePicker.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", datePicker.getContainer()));
+		}
 	}
 
-	protected void renderContent(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "content", datePicker.getContent());
+	protected void renderContent(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getContent() != null) {
+			renrederedAttributes.add(renderString("content", datePicker.getContent()));
+		}
 	}
 
-	protected void renderDateSeparator(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "dateSeparator", datePicker.getDateSeparator());
+	protected void renderDateSeparator(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getDateSeparator() != null) {
+			renrederedAttributes.add(renderString("dateSeparator", datePicker.getDateSeparator()));
+		}
 	}
 
-	protected void renderMask(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "mask", datePicker.getMask());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", datePicker.getDestroyed()));
+		}
 	}
 
-	protected void renderPanes(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderNumber(responseWriter, "panes", datePicker.getPanes());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", datePicker.getInitialized()));
+		}
 	}
 
-	protected void renderPopover(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "popover", datePicker.getPopover());
+	protected void renderMask(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getMask() != null) {
+			renrederedAttributes.add(renderString("mask", datePicker.getMask()));
+		}
 	}
 
-	protected void renderPopoverCssClass(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "popoverCssClass", datePicker.getPopoverCssClass());
+	protected void renderPanes(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getPanes() != null) {
+			renrederedAttributes.add(renderNumber("panes", datePicker.getPanes()));
+		}
 	}
 
-	protected void renderValueExtractor(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "valueExtractor", datePicker.getValueExtractor());
+	protected void renderPopover(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getPopover() != null) {
+			renrederedAttributes.add(renderString("popover", datePicker.getPopover()));
+		}
 	}
 
-	protected void renderValueFormatter(ResponseWriter responseWriter, DatePicker datePicker) throws IOException {
-		renderString(responseWriter, "valueFormatter", datePicker.getValueFormatter());
+	protected void renderPopoverCssClass(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getPopoverCssClass() != null) {
+			renrederedAttributes.add(renderString("popoverCssClass", datePicker.getPopoverCssClass()));
+		}
+	}
+
+	protected void renderValueExtractor(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getValueExtractor() != null) {
+			renrederedAttributes.add(renderString("valueExtractor", datePicker.getValueExtractor()));
+		}
+	}
+
+	protected void renderValueFormatter(ArrayList<String> renrederedAttributes, DatePicker datePicker) throws IOException {
+		if (datePicker.getValueFormatter() != null) {
+			renrederedAttributes.add(renderString("valueFormatter", datePicker.getValueFormatter()));
+		}
 	}
 
 }

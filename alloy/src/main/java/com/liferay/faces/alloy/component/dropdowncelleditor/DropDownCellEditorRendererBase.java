@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.dropdowncelleditor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class DropDownCellEditorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, dropDownCellEditor);
 
-		bufferedResponseWriter.write("var dropDownCellEditor = new Y.DropDownCellEditor");
+		bufferedResponseWriter.write("var dropDownCellEditor = new A.DropDownCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderMultiple(bufferedResponseWriter, dropDownCellEditor);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderMultiple(renrederedAttributes, dropDownCellEditor);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class DropDownCellEditorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderMultiple(ResponseWriter responseWriter, DropDownCellEditor dropDownCellEditor) throws IOException {
-		renderBoolean(responseWriter, "multiple", dropDownCellEditor.getMultiple());
+	protected void renderMultiple(ArrayList<String> renrederedAttributes, DropDownCellEditor dropDownCellEditor) throws IOException {
+		if (dropDownCellEditor.getMultiple() != null) {
+			renrederedAttributes.add(renderBoolean("multiple", dropDownCellEditor.getMultiple()));
+		}
 	}
 
 }

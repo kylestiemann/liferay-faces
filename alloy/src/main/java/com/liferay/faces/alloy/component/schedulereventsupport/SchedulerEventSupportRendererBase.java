@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulereventsupport;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,13 +57,26 @@ public abstract class SchedulerEventSupportRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerEventSupport);
 
-		bufferedResponseWriter.write("var schedulerEventSupport = new Y.SchedulerEventSupport");
+		bufferedResponseWriter.write("var schedulerEventSupport = new A.SchedulerEventSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);

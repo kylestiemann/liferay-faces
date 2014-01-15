@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.radiocelleditor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,13 +57,26 @@ public abstract class RadioCellEditorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, radioCellEditor);
 
-		bufferedResponseWriter.write("var radioCellEditor = new Y.RadioCellEditor");
+		bufferedResponseWriter.write("var radioCellEditor = new A.RadioCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);

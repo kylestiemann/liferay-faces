@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treenode;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,54 +57,49 @@ public abstract class TreeNodeRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeNode);
 
-		bufferedResponseWriter.write("var treeNode = new Y.TreeNode");
+		bufferedResponseWriter.write("var treeNode = new A.TreeNode");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlwaysShowHitArea(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBoundingBox(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTreenodeChildren(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContentBox(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClasses(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDraggable(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderExpanded(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHitAreaEl(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconEl(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTreenodeId(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIndex(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelEl(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLeaf(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNextSibling(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOwnerTree(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderParentNode(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrevSibling(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRendered(bufferedResponseWriter, treeNode);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, treeNode);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlwaysShowHitArea(renrederedAttributes, treeNode);
+		renderBoundingBox(renrederedAttributes, treeNode);
+		renderTreenodeChildren(renrederedAttributes, treeNode);
+		renderContainer(renrederedAttributes, treeNode);
+		renderContentBox(renrederedAttributes, treeNode);
+		renderCssClasses(renrederedAttributes, treeNode);
+		renderDestroyed(renrederedAttributes, treeNode);
+		renderDraggable(renrederedAttributes, treeNode);
+		renderExpanded(renrederedAttributes, treeNode);
+		renderHitAreaEl(renrederedAttributes, treeNode);
+		renderIconEl(renrederedAttributes, treeNode);
+		renderTreenodeId(renrederedAttributes, treeNode);
+		renderIndex(renrederedAttributes, treeNode);
+		renderInitialized(renrederedAttributes, treeNode);
+		renderLabel(renrederedAttributes, treeNode);
+		renderLabelEl(renrederedAttributes, treeNode);
+		renderLeaf(renrederedAttributes, treeNode);
+		renderNextSibling(renrederedAttributes, treeNode);
+		renderOwnerTree(renrederedAttributes, treeNode);
+		renderParentNode(renrederedAttributes, treeNode);
+		renderPrevSibling(renrederedAttributes, treeNode);
+		renderRendered(renrederedAttributes, treeNode);
+		renderTabIndex(renrederedAttributes, treeNode);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -116,88 +113,142 @@ public abstract class TreeNodeRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlwaysShowHitArea(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderBoolean(responseWriter, "alwaysShowHitArea", treeNode.getAlwaysShowHitArea());
+	protected void renderAlwaysShowHitArea(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getAlwaysShowHitArea() != null) {
+			renrederedAttributes.add(renderBoolean("alwaysShowHitArea", treeNode.getAlwaysShowHitArea()));
+		}
 	}
 
-	protected void renderBoundingBox(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "boundingBox", treeNode.getBoundingBox());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", treeNode.getBoundingBox()));
+		}
 	}
 
-	protected void renderTreenodeChildren(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderArray(responseWriter, "treenodeChildren", treeNode.getTreenodeChildren());
+	protected void renderTreenodeChildren(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getTreenodeChildren() != null) {
+			renrederedAttributes.add(renderArray("treenodeChildren", treeNode.getTreenodeChildren()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "container", treeNode.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", treeNode.getContainer()));
+		}
 	}
 
-	protected void renderContentBox(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "contentBox", treeNode.getContentBox());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", treeNode.getContentBox()));
+		}
 	}
 
-	protected void renderCssClasses(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderObject(responseWriter, "cssClasses", treeNode.getCssClasses());
+	protected void renderCssClasses(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getCssClasses() != null) {
+			renrederedAttributes.add(renderObject("cssClasses", treeNode.getCssClasses()));
+		}
 	}
 
-	protected void renderDraggable(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderBoolean(responseWriter, "draggable", treeNode.getDraggable());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", treeNode.getDestroyed()));
+		}
 	}
 
-	protected void renderExpanded(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderBoolean(responseWriter, "expanded", treeNode.getExpanded());
+	protected void renderDraggable(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getDraggable() != null) {
+			renrederedAttributes.add(renderBoolean("draggable", treeNode.getDraggable()));
+		}
 	}
 
-	protected void renderHitAreaEl(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "hitAreaEl", treeNode.getHitAreaEl());
+	protected void renderExpanded(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getExpanded() != null) {
+			renrederedAttributes.add(renderBoolean("expanded", treeNode.getExpanded()));
+		}
 	}
 
-	protected void renderIconEl(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "iconEl", treeNode.getIconEl());
+	protected void renderHitAreaEl(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getHitAreaEl() != null) {
+			renrederedAttributes.add(renderString("hitAreaEl", treeNode.getHitAreaEl()));
+		}
 	}
 
-	protected void renderTreenodeId(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "treenodeId", treeNode.getTreenodeId());
+	protected void renderIconEl(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getIconEl() != null) {
+			renrederedAttributes.add(renderString("iconEl", treeNode.getIconEl()));
+		}
 	}
 
-	protected void renderIndex(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderObject(responseWriter, "index", treeNode.getIndex());
+	protected void renderTreenodeId(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getTreenodeId() != null) {
+			renrederedAttributes.add(renderString("treenodeId", treeNode.getTreenodeId()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "label", treeNode.getLabel());
+	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getIndex() != null) {
+			renrederedAttributes.add(renderObject("index", treeNode.getIndex()));
+		}
 	}
 
-	protected void renderLabelEl(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "labelEl", treeNode.getLabelEl());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", treeNode.getInitialized()));
+		}
 	}
 
-	protected void renderLeaf(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderBoolean(responseWriter, "leaf", treeNode.getLeaf());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", treeNode.getLabel()));
+		}
 	}
 
-	protected void renderNextSibling(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "nextSibling", treeNode.getNextSibling());
+	protected void renderLabelEl(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getLabelEl() != null) {
+			renrederedAttributes.add(renderString("labelEl", treeNode.getLabelEl()));
+		}
 	}
 
-	protected void renderOwnerTree(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "ownerTree", treeNode.getOwnerTree());
+	protected void renderLeaf(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getLeaf() != null) {
+			renrederedAttributes.add(renderBoolean("leaf", treeNode.getLeaf()));
+		}
 	}
 
-	protected void renderParentNode(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "parentNode", treeNode.getParentNode());
+	protected void renderNextSibling(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getNextSibling() != null) {
+			renrederedAttributes.add(renderString("nextSibling", treeNode.getNextSibling()));
+		}
 	}
 
-	protected void renderPrevSibling(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "prevSibling", treeNode.getPrevSibling());
+	protected void renderOwnerTree(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getOwnerTree() != null) {
+			renrederedAttributes.add(renderString("ownerTree", treeNode.getOwnerTree()));
+		}
 	}
 
-	protected void renderRendered(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderBoolean(responseWriter, "rendered", treeNode.getRendered());
+	protected void renderParentNode(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getParentNode() != null) {
+			renrederedAttributes.add(renderString("parentNode", treeNode.getParentNode()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, TreeNode treeNode) throws IOException {
-		renderString(responseWriter, "tabIndex", treeNode.getTabIndex());
+	protected void renderPrevSibling(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getPrevSibling() != null) {
+			renrederedAttributes.add(renderString("prevSibling", treeNode.getPrevSibling()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", treeNode.getRendered()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, TreeNode treeNode) throws IOException {
+		if (treeNode.getTabIndex() != null) {
+			renrederedAttributes.add(renderString("tabIndex", treeNode.getTabIndex()));
+		}
 	}
 
 }

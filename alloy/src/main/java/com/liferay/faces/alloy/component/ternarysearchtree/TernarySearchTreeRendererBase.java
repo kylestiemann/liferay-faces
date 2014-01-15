@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.ternarysearchtree;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,13 +57,28 @@ public abstract class TernarySearchTreeRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, ternarySearchTree);
 
-		bufferedResponseWriter.write("var ternarySearchTree = new Y.TernarySearchTree");
+		bufferedResponseWriter.write("var ternarySearchTree = new A.TernarySearchTree");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDestroyed(renrederedAttributes, ternarySearchTree);
+		renderInitialized(renrederedAttributes, ternarySearchTree);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -73,6 +90,18 @@ public abstract class TernarySearchTreeRendererBase extends AUIRenderer {
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
+	}
+
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
+		if (ternarySearchTree.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", ternarySearchTree.getDestroyed()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
+		if (ternarySearchTree.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", ternarySearchTree.getInitialized()));
+		}
 	}
 
 }

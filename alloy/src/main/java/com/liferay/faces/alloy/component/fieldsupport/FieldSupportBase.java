@@ -28,51 +28,51 @@ public abstract class FieldSupportBase extends javax.faces.component.UIPanel {
 	private static final String ON_FIELDS_CHANGE = "onFieldsChange";
 	private static final String ON_MAX_FIELDS_CHANGE = "onMaxFieldsChange";
 
-	protected java.lang.Object getFields() {
+	public java.lang.Object getFields() {
 		return (java.lang.Object) getStateHelper().eval(FIELDS, null);
 	}
 
-	protected void setFields(java.lang.Object fields) {
+	public void setFields(java.lang.Object fields) {
 		getStateHelper().put(FIELDS, fields);
 	}
 
-	protected java.lang.Object getMaxFields() {
+	public java.lang.Object getMaxFields() {
 		return (java.lang.Object) getStateHelper().eval(MAX_FIELDS, null);
 	}
 
-	protected void setMaxFields(java.lang.Object maxFields) {
+	public void setMaxFields(java.lang.Object maxFields) {
 		getStateHelper().put(MAX_FIELDS, maxFields);
 	}
 
-	protected java.lang.String getAfterFieldsChange() {
+	public java.lang.String getAfterFieldsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_FIELDS_CHANGE, null);
 	}
 
-	protected void setAfterFieldsChange(java.lang.String afterFieldsChange) {
+	public void setAfterFieldsChange(java.lang.String afterFieldsChange) {
 		getStateHelper().put(AFTER_FIELDS_CHANGE, afterFieldsChange);
 	}
 
-	protected java.lang.String getAfterMaxFieldsChange() {
+	public java.lang.String getAfterMaxFieldsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_MAX_FIELDS_CHANGE, null);
 	}
 
-	protected void setAfterMaxFieldsChange(java.lang.String afterMaxFieldsChange) {
+	public void setAfterMaxFieldsChange(java.lang.String afterMaxFieldsChange) {
 		getStateHelper().put(AFTER_MAX_FIELDS_CHANGE, afterMaxFieldsChange);
 	}
 
-	protected java.lang.String getOnFieldsChange() {
+	public java.lang.String getOnFieldsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_FIELDS_CHANGE, null);
 	}
 
-	protected void setOnFieldsChange(java.lang.String onFieldsChange) {
+	public void setOnFieldsChange(java.lang.String onFieldsChange) {
 		getStateHelper().put(ON_FIELDS_CHANGE, onFieldsChange);
 	}
 
-	protected java.lang.String getOnMaxFieldsChange() {
+	public java.lang.String getOnMaxFieldsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_MAX_FIELDS_CHANGE, null);
 	}
 
-	protected void setOnMaxFieldsChange(java.lang.String onMaxFieldsChange) {
+	public void setOnMaxFieldsChange(java.lang.String onMaxFieldsChange) {
 		getStateHelper().put(ON_MAX_FIELDS_CHANGE, onMaxFieldsChange);
 	}
 

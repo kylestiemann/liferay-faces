@@ -21,32 +21,140 @@ package com.liferay.faces.alloy.component.tab;
  */
 public abstract class TabBase extends javax.faces.component.UIPanel {
 
+	private static final String CONTENT = "content";
 	private static final String DISABLED = "disabled";
+	private static final String LABEL = "label";
+	private static final String PANEL_NODE = "panelNode";
+	private static final String TRIGGER_EVENT = "triggerEvent";
+	private static final String AFTER_CONTENT_CHANGE = "afterContentChange";
 	private static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
+	private static final String AFTER_LABEL_CHANGE = "afterLabelChange";
+	private static final String AFTER_PANEL_NODE_CHANGE = "afterPanelNodeChange";
+	private static final String AFTER_TRIGGER_EVENT_CHANGE = "afterTriggerEventChange";
+	private static final String ON_CONTENT_CHANGE = "onContentChange";
 	private static final String ON_DISABLED_CHANGE = "onDisabledChange";
+	private static final String ON_LABEL_CHANGE = "onLabelChange";
+	private static final String ON_PANEL_NODE_CHANGE = "onPanelNodeChange";
+	private static final String ON_TRIGGER_EVENT_CHANGE = "onTriggerEventChange";
 
-	protected java.lang.String getDisabled() {
+	public java.lang.Object getContent() {
+		return (java.lang.Object) getStateHelper().eval(CONTENT, null);
+	}
+
+	public void setContent(java.lang.Object content) {
+		getStateHelper().put(CONTENT, content);
+	}
+
+	public java.lang.String getDisabled() {
 		return (java.lang.String) getStateHelper().eval(DISABLED, null);
 	}
 
-	protected void setDisabled(java.lang.String disabled) {
+	public void setDisabled(java.lang.String disabled) {
 		getStateHelper().put(DISABLED, disabled);
 	}
 
-	protected java.lang.String getAfterDisabledChange() {
+	public java.lang.Object getLabel() {
+		return (java.lang.Object) getStateHelper().eval(LABEL, null);
+	}
+
+	public void setLabel(java.lang.Object label) {
+		getStateHelper().put(LABEL, label);
+	}
+
+	public java.lang.Object getPanelNode() {
+		return (java.lang.Object) getStateHelper().eval(PANEL_NODE, null);
+	}
+
+	public void setPanelNode(java.lang.Object panelNode) {
+		getStateHelper().put(PANEL_NODE, panelNode);
+	}
+
+	public java.lang.String getTriggerEvent() {
+		return (java.lang.String) getStateHelper().eval(TRIGGER_EVENT, null);
+	}
+
+	public void setTriggerEvent(java.lang.String triggerEvent) {
+		getStateHelper().put(TRIGGER_EVENT, triggerEvent);
+	}
+
+	public java.lang.String getAfterContentChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_CONTENT_CHANGE, null);
+	}
+
+	public void setAfterContentChange(java.lang.String afterContentChange) {
+		getStateHelper().put(AFTER_CONTENT_CHANGE, afterContentChange);
+	}
+
+	public java.lang.String getAfterDisabledChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DISABLED_CHANGE, null);
 	}
 
-	protected void setAfterDisabledChange(java.lang.String afterDisabledChange) {
+	public void setAfterDisabledChange(java.lang.String afterDisabledChange) {
 		getStateHelper().put(AFTER_DISABLED_CHANGE, afterDisabledChange);
 	}
 
-	protected java.lang.String getOnDisabledChange() {
+	public java.lang.String getAfterLabelChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_LABEL_CHANGE, null);
+	}
+
+	public void setAfterLabelChange(java.lang.String afterLabelChange) {
+		getStateHelper().put(AFTER_LABEL_CHANGE, afterLabelChange);
+	}
+
+	public java.lang.String getAfterPanelNodeChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_PANEL_NODE_CHANGE, null);
+	}
+
+	public void setAfterPanelNodeChange(java.lang.String afterPanelNodeChange) {
+		getStateHelper().put(AFTER_PANEL_NODE_CHANGE, afterPanelNodeChange);
+	}
+
+	public java.lang.String getAfterTriggerEventChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TRIGGER_EVENT_CHANGE, null);
+	}
+
+	public void setAfterTriggerEventChange(java.lang.String afterTriggerEventChange) {
+		getStateHelper().put(AFTER_TRIGGER_EVENT_CHANGE, afterTriggerEventChange);
+	}
+
+	public java.lang.String getOnContentChange() {
+		return (java.lang.String) getStateHelper().eval(ON_CONTENT_CHANGE, null);
+	}
+
+	public void setOnContentChange(java.lang.String onContentChange) {
+		getStateHelper().put(ON_CONTENT_CHANGE, onContentChange);
+	}
+
+	public java.lang.String getOnDisabledChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DISABLED_CHANGE, null);
 	}
 
-	protected void setOnDisabledChange(java.lang.String onDisabledChange) {
+	public void setOnDisabledChange(java.lang.String onDisabledChange) {
 		getStateHelper().put(ON_DISABLED_CHANGE, onDisabledChange);
+	}
+
+	public java.lang.String getOnLabelChange() {
+		return (java.lang.String) getStateHelper().eval(ON_LABEL_CHANGE, null);
+	}
+
+	public void setOnLabelChange(java.lang.String onLabelChange) {
+		getStateHelper().put(ON_LABEL_CHANGE, onLabelChange);
+	}
+
+	public java.lang.String getOnPanelNodeChange() {
+		return (java.lang.String) getStateHelper().eval(ON_PANEL_NODE_CHANGE, null);
+	}
+
+	public void setOnPanelNodeChange(java.lang.String onPanelNodeChange) {
+		getStateHelper().put(ON_PANEL_NODE_CHANGE, onPanelNodeChange);
+	}
+
+	public java.lang.String getOnTriggerEventChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TRIGGER_EVENT_CHANGE, null);
+	}
+
+	public void setOnTriggerEventChange(java.lang.String onTriggerEventChange) {
+		getStateHelper().put(ON_TRIGGER_EVENT_CHANGE, onTriggerEventChange);
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulertableviewdd;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class SchedulerTableViewDDRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerTableViewDD);
 
-		bufferedResponseWriter.write("var schedulerTableViewDD = new Y.SchedulerTableViewDD");
+		bufferedResponseWriter.write("var schedulerTableViewDD = new A.SchedulerTableViewDD");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDelegateConfig(bufferedResponseWriter, schedulerTableViewDD);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDelegateConfig(renrederedAttributes, schedulerTableViewDD);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class SchedulerTableViewDDRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDelegateConfig(ResponseWriter responseWriter, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
-		renderObject(responseWriter, "delegateConfig", schedulerTableViewDD.getDelegateConfig());
+	protected void renderDelegateConfig(ArrayList<String> renrederedAttributes, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
+		if (schedulerTableViewDD.getDelegateConfig() != null) {
+			renrederedAttributes.add(renderObject("delegateConfig", schedulerTableViewDD.getDelegateConfig()));
+		}
 	}
 
 }

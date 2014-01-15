@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.optionseditor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class OptionsEditorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, optionsEditor);
 
-		bufferedResponseWriter.write("var optionsEditor = new Y.OptionsEditor");
+		bufferedResponseWriter.write("var optionsEditor = new A.OptionsEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderEditable(bufferedResponseWriter, optionsEditor);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderEditable(renrederedAttributes, optionsEditor);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class OptionsEditorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderEditable(ResponseWriter responseWriter, OptionsEditor optionsEditor) throws IOException {
-		renderString(responseWriter, "editable", optionsEditor.getEditable());
+	protected void renderEditable(ArrayList<String> renrederedAttributes, OptionsEditor optionsEditor) throws IOException {
+		if (optionsEditor.getEditable() != null) {
+			renrederedAttributes.add(renderString("editable", optionsEditor.getEditable()));
+		}
 	}
 
 }

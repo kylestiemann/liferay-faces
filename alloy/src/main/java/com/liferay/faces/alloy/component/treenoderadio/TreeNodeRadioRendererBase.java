@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treenoderadio;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,72 +57,58 @@ public abstract class TreeNodeRadioRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeNodeRadio);
 
-		bufferedResponseWriter.write("var treeNodeRadio = new Y.TreeNodeRadio");
+		bufferedResponseWriter.write("var treeNodeRadio = new A.TreeNodeRadio");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlwaysShowHitArea(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBoundingBox(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCache(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCheckContainerEl(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCheckEl(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCheckName(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderChecked(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTreenoderadioChildren(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContentBox(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClasses(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDraggable(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderExpanded(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHitAreaEl(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconEl(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTreenoderadioId(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIndex(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIo(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelEl(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLeaf(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLoaded(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLoading(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNextSibling(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOwnerTree(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPaginator(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderParentNode(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrevSibling(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRendered(bufferedResponseWriter, treeNodeRadio);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, treeNodeRadio);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlwaysShowHitArea(renrederedAttributes, treeNodeRadio);
+		renderBoundingBox(renrederedAttributes, treeNodeRadio);
+		renderCache(renrederedAttributes, treeNodeRadio);
+		renderCheckContainerEl(renrederedAttributes, treeNodeRadio);
+		renderCheckEl(renrederedAttributes, treeNodeRadio);
+		renderCheckName(renrederedAttributes, treeNodeRadio);
+		renderChecked(renrederedAttributes, treeNodeRadio);
+		renderTreenoderadioChildren(renrederedAttributes, treeNodeRadio);
+		renderContainer(renrederedAttributes, treeNodeRadio);
+		renderContentBox(renrederedAttributes, treeNodeRadio);
+		renderCssClasses(renrederedAttributes, treeNodeRadio);
+		renderDestroyed(renrederedAttributes, treeNodeRadio);
+		renderDraggable(renrederedAttributes, treeNodeRadio);
+		renderExpanded(renrederedAttributes, treeNodeRadio);
+		renderHitAreaEl(renrederedAttributes, treeNodeRadio);
+		renderIconEl(renrederedAttributes, treeNodeRadio);
+		renderTreenoderadioId(renrederedAttributes, treeNodeRadio);
+		renderIndex(renrederedAttributes, treeNodeRadio);
+		renderInitialized(renrederedAttributes, treeNodeRadio);
+		renderIo(renrederedAttributes, treeNodeRadio);
+		renderLabel(renrederedAttributes, treeNodeRadio);
+		renderLabelEl(renrederedAttributes, treeNodeRadio);
+		renderLeaf(renrederedAttributes, treeNodeRadio);
+		renderLoaded(renrederedAttributes, treeNodeRadio);
+		renderLoading(renrederedAttributes, treeNodeRadio);
+		renderNextSibling(renrederedAttributes, treeNodeRadio);
+		renderOwnerTree(renrederedAttributes, treeNodeRadio);
+		renderPaginator(renrederedAttributes, treeNodeRadio);
+		renderParentNode(renrederedAttributes, treeNodeRadio);
+		renderPrevSibling(renrederedAttributes, treeNodeRadio);
+		renderRendered(renrederedAttributes, treeNodeRadio);
+		renderTabIndex(renrederedAttributes, treeNodeRadio);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -134,124 +122,196 @@ public abstract class TreeNodeRadioRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlwaysShowHitArea(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "alwaysShowHitArea", treeNodeRadio.getAlwaysShowHitArea());
+	protected void renderAlwaysShowHitArea(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getAlwaysShowHitArea() != null) {
+			renrederedAttributes.add(renderBoolean("alwaysShowHitArea", treeNodeRadio.getAlwaysShowHitArea()));
+		}
 	}
 
-	protected void renderBoundingBox(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "boundingBox", treeNodeRadio.getBoundingBox());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", treeNodeRadio.getBoundingBox()));
+		}
 	}
 
-	protected void renderCache(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "cache", treeNodeRadio.getCache());
+	protected void renderCache(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getCache() != null) {
+			renrederedAttributes.add(renderBoolean("cache", treeNodeRadio.getCache()));
+		}
 	}
 
-	protected void renderCheckContainerEl(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "checkContainerEl", treeNodeRadio.getCheckContainerEl());
+	protected void renderCheckContainerEl(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getCheckContainerEl() != null) {
+			renrederedAttributes.add(renderString("checkContainerEl", treeNodeRadio.getCheckContainerEl()));
+		}
 	}
 
-	protected void renderCheckEl(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "checkEl", treeNodeRadio.getCheckEl());
+	protected void renderCheckEl(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getCheckEl() != null) {
+			renrederedAttributes.add(renderString("checkEl", treeNodeRadio.getCheckEl()));
+		}
 	}
 
-	protected void renderCheckName(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "checkName", treeNodeRadio.getCheckName());
+	protected void renderCheckName(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getCheckName() != null) {
+			renrederedAttributes.add(renderString("checkName", treeNodeRadio.getCheckName()));
+		}
 	}
 
-	protected void renderChecked(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "checked", treeNodeRadio.getChecked());
+	protected void renderChecked(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getChecked() != null) {
+			renrederedAttributes.add(renderBoolean("checked", treeNodeRadio.getChecked()));
+		}
 	}
 
-	protected void renderTreenoderadioChildren(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderArray(responseWriter, "treenoderadioChildren", treeNodeRadio.getTreenoderadioChildren());
+	protected void renderTreenoderadioChildren(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getTreenoderadioChildren() != null) {
+			renrederedAttributes.add(renderArray("treenoderadioChildren", treeNodeRadio.getTreenoderadioChildren()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "container", treeNodeRadio.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", treeNodeRadio.getContainer()));
+		}
 	}
 
-	protected void renderContentBox(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "contentBox", treeNodeRadio.getContentBox());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", treeNodeRadio.getContentBox()));
+		}
 	}
 
-	protected void renderCssClasses(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderObject(responseWriter, "cssClasses", treeNodeRadio.getCssClasses());
+	protected void renderCssClasses(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getCssClasses() != null) {
+			renrederedAttributes.add(renderObject("cssClasses", treeNodeRadio.getCssClasses()));
+		}
 	}
 
-	protected void renderDraggable(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "draggable", treeNodeRadio.getDraggable());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", treeNodeRadio.getDestroyed()));
+		}
 	}
 
-	protected void renderExpanded(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "expanded", treeNodeRadio.getExpanded());
+	protected void renderDraggable(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getDraggable() != null) {
+			renrederedAttributes.add(renderBoolean("draggable", treeNodeRadio.getDraggable()));
+		}
 	}
 
-	protected void renderHitAreaEl(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "hitAreaEl", treeNodeRadio.getHitAreaEl());
+	protected void renderExpanded(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getExpanded() != null) {
+			renrederedAttributes.add(renderBoolean("expanded", treeNodeRadio.getExpanded()));
+		}
 	}
 
-	protected void renderIconEl(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "iconEl", treeNodeRadio.getIconEl());
+	protected void renderHitAreaEl(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getHitAreaEl() != null) {
+			renrederedAttributes.add(renderString("hitAreaEl", treeNodeRadio.getHitAreaEl()));
+		}
 	}
 
-	protected void renderTreenoderadioId(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "treenoderadioId", treeNodeRadio.getTreenoderadioId());
+	protected void renderIconEl(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getIconEl() != null) {
+			renrederedAttributes.add(renderString("iconEl", treeNodeRadio.getIconEl()));
+		}
 	}
 
-	protected void renderIndex(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderObject(responseWriter, "index", treeNodeRadio.getIndex());
+	protected void renderTreenoderadioId(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getTreenoderadioId() != null) {
+			renrederedAttributes.add(renderString("treenoderadioId", treeNodeRadio.getTreenoderadioId()));
+		}
 	}
 
-	protected void renderIo(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderObject(responseWriter, "io", treeNodeRadio.getIo());
+	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getIndex() != null) {
+			renrederedAttributes.add(renderObject("index", treeNodeRadio.getIndex()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "label", treeNodeRadio.getLabel());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", treeNodeRadio.getInitialized()));
+		}
 	}
 
-	protected void renderLabelEl(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "labelEl", treeNodeRadio.getLabelEl());
+	protected void renderIo(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getIo() != null) {
+			renrederedAttributes.add(renderObject("io", treeNodeRadio.getIo()));
+		}
 	}
 
-	protected void renderLeaf(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "leaf", treeNodeRadio.getLeaf());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", treeNodeRadio.getLabel()));
+		}
 	}
 
-	protected void renderLoaded(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "loaded", treeNodeRadio.getLoaded());
+	protected void renderLabelEl(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getLabelEl() != null) {
+			renrederedAttributes.add(renderString("labelEl", treeNodeRadio.getLabelEl()));
+		}
 	}
 
-	protected void renderLoading(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "loading", treeNodeRadio.getLoading());
+	protected void renderLeaf(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getLeaf() != null) {
+			renrederedAttributes.add(renderBoolean("leaf", treeNodeRadio.getLeaf()));
+		}
 	}
 
-	protected void renderNextSibling(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "nextSibling", treeNodeRadio.getNextSibling());
+	protected void renderLoaded(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getLoaded() != null) {
+			renrederedAttributes.add(renderBoolean("loaded", treeNodeRadio.getLoaded()));
+		}
 	}
 
-	protected void renderOwnerTree(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "ownerTree", treeNodeRadio.getOwnerTree());
+	protected void renderLoading(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getLoading() != null) {
+			renrederedAttributes.add(renderBoolean("loading", treeNodeRadio.getLoading()));
+		}
 	}
 
-	protected void renderPaginator(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderObject(responseWriter, "paginator", treeNodeRadio.getPaginator());
+	protected void renderNextSibling(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getNextSibling() != null) {
+			renrederedAttributes.add(renderString("nextSibling", treeNodeRadio.getNextSibling()));
+		}
 	}
 
-	protected void renderParentNode(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "parentNode", treeNodeRadio.getParentNode());
+	protected void renderOwnerTree(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getOwnerTree() != null) {
+			renrederedAttributes.add(renderString("ownerTree", treeNodeRadio.getOwnerTree()));
+		}
 	}
 
-	protected void renderPrevSibling(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "prevSibling", treeNodeRadio.getPrevSibling());
+	protected void renderPaginator(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getPaginator() != null) {
+			renrederedAttributes.add(renderObject("paginator", treeNodeRadio.getPaginator()));
+		}
 	}
 
-	protected void renderRendered(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderBoolean(responseWriter, "rendered", treeNodeRadio.getRendered());
+	protected void renderParentNode(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getParentNode() != null) {
+			renrederedAttributes.add(renderString("parentNode", treeNodeRadio.getParentNode()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, TreeNodeRadio treeNodeRadio) throws IOException {
-		renderString(responseWriter, "tabIndex", treeNodeRadio.getTabIndex());
+	protected void renderPrevSibling(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getPrevSibling() != null) {
+			renrederedAttributes.add(renderString("prevSibling", treeNodeRadio.getPrevSibling()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", treeNodeRadio.getRendered()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		if (treeNodeRadio.getTabIndex() != null) {
+			renrederedAttributes.add(renderString("tabIndex", treeNodeRadio.getTabIndex()));
+		}
 	}
 
 }

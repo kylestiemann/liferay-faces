@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.video;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,32 +57,51 @@ public abstract class VideoRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, video);
 
-		bufferedResponseWriter.write("var video = new Y.Video");
+		bufferedResponseWriter.write("var video = new A.Video");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFixedAttributes(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFlashVars(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOgvUrl(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPoster(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSwfUrl(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUrl(bufferedResponseWriter, video);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, video);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, video);
+		renderContentBox(renrederedAttributes, video);
+		renderCssClass(renrederedAttributes, video);
+		renderDestroyed(renrederedAttributes, video);
+		renderDisabled(renrederedAttributes, video);
+		renderFixedAttributes(renrederedAttributes, video);
+		renderFlashVars(renrederedAttributes, video);
+		renderFocused(renrederedAttributes, video);
+		renderHeight(renrederedAttributes, video);
+		renderHideClass(renrederedAttributes, video);
+		renderVideoId(renrederedAttributes, video);
+		renderInitialized(renrederedAttributes, video);
+		renderVideoLocale(renrederedAttributes, video);
+		renderOgvUrl(renrederedAttributes, video);
+		renderPoster(renrederedAttributes, video);
+		renderRender(renrederedAttributes, video);
+		renderRendered(renrederedAttributes, video);
+		renderSrcNode(renrederedAttributes, video);
+		renderStrings(renrederedAttributes, video);
+		renderSwfUrl(renrederedAttributes, video);
+		renderTabIndex(renrederedAttributes, video);
+		renderUrl(renrederedAttributes, video);
+		renderUseARIA(renrederedAttributes, video);
+		renderVisible(renrederedAttributes, video);
+		renderWidth(renrederedAttributes, video);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -94,44 +115,154 @@ public abstract class VideoRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, Video video) throws IOException {
-		renderString(responseWriter, "cssClass", video.getCssClass());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", video.getBoundingBox()));
+		}
 	}
 
-	protected void renderFixedAttributes(ResponseWriter responseWriter, Video video) throws IOException {
-		renderObject(responseWriter, "fixedAttributes", video.getFixedAttributes());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", video.getContentBox()));
+		}
 	}
 
-	protected void renderFlashVars(ResponseWriter responseWriter, Video video) throws IOException {
-		renderObject(responseWriter, "flashVars", video.getFlashVars());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", video.getCssClass()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, Video video) throws IOException {
-		renderString(responseWriter, "hideClass", video.getHideClass());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", video.getDestroyed()));
+		}
 	}
 
-	protected void renderOgvUrl(ResponseWriter responseWriter, Video video) throws IOException {
-		renderString(responseWriter, "ogvUrl", video.getOgvUrl());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", video.getDisabled()));
+		}
 	}
 
-	protected void renderPoster(ResponseWriter responseWriter, Video video) throws IOException {
-		renderString(responseWriter, "poster", video.getPoster());
+	protected void renderFixedAttributes(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getFixedAttributes() != null) {
+			renrederedAttributes.add(renderObject("fixedAttributes", video.getFixedAttributes()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Video video) throws IOException {
-		renderBoolean(responseWriter, "render", video.getRender());
+	protected void renderFlashVars(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getFlashVars() != null) {
+			renrederedAttributes.add(renderObject("flashVars", video.getFlashVars()));
+		}
 	}
 
-	protected void renderSwfUrl(ResponseWriter responseWriter, Video video) throws IOException {
-		renderString(responseWriter, "swfUrl", video.getSwfUrl());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", video.getFocused()));
+		}
 	}
 
-	protected void renderUrl(ResponseWriter responseWriter, Video video) throws IOException {
-		renderString(responseWriter, "url", video.getUrl());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", video.getHeight()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, Video video) throws IOException {
-		renderBoolean(responseWriter, "useARIA", video.getUseARIA());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", video.getHideClass()));
+		}
+	}
+
+	protected void renderVideoId(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getVideoId() != null) {
+			renrederedAttributes.add(renderString("videoId", video.getVideoId()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", video.getInitialized()));
+		}
+	}
+
+	protected void renderVideoLocale(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getVideoLocale() != null) {
+			renrederedAttributes.add(renderString("videoLocale", video.getVideoLocale()));
+		}
+	}
+
+	protected void renderOgvUrl(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getOgvUrl() != null) {
+			renrederedAttributes.add(renderString("ogvUrl", video.getOgvUrl()));
+		}
+	}
+
+	protected void renderPoster(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getPoster() != null) {
+			renrederedAttributes.add(renderString("poster", video.getPoster()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getRender() != null) {
+			renrederedAttributes.add(renderBoolean("render", video.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", video.getRendered()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", video.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", video.getStrings()));
+		}
+	}
+
+	protected void renderSwfUrl(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getSwfUrl() != null) {
+			renrederedAttributes.add(renderString("swfUrl", video.getSwfUrl()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", video.getTabIndex()));
+		}
+	}
+
+	protected void renderUrl(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getUrl() != null) {
+			renrederedAttributes.add(renderString("url", video.getUrl()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", video.getUseARIA()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", video.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, Video video) throws IOException {
+		if (video.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", video.getWidth()));
+		}
 	}
 
 }

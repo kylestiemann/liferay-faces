@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.rating;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,48 +57,58 @@ public abstract class RatingRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, rating);
 
-		bufferedResponseWriter.write("var rating = new Y.Rating");
+		bufferedResponseWriter.write("var rating = new A.Rating");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCanReset(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClasses(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDefaultSelected(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderElements(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenInput(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInputName(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelectedIndex(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowTitle(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSize(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTitle(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, rating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRatingValue(bufferedResponseWriter, rating);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, rating);
+		renderCanReset(renrederedAttributes, rating);
+		renderContentBox(renrederedAttributes, rating);
+		renderCssClass(renrederedAttributes, rating);
+		renderCssClasses(renrederedAttributes, rating);
+		renderDefaultSelected(renrederedAttributes, rating);
+		renderDestroyed(renrederedAttributes, rating);
+		renderDisabled(renrederedAttributes, rating);
+		renderElements(renrederedAttributes, rating);
+		renderFocused(renrederedAttributes, rating);
+		renderHeight(renrederedAttributes, rating);
+		renderHiddenInput(renrederedAttributes, rating);
+		renderHideClass(renrederedAttributes, rating);
+		renderRatingId(renrederedAttributes, rating);
+		renderInitialized(renrederedAttributes, rating);
+		renderInputName(renrederedAttributes, rating);
+		renderLabel(renrederedAttributes, rating);
+		renderLabelNode(renrederedAttributes, rating);
+		renderRatingLocale(renrederedAttributes, rating);
+		renderRender(renrederedAttributes, rating);
+		renderRendered(renrederedAttributes, rating);
+		renderSelectedIndex(renrederedAttributes, rating);
+		renderShowTitle(renrederedAttributes, rating);
+		renderSize(renrederedAttributes, rating);
+		renderSrcNode(renrederedAttributes, rating);
+		renderStrings(renrederedAttributes, rating);
+		renderTabIndex(renrederedAttributes, rating);
+		renderTitle(renrederedAttributes, rating);
+		renderUseARIA(renrederedAttributes, rating);
+		renderRatingValue(renrederedAttributes, rating);
+		renderVisible(renrederedAttributes, rating);
+		renderWidth(renrederedAttributes, rating);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -110,76 +122,196 @@ public abstract class RatingRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCanReset(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderBoolean(responseWriter, "canReset", rating.getCanReset());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", rating.getBoundingBox()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "cssClass", rating.getCssClass());
+	protected void renderCanReset(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getCanReset() != null) {
+			renrederedAttributes.add(renderBoolean("canReset", rating.getCanReset()));
+		}
 	}
 
-	protected void renderCssClasses(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderObject(responseWriter, "cssClasses", rating.getCssClasses());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", rating.getContentBox()));
+		}
 	}
 
-	protected void renderDefaultSelected(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderNumber(responseWriter, "defaultSelected", rating.getDefaultSelected());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", rating.getCssClass()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderBoolean(responseWriter, "disabled", rating.getDisabled());
+	protected void renderCssClasses(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getCssClasses() != null) {
+			renrederedAttributes.add(renderObject("cssClasses", rating.getCssClasses()));
+		}
 	}
 
-	protected void renderElements(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "elements", rating.getElements());
+	protected void renderDefaultSelected(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getDefaultSelected() != null) {
+			renrederedAttributes.add(renderNumber("defaultSelected", rating.getDefaultSelected()));
+		}
 	}
 
-	protected void renderHiddenInput(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "hiddenInput", rating.getHiddenInput());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", rating.getDestroyed()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "hideClass", rating.getHideClass());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", rating.getDisabled()));
+		}
 	}
 
-	protected void renderInputName(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "inputName", rating.getInputName());
+	protected void renderElements(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getElements() != null) {
+			renrederedAttributes.add(renderString("elements", rating.getElements()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "label", rating.getLabel());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", rating.getFocused()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "labelNode", rating.getLabelNode());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", rating.getHeight()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "render", rating.getRender());
+	protected void renderHiddenInput(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getHiddenInput() != null) {
+			renrederedAttributes.add(renderString("hiddenInput", rating.getHiddenInput()));
+		}
 	}
 
-	protected void renderSelectedIndex(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderNumber(responseWriter, "selectedIndex", rating.getSelectedIndex());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", rating.getHideClass()));
+		}
 	}
 
-	protected void renderShowTitle(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderBoolean(responseWriter, "showTitle", rating.getShowTitle());
+	protected void renderRatingId(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getRatingId() != null) {
+			renrederedAttributes.add(renderString("ratingId", rating.getRatingId()));
+		}
 	}
 
-	protected void renderSize(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderNumber(responseWriter, "size", rating.getSize());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", rating.getInitialized()));
+		}
 	}
 
-	protected void renderTitle(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "title", rating.getTitle());
+	protected void renderInputName(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getInputName() != null) {
+			renrederedAttributes.add(renderString("inputName", rating.getInputName()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderBoolean(responseWriter, "useARIA", rating.getUseARIA());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", rating.getLabel()));
+		}
 	}
 
-	protected void renderRatingValue(ResponseWriter responseWriter, Rating rating) throws IOException {
-		renderString(responseWriter, "ratingValue", rating.getRatingValue());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", rating.getLabelNode()));
+		}
+	}
+
+	protected void renderRatingLocale(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getRatingLocale() != null) {
+			renrederedAttributes.add(renderString("ratingLocale", rating.getRatingLocale()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getRender() != null) {
+			renrederedAttributes.add(renderString("render", rating.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", rating.getRendered()));
+		}
+	}
+
+	protected void renderSelectedIndex(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getSelectedIndex() != null) {
+			renrederedAttributes.add(renderNumber("selectedIndex", rating.getSelectedIndex()));
+		}
+	}
+
+	protected void renderShowTitle(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getShowTitle() != null) {
+			renrederedAttributes.add(renderBoolean("showTitle", rating.getShowTitle()));
+		}
+	}
+
+	protected void renderSize(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getSize() != null) {
+			renrederedAttributes.add(renderNumber("size", rating.getSize()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", rating.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", rating.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", rating.getTabIndex()));
+		}
+	}
+
+	protected void renderTitle(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getTitle() != null) {
+			renrederedAttributes.add(renderString("title", rating.getTitle()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", rating.getUseARIA()));
+		}
+	}
+
+	protected void renderRatingValue(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getRatingValue() != null) {
+			renrederedAttributes.add(renderString("ratingValue", rating.getRatingValue()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", rating.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, Rating rating) throws IOException {
+		if (rating.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", rating.getWidth()));
+		}
 	}
 
 }

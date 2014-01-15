@@ -22,246 +22,300 @@ package com.liferay.faces.alloy.component.sortablelist;
 public abstract class SortableListBase extends javax.faces.component.UIPanel {
 
 	private static final String DD = "dd";
+	private static final String DESTROYED = "destroyed";
 	private static final String DROP_CONDITION = "dropCondition";
 	private static final String DROP_CONTAINER = "dropContainer";
 	private static final String DROP_ON = "dropOn";
 	private static final String HELPER = "helper";
+	private static final String INITIALIZED = "initialized";
 	private static final String NODES = "nodes";
 	private static final String PLACEHOLDER = "placeholder";
 	private static final String PROXY = "proxy";
 	private static final String SORT_CONDITION = "sortCondition";
 	private static final String AFTER_DD_CHANGE = "afterDdChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
 	private static final String AFTER_DROP_CONDITION_CHANGE = "afterDropConditionChange";
 	private static final String AFTER_DROP_CONTAINER_CHANGE = "afterDropContainerChange";
 	private static final String AFTER_DROP_ON_CHANGE = "afterDropOnChange";
 	private static final String AFTER_HELPER_CHANGE = "afterHelperChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_NODES_CHANGE = "afterNodesChange";
 	private static final String AFTER_PLACEHOLDER_CHANGE = "afterPlaceholderChange";
 	private static final String AFTER_PROXY_CHANGE = "afterProxyChange";
 	private static final String AFTER_SORT_CONDITION_CHANGE = "afterSortConditionChange";
 	private static final String ON_DD_CHANGE = "onDdChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
 	private static final String ON_DROP_CONDITION_CHANGE = "onDropConditionChange";
 	private static final String ON_DROP_CONTAINER_CHANGE = "onDropContainerChange";
 	private static final String ON_DROP_ON_CHANGE = "onDropOnChange";
 	private static final String ON_HELPER_CHANGE = "onHelperChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_NODES_CHANGE = "onNodesChange";
 	private static final String ON_PLACEHOLDER_CHANGE = "onPlaceholderChange";
 	private static final String ON_PROXY_CHANGE = "onProxyChange";
 	private static final String ON_SORT_CONDITION_CHANGE = "onSortConditionChange";
 
-	protected java.lang.String getDd() {
+	public java.lang.String getDd() {
 		return (java.lang.String) getStateHelper().eval(DD, null);
 	}
 
-	protected void setDd(java.lang.String dd) {
+	public void setDd(java.lang.String dd) {
 		getStateHelper().put(DD, dd);
 	}
 
-	protected java.lang.Object getDropCondition() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Object getDropCondition() {
 		return (java.lang.Object) getStateHelper().eval(DROP_CONDITION, null);
 	}
 
-	protected void setDropCondition(java.lang.Object dropCondition) {
+	public void setDropCondition(java.lang.Object dropCondition) {
 		getStateHelper().put(DROP_CONDITION, dropCondition);
 	}
 
-	protected java.lang.Object getDropContainer() {
+	public java.lang.Object getDropContainer() {
 		return (java.lang.Object) getStateHelper().eval(DROP_CONTAINER, null);
 	}
 
-	protected void setDropContainer(java.lang.Object dropContainer) {
+	public void setDropContainer(java.lang.Object dropContainer) {
 		getStateHelper().put(DROP_CONTAINER, dropContainer);
 	}
 
-	protected java.lang.String getDropOn() {
+	public java.lang.String getDropOn() {
 		return (java.lang.String) getStateHelper().eval(DROP_ON, null);
 	}
 
-	protected void setDropOn(java.lang.String dropOn) {
+	public void setDropOn(java.lang.String dropOn) {
 		getStateHelper().put(DROP_ON, dropOn);
 	}
 
-	protected java.lang.String getHelper() {
+	public java.lang.String getHelper() {
 		return (java.lang.String) getStateHelper().eval(HELPER, null);
 	}
 
-	protected void setHelper(java.lang.String helper) {
+	public void setHelper(java.lang.String helper) {
 		getStateHelper().put(HELPER, helper);
 	}
 
-	protected java.lang.String getNodes() {
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.String getNodes() {
 		return (java.lang.String) getStateHelper().eval(NODES, null);
 	}
 
-	protected void setNodes(java.lang.String nodes) {
+	public void setNodes(java.lang.String nodes) {
 		getStateHelper().put(NODES, nodes);
 	}
 
-	protected java.lang.String getPlaceholder() {
+	public java.lang.String getPlaceholder() {
 		return (java.lang.String) getStateHelper().eval(PLACEHOLDER, null);
 	}
 
-	protected void setPlaceholder(java.lang.String placeholder) {
+	public void setPlaceholder(java.lang.String placeholder) {
 		getStateHelper().put(PLACEHOLDER, placeholder);
 	}
 
-	protected java.lang.String getProxy() {
+	public java.lang.String getProxy() {
 		return (java.lang.String) getStateHelper().eval(PROXY, null);
 	}
 
-	protected void setProxy(java.lang.String proxy) {
+	public void setProxy(java.lang.String proxy) {
 		getStateHelper().put(PROXY, proxy);
 	}
 
-	protected java.lang.Object getSortCondition() {
+	public java.lang.Object getSortCondition() {
 		return (java.lang.Object) getStateHelper().eval(SORT_CONDITION, null);
 	}
 
-	protected void setSortCondition(java.lang.Object sortCondition) {
+	public void setSortCondition(java.lang.Object sortCondition) {
 		getStateHelper().put(SORT_CONDITION, sortCondition);
 	}
 
-	protected java.lang.String getAfterDdChange() {
+	public java.lang.String getAfterDdChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DD_CHANGE, null);
 	}
 
-	protected void setAfterDdChange(java.lang.String afterDdChange) {
+	public void setAfterDdChange(java.lang.String afterDdChange) {
 		getStateHelper().put(AFTER_DD_CHANGE, afterDdChange);
 	}
 
-	protected java.lang.String getAfterDropConditionChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterDropConditionChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DROP_CONDITION_CHANGE, null);
 	}
 
-	protected void setAfterDropConditionChange(java.lang.String afterDropConditionChange) {
+	public void setAfterDropConditionChange(java.lang.String afterDropConditionChange) {
 		getStateHelper().put(AFTER_DROP_CONDITION_CHANGE, afterDropConditionChange);
 	}
 
-	protected java.lang.String getAfterDropContainerChange() {
+	public java.lang.String getAfterDropContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DROP_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterDropContainerChange(java.lang.String afterDropContainerChange) {
+	public void setAfterDropContainerChange(java.lang.String afterDropContainerChange) {
 		getStateHelper().put(AFTER_DROP_CONTAINER_CHANGE, afterDropContainerChange);
 	}
 
-	protected java.lang.String getAfterDropOnChange() {
+	public java.lang.String getAfterDropOnChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DROP_ON_CHANGE, null);
 	}
 
-	protected void setAfterDropOnChange(java.lang.String afterDropOnChange) {
+	public void setAfterDropOnChange(java.lang.String afterDropOnChange) {
 		getStateHelper().put(AFTER_DROP_ON_CHANGE, afterDropOnChange);
 	}
 
-	protected java.lang.String getAfterHelperChange() {
+	public java.lang.String getAfterHelperChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HELPER_CHANGE, null);
 	}
 
-	protected void setAfterHelperChange(java.lang.String afterHelperChange) {
+	public void setAfterHelperChange(java.lang.String afterHelperChange) {
 		getStateHelper().put(AFTER_HELPER_CHANGE, afterHelperChange);
 	}
 
-	protected java.lang.String getAfterNodesChange() {
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterNodesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NODES_CHANGE, null);
 	}
 
-	protected void setAfterNodesChange(java.lang.String afterNodesChange) {
+	public void setAfterNodesChange(java.lang.String afterNodesChange) {
 		getStateHelper().put(AFTER_NODES_CHANGE, afterNodesChange);
 	}
 
-	protected java.lang.String getAfterPlaceholderChange() {
+	public java.lang.String getAfterPlaceholderChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PLACEHOLDER_CHANGE, null);
 	}
 
-	protected void setAfterPlaceholderChange(java.lang.String afterPlaceholderChange) {
+	public void setAfterPlaceholderChange(java.lang.String afterPlaceholderChange) {
 		getStateHelper().put(AFTER_PLACEHOLDER_CHANGE, afterPlaceholderChange);
 	}
 
-	protected java.lang.String getAfterProxyChange() {
+	public java.lang.String getAfterProxyChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PROXY_CHANGE, null);
 	}
 
-	protected void setAfterProxyChange(java.lang.String afterProxyChange) {
+	public void setAfterProxyChange(java.lang.String afterProxyChange) {
 		getStateHelper().put(AFTER_PROXY_CHANGE, afterProxyChange);
 	}
 
-	protected java.lang.String getAfterSortConditionChange() {
+	public java.lang.String getAfterSortConditionChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SORT_CONDITION_CHANGE, null);
 	}
 
-	protected void setAfterSortConditionChange(java.lang.String afterSortConditionChange) {
+	public void setAfterSortConditionChange(java.lang.String afterSortConditionChange) {
 		getStateHelper().put(AFTER_SORT_CONDITION_CHANGE, afterSortConditionChange);
 	}
 
-	protected java.lang.String getOnDdChange() {
+	public java.lang.String getOnDdChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DD_CHANGE, null);
 	}
 
-	protected void setOnDdChange(java.lang.String onDdChange) {
+	public void setOnDdChange(java.lang.String onDdChange) {
 		getStateHelper().put(ON_DD_CHANGE, onDdChange);
 	}
 
-	protected java.lang.String getOnDropConditionChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnDropConditionChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DROP_CONDITION_CHANGE, null);
 	}
 
-	protected void setOnDropConditionChange(java.lang.String onDropConditionChange) {
+	public void setOnDropConditionChange(java.lang.String onDropConditionChange) {
 		getStateHelper().put(ON_DROP_CONDITION_CHANGE, onDropConditionChange);
 	}
 
-	protected java.lang.String getOnDropContainerChange() {
+	public java.lang.String getOnDropContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DROP_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnDropContainerChange(java.lang.String onDropContainerChange) {
+	public void setOnDropContainerChange(java.lang.String onDropContainerChange) {
 		getStateHelper().put(ON_DROP_CONTAINER_CHANGE, onDropContainerChange);
 	}
 
-	protected java.lang.String getOnDropOnChange() {
+	public java.lang.String getOnDropOnChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DROP_ON_CHANGE, null);
 	}
 
-	protected void setOnDropOnChange(java.lang.String onDropOnChange) {
+	public void setOnDropOnChange(java.lang.String onDropOnChange) {
 		getStateHelper().put(ON_DROP_ON_CHANGE, onDropOnChange);
 	}
 
-	protected java.lang.String getOnHelperChange() {
+	public java.lang.String getOnHelperChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HELPER_CHANGE, null);
 	}
 
-	protected void setOnHelperChange(java.lang.String onHelperChange) {
+	public void setOnHelperChange(java.lang.String onHelperChange) {
 		getStateHelper().put(ON_HELPER_CHANGE, onHelperChange);
 	}
 
-	protected java.lang.String getOnNodesChange() {
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnNodesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NODES_CHANGE, null);
 	}
 
-	protected void setOnNodesChange(java.lang.String onNodesChange) {
+	public void setOnNodesChange(java.lang.String onNodesChange) {
 		getStateHelper().put(ON_NODES_CHANGE, onNodesChange);
 	}
 
-	protected java.lang.String getOnPlaceholderChange() {
+	public java.lang.String getOnPlaceholderChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PLACEHOLDER_CHANGE, null);
 	}
 
-	protected void setOnPlaceholderChange(java.lang.String onPlaceholderChange) {
+	public void setOnPlaceholderChange(java.lang.String onPlaceholderChange) {
 		getStateHelper().put(ON_PLACEHOLDER_CHANGE, onPlaceholderChange);
 	}
 
-	protected java.lang.String getOnProxyChange() {
+	public java.lang.String getOnProxyChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PROXY_CHANGE, null);
 	}
 
-	protected void setOnProxyChange(java.lang.String onProxyChange) {
+	public void setOnProxyChange(java.lang.String onProxyChange) {
 		getStateHelper().put(ON_PROXY_CHANGE, onProxyChange);
 	}
 
-	protected java.lang.String getOnSortConditionChange() {
+	public java.lang.String getOnSortConditionChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SORT_CONDITION_CHANGE, null);
 	}
 
-	protected void setOnSortConditionChange(java.lang.String onSortConditionChange) {
+	public void setOnSortConditionChange(java.lang.String onSortConditionChange) {
 		getStateHelper().put(ON_SORT_CONDITION_CHANGE, onSortConditionChange);
 	}
 

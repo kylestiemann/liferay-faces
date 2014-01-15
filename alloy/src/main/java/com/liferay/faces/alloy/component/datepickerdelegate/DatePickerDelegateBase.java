@@ -43,171 +43,171 @@ public abstract class DatePickerDelegateBase extends javax.faces.component.UIPan
 	private static final String ON_VALUE_EXTRACTOR_CHANGE = "onValueExtractorChange";
 	private static final String ON_VALUE_FORMATTER_CHANGE = "onValueFormatterChange";
 
-	protected java.lang.String getActiveInput() {
+	public java.lang.String getActiveInput() {
 		return (java.lang.String) getStateHelper().eval(ACTIVE_INPUT, null);
 	}
 
-	protected void setActiveInput(java.lang.String activeInput) {
+	public void setActiveInput(java.lang.String activeInput) {
 		getStateHelper().put(ACTIVE_INPUT, activeInput);
 	}
 
-	protected java.lang.String getContainer() {
+	public java.lang.String getContainer() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.String container) {
+	public void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 
-	protected java.lang.String getContent() {
+	public java.lang.String getContent() {
 		return (java.lang.String) getStateHelper().eval(CONTENT, null);
 	}
 
-	protected void setContent(java.lang.String content) {
+	public void setContent(java.lang.String content) {
 		getStateHelper().put(CONTENT, content);
 	}
 
-	protected java.lang.String getDateSeparator() {
+	public java.lang.String getDateSeparator() {
 		return (java.lang.String) getStateHelper().eval(DATE_SEPARATOR, null);
 	}
 
-	protected void setDateSeparator(java.lang.String dateSeparator) {
+	public void setDateSeparator(java.lang.String dateSeparator) {
 		getStateHelper().put(DATE_SEPARATOR, dateSeparator);
 	}
 
-	protected java.lang.String getMask() {
+	public java.lang.String getMask() {
 		return (java.lang.String) getStateHelper().eval(MASK, null);
 	}
 
-	protected void setMask(java.lang.String mask) {
+	public void setMask(java.lang.String mask) {
 		getStateHelper().put(MASK, mask);
 	}
 
-	protected java.lang.Object getValueExtractor() {
+	public java.lang.Object getValueExtractor() {
 		return (java.lang.Object) getStateHelper().eval(VALUE_EXTRACTOR, null);
 	}
 
-	protected void setValueExtractor(java.lang.Object valueExtractor) {
+	public void setValueExtractor(java.lang.Object valueExtractor) {
 		getStateHelper().put(VALUE_EXTRACTOR, valueExtractor);
 	}
 
-	protected java.lang.Object getValueFormatter() {
+	public java.lang.Object getValueFormatter() {
 		return (java.lang.Object) getStateHelper().eval(VALUE_FORMATTER, null);
 	}
 
-	protected void setValueFormatter(java.lang.Object valueFormatter) {
+	public void setValueFormatter(java.lang.Object valueFormatter) {
 		getStateHelper().put(VALUE_FORMATTER, valueFormatter);
 	}
 
-	protected java.lang.String getAfterActiveInputChange() {
+	public java.lang.String getAfterActiveInputChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ACTIVE_INPUT_CHANGE, null);
 	}
 
-	protected void setAfterActiveInputChange(java.lang.String afterActiveInputChange) {
+	public void setAfterActiveInputChange(java.lang.String afterActiveInputChange) {
 		getStateHelper().put(AFTER_ACTIVE_INPUT_CHANGE, afterActiveInputChange);
 	}
 
-	protected java.lang.String getAfterContainerChange() {
+	public java.lang.String getAfterContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterContainerChange(java.lang.String afterContainerChange) {
+	public void setAfterContainerChange(java.lang.String afterContainerChange) {
 		getStateHelper().put(AFTER_CONTAINER_CHANGE, afterContainerChange);
 	}
 
-	protected java.lang.String getAfterContentChange() {
+	public java.lang.String getAfterContentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTENT_CHANGE, null);
 	}
 
-	protected void setAfterContentChange(java.lang.String afterContentChange) {
+	public void setAfterContentChange(java.lang.String afterContentChange) {
 		getStateHelper().put(AFTER_CONTENT_CHANGE, afterContentChange);
 	}
 
-	protected java.lang.String getAfterDateSeparatorChange() {
+	public java.lang.String getAfterDateSeparatorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DATE_SEPARATOR_CHANGE, null);
 	}
 
-	protected void setAfterDateSeparatorChange(java.lang.String afterDateSeparatorChange) {
+	public void setAfterDateSeparatorChange(java.lang.String afterDateSeparatorChange) {
 		getStateHelper().put(AFTER_DATE_SEPARATOR_CHANGE, afterDateSeparatorChange);
 	}
 
-	protected java.lang.String getAfterMaskChange() {
+	public java.lang.String getAfterMaskChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_MASK_CHANGE, null);
 	}
 
-	protected void setAfterMaskChange(java.lang.String afterMaskChange) {
+	public void setAfterMaskChange(java.lang.String afterMaskChange) {
 		getStateHelper().put(AFTER_MASK_CHANGE, afterMaskChange);
 	}
 
-	protected java.lang.String getAfterValueExtractorChange() {
+	public java.lang.String getAfterValueExtractorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALUE_EXTRACTOR_CHANGE, null);
 	}
 
-	protected void setAfterValueExtractorChange(java.lang.String afterValueExtractorChange) {
+	public void setAfterValueExtractorChange(java.lang.String afterValueExtractorChange) {
 		getStateHelper().put(AFTER_VALUE_EXTRACTOR_CHANGE, afterValueExtractorChange);
 	}
 
-	protected java.lang.String getAfterValueFormatterChange() {
+	public java.lang.String getAfterValueFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALUE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setAfterValueFormatterChange(java.lang.String afterValueFormatterChange) {
+	public void setAfterValueFormatterChange(java.lang.String afterValueFormatterChange) {
 		getStateHelper().put(AFTER_VALUE_FORMATTER_CHANGE, afterValueFormatterChange);
 	}
 
-	protected java.lang.String getOnActiveInputChange() {
+	public java.lang.String getOnActiveInputChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ACTIVE_INPUT_CHANGE, null);
 	}
 
-	protected void setOnActiveInputChange(java.lang.String onActiveInputChange) {
+	public void setOnActiveInputChange(java.lang.String onActiveInputChange) {
 		getStateHelper().put(ON_ACTIVE_INPUT_CHANGE, onActiveInputChange);
 	}
 
-	protected java.lang.String getOnContainerChange() {
+	public java.lang.String getOnContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnContainerChange(java.lang.String onContainerChange) {
+	public void setOnContainerChange(java.lang.String onContainerChange) {
 		getStateHelper().put(ON_CONTAINER_CHANGE, onContainerChange);
 	}
 
-	protected java.lang.String getOnContentChange() {
+	public java.lang.String getOnContentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTENT_CHANGE, null);
 	}
 
-	protected void setOnContentChange(java.lang.String onContentChange) {
+	public void setOnContentChange(java.lang.String onContentChange) {
 		getStateHelper().put(ON_CONTENT_CHANGE, onContentChange);
 	}
 
-	protected java.lang.String getOnDateSeparatorChange() {
+	public java.lang.String getOnDateSeparatorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DATE_SEPARATOR_CHANGE, null);
 	}
 
-	protected void setOnDateSeparatorChange(java.lang.String onDateSeparatorChange) {
+	public void setOnDateSeparatorChange(java.lang.String onDateSeparatorChange) {
 		getStateHelper().put(ON_DATE_SEPARATOR_CHANGE, onDateSeparatorChange);
 	}
 
-	protected java.lang.String getOnMaskChange() {
+	public java.lang.String getOnMaskChange() {
 		return (java.lang.String) getStateHelper().eval(ON_MASK_CHANGE, null);
 	}
 
-	protected void setOnMaskChange(java.lang.String onMaskChange) {
+	public void setOnMaskChange(java.lang.String onMaskChange) {
 		getStateHelper().put(ON_MASK_CHANGE, onMaskChange);
 	}
 
-	protected java.lang.String getOnValueExtractorChange() {
+	public java.lang.String getOnValueExtractorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALUE_EXTRACTOR_CHANGE, null);
 	}
 
-	protected void setOnValueExtractorChange(java.lang.String onValueExtractorChange) {
+	public void setOnValueExtractorChange(java.lang.String onValueExtractorChange) {
 		getStateHelper().put(ON_VALUE_EXTRACTOR_CHANGE, onValueExtractorChange);
 	}
 
-	protected java.lang.String getOnValueFormatterChange() {
+	public java.lang.String getOnValueFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALUE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setOnValueFormatterChange(java.lang.String onValueFormatterChange) {
+	public void setOnValueFormatterChange(java.lang.String onValueFormatterChange) {
 		getStateHelper().put(ON_VALUE_FORMATTER_CHANGE, onValueFormatterChange);
 	}
 

@@ -25,7 +25,9 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 	private static final String BUILDER = "builder";
 	private static final String COLOR = "color";
 	private static final String COORD = "coord";
+	private static final String DESTROYED = "destroyed";
 	private static final String GRAPHIC = "graphic";
+	private static final String INITIALIZED = "initialized";
 	private static final String LAZY_DRAW = "lazyDraw";
 	private static final String NAME = "name";
 	private static final String NODE_NAME = "nodeName";
@@ -45,7 +47,9 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 	private static final String AFTER_BUILDER_CHANGE = "afterBuilderChange";
 	private static final String AFTER_COLOR_CHANGE = "afterColorChange";
 	private static final String AFTER_COORD_CHANGE = "afterCoordChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
 	private static final String AFTER_GRAPHIC_CHANGE = "afterGraphicChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_LAZY_DRAW_CHANGE = "afterLazyDrawChange";
 	private static final String AFTER_NAME_CHANGE = "afterNameChange";
 	private static final String AFTER_NODE_NAME_CHANGE = "afterNodeNameChange";
@@ -65,7 +69,9 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 	private static final String ON_BUILDER_CHANGE = "onBuilderChange";
 	private static final String ON_COLOR_CHANGE = "onColorChange";
 	private static final String ON_COORD_CHANGE = "onCoordChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
 	private static final String ON_GRAPHIC_CHANGE = "onGraphicChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_LAZY_DRAW_CHANGE = "onLazyDrawChange";
 	private static final String ON_NAME_CHANGE = "onNameChange";
 	private static final String ON_NODE_NAME_CHANGE = "onNodeNameChange";
@@ -82,483 +88,531 @@ public abstract class ConnectorBase extends javax.faces.component.UIPanel {
 	private static final String ON_TRANSITION_CHANGE = "onTransitionChange";
 	private static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 
-	protected java.lang.String getArrowPoints() {
+	public java.lang.String getArrowPoints() {
 		return (java.lang.String) getStateHelper().eval(ARROW_POINTS, null);
 	}
 
-	protected void setArrowPoints(java.lang.String arrowPoints) {
+	public void setArrowPoints(java.lang.String arrowPoints) {
 		getStateHelper().put(ARROW_POINTS, arrowPoints);
 	}
 
-	protected java.lang.String getBuilder() {
+	public java.lang.String getBuilder() {
 		return (java.lang.String) getStateHelper().eval(BUILDER, null);
 	}
 
-	protected void setBuilder(java.lang.String builder) {
+	public void setBuilder(java.lang.String builder) {
 		getStateHelper().put(BUILDER, builder);
 	}
 
-	protected java.lang.String getColor() {
+	public java.lang.String getColor() {
 		return (java.lang.String) getStateHelper().eval(COLOR, null);
 	}
 
-	protected void setColor(java.lang.String color) {
+	public void setColor(java.lang.String color) {
 		getStateHelper().put(COLOR, color);
 	}
 
-	protected java.lang.String getCoord() {
+	public java.lang.String getCoord() {
 		return (java.lang.String) getStateHelper().eval(COORD, null);
 	}
 
-	protected void setCoord(java.lang.String coord) {
+	public void setCoord(java.lang.String coord) {
 		getStateHelper().put(COORD, coord);
 	}
 
-	protected java.lang.Object getGraphic() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Object getGraphic() {
 		return (java.lang.Object) getStateHelper().eval(GRAPHIC, null);
 	}
 
-	protected void setGraphic(java.lang.Object graphic) {
+	public void setGraphic(java.lang.Object graphic) {
 		getStateHelper().put(GRAPHIC, graphic);
 	}
 
-	protected java.lang.Boolean getLazyDraw() {
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.Boolean getLazyDraw() {
 		return (java.lang.Boolean) getStateHelper().eval(LAZY_DRAW, null);
 	}
 
-	protected void setLazyDraw(java.lang.Boolean lazyDraw) {
+	public void setLazyDraw(java.lang.Boolean lazyDraw) {
 		getStateHelper().put(LAZY_DRAW, lazyDraw);
 	}
 
-	protected java.lang.String getName() {
+	public java.lang.String getName() {
 		return (java.lang.String) getStateHelper().eval(NAME, null);
 	}
 
-	protected void setName(java.lang.String name) {
+	public void setName(java.lang.String name) {
 		getStateHelper().put(NAME, name);
 	}
 
-	protected java.lang.String getNodeName() {
+	public java.lang.String getNodeName() {
 		return (java.lang.String) getStateHelper().eval(NODE_NAME, null);
 	}
 
-	protected void setNodeName(java.lang.String nodeName) {
+	public void setNodeName(java.lang.String nodeName) {
 		getStateHelper().put(NODE_NAME, nodeName);
 	}
 
-	protected java.lang.Object getP1() {
+	public java.lang.Object getP1() {
 		return (java.lang.Object) getStateHelper().eval(P1, null);
 	}
 
-	protected void setP1(java.lang.Object p1) {
+	public void setP1(java.lang.Object p1) {
 		getStateHelper().put(P1, p1);
 	}
 
-	protected java.lang.Object getP2() {
+	public java.lang.Object getP2() {
 		return (java.lang.Object) getStateHelper().eval(P2, null);
 	}
 
-	protected void setP2(java.lang.Object p2) {
+	public void setP2(java.lang.Object p2) {
 		getStateHelper().put(P2, p2);
 	}
 
-	protected java.lang.Boolean getSelected() {
+	public java.lang.Boolean getSelected() {
 		return (java.lang.Boolean) getStateHelper().eval(SELECTED, null);
 	}
 
-	protected void setSelected(java.lang.Boolean selected) {
+	public void setSelected(java.lang.Boolean selected) {
 		getStateHelper().put(SELECTED, selected);
 	}
 
-	protected java.lang.String getShape() {
+	public java.lang.String getShape() {
 		return (java.lang.String) getStateHelper().eval(SHAPE, null);
 	}
 
-	protected void setShape(java.lang.String shape) {
+	public void setShape(java.lang.String shape) {
 		getStateHelper().put(SHAPE, shape);
 	}
 
-	protected java.lang.String getShapeArrow() {
+	public java.lang.String getShapeArrow() {
 		return (java.lang.String) getStateHelper().eval(SHAPE_ARROW, null);
 	}
 
-	protected void setShapeArrow(java.lang.String shapeArrow) {
+	public void setShapeArrow(java.lang.String shapeArrow) {
 		getStateHelper().put(SHAPE_ARROW, shapeArrow);
 	}
 
-	protected java.lang.Object getShapeArrowHover() {
+	public java.lang.Object getShapeArrowHover() {
 		return (java.lang.Object) getStateHelper().eval(SHAPE_ARROW_HOVER, null);
 	}
 
-	protected void setShapeArrowHover(java.lang.Object shapeArrowHover) {
+	public void setShapeArrowHover(java.lang.Object shapeArrowHover) {
 		getStateHelper().put(SHAPE_ARROW_HOVER, shapeArrowHover);
 	}
 
-	protected java.lang.Object getShapeArrowSelected() {
+	public java.lang.Object getShapeArrowSelected() {
 		return (java.lang.Object) getStateHelper().eval(SHAPE_ARROW_SELECTED, null);
 	}
 
-	protected void setShapeArrowSelected(java.lang.Object shapeArrowSelected) {
+	public void setShapeArrowSelected(java.lang.Object shapeArrowSelected) {
 		getStateHelper().put(SHAPE_ARROW_SELECTED, shapeArrowSelected);
 	}
 
-	protected java.lang.Object getShapeHover() {
+	public java.lang.Object getShapeHover() {
 		return (java.lang.Object) getStateHelper().eval(SHAPE_HOVER, null);
 	}
 
-	protected void setShapeHover(java.lang.Object shapeHover) {
+	public void setShapeHover(java.lang.Object shapeHover) {
 		getStateHelper().put(SHAPE_HOVER, shapeHover);
 	}
 
-	protected java.lang.Object getShapeSelected() {
+	public java.lang.Object getShapeSelected() {
 		return (java.lang.Object) getStateHelper().eval(SHAPE_SELECTED, null);
 	}
 
-	protected void setShapeSelected(java.lang.Object shapeSelected) {
+	public void setShapeSelected(java.lang.Object shapeSelected) {
 		getStateHelper().put(SHAPE_SELECTED, shapeSelected);
 	}
 
-	protected java.lang.Boolean getShowName() {
+	public java.lang.Boolean getShowName() {
 		return (java.lang.Boolean) getStateHelper().eval(SHOW_NAME, null);
 	}
 
-	protected void setShowName(java.lang.Boolean showName) {
+	public void setShowName(java.lang.Boolean showName) {
 		getStateHelper().put(SHOW_NAME, showName);
 	}
 
-	protected java.lang.Object getTransition() {
+	public java.lang.Object getTransition() {
 		return (java.lang.Object) getStateHelper().eval(TRANSITION, null);
 	}
 
-	protected void setTransition(java.lang.Object transition) {
+	public void setTransition(java.lang.Object transition) {
 		getStateHelper().put(TRANSITION, transition);
 	}
 
-	protected java.lang.Boolean getVisible() {
+	public java.lang.Boolean getVisible() {
 		return (java.lang.Boolean) getStateHelper().eval(VISIBLE, null);
 	}
 
-	protected void setVisible(java.lang.Boolean visible) {
+	public void setVisible(java.lang.Boolean visible) {
 		getStateHelper().put(VISIBLE, visible);
 	}
 
-	protected java.lang.String getAfterArrowPointsChange() {
+	public java.lang.String getAfterArrowPointsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ARROW_POINTS_CHANGE, null);
 	}
 
-	protected void setAfterArrowPointsChange(java.lang.String afterArrowPointsChange) {
+	public void setAfterArrowPointsChange(java.lang.String afterArrowPointsChange) {
 		getStateHelper().put(AFTER_ARROW_POINTS_CHANGE, afterArrowPointsChange);
 	}
 
-	protected java.lang.String getAfterBuilderChange() {
+	public java.lang.String getAfterBuilderChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BUILDER_CHANGE, null);
 	}
 
-	protected void setAfterBuilderChange(java.lang.String afterBuilderChange) {
+	public void setAfterBuilderChange(java.lang.String afterBuilderChange) {
 		getStateHelper().put(AFTER_BUILDER_CHANGE, afterBuilderChange);
 	}
 
-	protected java.lang.String getAfterColorChange() {
+	public java.lang.String getAfterColorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_COLOR_CHANGE, null);
 	}
 
-	protected void setAfterColorChange(java.lang.String afterColorChange) {
+	public void setAfterColorChange(java.lang.String afterColorChange) {
 		getStateHelper().put(AFTER_COLOR_CHANGE, afterColorChange);
 	}
 
-	protected java.lang.String getAfterCoordChange() {
+	public java.lang.String getAfterCoordChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_COORD_CHANGE, null);
 	}
 
-	protected void setAfterCoordChange(java.lang.String afterCoordChange) {
+	public void setAfterCoordChange(java.lang.String afterCoordChange) {
 		getStateHelper().put(AFTER_COORD_CHANGE, afterCoordChange);
 	}
 
-	protected java.lang.String getAfterGraphicChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterGraphicChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_GRAPHIC_CHANGE, null);
 	}
 
-	protected void setAfterGraphicChange(java.lang.String afterGraphicChange) {
+	public void setAfterGraphicChange(java.lang.String afterGraphicChange) {
 		getStateHelper().put(AFTER_GRAPHIC_CHANGE, afterGraphicChange);
 	}
 
-	protected java.lang.String getAfterLazyDrawChange() {
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterLazyDrawChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_LAZY_DRAW_CHANGE, null);
 	}
 
-	protected void setAfterLazyDrawChange(java.lang.String afterLazyDrawChange) {
+	public void setAfterLazyDrawChange(java.lang.String afterLazyDrawChange) {
 		getStateHelper().put(AFTER_LAZY_DRAW_CHANGE, afterLazyDrawChange);
 	}
 
-	protected java.lang.String getAfterNameChange() {
+	public java.lang.String getAfterNameChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NAME_CHANGE, null);
 	}
 
-	protected void setAfterNameChange(java.lang.String afterNameChange) {
+	public void setAfterNameChange(java.lang.String afterNameChange) {
 		getStateHelper().put(AFTER_NAME_CHANGE, afterNameChange);
 	}
 
-	protected java.lang.String getAfterNodeNameChange() {
+	public java.lang.String getAfterNodeNameChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NODE_NAME_CHANGE, null);
 	}
 
-	protected void setAfterNodeNameChange(java.lang.String afterNodeNameChange) {
+	public void setAfterNodeNameChange(java.lang.String afterNodeNameChange) {
 		getStateHelper().put(AFTER_NODE_NAME_CHANGE, afterNodeNameChange);
 	}
 
-	protected java.lang.String getAfterP1Change() {
+	public java.lang.String getAfterP1Change() {
 		return (java.lang.String) getStateHelper().eval(AFTER_P1_CHANGE, null);
 	}
 
-	protected void setAfterP1Change(java.lang.String afterP1Change) {
+	public void setAfterP1Change(java.lang.String afterP1Change) {
 		getStateHelper().put(AFTER_P1_CHANGE, afterP1Change);
 	}
 
-	protected java.lang.String getAfterP2Change() {
+	public java.lang.String getAfterP2Change() {
 		return (java.lang.String) getStateHelper().eval(AFTER_P2_CHANGE, null);
 	}
 
-	protected void setAfterP2Change(java.lang.String afterP2Change) {
+	public void setAfterP2Change(java.lang.String afterP2Change) {
 		getStateHelper().put(AFTER_P2_CHANGE, afterP2Change);
 	}
 
-	protected java.lang.String getAfterSelectedChange() {
+	public java.lang.String getAfterSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SELECTED_CHANGE, null);
 	}
 
-	protected void setAfterSelectedChange(java.lang.String afterSelectedChange) {
+	public void setAfterSelectedChange(java.lang.String afterSelectedChange) {
 		getStateHelper().put(AFTER_SELECTED_CHANGE, afterSelectedChange);
 	}
 
-	protected java.lang.String getAfterShapeChange() {
+	public java.lang.String getAfterShapeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHAPE_CHANGE, null);
 	}
 
-	protected void setAfterShapeChange(java.lang.String afterShapeChange) {
+	public void setAfterShapeChange(java.lang.String afterShapeChange) {
 		getStateHelper().put(AFTER_SHAPE_CHANGE, afterShapeChange);
 	}
 
-	protected java.lang.String getAfterShapeArrowChange() {
+	public java.lang.String getAfterShapeArrowChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHAPE_ARROW_CHANGE, null);
 	}
 
-	protected void setAfterShapeArrowChange(java.lang.String afterShapeArrowChange) {
+	public void setAfterShapeArrowChange(java.lang.String afterShapeArrowChange) {
 		getStateHelper().put(AFTER_SHAPE_ARROW_CHANGE, afterShapeArrowChange);
 	}
 
-	protected java.lang.String getAfterShapeArrowHoverChange() {
+	public java.lang.String getAfterShapeArrowHoverChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHAPE_ARROW_HOVER_CHANGE, null);
 	}
 
-	protected void setAfterShapeArrowHoverChange(java.lang.String afterShapeArrowHoverChange) {
+	public void setAfterShapeArrowHoverChange(java.lang.String afterShapeArrowHoverChange) {
 		getStateHelper().put(AFTER_SHAPE_ARROW_HOVER_CHANGE, afterShapeArrowHoverChange);
 	}
 
-	protected java.lang.String getAfterShapeArrowSelectedChange() {
+	public java.lang.String getAfterShapeArrowSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHAPE_ARROW_SELECTED_CHANGE, null);
 	}
 
-	protected void setAfterShapeArrowSelectedChange(java.lang.String afterShapeArrowSelectedChange) {
+	public void setAfterShapeArrowSelectedChange(java.lang.String afterShapeArrowSelectedChange) {
 		getStateHelper().put(AFTER_SHAPE_ARROW_SELECTED_CHANGE, afterShapeArrowSelectedChange);
 	}
 
-	protected java.lang.String getAfterShapeHoverChange() {
+	public java.lang.String getAfterShapeHoverChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHAPE_HOVER_CHANGE, null);
 	}
 
-	protected void setAfterShapeHoverChange(java.lang.String afterShapeHoverChange) {
+	public void setAfterShapeHoverChange(java.lang.String afterShapeHoverChange) {
 		getStateHelper().put(AFTER_SHAPE_HOVER_CHANGE, afterShapeHoverChange);
 	}
 
-	protected java.lang.String getAfterShapeSelectedChange() {
+	public java.lang.String getAfterShapeSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHAPE_SELECTED_CHANGE, null);
 	}
 
-	protected void setAfterShapeSelectedChange(java.lang.String afterShapeSelectedChange) {
+	public void setAfterShapeSelectedChange(java.lang.String afterShapeSelectedChange) {
 		getStateHelper().put(AFTER_SHAPE_SELECTED_CHANGE, afterShapeSelectedChange);
 	}
 
-	protected java.lang.String getAfterShowNameChange() {
+	public java.lang.String getAfterShowNameChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHOW_NAME_CHANGE, null);
 	}
 
-	protected void setAfterShowNameChange(java.lang.String afterShowNameChange) {
+	public void setAfterShowNameChange(java.lang.String afterShowNameChange) {
 		getStateHelper().put(AFTER_SHOW_NAME_CHANGE, afterShowNameChange);
 	}
 
-	protected java.lang.String getAfterTransitionChange() {
+	public java.lang.String getAfterTransitionChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TRANSITION_CHANGE, null);
 	}
 
-	protected void setAfterTransitionChange(java.lang.String afterTransitionChange) {
+	public void setAfterTransitionChange(java.lang.String afterTransitionChange) {
 		getStateHelper().put(AFTER_TRANSITION_CHANGE, afterTransitionChange);
 	}
 
-	protected java.lang.String getAfterVisibleChange() {
+	public java.lang.String getAfterVisibleChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VISIBLE_CHANGE, null);
 	}
 
-	protected void setAfterVisibleChange(java.lang.String afterVisibleChange) {
+	public void setAfterVisibleChange(java.lang.String afterVisibleChange) {
 		getStateHelper().put(AFTER_VISIBLE_CHANGE, afterVisibleChange);
 	}
 
-	protected java.lang.String getOnArrowPointsChange() {
+	public java.lang.String getOnArrowPointsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ARROW_POINTS_CHANGE, null);
 	}
 
-	protected void setOnArrowPointsChange(java.lang.String onArrowPointsChange) {
+	public void setOnArrowPointsChange(java.lang.String onArrowPointsChange) {
 		getStateHelper().put(ON_ARROW_POINTS_CHANGE, onArrowPointsChange);
 	}
 
-	protected java.lang.String getOnBuilderChange() {
+	public java.lang.String getOnBuilderChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BUILDER_CHANGE, null);
 	}
 
-	protected void setOnBuilderChange(java.lang.String onBuilderChange) {
+	public void setOnBuilderChange(java.lang.String onBuilderChange) {
 		getStateHelper().put(ON_BUILDER_CHANGE, onBuilderChange);
 	}
 
-	protected java.lang.String getOnColorChange() {
+	public java.lang.String getOnColorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_COLOR_CHANGE, null);
 	}
 
-	protected void setOnColorChange(java.lang.String onColorChange) {
+	public void setOnColorChange(java.lang.String onColorChange) {
 		getStateHelper().put(ON_COLOR_CHANGE, onColorChange);
 	}
 
-	protected java.lang.String getOnCoordChange() {
+	public java.lang.String getOnCoordChange() {
 		return (java.lang.String) getStateHelper().eval(ON_COORD_CHANGE, null);
 	}
 
-	protected void setOnCoordChange(java.lang.String onCoordChange) {
+	public void setOnCoordChange(java.lang.String onCoordChange) {
 		getStateHelper().put(ON_COORD_CHANGE, onCoordChange);
 	}
 
-	protected java.lang.String getOnGraphicChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnGraphicChange() {
 		return (java.lang.String) getStateHelper().eval(ON_GRAPHIC_CHANGE, null);
 	}
 
-	protected void setOnGraphicChange(java.lang.String onGraphicChange) {
+	public void setOnGraphicChange(java.lang.String onGraphicChange) {
 		getStateHelper().put(ON_GRAPHIC_CHANGE, onGraphicChange);
 	}
 
-	protected java.lang.String getOnLazyDrawChange() {
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnLazyDrawChange() {
 		return (java.lang.String) getStateHelper().eval(ON_LAZY_DRAW_CHANGE, null);
 	}
 
-	protected void setOnLazyDrawChange(java.lang.String onLazyDrawChange) {
+	public void setOnLazyDrawChange(java.lang.String onLazyDrawChange) {
 		getStateHelper().put(ON_LAZY_DRAW_CHANGE, onLazyDrawChange);
 	}
 
-	protected java.lang.String getOnNameChange() {
+	public java.lang.String getOnNameChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NAME_CHANGE, null);
 	}
 
-	protected void setOnNameChange(java.lang.String onNameChange) {
+	public void setOnNameChange(java.lang.String onNameChange) {
 		getStateHelper().put(ON_NAME_CHANGE, onNameChange);
 	}
 
-	protected java.lang.String getOnNodeNameChange() {
+	public java.lang.String getOnNodeNameChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NODE_NAME_CHANGE, null);
 	}
 
-	protected void setOnNodeNameChange(java.lang.String onNodeNameChange) {
+	public void setOnNodeNameChange(java.lang.String onNodeNameChange) {
 		getStateHelper().put(ON_NODE_NAME_CHANGE, onNodeNameChange);
 	}
 
-	protected java.lang.String getOnP1Change() {
+	public java.lang.String getOnP1Change() {
 		return (java.lang.String) getStateHelper().eval(ON_P1_CHANGE, null);
 	}
 
-	protected void setOnP1Change(java.lang.String onP1Change) {
+	public void setOnP1Change(java.lang.String onP1Change) {
 		getStateHelper().put(ON_P1_CHANGE, onP1Change);
 	}
 
-	protected java.lang.String getOnP2Change() {
+	public java.lang.String getOnP2Change() {
 		return (java.lang.String) getStateHelper().eval(ON_P2_CHANGE, null);
 	}
 
-	protected void setOnP2Change(java.lang.String onP2Change) {
+	public void setOnP2Change(java.lang.String onP2Change) {
 		getStateHelper().put(ON_P2_CHANGE, onP2Change);
 	}
 
-	protected java.lang.String getOnSelectedChange() {
+	public java.lang.String getOnSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SELECTED_CHANGE, null);
 	}
 
-	protected void setOnSelectedChange(java.lang.String onSelectedChange) {
+	public void setOnSelectedChange(java.lang.String onSelectedChange) {
 		getStateHelper().put(ON_SELECTED_CHANGE, onSelectedChange);
 	}
 
-	protected java.lang.String getOnShapeChange() {
+	public java.lang.String getOnShapeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHAPE_CHANGE, null);
 	}
 
-	protected void setOnShapeChange(java.lang.String onShapeChange) {
+	public void setOnShapeChange(java.lang.String onShapeChange) {
 		getStateHelper().put(ON_SHAPE_CHANGE, onShapeChange);
 	}
 
-	protected java.lang.String getOnShapeArrowChange() {
+	public java.lang.String getOnShapeArrowChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHAPE_ARROW_CHANGE, null);
 	}
 
-	protected void setOnShapeArrowChange(java.lang.String onShapeArrowChange) {
+	public void setOnShapeArrowChange(java.lang.String onShapeArrowChange) {
 		getStateHelper().put(ON_SHAPE_ARROW_CHANGE, onShapeArrowChange);
 	}
 
-	protected java.lang.String getOnShapeArrowHoverChange() {
+	public java.lang.String getOnShapeArrowHoverChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHAPE_ARROW_HOVER_CHANGE, null);
 	}
 
-	protected void setOnShapeArrowHoverChange(java.lang.String onShapeArrowHoverChange) {
+	public void setOnShapeArrowHoverChange(java.lang.String onShapeArrowHoverChange) {
 		getStateHelper().put(ON_SHAPE_ARROW_HOVER_CHANGE, onShapeArrowHoverChange);
 	}
 
-	protected java.lang.String getOnShapeArrowSelectedChange() {
+	public java.lang.String getOnShapeArrowSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHAPE_ARROW_SELECTED_CHANGE, null);
 	}
 
-	protected void setOnShapeArrowSelectedChange(java.lang.String onShapeArrowSelectedChange) {
+	public void setOnShapeArrowSelectedChange(java.lang.String onShapeArrowSelectedChange) {
 		getStateHelper().put(ON_SHAPE_ARROW_SELECTED_CHANGE, onShapeArrowSelectedChange);
 	}
 
-	protected java.lang.String getOnShapeHoverChange() {
+	public java.lang.String getOnShapeHoverChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHAPE_HOVER_CHANGE, null);
 	}
 
-	protected void setOnShapeHoverChange(java.lang.String onShapeHoverChange) {
+	public void setOnShapeHoverChange(java.lang.String onShapeHoverChange) {
 		getStateHelper().put(ON_SHAPE_HOVER_CHANGE, onShapeHoverChange);
 	}
 
-	protected java.lang.String getOnShapeSelectedChange() {
+	public java.lang.String getOnShapeSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHAPE_SELECTED_CHANGE, null);
 	}
 
-	protected void setOnShapeSelectedChange(java.lang.String onShapeSelectedChange) {
+	public void setOnShapeSelectedChange(java.lang.String onShapeSelectedChange) {
 		getStateHelper().put(ON_SHAPE_SELECTED_CHANGE, onShapeSelectedChange);
 	}
 
-	protected java.lang.String getOnShowNameChange() {
+	public java.lang.String getOnShowNameChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHOW_NAME_CHANGE, null);
 	}
 
-	protected void setOnShowNameChange(java.lang.String onShowNameChange) {
+	public void setOnShowNameChange(java.lang.String onShowNameChange) {
 		getStateHelper().put(ON_SHOW_NAME_CHANGE, onShowNameChange);
 	}
 
-	protected java.lang.String getOnTransitionChange() {
+	public java.lang.String getOnTransitionChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TRANSITION_CHANGE, null);
 	}
 
-	protected void setOnTransitionChange(java.lang.String onTransitionChange) {
+	public void setOnTransitionChange(java.lang.String onTransitionChange) {
 		getStateHelper().put(ON_TRANSITION_CHANGE, onTransitionChange);
 	}
 
-	protected java.lang.String getOnVisibleChange() {
+	public java.lang.String getOnVisibleChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VISIBLE_CHANGE, null);
 	}
 
-	protected void setOnVisibleChange(java.lang.String onVisibleChange) {
+	public void setOnVisibleChange(java.lang.String onVisibleChange) {
 		getStateHelper().put(ON_VISIBLE_CHANGE, onVisibleChange);
 	}
 

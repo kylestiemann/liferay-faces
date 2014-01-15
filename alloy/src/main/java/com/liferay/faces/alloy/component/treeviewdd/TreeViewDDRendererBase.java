@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treeviewdd;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,38 +57,41 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeViewDD);
 
-		bufferedResponseWriter.write("var treeViewDD = new Y.TreeViewDD");
+		bufferedResponseWriter.write("var treeViewDD = new A.TreeViewDD");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreeviewddChildren(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropAction(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHelper(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIndex(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLastSelected(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLastY(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLazyLoad(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNode(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNodeContent(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScrollDelay(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelectOnToggle(bufferedResponseWriter, treeViewDD);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, treeViewDD);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderTreeviewddChildren(renrederedAttributes, treeViewDD);
+		renderContainer(renrederedAttributes, treeViewDD);
+		renderDestroyed(renrederedAttributes, treeViewDD);
+		renderDropAction(renrederedAttributes, treeViewDD);
+		renderHelper(renrederedAttributes, treeViewDD);
+		renderIndex(renrederedAttributes, treeViewDD);
+		renderInitialized(renrederedAttributes, treeViewDD);
+		renderLastSelected(renrederedAttributes, treeViewDD);
+		renderLastY(renrederedAttributes, treeViewDD);
+		renderLazyLoad(renrederedAttributes, treeViewDD);
+		renderNode(renrederedAttributes, treeViewDD);
+		renderNodeContent(renrederedAttributes, treeViewDD);
+		renderScrollDelay(renrederedAttributes, treeViewDD);
+		renderSelectOnToggle(renrederedAttributes, treeViewDD);
+		renderType(renrederedAttributes, treeViewDD);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -100,56 +105,94 @@ public abstract class TreeViewDDRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderTreeviewddChildren(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderArray(responseWriter, "treeviewddChildren", treeViewDD.getTreeviewddChildren());
+	protected void renderTreeviewddChildren(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getTreeviewddChildren() != null) {
+			renrederedAttributes.add(renderArray("treeviewddChildren", treeViewDD.getTreeviewddChildren()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "container", treeViewDD.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", treeViewDD.getContainer()));
+		}
 	}
 
-	protected void renderDropAction(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "dropAction", treeViewDD.getDropAction());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", treeViewDD.getDestroyed()));
+		}
 	}
 
-	protected void renderHelper(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "helper", treeViewDD.getHelper());
+	protected void renderDropAction(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getDropAction() != null) {
+			renrederedAttributes.add(renderString("dropAction", treeViewDD.getDropAction()));
+		}
 	}
 
-	protected void renderIndex(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderObject(responseWriter, "index", treeViewDD.getIndex());
+	protected void renderHelper(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getHelper() != null) {
+			renrederedAttributes.add(renderString("helper", treeViewDD.getHelper()));
+		}
 	}
 
-	protected void renderLastSelected(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "lastSelected", treeViewDD.getLastSelected());
+	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getIndex() != null) {
+			renrederedAttributes.add(renderObject("index", treeViewDD.getIndex()));
+		}
 	}
 
-	protected void renderLastY(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderNumber(responseWriter, "lastY", treeViewDD.getLastY());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", treeViewDD.getInitialized()));
+		}
 	}
 
-	protected void renderLazyLoad(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderBoolean(responseWriter, "lazyLoad", treeViewDD.getLazyLoad());
+	protected void renderLastSelected(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getLastSelected() != null) {
+			renrederedAttributes.add(renderString("lastSelected", treeViewDD.getLastSelected()));
+		}
 	}
 
-	protected void renderNode(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "node", treeViewDD.getNode());
+	protected void renderLastY(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getLastY() != null) {
+			renrederedAttributes.add(renderNumber("lastY", treeViewDD.getLastY()));
+		}
 	}
 
-	protected void renderNodeContent(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "nodeContent", treeViewDD.getNodeContent());
+	protected void renderLazyLoad(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getLazyLoad() != null) {
+			renrederedAttributes.add(renderBoolean("lazyLoad", treeViewDD.getLazyLoad()));
+		}
 	}
 
-	protected void renderScrollDelay(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderNumber(responseWriter, "scrollDelay", treeViewDD.getScrollDelay());
+	protected void renderNode(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getNode() != null) {
+			renrederedAttributes.add(renderString("node", treeViewDD.getNode()));
+		}
 	}
 
-	protected void renderSelectOnToggle(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderBoolean(responseWriter, "selectOnToggle", treeViewDD.getSelectOnToggle());
+	protected void renderNodeContent(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getNodeContent() != null) {
+			renrederedAttributes.add(renderString("nodeContent", treeViewDD.getNodeContent()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, TreeViewDD treeViewDD) throws IOException {
-		renderString(responseWriter, "type", treeViewDD.getType());
+	protected void renderScrollDelay(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getScrollDelay() != null) {
+			renrederedAttributes.add(renderNumber("scrollDelay", treeViewDD.getScrollDelay()));
+		}
+	}
+
+	protected void renderSelectOnToggle(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getSelectOnToggle() != null) {
+			renrederedAttributes.add(renderBoolean("selectOnToggle", treeViewDD.getSelectOnToggle()));
+		}
+	}
+
+	protected void renderType(ArrayList<String> renrederedAttributes, TreeViewDD treeViewDD) throws IOException {
+		if (treeViewDD.getType() != null) {
+			renrederedAttributes.add(renderString("type", treeViewDD.getType()));
+		}
 	}
 
 }

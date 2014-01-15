@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.formbuildermultiplechoicefield;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,74 +57,57 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends AUIRend
 
 		beginJavaScript(facesContext, formBuilderMultipleChoiceField);
 
-		bufferedResponseWriter.write("var formBuilderMultipleChoiceField = new Y.FormBuilderMultipleChoiceField");
+		bufferedResponseWriter.write("var formBuilderMultipleChoiceField = new A.FormBuilderMultipleChoiceField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBuilder(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDataType(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropZoneNode(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenAttributes(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuildermultiplechoicefieldId(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLocalizationMap(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOptionTemplate(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOptions(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuildermultiplechoicefieldParent(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPredefinedValue(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnly(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnlyAttributes(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequiredFlagNode(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowLabel(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplate(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplateNode(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTip(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTipFlagNode(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUnique(bufferedResponseWriter, formBuilderMultipleChoiceField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, formBuilderMultipleChoiceField);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAcceptChildren(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderBuilder(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderControlsToolbar(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderDataType(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderDisabled(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderDropZoneNode(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderHiddenAttributes(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderFormbuildermultiplechoicefieldId(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderLabel(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderLabelNode(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderLocalizationMap(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderName(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderOptionTemplate(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderOptions(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderFormbuildermultiplechoicefieldParent(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderPredefinedValue(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderReadOnly(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderReadOnlyAttributes(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderRequired(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderRequiredFlagNode(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderSelected(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderShowLabel(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderStrings(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderTabIndex(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderTemplate(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderTemplateNode(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderTip(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderTipFlagNode(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderType(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderUnique(renrederedAttributes, formBuilderMultipleChoiceField);
+		renderZIndex(renrederedAttributes, formBuilderMultipleChoiceField);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -136,128 +121,190 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends AUIRend
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "acceptChildren", formBuilderMultipleChoiceField.getAcceptChildren());
+	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getAcceptChildren() != null) {
+			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderMultipleChoiceField.getAcceptChildren()));
+		}
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "builder", formBuilderMultipleChoiceField.getBuilder());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getBuilder() != null) {
+			renrederedAttributes.add(renderBoolean("builder", formBuilderMultipleChoiceField.getBuilder()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", formBuilderMultipleChoiceField.getControlsToolbar());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderMultipleChoiceField.getControlsToolbar()));
+		}
 	}
 
-	protected void renderDataType(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "dataType", formBuilderMultipleChoiceField.getDataType());
+	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getDataType() != null) {
+			renrederedAttributes.add(renderString("dataType", formBuilderMultipleChoiceField.getDataType()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "disabled", formBuilderMultipleChoiceField.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", formBuilderMultipleChoiceField.getDisabled()));
+		}
 	}
 
-	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "dropZoneNode", formBuilderMultipleChoiceField.getDropZoneNode());
+	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getDropZoneNode() != null) {
+			renrederedAttributes.add(renderString("dropZoneNode", formBuilderMultipleChoiceField.getDropZoneNode()));
+		}
 	}
 
-	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderArray(responseWriter, "hiddenAttributes", formBuilderMultipleChoiceField.getHiddenAttributes());
+	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getHiddenAttributes() != null) {
+			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderMultipleChoiceField.getHiddenAttributes()));
+		}
 	}
 
-	protected void renderFormbuildermultiplechoicefieldId(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "formbuildermultiplechoicefieldId", formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId());
+	protected void renderFormbuildermultiplechoicefieldId(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId() != null) {
+			renrederedAttributes.add(renderString("formbuildermultiplechoicefieldId", formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "label", formBuilderMultipleChoiceField.getLabel());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", formBuilderMultipleChoiceField.getLabel()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "labelNode", formBuilderMultipleChoiceField.getLabelNode());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", formBuilderMultipleChoiceField.getLabelNode()));
+		}
 	}
 
-	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderObject(responseWriter, "localizationMap", formBuilderMultipleChoiceField.getLocalizationMap());
+	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getLocalizationMap() != null) {
+			renrederedAttributes.add(renderObject("localizationMap", formBuilderMultipleChoiceField.getLocalizationMap()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "name", formBuilderMultipleChoiceField.getName());
+	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getName() != null) {
+			renrederedAttributes.add(renderString("name", formBuilderMultipleChoiceField.getName()));
+		}
 	}
 
-	protected void renderOptionTemplate(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "optionTemplate", formBuilderMultipleChoiceField.getOptionTemplate());
+	protected void renderOptionTemplate(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getOptionTemplate() != null) {
+			renrederedAttributes.add(renderString("optionTemplate", formBuilderMultipleChoiceField.getOptionTemplate()));
+		}
 	}
 
-	protected void renderOptions(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderObject(responseWriter, "options", formBuilderMultipleChoiceField.getOptions());
+	protected void renderOptions(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getOptions() != null) {
+			renrederedAttributes.add(renderObject("options", formBuilderMultipleChoiceField.getOptions()));
+		}
 	}
 
-	protected void renderFormbuildermultiplechoicefieldParent(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "formbuildermultiplechoicefieldParent", formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent());
+	protected void renderFormbuildermultiplechoicefieldParent(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent() != null) {
+			renrederedAttributes.add(renderString("formbuildermultiplechoicefieldParent", formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent()));
+		}
 	}
 
-	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "predefinedValue", formBuilderMultipleChoiceField.getPredefinedValue());
+	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getPredefinedValue() != null) {
+			renrederedAttributes.add(renderString("predefinedValue", formBuilderMultipleChoiceField.getPredefinedValue()));
+		}
 	}
 
-	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "readOnly", formBuilderMultipleChoiceField.getReadOnly());
+	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getReadOnly() != null) {
+			renrederedAttributes.add(renderBoolean("readOnly", formBuilderMultipleChoiceField.getReadOnly()));
+		}
 	}
 
-	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderArray(responseWriter, "readOnlyAttributes", formBuilderMultipleChoiceField.getReadOnlyAttributes());
+	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getReadOnlyAttributes() != null) {
+			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderMultipleChoiceField.getReadOnlyAttributes()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "required", formBuilderMultipleChoiceField.getRequired());
+	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", formBuilderMultipleChoiceField.getRequired()));
+		}
 	}
 
-	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "requiredFlagNode", formBuilderMultipleChoiceField.getRequiredFlagNode());
+	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getRequiredFlagNode() != null) {
+			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderMultipleChoiceField.getRequiredFlagNode()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "selected", formBuilderMultipleChoiceField.getSelected());
+	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", formBuilderMultipleChoiceField.getSelected()));
+		}
 	}
 
-	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "showLabel", formBuilderMultipleChoiceField.getShowLabel());
+	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getShowLabel() != null) {
+			renrederedAttributes.add(renderBoolean("showLabel", formBuilderMultipleChoiceField.getShowLabel()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderObject(responseWriter, "strings", formBuilderMultipleChoiceField.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", formBuilderMultipleChoiceField.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderNumber(responseWriter, "tabIndex", formBuilderMultipleChoiceField.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", formBuilderMultipleChoiceField.getTabIndex()));
+		}
 	}
 
-	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "template", formBuilderMultipleChoiceField.getTemplate());
+	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getTemplate() != null) {
+			renrederedAttributes.add(renderString("template", formBuilderMultipleChoiceField.getTemplate()));
+		}
 	}
 
-	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "templateNode", formBuilderMultipleChoiceField.getTemplateNode());
+	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getTemplateNode() != null) {
+			renrederedAttributes.add(renderString("templateNode", formBuilderMultipleChoiceField.getTemplateNode()));
+		}
 	}
 
-	protected void renderTip(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "tip", formBuilderMultipleChoiceField.getTip());
+	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getTip() != null) {
+			renrederedAttributes.add(renderString("tip", formBuilderMultipleChoiceField.getTip()));
+		}
 	}
 
-	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "tipFlagNode", formBuilderMultipleChoiceField.getTipFlagNode());
+	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getTipFlagNode() != null) {
+			renrederedAttributes.add(renderString("tipFlagNode", formBuilderMultipleChoiceField.getTipFlagNode()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderString(responseWriter, "type", formBuilderMultipleChoiceField.getType());
+	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getType() != null) {
+			renrederedAttributes.add(renderString("type", formBuilderMultipleChoiceField.getType()));
+		}
 	}
 
-	protected void renderUnique(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderBoolean(responseWriter, "unique", formBuilderMultipleChoiceField.getUnique());
+	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getUnique() != null) {
+			renrederedAttributes.add(renderBoolean("unique", formBuilderMultipleChoiceField.getUnique()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		renderNumber(responseWriter, "zIndex", formBuilderMultipleChoiceField.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		if (formBuilderMultipleChoiceField.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", formBuilderMultipleChoiceField.getZIndex()));
+		}
 	}
 
 }

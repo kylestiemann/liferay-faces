@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulerdayview;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,76 +57,70 @@ public abstract class SchedulerDayViewRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerDayView);
 
-		bufferedResponseWriter.write("var schedulerDayView = new Y.SchedulerDayView");
+		bufferedResponseWriter.write("var schedulerDayView = new A.SchedulerDayView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderSchedulerdayviewBodyContent(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColDaysNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColHeaderDaysNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDays(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDelegateConfig(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderEventWidth(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFilterFn(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderDateFormatter(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderTableNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderView(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderViewConfig(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderViewLabelNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHourHeight(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIsoTime(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMarkercellsNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNavigationDateFormatter(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNextDate(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrevDate(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderResizerNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScheduler(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScrollable(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTableNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTimesNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTriggerNode(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, schedulerDayView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, schedulerDayView);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderSchedulerdayviewBodyContent(renrederedAttributes, schedulerDayView);
+		renderBoundingBox(renrederedAttributes, schedulerDayView);
+		renderColDaysNode(renrederedAttributes, schedulerDayView);
+		renderColHeaderDaysNode(renrederedAttributes, schedulerDayView);
+		renderContentBox(renrederedAttributes, schedulerDayView);
+		renderCssClass(renrederedAttributes, schedulerDayView);
+		renderDays(renrederedAttributes, schedulerDayView);
+		renderDelegateConfig(renrederedAttributes, schedulerDayView);
+		renderDestroyed(renrederedAttributes, schedulerDayView);
+		renderDisabled(renrederedAttributes, schedulerDayView);
+		renderEventWidth(renrederedAttributes, schedulerDayView);
+		renderFilterFn(renrederedAttributes, schedulerDayView);
+		renderFocused(renrederedAttributes, schedulerDayView);
+		renderHeaderDateFormatter(renrederedAttributes, schedulerDayView);
+		renderHeaderTableNode(renrederedAttributes, schedulerDayView);
+		renderHeaderView(renrederedAttributes, schedulerDayView);
+		renderHeaderViewConfig(renrederedAttributes, schedulerDayView);
+		renderHeaderViewLabelNode(renrederedAttributes, schedulerDayView);
+		renderHeight(renrederedAttributes, schedulerDayView);
+		renderHideClass(renrederedAttributes, schedulerDayView);
+		renderHourHeight(renrederedAttributes, schedulerDayView);
+		renderSchedulerdayviewId(renrederedAttributes, schedulerDayView);
+		renderInitialized(renrederedAttributes, schedulerDayView);
+		renderIsoTime(renrederedAttributes, schedulerDayView);
+		renderSchedulerdayviewLocale(renrederedAttributes, schedulerDayView);
+		renderMarkercellsNode(renrederedAttributes, schedulerDayView);
+		renderName(renrederedAttributes, schedulerDayView);
+		renderNavigationDateFormatter(renrederedAttributes, schedulerDayView);
+		renderNextDate(renrederedAttributes, schedulerDayView);
+		renderPrevDate(renrederedAttributes, schedulerDayView);
+		renderRender(renrederedAttributes, schedulerDayView);
+		renderRendered(renrederedAttributes, schedulerDayView);
+		renderResizerNode(renrederedAttributes, schedulerDayView);
+		renderScheduler(renrederedAttributes, schedulerDayView);
+		renderScrollable(renrederedAttributes, schedulerDayView);
+		renderSrcNode(renrederedAttributes, schedulerDayView);
+		renderStrings(renrederedAttributes, schedulerDayView);
+		renderTabIndex(renrederedAttributes, schedulerDayView);
+		renderTableNode(renrederedAttributes, schedulerDayView);
+		renderTimesNode(renrederedAttributes, schedulerDayView);
+		renderTriggerNode(renrederedAttributes, schedulerDayView);
+		renderUseARIA(renrederedAttributes, schedulerDayView);
+		renderVisible(renrederedAttributes, schedulerDayView);
+		renderWidth(renrederedAttributes, schedulerDayView);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -138,132 +134,268 @@ public abstract class SchedulerDayViewRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulerdayviewBodyContent(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "schedulerdayviewBodyContent", schedulerDayView.getSchedulerdayviewBodyContent());
+	protected void renderSchedulerdayviewBodyContent(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getSchedulerdayviewBodyContent() != null) {
+			renrederedAttributes.add(renderString("schedulerdayviewBodyContent", schedulerDayView.getSchedulerdayviewBodyContent()));
+		}
 	}
 
-	protected void renderColDaysNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "colDaysNode", schedulerDayView.getColDaysNode());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", schedulerDayView.getBoundingBox()));
+		}
 	}
 
-	protected void renderColHeaderDaysNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "colHeaderDaysNode", schedulerDayView.getColHeaderDaysNode());
+	protected void renderColDaysNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getColDaysNode() != null) {
+			renrederedAttributes.add(renderString("colDaysNode", schedulerDayView.getColDaysNode()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "cssClass", schedulerDayView.getCssClass());
+	protected void renderColHeaderDaysNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getColHeaderDaysNode() != null) {
+			renrederedAttributes.add(renderString("colHeaderDaysNode", schedulerDayView.getColHeaderDaysNode()));
+		}
 	}
 
-	protected void renderDays(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderNumber(responseWriter, "days", schedulerDayView.getDays());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", schedulerDayView.getContentBox()));
+		}
 	}
 
-	protected void renderDelegateConfig(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderObject(responseWriter, "delegateConfig", schedulerDayView.getDelegateConfig());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", schedulerDayView.getCssClass()));
+		}
 	}
 
-	protected void renderEventWidth(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderNumber(responseWriter, "eventWidth", schedulerDayView.getEventWidth());
+	protected void renderDays(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getDays() != null) {
+			renrederedAttributes.add(renderNumber("days", schedulerDayView.getDays()));
+		}
 	}
 
-	protected void renderFilterFn(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "filterFn", schedulerDayView.getFilterFn());
+	protected void renderDelegateConfig(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getDelegateConfig() != null) {
+			renrederedAttributes.add(renderObject("delegateConfig", schedulerDayView.getDelegateConfig()));
+		}
 	}
 
-	protected void renderHeaderDateFormatter(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "headerDateFormatter", schedulerDayView.getHeaderDateFormatter());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", schedulerDayView.getDestroyed()));
+		}
 	}
 
-	protected void renderHeaderTableNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "headerTableNode", schedulerDayView.getHeaderTableNode());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", schedulerDayView.getDisabled()));
+		}
 	}
 
-	protected void renderHeaderView(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderBoolean(responseWriter, "headerView", schedulerDayView.getHeaderView());
+	protected void renderEventWidth(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getEventWidth() != null) {
+			renrederedAttributes.add(renderNumber("eventWidth", schedulerDayView.getEventWidth()));
+		}
 	}
 
-	protected void renderHeaderViewConfig(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderObject(responseWriter, "headerViewConfig", schedulerDayView.getHeaderViewConfig());
+	protected void renderFilterFn(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getFilterFn() != null) {
+			renrederedAttributes.add(renderString("filterFn", schedulerDayView.getFilterFn()));
+		}
 	}
 
-	protected void renderHeaderViewLabelNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "headerViewLabelNode", schedulerDayView.getHeaderViewLabelNode());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", schedulerDayView.getFocused()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderNumber(responseWriter, "height", schedulerDayView.getHeight());
+	protected void renderHeaderDateFormatter(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHeaderDateFormatter() != null) {
+			renrederedAttributes.add(renderString("headerDateFormatter", schedulerDayView.getHeaderDateFormatter()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "hideClass", schedulerDayView.getHideClass());
+	protected void renderHeaderTableNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHeaderTableNode() != null) {
+			renrederedAttributes.add(renderString("headerTableNode", schedulerDayView.getHeaderTableNode()));
+		}
 	}
 
-	protected void renderHourHeight(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderNumber(responseWriter, "hourHeight", schedulerDayView.getHourHeight());
+	protected void renderHeaderView(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHeaderView() != null) {
+			renrederedAttributes.add(renderBoolean("headerView", schedulerDayView.getHeaderView()));
+		}
 	}
 
-	protected void renderIsoTime(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderBoolean(responseWriter, "isoTime", schedulerDayView.getIsoTime());
+	protected void renderHeaderViewConfig(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHeaderViewConfig() != null) {
+			renrederedAttributes.add(renderObject("headerViewConfig", schedulerDayView.getHeaderViewConfig()));
+		}
 	}
 
-	protected void renderMarkercellsNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "markercellsNode", schedulerDayView.getMarkercellsNode());
+	protected void renderHeaderViewLabelNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHeaderViewLabelNode() != null) {
+			renrederedAttributes.add(renderString("headerViewLabelNode", schedulerDayView.getHeaderViewLabelNode()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "name", schedulerDayView.getName());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", schedulerDayView.getHeight()));
+		}
 	}
 
-	protected void renderNavigationDateFormatter(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "navigationDateFormatter", schedulerDayView.getNavigationDateFormatter());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", schedulerDayView.getHideClass()));
+		}
 	}
 
-	protected void renderNextDate(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "nextDate", schedulerDayView.getNextDate());
+	protected void renderHourHeight(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getHourHeight() != null) {
+			renrederedAttributes.add(renderNumber("hourHeight", schedulerDayView.getHourHeight()));
+		}
 	}
 
-	protected void renderPrevDate(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "prevDate", schedulerDayView.getPrevDate());
+	protected void renderSchedulerdayviewId(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getSchedulerdayviewId() != null) {
+			renrederedAttributes.add(renderString("schedulerdayviewId", schedulerDayView.getSchedulerdayviewId()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "render", schedulerDayView.getRender());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", schedulerDayView.getInitialized()));
+		}
 	}
 
-	protected void renderResizerNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "resizerNode", schedulerDayView.getResizerNode());
+	protected void renderIsoTime(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getIsoTime() != null) {
+			renrederedAttributes.add(renderBoolean("isoTime", schedulerDayView.getIsoTime()));
+		}
 	}
 
-	protected void renderScheduler(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "scheduler", schedulerDayView.getScheduler());
+	protected void renderSchedulerdayviewLocale(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getSchedulerdayviewLocale() != null) {
+			renrederedAttributes.add(renderString("schedulerdayviewLocale", schedulerDayView.getSchedulerdayviewLocale()));
+		}
 	}
 
-	protected void renderScrollable(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderBoolean(responseWriter, "scrollable", schedulerDayView.getScrollable());
+	protected void renderMarkercellsNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getMarkercellsNode() != null) {
+			renrederedAttributes.add(renderString("markercellsNode", schedulerDayView.getMarkercellsNode()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "strings", schedulerDayView.getStrings());
+	protected void renderName(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getName() != null) {
+			renrederedAttributes.add(renderString("name", schedulerDayView.getName()));
+		}
 	}
 
-	protected void renderTableNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "tableNode", schedulerDayView.getTableNode());
+	protected void renderNavigationDateFormatter(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getNavigationDateFormatter() != null) {
+			renrederedAttributes.add(renderString("navigationDateFormatter", schedulerDayView.getNavigationDateFormatter()));
+		}
 	}
 
-	protected void renderTimesNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "timesNode", schedulerDayView.getTimesNode());
+	protected void renderNextDate(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getNextDate() != null) {
+			renrederedAttributes.add(renderString("nextDate", schedulerDayView.getNextDate()));
+		}
 	}
 
-	protected void renderTriggerNode(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderString(responseWriter, "triggerNode", schedulerDayView.getTriggerNode());
+	protected void renderPrevDate(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getPrevDate() != null) {
+			renrederedAttributes.add(renderString("prevDate", schedulerDayView.getPrevDate()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderBoolean(responseWriter, "useARIA", schedulerDayView.getUseARIA());
+	protected void renderRender(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getRender() != null) {
+			renrederedAttributes.add(renderString("render", schedulerDayView.getRender()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, SchedulerDayView schedulerDayView) throws IOException {
-		renderBoolean(responseWriter, "visible", schedulerDayView.getVisible());
+	protected void renderRendered(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", schedulerDayView.getRendered()));
+		}
+	}
+
+	protected void renderResizerNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getResizerNode() != null) {
+			renrederedAttributes.add(renderString("resizerNode", schedulerDayView.getResizerNode()));
+		}
+	}
+
+	protected void renderScheduler(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getScheduler() != null) {
+			renrederedAttributes.add(renderString("scheduler", schedulerDayView.getScheduler()));
+		}
+	}
+
+	protected void renderScrollable(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getScrollable() != null) {
+			renrederedAttributes.add(renderBoolean("scrollable", schedulerDayView.getScrollable()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", schedulerDayView.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getStrings() != null) {
+			renrederedAttributes.add(renderString("strings", schedulerDayView.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", schedulerDayView.getTabIndex()));
+		}
+	}
+
+	protected void renderTableNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getTableNode() != null) {
+			renrederedAttributes.add(renderString("tableNode", schedulerDayView.getTableNode()));
+		}
+	}
+
+	protected void renderTimesNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getTimesNode() != null) {
+			renrederedAttributes.add(renderString("timesNode", schedulerDayView.getTimesNode()));
+		}
+	}
+
+	protected void renderTriggerNode(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getTriggerNode() != null) {
+			renrederedAttributes.add(renderString("triggerNode", schedulerDayView.getTriggerNode()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", schedulerDayView.getUseARIA()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", schedulerDayView.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		if (schedulerDayView.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", schedulerDayView.getWidth()));
+		}
 	}
 
 }

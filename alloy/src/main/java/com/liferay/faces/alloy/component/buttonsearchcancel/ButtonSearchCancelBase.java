@@ -22,138 +22,192 @@ package com.liferay.faces.alloy.component.buttonsearchcancel;
 public abstract class ButtonSearchCancelBase extends javax.faces.component.UIPanel {
 
 	private static final String CONTAINER = "container";
+	private static final String DESTROYED = "destroyed";
 	private static final String GUTTER = "gutter";
 	private static final String ICON_CLASS = "iconClass";
+	private static final String INITIALIZED = "initialized";
 	private static final String TRIGGER = "trigger";
 	private static final String Z_INDEX = "zIndex";
 	private static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
 	private static final String AFTER_GUTTER_CHANGE = "afterGutterChange";
 	private static final String AFTER_ICON_CLASS_CHANGE = "afterIconClassChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_TRIGGER_CHANGE = "afterTriggerChange";
 	private static final String AFTER_ZINDEX_CHANGE = "afterZIndexChange";
 	private static final String ON_CONTAINER_CHANGE = "onContainerChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
 	private static final String ON_GUTTER_CHANGE = "onGutterChange";
 	private static final String ON_ICON_CLASS_CHANGE = "onIconClassChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_TRIGGER_CHANGE = "onTriggerChange";
 	private static final String ON_ZINDEX_CHANGE = "onZIndexChange";
 
-	protected java.lang.String getContainer() {
+	public java.lang.String getContainer() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.String container) {
+	public void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 
-	protected java.lang.Object getGutter() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Object getGutter() {
 		return (java.lang.Object) getStateHelper().eval(GUTTER, null);
 	}
 
-	protected void setGutter(java.lang.Object gutter) {
+	public void setGutter(java.lang.Object gutter) {
 		getStateHelper().put(GUTTER, gutter);
 	}
 
-	protected java.lang.String getIconClass() {
+	public java.lang.String getIconClass() {
 		return (java.lang.String) getStateHelper().eval(ICON_CLASS, null);
 	}
 
-	protected void setIconClass(java.lang.String iconClass) {
+	public void setIconClass(java.lang.String iconClass) {
 		getStateHelper().put(ICON_CLASS, iconClass);
 	}
 
-	protected java.lang.String getTrigger() {
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.String getTrigger() {
 		return (java.lang.String) getStateHelper().eval(TRIGGER, null);
 	}
 
-	protected void setTrigger(java.lang.String trigger) {
+	public void setTrigger(java.lang.String trigger) {
 		getStateHelper().put(TRIGGER, trigger);
 	}
 
-	protected java.lang.Object getZIndex() {
+	public java.lang.Object getZIndex() {
 		return (java.lang.Object) getStateHelper().eval(Z_INDEX, null);
 	}
 
-	protected void setZIndex(java.lang.Object zIndex) {
+	public void setZIndex(java.lang.Object zIndex) {
 		getStateHelper().put(Z_INDEX, zIndex);
 	}
 
-	protected java.lang.String getAfterContainerChange() {
+	public java.lang.String getAfterContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterContainerChange(java.lang.String afterContainerChange) {
+	public void setAfterContainerChange(java.lang.String afterContainerChange) {
 		getStateHelper().put(AFTER_CONTAINER_CHANGE, afterContainerChange);
 	}
 
-	protected java.lang.String getAfterGutterChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterGutterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_GUTTER_CHANGE, null);
 	}
 
-	protected void setAfterGutterChange(java.lang.String afterGutterChange) {
+	public void setAfterGutterChange(java.lang.String afterGutterChange) {
 		getStateHelper().put(AFTER_GUTTER_CHANGE, afterGutterChange);
 	}
 
-	protected java.lang.String getAfterIconClassChange() {
+	public java.lang.String getAfterIconClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ICON_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterIconClassChange(java.lang.String afterIconClassChange) {
+	public void setAfterIconClassChange(java.lang.String afterIconClassChange) {
 		getStateHelper().put(AFTER_ICON_CLASS_CHANGE, afterIconClassChange);
 	}
 
-	protected java.lang.String getAfterTriggerChange() {
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterTriggerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TRIGGER_CHANGE, null);
 	}
 
-	protected void setAfterTriggerChange(java.lang.String afterTriggerChange) {
+	public void setAfterTriggerChange(java.lang.String afterTriggerChange) {
 		getStateHelper().put(AFTER_TRIGGER_CHANGE, afterTriggerChange);
 	}
 
-	protected java.lang.String getAfterZIndexChange() {
+	public java.lang.String getAfterZIndexChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ZINDEX_CHANGE, null);
 	}
 
-	protected void setAfterZIndexChange(java.lang.String afterZIndexChange) {
+	public void setAfterZIndexChange(java.lang.String afterZIndexChange) {
 		getStateHelper().put(AFTER_ZINDEX_CHANGE, afterZIndexChange);
 	}
 
-	protected java.lang.String getOnContainerChange() {
+	public java.lang.String getOnContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnContainerChange(java.lang.String onContainerChange) {
+	public void setOnContainerChange(java.lang.String onContainerChange) {
 		getStateHelper().put(ON_CONTAINER_CHANGE, onContainerChange);
 	}
 
-	protected java.lang.String getOnGutterChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnGutterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_GUTTER_CHANGE, null);
 	}
 
-	protected void setOnGutterChange(java.lang.String onGutterChange) {
+	public void setOnGutterChange(java.lang.String onGutterChange) {
 		getStateHelper().put(ON_GUTTER_CHANGE, onGutterChange);
 	}
 
-	protected java.lang.String getOnIconClassChange() {
+	public java.lang.String getOnIconClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ICON_CLASS_CHANGE, null);
 	}
 
-	protected void setOnIconClassChange(java.lang.String onIconClassChange) {
+	public void setOnIconClassChange(java.lang.String onIconClassChange) {
 		getStateHelper().put(ON_ICON_CLASS_CHANGE, onIconClassChange);
 	}
 
-	protected java.lang.String getOnTriggerChange() {
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnTriggerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TRIGGER_CHANGE, null);
 	}
 
-	protected void setOnTriggerChange(java.lang.String onTriggerChange) {
+	public void setOnTriggerChange(java.lang.String onTriggerChange) {
 		getStateHelper().put(ON_TRIGGER_CHANGE, onTriggerChange);
 	}
 
-	protected java.lang.String getOnZIndexChange() {
+	public java.lang.String getOnZIndexChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ZINDEX_CHANGE, null);
 	}
 
-	protected void setOnZIndexChange(java.lang.String onZIndexChange) {
+	public void setOnZIndexChange(java.lang.String onZIndexChange) {
 		getStateHelper().put(ON_ZINDEX_CHANGE, onZIndexChange);
 	}
 

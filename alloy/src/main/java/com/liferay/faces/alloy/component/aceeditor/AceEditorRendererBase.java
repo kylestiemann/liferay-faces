@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.aceeditor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,32 +57,50 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, aceEditor);
 
-		bufferedResponseWriter.write("var aceEditor = new Y.AceEditor");
+		bufferedResponseWriter.write("var aceEditor = new A.AceEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderHeight(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHighlightActiveLine(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMode(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnly(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowPrintMargin(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabSize(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseSoftTabs(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseWrapMode(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAceeditorValue(bufferedResponseWriter, aceEditor);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, aceEditor);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, aceEditor);
+		renderContentBox(renrederedAttributes, aceEditor);
+		renderDestroyed(renrederedAttributes, aceEditor);
+		renderDisabled(renrederedAttributes, aceEditor);
+		renderFocused(renrederedAttributes, aceEditor);
+		renderHeight(renrederedAttributes, aceEditor);
+		renderHighlightActiveLine(renrederedAttributes, aceEditor);
+		renderAceeditorId(renrederedAttributes, aceEditor);
+		renderInitialized(renrederedAttributes, aceEditor);
+		renderAceeditorLocale(renrederedAttributes, aceEditor);
+		renderMode(renrederedAttributes, aceEditor);
+		renderReadOnly(renrederedAttributes, aceEditor);
+		renderRender(renrederedAttributes, aceEditor);
+		renderRendered(renrederedAttributes, aceEditor);
+		renderShowPrintMargin(renrederedAttributes, aceEditor);
+		renderSrcNode(renrederedAttributes, aceEditor);
+		renderStrings(renrederedAttributes, aceEditor);
+		renderTabIndex(renrederedAttributes, aceEditor);
+		renderTabSize(renrederedAttributes, aceEditor);
+		renderUseSoftTabs(renrederedAttributes, aceEditor);
+		renderUseWrapMode(renrederedAttributes, aceEditor);
+		renderAceeditorValue(renrederedAttributes, aceEditor);
+		renderVisible(renrederedAttributes, aceEditor);
+		renderWidth(renrederedAttributes, aceEditor);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -94,44 +114,148 @@ public abstract class AceEditorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderNumber(responseWriter, "height", aceEditor.getHeight());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", aceEditor.getBoundingBox()));
+		}
 	}
 
-	protected void renderHighlightActiveLine(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderBoolean(responseWriter, "highlightActiveLine", aceEditor.getHighlightActiveLine());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", aceEditor.getContentBox()));
+		}
 	}
 
-	protected void renderMode(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderString(responseWriter, "mode", aceEditor.getMode());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", aceEditor.getDestroyed()));
+		}
 	}
 
-	protected void renderReadOnly(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderBoolean(responseWriter, "readOnly", aceEditor.getReadOnly());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", aceEditor.getDisabled()));
+		}
 	}
 
-	protected void renderShowPrintMargin(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderBoolean(responseWriter, "showPrintMargin", aceEditor.getShowPrintMargin());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", aceEditor.getFocused()));
+		}
 	}
 
-	protected void renderTabSize(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderNumber(responseWriter, "tabSize", aceEditor.getTabSize());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", aceEditor.getHeight()));
+		}
 	}
 
-	protected void renderUseSoftTabs(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderBoolean(responseWriter, "useSoftTabs", aceEditor.getUseSoftTabs());
+	protected void renderHighlightActiveLine(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getHighlightActiveLine() != null) {
+			renrederedAttributes.add(renderBoolean("highlightActiveLine", aceEditor.getHighlightActiveLine()));
+		}
 	}
 
-	protected void renderUseWrapMode(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderBoolean(responseWriter, "useWrapMode", aceEditor.getUseWrapMode());
+	protected void renderAceeditorId(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getAceeditorId() != null) {
+			renrederedAttributes.add(renderString("aceeditorId", aceEditor.getAceeditorId()));
+		}
 	}
 
-	protected void renderAceeditorValue(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderString(responseWriter, "aceeditorValue", aceEditor.getAceeditorValue());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", aceEditor.getInitialized()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, AceEditor aceEditor) throws IOException {
-		renderNumber(responseWriter, "width", aceEditor.getWidth());
+	protected void renderAceeditorLocale(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getAceeditorLocale() != null) {
+			renrederedAttributes.add(renderString("aceeditorLocale", aceEditor.getAceeditorLocale()));
+		}
+	}
+
+	protected void renderMode(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getMode() != null) {
+			renrederedAttributes.add(renderString("mode", aceEditor.getMode()));
+		}
+	}
+
+	protected void renderReadOnly(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getReadOnly() != null) {
+			renrederedAttributes.add(renderBoolean("readOnly", aceEditor.getReadOnly()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getRender() != null) {
+			renrederedAttributes.add(renderString("render", aceEditor.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", aceEditor.getRendered()));
+		}
+	}
+
+	protected void renderShowPrintMargin(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getShowPrintMargin() != null) {
+			renrederedAttributes.add(renderBoolean("showPrintMargin", aceEditor.getShowPrintMargin()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", aceEditor.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", aceEditor.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", aceEditor.getTabIndex()));
+		}
+	}
+
+	protected void renderTabSize(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getTabSize() != null) {
+			renrederedAttributes.add(renderNumber("tabSize", aceEditor.getTabSize()));
+		}
+	}
+
+	protected void renderUseSoftTabs(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getUseSoftTabs() != null) {
+			renrederedAttributes.add(renderBoolean("useSoftTabs", aceEditor.getUseSoftTabs()));
+		}
+	}
+
+	protected void renderUseWrapMode(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getUseWrapMode() != null) {
+			renrederedAttributes.add(renderBoolean("useWrapMode", aceEditor.getUseWrapMode()));
+		}
+	}
+
+	protected void renderAceeditorValue(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getAceeditorValue() != null) {
+			renrederedAttributes.add(renderString("aceeditorValue", aceEditor.getAceeditorValue()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", aceEditor.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
+		if (aceEditor.getWidth() != null) {
+			renrederedAttributes.add(renderNumber("width", aceEditor.getWidth()));
+		}
 	}
 
 }

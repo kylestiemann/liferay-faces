@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.tooltip;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,88 +57,64 @@ public abstract class TooltipRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, tooltip);
 
-		bufferedResponseWriter.write("var tooltip = new Y.Tooltip");
+		bufferedResponseWriter.write("var tooltip = new A.Tooltip");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAlignOn(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTooltipBodyContent(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBoundingBox(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCentered(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderConstrain(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContentBox(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDestroyed(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDuration(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFillHeight(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFocused(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFooterContent(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormatter(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderContent(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideOn(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTooltipId(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInitialized(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTooltipLocale(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOpacity(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPreventOverlap(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRendered(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShim(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSrcNode(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbarPosition(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderToolbars(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTriggerHideEvent(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTriggerShowEvent(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderX(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderXy(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderY(bufferedResponseWriter, tooltip);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, tooltip);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlign(renrederedAttributes, tooltip);
+		renderAlignOn(renrederedAttributes, tooltip);
+		renderTooltipBodyContent(renrederedAttributes, tooltip);
+		renderBoundingBox(renrederedAttributes, tooltip);
+		renderCentered(renrederedAttributes, tooltip);
+		renderConstrain(renrederedAttributes, tooltip);
+		renderContentBox(renrederedAttributes, tooltip);
+		renderDestroyed(renrederedAttributes, tooltip);
+		renderDisabled(renrederedAttributes, tooltip);
+		renderDuration(renrederedAttributes, tooltip);
+		renderFillHeight(renrederedAttributes, tooltip);
+		renderFocused(renrederedAttributes, tooltip);
+		renderFooterContent(renrederedAttributes, tooltip);
+		renderFormatter(renrederedAttributes, tooltip);
+		renderHeaderContent(renrederedAttributes, tooltip);
+		renderHeight(renrederedAttributes, tooltip);
+		renderHideOn(renrederedAttributes, tooltip);
+		renderTooltipId(renrederedAttributes, tooltip);
+		renderInitialized(renrederedAttributes, tooltip);
+		renderTooltipLocale(renrederedAttributes, tooltip);
+		renderOpacity(renrederedAttributes, tooltip);
+		renderPreventOverlap(renrederedAttributes, tooltip);
+		renderRender(renrederedAttributes, tooltip);
+		renderRendered(renrederedAttributes, tooltip);
+		renderShim(renrederedAttributes, tooltip);
+		renderSrcNode(renrederedAttributes, tooltip);
+		renderStrings(renrederedAttributes, tooltip);
+		renderTabIndex(renrederedAttributes, tooltip);
+		renderToolbarPosition(renrederedAttributes, tooltip);
+		renderToolbars(renrederedAttributes, tooltip);
+		renderTriggerHideEvent(renrederedAttributes, tooltip);
+		renderTriggerShowEvent(renrederedAttributes, tooltip);
+		renderVisible(renrederedAttributes, tooltip);
+		renderWidth(renrederedAttributes, tooltip);
+		renderX(renrederedAttributes, tooltip);
+		renderXy(renrederedAttributes, tooltip);
+		renderY(renrederedAttributes, tooltip);
+		renderZIndex(renrederedAttributes, tooltip);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -150,156 +128,232 @@ public abstract class TooltipRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderObject(responseWriter, "align", tooltip.getAlign());
+	protected void renderAlign(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getAlign() != null) {
+			renrederedAttributes.add(renderObject("align", tooltip.getAlign()));
+		}
 	}
 
-	protected void renderAlignOn(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderArray(responseWriter, "alignOn", tooltip.getAlignOn());
+	protected void renderAlignOn(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getAlignOn() != null) {
+			renrederedAttributes.add(renderArray("alignOn", tooltip.getAlignOn()));
+		}
 	}
 
-	protected void renderTooltipBodyContent(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "tooltipBodyContent", tooltip.getTooltipBodyContent());
+	protected void renderTooltipBodyContent(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getTooltipBodyContent() != null) {
+			renrederedAttributes.add(renderString("tooltipBodyContent", tooltip.getTooltipBodyContent()));
+		}
 	}
 
-	protected void renderBoundingBox(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "boundingBox", tooltip.getBoundingBox());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", tooltip.getBoundingBox()));
+		}
 	}
 
-	protected void renderCentered(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "centered", tooltip.getCentered());
+	protected void renderCentered(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getCentered() != null) {
+			renrederedAttributes.add(renderString("centered", tooltip.getCentered()));
+		}
 	}
 
-	protected void renderConstrain(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "constrain", tooltip.getConstrain());
+	protected void renderConstrain(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getConstrain() != null) {
+			renrederedAttributes.add(renderString("constrain", tooltip.getConstrain()));
+		}
 	}
 
-	protected void renderContentBox(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "contentBox", tooltip.getContentBox());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", tooltip.getContentBox()));
+		}
 	}
 
-	protected void renderDestroyed(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "destroyed", tooltip.getDestroyed());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", tooltip.getDestroyed()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "disabled", tooltip.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", tooltip.getDisabled()));
+		}
 	}
 
-	protected void renderDuration(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "duration", tooltip.getDuration());
+	protected void renderDuration(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getDuration() != null) {
+			renrederedAttributes.add(renderString("duration", tooltip.getDuration()));
+		}
 	}
 
-	protected void renderFillHeight(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "fillHeight", tooltip.getFillHeight());
+	protected void renderFillHeight(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getFillHeight() != null) {
+			renrederedAttributes.add(renderString("fillHeight", tooltip.getFillHeight()));
+		}
 	}
 
-	protected void renderFocused(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "focused", tooltip.getFocused());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", tooltip.getFocused()));
+		}
 	}
 
-	protected void renderFooterContent(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "footerContent", tooltip.getFooterContent());
+	protected void renderFooterContent(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getFooterContent() != null) {
+			renrederedAttributes.add(renderString("footerContent", tooltip.getFooterContent()));
+		}
 	}
 
-	protected void renderFormatter(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "formatter", tooltip.getFormatter());
+	protected void renderFormatter(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getFormatter() != null) {
+			renrederedAttributes.add(renderString("formatter", tooltip.getFormatter()));
+		}
 	}
 
-	protected void renderHeaderContent(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "headerContent", tooltip.getHeaderContent());
+	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getHeaderContent() != null) {
+			renrederedAttributes.add(renderString("headerContent", tooltip.getHeaderContent()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "height", tooltip.getHeight());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", tooltip.getHeight()));
+		}
 	}
 
-	protected void renderHideOn(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderArray(responseWriter, "hideOn", tooltip.getHideOn());
+	protected void renderHideOn(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getHideOn() != null) {
+			renrederedAttributes.add(renderArray("hideOn", tooltip.getHideOn()));
+		}
 	}
 
-	protected void renderTooltipId(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "tooltipId", tooltip.getTooltipId());
+	protected void renderTooltipId(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getTooltipId() != null) {
+			renrederedAttributes.add(renderString("tooltipId", tooltip.getTooltipId()));
+		}
 	}
 
-	protected void renderInitialized(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "initialized", tooltip.getInitialized());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", tooltip.getInitialized()));
+		}
 	}
 
-	protected void renderTooltipLocale(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "tooltipLocale", tooltip.getTooltipLocale());
+	protected void renderTooltipLocale(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getTooltipLocale() != null) {
+			renrederedAttributes.add(renderString("tooltipLocale", tooltip.getTooltipLocale()));
+		}
 	}
 
-	protected void renderOpacity(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "opacity", tooltip.getOpacity());
+	protected void renderOpacity(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getOpacity() != null) {
+			renrederedAttributes.add(renderString("opacity", tooltip.getOpacity()));
+		}
 	}
 
-	protected void renderPreventOverlap(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "preventOverlap", tooltip.getPreventOverlap());
+	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getPreventOverlap() != null) {
+			renrederedAttributes.add(renderBoolean("preventOverlap", tooltip.getPreventOverlap()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "render", tooltip.getRender());
+	protected void renderRender(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getRender() != null) {
+			renrederedAttributes.add(renderString("render", tooltip.getRender()));
+		}
 	}
 
-	protected void renderRendered(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "rendered", tooltip.getRendered());
+	protected void renderRendered(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", tooltip.getRendered()));
+		}
 	}
 
-	protected void renderShim(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "shim", tooltip.getShim());
+	protected void renderShim(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getShim() != null) {
+			renrederedAttributes.add(renderBoolean("shim", tooltip.getShim()));
+		}
 	}
 
-	protected void renderSrcNode(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "srcNode", tooltip.getSrcNode());
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", tooltip.getSrcNode()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderObject(responseWriter, "strings", tooltip.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", tooltip.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderNumber(responseWriter, "tabIndex", tooltip.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", tooltip.getTabIndex()));
+		}
 	}
 
-	protected void renderToolbarPosition(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderObject(responseWriter, "toolbarPosition", tooltip.getToolbarPosition());
+	protected void renderToolbarPosition(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getToolbarPosition() != null) {
+			renrederedAttributes.add(renderObject("toolbarPosition", tooltip.getToolbarPosition()));
+		}
 	}
 
-	protected void renderToolbars(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "toolbars", tooltip.getToolbars());
+	protected void renderToolbars(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getToolbars() != null) {
+			renrederedAttributes.add(renderString("toolbars", tooltip.getToolbars()));
+		}
 	}
 
-	protected void renderTriggerHideEvent(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "triggerHideEvent", tooltip.getTriggerHideEvent());
+	protected void renderTriggerHideEvent(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getTriggerHideEvent() != null) {
+			renrederedAttributes.add(renderString("triggerHideEvent", tooltip.getTriggerHideEvent()));
+		}
 	}
 
-	protected void renderTriggerShowEvent(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "triggerShowEvent", tooltip.getTriggerShowEvent());
+	protected void renderTriggerShowEvent(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getTriggerShowEvent() != null) {
+			renrederedAttributes.add(renderString("triggerShowEvent", tooltip.getTriggerShowEvent()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderBoolean(responseWriter, "visible", tooltip.getVisible());
+	protected void renderVisible(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", tooltip.getVisible()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderString(responseWriter, "width", tooltip.getWidth());
+	protected void renderWidth(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", tooltip.getWidth()));
+		}
 	}
 
-	protected void renderX(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderNumber(responseWriter, "x", tooltip.getX());
+	protected void renderX(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getX() != null) {
+			renrederedAttributes.add(renderNumber("x", tooltip.getX()));
+		}
 	}
 
-	protected void renderXy(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderArray(responseWriter, "xy", tooltip.getXy());
+	protected void renderXy(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getXy() != null) {
+			renrederedAttributes.add(renderArray("xy", tooltip.getXy()));
+		}
 	}
 
-	protected void renderY(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderNumber(responseWriter, "y", tooltip.getY());
+	protected void renderY(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getY() != null) {
+			renrederedAttributes.add(renderNumber("y", tooltip.getY()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, Tooltip tooltip) throws IOException {
-		renderNumber(responseWriter, "zIndex", tooltip.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, Tooltip tooltip) throws IOException {
+		if (tooltip.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", tooltip.getZIndex()));
+		}
 	}
 
 }

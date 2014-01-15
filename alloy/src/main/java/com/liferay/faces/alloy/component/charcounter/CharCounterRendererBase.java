@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.charcounter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,18 +57,31 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, charCounter);
 
-		bufferedResponseWriter.write("var charCounter = new Y.CharCounter");
+		bufferedResponseWriter.write("var charCounter = new A.CharCounter");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCounter(bufferedResponseWriter, charCounter);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInput(bufferedResponseWriter, charCounter);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMaxLength(bufferedResponseWriter, charCounter);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderCounter(renrederedAttributes, charCounter);
+		renderDestroyed(renrederedAttributes, charCounter);
+		renderInitialized(renrederedAttributes, charCounter);
+		renderInput(renrederedAttributes, charCounter);
+		renderMaxLength(renrederedAttributes, charCounter);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -80,16 +95,34 @@ public abstract class CharCounterRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCounter(ResponseWriter responseWriter, CharCounter charCounter) throws IOException {
-		renderString(responseWriter, "counter", charCounter.getCounter());
+	protected void renderCounter(ArrayList<String> renrederedAttributes, CharCounter charCounter) throws IOException {
+		if (charCounter.getCounter() != null) {
+			renrederedAttributes.add(renderString("counter", charCounter.getCounter()));
+		}
 	}
 
-	protected void renderInput(ResponseWriter responseWriter, CharCounter charCounter) throws IOException {
-		renderString(responseWriter, "input", charCounter.getInput());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, CharCounter charCounter) throws IOException {
+		if (charCounter.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", charCounter.getDestroyed()));
+		}
 	}
 
-	protected void renderMaxLength(ResponseWriter responseWriter, CharCounter charCounter) throws IOException {
-		renderNumber(responseWriter, "maxLength", charCounter.getMaxLength());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, CharCounter charCounter) throws IOException {
+		if (charCounter.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", charCounter.getInitialized()));
+		}
+	}
+
+	protected void renderInput(ArrayList<String> renrederedAttributes, CharCounter charCounter) throws IOException {
+		if (charCounter.getInput() != null) {
+			renrederedAttributes.add(renderString("input", charCounter.getInput()));
+		}
+	}
+
+	protected void renderMaxLength(ArrayList<String> renrederedAttributes, CharCounter charCounter) throws IOException {
+		if (charCounter.getMaxLength() != null) {
+			renrederedAttributes.add(renderNumber("maxLength", charCounter.getMaxLength()));
+		}
 	}
 
 }

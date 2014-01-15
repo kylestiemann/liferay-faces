@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.buttonsearchcancel;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,22 +57,33 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, buttonSearchCancel);
 
-		bufferedResponseWriter.write("var buttonSearchCancel = new Y.ButtonSearchCancel");
+		bufferedResponseWriter.write("var buttonSearchCancel = new A.ButtonSearchCancel");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderContainer(bufferedResponseWriter, buttonSearchCancel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderGutter(bufferedResponseWriter, buttonSearchCancel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconClass(bufferedResponseWriter, buttonSearchCancel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTrigger(bufferedResponseWriter, buttonSearchCancel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, buttonSearchCancel);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderContainer(renrederedAttributes, buttonSearchCancel);
+		renderDestroyed(renrederedAttributes, buttonSearchCancel);
+		renderGutter(renrederedAttributes, buttonSearchCancel);
+		renderIconClass(renrederedAttributes, buttonSearchCancel);
+		renderInitialized(renrederedAttributes, buttonSearchCancel);
+		renderTrigger(renrederedAttributes, buttonSearchCancel);
+		renderZIndex(renrederedAttributes, buttonSearchCancel);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -84,24 +97,46 @@ public abstract class ButtonSearchCancelRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
-		renderString(responseWriter, "container", buttonSearchCancel.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", buttonSearchCancel.getContainer()));
+		}
 	}
 
-	protected void renderGutter(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
-		renderArray(responseWriter, "gutter", buttonSearchCancel.getGutter());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", buttonSearchCancel.getDestroyed()));
+		}
 	}
 
-	protected void renderIconClass(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
-		renderString(responseWriter, "iconClass", buttonSearchCancel.getIconClass());
+	protected void renderGutter(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getGutter() != null) {
+			renrederedAttributes.add(renderArray("gutter", buttonSearchCancel.getGutter()));
+		}
 	}
 
-	protected void renderTrigger(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
-		renderString(responseWriter, "trigger", buttonSearchCancel.getTrigger());
+	protected void renderIconClass(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getIconClass() != null) {
+			renrederedAttributes.add(renderString("iconClass", buttonSearchCancel.getIconClass()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, ButtonSearchCancel buttonSearchCancel) throws IOException {
-		renderNumber(responseWriter, "zIndex", buttonSearchCancel.getZIndex());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", buttonSearchCancel.getInitialized()));
+		}
+	}
+
+	protected void renderTrigger(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getTrigger() != null) {
+			renrederedAttributes.add(renderString("trigger", buttonSearchCancel.getTrigger()));
+		}
+	}
+
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, ButtonSearchCancel buttonSearchCancel) throws IOException {
+		if (buttonSearchCancel.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", buttonSearchCancel.getZIndex()));
+		}
 	}
 
 }

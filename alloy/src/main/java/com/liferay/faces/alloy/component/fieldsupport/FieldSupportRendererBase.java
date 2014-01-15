@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.fieldsupport;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,16 +57,28 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, fieldSupport);
 
-		bufferedResponseWriter.write("var fieldSupport = new Y.FieldSupport");
+		bufferedResponseWriter.write("var fieldSupport = new A.FieldSupport");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderFields(bufferedResponseWriter, fieldSupport);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMaxFields(bufferedResponseWriter, fieldSupport);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderFields(renrederedAttributes, fieldSupport);
+		renderMaxFields(renrederedAttributes, fieldSupport);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -78,12 +92,16 @@ public abstract class FieldSupportRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderFields(ResponseWriter responseWriter, FieldSupport fieldSupport) throws IOException {
-		renderArray(responseWriter, "fields", fieldSupport.getFields());
+	protected void renderFields(ArrayList<String> renrederedAttributes, FieldSupport fieldSupport) throws IOException {
+		if (fieldSupport.getFields() != null) {
+			renrederedAttributes.add(renderArray("fields", fieldSupport.getFields()));
+		}
 	}
 
-	protected void renderMaxFields(ResponseWriter responseWriter, FieldSupport fieldSupport) throws IOException {
-		renderNumber(responseWriter, "maxFields", fieldSupport.getMaxFields());
+	protected void renderMaxFields(ArrayList<String> renrederedAttributes, FieldSupport fieldSupport) throws IOException {
+		if (fieldSupport.getMaxFields() != null) {
+			renrederedAttributes.add(renderNumber("maxFields", fieldSupport.getMaxFields()));
+		}
 	}
 
 }

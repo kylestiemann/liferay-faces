@@ -22,84 +22,138 @@ package com.liferay.faces.alloy.component.charcounter;
 public abstract class CharCounterBase extends javax.faces.component.UIPanel {
 
 	private static final String COUNTER = "counter";
+	private static final String DESTROYED = "destroyed";
+	private static final String INITIALIZED = "initialized";
 	private static final String INPUT = "input";
 	private static final String MAX_LENGTH = "maxLength";
 	private static final String AFTER_COUNTER_CHANGE = "afterCounterChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_INPUT_CHANGE = "afterInputChange";
 	private static final String AFTER_MAX_LENGTH_CHANGE = "afterMaxLengthChange";
 	private static final String ON_COUNTER_CHANGE = "onCounterChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_INPUT_CHANGE = "onInputChange";
 	private static final String ON_MAX_LENGTH_CHANGE = "onMaxLengthChange";
 
-	protected java.lang.Object getCounter() {
+	public java.lang.Object getCounter() {
 		return (java.lang.Object) getStateHelper().eval(COUNTER, null);
 	}
 
-	protected void setCounter(java.lang.Object counter) {
+	public void setCounter(java.lang.Object counter) {
 		getStateHelper().put(COUNTER, counter);
 	}
 
-	protected java.lang.Object getInput() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.Object getInput() {
 		return (java.lang.Object) getStateHelper().eval(INPUT, null);
 	}
 
-	protected void setInput(java.lang.Object input) {
+	public void setInput(java.lang.Object input) {
 		getStateHelper().put(INPUT, input);
 	}
 
-	protected java.lang.Object getMaxLength() {
+	public java.lang.Object getMaxLength() {
 		return (java.lang.Object) getStateHelper().eval(MAX_LENGTH, null);
 	}
 
-	protected void setMaxLength(java.lang.Object maxLength) {
+	public void setMaxLength(java.lang.Object maxLength) {
 		getStateHelper().put(MAX_LENGTH, maxLength);
 	}
 
-	protected java.lang.String getAfterCounterChange() {
+	public java.lang.String getAfterCounterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_COUNTER_CHANGE, null);
 	}
 
-	protected void setAfterCounterChange(java.lang.String afterCounterChange) {
+	public void setAfterCounterChange(java.lang.String afterCounterChange) {
 		getStateHelper().put(AFTER_COUNTER_CHANGE, afterCounterChange);
 	}
 
-	protected java.lang.String getAfterInputChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterInputChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_INPUT_CHANGE, null);
 	}
 
-	protected void setAfterInputChange(java.lang.String afterInputChange) {
+	public void setAfterInputChange(java.lang.String afterInputChange) {
 		getStateHelper().put(AFTER_INPUT_CHANGE, afterInputChange);
 	}
 
-	protected java.lang.String getAfterMaxLengthChange() {
+	public java.lang.String getAfterMaxLengthChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_MAX_LENGTH_CHANGE, null);
 	}
 
-	protected void setAfterMaxLengthChange(java.lang.String afterMaxLengthChange) {
+	public void setAfterMaxLengthChange(java.lang.String afterMaxLengthChange) {
 		getStateHelper().put(AFTER_MAX_LENGTH_CHANGE, afterMaxLengthChange);
 	}
 
-	protected java.lang.String getOnCounterChange() {
+	public java.lang.String getOnCounterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_COUNTER_CHANGE, null);
 	}
 
-	protected void setOnCounterChange(java.lang.String onCounterChange) {
+	public void setOnCounterChange(java.lang.String onCounterChange) {
 		getStateHelper().put(ON_COUNTER_CHANGE, onCounterChange);
 	}
 
-	protected java.lang.String getOnInputChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnInputChange() {
 		return (java.lang.String) getStateHelper().eval(ON_INPUT_CHANGE, null);
 	}
 
-	protected void setOnInputChange(java.lang.String onInputChange) {
+	public void setOnInputChange(java.lang.String onInputChange) {
 		getStateHelper().put(ON_INPUT_CHANGE, onInputChange);
 	}
 
-	protected java.lang.String getOnMaxLengthChange() {
+	public java.lang.String getOnMaxLengthChange() {
 		return (java.lang.String) getStateHelper().eval(ON_MAX_LENGTH_CHANGE, null);
 	}
 
-	protected void setOnMaxLengthChange(java.lang.String onMaxLengthChange) {
+	public void setOnMaxLengthChange(java.lang.String onMaxLengthChange) {
 		getStateHelper().put(ON_MAX_LENGTH_CHANGE, onMaxLengthChange);
 	}
 

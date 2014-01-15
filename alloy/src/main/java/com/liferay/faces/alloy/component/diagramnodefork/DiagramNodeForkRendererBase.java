@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.diagramnodefork;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,50 +57,70 @@ public abstract class DiagramNodeForkRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, diagramNodeFork);
 
-		bufferedResponseWriter.write("var diagramNodeFork = new Y.DiagramNodeFork");
+		bufferedResponseWriter.write("var diagramNodeFork = new A.DiagramNodeFork");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBuilder(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderConnectors(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDescription(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderGraphic(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHighlightBoundaryStroke(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHighlighted(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShapeBoundary(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShapeInvite(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTransitions(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, diagramNodeFork);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, diagramNodeFork);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlign(renrederedAttributes, diagramNodeFork);
+		renderAlignOn(renrederedAttributes, diagramNodeFork);
+		renderDiagramnodeforkBodyContent(renrederedAttributes, diagramNodeFork);
+		renderBoundingBox(renrederedAttributes, diagramNodeFork);
+		renderBuilder(renrederedAttributes, diagramNodeFork);
+		renderCentered(renrederedAttributes, diagramNodeFork);
+		renderConnectors(renrederedAttributes, diagramNodeFork);
+		renderConstrain(renrederedAttributes, diagramNodeFork);
+		renderContentBox(renrederedAttributes, diagramNodeFork);
+		renderControlsToolbar(renrederedAttributes, diagramNodeFork);
+		renderDescription(renrederedAttributes, diagramNodeFork);
+		renderDestroyed(renrederedAttributes, diagramNodeFork);
+		renderDisabled(renrederedAttributes, diagramNodeFork);
+		renderFillHeight(renrederedAttributes, diagramNodeFork);
+		renderFocused(renrederedAttributes, diagramNodeFork);
+		renderFooterContent(renrederedAttributes, diagramNodeFork);
+		renderGraphic(renrederedAttributes, diagramNodeFork);
+		renderHeaderContent(renrederedAttributes, diagramNodeFork);
+		renderHeight(renrederedAttributes, diagramNodeFork);
+		renderHighlightBoundaryStroke(renrederedAttributes, diagramNodeFork);
+		renderHighlighted(renrederedAttributes, diagramNodeFork);
+		renderDiagramnodeforkId(renrederedAttributes, diagramNodeFork);
+		renderInitialized(renrederedAttributes, diagramNodeFork);
+		renderDiagramnodeforkLocale(renrederedAttributes, diagramNodeFork);
+		renderName(renrederedAttributes, diagramNodeFork);
+		renderPreventOverlap(renrederedAttributes, diagramNodeFork);
+		renderRender(renrederedAttributes, diagramNodeFork);
+		renderRendered(renrederedAttributes, diagramNodeFork);
+		renderRequired(renrederedAttributes, diagramNodeFork);
+		renderSelected(renrederedAttributes, diagramNodeFork);
+		renderShapeBoundary(renrederedAttributes, diagramNodeFork);
+		renderShapeInvite(renrederedAttributes, diagramNodeFork);
+		renderShim(renrederedAttributes, diagramNodeFork);
+		renderSrcNode(renrederedAttributes, diagramNodeFork);
+		renderStrings(renrederedAttributes, diagramNodeFork);
+		renderTabIndex(renrederedAttributes, diagramNodeFork);
+		renderTransitions(renrederedAttributes, diagramNodeFork);
+		renderType(renrederedAttributes, diagramNodeFork);
+		renderVisible(renrederedAttributes, diagramNodeFork);
+		renderWidth(renrederedAttributes, diagramNodeFork);
+		renderX(renrederedAttributes, diagramNodeFork);
+		renderXy(renrederedAttributes, diagramNodeFork);
+		renderY(renrederedAttributes, diagramNodeFork);
+		renderZIndex(renrederedAttributes, diagramNodeFork);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -112,80 +134,268 @@ public abstract class DiagramNodeForkRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderString(responseWriter, "builder", diagramNodeFork.getBuilder());
+	protected void renderAlign(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getAlign() != null) {
+			renrederedAttributes.add(renderObject("align", diagramNodeFork.getAlign()));
+		}
 	}
 
-	protected void renderConnectors(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderString(responseWriter, "connectors", diagramNodeFork.getConnectors());
+	protected void renderAlignOn(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getAlignOn() != null) {
+			renrederedAttributes.add(renderArray("alignOn", diagramNodeFork.getAlignOn()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", diagramNodeFork.getControlsToolbar());
+	protected void renderDiagramnodeforkBodyContent(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getDiagramnodeforkBodyContent() != null) {
+			renrederedAttributes.add(renderString("diagramnodeforkBodyContent", diagramNodeFork.getDiagramnodeforkBodyContent()));
+		}
 	}
 
-	protected void renderDescription(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderString(responseWriter, "description", diagramNodeFork.getDescription());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", diagramNodeFork.getBoundingBox()));
+		}
 	}
 
-	protected void renderGraphic(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderObject(responseWriter, "graphic", diagramNodeFork.getGraphic());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getBuilder() != null) {
+			renrederedAttributes.add(renderString("builder", diagramNodeFork.getBuilder()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderNumber(responseWriter, "height", diagramNodeFork.getHeight());
+	protected void renderCentered(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getCentered() != null) {
+			renrederedAttributes.add(renderString("centered", diagramNodeFork.getCentered()));
+		}
 	}
 
-	protected void renderHighlightBoundaryStroke(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderObject(responseWriter, "highlightBoundaryStroke", diagramNodeFork.getHighlightBoundaryStroke());
+	protected void renderConnectors(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getConnectors() != null) {
+			renrederedAttributes.add(renderString("connectors", diagramNodeFork.getConnectors()));
+		}
 	}
 
-	protected void renderHighlighted(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderBoolean(responseWriter, "highlighted", diagramNodeFork.getHighlighted());
+	protected void renderConstrain(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getConstrain() != null) {
+			renrederedAttributes.add(renderString("constrain", diagramNodeFork.getConstrain()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderString(responseWriter, "name", diagramNodeFork.getName());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", diagramNodeFork.getContentBox()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderBoolean(responseWriter, "required", diagramNodeFork.getRequired());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", diagramNodeFork.getControlsToolbar()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderBoolean(responseWriter, "selected", diagramNodeFork.getSelected());
+	protected void renderDescription(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getDescription() != null) {
+			renrederedAttributes.add(renderString("description", diagramNodeFork.getDescription()));
+		}
 	}
 
-	protected void renderShapeBoundary(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderObject(responseWriter, "shapeBoundary", diagramNodeFork.getShapeBoundary());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", diagramNodeFork.getDestroyed()));
+		}
 	}
 
-	protected void renderShapeInvite(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderObject(responseWriter, "shapeInvite", diagramNodeFork.getShapeInvite());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", diagramNodeFork.getDisabled()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderObject(responseWriter, "strings", diagramNodeFork.getStrings());
+	protected void renderFillHeight(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getFillHeight() != null) {
+			renrederedAttributes.add(renderString("fillHeight", diagramNodeFork.getFillHeight()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderNumber(responseWriter, "tabIndex", diagramNodeFork.getTabIndex());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", diagramNodeFork.getFocused()));
+		}
 	}
 
-	protected void renderTransitions(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderString(responseWriter, "transitions", diagramNodeFork.getTransitions());
+	protected void renderFooterContent(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getFooterContent() != null) {
+			renrederedAttributes.add(renderString("footerContent", diagramNodeFork.getFooterContent()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderString(responseWriter, "type", diagramNodeFork.getType());
+	protected void renderGraphic(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getGraphic() != null) {
+			renrederedAttributes.add(renderObject("graphic", diagramNodeFork.getGraphic()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderNumber(responseWriter, "width", diagramNodeFork.getWidth());
+	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getHeaderContent() != null) {
+			renrederedAttributes.add(renderString("headerContent", diagramNodeFork.getHeaderContent()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, DiagramNodeFork diagramNodeFork) throws IOException {
-		renderNumber(responseWriter, "zIndex", diagramNodeFork.getZIndex());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", diagramNodeFork.getHeight()));
+		}
+	}
+
+	protected void renderHighlightBoundaryStroke(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getHighlightBoundaryStroke() != null) {
+			renrederedAttributes.add(renderObject("highlightBoundaryStroke", diagramNodeFork.getHighlightBoundaryStroke()));
+		}
+	}
+
+	protected void renderHighlighted(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getHighlighted() != null) {
+			renrederedAttributes.add(renderBoolean("highlighted", diagramNodeFork.getHighlighted()));
+		}
+	}
+
+	protected void renderDiagramnodeforkId(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getDiagramnodeforkId() != null) {
+			renrederedAttributes.add(renderString("diagramnodeforkId", diagramNodeFork.getDiagramnodeforkId()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", diagramNodeFork.getInitialized()));
+		}
+	}
+
+	protected void renderDiagramnodeforkLocale(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getDiagramnodeforkLocale() != null) {
+			renrederedAttributes.add(renderString("diagramnodeforkLocale", diagramNodeFork.getDiagramnodeforkLocale()));
+		}
+	}
+
+	protected void renderName(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getName() != null) {
+			renrederedAttributes.add(renderString("name", diagramNodeFork.getName()));
+		}
+	}
+
+	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getPreventOverlap() != null) {
+			renrederedAttributes.add(renderBoolean("preventOverlap", diagramNodeFork.getPreventOverlap()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getRender() != null) {
+			renrederedAttributes.add(renderString("render", diagramNodeFork.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", diagramNodeFork.getRendered()));
+		}
+	}
+
+	protected void renderRequired(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", diagramNodeFork.getRequired()));
+		}
+	}
+
+	protected void renderSelected(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", diagramNodeFork.getSelected()));
+		}
+	}
+
+	protected void renderShapeBoundary(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getShapeBoundary() != null) {
+			renrederedAttributes.add(renderObject("shapeBoundary", diagramNodeFork.getShapeBoundary()));
+		}
+	}
+
+	protected void renderShapeInvite(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getShapeInvite() != null) {
+			renrederedAttributes.add(renderObject("shapeInvite", diagramNodeFork.getShapeInvite()));
+		}
+	}
+
+	protected void renderShim(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getShim() != null) {
+			renrederedAttributes.add(renderBoolean("shim", diagramNodeFork.getShim()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", diagramNodeFork.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", diagramNodeFork.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", diagramNodeFork.getTabIndex()));
+		}
+	}
+
+	protected void renderTransitions(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getTransitions() != null) {
+			renrederedAttributes.add(renderString("transitions", diagramNodeFork.getTransitions()));
+		}
+	}
+
+	protected void renderType(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getType() != null) {
+			renrederedAttributes.add(renderString("type", diagramNodeFork.getType()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", diagramNodeFork.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getWidth() != null) {
+			renrederedAttributes.add(renderNumber("width", diagramNodeFork.getWidth()));
+		}
+	}
+
+	protected void renderX(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getX() != null) {
+			renrederedAttributes.add(renderNumber("x", diagramNodeFork.getX()));
+		}
+	}
+
+	protected void renderXy(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getXy() != null) {
+			renrederedAttributes.add(renderArray("xy", diagramNodeFork.getXy()));
+		}
+	}
+
+	protected void renderY(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getY() != null) {
+			renrederedAttributes.add(renderNumber("y", diagramNodeFork.getY()));
+		}
+	}
+
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		if (diagramNodeFork.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", diagramNodeFork.getZIndex()));
+		}
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.formbuilderbuttonfield;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,72 +57,56 @@ public abstract class FormBuilderButtonFieldRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, formBuilderButtonField);
 
-		bufferedResponseWriter.write("var formBuilderButtonField = new Y.FormBuilderButtonField");
+		bufferedResponseWriter.write("var formBuilderButtonField = new A.FormBuilderButtonField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBuilder(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderButtonType(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDataType(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropZoneNode(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenAttributes(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuilderbuttonfieldId(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLocalizationMap(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuilderbuttonfieldParent(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPredefinedValue(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnly(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnlyAttributes(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequiredFlagNode(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowLabel(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplate(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplateNode(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTip(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTipFlagNode(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUnique(bufferedResponseWriter, formBuilderButtonField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, formBuilderButtonField);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAcceptChildren(renrederedAttributes, formBuilderButtonField);
+		renderBuilder(renrederedAttributes, formBuilderButtonField);
+		renderButtonType(renrederedAttributes, formBuilderButtonField);
+		renderControlsToolbar(renrederedAttributes, formBuilderButtonField);
+		renderDataType(renrederedAttributes, formBuilderButtonField);
+		renderDisabled(renrederedAttributes, formBuilderButtonField);
+		renderDropZoneNode(renrederedAttributes, formBuilderButtonField);
+		renderHiddenAttributes(renrederedAttributes, formBuilderButtonField);
+		renderFormbuilderbuttonfieldId(renrederedAttributes, formBuilderButtonField);
+		renderLabel(renrederedAttributes, formBuilderButtonField);
+		renderLabelNode(renrederedAttributes, formBuilderButtonField);
+		renderLocalizationMap(renrederedAttributes, formBuilderButtonField);
+		renderName(renrederedAttributes, formBuilderButtonField);
+		renderFormbuilderbuttonfieldParent(renrederedAttributes, formBuilderButtonField);
+		renderPredefinedValue(renrederedAttributes, formBuilderButtonField);
+		renderReadOnly(renrederedAttributes, formBuilderButtonField);
+		renderReadOnlyAttributes(renrederedAttributes, formBuilderButtonField);
+		renderRequired(renrederedAttributes, formBuilderButtonField);
+		renderRequiredFlagNode(renrederedAttributes, formBuilderButtonField);
+		renderSelected(renrederedAttributes, formBuilderButtonField);
+		renderShowLabel(renrederedAttributes, formBuilderButtonField);
+		renderStrings(renrederedAttributes, formBuilderButtonField);
+		renderTabIndex(renrederedAttributes, formBuilderButtonField);
+		renderTemplate(renrederedAttributes, formBuilderButtonField);
+		renderTemplateNode(renrederedAttributes, formBuilderButtonField);
+		renderTip(renrederedAttributes, formBuilderButtonField);
+		renderTipFlagNode(renrederedAttributes, formBuilderButtonField);
+		renderType(renrederedAttributes, formBuilderButtonField);
+		renderUnique(renrederedAttributes, formBuilderButtonField);
+		renderZIndex(renrederedAttributes, formBuilderButtonField);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -134,124 +120,184 @@ public abstract class FormBuilderButtonFieldRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "acceptChildren", formBuilderButtonField.getAcceptChildren());
+	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getAcceptChildren() != null) {
+			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderButtonField.getAcceptChildren()));
+		}
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "builder", formBuilderButtonField.getBuilder());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getBuilder() != null) {
+			renrederedAttributes.add(renderBoolean("builder", formBuilderButtonField.getBuilder()));
+		}
 	}
 
-	protected void renderButtonType(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "buttonType", formBuilderButtonField.getButtonType());
+	protected void renderButtonType(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getButtonType() != null) {
+			renrederedAttributes.add(renderString("buttonType", formBuilderButtonField.getButtonType()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", formBuilderButtonField.getControlsToolbar());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderButtonField.getControlsToolbar()));
+		}
 	}
 
-	protected void renderDataType(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "dataType", formBuilderButtonField.getDataType());
+	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getDataType() != null) {
+			renrederedAttributes.add(renderString("dataType", formBuilderButtonField.getDataType()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "disabled", formBuilderButtonField.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", formBuilderButtonField.getDisabled()));
+		}
 	}
 
-	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "dropZoneNode", formBuilderButtonField.getDropZoneNode());
+	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getDropZoneNode() != null) {
+			renrederedAttributes.add(renderString("dropZoneNode", formBuilderButtonField.getDropZoneNode()));
+		}
 	}
 
-	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderArray(responseWriter, "hiddenAttributes", formBuilderButtonField.getHiddenAttributes());
+	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getHiddenAttributes() != null) {
+			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderButtonField.getHiddenAttributes()));
+		}
 	}
 
-	protected void renderFormbuilderbuttonfieldId(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "formbuilderbuttonfieldId", formBuilderButtonField.getFormbuilderbuttonfieldId());
+	protected void renderFormbuilderbuttonfieldId(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getFormbuilderbuttonfieldId() != null) {
+			renrederedAttributes.add(renderString("formbuilderbuttonfieldId", formBuilderButtonField.getFormbuilderbuttonfieldId()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "label", formBuilderButtonField.getLabel());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", formBuilderButtonField.getLabel()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "labelNode", formBuilderButtonField.getLabelNode());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", formBuilderButtonField.getLabelNode()));
+		}
 	}
 
-	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderObject(responseWriter, "localizationMap", formBuilderButtonField.getLocalizationMap());
+	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getLocalizationMap() != null) {
+			renrederedAttributes.add(renderObject("localizationMap", formBuilderButtonField.getLocalizationMap()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "name", formBuilderButtonField.getName());
+	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getName() != null) {
+			renrederedAttributes.add(renderString("name", formBuilderButtonField.getName()));
+		}
 	}
 
-	protected void renderFormbuilderbuttonfieldParent(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "formbuilderbuttonfieldParent", formBuilderButtonField.getFormbuilderbuttonfieldParent());
+	protected void renderFormbuilderbuttonfieldParent(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getFormbuilderbuttonfieldParent() != null) {
+			renrederedAttributes.add(renderString("formbuilderbuttonfieldParent", formBuilderButtonField.getFormbuilderbuttonfieldParent()));
+		}
 	}
 
-	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "predefinedValue", formBuilderButtonField.getPredefinedValue());
+	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getPredefinedValue() != null) {
+			renrederedAttributes.add(renderString("predefinedValue", formBuilderButtonField.getPredefinedValue()));
+		}
 	}
 
-	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "readOnly", formBuilderButtonField.getReadOnly());
+	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getReadOnly() != null) {
+			renrederedAttributes.add(renderBoolean("readOnly", formBuilderButtonField.getReadOnly()));
+		}
 	}
 
-	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderArray(responseWriter, "readOnlyAttributes", formBuilderButtonField.getReadOnlyAttributes());
+	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getReadOnlyAttributes() != null) {
+			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderButtonField.getReadOnlyAttributes()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "required", formBuilderButtonField.getRequired());
+	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", formBuilderButtonField.getRequired()));
+		}
 	}
 
-	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "requiredFlagNode", formBuilderButtonField.getRequiredFlagNode());
+	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getRequiredFlagNode() != null) {
+			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderButtonField.getRequiredFlagNode()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "selected", formBuilderButtonField.getSelected());
+	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", formBuilderButtonField.getSelected()));
+		}
 	}
 
-	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "showLabel", formBuilderButtonField.getShowLabel());
+	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getShowLabel() != null) {
+			renrederedAttributes.add(renderBoolean("showLabel", formBuilderButtonField.getShowLabel()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderObject(responseWriter, "strings", formBuilderButtonField.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", formBuilderButtonField.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderNumber(responseWriter, "tabIndex", formBuilderButtonField.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", formBuilderButtonField.getTabIndex()));
+		}
 	}
 
-	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "template", formBuilderButtonField.getTemplate());
+	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getTemplate() != null) {
+			renrederedAttributes.add(renderString("template", formBuilderButtonField.getTemplate()));
+		}
 	}
 
-	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "templateNode", formBuilderButtonField.getTemplateNode());
+	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getTemplateNode() != null) {
+			renrederedAttributes.add(renderString("templateNode", formBuilderButtonField.getTemplateNode()));
+		}
 	}
 
-	protected void renderTip(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "tip", formBuilderButtonField.getTip());
+	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getTip() != null) {
+			renrederedAttributes.add(renderString("tip", formBuilderButtonField.getTip()));
+		}
 	}
 
-	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "tipFlagNode", formBuilderButtonField.getTipFlagNode());
+	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getTipFlagNode() != null) {
+			renrederedAttributes.add(renderString("tipFlagNode", formBuilderButtonField.getTipFlagNode()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderString(responseWriter, "type", formBuilderButtonField.getType());
+	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getType() != null) {
+			renrederedAttributes.add(renderString("type", formBuilderButtonField.getType()));
+		}
 	}
 
-	protected void renderUnique(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderBoolean(responseWriter, "unique", formBuilderButtonField.getUnique());
+	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getUnique() != null) {
+			renrederedAttributes.add(renderBoolean("unique", formBuilderButtonField.getUnique()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		renderNumber(responseWriter, "zIndex", formBuilderButtonField.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		if (formBuilderButtonField.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", formBuilderButtonField.getZIndex()));
+		}
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.formbuildertextfield;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,72 +57,56 @@ public abstract class FormBuilderTextFieldRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, formBuilderTextField);
 
-		bufferedResponseWriter.write("var formBuilderTextField = new Y.FormBuilderTextField");
+		bufferedResponseWriter.write("var formBuilderTextField = new A.FormBuilderTextField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBuilder(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDataType(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropZoneNode(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenAttributes(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuildertextfieldId(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLocalizationMap(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuildertextfieldParent(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPredefinedValue(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnly(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnlyAttributes(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequiredFlagNode(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowLabel(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplate(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplateNode(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTip(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTipFlagNode(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUnique(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, formBuilderTextField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, formBuilderTextField);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAcceptChildren(renrederedAttributes, formBuilderTextField);
+		renderBuilder(renrederedAttributes, formBuilderTextField);
+		renderControlsToolbar(renrederedAttributes, formBuilderTextField);
+		renderDataType(renrederedAttributes, formBuilderTextField);
+		renderDisabled(renrederedAttributes, formBuilderTextField);
+		renderDropZoneNode(renrederedAttributes, formBuilderTextField);
+		renderHiddenAttributes(renrederedAttributes, formBuilderTextField);
+		renderFormbuildertextfieldId(renrederedAttributes, formBuilderTextField);
+		renderLabel(renrederedAttributes, formBuilderTextField);
+		renderLabelNode(renrederedAttributes, formBuilderTextField);
+		renderLocalizationMap(renrederedAttributes, formBuilderTextField);
+		renderName(renrederedAttributes, formBuilderTextField);
+		renderFormbuildertextfieldParent(renrederedAttributes, formBuilderTextField);
+		renderPredefinedValue(renrederedAttributes, formBuilderTextField);
+		renderReadOnly(renrederedAttributes, formBuilderTextField);
+		renderReadOnlyAttributes(renrederedAttributes, formBuilderTextField);
+		renderRequired(renrederedAttributes, formBuilderTextField);
+		renderRequiredFlagNode(renrederedAttributes, formBuilderTextField);
+		renderSelected(renrederedAttributes, formBuilderTextField);
+		renderShowLabel(renrederedAttributes, formBuilderTextField);
+		renderStrings(renrederedAttributes, formBuilderTextField);
+		renderTabIndex(renrederedAttributes, formBuilderTextField);
+		renderTemplate(renrederedAttributes, formBuilderTextField);
+		renderTemplateNode(renrederedAttributes, formBuilderTextField);
+		renderTip(renrederedAttributes, formBuilderTextField);
+		renderTipFlagNode(renrederedAttributes, formBuilderTextField);
+		renderType(renrederedAttributes, formBuilderTextField);
+		renderUnique(renrederedAttributes, formBuilderTextField);
+		renderWidth(renrederedAttributes, formBuilderTextField);
+		renderZIndex(renrederedAttributes, formBuilderTextField);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -134,124 +120,184 @@ public abstract class FormBuilderTextFieldRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "acceptChildren", formBuilderTextField.getAcceptChildren());
+	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getAcceptChildren() != null) {
+			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderTextField.getAcceptChildren()));
+		}
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "builder", formBuilderTextField.getBuilder());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getBuilder() != null) {
+			renrederedAttributes.add(renderBoolean("builder", formBuilderTextField.getBuilder()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", formBuilderTextField.getControlsToolbar());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderTextField.getControlsToolbar()));
+		}
 	}
 
-	protected void renderDataType(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "dataType", formBuilderTextField.getDataType());
+	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getDataType() != null) {
+			renrederedAttributes.add(renderString("dataType", formBuilderTextField.getDataType()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "disabled", formBuilderTextField.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", formBuilderTextField.getDisabled()));
+		}
 	}
 
-	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "dropZoneNode", formBuilderTextField.getDropZoneNode());
+	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getDropZoneNode() != null) {
+			renrederedAttributes.add(renderString("dropZoneNode", formBuilderTextField.getDropZoneNode()));
+		}
 	}
 
-	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderArray(responseWriter, "hiddenAttributes", formBuilderTextField.getHiddenAttributes());
+	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getHiddenAttributes() != null) {
+			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderTextField.getHiddenAttributes()));
+		}
 	}
 
-	protected void renderFormbuildertextfieldId(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "formbuildertextfieldId", formBuilderTextField.getFormbuildertextfieldId());
+	protected void renderFormbuildertextfieldId(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getFormbuildertextfieldId() != null) {
+			renrederedAttributes.add(renderString("formbuildertextfieldId", formBuilderTextField.getFormbuildertextfieldId()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "label", formBuilderTextField.getLabel());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", formBuilderTextField.getLabel()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "labelNode", formBuilderTextField.getLabelNode());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", formBuilderTextField.getLabelNode()));
+		}
 	}
 
-	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderObject(responseWriter, "localizationMap", formBuilderTextField.getLocalizationMap());
+	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getLocalizationMap() != null) {
+			renrederedAttributes.add(renderObject("localizationMap", formBuilderTextField.getLocalizationMap()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "name", formBuilderTextField.getName());
+	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getName() != null) {
+			renrederedAttributes.add(renderString("name", formBuilderTextField.getName()));
+		}
 	}
 
-	protected void renderFormbuildertextfieldParent(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "formbuildertextfieldParent", formBuilderTextField.getFormbuildertextfieldParent());
+	protected void renderFormbuildertextfieldParent(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getFormbuildertextfieldParent() != null) {
+			renrederedAttributes.add(renderString("formbuildertextfieldParent", formBuilderTextField.getFormbuildertextfieldParent()));
+		}
 	}
 
-	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "predefinedValue", formBuilderTextField.getPredefinedValue());
+	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getPredefinedValue() != null) {
+			renrederedAttributes.add(renderString("predefinedValue", formBuilderTextField.getPredefinedValue()));
+		}
 	}
 
-	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "readOnly", formBuilderTextField.getReadOnly());
+	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getReadOnly() != null) {
+			renrederedAttributes.add(renderBoolean("readOnly", formBuilderTextField.getReadOnly()));
+		}
 	}
 
-	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderArray(responseWriter, "readOnlyAttributes", formBuilderTextField.getReadOnlyAttributes());
+	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getReadOnlyAttributes() != null) {
+			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderTextField.getReadOnlyAttributes()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "required", formBuilderTextField.getRequired());
+	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", formBuilderTextField.getRequired()));
+		}
 	}
 
-	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "requiredFlagNode", formBuilderTextField.getRequiredFlagNode());
+	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getRequiredFlagNode() != null) {
+			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderTextField.getRequiredFlagNode()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "selected", formBuilderTextField.getSelected());
+	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", formBuilderTextField.getSelected()));
+		}
 	}
 
-	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "showLabel", formBuilderTextField.getShowLabel());
+	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getShowLabel() != null) {
+			renrederedAttributes.add(renderBoolean("showLabel", formBuilderTextField.getShowLabel()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderObject(responseWriter, "strings", formBuilderTextField.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", formBuilderTextField.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderNumber(responseWriter, "tabIndex", formBuilderTextField.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", formBuilderTextField.getTabIndex()));
+		}
 	}
 
-	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "template", formBuilderTextField.getTemplate());
+	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getTemplate() != null) {
+			renrederedAttributes.add(renderString("template", formBuilderTextField.getTemplate()));
+		}
 	}
 
-	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "templateNode", formBuilderTextField.getTemplateNode());
+	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getTemplateNode() != null) {
+			renrederedAttributes.add(renderString("templateNode", formBuilderTextField.getTemplateNode()));
+		}
 	}
 
-	protected void renderTip(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "tip", formBuilderTextField.getTip());
+	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getTip() != null) {
+			renrederedAttributes.add(renderString("tip", formBuilderTextField.getTip()));
+		}
 	}
 
-	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "tipFlagNode", formBuilderTextField.getTipFlagNode());
+	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getTipFlagNode() != null) {
+			renrederedAttributes.add(renderString("tipFlagNode", formBuilderTextField.getTipFlagNode()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "type", formBuilderTextField.getType());
+	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getType() != null) {
+			renrederedAttributes.add(renderString("type", formBuilderTextField.getType()));
+		}
 	}
 
-	protected void renderUnique(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderBoolean(responseWriter, "unique", formBuilderTextField.getUnique());
+	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getUnique() != null) {
+			renrederedAttributes.add(renderBoolean("unique", formBuilderTextField.getUnique()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderString(responseWriter, "width", formBuilderTextField.getWidth());
+	protected void renderWidth(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", formBuilderTextField.getWidth()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderTextField formBuilderTextField) throws IOException {
-		renderNumber(responseWriter, "zIndex", formBuilderTextField.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		if (formBuilderTextField.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", formBuilderTextField.getZIndex()));
+		}
 	}
 
 }

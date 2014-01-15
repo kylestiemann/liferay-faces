@@ -26,135 +26,162 @@ public abstract class ToggleButtonBase extends javax.faces.component.UIPanel {
 	private static final String ICON_ALIGN = "iconAlign";
 	private static final String ICON_ELEMENT = "iconElement";
 	private static final String PRIMARY = "primary";
+	private static final String TYPE = "type";
 	private static final String AFTER_CSS_CLASS_CHANGE = "afterCssClassChange";
 	private static final String AFTER_ICON_CHANGE = "afterIconChange";
 	private static final String AFTER_ICON_ALIGN_CHANGE = "afterIconAlignChange";
 	private static final String AFTER_ICON_ELEMENT_CHANGE = "afterIconElementChange";
 	private static final String AFTER_PRIMARY_CHANGE = "afterPrimaryChange";
+	private static final String AFTER_TYPE_CHANGE = "afterTypeChange";
 	private static final String ON_CSS_CLASS_CHANGE = "onCssClassChange";
 	private static final String ON_ICON_CHANGE = "onIconChange";
 	private static final String ON_ICON_ALIGN_CHANGE = "onIconAlignChange";
 	private static final String ON_ICON_ELEMENT_CHANGE = "onIconElementChange";
 	private static final String ON_PRIMARY_CHANGE = "onPrimaryChange";
+	private static final String ON_TYPE_CHANGE = "onTypeChange";
 
-	protected java.lang.String getCssClass() {
+	public java.lang.String getCssClass() {
 		return (java.lang.String) getStateHelper().eval(CSS_CLASS, null);
 	}
 
-	protected void setCssClass(java.lang.String cssClass) {
+	public void setCssClass(java.lang.String cssClass) {
 		getStateHelper().put(CSS_CLASS, cssClass);
 	}
 
-	protected java.lang.String getIcon() {
+	public java.lang.String getIcon() {
 		return (java.lang.String) getStateHelper().eval(ICON, null);
 	}
 
-	protected void setIcon(java.lang.String icon) {
+	public void setIcon(java.lang.String icon) {
 		getStateHelper().put(ICON, icon);
 	}
 
-	protected java.lang.String getIconAlign() {
+	public java.lang.String getIconAlign() {
 		return (java.lang.String) getStateHelper().eval(ICON_ALIGN, null);
 	}
 
-	protected void setIconAlign(java.lang.String iconAlign) {
+	public void setIconAlign(java.lang.String iconAlign) {
 		getStateHelper().put(ICON_ALIGN, iconAlign);
 	}
 
-	protected java.lang.String getIconElement() {
+	public java.lang.String getIconElement() {
 		return (java.lang.String) getStateHelper().eval(ICON_ELEMENT, null);
 	}
 
-	protected void setIconElement(java.lang.String iconElement) {
+	public void setIconElement(java.lang.String iconElement) {
 		getStateHelper().put(ICON_ELEMENT, iconElement);
 	}
 
-	protected java.lang.Boolean getPrimary() {
+	public java.lang.Boolean getPrimary() {
 		return (java.lang.Boolean) getStateHelper().eval(PRIMARY, null);
 	}
 
-	protected void setPrimary(java.lang.Boolean primary) {
+	public void setPrimary(java.lang.Boolean primary) {
 		getStateHelper().put(PRIMARY, primary);
 	}
 
-	protected java.lang.String getAfterCssClassChange() {
+	public java.lang.String getType() {
+		return (java.lang.String) getStateHelper().eval(TYPE, null);
+	}
+
+	public void setType(java.lang.String type) {
+		getStateHelper().put(TYPE, type);
+	}
+
+	public java.lang.String getAfterCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterCssClassChange(java.lang.String afterCssClassChange) {
+	public void setAfterCssClassChange(java.lang.String afterCssClassChange) {
 		getStateHelper().put(AFTER_CSS_CLASS_CHANGE, afterCssClassChange);
 	}
 
-	protected java.lang.String getAfterIconChange() {
+	public java.lang.String getAfterIconChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ICON_CHANGE, null);
 	}
 
-	protected void setAfterIconChange(java.lang.String afterIconChange) {
+	public void setAfterIconChange(java.lang.String afterIconChange) {
 		getStateHelper().put(AFTER_ICON_CHANGE, afterIconChange);
 	}
 
-	protected java.lang.String getAfterIconAlignChange() {
+	public java.lang.String getAfterIconAlignChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ICON_ALIGN_CHANGE, null);
 	}
 
-	protected void setAfterIconAlignChange(java.lang.String afterIconAlignChange) {
+	public void setAfterIconAlignChange(java.lang.String afterIconAlignChange) {
 		getStateHelper().put(AFTER_ICON_ALIGN_CHANGE, afterIconAlignChange);
 	}
 
-	protected java.lang.String getAfterIconElementChange() {
+	public java.lang.String getAfterIconElementChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ICON_ELEMENT_CHANGE, null);
 	}
 
-	protected void setAfterIconElementChange(java.lang.String afterIconElementChange) {
+	public void setAfterIconElementChange(java.lang.String afterIconElementChange) {
 		getStateHelper().put(AFTER_ICON_ELEMENT_CHANGE, afterIconElementChange);
 	}
 
-	protected java.lang.String getAfterPrimaryChange() {
+	public java.lang.String getAfterPrimaryChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PRIMARY_CHANGE, null);
 	}
 
-	protected void setAfterPrimaryChange(java.lang.String afterPrimaryChange) {
+	public void setAfterPrimaryChange(java.lang.String afterPrimaryChange) {
 		getStateHelper().put(AFTER_PRIMARY_CHANGE, afterPrimaryChange);
 	}
 
-	protected java.lang.String getOnCssClassChange() {
+	public java.lang.String getAfterTypeChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TYPE_CHANGE, null);
+	}
+
+	public void setAfterTypeChange(java.lang.String afterTypeChange) {
+		getStateHelper().put(AFTER_TYPE_CHANGE, afterTypeChange);
+	}
+
+	public java.lang.String getOnCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setOnCssClassChange(java.lang.String onCssClassChange) {
+	public void setOnCssClassChange(java.lang.String onCssClassChange) {
 		getStateHelper().put(ON_CSS_CLASS_CHANGE, onCssClassChange);
 	}
 
-	protected java.lang.String getOnIconChange() {
+	public java.lang.String getOnIconChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ICON_CHANGE, null);
 	}
 
-	protected void setOnIconChange(java.lang.String onIconChange) {
+	public void setOnIconChange(java.lang.String onIconChange) {
 		getStateHelper().put(ON_ICON_CHANGE, onIconChange);
 	}
 
-	protected java.lang.String getOnIconAlignChange() {
+	public java.lang.String getOnIconAlignChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ICON_ALIGN_CHANGE, null);
 	}
 
-	protected void setOnIconAlignChange(java.lang.String onIconAlignChange) {
+	public void setOnIconAlignChange(java.lang.String onIconAlignChange) {
 		getStateHelper().put(ON_ICON_ALIGN_CHANGE, onIconAlignChange);
 	}
 
-	protected java.lang.String getOnIconElementChange() {
+	public java.lang.String getOnIconElementChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ICON_ELEMENT_CHANGE, null);
 	}
 
-	protected void setOnIconElementChange(java.lang.String onIconElementChange) {
+	public void setOnIconElementChange(java.lang.String onIconElementChange) {
 		getStateHelper().put(ON_ICON_ELEMENT_CHANGE, onIconElementChange);
 	}
 
-	protected java.lang.String getOnPrimaryChange() {
+	public java.lang.String getOnPrimaryChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PRIMARY_CHANGE, null);
 	}
 
-	protected void setOnPrimaryChange(java.lang.String onPrimaryChange) {
+	public void setOnPrimaryChange(java.lang.String onPrimaryChange) {
 		getStateHelper().put(ON_PRIMARY_CHANGE, onPrimaryChange);
+	}
+
+	public java.lang.String getOnTypeChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TYPE_CHANGE, null);
+	}
+
+	public void setOnTypeChange(java.lang.String onTypeChange) {
+		getStateHelper().put(ON_TYPE_CHANGE, onTypeChange);
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.button;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,56 +57,48 @@ public abstract class ButtonRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, button);
 
-		bufferedResponseWriter.write("var button = new Y.Button");
+		bufferedResponseWriter.write("var button = new A.Button");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContentBox(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDestroyed(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFocused(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIcon(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconAlign(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIconElement(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderButtonId(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInitialized(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderButtonLocale(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrimary(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRendered(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSrcNode(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, button);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, button);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, button);
+		renderContentBox(renrederedAttributes, button);
+		renderCssClass(renrederedAttributes, button);
+		renderDestroyed(renrederedAttributes, button);
+		renderDisabled(renrederedAttributes, button);
+		renderFocused(renrederedAttributes, button);
+		renderHeight(renrederedAttributes, button);
+		renderIcon(renrederedAttributes, button);
+		renderIconAlign(renrederedAttributes, button);
+		renderIconElement(renrederedAttributes, button);
+		renderButtonId(renrederedAttributes, button);
+		renderInitialized(renrederedAttributes, button);
+		renderLabel(renrederedAttributes, button);
+		renderButtonLocale(renrederedAttributes, button);
+		renderPrimary(renrederedAttributes, button);
+		renderRender(renrederedAttributes, button);
+		renderRendered(renrederedAttributes, button);
+		renderSrcNode(renrederedAttributes, button);
+		renderStrings(renrederedAttributes, button);
+		renderTabIndex(renrederedAttributes, button);
+		renderVisible(renrederedAttributes, button);
+		renderWidth(renrederedAttributes, button);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -118,92 +112,136 @@ public abstract class ButtonRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "boundingBox", button.getBoundingBox());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", button.getBoundingBox()));
+		}
 	}
 
-	protected void renderContentBox(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "contentBox", button.getContentBox());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", button.getContentBox()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "cssClass", button.getCssClass());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", button.getCssClass()));
+		}
 	}
 
-	protected void renderDestroyed(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "destroyed", button.getDestroyed());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", button.getDestroyed()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "disabled", button.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", button.getDisabled()));
+		}
 	}
 
-	protected void renderFocused(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "focused", button.getFocused());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", button.getFocused()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "height", button.getHeight());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", button.getHeight()));
+		}
 	}
 
-	protected void renderIcon(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "icon", button.getIcon());
+	protected void renderIcon(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getIcon() != null) {
+			renrederedAttributes.add(renderString("icon", button.getIcon()));
+		}
 	}
 
-	protected void renderIconAlign(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "iconAlign", button.getIconAlign());
+	protected void renderIconAlign(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getIconAlign() != null) {
+			renrederedAttributes.add(renderString("iconAlign", button.getIconAlign()));
+		}
 	}
 
-	protected void renderIconElement(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "iconElement", button.getIconElement());
+	protected void renderIconElement(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getIconElement() != null) {
+			renrederedAttributes.add(renderString("iconElement", button.getIconElement()));
+		}
 	}
 
-	protected void renderButtonId(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "buttonId", button.getButtonId());
+	protected void renderButtonId(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getButtonId() != null) {
+			renrederedAttributes.add(renderString("buttonId", button.getButtonId()));
+		}
 	}
 
-	protected void renderInitialized(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "initialized", button.getInitialized());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", button.getInitialized()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "label", button.getLabel());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", button.getLabel()));
+		}
 	}
 
-	protected void renderButtonLocale(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "buttonLocale", button.getButtonLocale());
+	protected void renderButtonLocale(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getButtonLocale() != null) {
+			renrederedAttributes.add(renderString("buttonLocale", button.getButtonLocale()));
+		}
 	}
 
-	protected void renderPrimary(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "primary", button.getPrimary());
+	protected void renderPrimary(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getPrimary() != null) {
+			renrederedAttributes.add(renderBoolean("primary", button.getPrimary()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "render", button.getRender());
+	protected void renderRender(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getRender() != null) {
+			renrederedAttributes.add(renderString("render", button.getRender()));
+		}
 	}
 
-	protected void renderRendered(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "rendered", button.getRendered());
+	protected void renderRendered(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", button.getRendered()));
+		}
 	}
 
-	protected void renderSrcNode(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "srcNode", button.getSrcNode());
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", button.getSrcNode()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, Button button) throws IOException {
-		renderObject(responseWriter, "strings", button.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", button.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, Button button) throws IOException {
-		renderNumber(responseWriter, "tabIndex", button.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", button.getTabIndex()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, Button button) throws IOException {
-		renderBoolean(responseWriter, "visible", button.getVisible());
+	protected void renderVisible(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", button.getVisible()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, Button button) throws IOException {
-		renderString(responseWriter, "width", button.getWidth());
+	protected void renderWidth(ArrayList<String> renrederedAttributes, Button button) throws IOException {
+		if (button.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", button.getWidth()));
+		}
 	}
 
 }

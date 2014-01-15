@@ -22,679 +22,1003 @@ package com.liferay.faces.alloy.component.schedulertableview;
 public abstract class SchedulerTableViewBase extends javax.faces.component.UIPanel {
 
 	private static final String SCHEDULERTABLEVIEW_BODY_CONTENT = "schedulertableviewBodyContent";
+	private static final String BOUNDING_BOX = "boundingBox";
 	private static final String COL_HEADER_DAYS_NODE = "colHeaderDaysNode";
+	private static final String CONTENT_BOX = "contentBox";
 	private static final String CSS_CLASS = "cssClass";
+	private static final String DESTROYED = "destroyed";
+	private static final String DISABLED = "disabled";
 	private static final String DISPLAY_DAYS_INTERVAL = "displayDaysInterval";
 	private static final String DISPLAY_ROWS = "displayRows";
 	private static final String FILTER_FN = "filterFn";
 	private static final String FIXED_HEIGHT = "fixedHeight";
+	private static final String FOCUSED = "focused";
 	private static final String HEADER_DATE_FORMATTER = "headerDateFormatter";
 	private static final String HEADER_TABLE_NODE = "headerTableNode";
 	private static final String HEIGHT = "height";
 	private static final String HIDE_CLASS = "hideClass";
+	private static final String SCHEDULERTABLEVIEW_ID = "schedulertableviewId";
+	private static final String INITIALIZED = "initialized";
 	private static final String ISO_TIME = "isoTime";
+	private static final String SCHEDULERTABLEVIEW_LOCALE = "schedulertableviewLocale";
 	private static final String NAME = "name";
 	private static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
 	private static final String NEXT_DATE = "nextDate";
 	private static final String PREV_DATE = "prevDate";
 	private static final String RENDER = "render";
+	private static final String RENDERED = "rendered";
 	private static final String ROWS_CONTAINER_NODE = "rowsContainerNode";
 	private static final String SCHEDULER = "scheduler";
 	private static final String SCROLLABLE = "scrollable";
+	private static final String SRC_NODE = "srcNode";
 	private static final String STRINGS = "strings";
+	private static final String TAB_INDEX = "tabIndex";
 	private static final String TABLE_GRID_NODE = "tableGridNode";
 	private static final String TRIGGER_NODE = "triggerNode";
 	private static final String USE_ARIA = "useARIA";
 	private static final String VISIBLE = "visible";
+	private static final String WIDTH = "width";
 	private static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
+	private static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";
 	private static final String AFTER_COL_HEADER_DAYS_NODE_CHANGE = "afterColHeaderDaysNodeChange";
+	private static final String AFTER_CONTENT_BOX_CHANGE = "afterContentBoxChange";
 	private static final String AFTER_CSS_CLASS_CHANGE = "afterCssClassChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	private static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
 	private static final String AFTER_DISPLAY_DAYS_INTERVAL_CHANGE = "afterDisplayDaysIntervalChange";
 	private static final String AFTER_DISPLAY_ROWS_CHANGE = "afterDisplayRowsChange";
 	private static final String AFTER_FILTER_FN_CHANGE = "afterFilterFnChange";
 	private static final String AFTER_FIXED_HEIGHT_CHANGE = "afterFixedHeightChange";
+	private static final String AFTER_FOCUSED_CHANGE = "afterFocusedChange";
 	private static final String AFTER_HEADER_DATE_FORMATTER_CHANGE = "afterHeaderDateFormatterChange";
 	private static final String AFTER_HEADER_TABLE_NODE_CHANGE = "afterHeaderTableNodeChange";
 	private static final String AFTER_HEIGHT_CHANGE = "afterHeightChange";
 	private static final String AFTER_HIDE_CLASS_CHANGE = "afterHideClassChange";
+	private static final String AFTER_ID_CHANGE = "afterIdChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_ISO_TIME_CHANGE = "afterIsoTimeChange";
+	private static final String AFTER_LOCALE_CHANGE = "afterLocaleChange";
 	private static final String AFTER_NAME_CHANGE = "afterNameChange";
 	private static final String AFTER_NAVIGATION_DATE_FORMATTER_CHANGE = "afterNavigationDateFormatterChange";
 	private static final String AFTER_NEXT_DATE_CHANGE = "afterNextDateChange";
 	private static final String AFTER_PREV_DATE_CHANGE = "afterPrevDateChange";
 	private static final String AFTER_RENDER_CHANGE = "afterRenderChange";
+	private static final String AFTER_RENDERED_CHANGE = "afterRenderedChange";
 	private static final String AFTER_ROWS_CONTAINER_NODE_CHANGE = "afterRowsContainerNodeChange";
 	private static final String AFTER_SCHEDULER_CHANGE = "afterSchedulerChange";
 	private static final String AFTER_SCROLLABLE_CHANGE = "afterScrollableChange";
+	private static final String AFTER_SRC_NODE_CHANGE = "afterSrcNodeChange";
 	private static final String AFTER_STRINGS_CHANGE = "afterStringsChange";
+	private static final String AFTER_TAB_INDEX_CHANGE = "afterTabIndexChange";
 	private static final String AFTER_TABLE_GRID_NODE_CHANGE = "afterTableGridNodeChange";
 	private static final String AFTER_TRIGGER_NODE_CHANGE = "afterTriggerNodeChange";
 	private static final String AFTER_USE_ARIACHANGE = "afterUseARIAChange";
 	private static final String AFTER_VISIBLE_CHANGE = "afterVisibleChange";
+	private static final String AFTER_WIDTH_CHANGE = "afterWidthChange";
 	private static final String ON_BODY_CONTENT_CHANGE = "onBodyContentChange";
+	private static final String ON_BOUNDING_BOX_CHANGE = "onBoundingBoxChange";
 	private static final String ON_COL_HEADER_DAYS_NODE_CHANGE = "onColHeaderDaysNodeChange";
+	private static final String ON_CONTENT_BOX_CHANGE = "onContentBoxChange";
 	private static final String ON_CSS_CLASS_CHANGE = "onCssClassChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	private static final String ON_DISABLED_CHANGE = "onDisabledChange";
 	private static final String ON_DISPLAY_DAYS_INTERVAL_CHANGE = "onDisplayDaysIntervalChange";
 	private static final String ON_DISPLAY_ROWS_CHANGE = "onDisplayRowsChange";
 	private static final String ON_FILTER_FN_CHANGE = "onFilterFnChange";
 	private static final String ON_FIXED_HEIGHT_CHANGE = "onFixedHeightChange";
+	private static final String ON_FOCUSED_CHANGE = "onFocusedChange";
 	private static final String ON_HEADER_DATE_FORMATTER_CHANGE = "onHeaderDateFormatterChange";
 	private static final String ON_HEADER_TABLE_NODE_CHANGE = "onHeaderTableNodeChange";
 	private static final String ON_HEIGHT_CHANGE = "onHeightChange";
 	private static final String ON_HIDE_CLASS_CHANGE = "onHideClassChange";
+	private static final String ON_ID_CHANGE = "onIdChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_ISO_TIME_CHANGE = "onIsoTimeChange";
+	private static final String ON_LOCALE_CHANGE = "onLocaleChange";
 	private static final String ON_NAME_CHANGE = "onNameChange";
 	private static final String ON_NAVIGATION_DATE_FORMATTER_CHANGE = "onNavigationDateFormatterChange";
 	private static final String ON_NEXT_DATE_CHANGE = "onNextDateChange";
 	private static final String ON_PREV_DATE_CHANGE = "onPrevDateChange";
 	private static final String ON_RENDER_CHANGE = "onRenderChange";
+	private static final String ON_RENDERED_CHANGE = "onRenderedChange";
 	private static final String ON_ROWS_CONTAINER_NODE_CHANGE = "onRowsContainerNodeChange";
 	private static final String ON_SCHEDULER_CHANGE = "onSchedulerChange";
 	private static final String ON_SCROLLABLE_CHANGE = "onScrollableChange";
+	private static final String ON_SRC_NODE_CHANGE = "onSrcNodeChange";
 	private static final String ON_STRINGS_CHANGE = "onStringsChange";
+	private static final String ON_TAB_INDEX_CHANGE = "onTabIndexChange";
 	private static final String ON_TABLE_GRID_NODE_CHANGE = "onTableGridNodeChange";
 	private static final String ON_TRIGGER_NODE_CHANGE = "onTriggerNodeChange";
 	private static final String ON_USE_ARIACHANGE = "onUseARIAChange";
 	private static final String ON_VISIBLE_CHANGE = "onVisibleChange";
+	private static final String ON_WIDTH_CHANGE = "onWidthChange";
 
-	protected java.lang.String getSchedulertableviewBodyContent() {
+	public java.lang.String getSchedulertableviewBodyContent() {
 		return (java.lang.String) getStateHelper().eval(SCHEDULERTABLEVIEW_BODY_CONTENT, null);
 	}
 
-	protected void setSchedulertableviewBodyContent(java.lang.String schedulertableviewBodyContent) {
+	public void setSchedulertableviewBodyContent(java.lang.String schedulertableviewBodyContent) {
 		getStateHelper().put(SCHEDULERTABLEVIEW_BODY_CONTENT, schedulertableviewBodyContent);
 	}
 
-	protected java.lang.String getColHeaderDaysNode() {
+	public java.lang.String getBoundingBox() {
+		return (java.lang.String) getStateHelper().eval(BOUNDING_BOX, null);
+	}
+
+	public void setBoundingBox(java.lang.String boundingBox) {
+		getStateHelper().put(BOUNDING_BOX, boundingBox);
+	}
+
+	public java.lang.String getColHeaderDaysNode() {
 		return (java.lang.String) getStateHelper().eval(COL_HEADER_DAYS_NODE, null);
 	}
 
-	protected void setColHeaderDaysNode(java.lang.String colHeaderDaysNode) {
+	public void setColHeaderDaysNode(java.lang.String colHeaderDaysNode) {
 		getStateHelper().put(COL_HEADER_DAYS_NODE, colHeaderDaysNode);
 	}
 
-	protected java.lang.String getCssClass() {
+	public java.lang.String getContentBox() {
+		return (java.lang.String) getStateHelper().eval(CONTENT_BOX, null);
+	}
+
+	public void setContentBox(java.lang.String contentBox) {
+		getStateHelper().put(CONTENT_BOX, contentBox);
+	}
+
+	public java.lang.String getCssClass() {
 		return (java.lang.String) getStateHelper().eval(CSS_CLASS, null);
 	}
 
-	protected void setCssClass(java.lang.String cssClass) {
+	public void setCssClass(java.lang.String cssClass) {
 		getStateHelper().put(CSS_CLASS, cssClass);
 	}
 
-	protected java.lang.Object getDisplayDaysInterval() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Boolean getDisabled() {
+		return (java.lang.Boolean) getStateHelper().eval(DISABLED, null);
+	}
+
+	public void setDisabled(java.lang.Boolean disabled) {
+		getStateHelper().put(DISABLED, disabled);
+	}
+
+	public java.lang.Object getDisplayDaysInterval() {
 		return (java.lang.Object) getStateHelper().eval(DISPLAY_DAYS_INTERVAL, null);
 	}
 
-	protected void setDisplayDaysInterval(java.lang.Object displayDaysInterval) {
+	public void setDisplayDaysInterval(java.lang.Object displayDaysInterval) {
 		getStateHelper().put(DISPLAY_DAYS_INTERVAL, displayDaysInterval);
 	}
 
-	protected java.lang.Object getDisplayRows() {
+	public java.lang.Object getDisplayRows() {
 		return (java.lang.Object) getStateHelper().eval(DISPLAY_ROWS, null);
 	}
 
-	protected void setDisplayRows(java.lang.Object displayRows) {
+	public void setDisplayRows(java.lang.Object displayRows) {
 		getStateHelper().put(DISPLAY_ROWS, displayRows);
 	}
 
-	protected java.lang.String getFilterFn() {
+	public java.lang.String getFilterFn() {
 		return (java.lang.String) getStateHelper().eval(FILTER_FN, null);
 	}
 
-	protected void setFilterFn(java.lang.String filterFn) {
+	public void setFilterFn(java.lang.String filterFn) {
 		getStateHelper().put(FILTER_FN, filterFn);
 	}
 
-	protected java.lang.Boolean getFixedHeight() {
+	public java.lang.Boolean getFixedHeight() {
 		return (java.lang.Boolean) getStateHelper().eval(FIXED_HEIGHT, null);
 	}
 
-	protected void setFixedHeight(java.lang.Boolean fixedHeight) {
+	public void setFixedHeight(java.lang.Boolean fixedHeight) {
 		getStateHelper().put(FIXED_HEIGHT, fixedHeight);
 	}
 
-	protected java.lang.String getHeaderDateFormatter() {
+	public java.lang.Boolean getFocused() {
+		return (java.lang.Boolean) getStateHelper().eval(FOCUSED, null);
+	}
+
+	public void setFocused(java.lang.Boolean focused) {
+		getStateHelper().put(FOCUSED, focused);
+	}
+
+	public java.lang.String getHeaderDateFormatter() {
 		return (java.lang.String) getStateHelper().eval(HEADER_DATE_FORMATTER, null);
 	}
 
-	protected void setHeaderDateFormatter(java.lang.String headerDateFormatter) {
+	public void setHeaderDateFormatter(java.lang.String headerDateFormatter) {
 		getStateHelper().put(HEADER_DATE_FORMATTER, headerDateFormatter);
 	}
 
-	protected java.lang.String getHeaderTableNode() {
+	public java.lang.String getHeaderTableNode() {
 		return (java.lang.String) getStateHelper().eval(HEADER_TABLE_NODE, null);
 	}
 
-	protected void setHeaderTableNode(java.lang.String headerTableNode) {
+	public void setHeaderTableNode(java.lang.String headerTableNode) {
 		getStateHelper().put(HEADER_TABLE_NODE, headerTableNode);
 	}
 
-	protected java.lang.Object getHeight() {
+	public java.lang.Object getHeight() {
 		return (java.lang.Object) getStateHelper().eval(HEIGHT, null);
 	}
 
-	protected void setHeight(java.lang.Object height) {
+	public void setHeight(java.lang.Object height) {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	protected java.lang.String getHideClass() {
+	public java.lang.String getHideClass() {
 		return (java.lang.String) getStateHelper().eval(HIDE_CLASS, null);
 	}
 
-	protected void setHideClass(java.lang.String hideClass) {
+	public void setHideClass(java.lang.String hideClass) {
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	protected java.lang.Boolean getIsoTime() {
+	public java.lang.String getSchedulertableviewId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULERTABLEVIEW_ID, null);
+	}
+
+	public void setSchedulertableviewId(java.lang.String schedulertableviewId) {
+		getStateHelper().put(SCHEDULERTABLEVIEW_ID, schedulertableviewId);
+	}
+
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.Boolean getIsoTime() {
 		return (java.lang.Boolean) getStateHelper().eval(ISO_TIME, null);
 	}
 
-	protected void setIsoTime(java.lang.Boolean isoTime) {
+	public void setIsoTime(java.lang.Boolean isoTime) {
 		getStateHelper().put(ISO_TIME, isoTime);
 	}
 
-	protected java.lang.String getName() {
+	public java.lang.String getSchedulertableviewLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULERTABLEVIEW_LOCALE, null);
+	}
+
+	public void setSchedulertableviewLocale(java.lang.String schedulertableviewLocale) {
+		getStateHelper().put(SCHEDULERTABLEVIEW_LOCALE, schedulertableviewLocale);
+	}
+
+	public java.lang.String getName() {
 		return (java.lang.String) getStateHelper().eval(NAME, null);
 	}
 
-	protected void setName(java.lang.String name) {
+	public void setName(java.lang.String name) {
 		getStateHelper().put(NAME, name);
 	}
 
-	protected java.lang.Object getNavigationDateFormatter() {
+	public java.lang.Object getNavigationDateFormatter() {
 		return (java.lang.Object) getStateHelper().eval(NAVIGATION_DATE_FORMATTER, null);
 	}
 
-	protected void setNavigationDateFormatter(java.lang.Object navigationDateFormatter) {
+	public void setNavigationDateFormatter(java.lang.Object navigationDateFormatter) {
 		getStateHelper().put(NAVIGATION_DATE_FORMATTER, navigationDateFormatter);
 	}
 
-	protected java.lang.String getNextDate() {
+	public java.lang.String getNextDate() {
 		return (java.lang.String) getStateHelper().eval(NEXT_DATE, null);
 	}
 
-	protected void setNextDate(java.lang.String nextDate) {
+	public void setNextDate(java.lang.String nextDate) {
 		getStateHelper().put(NEXT_DATE, nextDate);
 	}
 
-	protected java.lang.String getPrevDate() {
+	public java.lang.String getPrevDate() {
 		return (java.lang.String) getStateHelper().eval(PREV_DATE, null);
 	}
 
-	protected void setPrevDate(java.lang.String prevDate) {
+	public void setPrevDate(java.lang.String prevDate) {
 		getStateHelper().put(PREV_DATE, prevDate);
 	}
 
-	protected java.lang.Object getRender() {
+	public java.lang.Object getRender() {
 		return (java.lang.Object) getStateHelper().eval(RENDER, null);
 	}
 
-	protected void setRender(java.lang.Object render) {
+	public void setRender(java.lang.Object render) {
 		getStateHelper().put(RENDER, render);
 	}
 
-	protected java.lang.String getRowsContainerNode() {
+	public java.lang.Boolean getRendered() {
+		return (java.lang.Boolean) getStateHelper().eval(RENDERED, null);
+	}
+
+	public void setRendered(java.lang.Boolean rendered) {
+		getStateHelper().put(RENDERED, rendered);
+	}
+
+	public java.lang.String getRowsContainerNode() {
 		return (java.lang.String) getStateHelper().eval(ROWS_CONTAINER_NODE, null);
 	}
 
-	protected void setRowsContainerNode(java.lang.String rowsContainerNode) {
+	public void setRowsContainerNode(java.lang.String rowsContainerNode) {
 		getStateHelper().put(ROWS_CONTAINER_NODE, rowsContainerNode);
 	}
 
-	protected java.lang.String getScheduler() {
+	public java.lang.String getScheduler() {
 		return (java.lang.String) getStateHelper().eval(SCHEDULER, null);
 	}
 
-	protected void setScheduler(java.lang.String scheduler) {
+	public void setScheduler(java.lang.String scheduler) {
 		getStateHelper().put(SCHEDULER, scheduler);
 	}
 
-	protected java.lang.Boolean getScrollable() {
+	public java.lang.Boolean getScrollable() {
 		return (java.lang.Boolean) getStateHelper().eval(SCROLLABLE, null);
 	}
 
-	protected void setScrollable(java.lang.Boolean scrollable) {
+	public void setScrollable(java.lang.Boolean scrollable) {
 		getStateHelper().put(SCROLLABLE, scrollable);
 	}
 
-	protected java.lang.String getStrings() {
+	public java.lang.String getSrcNode() {
+		return (java.lang.String) getStateHelper().eval(SRC_NODE, null);
+	}
+
+	public void setSrcNode(java.lang.String srcNode) {
+		getStateHelper().put(SRC_NODE, srcNode);
+	}
+
+	public java.lang.String getStrings() {
 		return (java.lang.String) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.String strings) {
+	public void setStrings(java.lang.String strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.String getTableGridNode() {
+	public java.lang.Object getTabIndex() {
+		return (java.lang.Object) getStateHelper().eval(TAB_INDEX, null);
+	}
+
+	public void setTabIndex(java.lang.Object tabIndex) {
+		getStateHelper().put(TAB_INDEX, tabIndex);
+	}
+
+	public java.lang.String getTableGridNode() {
 		return (java.lang.String) getStateHelper().eval(TABLE_GRID_NODE, null);
 	}
 
-	protected void setTableGridNode(java.lang.String tableGridNode) {
+	public void setTableGridNode(java.lang.String tableGridNode) {
 		getStateHelper().put(TABLE_GRID_NODE, tableGridNode);
 	}
 
-	protected java.lang.String getTriggerNode() {
+	public java.lang.String getTriggerNode() {
 		return (java.lang.String) getStateHelper().eval(TRIGGER_NODE, null);
 	}
 
-	protected void setTriggerNode(java.lang.String triggerNode) {
+	public void setTriggerNode(java.lang.String triggerNode) {
 		getStateHelper().put(TRIGGER_NODE, triggerNode);
 	}
 
-	protected java.lang.Boolean getUseARIA() {
+	public java.lang.Boolean getUseARIA() {
 		return (java.lang.Boolean) getStateHelper().eval(USE_ARIA, null);
 	}
 
-	protected void setUseARIA(java.lang.Boolean useARIA) {
+	public void setUseARIA(java.lang.Boolean useARIA) {
 		getStateHelper().put(USE_ARIA, useARIA);
 	}
 
-	protected java.lang.Boolean getVisible() {
+	public java.lang.Boolean getVisible() {
 		return (java.lang.Boolean) getStateHelper().eval(VISIBLE, null);
 	}
 
-	protected void setVisible(java.lang.Boolean visible) {
+	public void setVisible(java.lang.Boolean visible) {
 		getStateHelper().put(VISIBLE, visible);
 	}
 
-	protected java.lang.String getAfterBodyContentChange() {
+	public java.lang.Object getWidth() {
+		return (java.lang.Object) getStateHelper().eval(WIDTH, null);
+	}
+
+	public void setWidth(java.lang.Object width) {
+		getStateHelper().put(WIDTH, width);
+	}
+
+	public java.lang.String getAfterBodyContentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BODY_CONTENT_CHANGE, null);
 	}
 
-	protected void setAfterBodyContentChange(java.lang.String afterBodyContentChange) {
+	public void setAfterBodyContentChange(java.lang.String afterBodyContentChange) {
 		getStateHelper().put(AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange);
 	}
 
-	protected java.lang.String getAfterColHeaderDaysNodeChange() {
+	public java.lang.String getAfterBoundingBoxChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_BOUNDING_BOX_CHANGE, null);
+	}
+
+	public void setAfterBoundingBoxChange(java.lang.String afterBoundingBoxChange) {
+		getStateHelper().put(AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange);
+	}
+
+	public java.lang.String getAfterColHeaderDaysNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_COL_HEADER_DAYS_NODE_CHANGE, null);
 	}
 
-	protected void setAfterColHeaderDaysNodeChange(java.lang.String afterColHeaderDaysNodeChange) {
+	public void setAfterColHeaderDaysNodeChange(java.lang.String afterColHeaderDaysNodeChange) {
 		getStateHelper().put(AFTER_COL_HEADER_DAYS_NODE_CHANGE, afterColHeaderDaysNodeChange);
 	}
 
-	protected java.lang.String getAfterCssClassChange() {
+	public java.lang.String getAfterContentBoxChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_CONTENT_BOX_CHANGE, null);
+	}
+
+	public void setAfterContentBoxChange(java.lang.String afterContentBoxChange) {
+		getStateHelper().put(AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange);
+	}
+
+	public java.lang.String getAfterCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterCssClassChange(java.lang.String afterCssClassChange) {
+	public void setAfterCssClassChange(java.lang.String afterCssClassChange) {
 		getStateHelper().put(AFTER_CSS_CLASS_CHANGE, afterCssClassChange);
 	}
 
-	protected java.lang.String getAfterDisplayDaysIntervalChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterDisabledChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DISABLED_CHANGE, null);
+	}
+
+	public void setAfterDisabledChange(java.lang.String afterDisabledChange) {
+		getStateHelper().put(AFTER_DISABLED_CHANGE, afterDisabledChange);
+	}
+
+	public java.lang.String getAfterDisplayDaysIntervalChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DISPLAY_DAYS_INTERVAL_CHANGE, null);
 	}
 
-	protected void setAfterDisplayDaysIntervalChange(java.lang.String afterDisplayDaysIntervalChange) {
+	public void setAfterDisplayDaysIntervalChange(java.lang.String afterDisplayDaysIntervalChange) {
 		getStateHelper().put(AFTER_DISPLAY_DAYS_INTERVAL_CHANGE, afterDisplayDaysIntervalChange);
 	}
 
-	protected java.lang.String getAfterDisplayRowsChange() {
+	public java.lang.String getAfterDisplayRowsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DISPLAY_ROWS_CHANGE, null);
 	}
 
-	protected void setAfterDisplayRowsChange(java.lang.String afterDisplayRowsChange) {
+	public void setAfterDisplayRowsChange(java.lang.String afterDisplayRowsChange) {
 		getStateHelper().put(AFTER_DISPLAY_ROWS_CHANGE, afterDisplayRowsChange);
 	}
 
-	protected java.lang.String getAfterFilterFnChange() {
+	public java.lang.String getAfterFilterFnChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_FILTER_FN_CHANGE, null);
 	}
 
-	protected void setAfterFilterFnChange(java.lang.String afterFilterFnChange) {
+	public void setAfterFilterFnChange(java.lang.String afterFilterFnChange) {
 		getStateHelper().put(AFTER_FILTER_FN_CHANGE, afterFilterFnChange);
 	}
 
-	protected java.lang.String getAfterFixedHeightChange() {
+	public java.lang.String getAfterFixedHeightChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_FIXED_HEIGHT_CHANGE, null);
 	}
 
-	protected void setAfterFixedHeightChange(java.lang.String afterFixedHeightChange) {
+	public void setAfterFixedHeightChange(java.lang.String afterFixedHeightChange) {
 		getStateHelper().put(AFTER_FIXED_HEIGHT_CHANGE, afterFixedHeightChange);
 	}
 
-	protected java.lang.String getAfterHeaderDateFormatterChange() {
+	public java.lang.String getAfterFocusedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_FOCUSED_CHANGE, null);
+	}
+
+	public void setAfterFocusedChange(java.lang.String afterFocusedChange) {
+		getStateHelper().put(AFTER_FOCUSED_CHANGE, afterFocusedChange);
+	}
+
+	public java.lang.String getAfterHeaderDateFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HEADER_DATE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setAfterHeaderDateFormatterChange(java.lang.String afterHeaderDateFormatterChange) {
+	public void setAfterHeaderDateFormatterChange(java.lang.String afterHeaderDateFormatterChange) {
 		getStateHelper().put(AFTER_HEADER_DATE_FORMATTER_CHANGE, afterHeaderDateFormatterChange);
 	}
 
-	protected java.lang.String getAfterHeaderTableNodeChange() {
+	public java.lang.String getAfterHeaderTableNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HEADER_TABLE_NODE_CHANGE, null);
 	}
 
-	protected void setAfterHeaderTableNodeChange(java.lang.String afterHeaderTableNodeChange) {
+	public void setAfterHeaderTableNodeChange(java.lang.String afterHeaderTableNodeChange) {
 		getStateHelper().put(AFTER_HEADER_TABLE_NODE_CHANGE, afterHeaderTableNodeChange);
 	}
 
-	protected java.lang.String getAfterHeightChange() {
+	public java.lang.String getAfterHeightChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HEIGHT_CHANGE, null);
 	}
 
-	protected void setAfterHeightChange(java.lang.String afterHeightChange) {
+	public void setAfterHeightChange(java.lang.String afterHeightChange) {
 		getStateHelper().put(AFTER_HEIGHT_CHANGE, afterHeightChange);
 	}
 
-	protected java.lang.String getAfterHideClassChange() {
+	public java.lang.String getAfterHideClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HIDE_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterHideClassChange(java.lang.String afterHideClassChange) {
+	public void setAfterHideClassChange(java.lang.String afterHideClassChange) {
 		getStateHelper().put(AFTER_HIDE_CLASS_CHANGE, afterHideClassChange);
 	}
 
-	protected java.lang.String getAfterIsoTimeChange() {
+	public java.lang.String getAfterIdChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_ID_CHANGE, null);
+	}
+
+	public void setAfterIdChange(java.lang.String afterIdChange) {
+		getStateHelper().put(AFTER_ID_CHANGE, afterIdChange);
+	}
+
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterIsoTimeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ISO_TIME_CHANGE, null);
 	}
 
-	protected void setAfterIsoTimeChange(java.lang.String afterIsoTimeChange) {
+	public void setAfterIsoTimeChange(java.lang.String afterIsoTimeChange) {
 		getStateHelper().put(AFTER_ISO_TIME_CHANGE, afterIsoTimeChange);
 	}
 
-	protected java.lang.String getAfterNameChange() {
+	public java.lang.String getAfterLocaleChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_LOCALE_CHANGE, null);
+	}
+
+	public void setAfterLocaleChange(java.lang.String afterLocaleChange) {
+		getStateHelper().put(AFTER_LOCALE_CHANGE, afterLocaleChange);
+	}
+
+	public java.lang.String getAfterNameChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NAME_CHANGE, null);
 	}
 
-	protected void setAfterNameChange(java.lang.String afterNameChange) {
+	public void setAfterNameChange(java.lang.String afterNameChange) {
 		getStateHelper().put(AFTER_NAME_CHANGE, afterNameChange);
 	}
 
-	protected java.lang.String getAfterNavigationDateFormatterChange() {
+	public java.lang.String getAfterNavigationDateFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NAVIGATION_DATE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setAfterNavigationDateFormatterChange(java.lang.String afterNavigationDateFormatterChange) {
+	public void setAfterNavigationDateFormatterChange(java.lang.String afterNavigationDateFormatterChange) {
 		getStateHelper().put(AFTER_NAVIGATION_DATE_FORMATTER_CHANGE, afterNavigationDateFormatterChange);
 	}
 
-	protected java.lang.String getAfterNextDateChange() {
+	public java.lang.String getAfterNextDateChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NEXT_DATE_CHANGE, null);
 	}
 
-	protected void setAfterNextDateChange(java.lang.String afterNextDateChange) {
+	public void setAfterNextDateChange(java.lang.String afterNextDateChange) {
 		getStateHelper().put(AFTER_NEXT_DATE_CHANGE, afterNextDateChange);
 	}
 
-	protected java.lang.String getAfterPrevDateChange() {
+	public java.lang.String getAfterPrevDateChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PREV_DATE_CHANGE, null);
 	}
 
-	protected void setAfterPrevDateChange(java.lang.String afterPrevDateChange) {
+	public void setAfterPrevDateChange(java.lang.String afterPrevDateChange) {
 		getStateHelper().put(AFTER_PREV_DATE_CHANGE, afterPrevDateChange);
 	}
 
-	protected java.lang.String getAfterRenderChange() {
+	public java.lang.String getAfterRenderChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_RENDER_CHANGE, null);
 	}
 
-	protected void setAfterRenderChange(java.lang.String afterRenderChange) {
+	public void setAfterRenderChange(java.lang.String afterRenderChange) {
 		getStateHelper().put(AFTER_RENDER_CHANGE, afterRenderChange);
 	}
 
-	protected java.lang.String getAfterRowsContainerNodeChange() {
+	public java.lang.String getAfterRenderedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_RENDERED_CHANGE, null);
+	}
+
+	public void setAfterRenderedChange(java.lang.String afterRenderedChange) {
+		getStateHelper().put(AFTER_RENDERED_CHANGE, afterRenderedChange);
+	}
+
+	public java.lang.String getAfterRowsContainerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ROWS_CONTAINER_NODE_CHANGE, null);
 	}
 
-	protected void setAfterRowsContainerNodeChange(java.lang.String afterRowsContainerNodeChange) {
+	public void setAfterRowsContainerNodeChange(java.lang.String afterRowsContainerNodeChange) {
 		getStateHelper().put(AFTER_ROWS_CONTAINER_NODE_CHANGE, afterRowsContainerNodeChange);
 	}
 
-	protected java.lang.String getAfterSchedulerChange() {
+	public java.lang.String getAfterSchedulerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SCHEDULER_CHANGE, null);
 	}
 
-	protected void setAfterSchedulerChange(java.lang.String afterSchedulerChange) {
+	public void setAfterSchedulerChange(java.lang.String afterSchedulerChange) {
 		getStateHelper().put(AFTER_SCHEDULER_CHANGE, afterSchedulerChange);
 	}
 
-	protected java.lang.String getAfterScrollableChange() {
+	public java.lang.String getAfterScrollableChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SCROLLABLE_CHANGE, null);
 	}
 
-	protected void setAfterScrollableChange(java.lang.String afterScrollableChange) {
+	public void setAfterScrollableChange(java.lang.String afterScrollableChange) {
 		getStateHelper().put(AFTER_SCROLLABLE_CHANGE, afterScrollableChange);
 	}
 
-	protected java.lang.String getAfterStringsChange() {
+	public java.lang.String getAfterSrcNodeChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_SRC_NODE_CHANGE, null);
+	}
+
+	public void setAfterSrcNodeChange(java.lang.String afterSrcNodeChange) {
+		getStateHelper().put(AFTER_SRC_NODE_CHANGE, afterSrcNodeChange);
+	}
+
+	public java.lang.String getAfterStringsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_STRINGS_CHANGE, null);
 	}
 
-	protected void setAfterStringsChange(java.lang.String afterStringsChange) {
+	public void setAfterStringsChange(java.lang.String afterStringsChange) {
 		getStateHelper().put(AFTER_STRINGS_CHANGE, afterStringsChange);
 	}
 
-	protected java.lang.String getAfterTableGridNodeChange() {
+	public java.lang.String getAfterTabIndexChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TAB_INDEX_CHANGE, null);
+	}
+
+	public void setAfterTabIndexChange(java.lang.String afterTabIndexChange) {
+		getStateHelper().put(AFTER_TAB_INDEX_CHANGE, afterTabIndexChange);
+	}
+
+	public java.lang.String getAfterTableGridNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TABLE_GRID_NODE_CHANGE, null);
 	}
 
-	protected void setAfterTableGridNodeChange(java.lang.String afterTableGridNodeChange) {
+	public void setAfterTableGridNodeChange(java.lang.String afterTableGridNodeChange) {
 		getStateHelper().put(AFTER_TABLE_GRID_NODE_CHANGE, afterTableGridNodeChange);
 	}
 
-	protected java.lang.String getAfterTriggerNodeChange() {
+	public java.lang.String getAfterTriggerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TRIGGER_NODE_CHANGE, null);
 	}
 
-	protected void setAfterTriggerNodeChange(java.lang.String afterTriggerNodeChange) {
+	public void setAfterTriggerNodeChange(java.lang.String afterTriggerNodeChange) {
 		getStateHelper().put(AFTER_TRIGGER_NODE_CHANGE, afterTriggerNodeChange);
 	}
 
-	protected java.lang.String getAfterUseARIAChange() {
+	public java.lang.String getAfterUseARIAChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_USE_ARIACHANGE, null);
 	}
 
-	protected void setAfterUseARIAChange(java.lang.String afterUseARIAChange) {
+	public void setAfterUseARIAChange(java.lang.String afterUseARIAChange) {
 		getStateHelper().put(AFTER_USE_ARIACHANGE, afterUseARIAChange);
 	}
 
-	protected java.lang.String getAfterVisibleChange() {
+	public java.lang.String getAfterVisibleChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VISIBLE_CHANGE, null);
 	}
 
-	protected void setAfterVisibleChange(java.lang.String afterVisibleChange) {
+	public void setAfterVisibleChange(java.lang.String afterVisibleChange) {
 		getStateHelper().put(AFTER_VISIBLE_CHANGE, afterVisibleChange);
 	}
 
-	protected java.lang.String getOnBodyContentChange() {
+	public java.lang.String getAfterWidthChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_WIDTH_CHANGE, null);
+	}
+
+	public void setAfterWidthChange(java.lang.String afterWidthChange) {
+		getStateHelper().put(AFTER_WIDTH_CHANGE, afterWidthChange);
+	}
+
+	public java.lang.String getOnBodyContentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BODY_CONTENT_CHANGE, null);
 	}
 
-	protected void setOnBodyContentChange(java.lang.String onBodyContentChange) {
+	public void setOnBodyContentChange(java.lang.String onBodyContentChange) {
 		getStateHelper().put(ON_BODY_CONTENT_CHANGE, onBodyContentChange);
 	}
 
-	protected java.lang.String getOnColHeaderDaysNodeChange() {
+	public java.lang.String getOnBoundingBoxChange() {
+		return (java.lang.String) getStateHelper().eval(ON_BOUNDING_BOX_CHANGE, null);
+	}
+
+	public void setOnBoundingBoxChange(java.lang.String onBoundingBoxChange) {
+		getStateHelper().put(ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange);
+	}
+
+	public java.lang.String getOnColHeaderDaysNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_COL_HEADER_DAYS_NODE_CHANGE, null);
 	}
 
-	protected void setOnColHeaderDaysNodeChange(java.lang.String onColHeaderDaysNodeChange) {
+	public void setOnColHeaderDaysNodeChange(java.lang.String onColHeaderDaysNodeChange) {
 		getStateHelper().put(ON_COL_HEADER_DAYS_NODE_CHANGE, onColHeaderDaysNodeChange);
 	}
 
-	protected java.lang.String getOnCssClassChange() {
+	public java.lang.String getOnContentBoxChange() {
+		return (java.lang.String) getStateHelper().eval(ON_CONTENT_BOX_CHANGE, null);
+	}
+
+	public void setOnContentBoxChange(java.lang.String onContentBoxChange) {
+		getStateHelper().put(ON_CONTENT_BOX_CHANGE, onContentBoxChange);
+	}
+
+	public java.lang.String getOnCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setOnCssClassChange(java.lang.String onCssClassChange) {
+	public void setOnCssClassChange(java.lang.String onCssClassChange) {
 		getStateHelper().put(ON_CSS_CLASS_CHANGE, onCssClassChange);
 	}
 
-	protected java.lang.String getOnDisplayDaysIntervalChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnDisabledChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DISABLED_CHANGE, null);
+	}
+
+	public void setOnDisabledChange(java.lang.String onDisabledChange) {
+		getStateHelper().put(ON_DISABLED_CHANGE, onDisabledChange);
+	}
+
+	public java.lang.String getOnDisplayDaysIntervalChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DISPLAY_DAYS_INTERVAL_CHANGE, null);
 	}
 
-	protected void setOnDisplayDaysIntervalChange(java.lang.String onDisplayDaysIntervalChange) {
+	public void setOnDisplayDaysIntervalChange(java.lang.String onDisplayDaysIntervalChange) {
 		getStateHelper().put(ON_DISPLAY_DAYS_INTERVAL_CHANGE, onDisplayDaysIntervalChange);
 	}
 
-	protected java.lang.String getOnDisplayRowsChange() {
+	public java.lang.String getOnDisplayRowsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DISPLAY_ROWS_CHANGE, null);
 	}
 
-	protected void setOnDisplayRowsChange(java.lang.String onDisplayRowsChange) {
+	public void setOnDisplayRowsChange(java.lang.String onDisplayRowsChange) {
 		getStateHelper().put(ON_DISPLAY_ROWS_CHANGE, onDisplayRowsChange);
 	}
 
-	protected java.lang.String getOnFilterFnChange() {
+	public java.lang.String getOnFilterFnChange() {
 		return (java.lang.String) getStateHelper().eval(ON_FILTER_FN_CHANGE, null);
 	}
 
-	protected void setOnFilterFnChange(java.lang.String onFilterFnChange) {
+	public void setOnFilterFnChange(java.lang.String onFilterFnChange) {
 		getStateHelper().put(ON_FILTER_FN_CHANGE, onFilterFnChange);
 	}
 
-	protected java.lang.String getOnFixedHeightChange() {
+	public java.lang.String getOnFixedHeightChange() {
 		return (java.lang.String) getStateHelper().eval(ON_FIXED_HEIGHT_CHANGE, null);
 	}
 
-	protected void setOnFixedHeightChange(java.lang.String onFixedHeightChange) {
+	public void setOnFixedHeightChange(java.lang.String onFixedHeightChange) {
 		getStateHelper().put(ON_FIXED_HEIGHT_CHANGE, onFixedHeightChange);
 	}
 
-	protected java.lang.String getOnHeaderDateFormatterChange() {
+	public java.lang.String getOnFocusedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_FOCUSED_CHANGE, null);
+	}
+
+	public void setOnFocusedChange(java.lang.String onFocusedChange) {
+		getStateHelper().put(ON_FOCUSED_CHANGE, onFocusedChange);
+	}
+
+	public java.lang.String getOnHeaderDateFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HEADER_DATE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setOnHeaderDateFormatterChange(java.lang.String onHeaderDateFormatterChange) {
+	public void setOnHeaderDateFormatterChange(java.lang.String onHeaderDateFormatterChange) {
 		getStateHelper().put(ON_HEADER_DATE_FORMATTER_CHANGE, onHeaderDateFormatterChange);
 	}
 
-	protected java.lang.String getOnHeaderTableNodeChange() {
+	public java.lang.String getOnHeaderTableNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HEADER_TABLE_NODE_CHANGE, null);
 	}
 
-	protected void setOnHeaderTableNodeChange(java.lang.String onHeaderTableNodeChange) {
+	public void setOnHeaderTableNodeChange(java.lang.String onHeaderTableNodeChange) {
 		getStateHelper().put(ON_HEADER_TABLE_NODE_CHANGE, onHeaderTableNodeChange);
 	}
 
-	protected java.lang.String getOnHeightChange() {
+	public java.lang.String getOnHeightChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HEIGHT_CHANGE, null);
 	}
 
-	protected void setOnHeightChange(java.lang.String onHeightChange) {
+	public void setOnHeightChange(java.lang.String onHeightChange) {
 		getStateHelper().put(ON_HEIGHT_CHANGE, onHeightChange);
 	}
 
-	protected java.lang.String getOnHideClassChange() {
+	public java.lang.String getOnHideClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HIDE_CLASS_CHANGE, null);
 	}
 
-	protected void setOnHideClassChange(java.lang.String onHideClassChange) {
+	public void setOnHideClassChange(java.lang.String onHideClassChange) {
 		getStateHelper().put(ON_HIDE_CLASS_CHANGE, onHideClassChange);
 	}
 
-	protected java.lang.String getOnIsoTimeChange() {
+	public java.lang.String getOnIdChange() {
+		return (java.lang.String) getStateHelper().eval(ON_ID_CHANGE, null);
+	}
+
+	public void setOnIdChange(java.lang.String onIdChange) {
+		getStateHelper().put(ON_ID_CHANGE, onIdChange);
+	}
+
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnIsoTimeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ISO_TIME_CHANGE, null);
 	}
 
-	protected void setOnIsoTimeChange(java.lang.String onIsoTimeChange) {
+	public void setOnIsoTimeChange(java.lang.String onIsoTimeChange) {
 		getStateHelper().put(ON_ISO_TIME_CHANGE, onIsoTimeChange);
 	}
 
-	protected java.lang.String getOnNameChange() {
+	public java.lang.String getOnLocaleChange() {
+		return (java.lang.String) getStateHelper().eval(ON_LOCALE_CHANGE, null);
+	}
+
+	public void setOnLocaleChange(java.lang.String onLocaleChange) {
+		getStateHelper().put(ON_LOCALE_CHANGE, onLocaleChange);
+	}
+
+	public java.lang.String getOnNameChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NAME_CHANGE, null);
 	}
 
-	protected void setOnNameChange(java.lang.String onNameChange) {
+	public void setOnNameChange(java.lang.String onNameChange) {
 		getStateHelper().put(ON_NAME_CHANGE, onNameChange);
 	}
 
-	protected java.lang.String getOnNavigationDateFormatterChange() {
+	public java.lang.String getOnNavigationDateFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NAVIGATION_DATE_FORMATTER_CHANGE, null);
 	}
 
-	protected void setOnNavigationDateFormatterChange(java.lang.String onNavigationDateFormatterChange) {
+	public void setOnNavigationDateFormatterChange(java.lang.String onNavigationDateFormatterChange) {
 		getStateHelper().put(ON_NAVIGATION_DATE_FORMATTER_CHANGE, onNavigationDateFormatterChange);
 	}
 
-	protected java.lang.String getOnNextDateChange() {
+	public java.lang.String getOnNextDateChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NEXT_DATE_CHANGE, null);
 	}
 
-	protected void setOnNextDateChange(java.lang.String onNextDateChange) {
+	public void setOnNextDateChange(java.lang.String onNextDateChange) {
 		getStateHelper().put(ON_NEXT_DATE_CHANGE, onNextDateChange);
 	}
 
-	protected java.lang.String getOnPrevDateChange() {
+	public java.lang.String getOnPrevDateChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PREV_DATE_CHANGE, null);
 	}
 
-	protected void setOnPrevDateChange(java.lang.String onPrevDateChange) {
+	public void setOnPrevDateChange(java.lang.String onPrevDateChange) {
 		getStateHelper().put(ON_PREV_DATE_CHANGE, onPrevDateChange);
 	}
 
-	protected java.lang.String getOnRenderChange() {
+	public java.lang.String getOnRenderChange() {
 		return (java.lang.String) getStateHelper().eval(ON_RENDER_CHANGE, null);
 	}
 
-	protected void setOnRenderChange(java.lang.String onRenderChange) {
+	public void setOnRenderChange(java.lang.String onRenderChange) {
 		getStateHelper().put(ON_RENDER_CHANGE, onRenderChange);
 	}
 
-	protected java.lang.String getOnRowsContainerNodeChange() {
+	public java.lang.String getOnRenderedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_RENDERED_CHANGE, null);
+	}
+
+	public void setOnRenderedChange(java.lang.String onRenderedChange) {
+		getStateHelper().put(ON_RENDERED_CHANGE, onRenderedChange);
+	}
+
+	public java.lang.String getOnRowsContainerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ROWS_CONTAINER_NODE_CHANGE, null);
 	}
 
-	protected void setOnRowsContainerNodeChange(java.lang.String onRowsContainerNodeChange) {
+	public void setOnRowsContainerNodeChange(java.lang.String onRowsContainerNodeChange) {
 		getStateHelper().put(ON_ROWS_CONTAINER_NODE_CHANGE, onRowsContainerNodeChange);
 	}
 
-	protected java.lang.String getOnSchedulerChange() {
+	public java.lang.String getOnSchedulerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SCHEDULER_CHANGE, null);
 	}
 
-	protected void setOnSchedulerChange(java.lang.String onSchedulerChange) {
+	public void setOnSchedulerChange(java.lang.String onSchedulerChange) {
 		getStateHelper().put(ON_SCHEDULER_CHANGE, onSchedulerChange);
 	}
 
-	protected java.lang.String getOnScrollableChange() {
+	public java.lang.String getOnScrollableChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SCROLLABLE_CHANGE, null);
 	}
 
-	protected void setOnScrollableChange(java.lang.String onScrollableChange) {
+	public void setOnScrollableChange(java.lang.String onScrollableChange) {
 		getStateHelper().put(ON_SCROLLABLE_CHANGE, onScrollableChange);
 	}
 
-	protected java.lang.String getOnStringsChange() {
+	public java.lang.String getOnSrcNodeChange() {
+		return (java.lang.String) getStateHelper().eval(ON_SRC_NODE_CHANGE, null);
+	}
+
+	public void setOnSrcNodeChange(java.lang.String onSrcNodeChange) {
+		getStateHelper().put(ON_SRC_NODE_CHANGE, onSrcNodeChange);
+	}
+
+	public java.lang.String getOnStringsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_STRINGS_CHANGE, null);
 	}
 
-	protected void setOnStringsChange(java.lang.String onStringsChange) {
+	public void setOnStringsChange(java.lang.String onStringsChange) {
 		getStateHelper().put(ON_STRINGS_CHANGE, onStringsChange);
 	}
 
-	protected java.lang.String getOnTableGridNodeChange() {
+	public java.lang.String getOnTabIndexChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TAB_INDEX_CHANGE, null);
+	}
+
+	public void setOnTabIndexChange(java.lang.String onTabIndexChange) {
+		getStateHelper().put(ON_TAB_INDEX_CHANGE, onTabIndexChange);
+	}
+
+	public java.lang.String getOnTableGridNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TABLE_GRID_NODE_CHANGE, null);
 	}
 
-	protected void setOnTableGridNodeChange(java.lang.String onTableGridNodeChange) {
+	public void setOnTableGridNodeChange(java.lang.String onTableGridNodeChange) {
 		getStateHelper().put(ON_TABLE_GRID_NODE_CHANGE, onTableGridNodeChange);
 	}
 
-	protected java.lang.String getOnTriggerNodeChange() {
+	public java.lang.String getOnTriggerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TRIGGER_NODE_CHANGE, null);
 	}
 
-	protected void setOnTriggerNodeChange(java.lang.String onTriggerNodeChange) {
+	public void setOnTriggerNodeChange(java.lang.String onTriggerNodeChange) {
 		getStateHelper().put(ON_TRIGGER_NODE_CHANGE, onTriggerNodeChange);
 	}
 
-	protected java.lang.String getOnUseARIAChange() {
+	public java.lang.String getOnUseARIAChange() {
 		return (java.lang.String) getStateHelper().eval(ON_USE_ARIACHANGE, null);
 	}
 
-	protected void setOnUseARIAChange(java.lang.String onUseARIAChange) {
+	public void setOnUseARIAChange(java.lang.String onUseARIAChange) {
 		getStateHelper().put(ON_USE_ARIACHANGE, onUseARIAChange);
 	}
 
-	protected java.lang.String getOnVisibleChange() {
+	public java.lang.String getOnVisibleChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VISIBLE_CHANGE, null);
 	}
 
-	protected void setOnVisibleChange(java.lang.String onVisibleChange) {
+	public void setOnVisibleChange(java.lang.String onVisibleChange) {
 		getStateHelper().put(ON_VISIBLE_CHANGE, onVisibleChange);
+	}
+
+	public java.lang.String getOnWidthChange() {
+		return (java.lang.String) getStateHelper().eval(ON_WIDTH_CHANGE, null);
+	}
+
+	public void setOnWidthChange(java.lang.String onWidthChange) {
+		getStateHelper().put(ON_WIDTH_CHANGE, onWidthChange);
 	}
 
 }

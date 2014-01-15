@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treedata;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,18 +57,31 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeData);
 
-		bufferedResponseWriter.write("var treeData = new Y.TreeData");
+		bufferedResponseWriter.write("var treeData = new A.TreeData");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreedataChildren(bufferedResponseWriter, treeData);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, treeData);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIndex(bufferedResponseWriter, treeData);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderTreedataChildren(renrederedAttributes, treeData);
+		renderContainer(renrederedAttributes, treeData);
+		renderDestroyed(renrederedAttributes, treeData);
+		renderIndex(renrederedAttributes, treeData);
+		renderInitialized(renrederedAttributes, treeData);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -80,16 +95,34 @@ public abstract class TreeDataRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderTreedataChildren(ResponseWriter responseWriter, TreeData treeData) throws IOException {
-		renderArray(responseWriter, "treedataChildren", treeData.getTreedataChildren());
+	protected void renderTreedataChildren(ArrayList<String> renrederedAttributes, TreeData treeData) throws IOException {
+		if (treeData.getTreedataChildren() != null) {
+			renrederedAttributes.add(renderArray("treedataChildren", treeData.getTreedataChildren()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, TreeData treeData) throws IOException {
-		renderString(responseWriter, "container", treeData.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeData treeData) throws IOException {
+		if (treeData.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", treeData.getContainer()));
+		}
 	}
 
-	protected void renderIndex(ResponseWriter responseWriter, TreeData treeData) throws IOException {
-		renderObject(responseWriter, "index", treeData.getIndex());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeData treeData) throws IOException {
+		if (treeData.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", treeData.getDestroyed()));
+		}
+	}
+
+	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeData treeData) throws IOException {
+		if (treeData.getIndex() != null) {
+			renrederedAttributes.add(renderObject("index", treeData.getIndex()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeData treeData) throws IOException {
+		if (treeData.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", treeData.getInitialized()));
+		}
 	}
 
 }

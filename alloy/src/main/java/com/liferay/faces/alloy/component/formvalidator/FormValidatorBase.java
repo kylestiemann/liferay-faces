@@ -24,10 +24,12 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 	private static final String BOUNDING_BOX = "boundingBox";
 	private static final String CONTAINER_ERROR_CLASS = "containerErrorClass";
 	private static final String CONTAINER_VALID_CLASS = "containerValidClass";
+	private static final String DESTROYED = "destroyed";
 	private static final String ERROR_CLASS = "errorClass";
 	private static final String EXTRACT_RULES = "extractRules";
 	private static final String FIELD_CONTAINER = "fieldContainer";
 	private static final String FIELD_STRINGS = "fieldStrings";
+	private static final String INITIALIZED = "initialized";
 	private static final String LABEL_CSS_CLASS = "labelCssClass";
 	private static final String MESSAGE_CONTAINER = "messageContainer";
 	private static final String RULES = "rules";
@@ -42,10 +44,12 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 	private static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";
 	private static final String AFTER_CONTAINER_ERROR_CLASS_CHANGE = "afterContainerErrorClassChange";
 	private static final String AFTER_CONTAINER_VALID_CLASS_CHANGE = "afterContainerValidClassChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
 	private static final String AFTER_ERROR_CLASS_CHANGE = "afterErrorClassChange";
 	private static final String AFTER_EXTRACT_RULES_CHANGE = "afterExtractRulesChange";
 	private static final String AFTER_FIELD_CONTAINER_CHANGE = "afterFieldContainerChange";
 	private static final String AFTER_FIELD_STRINGS_CHANGE = "afterFieldStringsChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_LABEL_CSS_CLASS_CHANGE = "afterLabelCssClassChange";
 	private static final String AFTER_MESSAGE_CONTAINER_CHANGE = "afterMessageContainerChange";
 	private static final String AFTER_RULES_CHANGE = "afterRulesChange";
@@ -60,10 +64,12 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 	private static final String ON_BOUNDING_BOX_CHANGE = "onBoundingBoxChange";
 	private static final String ON_CONTAINER_ERROR_CLASS_CHANGE = "onContainerErrorClassChange";
 	private static final String ON_CONTAINER_VALID_CLASS_CHANGE = "onContainerValidClassChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
 	private static final String ON_ERROR_CLASS_CHANGE = "onErrorClassChange";
 	private static final String ON_EXTRACT_RULES_CHANGE = "onExtractRulesChange";
 	private static final String ON_FIELD_CONTAINER_CHANGE = "onFieldContainerChange";
 	private static final String ON_FIELD_STRINGS_CHANGE = "onFieldStringsChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_LABEL_CSS_CLASS_CHANGE = "onLabelCssClassChange";
 	private static final String ON_MESSAGE_CONTAINER_CHANGE = "onMessageContainerChange";
 	private static final String ON_RULES_CHANGE = "onRulesChange";
@@ -76,435 +82,483 @@ public abstract class FormValidatorBase extends javax.faces.component.UIPanel {
 	private static final String ON_VALIDATE_ON_BLUR_CHANGE = "onValidateOnBlurChange";
 	private static final String ON_VALIDATE_ON_INPUT_CHANGE = "onValidateOnInputChange";
 
-	protected java.lang.String getBoundingBox() {
+	public java.lang.String getBoundingBox() {
 		return (java.lang.String) getStateHelper().eval(BOUNDING_BOX, null);
 	}
 
-	protected void setBoundingBox(java.lang.String boundingBox) {
+	public void setBoundingBox(java.lang.String boundingBox) {
 		getStateHelper().put(BOUNDING_BOX, boundingBox);
 	}
 
-	protected java.lang.String getContainerErrorClass() {
+	public java.lang.String getContainerErrorClass() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER_ERROR_CLASS, null);
 	}
 
-	protected void setContainerErrorClass(java.lang.String containerErrorClass) {
+	public void setContainerErrorClass(java.lang.String containerErrorClass) {
 		getStateHelper().put(CONTAINER_ERROR_CLASS, containerErrorClass);
 	}
 
-	protected java.lang.String getContainerValidClass() {
+	public java.lang.String getContainerValidClass() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER_VALID_CLASS, null);
 	}
 
-	protected void setContainerValidClass(java.lang.String containerValidClass) {
+	public void setContainerValidClass(java.lang.String containerValidClass) {
 		getStateHelper().put(CONTAINER_VALID_CLASS, containerValidClass);
 	}
 
-	protected java.lang.String getErrorClass() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.String getErrorClass() {
 		return (java.lang.String) getStateHelper().eval(ERROR_CLASS, null);
 	}
 
-	protected void setErrorClass(java.lang.String errorClass) {
+	public void setErrorClass(java.lang.String errorClass) {
 		getStateHelper().put(ERROR_CLASS, errorClass);
 	}
 
-	protected java.lang.Boolean getExtractRules() {
+	public java.lang.Boolean getExtractRules() {
 		return (java.lang.Boolean) getStateHelper().eval(EXTRACT_RULES, null);
 	}
 
-	protected void setExtractRules(java.lang.Boolean extractRules) {
+	public void setExtractRules(java.lang.Boolean extractRules) {
 		getStateHelper().put(EXTRACT_RULES, extractRules);
 	}
 
-	protected java.lang.String getFieldContainer() {
+	public java.lang.String getFieldContainer() {
 		return (java.lang.String) getStateHelper().eval(FIELD_CONTAINER, null);
 	}
 
-	protected void setFieldContainer(java.lang.String fieldContainer) {
+	public void setFieldContainer(java.lang.String fieldContainer) {
 		getStateHelper().put(FIELD_CONTAINER, fieldContainer);
 	}
 
-	protected java.lang.Object getFieldStrings() {
+	public java.lang.Object getFieldStrings() {
 		return (java.lang.Object) getStateHelper().eval(FIELD_STRINGS, null);
 	}
 
-	protected void setFieldStrings(java.lang.Object fieldStrings) {
+	public void setFieldStrings(java.lang.Object fieldStrings) {
 		getStateHelper().put(FIELD_STRINGS, fieldStrings);
 	}
 
-	protected java.lang.String getLabelCssClass() {
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.String getLabelCssClass() {
 		return (java.lang.String) getStateHelper().eval(LABEL_CSS_CLASS, null);
 	}
 
-	protected void setLabelCssClass(java.lang.String labelCssClass) {
+	public void setLabelCssClass(java.lang.String labelCssClass) {
 		getStateHelper().put(LABEL_CSS_CLASS, labelCssClass);
 	}
 
-	protected java.lang.String getMessageContainer() {
+	public java.lang.String getMessageContainer() {
 		return (java.lang.String) getStateHelper().eval(MESSAGE_CONTAINER, null);
 	}
 
-	protected void setMessageContainer(java.lang.String messageContainer) {
+	public void setMessageContainer(java.lang.String messageContainer) {
 		getStateHelper().put(MESSAGE_CONTAINER, messageContainer);
 	}
 
-	protected java.lang.Object getRules() {
+	public java.lang.Object getRules() {
 		return (java.lang.Object) getStateHelper().eval(RULES, null);
 	}
 
-	protected void setRules(java.lang.Object rules) {
+	public void setRules(java.lang.Object rules) {
 		getStateHelper().put(RULES, rules);
 	}
 
-	protected java.lang.Boolean getSelectText() {
+	public java.lang.Boolean getSelectText() {
 		return (java.lang.Boolean) getStateHelper().eval(SELECT_TEXT, null);
 	}
 
-	protected void setSelectText(java.lang.Boolean selectText) {
+	public void setSelectText(java.lang.Boolean selectText) {
 		getStateHelper().put(SELECT_TEXT, selectText);
 	}
 
-	protected java.lang.Boolean getShowAllMessages() {
+	public java.lang.Boolean getShowAllMessages() {
 		return (java.lang.Boolean) getStateHelper().eval(SHOW_ALL_MESSAGES, null);
 	}
 
-	protected void setShowAllMessages(java.lang.Boolean showAllMessages) {
+	public void setShowAllMessages(java.lang.Boolean showAllMessages) {
 		getStateHelper().put(SHOW_ALL_MESSAGES, showAllMessages);
 	}
 
-	protected java.lang.Boolean getShowMessages() {
+	public java.lang.Boolean getShowMessages() {
 		return (java.lang.Boolean) getStateHelper().eval(SHOW_MESSAGES, null);
 	}
 
-	protected void setShowMessages(java.lang.Boolean showMessages) {
+	public void setShowMessages(java.lang.Boolean showMessages) {
 		getStateHelper().put(SHOW_MESSAGES, showMessages);
 	}
 
-	protected java.lang.String getStackErrorContainer() {
+	public java.lang.String getStackErrorContainer() {
 		return (java.lang.String) getStateHelper().eval(STACK_ERROR_CONTAINER, null);
 	}
 
-	protected void setStackErrorContainer(java.lang.String stackErrorContainer) {
+	public void setStackErrorContainer(java.lang.String stackErrorContainer) {
 		getStateHelper().put(STACK_ERROR_CONTAINER, stackErrorContainer);
 	}
 
-	protected java.lang.String getStrings() {
+	public java.lang.String getStrings() {
 		return (java.lang.String) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.String strings) {
+	public void setStrings(java.lang.String strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.String getValidClass() {
+	public java.lang.String getValidClass() {
 		return (java.lang.String) getStateHelper().eval(VALID_CLASS, null);
 	}
 
-	protected void setValidClass(java.lang.String validClass) {
+	public void setValidClass(java.lang.String validClass) {
 		getStateHelper().put(VALID_CLASS, validClass);
 	}
 
-	protected java.lang.Boolean getValidateOnBlur() {
+	public java.lang.Boolean getValidateOnBlur() {
 		return (java.lang.Boolean) getStateHelper().eval(VALIDATE_ON_BLUR, null);
 	}
 
-	protected void setValidateOnBlur(java.lang.Boolean validateOnBlur) {
+	public void setValidateOnBlur(java.lang.Boolean validateOnBlur) {
 		getStateHelper().put(VALIDATE_ON_BLUR, validateOnBlur);
 	}
 
-	protected java.lang.Boolean getValidateOnInput() {
+	public java.lang.Boolean getValidateOnInput() {
 		return (java.lang.Boolean) getStateHelper().eval(VALIDATE_ON_INPUT, null);
 	}
 
-	protected void setValidateOnInput(java.lang.Boolean validateOnInput) {
+	public void setValidateOnInput(java.lang.Boolean validateOnInput) {
 		getStateHelper().put(VALIDATE_ON_INPUT, validateOnInput);
 	}
 
-	protected java.lang.String getAfterBoundingBoxChange() {
+	public java.lang.String getAfterBoundingBoxChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BOUNDING_BOX_CHANGE, null);
 	}
 
-	protected void setAfterBoundingBoxChange(java.lang.String afterBoundingBoxChange) {
+	public void setAfterBoundingBoxChange(java.lang.String afterBoundingBoxChange) {
 		getStateHelper().put(AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange);
 	}
 
-	protected java.lang.String getAfterContainerErrorClassChange() {
+	public java.lang.String getAfterContainerErrorClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTAINER_ERROR_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterContainerErrorClassChange(java.lang.String afterContainerErrorClassChange) {
+	public void setAfterContainerErrorClassChange(java.lang.String afterContainerErrorClassChange) {
 		getStateHelper().put(AFTER_CONTAINER_ERROR_CLASS_CHANGE, afterContainerErrorClassChange);
 	}
 
-	protected java.lang.String getAfterContainerValidClassChange() {
+	public java.lang.String getAfterContainerValidClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTAINER_VALID_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterContainerValidClassChange(java.lang.String afterContainerValidClassChange) {
+	public void setAfterContainerValidClassChange(java.lang.String afterContainerValidClassChange) {
 		getStateHelper().put(AFTER_CONTAINER_VALID_CLASS_CHANGE, afterContainerValidClassChange);
 	}
 
-	protected java.lang.String getAfterErrorClassChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterErrorClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ERROR_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterErrorClassChange(java.lang.String afterErrorClassChange) {
+	public void setAfterErrorClassChange(java.lang.String afterErrorClassChange) {
 		getStateHelper().put(AFTER_ERROR_CLASS_CHANGE, afterErrorClassChange);
 	}
 
-	protected java.lang.String getAfterExtractRulesChange() {
+	public java.lang.String getAfterExtractRulesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_EXTRACT_RULES_CHANGE, null);
 	}
 
-	protected void setAfterExtractRulesChange(java.lang.String afterExtractRulesChange) {
+	public void setAfterExtractRulesChange(java.lang.String afterExtractRulesChange) {
 		getStateHelper().put(AFTER_EXTRACT_RULES_CHANGE, afterExtractRulesChange);
 	}
 
-	protected java.lang.String getAfterFieldContainerChange() {
+	public java.lang.String getAfterFieldContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_FIELD_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterFieldContainerChange(java.lang.String afterFieldContainerChange) {
+	public void setAfterFieldContainerChange(java.lang.String afterFieldContainerChange) {
 		getStateHelper().put(AFTER_FIELD_CONTAINER_CHANGE, afterFieldContainerChange);
 	}
 
-	protected java.lang.String getAfterFieldStringsChange() {
+	public java.lang.String getAfterFieldStringsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_FIELD_STRINGS_CHANGE, null);
 	}
 
-	protected void setAfterFieldStringsChange(java.lang.String afterFieldStringsChange) {
+	public void setAfterFieldStringsChange(java.lang.String afterFieldStringsChange) {
 		getStateHelper().put(AFTER_FIELD_STRINGS_CHANGE, afterFieldStringsChange);
 	}
 
-	protected java.lang.String getAfterLabelCssClassChange() {
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterLabelCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_LABEL_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterLabelCssClassChange(java.lang.String afterLabelCssClassChange) {
+	public void setAfterLabelCssClassChange(java.lang.String afterLabelCssClassChange) {
 		getStateHelper().put(AFTER_LABEL_CSS_CLASS_CHANGE, afterLabelCssClassChange);
 	}
 
-	protected java.lang.String getAfterMessageContainerChange() {
+	public java.lang.String getAfterMessageContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_MESSAGE_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterMessageContainerChange(java.lang.String afterMessageContainerChange) {
+	public void setAfterMessageContainerChange(java.lang.String afterMessageContainerChange) {
 		getStateHelper().put(AFTER_MESSAGE_CONTAINER_CHANGE, afterMessageContainerChange);
 	}
 
-	protected java.lang.String getAfterRulesChange() {
+	public java.lang.String getAfterRulesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_RULES_CHANGE, null);
 	}
 
-	protected void setAfterRulesChange(java.lang.String afterRulesChange) {
+	public void setAfterRulesChange(java.lang.String afterRulesChange) {
 		getStateHelper().put(AFTER_RULES_CHANGE, afterRulesChange);
 	}
 
-	protected java.lang.String getAfterSelectTextChange() {
+	public java.lang.String getAfterSelectTextChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SELECT_TEXT_CHANGE, null);
 	}
 
-	protected void setAfterSelectTextChange(java.lang.String afterSelectTextChange) {
+	public void setAfterSelectTextChange(java.lang.String afterSelectTextChange) {
 		getStateHelper().put(AFTER_SELECT_TEXT_CHANGE, afterSelectTextChange);
 	}
 
-	protected java.lang.String getAfterShowAllMessagesChange() {
+	public java.lang.String getAfterShowAllMessagesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHOW_ALL_MESSAGES_CHANGE, null);
 	}
 
-	protected void setAfterShowAllMessagesChange(java.lang.String afterShowAllMessagesChange) {
+	public void setAfterShowAllMessagesChange(java.lang.String afterShowAllMessagesChange) {
 		getStateHelper().put(AFTER_SHOW_ALL_MESSAGES_CHANGE, afterShowAllMessagesChange);
 	}
 
-	protected java.lang.String getAfterShowMessagesChange() {
+	public java.lang.String getAfterShowMessagesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHOW_MESSAGES_CHANGE, null);
 	}
 
-	protected void setAfterShowMessagesChange(java.lang.String afterShowMessagesChange) {
+	public void setAfterShowMessagesChange(java.lang.String afterShowMessagesChange) {
 		getStateHelper().put(AFTER_SHOW_MESSAGES_CHANGE, afterShowMessagesChange);
 	}
 
-	protected java.lang.String getAfterStackErrorContainerChange() {
+	public java.lang.String getAfterStackErrorContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_STACK_ERROR_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterStackErrorContainerChange(java.lang.String afterStackErrorContainerChange) {
+	public void setAfterStackErrorContainerChange(java.lang.String afterStackErrorContainerChange) {
 		getStateHelper().put(AFTER_STACK_ERROR_CONTAINER_CHANGE, afterStackErrorContainerChange);
 	}
 
-	protected java.lang.String getAfterStringsChange() {
+	public java.lang.String getAfterStringsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_STRINGS_CHANGE, null);
 	}
 
-	protected void setAfterStringsChange(java.lang.String afterStringsChange) {
+	public void setAfterStringsChange(java.lang.String afterStringsChange) {
 		getStateHelper().put(AFTER_STRINGS_CHANGE, afterStringsChange);
 	}
 
-	protected java.lang.String getAfterValidClassChange() {
+	public java.lang.String getAfterValidClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALID_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterValidClassChange(java.lang.String afterValidClassChange) {
+	public void setAfterValidClassChange(java.lang.String afterValidClassChange) {
 		getStateHelper().put(AFTER_VALID_CLASS_CHANGE, afterValidClassChange);
 	}
 
-	protected java.lang.String getAfterValidateOnBlurChange() {
+	public java.lang.String getAfterValidateOnBlurChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALIDATE_ON_BLUR_CHANGE, null);
 	}
 
-	protected void setAfterValidateOnBlurChange(java.lang.String afterValidateOnBlurChange) {
+	public void setAfterValidateOnBlurChange(java.lang.String afterValidateOnBlurChange) {
 		getStateHelper().put(AFTER_VALIDATE_ON_BLUR_CHANGE, afterValidateOnBlurChange);
 	}
 
-	protected java.lang.String getAfterValidateOnInputChange() {
+	public java.lang.String getAfterValidateOnInputChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VALIDATE_ON_INPUT_CHANGE, null);
 	}
 
-	protected void setAfterValidateOnInputChange(java.lang.String afterValidateOnInputChange) {
+	public void setAfterValidateOnInputChange(java.lang.String afterValidateOnInputChange) {
 		getStateHelper().put(AFTER_VALIDATE_ON_INPUT_CHANGE, afterValidateOnInputChange);
 	}
 
-	protected java.lang.String getOnBoundingBoxChange() {
+	public java.lang.String getOnBoundingBoxChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BOUNDING_BOX_CHANGE, null);
 	}
 
-	protected void setOnBoundingBoxChange(java.lang.String onBoundingBoxChange) {
+	public void setOnBoundingBoxChange(java.lang.String onBoundingBoxChange) {
 		getStateHelper().put(ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange);
 	}
 
-	protected java.lang.String getOnContainerErrorClassChange() {
+	public java.lang.String getOnContainerErrorClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTAINER_ERROR_CLASS_CHANGE, null);
 	}
 
-	protected void setOnContainerErrorClassChange(java.lang.String onContainerErrorClassChange) {
+	public void setOnContainerErrorClassChange(java.lang.String onContainerErrorClassChange) {
 		getStateHelper().put(ON_CONTAINER_ERROR_CLASS_CHANGE, onContainerErrorClassChange);
 	}
 
-	protected java.lang.String getOnContainerValidClassChange() {
+	public java.lang.String getOnContainerValidClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTAINER_VALID_CLASS_CHANGE, null);
 	}
 
-	protected void setOnContainerValidClassChange(java.lang.String onContainerValidClassChange) {
+	public void setOnContainerValidClassChange(java.lang.String onContainerValidClassChange) {
 		getStateHelper().put(ON_CONTAINER_VALID_CLASS_CHANGE, onContainerValidClassChange);
 	}
 
-	protected java.lang.String getOnErrorClassChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnErrorClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ERROR_CLASS_CHANGE, null);
 	}
 
-	protected void setOnErrorClassChange(java.lang.String onErrorClassChange) {
+	public void setOnErrorClassChange(java.lang.String onErrorClassChange) {
 		getStateHelper().put(ON_ERROR_CLASS_CHANGE, onErrorClassChange);
 	}
 
-	protected java.lang.String getOnExtractRulesChange() {
+	public java.lang.String getOnExtractRulesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_EXTRACT_RULES_CHANGE, null);
 	}
 
-	protected void setOnExtractRulesChange(java.lang.String onExtractRulesChange) {
+	public void setOnExtractRulesChange(java.lang.String onExtractRulesChange) {
 		getStateHelper().put(ON_EXTRACT_RULES_CHANGE, onExtractRulesChange);
 	}
 
-	protected java.lang.String getOnFieldContainerChange() {
+	public java.lang.String getOnFieldContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_FIELD_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnFieldContainerChange(java.lang.String onFieldContainerChange) {
+	public void setOnFieldContainerChange(java.lang.String onFieldContainerChange) {
 		getStateHelper().put(ON_FIELD_CONTAINER_CHANGE, onFieldContainerChange);
 	}
 
-	protected java.lang.String getOnFieldStringsChange() {
+	public java.lang.String getOnFieldStringsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_FIELD_STRINGS_CHANGE, null);
 	}
 
-	protected void setOnFieldStringsChange(java.lang.String onFieldStringsChange) {
+	public void setOnFieldStringsChange(java.lang.String onFieldStringsChange) {
 		getStateHelper().put(ON_FIELD_STRINGS_CHANGE, onFieldStringsChange);
 	}
 
-	protected java.lang.String getOnLabelCssClassChange() {
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnLabelCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_LABEL_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setOnLabelCssClassChange(java.lang.String onLabelCssClassChange) {
+	public void setOnLabelCssClassChange(java.lang.String onLabelCssClassChange) {
 		getStateHelper().put(ON_LABEL_CSS_CLASS_CHANGE, onLabelCssClassChange);
 	}
 
-	protected java.lang.String getOnMessageContainerChange() {
+	public java.lang.String getOnMessageContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_MESSAGE_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnMessageContainerChange(java.lang.String onMessageContainerChange) {
+	public void setOnMessageContainerChange(java.lang.String onMessageContainerChange) {
 		getStateHelper().put(ON_MESSAGE_CONTAINER_CHANGE, onMessageContainerChange);
 	}
 
-	protected java.lang.String getOnRulesChange() {
+	public java.lang.String getOnRulesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_RULES_CHANGE, null);
 	}
 
-	protected void setOnRulesChange(java.lang.String onRulesChange) {
+	public void setOnRulesChange(java.lang.String onRulesChange) {
 		getStateHelper().put(ON_RULES_CHANGE, onRulesChange);
 	}
 
-	protected java.lang.String getOnSelectTextChange() {
+	public java.lang.String getOnSelectTextChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SELECT_TEXT_CHANGE, null);
 	}
 
-	protected void setOnSelectTextChange(java.lang.String onSelectTextChange) {
+	public void setOnSelectTextChange(java.lang.String onSelectTextChange) {
 		getStateHelper().put(ON_SELECT_TEXT_CHANGE, onSelectTextChange);
 	}
 
-	protected java.lang.String getOnShowAllMessagesChange() {
+	public java.lang.String getOnShowAllMessagesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHOW_ALL_MESSAGES_CHANGE, null);
 	}
 
-	protected void setOnShowAllMessagesChange(java.lang.String onShowAllMessagesChange) {
+	public void setOnShowAllMessagesChange(java.lang.String onShowAllMessagesChange) {
 		getStateHelper().put(ON_SHOW_ALL_MESSAGES_CHANGE, onShowAllMessagesChange);
 	}
 
-	protected java.lang.String getOnShowMessagesChange() {
+	public java.lang.String getOnShowMessagesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHOW_MESSAGES_CHANGE, null);
 	}
 
-	protected void setOnShowMessagesChange(java.lang.String onShowMessagesChange) {
+	public void setOnShowMessagesChange(java.lang.String onShowMessagesChange) {
 		getStateHelper().put(ON_SHOW_MESSAGES_CHANGE, onShowMessagesChange);
 	}
 
-	protected java.lang.String getOnStackErrorContainerChange() {
+	public java.lang.String getOnStackErrorContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_STACK_ERROR_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnStackErrorContainerChange(java.lang.String onStackErrorContainerChange) {
+	public void setOnStackErrorContainerChange(java.lang.String onStackErrorContainerChange) {
 		getStateHelper().put(ON_STACK_ERROR_CONTAINER_CHANGE, onStackErrorContainerChange);
 	}
 
-	protected java.lang.String getOnStringsChange() {
+	public java.lang.String getOnStringsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_STRINGS_CHANGE, null);
 	}
 
-	protected void setOnStringsChange(java.lang.String onStringsChange) {
+	public void setOnStringsChange(java.lang.String onStringsChange) {
 		getStateHelper().put(ON_STRINGS_CHANGE, onStringsChange);
 	}
 
-	protected java.lang.String getOnValidClassChange() {
+	public java.lang.String getOnValidClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALID_CLASS_CHANGE, null);
 	}
 
-	protected void setOnValidClassChange(java.lang.String onValidClassChange) {
+	public void setOnValidClassChange(java.lang.String onValidClassChange) {
 		getStateHelper().put(ON_VALID_CLASS_CHANGE, onValidClassChange);
 	}
 
-	protected java.lang.String getOnValidateOnBlurChange() {
+	public java.lang.String getOnValidateOnBlurChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALIDATE_ON_BLUR_CHANGE, null);
 	}
 
-	protected void setOnValidateOnBlurChange(java.lang.String onValidateOnBlurChange) {
+	public void setOnValidateOnBlurChange(java.lang.String onValidateOnBlurChange) {
 		getStateHelper().put(ON_VALIDATE_ON_BLUR_CHANGE, onValidateOnBlurChange);
 	}
 
-	protected java.lang.String getOnValidateOnInputChange() {
+	public java.lang.String getOnValidateOnInputChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VALIDATE_ON_INPUT_CHANGE, null);
 	}
 
-	protected void setOnValidateOnInputChange(java.lang.String onValidateOnInputChange) {
+	public void setOnValidateOnInputChange(java.lang.String onValidateOnInputChange) {
 		getStateHelper().put(ON_VALIDATE_ON_INPUT_CHANGE, onValidateOnInputChange);
 	}
 

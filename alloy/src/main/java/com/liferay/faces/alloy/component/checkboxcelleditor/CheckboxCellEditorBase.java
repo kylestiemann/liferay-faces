@@ -25,27 +25,27 @@ public abstract class CheckboxCellEditorBase extends javax.faces.component.UIPan
 	private static final String AFTER_SELECTED_ATTR_NAME_CHANGE = "afterSelectedAttrNameChange";
 	private static final String ON_SELECTED_ATTR_NAME_CHANGE = "onSelectedAttrNameChange";
 
-	protected java.lang.String getSelectedAttrName() {
+	public java.lang.String getSelectedAttrName() {
 		return (java.lang.String) getStateHelper().eval(SELECTED_ATTR_NAME, null);
 	}
 
-	protected void setSelectedAttrName(java.lang.String selectedAttrName) {
+	public void setSelectedAttrName(java.lang.String selectedAttrName) {
 		getStateHelper().put(SELECTED_ATTR_NAME, selectedAttrName);
 	}
 
-	protected java.lang.String getAfterSelectedAttrNameChange() {
+	public java.lang.String getAfterSelectedAttrNameChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SELECTED_ATTR_NAME_CHANGE, null);
 	}
 
-	protected void setAfterSelectedAttrNameChange(java.lang.String afterSelectedAttrNameChange) {
+	public void setAfterSelectedAttrNameChange(java.lang.String afterSelectedAttrNameChange) {
 		getStateHelper().put(AFTER_SELECTED_ATTR_NAME_CHANGE, afterSelectedAttrNameChange);
 	}
 
-	protected java.lang.String getOnSelectedAttrNameChange() {
+	public java.lang.String getOnSelectedAttrNameChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SELECTED_ATTR_NAME_CHANGE, null);
 	}
 
-	protected void setOnSelectedAttrNameChange(java.lang.String onSelectedAttrNameChange) {
+	public void setOnSelectedAttrNameChange(java.lang.String onSelectedAttrNameChange) {
 		getStateHelper().put(ON_SELECTED_ATTR_NAME_CHANGE, onSelectedAttrNameChange);
 	}
 

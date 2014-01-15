@@ -22,409 +22,1300 @@ package com.liferay.faces.alloy.component.colorpickerpopover;
 public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPanel {
 
 	private static final String ALIGN = "align";
+	private static final String ALIGN_ON = "alignOn";
 	private static final String COLORPICKERPOPOVER_BODY_CONTENT = "colorpickerpopoverBodyContent";
+	private static final String BOUNDING_BOX = "boundingBox";
+	private static final String CENTERED = "centered";
 	private static final String COLOR = "color";
 	private static final String COLOR_PALETTE = "colorPalette";
+	private static final String CONSTRAIN = "constrain";
+	private static final String CONTENT_BOX = "contentBox";
 	private static final String CSS_CLASS = "cssClass";
 	private static final String CURRENT_TRIGGER = "currentTrigger";
 	private static final String DEFAULT_COLOR = "defaultColor";
+	private static final String DESTROYED = "destroyed";
+	private static final String DISABLED = "disabled";
+	private static final String FILL_HEIGHT = "fillHeight";
+	private static final String FOCUS_ON = "focusOn";
+	private static final String FOCUSED = "focused";
+	private static final String FOOTER_CONTENT = "footerContent";
+	private static final String HEADER_CONTENT = "headerContent";
+	private static final String HEIGHT = "height";
+	private static final String HIDE_ON = "hideOn";
 	private static final String HSV_PALETTE = "hsvPalette";
+	private static final String COLORPICKERPOPOVER_ID = "colorpickerpopoverId";
+	private static final String INITIALIZED = "initialized";
+	private static final String COLORPICKERPOPOVER_LOCALE = "colorpickerpopoverLocale";
+	private static final String MASK_NODE = "maskNode";
+	private static final String MODAL = "modal";
+	private static final String PREVENT_OVERLAP = "preventOverlap";
 	private static final String RECENT_COLORS = "recentColors";
+	private static final String RENDER = "render";
 	private static final String RENDER_COLOR_PALETTE = "renderColorPalette";
 	private static final String RENDER_HSVPALETTE = "renderHSVPalette";
+	private static final String RENDERED = "rendered";
+	private static final String SHIM = "shim";
+	private static final String SRC_NODE = "srcNode";
 	private static final String STRINGS = "strings";
+	private static final String TAB_INDEX = "tabIndex";
+	private static final String TOOLBAR_POSITION = "toolbarPosition";
+	private static final String TOOLBARS = "toolbars";
 	private static final String TRIGGER = "trigger";
 	private static final String TRIGGER_EVENT = "triggerEvent";
+	private static final String TRIGGER_TOGGLE_EVENT = "triggerToggleEvent";
 	private static final String VISIBLE = "visible";
+	private static final String WIDTH = "width";
+	private static final String X = "x";
+	private static final String XY = "xy";
+	private static final String Y = "y";
+	private static final String Z_INDEX = "zIndex";
 	private static final String AFTER_ALIGN_CHANGE = "afterAlignChange";
+	private static final String AFTER_ALIGN_ON_CHANGE = "afterAlignOnChange";
 	private static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
+	private static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";
+	private static final String AFTER_CENTERED_CHANGE = "afterCenteredChange";
 	private static final String AFTER_COLOR_CHANGE = "afterColorChange";
 	private static final String AFTER_COLOR_PALETTE_CHANGE = "afterColorPaletteChange";
+	private static final String AFTER_CONSTRAIN_CHANGE = "afterConstrainChange";
+	private static final String AFTER_CONTENT_BOX_CHANGE = "afterContentBoxChange";
 	private static final String AFTER_CSS_CLASS_CHANGE = "afterCssClassChange";
 	private static final String AFTER_CURRENT_TRIGGER_CHANGE = "afterCurrentTriggerChange";
 	private static final String AFTER_DEFAULT_COLOR_CHANGE = "afterDefaultColorChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	private static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
+	private static final String AFTER_FILL_HEIGHT_CHANGE = "afterFillHeightChange";
+	private static final String AFTER_FOCUS_ON_CHANGE = "afterFocusOnChange";
+	private static final String AFTER_FOCUSED_CHANGE = "afterFocusedChange";
+	private static final String AFTER_FOOTER_CONTENT_CHANGE = "afterFooterContentChange";
+	private static final String AFTER_HEADER_CONTENT_CHANGE = "afterHeaderContentChange";
+	private static final String AFTER_HEIGHT_CHANGE = "afterHeightChange";
+	private static final String AFTER_HIDE_ON_CHANGE = "afterHideOnChange";
 	private static final String AFTER_HSV_PALETTE_CHANGE = "afterHsvPaletteChange";
+	private static final String AFTER_ID_CHANGE = "afterIdChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	private static final String AFTER_LOCALE_CHANGE = "afterLocaleChange";
+	private static final String AFTER_MASK_NODE_CHANGE = "afterMaskNodeChange";
+	private static final String AFTER_MODAL_CHANGE = "afterModalChange";
+	private static final String AFTER_PREVENT_OVERLAP_CHANGE = "afterPreventOverlapChange";
 	private static final String AFTER_RECENT_COLORS_CHANGE = "afterRecentColorsChange";
+	private static final String AFTER_RENDER_CHANGE = "afterRenderChange";
 	private static final String AFTER_RENDER_COLOR_PALETTE_CHANGE = "afterRenderColorPaletteChange";
 	private static final String AFTER_RENDER_HSVPALETTE_CHANGE = "afterRenderHSVPaletteChange";
+	private static final String AFTER_RENDERED_CHANGE = "afterRenderedChange";
+	private static final String AFTER_SHIM_CHANGE = "afterShimChange";
+	private static final String AFTER_SRC_NODE_CHANGE = "afterSrcNodeChange";
 	private static final String AFTER_STRINGS_CHANGE = "afterStringsChange";
+	private static final String AFTER_TAB_INDEX_CHANGE = "afterTabIndexChange";
+	private static final String AFTER_TOOLBAR_POSITION_CHANGE = "afterToolbarPositionChange";
+	private static final String AFTER_TOOLBARS_CHANGE = "afterToolbarsChange";
 	private static final String AFTER_TRIGGER_CHANGE = "afterTriggerChange";
 	private static final String AFTER_TRIGGER_EVENT_CHANGE = "afterTriggerEventChange";
+	private static final String AFTER_TRIGGER_TOGGLE_EVENT_CHANGE = "afterTriggerToggleEventChange";
 	private static final String AFTER_VISIBLE_CHANGE = "afterVisibleChange";
+	private static final String AFTER_WIDTH_CHANGE = "afterWidthChange";
+	private static final String AFTER_XCHANGE = "afterXChange";
+	private static final String AFTER_XY_CHANGE = "afterXyChange";
+	private static final String AFTER_YCHANGE = "afterYChange";
+	private static final String AFTER_ZINDEX_CHANGE = "afterZIndexChange";
 	private static final String ON_ALIGN_CHANGE = "onAlignChange";
+	private static final String ON_ALIGN_ON_CHANGE = "onAlignOnChange";
 	private static final String ON_BODY_CONTENT_CHANGE = "onBodyContentChange";
+	private static final String ON_BOUNDING_BOX_CHANGE = "onBoundingBoxChange";
+	private static final String ON_CENTERED_CHANGE = "onCenteredChange";
 	private static final String ON_COLOR_CHANGE = "onColorChange";
 	private static final String ON_COLOR_PALETTE_CHANGE = "onColorPaletteChange";
+	private static final String ON_CONSTRAIN_CHANGE = "onConstrainChange";
+	private static final String ON_CONTENT_BOX_CHANGE = "onContentBoxChange";
 	private static final String ON_CSS_CLASS_CHANGE = "onCssClassChange";
 	private static final String ON_CURRENT_TRIGGER_CHANGE = "onCurrentTriggerChange";
 	private static final String ON_DEFAULT_COLOR_CHANGE = "onDefaultColorChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	private static final String ON_DISABLED_CHANGE = "onDisabledChange";
+	private static final String ON_FILL_HEIGHT_CHANGE = "onFillHeightChange";
+	private static final String ON_FOCUS_ON_CHANGE = "onFocusOnChange";
+	private static final String ON_FOCUSED_CHANGE = "onFocusedChange";
+	private static final String ON_FOOTER_CONTENT_CHANGE = "onFooterContentChange";
+	private static final String ON_HEADER_CONTENT_CHANGE = "onHeaderContentChange";
+	private static final String ON_HEIGHT_CHANGE = "onHeightChange";
+	private static final String ON_HIDE_ON_CHANGE = "onHideOnChange";
 	private static final String ON_HSV_PALETTE_CHANGE = "onHsvPaletteChange";
+	private static final String ON_ID_CHANGE = "onIdChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	private static final String ON_LOCALE_CHANGE = "onLocaleChange";
+	private static final String ON_MASK_NODE_CHANGE = "onMaskNodeChange";
+	private static final String ON_MODAL_CHANGE = "onModalChange";
+	private static final String ON_PREVENT_OVERLAP_CHANGE = "onPreventOverlapChange";
 	private static final String ON_RECENT_COLORS_CHANGE = "onRecentColorsChange";
+	private static final String ON_RENDER_CHANGE = "onRenderChange";
 	private static final String ON_RENDER_COLOR_PALETTE_CHANGE = "onRenderColorPaletteChange";
 	private static final String ON_RENDER_HSVPALETTE_CHANGE = "onRenderHSVPaletteChange";
+	private static final String ON_RENDERED_CHANGE = "onRenderedChange";
+	private static final String ON_SHIM_CHANGE = "onShimChange";
+	private static final String ON_SRC_NODE_CHANGE = "onSrcNodeChange";
 	private static final String ON_STRINGS_CHANGE = "onStringsChange";
+	private static final String ON_TAB_INDEX_CHANGE = "onTabIndexChange";
+	private static final String ON_TOOLBAR_POSITION_CHANGE = "onToolbarPositionChange";
+	private static final String ON_TOOLBARS_CHANGE = "onToolbarsChange";
 	private static final String ON_TRIGGER_CHANGE = "onTriggerChange";
 	private static final String ON_TRIGGER_EVENT_CHANGE = "onTriggerEventChange";
+	private static final String ON_TRIGGER_TOGGLE_EVENT_CHANGE = "onTriggerToggleEventChange";
 	private static final String ON_VISIBLE_CHANGE = "onVisibleChange";
+	private static final String ON_WIDTH_CHANGE = "onWidthChange";
+	private static final String ON_XCHANGE = "onXChange";
+	private static final String ON_XY_CHANGE = "onXyChange";
+	private static final String ON_YCHANGE = "onYChange";
+	private static final String ON_ZINDEX_CHANGE = "onZIndexChange";
 
-	protected java.lang.Object getAlign() {
+	public java.lang.Object getAlign() {
 		return (java.lang.Object) getStateHelper().eval(ALIGN, null);
 	}
 
-	protected void setAlign(java.lang.Object align) {
+	public void setAlign(java.lang.Object align) {
 		getStateHelper().put(ALIGN, align);
 	}
 
-	protected java.lang.String getColorpickerpopoverBodyContent() {
-		return (java.lang.String) getStateHelper().eval(COLORPICKERPOPOVER_BODY_CONTENT, null);
+	public java.lang.Object getAlignOn() {
+		return (java.lang.Object) getStateHelper().eval(ALIGN_ON, null);
 	}
 
-	protected void setColorpickerpopoverBodyContent(java.lang.String colorpickerpopoverBodyContent) {
+	public void setAlignOn(java.lang.Object alignOn) {
+		getStateHelper().put(ALIGN_ON, alignOn);
+	}
+
+	public java.lang.Object getColorpickerpopoverBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(COLORPICKERPOPOVER_BODY_CONTENT, null);
+	}
+
+	public void setColorpickerpopoverBodyContent(java.lang.Object colorpickerpopoverBodyContent) {
 		getStateHelper().put(COLORPICKERPOPOVER_BODY_CONTENT, colorpickerpopoverBodyContent);
 	}
 
-	protected java.lang.String getColor() {
+	public java.lang.String getBoundingBox() {
+		return (java.lang.String) getStateHelper().eval(BOUNDING_BOX, null);
+	}
+
+	public void setBoundingBox(java.lang.String boundingBox) {
+		getStateHelper().put(BOUNDING_BOX, boundingBox);
+	}
+
+	public java.lang.Object getCentered() {
+		return (java.lang.Object) getStateHelper().eval(CENTERED, null);
+	}
+
+	public void setCentered(java.lang.Object centered) {
+		getStateHelper().put(CENTERED, centered);
+	}
+
+	public java.lang.String getColor() {
 		return (java.lang.String) getStateHelper().eval(COLOR, null);
 	}
 
-	protected void setColor(java.lang.String color) {
+	public void setColor(java.lang.String color) {
 		getStateHelper().put(COLOR, color);
 	}
 
-	protected java.lang.Object getColorPalette() {
+	public java.lang.Object getColorPalette() {
 		return (java.lang.Object) getStateHelper().eval(COLOR_PALETTE, null);
 	}
 
-	protected void setColorPalette(java.lang.Object colorPalette) {
+	public void setColorPalette(java.lang.Object colorPalette) {
 		getStateHelper().put(COLOR_PALETTE, colorPalette);
 	}
 
-	protected java.lang.String getCssClass() {
+	public java.lang.Object getConstrain() {
+		return (java.lang.Object) getStateHelper().eval(CONSTRAIN, null);
+	}
+
+	public void setConstrain(java.lang.Object constrain) {
+		getStateHelper().put(CONSTRAIN, constrain);
+	}
+
+	public java.lang.String getContentBox() {
+		return (java.lang.String) getStateHelper().eval(CONTENT_BOX, null);
+	}
+
+	public void setContentBox(java.lang.String contentBox) {
+		getStateHelper().put(CONTENT_BOX, contentBox);
+	}
+
+	public java.lang.String getCssClass() {
 		return (java.lang.String) getStateHelper().eval(CSS_CLASS, null);
 	}
 
-	protected void setCssClass(java.lang.String cssClass) {
+	public void setCssClass(java.lang.String cssClass) {
 		getStateHelper().put(CSS_CLASS, cssClass);
 	}
 
-	protected java.lang.String getCurrentTrigger() {
+	public java.lang.String getCurrentTrigger() {
 		return (java.lang.String) getStateHelper().eval(CURRENT_TRIGGER, null);
 	}
 
-	protected void setCurrentTrigger(java.lang.String currentTrigger) {
+	public void setCurrentTrigger(java.lang.String currentTrigger) {
 		getStateHelper().put(CURRENT_TRIGGER, currentTrigger);
 	}
 
-	protected java.lang.String getDefaultColor() {
+	public java.lang.String getDefaultColor() {
 		return (java.lang.String) getStateHelper().eval(DEFAULT_COLOR, null);
 	}
 
-	protected void setDefaultColor(java.lang.String defaultColor) {
+	public void setDefaultColor(java.lang.String defaultColor) {
 		getStateHelper().put(DEFAULT_COLOR, defaultColor);
 	}
 
-	protected java.lang.Object getHsvPalette() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Boolean getDisabled() {
+		return (java.lang.Boolean) getStateHelper().eval(DISABLED, null);
+	}
+
+	public void setDisabled(java.lang.Boolean disabled) {
+		getStateHelper().put(DISABLED, disabled);
+	}
+
+	public java.lang.Object getFillHeight() {
+		return (java.lang.Object) getStateHelper().eval(FILL_HEIGHT, null);
+	}
+
+	public void setFillHeight(java.lang.Object fillHeight) {
+		getStateHelper().put(FILL_HEIGHT, fillHeight);
+	}
+
+	public java.lang.Object getFocusOn() {
+		return (java.lang.Object) getStateHelper().eval(FOCUS_ON, null);
+	}
+
+	public void setFocusOn(java.lang.Object focusOn) {
+		getStateHelper().put(FOCUS_ON, focusOn);
+	}
+
+	public java.lang.Boolean getFocused() {
+		return (java.lang.Boolean) getStateHelper().eval(FOCUSED, null);
+	}
+
+	public void setFocused(java.lang.Boolean focused) {
+		getStateHelper().put(FOCUSED, focused);
+	}
+
+	public java.lang.Object getFooterContent() {
+		return (java.lang.Object) getStateHelper().eval(FOOTER_CONTENT, null);
+	}
+
+	public void setFooterContent(java.lang.Object footerContent) {
+		getStateHelper().put(FOOTER_CONTENT, footerContent);
+	}
+
+	public java.lang.Object getHeaderContent() {
+		return (java.lang.Object) getStateHelper().eval(HEADER_CONTENT, null);
+	}
+
+	public void setHeaderContent(java.lang.Object headerContent) {
+		getStateHelper().put(HEADER_CONTENT, headerContent);
+	}
+
+	public java.lang.Object getHeight() {
+		return (java.lang.Object) getStateHelper().eval(HEIGHT, null);
+	}
+
+	public void setHeight(java.lang.Object height) {
+		getStateHelper().put(HEIGHT, height);
+	}
+
+	public java.lang.Object getHideOn() {
+		return (java.lang.Object) getStateHelper().eval(HIDE_ON, null);
+	}
+
+	public void setHideOn(java.lang.Object hideOn) {
+		getStateHelper().put(HIDE_ON, hideOn);
+	}
+
+	public java.lang.Object getHsvPalette() {
 		return (java.lang.Object) getStateHelper().eval(HSV_PALETTE, null);
 	}
 
-	protected void setHsvPalette(java.lang.Object hsvPalette) {
+	public void setHsvPalette(java.lang.Object hsvPalette) {
 		getStateHelper().put(HSV_PALETTE, hsvPalette);
 	}
 
-	protected java.lang.Object getRecentColors() {
+	public java.lang.String getColorpickerpopoverId() {
+		return (java.lang.String) getStateHelper().eval(COLORPICKERPOPOVER_ID, null);
+	}
+
+	public void setColorpickerpopoverId(java.lang.String colorpickerpopoverId) {
+		getStateHelper().put(COLORPICKERPOPOVER_ID, colorpickerpopoverId);
+	}
+
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.String getColorpickerpopoverLocale() {
+		return (java.lang.String) getStateHelper().eval(COLORPICKERPOPOVER_LOCALE, null);
+	}
+
+	public void setColorpickerpopoverLocale(java.lang.String colorpickerpopoverLocale) {
+		getStateHelper().put(COLORPICKERPOPOVER_LOCALE, colorpickerpopoverLocale);
+	}
+
+	public java.lang.Object getMaskNode() {
+		return (java.lang.Object) getStateHelper().eval(MASK_NODE, null);
+	}
+
+	public void setMaskNode(java.lang.Object maskNode) {
+		getStateHelper().put(MASK_NODE, maskNode);
+	}
+
+	public java.lang.Boolean getModal() {
+		return (java.lang.Boolean) getStateHelper().eval(MODAL, null);
+	}
+
+	public void setModal(java.lang.Boolean modal) {
+		getStateHelper().put(MODAL, modal);
+	}
+
+	public java.lang.Boolean getPreventOverlap() {
+		return (java.lang.Boolean) getStateHelper().eval(PREVENT_OVERLAP, null);
+	}
+
+	public void setPreventOverlap(java.lang.Boolean preventOverlap) {
+		getStateHelper().put(PREVENT_OVERLAP, preventOverlap);
+	}
+
+	public java.lang.Object getRecentColors() {
 		return (java.lang.Object) getStateHelper().eval(RECENT_COLORS, null);
 	}
 
-	protected void setRecentColors(java.lang.Object recentColors) {
+	public void setRecentColors(java.lang.Object recentColors) {
 		getStateHelper().put(RECENT_COLORS, recentColors);
 	}
 
-	protected java.lang.Boolean getRenderColorPalette() {
+	public java.lang.Object getRender() {
+		return (java.lang.Object) getStateHelper().eval(RENDER, null);
+	}
+
+	public void setRender(java.lang.Object render) {
+		getStateHelper().put(RENDER, render);
+	}
+
+	public java.lang.Boolean getRenderColorPalette() {
 		return (java.lang.Boolean) getStateHelper().eval(RENDER_COLOR_PALETTE, null);
 	}
 
-	protected void setRenderColorPalette(java.lang.Boolean renderColorPalette) {
+	public void setRenderColorPalette(java.lang.Boolean renderColorPalette) {
 		getStateHelper().put(RENDER_COLOR_PALETTE, renderColorPalette);
 	}
 
-	protected java.lang.Boolean getRenderHSVPalette() {
+	public java.lang.Boolean getRenderHSVPalette() {
 		return (java.lang.Boolean) getStateHelper().eval(RENDER_HSVPALETTE, null);
 	}
 
-	protected void setRenderHSVPalette(java.lang.Boolean renderHSVPalette) {
+	public void setRenderHSVPalette(java.lang.Boolean renderHSVPalette) {
 		getStateHelper().put(RENDER_HSVPALETTE, renderHSVPalette);
 	}
 
-	protected java.lang.Object getStrings() {
+	public java.lang.Boolean getRendered() {
+		return (java.lang.Boolean) getStateHelper().eval(RENDERED, null);
+	}
+
+	public void setRendered(java.lang.Boolean rendered) {
+		getStateHelper().put(RENDERED, rendered);
+	}
+
+	public java.lang.Boolean getShim() {
+		return (java.lang.Boolean) getStateHelper().eval(SHIM, null);
+	}
+
+	public void setShim(java.lang.Boolean shim) {
+		getStateHelper().put(SHIM, shim);
+	}
+
+	public java.lang.String getSrcNode() {
+		return (java.lang.String) getStateHelper().eval(SRC_NODE, null);
+	}
+
+	public void setSrcNode(java.lang.String srcNode) {
+		getStateHelper().put(SRC_NODE, srcNode);
+	}
+
+	public java.lang.Object getStrings() {
 		return (java.lang.Object) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.Object strings) {
+	public void setStrings(java.lang.Object strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.String getTrigger() {
+	public java.lang.Object getTabIndex() {
+		return (java.lang.Object) getStateHelper().eval(TAB_INDEX, null);
+	}
+
+	public void setTabIndex(java.lang.Object tabIndex) {
+		getStateHelper().put(TAB_INDEX, tabIndex);
+	}
+
+	public java.lang.Object getToolbarPosition() {
+		return (java.lang.Object) getStateHelper().eval(TOOLBAR_POSITION, null);
+	}
+
+	public void setToolbarPosition(java.lang.Object toolbarPosition) {
+		getStateHelper().put(TOOLBAR_POSITION, toolbarPosition);
+	}
+
+	public java.lang.String getToolbars() {
+		return (java.lang.String) getStateHelper().eval(TOOLBARS, null);
+	}
+
+	public void setToolbars(java.lang.String toolbars) {
+		getStateHelper().put(TOOLBARS, toolbars);
+	}
+
+	public java.lang.String getTrigger() {
 		return (java.lang.String) getStateHelper().eval(TRIGGER, null);
 	}
 
-	protected void setTrigger(java.lang.String trigger) {
+	public void setTrigger(java.lang.String trigger) {
 		getStateHelper().put(TRIGGER, trigger);
 	}
 
-	protected java.lang.String getTriggerEvent() {
+	public java.lang.String getTriggerEvent() {
 		return (java.lang.String) getStateHelper().eval(TRIGGER_EVENT, null);
 	}
 
-	protected void setTriggerEvent(java.lang.String triggerEvent) {
+	public void setTriggerEvent(java.lang.String triggerEvent) {
 		getStateHelper().put(TRIGGER_EVENT, triggerEvent);
 	}
 
-	protected java.lang.Boolean getVisible() {
+	public java.lang.String getTriggerToggleEvent() {
+		return (java.lang.String) getStateHelper().eval(TRIGGER_TOGGLE_EVENT, null);
+	}
+
+	public void setTriggerToggleEvent(java.lang.String triggerToggleEvent) {
+		getStateHelper().put(TRIGGER_TOGGLE_EVENT, triggerToggleEvent);
+	}
+
+	public java.lang.Boolean getVisible() {
 		return (java.lang.Boolean) getStateHelper().eval(VISIBLE, null);
 	}
 
-	protected void setVisible(java.lang.Boolean visible) {
+	public void setVisible(java.lang.Boolean visible) {
 		getStateHelper().put(VISIBLE, visible);
 	}
 
-	protected java.lang.String getAfterAlignChange() {
+	public java.lang.Object getWidth() {
+		return (java.lang.Object) getStateHelper().eval(WIDTH, null);
+	}
+
+	public void setWidth(java.lang.Object width) {
+		getStateHelper().put(WIDTH, width);
+	}
+
+	public java.lang.Object getX() {
+		return (java.lang.Object) getStateHelper().eval(X, null);
+	}
+
+	public void setX(java.lang.Object x) {
+		getStateHelper().put(X, x);
+	}
+
+	public java.lang.Object getXy() {
+		return (java.lang.Object) getStateHelper().eval(XY, null);
+	}
+
+	public void setXy(java.lang.Object xy) {
+		getStateHelper().put(XY, xy);
+	}
+
+	public java.lang.Object getY() {
+		return (java.lang.Object) getStateHelper().eval(Y, null);
+	}
+
+	public void setY(java.lang.Object y) {
+		getStateHelper().put(Y, y);
+	}
+
+	public java.lang.Object getZIndex() {
+		return (java.lang.Object) getStateHelper().eval(Z_INDEX, null);
+	}
+
+	public void setZIndex(java.lang.Object zIndex) {
+		getStateHelper().put(Z_INDEX, zIndex);
+	}
+
+	public java.lang.String getAfterAlignChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ALIGN_CHANGE, null);
 	}
 
-	protected void setAfterAlignChange(java.lang.String afterAlignChange) {
+	public void setAfterAlignChange(java.lang.String afterAlignChange) {
 		getStateHelper().put(AFTER_ALIGN_CHANGE, afterAlignChange);
 	}
 
-	protected java.lang.String getAfterBodyContentChange() {
+	public java.lang.String getAfterAlignOnChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_ALIGN_ON_CHANGE, null);
+	}
+
+	public void setAfterAlignOnChange(java.lang.String afterAlignOnChange) {
+		getStateHelper().put(AFTER_ALIGN_ON_CHANGE, afterAlignOnChange);
+	}
+
+	public java.lang.String getAfterBodyContentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BODY_CONTENT_CHANGE, null);
 	}
 
-	protected void setAfterBodyContentChange(java.lang.String afterBodyContentChange) {
+	public void setAfterBodyContentChange(java.lang.String afterBodyContentChange) {
 		getStateHelper().put(AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange);
 	}
 
-	protected java.lang.String getAfterColorChange() {
+	public java.lang.String getAfterBoundingBoxChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_BOUNDING_BOX_CHANGE, null);
+	}
+
+	public void setAfterBoundingBoxChange(java.lang.String afterBoundingBoxChange) {
+		getStateHelper().put(AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange);
+	}
+
+	public java.lang.String getAfterCenteredChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_CENTERED_CHANGE, null);
+	}
+
+	public void setAfterCenteredChange(java.lang.String afterCenteredChange) {
+		getStateHelper().put(AFTER_CENTERED_CHANGE, afterCenteredChange);
+	}
+
+	public java.lang.String getAfterColorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_COLOR_CHANGE, null);
 	}
 
-	protected void setAfterColorChange(java.lang.String afterColorChange) {
+	public void setAfterColorChange(java.lang.String afterColorChange) {
 		getStateHelper().put(AFTER_COLOR_CHANGE, afterColorChange);
 	}
 
-	protected java.lang.String getAfterColorPaletteChange() {
+	public java.lang.String getAfterColorPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_COLOR_PALETTE_CHANGE, null);
 	}
 
-	protected void setAfterColorPaletteChange(java.lang.String afterColorPaletteChange) {
+	public void setAfterColorPaletteChange(java.lang.String afterColorPaletteChange) {
 		getStateHelper().put(AFTER_COLOR_PALETTE_CHANGE, afterColorPaletteChange);
 	}
 
-	protected java.lang.String getAfterCssClassChange() {
+	public java.lang.String getAfterConstrainChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_CONSTRAIN_CHANGE, null);
+	}
+
+	public void setAfterConstrainChange(java.lang.String afterConstrainChange) {
+		getStateHelper().put(AFTER_CONSTRAIN_CHANGE, afterConstrainChange);
+	}
+
+	public java.lang.String getAfterContentBoxChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_CONTENT_BOX_CHANGE, null);
+	}
+
+	public void setAfterContentBoxChange(java.lang.String afterContentBoxChange) {
+		getStateHelper().put(AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange);
+	}
+
+	public java.lang.String getAfterCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterCssClassChange(java.lang.String afterCssClassChange) {
+	public void setAfterCssClassChange(java.lang.String afterCssClassChange) {
 		getStateHelper().put(AFTER_CSS_CLASS_CHANGE, afterCssClassChange);
 	}
 
-	protected java.lang.String getAfterCurrentTriggerChange() {
+	public java.lang.String getAfterCurrentTriggerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CURRENT_TRIGGER_CHANGE, null);
 	}
 
-	protected void setAfterCurrentTriggerChange(java.lang.String afterCurrentTriggerChange) {
+	public void setAfterCurrentTriggerChange(java.lang.String afterCurrentTriggerChange) {
 		getStateHelper().put(AFTER_CURRENT_TRIGGER_CHANGE, afterCurrentTriggerChange);
 	}
 
-	protected java.lang.String getAfterDefaultColorChange() {
+	public java.lang.String getAfterDefaultColorChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DEFAULT_COLOR_CHANGE, null);
 	}
 
-	protected void setAfterDefaultColorChange(java.lang.String afterDefaultColorChange) {
+	public void setAfterDefaultColorChange(java.lang.String afterDefaultColorChange) {
 		getStateHelper().put(AFTER_DEFAULT_COLOR_CHANGE, afterDefaultColorChange);
 	}
 
-	protected java.lang.String getAfterHsvPaletteChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterDisabledChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DISABLED_CHANGE, null);
+	}
+
+	public void setAfterDisabledChange(java.lang.String afterDisabledChange) {
+		getStateHelper().put(AFTER_DISABLED_CHANGE, afterDisabledChange);
+	}
+
+	public java.lang.String getAfterFillHeightChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_FILL_HEIGHT_CHANGE, null);
+	}
+
+	public void setAfterFillHeightChange(java.lang.String afterFillHeightChange) {
+		getStateHelper().put(AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange);
+	}
+
+	public java.lang.String getAfterFocusOnChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_FOCUS_ON_CHANGE, null);
+	}
+
+	public void setAfterFocusOnChange(java.lang.String afterFocusOnChange) {
+		getStateHelper().put(AFTER_FOCUS_ON_CHANGE, afterFocusOnChange);
+	}
+
+	public java.lang.String getAfterFocusedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_FOCUSED_CHANGE, null);
+	}
+
+	public void setAfterFocusedChange(java.lang.String afterFocusedChange) {
+		getStateHelper().put(AFTER_FOCUSED_CHANGE, afterFocusedChange);
+	}
+
+	public java.lang.String getAfterFooterContentChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_FOOTER_CONTENT_CHANGE, null);
+	}
+
+	public void setAfterFooterContentChange(java.lang.String afterFooterContentChange) {
+		getStateHelper().put(AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange);
+	}
+
+	public java.lang.String getAfterHeaderContentChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_HEADER_CONTENT_CHANGE, null);
+	}
+
+	public void setAfterHeaderContentChange(java.lang.String afterHeaderContentChange) {
+		getStateHelper().put(AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange);
+	}
+
+	public java.lang.String getAfterHeightChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_HEIGHT_CHANGE, null);
+	}
+
+	public void setAfterHeightChange(java.lang.String afterHeightChange) {
+		getStateHelper().put(AFTER_HEIGHT_CHANGE, afterHeightChange);
+	}
+
+	public java.lang.String getAfterHideOnChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_HIDE_ON_CHANGE, null);
+	}
+
+	public void setAfterHideOnChange(java.lang.String afterHideOnChange) {
+		getStateHelper().put(AFTER_HIDE_ON_CHANGE, afterHideOnChange);
+	}
+
+	public java.lang.String getAfterHsvPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HSV_PALETTE_CHANGE, null);
 	}
 
-	protected void setAfterHsvPaletteChange(java.lang.String afterHsvPaletteChange) {
+	public void setAfterHsvPaletteChange(java.lang.String afterHsvPaletteChange) {
 		getStateHelper().put(AFTER_HSV_PALETTE_CHANGE, afterHsvPaletteChange);
 	}
 
-	protected java.lang.String getAfterRecentColorsChange() {
+	public java.lang.String getAfterIdChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_ID_CHANGE, null);
+	}
+
+	public void setAfterIdChange(java.lang.String afterIdChange) {
+		getStateHelper().put(AFTER_ID_CHANGE, afterIdChange);
+	}
+
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterLocaleChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_LOCALE_CHANGE, null);
+	}
+
+	public void setAfterLocaleChange(java.lang.String afterLocaleChange) {
+		getStateHelper().put(AFTER_LOCALE_CHANGE, afterLocaleChange);
+	}
+
+	public java.lang.String getAfterMaskNodeChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_MASK_NODE_CHANGE, null);
+	}
+
+	public void setAfterMaskNodeChange(java.lang.String afterMaskNodeChange) {
+		getStateHelper().put(AFTER_MASK_NODE_CHANGE, afterMaskNodeChange);
+	}
+
+	public java.lang.String getAfterModalChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_MODAL_CHANGE, null);
+	}
+
+	public void setAfterModalChange(java.lang.String afterModalChange) {
+		getStateHelper().put(AFTER_MODAL_CHANGE, afterModalChange);
+	}
+
+	public java.lang.String getAfterPreventOverlapChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_PREVENT_OVERLAP_CHANGE, null);
+	}
+
+	public void setAfterPreventOverlapChange(java.lang.String afterPreventOverlapChange) {
+		getStateHelper().put(AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange);
+	}
+
+	public java.lang.String getAfterRecentColorsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_RECENT_COLORS_CHANGE, null);
 	}
 
-	protected void setAfterRecentColorsChange(java.lang.String afterRecentColorsChange) {
+	public void setAfterRecentColorsChange(java.lang.String afterRecentColorsChange) {
 		getStateHelper().put(AFTER_RECENT_COLORS_CHANGE, afterRecentColorsChange);
 	}
 
-	protected java.lang.String getAfterRenderColorPaletteChange() {
+	public java.lang.String getAfterRenderChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_RENDER_CHANGE, null);
+	}
+
+	public void setAfterRenderChange(java.lang.String afterRenderChange) {
+		getStateHelper().put(AFTER_RENDER_CHANGE, afterRenderChange);
+	}
+
+	public java.lang.String getAfterRenderColorPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_RENDER_COLOR_PALETTE_CHANGE, null);
 	}
 
-	protected void setAfterRenderColorPaletteChange(java.lang.String afterRenderColorPaletteChange) {
+	public void setAfterRenderColorPaletteChange(java.lang.String afterRenderColorPaletteChange) {
 		getStateHelper().put(AFTER_RENDER_COLOR_PALETTE_CHANGE, afterRenderColorPaletteChange);
 	}
 
-	protected java.lang.String getAfterRenderHSVPaletteChange() {
+	public java.lang.String getAfterRenderHSVPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_RENDER_HSVPALETTE_CHANGE, null);
 	}
 
-	protected void setAfterRenderHSVPaletteChange(java.lang.String afterRenderHSVPaletteChange) {
+	public void setAfterRenderHSVPaletteChange(java.lang.String afterRenderHSVPaletteChange) {
 		getStateHelper().put(AFTER_RENDER_HSVPALETTE_CHANGE, afterRenderHSVPaletteChange);
 	}
 
-	protected java.lang.String getAfterStringsChange() {
+	public java.lang.String getAfterRenderedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_RENDERED_CHANGE, null);
+	}
+
+	public void setAfterRenderedChange(java.lang.String afterRenderedChange) {
+		getStateHelper().put(AFTER_RENDERED_CHANGE, afterRenderedChange);
+	}
+
+	public java.lang.String getAfterShimChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_SHIM_CHANGE, null);
+	}
+
+	public void setAfterShimChange(java.lang.String afterShimChange) {
+		getStateHelper().put(AFTER_SHIM_CHANGE, afterShimChange);
+	}
+
+	public java.lang.String getAfterSrcNodeChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_SRC_NODE_CHANGE, null);
+	}
+
+	public void setAfterSrcNodeChange(java.lang.String afterSrcNodeChange) {
+		getStateHelper().put(AFTER_SRC_NODE_CHANGE, afterSrcNodeChange);
+	}
+
+	public java.lang.String getAfterStringsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_STRINGS_CHANGE, null);
 	}
 
-	protected void setAfterStringsChange(java.lang.String afterStringsChange) {
+	public void setAfterStringsChange(java.lang.String afterStringsChange) {
 		getStateHelper().put(AFTER_STRINGS_CHANGE, afterStringsChange);
 	}
 
-	protected java.lang.String getAfterTriggerChange() {
+	public java.lang.String getAfterTabIndexChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TAB_INDEX_CHANGE, null);
+	}
+
+	public void setAfterTabIndexChange(java.lang.String afterTabIndexChange) {
+		getStateHelper().put(AFTER_TAB_INDEX_CHANGE, afterTabIndexChange);
+	}
+
+	public java.lang.String getAfterToolbarPositionChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TOOLBAR_POSITION_CHANGE, null);
+	}
+
+	public void setAfterToolbarPositionChange(java.lang.String afterToolbarPositionChange) {
+		getStateHelper().put(AFTER_TOOLBAR_POSITION_CHANGE, afterToolbarPositionChange);
+	}
+
+	public java.lang.String getAfterToolbarsChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TOOLBARS_CHANGE, null);
+	}
+
+	public void setAfterToolbarsChange(java.lang.String afterToolbarsChange) {
+		getStateHelper().put(AFTER_TOOLBARS_CHANGE, afterToolbarsChange);
+	}
+
+	public java.lang.String getAfterTriggerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TRIGGER_CHANGE, null);
 	}
 
-	protected void setAfterTriggerChange(java.lang.String afterTriggerChange) {
+	public void setAfterTriggerChange(java.lang.String afterTriggerChange) {
 		getStateHelper().put(AFTER_TRIGGER_CHANGE, afterTriggerChange);
 	}
 
-	protected java.lang.String getAfterTriggerEventChange() {
+	public java.lang.String getAfterTriggerEventChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TRIGGER_EVENT_CHANGE, null);
 	}
 
-	protected void setAfterTriggerEventChange(java.lang.String afterTriggerEventChange) {
+	public void setAfterTriggerEventChange(java.lang.String afterTriggerEventChange) {
 		getStateHelper().put(AFTER_TRIGGER_EVENT_CHANGE, afterTriggerEventChange);
 	}
 
-	protected java.lang.String getAfterVisibleChange() {
+	public java.lang.String getAfterTriggerToggleEventChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_TRIGGER_TOGGLE_EVENT_CHANGE, null);
+	}
+
+	public void setAfterTriggerToggleEventChange(java.lang.String afterTriggerToggleEventChange) {
+		getStateHelper().put(AFTER_TRIGGER_TOGGLE_EVENT_CHANGE, afterTriggerToggleEventChange);
+	}
+
+	public java.lang.String getAfterVisibleChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_VISIBLE_CHANGE, null);
 	}
 
-	protected void setAfterVisibleChange(java.lang.String afterVisibleChange) {
+	public void setAfterVisibleChange(java.lang.String afterVisibleChange) {
 		getStateHelper().put(AFTER_VISIBLE_CHANGE, afterVisibleChange);
 	}
 
-	protected java.lang.String getOnAlignChange() {
+	public java.lang.String getAfterWidthChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_WIDTH_CHANGE, null);
+	}
+
+	public void setAfterWidthChange(java.lang.String afterWidthChange) {
+		getStateHelper().put(AFTER_WIDTH_CHANGE, afterWidthChange);
+	}
+
+	public java.lang.String getAfterXChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_XCHANGE, null);
+	}
+
+	public void setAfterXChange(java.lang.String afterXChange) {
+		getStateHelper().put(AFTER_XCHANGE, afterXChange);
+	}
+
+	public java.lang.String getAfterXyChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_XY_CHANGE, null);
+	}
+
+	public void setAfterXyChange(java.lang.String afterXyChange) {
+		getStateHelper().put(AFTER_XY_CHANGE, afterXyChange);
+	}
+
+	public java.lang.String getAfterYChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_YCHANGE, null);
+	}
+
+	public void setAfterYChange(java.lang.String afterYChange) {
+		getStateHelper().put(AFTER_YCHANGE, afterYChange);
+	}
+
+	public java.lang.String getAfterZIndexChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_ZINDEX_CHANGE, null);
+	}
+
+	public void setAfterZIndexChange(java.lang.String afterZIndexChange) {
+		getStateHelper().put(AFTER_ZINDEX_CHANGE, afterZIndexChange);
+	}
+
+	public java.lang.String getOnAlignChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ALIGN_CHANGE, null);
 	}
 
-	protected void setOnAlignChange(java.lang.String onAlignChange) {
+	public void setOnAlignChange(java.lang.String onAlignChange) {
 		getStateHelper().put(ON_ALIGN_CHANGE, onAlignChange);
 	}
 
-	protected java.lang.String getOnBodyContentChange() {
+	public java.lang.String getOnAlignOnChange() {
+		return (java.lang.String) getStateHelper().eval(ON_ALIGN_ON_CHANGE, null);
+	}
+
+	public void setOnAlignOnChange(java.lang.String onAlignOnChange) {
+		getStateHelper().put(ON_ALIGN_ON_CHANGE, onAlignOnChange);
+	}
+
+	public java.lang.String getOnBodyContentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BODY_CONTENT_CHANGE, null);
 	}
 
-	protected void setOnBodyContentChange(java.lang.String onBodyContentChange) {
+	public void setOnBodyContentChange(java.lang.String onBodyContentChange) {
 		getStateHelper().put(ON_BODY_CONTENT_CHANGE, onBodyContentChange);
 	}
 
-	protected java.lang.String getOnColorChange() {
+	public java.lang.String getOnBoundingBoxChange() {
+		return (java.lang.String) getStateHelper().eval(ON_BOUNDING_BOX_CHANGE, null);
+	}
+
+	public void setOnBoundingBoxChange(java.lang.String onBoundingBoxChange) {
+		getStateHelper().put(ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange);
+	}
+
+	public java.lang.String getOnCenteredChange() {
+		return (java.lang.String) getStateHelper().eval(ON_CENTERED_CHANGE, null);
+	}
+
+	public void setOnCenteredChange(java.lang.String onCenteredChange) {
+		getStateHelper().put(ON_CENTERED_CHANGE, onCenteredChange);
+	}
+
+	public java.lang.String getOnColorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_COLOR_CHANGE, null);
 	}
 
-	protected void setOnColorChange(java.lang.String onColorChange) {
+	public void setOnColorChange(java.lang.String onColorChange) {
 		getStateHelper().put(ON_COLOR_CHANGE, onColorChange);
 	}
 
-	protected java.lang.String getOnColorPaletteChange() {
+	public java.lang.String getOnColorPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(ON_COLOR_PALETTE_CHANGE, null);
 	}
 
-	protected void setOnColorPaletteChange(java.lang.String onColorPaletteChange) {
+	public void setOnColorPaletteChange(java.lang.String onColorPaletteChange) {
 		getStateHelper().put(ON_COLOR_PALETTE_CHANGE, onColorPaletteChange);
 	}
 
-	protected java.lang.String getOnCssClassChange() {
+	public java.lang.String getOnConstrainChange() {
+		return (java.lang.String) getStateHelper().eval(ON_CONSTRAIN_CHANGE, null);
+	}
+
+	public void setOnConstrainChange(java.lang.String onConstrainChange) {
+		getStateHelper().put(ON_CONSTRAIN_CHANGE, onConstrainChange);
+	}
+
+	public java.lang.String getOnContentBoxChange() {
+		return (java.lang.String) getStateHelper().eval(ON_CONTENT_BOX_CHANGE, null);
+	}
+
+	public void setOnContentBoxChange(java.lang.String onContentBoxChange) {
+		getStateHelper().put(ON_CONTENT_BOX_CHANGE, onContentBoxChange);
+	}
+
+	public java.lang.String getOnCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setOnCssClassChange(java.lang.String onCssClassChange) {
+	public void setOnCssClassChange(java.lang.String onCssClassChange) {
 		getStateHelper().put(ON_CSS_CLASS_CHANGE, onCssClassChange);
 	}
 
-	protected java.lang.String getOnCurrentTriggerChange() {
+	public java.lang.String getOnCurrentTriggerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CURRENT_TRIGGER_CHANGE, null);
 	}
 
-	protected void setOnCurrentTriggerChange(java.lang.String onCurrentTriggerChange) {
+	public void setOnCurrentTriggerChange(java.lang.String onCurrentTriggerChange) {
 		getStateHelper().put(ON_CURRENT_TRIGGER_CHANGE, onCurrentTriggerChange);
 	}
 
-	protected java.lang.String getOnDefaultColorChange() {
+	public java.lang.String getOnDefaultColorChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DEFAULT_COLOR_CHANGE, null);
 	}
 
-	protected void setOnDefaultColorChange(java.lang.String onDefaultColorChange) {
+	public void setOnDefaultColorChange(java.lang.String onDefaultColorChange) {
 		getStateHelper().put(ON_DEFAULT_COLOR_CHANGE, onDefaultColorChange);
 	}
 
-	protected java.lang.String getOnHsvPaletteChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnDisabledChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DISABLED_CHANGE, null);
+	}
+
+	public void setOnDisabledChange(java.lang.String onDisabledChange) {
+		getStateHelper().put(ON_DISABLED_CHANGE, onDisabledChange);
+	}
+
+	public java.lang.String getOnFillHeightChange() {
+		return (java.lang.String) getStateHelper().eval(ON_FILL_HEIGHT_CHANGE, null);
+	}
+
+	public void setOnFillHeightChange(java.lang.String onFillHeightChange) {
+		getStateHelper().put(ON_FILL_HEIGHT_CHANGE, onFillHeightChange);
+	}
+
+	public java.lang.String getOnFocusOnChange() {
+		return (java.lang.String) getStateHelper().eval(ON_FOCUS_ON_CHANGE, null);
+	}
+
+	public void setOnFocusOnChange(java.lang.String onFocusOnChange) {
+		getStateHelper().put(ON_FOCUS_ON_CHANGE, onFocusOnChange);
+	}
+
+	public java.lang.String getOnFocusedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_FOCUSED_CHANGE, null);
+	}
+
+	public void setOnFocusedChange(java.lang.String onFocusedChange) {
+		getStateHelper().put(ON_FOCUSED_CHANGE, onFocusedChange);
+	}
+
+	public java.lang.String getOnFooterContentChange() {
+		return (java.lang.String) getStateHelper().eval(ON_FOOTER_CONTENT_CHANGE, null);
+	}
+
+	public void setOnFooterContentChange(java.lang.String onFooterContentChange) {
+		getStateHelper().put(ON_FOOTER_CONTENT_CHANGE, onFooterContentChange);
+	}
+
+	public java.lang.String getOnHeaderContentChange() {
+		return (java.lang.String) getStateHelper().eval(ON_HEADER_CONTENT_CHANGE, null);
+	}
+
+	public void setOnHeaderContentChange(java.lang.String onHeaderContentChange) {
+		getStateHelper().put(ON_HEADER_CONTENT_CHANGE, onHeaderContentChange);
+	}
+
+	public java.lang.String getOnHeightChange() {
+		return (java.lang.String) getStateHelper().eval(ON_HEIGHT_CHANGE, null);
+	}
+
+	public void setOnHeightChange(java.lang.String onHeightChange) {
+		getStateHelper().put(ON_HEIGHT_CHANGE, onHeightChange);
+	}
+
+	public java.lang.String getOnHideOnChange() {
+		return (java.lang.String) getStateHelper().eval(ON_HIDE_ON_CHANGE, null);
+	}
+
+	public void setOnHideOnChange(java.lang.String onHideOnChange) {
+		getStateHelper().put(ON_HIDE_ON_CHANGE, onHideOnChange);
+	}
+
+	public java.lang.String getOnHsvPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HSV_PALETTE_CHANGE, null);
 	}
 
-	protected void setOnHsvPaletteChange(java.lang.String onHsvPaletteChange) {
+	public void setOnHsvPaletteChange(java.lang.String onHsvPaletteChange) {
 		getStateHelper().put(ON_HSV_PALETTE_CHANGE, onHsvPaletteChange);
 	}
 
-	protected java.lang.String getOnRecentColorsChange() {
+	public java.lang.String getOnIdChange() {
+		return (java.lang.String) getStateHelper().eval(ON_ID_CHANGE, null);
+	}
+
+	public void setOnIdChange(java.lang.String onIdChange) {
+		getStateHelper().put(ON_ID_CHANGE, onIdChange);
+	}
+
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnLocaleChange() {
+		return (java.lang.String) getStateHelper().eval(ON_LOCALE_CHANGE, null);
+	}
+
+	public void setOnLocaleChange(java.lang.String onLocaleChange) {
+		getStateHelper().put(ON_LOCALE_CHANGE, onLocaleChange);
+	}
+
+	public java.lang.String getOnMaskNodeChange() {
+		return (java.lang.String) getStateHelper().eval(ON_MASK_NODE_CHANGE, null);
+	}
+
+	public void setOnMaskNodeChange(java.lang.String onMaskNodeChange) {
+		getStateHelper().put(ON_MASK_NODE_CHANGE, onMaskNodeChange);
+	}
+
+	public java.lang.String getOnModalChange() {
+		return (java.lang.String) getStateHelper().eval(ON_MODAL_CHANGE, null);
+	}
+
+	public void setOnModalChange(java.lang.String onModalChange) {
+		getStateHelper().put(ON_MODAL_CHANGE, onModalChange);
+	}
+
+	public java.lang.String getOnPreventOverlapChange() {
+		return (java.lang.String) getStateHelper().eval(ON_PREVENT_OVERLAP_CHANGE, null);
+	}
+
+	public void setOnPreventOverlapChange(java.lang.String onPreventOverlapChange) {
+		getStateHelper().put(ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange);
+	}
+
+	public java.lang.String getOnRecentColorsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_RECENT_COLORS_CHANGE, null);
 	}
 
-	protected void setOnRecentColorsChange(java.lang.String onRecentColorsChange) {
+	public void setOnRecentColorsChange(java.lang.String onRecentColorsChange) {
 		getStateHelper().put(ON_RECENT_COLORS_CHANGE, onRecentColorsChange);
 	}
 
-	protected java.lang.String getOnRenderColorPaletteChange() {
+	public java.lang.String getOnRenderChange() {
+		return (java.lang.String) getStateHelper().eval(ON_RENDER_CHANGE, null);
+	}
+
+	public void setOnRenderChange(java.lang.String onRenderChange) {
+		getStateHelper().put(ON_RENDER_CHANGE, onRenderChange);
+	}
+
+	public java.lang.String getOnRenderColorPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(ON_RENDER_COLOR_PALETTE_CHANGE, null);
 	}
 
-	protected void setOnRenderColorPaletteChange(java.lang.String onRenderColorPaletteChange) {
+	public void setOnRenderColorPaletteChange(java.lang.String onRenderColorPaletteChange) {
 		getStateHelper().put(ON_RENDER_COLOR_PALETTE_CHANGE, onRenderColorPaletteChange);
 	}
 
-	protected java.lang.String getOnRenderHSVPaletteChange() {
+	public java.lang.String getOnRenderHSVPaletteChange() {
 		return (java.lang.String) getStateHelper().eval(ON_RENDER_HSVPALETTE_CHANGE, null);
 	}
 
-	protected void setOnRenderHSVPaletteChange(java.lang.String onRenderHSVPaletteChange) {
+	public void setOnRenderHSVPaletteChange(java.lang.String onRenderHSVPaletteChange) {
 		getStateHelper().put(ON_RENDER_HSVPALETTE_CHANGE, onRenderHSVPaletteChange);
 	}
 
-	protected java.lang.String getOnStringsChange() {
+	public java.lang.String getOnRenderedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_RENDERED_CHANGE, null);
+	}
+
+	public void setOnRenderedChange(java.lang.String onRenderedChange) {
+		getStateHelper().put(ON_RENDERED_CHANGE, onRenderedChange);
+	}
+
+	public java.lang.String getOnShimChange() {
+		return (java.lang.String) getStateHelper().eval(ON_SHIM_CHANGE, null);
+	}
+
+	public void setOnShimChange(java.lang.String onShimChange) {
+		getStateHelper().put(ON_SHIM_CHANGE, onShimChange);
+	}
+
+	public java.lang.String getOnSrcNodeChange() {
+		return (java.lang.String) getStateHelper().eval(ON_SRC_NODE_CHANGE, null);
+	}
+
+	public void setOnSrcNodeChange(java.lang.String onSrcNodeChange) {
+		getStateHelper().put(ON_SRC_NODE_CHANGE, onSrcNodeChange);
+	}
+
+	public java.lang.String getOnStringsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_STRINGS_CHANGE, null);
 	}
 
-	protected void setOnStringsChange(java.lang.String onStringsChange) {
+	public void setOnStringsChange(java.lang.String onStringsChange) {
 		getStateHelper().put(ON_STRINGS_CHANGE, onStringsChange);
 	}
 
-	protected java.lang.String getOnTriggerChange() {
+	public java.lang.String getOnTabIndexChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TAB_INDEX_CHANGE, null);
+	}
+
+	public void setOnTabIndexChange(java.lang.String onTabIndexChange) {
+		getStateHelper().put(ON_TAB_INDEX_CHANGE, onTabIndexChange);
+	}
+
+	public java.lang.String getOnToolbarPositionChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TOOLBAR_POSITION_CHANGE, null);
+	}
+
+	public void setOnToolbarPositionChange(java.lang.String onToolbarPositionChange) {
+		getStateHelper().put(ON_TOOLBAR_POSITION_CHANGE, onToolbarPositionChange);
+	}
+
+	public java.lang.String getOnToolbarsChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TOOLBARS_CHANGE, null);
+	}
+
+	public void setOnToolbarsChange(java.lang.String onToolbarsChange) {
+		getStateHelper().put(ON_TOOLBARS_CHANGE, onToolbarsChange);
+	}
+
+	public java.lang.String getOnTriggerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TRIGGER_CHANGE, null);
 	}
 
-	protected void setOnTriggerChange(java.lang.String onTriggerChange) {
+	public void setOnTriggerChange(java.lang.String onTriggerChange) {
 		getStateHelper().put(ON_TRIGGER_CHANGE, onTriggerChange);
 	}
 
-	protected java.lang.String getOnTriggerEventChange() {
+	public java.lang.String getOnTriggerEventChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TRIGGER_EVENT_CHANGE, null);
 	}
 
-	protected void setOnTriggerEventChange(java.lang.String onTriggerEventChange) {
+	public void setOnTriggerEventChange(java.lang.String onTriggerEventChange) {
 		getStateHelper().put(ON_TRIGGER_EVENT_CHANGE, onTriggerEventChange);
 	}
 
-	protected java.lang.String getOnVisibleChange() {
+	public java.lang.String getOnTriggerToggleEventChange() {
+		return (java.lang.String) getStateHelper().eval(ON_TRIGGER_TOGGLE_EVENT_CHANGE, null);
+	}
+
+	public void setOnTriggerToggleEventChange(java.lang.String onTriggerToggleEventChange) {
+		getStateHelper().put(ON_TRIGGER_TOGGLE_EVENT_CHANGE, onTriggerToggleEventChange);
+	}
+
+	public java.lang.String getOnVisibleChange() {
 		return (java.lang.String) getStateHelper().eval(ON_VISIBLE_CHANGE, null);
 	}
 
-	protected void setOnVisibleChange(java.lang.String onVisibleChange) {
+	public void setOnVisibleChange(java.lang.String onVisibleChange) {
 		getStateHelper().put(ON_VISIBLE_CHANGE, onVisibleChange);
+	}
+
+	public java.lang.String getOnWidthChange() {
+		return (java.lang.String) getStateHelper().eval(ON_WIDTH_CHANGE, null);
+	}
+
+	public void setOnWidthChange(java.lang.String onWidthChange) {
+		getStateHelper().put(ON_WIDTH_CHANGE, onWidthChange);
+	}
+
+	public java.lang.String getOnXChange() {
+		return (java.lang.String) getStateHelper().eval(ON_XCHANGE, null);
+	}
+
+	public void setOnXChange(java.lang.String onXChange) {
+		getStateHelper().put(ON_XCHANGE, onXChange);
+	}
+
+	public java.lang.String getOnXyChange() {
+		return (java.lang.String) getStateHelper().eval(ON_XY_CHANGE, null);
+	}
+
+	public void setOnXyChange(java.lang.String onXyChange) {
+		getStateHelper().put(ON_XY_CHANGE, onXyChange);
+	}
+
+	public java.lang.String getOnYChange() {
+		return (java.lang.String) getStateHelper().eval(ON_YCHANGE, null);
+	}
+
+	public void setOnYChange(java.lang.String onYChange) {
+		getStateHelper().put(ON_YCHANGE, onYChange);
+	}
+
+	public java.lang.String getOnZIndexChange() {
+		return (java.lang.String) getStateHelper().eval(ON_ZINDEX_CHANGE, null);
+	}
+
+	public void setOnZIndexChange(java.lang.String onZIndexChange) {
+		getStateHelper().put(ON_ZINDEX_CHANGE, onZIndexChange);
 	}
 
 }

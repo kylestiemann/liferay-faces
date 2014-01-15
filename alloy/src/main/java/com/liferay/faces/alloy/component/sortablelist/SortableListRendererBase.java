@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.sortablelist;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,30 +57,37 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, sortableList);
 
-		bufferedResponseWriter.write("var sortableList = new Y.SortableList");
+		bufferedResponseWriter.write("var sortableList = new A.SortableList");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDd(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropCondition(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropContainer(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropOn(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHelper(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNodes(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPlaceholder(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderProxy(bufferedResponseWriter, sortableList);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSortCondition(bufferedResponseWriter, sortableList);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderDd(renrederedAttributes, sortableList);
+		renderDestroyed(renrederedAttributes, sortableList);
+		renderDropCondition(renrederedAttributes, sortableList);
+		renderDropContainer(renrederedAttributes, sortableList);
+		renderDropOn(renrederedAttributes, sortableList);
+		renderHelper(renrederedAttributes, sortableList);
+		renderInitialized(renrederedAttributes, sortableList);
+		renderNodes(renrederedAttributes, sortableList);
+		renderPlaceholder(renrederedAttributes, sortableList);
+		renderProxy(renrederedAttributes, sortableList);
+		renderSortCondition(renrederedAttributes, sortableList);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -92,40 +101,70 @@ public abstract class SortableListRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDd(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "dd", sortableList.getDd());
+	protected void renderDd(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getDd() != null) {
+			renrederedAttributes.add(renderString("dd", sortableList.getDd()));
+		}
 	}
 
-	protected void renderDropCondition(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "dropCondition", sortableList.getDropCondition());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", sortableList.getDestroyed()));
+		}
 	}
 
-	protected void renderDropContainer(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "dropContainer", sortableList.getDropContainer());
+	protected void renderDropCondition(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getDropCondition() != null) {
+			renrederedAttributes.add(renderString("dropCondition", sortableList.getDropCondition()));
+		}
 	}
 
-	protected void renderDropOn(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "dropOn", sortableList.getDropOn());
+	protected void renderDropContainer(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getDropContainer() != null) {
+			renrederedAttributes.add(renderString("dropContainer", sortableList.getDropContainer()));
+		}
 	}
 
-	protected void renderHelper(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "helper", sortableList.getHelper());
+	protected void renderDropOn(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getDropOn() != null) {
+			renrederedAttributes.add(renderString("dropOn", sortableList.getDropOn()));
+		}
 	}
 
-	protected void renderNodes(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "nodes", sortableList.getNodes());
+	protected void renderHelper(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getHelper() != null) {
+			renrederedAttributes.add(renderString("helper", sortableList.getHelper()));
+		}
 	}
 
-	protected void renderPlaceholder(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "placeholder", sortableList.getPlaceholder());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", sortableList.getInitialized()));
+		}
 	}
 
-	protected void renderProxy(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "proxy", sortableList.getProxy());
+	protected void renderNodes(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getNodes() != null) {
+			renrederedAttributes.add(renderString("nodes", sortableList.getNodes()));
+		}
 	}
 
-	protected void renderSortCondition(ResponseWriter responseWriter, SortableList sortableList) throws IOException {
-		renderString(responseWriter, "sortCondition", sortableList.getSortCondition());
+	protected void renderPlaceholder(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getPlaceholder() != null) {
+			renrederedAttributes.add(renderString("placeholder", sortableList.getPlaceholder()));
+		}
+	}
+
+	protected void renderProxy(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getProxy() != null) {
+			renrederedAttributes.add(renderString("proxy", sortableList.getProxy()));
+		}
+	}
+
+	protected void renderSortCondition(ArrayList<String> renrederedAttributes, SortableList sortableList) throws IOException {
+		if (sortableList.getSortCondition() != null) {
+			renrederedAttributes.add(renderString("sortCondition", sortableList.getSortCondition()));
+		}
 	}
 
 }

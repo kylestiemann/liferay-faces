@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treeview;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,26 +57,35 @@ public abstract class TreeViewRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeView);
 
-		bufferedResponseWriter.write("var treeView = new Y.TreeView");
+		bufferedResponseWriter.write("var treeView = new A.TreeView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreeviewChildren(bufferedResponseWriter, treeView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainer(bufferedResponseWriter, treeView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIndex(bufferedResponseWriter, treeView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLastSelected(bufferedResponseWriter, treeView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLazyLoad(bufferedResponseWriter, treeView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelectOnToggle(bufferedResponseWriter, treeView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, treeView);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderTreeviewChildren(renrederedAttributes, treeView);
+		renderContainer(renrederedAttributes, treeView);
+		renderDestroyed(renrederedAttributes, treeView);
+		renderIndex(renrederedAttributes, treeView);
+		renderInitialized(renrederedAttributes, treeView);
+		renderLastSelected(renrederedAttributes, treeView);
+		renderLazyLoad(renrederedAttributes, treeView);
+		renderSelectOnToggle(renrederedAttributes, treeView);
+		renderType(renrederedAttributes, treeView);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -88,32 +99,58 @@ public abstract class TreeViewRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderTreeviewChildren(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderArray(responseWriter, "treeviewChildren", treeView.getTreeviewChildren());
+	protected void renderTreeviewChildren(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getTreeviewChildren() != null) {
+			renrederedAttributes.add(renderArray("treeviewChildren", treeView.getTreeviewChildren()));
+		}
 	}
 
-	protected void renderContainer(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderString(responseWriter, "container", treeView.getContainer());
+	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getContainer() != null) {
+			renrederedAttributes.add(renderString("container", treeView.getContainer()));
+		}
 	}
 
-	protected void renderIndex(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderObject(responseWriter, "index", treeView.getIndex());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", treeView.getDestroyed()));
+		}
 	}
 
-	protected void renderLastSelected(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderString(responseWriter, "lastSelected", treeView.getLastSelected());
+	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getIndex() != null) {
+			renrederedAttributes.add(renderObject("index", treeView.getIndex()));
+		}
 	}
 
-	protected void renderLazyLoad(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderBoolean(responseWriter, "lazyLoad", treeView.getLazyLoad());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", treeView.getInitialized()));
+		}
 	}
 
-	protected void renderSelectOnToggle(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderBoolean(responseWriter, "selectOnToggle", treeView.getSelectOnToggle());
+	protected void renderLastSelected(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getLastSelected() != null) {
+			renrederedAttributes.add(renderString("lastSelected", treeView.getLastSelected()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, TreeView treeView) throws IOException {
-		renderString(responseWriter, "type", treeView.getType());
+	protected void renderLazyLoad(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getLazyLoad() != null) {
+			renrederedAttributes.add(renderBoolean("lazyLoad", treeView.getLazyLoad()));
+		}
+	}
+
+	protected void renderSelectOnToggle(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getSelectOnToggle() != null) {
+			renrederedAttributes.add(renderBoolean("selectOnToggle", treeView.getSelectOnToggle()));
+		}
+	}
+
+	protected void renderType(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
+		if (treeView.getType() != null) {
+			renrederedAttributes.add(renderString("type", treeView.getType()));
+		}
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.formvalidator;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,48 +57,46 @@ public abstract class FormValidatorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, formValidator);
 
-		bufferedResponseWriter.write("var formValidator = new Y.FormValidator");
+		bufferedResponseWriter.write("var formValidator = new A.FormValidator");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainerErrorClass(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderContainerValidClass(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderErrorClass(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderExtractRules(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFieldContainer(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFieldStrings(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelCssClass(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMessageContainer(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRules(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelectText(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowAllMessages(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowMessages(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStackErrorContainer(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValidClass(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValidateOnBlur(bufferedResponseWriter, formValidator);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderValidateOnInput(bufferedResponseWriter, formValidator);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, formValidator);
+		renderContainerErrorClass(renrederedAttributes, formValidator);
+		renderContainerValidClass(renrederedAttributes, formValidator);
+		renderDestroyed(renrederedAttributes, formValidator);
+		renderErrorClass(renrederedAttributes, formValidator);
+		renderExtractRules(renrederedAttributes, formValidator);
+		renderFieldContainer(renrederedAttributes, formValidator);
+		renderFieldStrings(renrederedAttributes, formValidator);
+		renderInitialized(renrederedAttributes, formValidator);
+		renderLabelCssClass(renrederedAttributes, formValidator);
+		renderMessageContainer(renrederedAttributes, formValidator);
+		renderRules(renrederedAttributes, formValidator);
+		renderSelectText(renrederedAttributes, formValidator);
+		renderShowAllMessages(renrederedAttributes, formValidator);
+		renderShowMessages(renrederedAttributes, formValidator);
+		renderStackErrorContainer(renrederedAttributes, formValidator);
+		renderStrings(renrederedAttributes, formValidator);
+		renderValidClass(renrederedAttributes, formValidator);
+		renderValidateOnBlur(renrederedAttributes, formValidator);
+		renderValidateOnInput(renrederedAttributes, formValidator);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -110,76 +110,124 @@ public abstract class FormValidatorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "boundingBox", formValidator.getBoundingBox());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", formValidator.getBoundingBox()));
+		}
 	}
 
-	protected void renderContainerErrorClass(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "containerErrorClass", formValidator.getContainerErrorClass());
+	protected void renderContainerErrorClass(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getContainerErrorClass() != null) {
+			renrederedAttributes.add(renderString("containerErrorClass", formValidator.getContainerErrorClass()));
+		}
 	}
 
-	protected void renderContainerValidClass(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "containerValidClass", formValidator.getContainerValidClass());
+	protected void renderContainerValidClass(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getContainerValidClass() != null) {
+			renrederedAttributes.add(renderString("containerValidClass", formValidator.getContainerValidClass()));
+		}
 	}
 
-	protected void renderErrorClass(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "errorClass", formValidator.getErrorClass());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", formValidator.getDestroyed()));
+		}
 	}
 
-	protected void renderExtractRules(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderBoolean(responseWriter, "extractRules", formValidator.getExtractRules());
+	protected void renderErrorClass(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getErrorClass() != null) {
+			renrederedAttributes.add(renderString("errorClass", formValidator.getErrorClass()));
+		}
 	}
 
-	protected void renderFieldContainer(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "fieldContainer", formValidator.getFieldContainer());
+	protected void renderExtractRules(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getExtractRules() != null) {
+			renrederedAttributes.add(renderBoolean("extractRules", formValidator.getExtractRules()));
+		}
 	}
 
-	protected void renderFieldStrings(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderObject(responseWriter, "fieldStrings", formValidator.getFieldStrings());
+	protected void renderFieldContainer(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getFieldContainer() != null) {
+			renrederedAttributes.add(renderString("fieldContainer", formValidator.getFieldContainer()));
+		}
 	}
 
-	protected void renderLabelCssClass(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "labelCssClass", formValidator.getLabelCssClass());
+	protected void renderFieldStrings(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getFieldStrings() != null) {
+			renrederedAttributes.add(renderObject("fieldStrings", formValidator.getFieldStrings()));
+		}
 	}
 
-	protected void renderMessageContainer(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "messageContainer", formValidator.getMessageContainer());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", formValidator.getInitialized()));
+		}
 	}
 
-	protected void renderRules(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderObject(responseWriter, "rules", formValidator.getRules());
+	protected void renderLabelCssClass(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getLabelCssClass() != null) {
+			renrederedAttributes.add(renderString("labelCssClass", formValidator.getLabelCssClass()));
+		}
 	}
 
-	protected void renderSelectText(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderBoolean(responseWriter, "selectText", formValidator.getSelectText());
+	protected void renderMessageContainer(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getMessageContainer() != null) {
+			renrederedAttributes.add(renderString("messageContainer", formValidator.getMessageContainer()));
+		}
 	}
 
-	protected void renderShowAllMessages(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderBoolean(responseWriter, "showAllMessages", formValidator.getShowAllMessages());
+	protected void renderRules(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getRules() != null) {
+			renrederedAttributes.add(renderObject("rules", formValidator.getRules()));
+		}
 	}
 
-	protected void renderShowMessages(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderBoolean(responseWriter, "showMessages", formValidator.getShowMessages());
+	protected void renderSelectText(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getSelectText() != null) {
+			renrederedAttributes.add(renderBoolean("selectText", formValidator.getSelectText()));
+		}
 	}
 
-	protected void renderStackErrorContainer(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "stackErrorContainer", formValidator.getStackErrorContainer());
+	protected void renderShowAllMessages(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getShowAllMessages() != null) {
+			renrederedAttributes.add(renderBoolean("showAllMessages", formValidator.getShowAllMessages()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "strings", formValidator.getStrings());
+	protected void renderShowMessages(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getShowMessages() != null) {
+			renrederedAttributes.add(renderBoolean("showMessages", formValidator.getShowMessages()));
+		}
 	}
 
-	protected void renderValidClass(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderString(responseWriter, "validClass", formValidator.getValidClass());
+	protected void renderStackErrorContainer(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getStackErrorContainer() != null) {
+			renrederedAttributes.add(renderString("stackErrorContainer", formValidator.getStackErrorContainer()));
+		}
 	}
 
-	protected void renderValidateOnBlur(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderBoolean(responseWriter, "validateOnBlur", formValidator.getValidateOnBlur());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getStrings() != null) {
+			renrederedAttributes.add(renderString("strings", formValidator.getStrings()));
+		}
 	}
 
-	protected void renderValidateOnInput(ResponseWriter responseWriter, FormValidator formValidator) throws IOException {
-		renderBoolean(responseWriter, "validateOnInput", formValidator.getValidateOnInput());
+	protected void renderValidClass(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getValidClass() != null) {
+			renrederedAttributes.add(renderString("validClass", formValidator.getValidClass()));
+		}
+	}
+
+	protected void renderValidateOnBlur(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getValidateOnBlur() != null) {
+			renrederedAttributes.add(renderBoolean("validateOnBlur", formValidator.getValidateOnBlur()));
+		}
+	}
+
+	protected void renderValidateOnInput(ArrayList<String> renrederedAttributes, FormValidator formValidator) throws IOException {
+		if (formValidator.getValidateOnInput() != null) {
+			renrederedAttributes.add(renderBoolean("validateOnInput", formValidator.getValidateOnInput()));
+		}
 	}
 
 }

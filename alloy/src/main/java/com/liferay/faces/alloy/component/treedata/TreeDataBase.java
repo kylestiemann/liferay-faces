@@ -23,84 +23,138 @@ public abstract class TreeDataBase extends javax.faces.component.UIPanel {
 
 	private static final String TREEDATA_CHILDREN = "treedataChildren";
 	private static final String CONTAINER = "container";
+	private static final String DESTROYED = "destroyed";
 	private static final String INDEX = "index";
+	private static final String INITIALIZED = "initialized";
 	private static final String AFTER_CHILDREN_CHANGE = "afterChildrenChange";
 	private static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
 	private static final String AFTER_INDEX_CHANGE = "afterIndexChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String ON_CHILDREN_CHANGE = "onChildrenChange";
 	private static final String ON_CONTAINER_CHANGE = "onContainerChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
 	private static final String ON_INDEX_CHANGE = "onIndexChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 
-	protected java.lang.Object getTreedataChildren() {
+	public java.lang.Object getTreedataChildren() {
 		return (java.lang.Object) getStateHelper().eval(TREEDATA_CHILDREN, null);
 	}
 
-	protected void setTreedataChildren(java.lang.Object treedataChildren) {
+	public void setTreedataChildren(java.lang.Object treedataChildren) {
 		getStateHelper().put(TREEDATA_CHILDREN, treedataChildren);
 	}
 
-	protected java.lang.String getContainer() {
+	public java.lang.String getContainer() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER, null);
 	}
 
-	protected void setContainer(java.lang.String container) {
+	public void setContainer(java.lang.String container) {
 		getStateHelper().put(CONTAINER, container);
 	}
 
-	protected java.lang.Object getIndex() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Object getIndex() {
 		return (java.lang.Object) getStateHelper().eval(INDEX, null);
 	}
 
-	protected void setIndex(java.lang.Object index) {
+	public void setIndex(java.lang.Object index) {
 		getStateHelper().put(INDEX, index);
 	}
 
-	protected java.lang.String getAfterChildrenChange() {
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.String getAfterChildrenChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CHILDREN_CHANGE, null);
 	}
 
-	protected void setAfterChildrenChange(java.lang.String afterChildrenChange) {
+	public void setAfterChildrenChange(java.lang.String afterChildrenChange) {
 		getStateHelper().put(AFTER_CHILDREN_CHANGE, afterChildrenChange);
 	}
 
-	protected java.lang.String getAfterContainerChange() {
+	public java.lang.String getAfterContainerChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTAINER_CHANGE, null);
 	}
 
-	protected void setAfterContainerChange(java.lang.String afterContainerChange) {
+	public void setAfterContainerChange(java.lang.String afterContainerChange) {
 		getStateHelper().put(AFTER_CONTAINER_CHANGE, afterContainerChange);
 	}
 
-	protected java.lang.String getAfterIndexChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterIndexChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_INDEX_CHANGE, null);
 	}
 
-	protected void setAfterIndexChange(java.lang.String afterIndexChange) {
+	public void setAfterIndexChange(java.lang.String afterIndexChange) {
 		getStateHelper().put(AFTER_INDEX_CHANGE, afterIndexChange);
 	}
 
-	protected java.lang.String getOnChildrenChange() {
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getOnChildrenChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CHILDREN_CHANGE, null);
 	}
 
-	protected void setOnChildrenChange(java.lang.String onChildrenChange) {
+	public void setOnChildrenChange(java.lang.String onChildrenChange) {
 		getStateHelper().put(ON_CHILDREN_CHANGE, onChildrenChange);
 	}
 
-	protected java.lang.String getOnContainerChange() {
+	public java.lang.String getOnContainerChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTAINER_CHANGE, null);
 	}
 
-	protected void setOnContainerChange(java.lang.String onContainerChange) {
+	public void setOnContainerChange(java.lang.String onContainerChange) {
 		getStateHelper().put(ON_CONTAINER_CHANGE, onContainerChange);
 	}
 
-	protected java.lang.String getOnIndexChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnIndexChange() {
 		return (java.lang.String) getStateHelper().eval(ON_INDEX_CHANGE, null);
 	}
 
-	protected void setOnIndexChange(java.lang.String onIndexChange) {
+	public void setOnIndexChange(java.lang.String onIndexChange) {
 		getStateHelper().put(ON_INDEX_CHANGE, onIndexChange);
+	}
+
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
 	}
 
 }

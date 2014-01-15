@@ -25,27 +25,27 @@ public abstract class TreeViewIOBase extends javax.faces.component.UIPanel {
 	private static final String AFTER_IO_CHANGE = "afterIoChange";
 	private static final String ON_IO_CHANGE = "onIoChange";
 
-	protected java.lang.Object getIo() {
+	public java.lang.Object getIo() {
 		return (java.lang.Object) getStateHelper().eval(IO, null);
 	}
 
-	protected void setIo(java.lang.Object io) {
+	public void setIo(java.lang.Object io) {
 		getStateHelper().put(IO, io);
 	}
 
-	protected java.lang.String getAfterIoChange() {
+	public java.lang.String getAfterIoChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_IO_CHANGE, null);
 	}
 
-	protected void setAfterIoChange(java.lang.String afterIoChange) {
+	public void setAfterIoChange(java.lang.String afterIoChange) {
 		getStateHelper().put(AFTER_IO_CHANGE, afterIoChange);
 	}
 
-	protected java.lang.String getOnIoChange() {
+	public java.lang.String getOnIoChange() {
 		return (java.lang.String) getStateHelper().eval(ON_IO_CHANGE, null);
 	}
 
-	protected void setOnIoChange(java.lang.String onIoChange) {
+	public void setOnIoChange(java.lang.String onIoChange) {
 		getStateHelper().put(ON_IO_CHANGE, onIoChange);
 	}
 

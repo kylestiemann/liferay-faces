@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.carousel;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,32 +57,36 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, carousel);
 
-		bufferedResponseWriter.write("var carousel = new Y.Carousel");
+		bufferedResponseWriter.write("var carousel = new A.Carousel");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveIndex(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderAnimationTime(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIntervalTime(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderItemSelector(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNodeMenu(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNodeMenuItemSelector(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPlaying(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, carousel);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, carousel);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderActiveIndex(renrederedAttributes, carousel);
+		renderAnimationTime(renrederedAttributes, carousel);
+		renderHideClass(renrederedAttributes, carousel);
+		renderIntervalTime(renrederedAttributes, carousel);
+		renderItemSelector(renrederedAttributes, carousel);
+		renderNodeMenu(renrederedAttributes, carousel);
+		renderNodeMenuItemSelector(renrederedAttributes, carousel);
+		renderPlaying(renrederedAttributes, carousel);
+		renderRender(renrederedAttributes, carousel);
+		renderUseARIA(renrederedAttributes, carousel);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -94,44 +100,64 @@ public abstract class CarouselRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActiveIndex(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderNumber(responseWriter, "activeIndex", carousel.getActiveIndex());
+	protected void renderActiveIndex(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getActiveIndex() != null) {
+			renrederedAttributes.add(renderNumber("activeIndex", carousel.getActiveIndex()));
+		}
 	}
 
-	protected void renderAnimationTime(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderNumber(responseWriter, "animationTime", carousel.getAnimationTime());
+	protected void renderAnimationTime(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getAnimationTime() != null) {
+			renrederedAttributes.add(renderNumber("animationTime", carousel.getAnimationTime()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderString(responseWriter, "hideClass", carousel.getHideClass());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", carousel.getHideClass()));
+		}
 	}
 
-	protected void renderIntervalTime(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderNumber(responseWriter, "intervalTime", carousel.getIntervalTime());
+	protected void renderIntervalTime(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getIntervalTime() != null) {
+			renrederedAttributes.add(renderNumber("intervalTime", carousel.getIntervalTime()));
+		}
 	}
 
-	protected void renderItemSelector(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderString(responseWriter, "itemSelector", carousel.getItemSelector());
+	protected void renderItemSelector(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getItemSelector() != null) {
+			renrederedAttributes.add(renderString("itemSelector", carousel.getItemSelector()));
+		}
 	}
 
-	protected void renderNodeMenu(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderString(responseWriter, "nodeMenu", carousel.getNodeMenu());
+	protected void renderNodeMenu(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getNodeMenu() != null) {
+			renrederedAttributes.add(renderString("nodeMenu", carousel.getNodeMenu()));
+		}
 	}
 
-	protected void renderNodeMenuItemSelector(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderString(responseWriter, "nodeMenuItemSelector", carousel.getNodeMenuItemSelector());
+	protected void renderNodeMenuItemSelector(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getNodeMenuItemSelector() != null) {
+			renrederedAttributes.add(renderString("nodeMenuItemSelector", carousel.getNodeMenuItemSelector()));
+		}
 	}
 
-	protected void renderPlaying(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderBoolean(responseWriter, "playing", carousel.getPlaying());
+	protected void renderPlaying(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getPlaying() != null) {
+			renrederedAttributes.add(renderBoolean("playing", carousel.getPlaying()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderString(responseWriter, "render", carousel.getRender());
+	protected void renderRender(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getRender() != null) {
+			renrederedAttributes.add(renderString("render", carousel.getRender()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, Carousel carousel) throws IOException {
-		renderBoolean(responseWriter, "useARIA", carousel.getUseARIA());
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, Carousel carousel) throws IOException {
+		if (carousel.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", carousel.getUseARIA()));
+		}
 	}
 
 }

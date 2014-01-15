@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.formbuilderradiofield;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,74 +57,57 @@ public abstract class FormBuilderRadioFieldRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, formBuilderRadioField);
 
-		bufferedResponseWriter.write("var formBuilderRadioField = new Y.FormBuilderRadioField");
+		bufferedResponseWriter.write("var formBuilderRadioField = new A.FormBuilderRadioField");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderBuilder(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDataType(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDropZoneNode(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenAttributes(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuilderradiofieldId(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLocalizationMap(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOptionTemplate(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOptions(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormbuilderradiofieldParent(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPredefinedValue(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnly(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderReadOnlyAttributes(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequiredFlagNode(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowLabel(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplate(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTemplateNode(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTip(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTipFlagNode(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUnique(bufferedResponseWriter, formBuilderRadioField);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, formBuilderRadioField);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAcceptChildren(renrederedAttributes, formBuilderRadioField);
+		renderBuilder(renrederedAttributes, formBuilderRadioField);
+		renderControlsToolbar(renrederedAttributes, formBuilderRadioField);
+		renderDataType(renrederedAttributes, formBuilderRadioField);
+		renderDisabled(renrederedAttributes, formBuilderRadioField);
+		renderDropZoneNode(renrederedAttributes, formBuilderRadioField);
+		renderHiddenAttributes(renrederedAttributes, formBuilderRadioField);
+		renderFormbuilderradiofieldId(renrederedAttributes, formBuilderRadioField);
+		renderLabel(renrederedAttributes, formBuilderRadioField);
+		renderLabelNode(renrederedAttributes, formBuilderRadioField);
+		renderLocalizationMap(renrederedAttributes, formBuilderRadioField);
+		renderName(renrederedAttributes, formBuilderRadioField);
+		renderOptionTemplate(renrederedAttributes, formBuilderRadioField);
+		renderOptions(renrederedAttributes, formBuilderRadioField);
+		renderFormbuilderradiofieldParent(renrederedAttributes, formBuilderRadioField);
+		renderPredefinedValue(renrederedAttributes, formBuilderRadioField);
+		renderReadOnly(renrederedAttributes, formBuilderRadioField);
+		renderReadOnlyAttributes(renrederedAttributes, formBuilderRadioField);
+		renderRequired(renrederedAttributes, formBuilderRadioField);
+		renderRequiredFlagNode(renrederedAttributes, formBuilderRadioField);
+		renderSelected(renrederedAttributes, formBuilderRadioField);
+		renderShowLabel(renrederedAttributes, formBuilderRadioField);
+		renderStrings(renrederedAttributes, formBuilderRadioField);
+		renderTabIndex(renrederedAttributes, formBuilderRadioField);
+		renderTemplate(renrederedAttributes, formBuilderRadioField);
+		renderTemplateNode(renrederedAttributes, formBuilderRadioField);
+		renderTip(renrederedAttributes, formBuilderRadioField);
+		renderTipFlagNode(renrederedAttributes, formBuilderRadioField);
+		renderType(renrederedAttributes, formBuilderRadioField);
+		renderUnique(renrederedAttributes, formBuilderRadioField);
+		renderZIndex(renrederedAttributes, formBuilderRadioField);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -136,128 +121,190 @@ public abstract class FormBuilderRadioFieldRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "acceptChildren", formBuilderRadioField.getAcceptChildren());
+	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getAcceptChildren() != null) {
+			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderRadioField.getAcceptChildren()));
+		}
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "builder", formBuilderRadioField.getBuilder());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getBuilder() != null) {
+			renrederedAttributes.add(renderBoolean("builder", formBuilderRadioField.getBuilder()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", formBuilderRadioField.getControlsToolbar());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderRadioField.getControlsToolbar()));
+		}
 	}
 
-	protected void renderDataType(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "dataType", formBuilderRadioField.getDataType());
+	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getDataType() != null) {
+			renrederedAttributes.add(renderString("dataType", formBuilderRadioField.getDataType()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "disabled", formBuilderRadioField.getDisabled());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", formBuilderRadioField.getDisabled()));
+		}
 	}
 
-	protected void renderDropZoneNode(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "dropZoneNode", formBuilderRadioField.getDropZoneNode());
+	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getDropZoneNode() != null) {
+			renrederedAttributes.add(renderString("dropZoneNode", formBuilderRadioField.getDropZoneNode()));
+		}
 	}
 
-	protected void renderHiddenAttributes(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderArray(responseWriter, "hiddenAttributes", formBuilderRadioField.getHiddenAttributes());
+	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getHiddenAttributes() != null) {
+			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderRadioField.getHiddenAttributes()));
+		}
 	}
 
-	protected void renderFormbuilderradiofieldId(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "formbuilderradiofieldId", formBuilderRadioField.getFormbuilderradiofieldId());
+	protected void renderFormbuilderradiofieldId(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getFormbuilderradiofieldId() != null) {
+			renrederedAttributes.add(renderString("formbuilderradiofieldId", formBuilderRadioField.getFormbuilderradiofieldId()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "label", formBuilderRadioField.getLabel());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", formBuilderRadioField.getLabel()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "labelNode", formBuilderRadioField.getLabelNode());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", formBuilderRadioField.getLabelNode()));
+		}
 	}
 
-	protected void renderLocalizationMap(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderObject(responseWriter, "localizationMap", formBuilderRadioField.getLocalizationMap());
+	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getLocalizationMap() != null) {
+			renrederedAttributes.add(renderObject("localizationMap", formBuilderRadioField.getLocalizationMap()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "name", formBuilderRadioField.getName());
+	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getName() != null) {
+			renrederedAttributes.add(renderString("name", formBuilderRadioField.getName()));
+		}
 	}
 
-	protected void renderOptionTemplate(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "optionTemplate", formBuilderRadioField.getOptionTemplate());
+	protected void renderOptionTemplate(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getOptionTemplate() != null) {
+			renrederedAttributes.add(renderString("optionTemplate", formBuilderRadioField.getOptionTemplate()));
+		}
 	}
 
-	protected void renderOptions(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderObject(responseWriter, "options", formBuilderRadioField.getOptions());
+	protected void renderOptions(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getOptions() != null) {
+			renrederedAttributes.add(renderObject("options", formBuilderRadioField.getOptions()));
+		}
 	}
 
-	protected void renderFormbuilderradiofieldParent(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "formbuilderradiofieldParent", formBuilderRadioField.getFormbuilderradiofieldParent());
+	protected void renderFormbuilderradiofieldParent(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getFormbuilderradiofieldParent() != null) {
+			renrederedAttributes.add(renderString("formbuilderradiofieldParent", formBuilderRadioField.getFormbuilderradiofieldParent()));
+		}
 	}
 
-	protected void renderPredefinedValue(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "predefinedValue", formBuilderRadioField.getPredefinedValue());
+	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getPredefinedValue() != null) {
+			renrederedAttributes.add(renderString("predefinedValue", formBuilderRadioField.getPredefinedValue()));
+		}
 	}
 
-	protected void renderReadOnly(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "readOnly", formBuilderRadioField.getReadOnly());
+	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getReadOnly() != null) {
+			renrederedAttributes.add(renderBoolean("readOnly", formBuilderRadioField.getReadOnly()));
+		}
 	}
 
-	protected void renderReadOnlyAttributes(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderArray(responseWriter, "readOnlyAttributes", formBuilderRadioField.getReadOnlyAttributes());
+	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getReadOnlyAttributes() != null) {
+			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderRadioField.getReadOnlyAttributes()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "required", formBuilderRadioField.getRequired());
+	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", formBuilderRadioField.getRequired()));
+		}
 	}
 
-	protected void renderRequiredFlagNode(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "requiredFlagNode", formBuilderRadioField.getRequiredFlagNode());
+	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getRequiredFlagNode() != null) {
+			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderRadioField.getRequiredFlagNode()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "selected", formBuilderRadioField.getSelected());
+	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", formBuilderRadioField.getSelected()));
+		}
 	}
 
-	protected void renderShowLabel(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "showLabel", formBuilderRadioField.getShowLabel());
+	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getShowLabel() != null) {
+			renrederedAttributes.add(renderBoolean("showLabel", formBuilderRadioField.getShowLabel()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderObject(responseWriter, "strings", formBuilderRadioField.getStrings());
+	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", formBuilderRadioField.getStrings()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderNumber(responseWriter, "tabIndex", formBuilderRadioField.getTabIndex());
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", formBuilderRadioField.getTabIndex()));
+		}
 	}
 
-	protected void renderTemplate(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "template", formBuilderRadioField.getTemplate());
+	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getTemplate() != null) {
+			renrederedAttributes.add(renderString("template", formBuilderRadioField.getTemplate()));
+		}
 	}
 
-	protected void renderTemplateNode(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "templateNode", formBuilderRadioField.getTemplateNode());
+	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getTemplateNode() != null) {
+			renrederedAttributes.add(renderString("templateNode", formBuilderRadioField.getTemplateNode()));
+		}
 	}
 
-	protected void renderTip(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "tip", formBuilderRadioField.getTip());
+	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getTip() != null) {
+			renrederedAttributes.add(renderString("tip", formBuilderRadioField.getTip()));
+		}
 	}
 
-	protected void renderTipFlagNode(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "tipFlagNode", formBuilderRadioField.getTipFlagNode());
+	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getTipFlagNode() != null) {
+			renrederedAttributes.add(renderString("tipFlagNode", formBuilderRadioField.getTipFlagNode()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderString(responseWriter, "type", formBuilderRadioField.getType());
+	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getType() != null) {
+			renrederedAttributes.add(renderString("type", formBuilderRadioField.getType()));
+		}
 	}
 
-	protected void renderUnique(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderBoolean(responseWriter, "unique", formBuilderRadioField.getUnique());
+	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getUnique() != null) {
+			renrederedAttributes.add(renderBoolean("unique", formBuilderRadioField.getUnique()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		renderNumber(responseWriter, "zIndex", formBuilderRadioField.getZIndex());
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		if (formBuilderRadioField.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", formBuilderRadioField.getZIndex()));
+		}
 	}
 
 }

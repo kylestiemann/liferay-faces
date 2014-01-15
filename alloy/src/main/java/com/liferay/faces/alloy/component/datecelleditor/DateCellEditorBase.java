@@ -37,123 +37,123 @@ public abstract class DateCellEditorBase extends javax.faces.component.UIPanel {
 	private static final String ON_INPUT_FORMATTER_CHANGE = "onInputFormatterChange";
 	private static final String ON_OUTPUT_FORMATTER_CHANGE = "onOutputFormatterChange";
 
-	protected java.lang.String getDatecelleditorBodyContent() {
+	public java.lang.String getDatecelleditorBodyContent() {
 		return (java.lang.String) getStateHelper().eval(DATECELLEDITOR_BODY_CONTENT, null);
 	}
 
-	protected void setDatecelleditorBodyContent(java.lang.String datecelleditorBodyContent) {
+	public void setDatecelleditorBodyContent(java.lang.String datecelleditorBodyContent) {
 		getStateHelper().put(DATECELLEDITOR_BODY_CONTENT, datecelleditorBodyContent);
 	}
 
-	protected java.lang.Object getCalendar() {
+	public java.lang.Object getCalendar() {
 		return (java.lang.Object) getStateHelper().eval(CALENDAR, null);
 	}
 
-	protected void setCalendar(java.lang.Object calendar) {
+	public void setCalendar(java.lang.Object calendar) {
 		getStateHelper().put(CALENDAR, calendar);
 	}
 
-	protected java.lang.String getDateFormat() {
+	public java.lang.String getDateFormat() {
 		return (java.lang.String) getStateHelper().eval(DATE_FORMAT, null);
 	}
 
-	protected void setDateFormat(java.lang.String dateFormat) {
+	public void setDateFormat(java.lang.String dateFormat) {
 		getStateHelper().put(DATE_FORMAT, dateFormat);
 	}
 
-	protected java.lang.Object getInputFormatter() {
+	public java.lang.Object getInputFormatter() {
 		return (java.lang.Object) getStateHelper().eval(INPUT_FORMATTER, null);
 	}
 
-	protected void setInputFormatter(java.lang.Object inputFormatter) {
+	public void setInputFormatter(java.lang.Object inputFormatter) {
 		getStateHelper().put(INPUT_FORMATTER, inputFormatter);
 	}
 
-	protected java.lang.Object getOutputFormatter() {
+	public java.lang.Object getOutputFormatter() {
 		return (java.lang.Object) getStateHelper().eval(OUTPUT_FORMATTER, null);
 	}
 
-	protected void setOutputFormatter(java.lang.Object outputFormatter) {
+	public void setOutputFormatter(java.lang.Object outputFormatter) {
 		getStateHelper().put(OUTPUT_FORMATTER, outputFormatter);
 	}
 
-	protected java.lang.String getAfterBodyContentChange() {
+	public java.lang.String getAfterBodyContentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BODY_CONTENT_CHANGE, null);
 	}
 
-	protected void setAfterBodyContentChange(java.lang.String afterBodyContentChange) {
+	public void setAfterBodyContentChange(java.lang.String afterBodyContentChange) {
 		getStateHelper().put(AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange);
 	}
 
-	protected java.lang.String getAfterCalendarChange() {
+	public java.lang.String getAfterCalendarChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CALENDAR_CHANGE, null);
 	}
 
-	protected void setAfterCalendarChange(java.lang.String afterCalendarChange) {
+	public void setAfterCalendarChange(java.lang.String afterCalendarChange) {
 		getStateHelper().put(AFTER_CALENDAR_CHANGE, afterCalendarChange);
 	}
 
-	protected java.lang.String getAfterDateFormatChange() {
+	public java.lang.String getAfterDateFormatChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DATE_FORMAT_CHANGE, null);
 	}
 
-	protected void setAfterDateFormatChange(java.lang.String afterDateFormatChange) {
+	public void setAfterDateFormatChange(java.lang.String afterDateFormatChange) {
 		getStateHelper().put(AFTER_DATE_FORMAT_CHANGE, afterDateFormatChange);
 	}
 
-	protected java.lang.String getAfterInputFormatterChange() {
+	public java.lang.String getAfterInputFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_INPUT_FORMATTER_CHANGE, null);
 	}
 
-	protected void setAfterInputFormatterChange(java.lang.String afterInputFormatterChange) {
+	public void setAfterInputFormatterChange(java.lang.String afterInputFormatterChange) {
 		getStateHelper().put(AFTER_INPUT_FORMATTER_CHANGE, afterInputFormatterChange);
 	}
 
-	protected java.lang.String getAfterOutputFormatterChange() {
+	public java.lang.String getAfterOutputFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_OUTPUT_FORMATTER_CHANGE, null);
 	}
 
-	protected void setAfterOutputFormatterChange(java.lang.String afterOutputFormatterChange) {
+	public void setAfterOutputFormatterChange(java.lang.String afterOutputFormatterChange) {
 		getStateHelper().put(AFTER_OUTPUT_FORMATTER_CHANGE, afterOutputFormatterChange);
 	}
 
-	protected java.lang.String getOnBodyContentChange() {
+	public java.lang.String getOnBodyContentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BODY_CONTENT_CHANGE, null);
 	}
 
-	protected void setOnBodyContentChange(java.lang.String onBodyContentChange) {
+	public void setOnBodyContentChange(java.lang.String onBodyContentChange) {
 		getStateHelper().put(ON_BODY_CONTENT_CHANGE, onBodyContentChange);
 	}
 
-	protected java.lang.String getOnCalendarChange() {
+	public java.lang.String getOnCalendarChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CALENDAR_CHANGE, null);
 	}
 
-	protected void setOnCalendarChange(java.lang.String onCalendarChange) {
+	public void setOnCalendarChange(java.lang.String onCalendarChange) {
 		getStateHelper().put(ON_CALENDAR_CHANGE, onCalendarChange);
 	}
 
-	protected java.lang.String getOnDateFormatChange() {
+	public java.lang.String getOnDateFormatChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DATE_FORMAT_CHANGE, null);
 	}
 
-	protected void setOnDateFormatChange(java.lang.String onDateFormatChange) {
+	public void setOnDateFormatChange(java.lang.String onDateFormatChange) {
 		getStateHelper().put(ON_DATE_FORMAT_CHANGE, onDateFormatChange);
 	}
 
-	protected java.lang.String getOnInputFormatterChange() {
+	public java.lang.String getOnInputFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_INPUT_FORMATTER_CHANGE, null);
 	}
 
-	protected void setOnInputFormatterChange(java.lang.String onInputFormatterChange) {
+	public void setOnInputFormatterChange(java.lang.String onInputFormatterChange) {
 		getStateHelper().put(ON_INPUT_FORMATTER_CHANGE, onInputFormatterChange);
 	}
 
-	protected java.lang.String getOnOutputFormatterChange() {
+	public java.lang.String getOnOutputFormatterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_OUTPUT_FORMATTER_CHANGE, null);
 	}
 
-	protected void setOnOutputFormatterChange(java.lang.String onOutputFormatterChange) {
+	public void setOnOutputFormatterChange(java.lang.String onOutputFormatterChange) {
 		getStateHelper().put(ON_OUTPUT_FORMATTER_CHANGE, onOutputFormatterChange);
 	}
 

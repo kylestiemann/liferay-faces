@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulerweekview;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,76 +57,70 @@ public abstract class SchedulerWeekViewRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerWeekView);
 
-		bufferedResponseWriter.write("var schedulerWeekView = new Y.SchedulerWeekView");
+		bufferedResponseWriter.write("var schedulerWeekView = new A.SchedulerWeekView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderSchedulerweekviewBodyContent(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColDaysNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColHeaderDaysNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDays(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDelegateConfig(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderEventWidth(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFilterFn(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderDateFormatter(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderTableNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderView(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderViewConfig(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderViewLabelNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHourHeight(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIsoTime(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMarkercellsNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNavigationDateFormatter(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNextDate(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrevDate(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderResizerNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScheduler(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScrollable(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTableNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTimesNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTriggerNode(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, schedulerWeekView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, schedulerWeekView);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderSchedulerweekviewBodyContent(renrederedAttributes, schedulerWeekView);
+		renderBoundingBox(renrederedAttributes, schedulerWeekView);
+		renderColDaysNode(renrederedAttributes, schedulerWeekView);
+		renderColHeaderDaysNode(renrederedAttributes, schedulerWeekView);
+		renderContentBox(renrederedAttributes, schedulerWeekView);
+		renderCssClass(renrederedAttributes, schedulerWeekView);
+		renderDays(renrederedAttributes, schedulerWeekView);
+		renderDelegateConfig(renrederedAttributes, schedulerWeekView);
+		renderDestroyed(renrederedAttributes, schedulerWeekView);
+		renderDisabled(renrederedAttributes, schedulerWeekView);
+		renderEventWidth(renrederedAttributes, schedulerWeekView);
+		renderFilterFn(renrederedAttributes, schedulerWeekView);
+		renderFocused(renrederedAttributes, schedulerWeekView);
+		renderHeaderDateFormatter(renrederedAttributes, schedulerWeekView);
+		renderHeaderTableNode(renrederedAttributes, schedulerWeekView);
+		renderHeaderView(renrederedAttributes, schedulerWeekView);
+		renderHeaderViewConfig(renrederedAttributes, schedulerWeekView);
+		renderHeaderViewLabelNode(renrederedAttributes, schedulerWeekView);
+		renderHeight(renrederedAttributes, schedulerWeekView);
+		renderHideClass(renrederedAttributes, schedulerWeekView);
+		renderHourHeight(renrederedAttributes, schedulerWeekView);
+		renderSchedulerweekviewId(renrederedAttributes, schedulerWeekView);
+		renderInitialized(renrederedAttributes, schedulerWeekView);
+		renderIsoTime(renrederedAttributes, schedulerWeekView);
+		renderSchedulerweekviewLocale(renrederedAttributes, schedulerWeekView);
+		renderMarkercellsNode(renrederedAttributes, schedulerWeekView);
+		renderName(renrederedAttributes, schedulerWeekView);
+		renderNavigationDateFormatter(renrederedAttributes, schedulerWeekView);
+		renderNextDate(renrederedAttributes, schedulerWeekView);
+		renderPrevDate(renrederedAttributes, schedulerWeekView);
+		renderRender(renrederedAttributes, schedulerWeekView);
+		renderRendered(renrederedAttributes, schedulerWeekView);
+		renderResizerNode(renrederedAttributes, schedulerWeekView);
+		renderScheduler(renrederedAttributes, schedulerWeekView);
+		renderScrollable(renrederedAttributes, schedulerWeekView);
+		renderSrcNode(renrederedAttributes, schedulerWeekView);
+		renderStrings(renrederedAttributes, schedulerWeekView);
+		renderTabIndex(renrederedAttributes, schedulerWeekView);
+		renderTableNode(renrederedAttributes, schedulerWeekView);
+		renderTimesNode(renrederedAttributes, schedulerWeekView);
+		renderTriggerNode(renrederedAttributes, schedulerWeekView);
+		renderUseARIA(renrederedAttributes, schedulerWeekView);
+		renderVisible(renrederedAttributes, schedulerWeekView);
+		renderWidth(renrederedAttributes, schedulerWeekView);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -138,132 +134,268 @@ public abstract class SchedulerWeekViewRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulerweekviewBodyContent(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "schedulerweekviewBodyContent", schedulerWeekView.getSchedulerweekviewBodyContent());
+	protected void renderSchedulerweekviewBodyContent(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getSchedulerweekviewBodyContent() != null) {
+			renrederedAttributes.add(renderString("schedulerweekviewBodyContent", schedulerWeekView.getSchedulerweekviewBodyContent()));
+		}
 	}
 
-	protected void renderColDaysNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "colDaysNode", schedulerWeekView.getColDaysNode());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", schedulerWeekView.getBoundingBox()));
+		}
 	}
 
-	protected void renderColHeaderDaysNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "colHeaderDaysNode", schedulerWeekView.getColHeaderDaysNode());
+	protected void renderColDaysNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getColDaysNode() != null) {
+			renrederedAttributes.add(renderString("colDaysNode", schedulerWeekView.getColDaysNode()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "cssClass", schedulerWeekView.getCssClass());
+	protected void renderColHeaderDaysNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getColHeaderDaysNode() != null) {
+			renrederedAttributes.add(renderString("colHeaderDaysNode", schedulerWeekView.getColHeaderDaysNode()));
+		}
 	}
 
-	protected void renderDays(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderNumber(responseWriter, "days", schedulerWeekView.getDays());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", schedulerWeekView.getContentBox()));
+		}
 	}
 
-	protected void renderDelegateConfig(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderObject(responseWriter, "delegateConfig", schedulerWeekView.getDelegateConfig());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", schedulerWeekView.getCssClass()));
+		}
 	}
 
-	protected void renderEventWidth(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderNumber(responseWriter, "eventWidth", schedulerWeekView.getEventWidth());
+	protected void renderDays(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getDays() != null) {
+			renrederedAttributes.add(renderNumber("days", schedulerWeekView.getDays()));
+		}
 	}
 
-	protected void renderFilterFn(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "filterFn", schedulerWeekView.getFilterFn());
+	protected void renderDelegateConfig(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getDelegateConfig() != null) {
+			renrederedAttributes.add(renderObject("delegateConfig", schedulerWeekView.getDelegateConfig()));
+		}
 	}
 
-	protected void renderHeaderDateFormatter(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "headerDateFormatter", schedulerWeekView.getHeaderDateFormatter());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", schedulerWeekView.getDestroyed()));
+		}
 	}
 
-	protected void renderHeaderTableNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "headerTableNode", schedulerWeekView.getHeaderTableNode());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", schedulerWeekView.getDisabled()));
+		}
 	}
 
-	protected void renderHeaderView(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderBoolean(responseWriter, "headerView", schedulerWeekView.getHeaderView());
+	protected void renderEventWidth(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getEventWidth() != null) {
+			renrederedAttributes.add(renderNumber("eventWidth", schedulerWeekView.getEventWidth()));
+		}
 	}
 
-	protected void renderHeaderViewConfig(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "headerViewConfig", schedulerWeekView.getHeaderViewConfig());
+	protected void renderFilterFn(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getFilterFn() != null) {
+			renrederedAttributes.add(renderString("filterFn", schedulerWeekView.getFilterFn()));
+		}
 	}
 
-	protected void renderHeaderViewLabelNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "headerViewLabelNode", schedulerWeekView.getHeaderViewLabelNode());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", schedulerWeekView.getFocused()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderNumber(responseWriter, "height", schedulerWeekView.getHeight());
+	protected void renderHeaderDateFormatter(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHeaderDateFormatter() != null) {
+			renrederedAttributes.add(renderString("headerDateFormatter", schedulerWeekView.getHeaderDateFormatter()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "hideClass", schedulerWeekView.getHideClass());
+	protected void renderHeaderTableNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHeaderTableNode() != null) {
+			renrederedAttributes.add(renderString("headerTableNode", schedulerWeekView.getHeaderTableNode()));
+		}
 	}
 
-	protected void renderHourHeight(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderNumber(responseWriter, "hourHeight", schedulerWeekView.getHourHeight());
+	protected void renderHeaderView(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHeaderView() != null) {
+			renrederedAttributes.add(renderBoolean("headerView", schedulerWeekView.getHeaderView()));
+		}
 	}
 
-	protected void renderIsoTime(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderBoolean(responseWriter, "isoTime", schedulerWeekView.getIsoTime());
+	protected void renderHeaderViewConfig(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHeaderViewConfig() != null) {
+			renrederedAttributes.add(renderString("headerViewConfig", schedulerWeekView.getHeaderViewConfig()));
+		}
 	}
 
-	protected void renderMarkercellsNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "markercellsNode", schedulerWeekView.getMarkercellsNode());
+	protected void renderHeaderViewLabelNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHeaderViewLabelNode() != null) {
+			renrederedAttributes.add(renderString("headerViewLabelNode", schedulerWeekView.getHeaderViewLabelNode()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "name", schedulerWeekView.getName());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", schedulerWeekView.getHeight()));
+		}
 	}
 
-	protected void renderNavigationDateFormatter(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "navigationDateFormatter", schedulerWeekView.getNavigationDateFormatter());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", schedulerWeekView.getHideClass()));
+		}
 	}
 
-	protected void renderNextDate(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "nextDate", schedulerWeekView.getNextDate());
+	protected void renderHourHeight(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getHourHeight() != null) {
+			renrederedAttributes.add(renderNumber("hourHeight", schedulerWeekView.getHourHeight()));
+		}
 	}
 
-	protected void renderPrevDate(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "prevDate", schedulerWeekView.getPrevDate());
+	protected void renderSchedulerweekviewId(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getSchedulerweekviewId() != null) {
+			renrederedAttributes.add(renderString("schedulerweekviewId", schedulerWeekView.getSchedulerweekviewId()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "render", schedulerWeekView.getRender());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", schedulerWeekView.getInitialized()));
+		}
 	}
 
-	protected void renderResizerNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "resizerNode", schedulerWeekView.getResizerNode());
+	protected void renderIsoTime(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getIsoTime() != null) {
+			renrederedAttributes.add(renderBoolean("isoTime", schedulerWeekView.getIsoTime()));
+		}
 	}
 
-	protected void renderScheduler(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "scheduler", schedulerWeekView.getScheduler());
+	protected void renderSchedulerweekviewLocale(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getSchedulerweekviewLocale() != null) {
+			renrederedAttributes.add(renderString("schedulerweekviewLocale", schedulerWeekView.getSchedulerweekviewLocale()));
+		}
 	}
 
-	protected void renderScrollable(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderBoolean(responseWriter, "scrollable", schedulerWeekView.getScrollable());
+	protected void renderMarkercellsNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getMarkercellsNode() != null) {
+			renrederedAttributes.add(renderString("markercellsNode", schedulerWeekView.getMarkercellsNode()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "strings", schedulerWeekView.getStrings());
+	protected void renderName(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getName() != null) {
+			renrederedAttributes.add(renderString("name", schedulerWeekView.getName()));
+		}
 	}
 
-	protected void renderTableNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "tableNode", schedulerWeekView.getTableNode());
+	protected void renderNavigationDateFormatter(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getNavigationDateFormatter() != null) {
+			renrederedAttributes.add(renderString("navigationDateFormatter", schedulerWeekView.getNavigationDateFormatter()));
+		}
 	}
 
-	protected void renderTimesNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "timesNode", schedulerWeekView.getTimesNode());
+	protected void renderNextDate(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getNextDate() != null) {
+			renrederedAttributes.add(renderString("nextDate", schedulerWeekView.getNextDate()));
+		}
 	}
 
-	protected void renderTriggerNode(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderString(responseWriter, "triggerNode", schedulerWeekView.getTriggerNode());
+	protected void renderPrevDate(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getPrevDate() != null) {
+			renrederedAttributes.add(renderString("prevDate", schedulerWeekView.getPrevDate()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderBoolean(responseWriter, "useARIA", schedulerWeekView.getUseARIA());
+	protected void renderRender(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getRender() != null) {
+			renrederedAttributes.add(renderString("render", schedulerWeekView.getRender()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, SchedulerWeekView schedulerWeekView) throws IOException {
-		renderBoolean(responseWriter, "visible", schedulerWeekView.getVisible());
+	protected void renderRendered(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", schedulerWeekView.getRendered()));
+		}
+	}
+
+	protected void renderResizerNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getResizerNode() != null) {
+			renrederedAttributes.add(renderString("resizerNode", schedulerWeekView.getResizerNode()));
+		}
+	}
+
+	protected void renderScheduler(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getScheduler() != null) {
+			renrederedAttributes.add(renderString("scheduler", schedulerWeekView.getScheduler()));
+		}
+	}
+
+	protected void renderScrollable(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getScrollable() != null) {
+			renrederedAttributes.add(renderBoolean("scrollable", schedulerWeekView.getScrollable()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", schedulerWeekView.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getStrings() != null) {
+			renrederedAttributes.add(renderString("strings", schedulerWeekView.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", schedulerWeekView.getTabIndex()));
+		}
+	}
+
+	protected void renderTableNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getTableNode() != null) {
+			renrederedAttributes.add(renderString("tableNode", schedulerWeekView.getTableNode()));
+		}
+	}
+
+	protected void renderTimesNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getTimesNode() != null) {
+			renrederedAttributes.add(renderString("timesNode", schedulerWeekView.getTimesNode()));
+		}
+	}
+
+	protected void renderTriggerNode(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getTriggerNode() != null) {
+			renrederedAttributes.add(renderString("triggerNode", schedulerWeekView.getTriggerNode()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", schedulerWeekView.getUseARIA()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", schedulerWeekView.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		if (schedulerWeekView.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", schedulerWeekView.getWidth()));
+		}
 	}
 
 }

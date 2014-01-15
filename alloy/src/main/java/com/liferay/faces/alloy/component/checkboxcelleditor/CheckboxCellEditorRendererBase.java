@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.checkboxcelleditor;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class CheckboxCellEditorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, checkboxCellEditor);
 
-		bufferedResponseWriter.write("var checkboxCellEditor = new Y.CheckboxCellEditor");
+		bufferedResponseWriter.write("var checkboxCellEditor = new A.CheckboxCellEditor");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderSelectedAttrName(bufferedResponseWriter, checkboxCellEditor);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderSelectedAttrName(renrederedAttributes, checkboxCellEditor);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class CheckboxCellEditorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSelectedAttrName(ResponseWriter responseWriter, CheckboxCellEditor checkboxCellEditor) throws IOException {
-		renderString(responseWriter, "selectedAttrName", checkboxCellEditor.getSelectedAttrName());
+	protected void renderSelectedAttrName(ArrayList<String> renrederedAttributes, CheckboxCellEditor checkboxCellEditor) throws IOException {
+		if (checkboxCellEditor.getSelectedAttrName() != null) {
+			renrederedAttributes.add(renderString("selectedAttrName", checkboxCellEditor.getSelectedAttrName()));
+		}
 	}
 
 }

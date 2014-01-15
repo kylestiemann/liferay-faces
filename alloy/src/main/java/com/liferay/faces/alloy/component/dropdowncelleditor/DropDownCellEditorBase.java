@@ -25,27 +25,27 @@ public abstract class DropDownCellEditorBase extends javax.faces.component.UIPan
 	private static final String AFTER_MULTIPLE_CHANGE = "afterMultipleChange";
 	private static final String ON_MULTIPLE_CHANGE = "onMultipleChange";
 
-	protected java.lang.Boolean getMultiple() {
+	public java.lang.Boolean getMultiple() {
 		return (java.lang.Boolean) getStateHelper().eval(MULTIPLE, null);
 	}
 
-	protected void setMultiple(java.lang.Boolean multiple) {
+	public void setMultiple(java.lang.Boolean multiple) {
 		getStateHelper().put(MULTIPLE, multiple);
 	}
 
-	protected java.lang.String getAfterMultipleChange() {
+	public java.lang.String getAfterMultipleChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_MULTIPLE_CHANGE, null);
 	}
 
-	protected void setAfterMultipleChange(java.lang.String afterMultipleChange) {
+	public void setAfterMultipleChange(java.lang.String afterMultipleChange) {
 		getStateHelper().put(AFTER_MULTIPLE_CHANGE, afterMultipleChange);
 	}
 
-	protected java.lang.String getOnMultipleChange() {
+	public java.lang.String getOnMultipleChange() {
 		return (java.lang.String) getStateHelper().eval(ON_MULTIPLE_CHANGE, null);
 	}
 
-	protected void setOnMultipleChange(java.lang.String onMultipleChange) {
+	public void setOnMultipleChange(java.lang.String onMultipleChange) {
 		getStateHelper().put(ON_MULTIPLE_CHANGE, onMultipleChange);
 	}
 

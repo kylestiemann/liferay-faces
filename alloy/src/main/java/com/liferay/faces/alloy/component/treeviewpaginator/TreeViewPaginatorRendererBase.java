@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.treeviewpaginator;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,27 @@ public abstract class TreeViewPaginatorRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, treeViewPaginator);
 
-		bufferedResponseWriter.write("var treeViewPaginator = new Y.TreeViewPaginator");
+		bufferedResponseWriter.write("var treeViewPaginator = new A.TreeViewPaginator");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderPaginator(bufferedResponseWriter, treeViewPaginator);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderPaginator(renrederedAttributes, treeViewPaginator);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +91,10 @@ public abstract class TreeViewPaginatorRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderPaginator(ResponseWriter responseWriter, TreeViewPaginator treeViewPaginator) throws IOException {
-		renderObject(responseWriter, "paginator", treeViewPaginator.getPaginator());
+	protected void renderPaginator(ArrayList<String> renrederedAttributes, TreeViewPaginator treeViewPaginator) throws IOException {
+		if (treeViewPaginator.getPaginator() != null) {
+			renrederedAttributes.add(renderObject("paginator", treeViewPaginator.getPaginator()));
+		}
 	}
 
 }

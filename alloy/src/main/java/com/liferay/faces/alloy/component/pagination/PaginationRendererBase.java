@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.pagination;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,34 +57,51 @@ public abstract class PaginationRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, pagination);
 
-		bufferedResponseWriter.write("var pagination = new Y.Pagination");
+		bufferedResponseWriter.write("var pagination = new A.Pagination");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCircular(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFormatter(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderItems(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOffset(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPaginationPage(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTotal(bufferedResponseWriter, pagination);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, pagination);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, pagination);
+		renderCircular(renrederedAttributes, pagination);
+		renderContentBox(renrederedAttributes, pagination);
+		renderCssClass(renrederedAttributes, pagination);
+		renderDestroyed(renrederedAttributes, pagination);
+		renderDisabled(renrederedAttributes, pagination);
+		renderFocused(renrederedAttributes, pagination);
+		renderFormatter(renrederedAttributes, pagination);
+		renderHeight(renrederedAttributes, pagination);
+		renderHideClass(renrederedAttributes, pagination);
+		renderPaginationId(renrederedAttributes, pagination);
+		renderInitialized(renrederedAttributes, pagination);
+		renderItems(renrederedAttributes, pagination);
+		renderPaginationLocale(renrederedAttributes, pagination);
+		renderOffset(renrederedAttributes, pagination);
+		renderPaginationPage(renrederedAttributes, pagination);
+		renderRender(renrederedAttributes, pagination);
+		renderRendered(renrederedAttributes, pagination);
+		renderSrcNode(renrederedAttributes, pagination);
+		renderStrings(renrederedAttributes, pagination);
+		renderTabIndex(renrederedAttributes, pagination);
+		renderTotal(renrederedAttributes, pagination);
+		renderUseARIA(renrederedAttributes, pagination);
+		renderVisible(renrederedAttributes, pagination);
+		renderWidth(renrederedAttributes, pagination);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -96,48 +115,154 @@ public abstract class PaginationRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCircular(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderBoolean(responseWriter, "circular", pagination.getCircular());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", pagination.getBoundingBox()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderString(responseWriter, "cssClass", pagination.getCssClass());
+	protected void renderCircular(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getCircular() != null) {
+			renrederedAttributes.add(renderBoolean("circular", pagination.getCircular()));
+		}
 	}
 
-	protected void renderFormatter(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderString(responseWriter, "formatter", pagination.getFormatter());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", pagination.getContentBox()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderString(responseWriter, "hideClass", pagination.getHideClass());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", pagination.getCssClass()));
+		}
 	}
 
-	protected void renderItems(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderString(responseWriter, "items", pagination.getItems());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", pagination.getDestroyed()));
+		}
 	}
 
-	protected void renderOffset(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderNumber(responseWriter, "offset", pagination.getOffset());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", pagination.getDisabled()));
+		}
 	}
 
-	protected void renderPaginationPage(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderNumber(responseWriter, "paginationPage", pagination.getPaginationPage());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", pagination.getFocused()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderString(responseWriter, "render", pagination.getRender());
+	protected void renderFormatter(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getFormatter() != null) {
+			renrederedAttributes.add(renderString("formatter", pagination.getFormatter()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderObject(responseWriter, "strings", pagination.getStrings());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", pagination.getHeight()));
+		}
 	}
 
-	protected void renderTotal(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderNumber(responseWriter, "total", pagination.getTotal());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", pagination.getHideClass()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, Pagination pagination) throws IOException {
-		renderBoolean(responseWriter, "useARIA", pagination.getUseARIA());
+	protected void renderPaginationId(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getPaginationId() != null) {
+			renrederedAttributes.add(renderString("paginationId", pagination.getPaginationId()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", pagination.getInitialized()));
+		}
+	}
+
+	protected void renderItems(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getItems() != null) {
+			renrederedAttributes.add(renderString("items", pagination.getItems()));
+		}
+	}
+
+	protected void renderPaginationLocale(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getPaginationLocale() != null) {
+			renrederedAttributes.add(renderString("paginationLocale", pagination.getPaginationLocale()));
+		}
+	}
+
+	protected void renderOffset(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getOffset() != null) {
+			renrederedAttributes.add(renderNumber("offset", pagination.getOffset()));
+		}
+	}
+
+	protected void renderPaginationPage(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getPaginationPage() != null) {
+			renrederedAttributes.add(renderNumber("paginationPage", pagination.getPaginationPage()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getRender() != null) {
+			renrederedAttributes.add(renderString("render", pagination.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", pagination.getRendered()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", pagination.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", pagination.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", pagination.getTabIndex()));
+		}
+	}
+
+	protected void renderTotal(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getTotal() != null) {
+			renrederedAttributes.add(renderNumber("total", pagination.getTotal()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", pagination.getUseARIA()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", pagination.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, Pagination pagination) throws IOException {
+		if (pagination.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", pagination.getWidth()));
+		}
 	}
 
 }

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.diagramnodetask;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,50 +57,70 @@ public abstract class DiagramNodeTaskRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, diagramNodeTask);
 
-		bufferedResponseWriter.write("var diagramNodeTask = new Y.DiagramNodeTask");
+		bufferedResponseWriter.write("var diagramNodeTask = new A.DiagramNodeTask");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBuilder(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderConnectors(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderControlsToolbar(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDescription(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderGraphic(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHighlightBoundaryStroke(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHighlighted(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRequired(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelected(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShapeBoundary(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShapeInvite(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTabIndex(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTransitions(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderType(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderWidth(bufferedResponseWriter, diagramNodeTask);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderZIndex(bufferedResponseWriter, diagramNodeTask);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderAlign(renrederedAttributes, diagramNodeTask);
+		renderAlignOn(renrederedAttributes, diagramNodeTask);
+		renderDiagramnodetaskBodyContent(renrederedAttributes, diagramNodeTask);
+		renderBoundingBox(renrederedAttributes, diagramNodeTask);
+		renderBuilder(renrederedAttributes, diagramNodeTask);
+		renderCentered(renrederedAttributes, diagramNodeTask);
+		renderConnectors(renrederedAttributes, diagramNodeTask);
+		renderConstrain(renrederedAttributes, diagramNodeTask);
+		renderContentBox(renrederedAttributes, diagramNodeTask);
+		renderControlsToolbar(renrederedAttributes, diagramNodeTask);
+		renderDescription(renrederedAttributes, diagramNodeTask);
+		renderDestroyed(renrederedAttributes, diagramNodeTask);
+		renderDisabled(renrederedAttributes, diagramNodeTask);
+		renderFillHeight(renrederedAttributes, diagramNodeTask);
+		renderFocused(renrederedAttributes, diagramNodeTask);
+		renderFooterContent(renrederedAttributes, diagramNodeTask);
+		renderGraphic(renrederedAttributes, diagramNodeTask);
+		renderHeaderContent(renrederedAttributes, diagramNodeTask);
+		renderHeight(renrederedAttributes, diagramNodeTask);
+		renderHighlightBoundaryStroke(renrederedAttributes, diagramNodeTask);
+		renderHighlighted(renrederedAttributes, diagramNodeTask);
+		renderDiagramnodetaskId(renrederedAttributes, diagramNodeTask);
+		renderInitialized(renrederedAttributes, diagramNodeTask);
+		renderDiagramnodetaskLocale(renrederedAttributes, diagramNodeTask);
+		renderName(renrederedAttributes, diagramNodeTask);
+		renderPreventOverlap(renrederedAttributes, diagramNodeTask);
+		renderRender(renrederedAttributes, diagramNodeTask);
+		renderRendered(renrederedAttributes, diagramNodeTask);
+		renderRequired(renrederedAttributes, diagramNodeTask);
+		renderSelected(renrederedAttributes, diagramNodeTask);
+		renderShapeBoundary(renrederedAttributes, diagramNodeTask);
+		renderShapeInvite(renrederedAttributes, diagramNodeTask);
+		renderShim(renrederedAttributes, diagramNodeTask);
+		renderSrcNode(renrederedAttributes, diagramNodeTask);
+		renderStrings(renrederedAttributes, diagramNodeTask);
+		renderTabIndex(renrederedAttributes, diagramNodeTask);
+		renderTransitions(renrederedAttributes, diagramNodeTask);
+		renderType(renrederedAttributes, diagramNodeTask);
+		renderVisible(renrederedAttributes, diagramNodeTask);
+		renderWidth(renrederedAttributes, diagramNodeTask);
+		renderX(renrederedAttributes, diagramNodeTask);
+		renderXy(renrederedAttributes, diagramNodeTask);
+		renderY(renrederedAttributes, diagramNodeTask);
+		renderZIndex(renrederedAttributes, diagramNodeTask);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -112,80 +134,268 @@ public abstract class DiagramNodeTaskRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBuilder(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderString(responseWriter, "builder", diagramNodeTask.getBuilder());
+	protected void renderAlign(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getAlign() != null) {
+			renrederedAttributes.add(renderObject("align", diagramNodeTask.getAlign()));
+		}
 	}
 
-	protected void renderConnectors(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderString(responseWriter, "connectors", diagramNodeTask.getConnectors());
+	protected void renderAlignOn(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getAlignOn() != null) {
+			renrederedAttributes.add(renderArray("alignOn", diagramNodeTask.getAlignOn()));
+		}
 	}
 
-	protected void renderControlsToolbar(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderObject(responseWriter, "controlsToolbar", diagramNodeTask.getControlsToolbar());
+	protected void renderDiagramnodetaskBodyContent(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getDiagramnodetaskBodyContent() != null) {
+			renrederedAttributes.add(renderString("diagramnodetaskBodyContent", diagramNodeTask.getDiagramnodetaskBodyContent()));
+		}
 	}
 
-	protected void renderDescription(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderString(responseWriter, "description", diagramNodeTask.getDescription());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", diagramNodeTask.getBoundingBox()));
+		}
 	}
 
-	protected void renderGraphic(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderObject(responseWriter, "graphic", diagramNodeTask.getGraphic());
+	protected void renderBuilder(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getBuilder() != null) {
+			renrederedAttributes.add(renderString("builder", diagramNodeTask.getBuilder()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderNumber(responseWriter, "height", diagramNodeTask.getHeight());
+	protected void renderCentered(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getCentered() != null) {
+			renrederedAttributes.add(renderString("centered", diagramNodeTask.getCentered()));
+		}
 	}
 
-	protected void renderHighlightBoundaryStroke(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderObject(responseWriter, "highlightBoundaryStroke", diagramNodeTask.getHighlightBoundaryStroke());
+	protected void renderConnectors(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getConnectors() != null) {
+			renrederedAttributes.add(renderString("connectors", diagramNodeTask.getConnectors()));
+		}
 	}
 
-	protected void renderHighlighted(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderBoolean(responseWriter, "highlighted", diagramNodeTask.getHighlighted());
+	protected void renderConstrain(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getConstrain() != null) {
+			renrederedAttributes.add(renderString("constrain", diagramNodeTask.getConstrain()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderString(responseWriter, "name", diagramNodeTask.getName());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", diagramNodeTask.getContentBox()));
+		}
 	}
 
-	protected void renderRequired(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderBoolean(responseWriter, "required", diagramNodeTask.getRequired());
+	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getControlsToolbar() != null) {
+			renrederedAttributes.add(renderObject("controlsToolbar", diagramNodeTask.getControlsToolbar()));
+		}
 	}
 
-	protected void renderSelected(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderBoolean(responseWriter, "selected", diagramNodeTask.getSelected());
+	protected void renderDescription(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getDescription() != null) {
+			renrederedAttributes.add(renderString("description", diagramNodeTask.getDescription()));
+		}
 	}
 
-	protected void renderShapeBoundary(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderObject(responseWriter, "shapeBoundary", diagramNodeTask.getShapeBoundary());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", diagramNodeTask.getDestroyed()));
+		}
 	}
 
-	protected void renderShapeInvite(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderObject(responseWriter, "shapeInvite", diagramNodeTask.getShapeInvite());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", diagramNodeTask.getDisabled()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderObject(responseWriter, "strings", diagramNodeTask.getStrings());
+	protected void renderFillHeight(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getFillHeight() != null) {
+			renrederedAttributes.add(renderString("fillHeight", diagramNodeTask.getFillHeight()));
+		}
 	}
 
-	protected void renderTabIndex(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderNumber(responseWriter, "tabIndex", diagramNodeTask.getTabIndex());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", diagramNodeTask.getFocused()));
+		}
 	}
 
-	protected void renderTransitions(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderString(responseWriter, "transitions", diagramNodeTask.getTransitions());
+	protected void renderFooterContent(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getFooterContent() != null) {
+			renrederedAttributes.add(renderString("footerContent", diagramNodeTask.getFooterContent()));
+		}
 	}
 
-	protected void renderType(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderString(responseWriter, "type", diagramNodeTask.getType());
+	protected void renderGraphic(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getGraphic() != null) {
+			renrederedAttributes.add(renderObject("graphic", diagramNodeTask.getGraphic()));
+		}
 	}
 
-	protected void renderWidth(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderNumber(responseWriter, "width", diagramNodeTask.getWidth());
+	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getHeaderContent() != null) {
+			renrederedAttributes.add(renderString("headerContent", diagramNodeTask.getHeaderContent()));
+		}
 	}
 
-	protected void renderZIndex(ResponseWriter responseWriter, DiagramNodeTask diagramNodeTask) throws IOException {
-		renderNumber(responseWriter, "zIndex", diagramNodeTask.getZIndex());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", diagramNodeTask.getHeight()));
+		}
+	}
+
+	protected void renderHighlightBoundaryStroke(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getHighlightBoundaryStroke() != null) {
+			renrederedAttributes.add(renderObject("highlightBoundaryStroke", diagramNodeTask.getHighlightBoundaryStroke()));
+		}
+	}
+
+	protected void renderHighlighted(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getHighlighted() != null) {
+			renrederedAttributes.add(renderBoolean("highlighted", diagramNodeTask.getHighlighted()));
+		}
+	}
+
+	protected void renderDiagramnodetaskId(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getDiagramnodetaskId() != null) {
+			renrederedAttributes.add(renderString("diagramnodetaskId", diagramNodeTask.getDiagramnodetaskId()));
+		}
+	}
+
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", diagramNodeTask.getInitialized()));
+		}
+	}
+
+	protected void renderDiagramnodetaskLocale(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getDiagramnodetaskLocale() != null) {
+			renrederedAttributes.add(renderString("diagramnodetaskLocale", diagramNodeTask.getDiagramnodetaskLocale()));
+		}
+	}
+
+	protected void renderName(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getName() != null) {
+			renrederedAttributes.add(renderString("name", diagramNodeTask.getName()));
+		}
+	}
+
+	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getPreventOverlap() != null) {
+			renrederedAttributes.add(renderBoolean("preventOverlap", diagramNodeTask.getPreventOverlap()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getRender() != null) {
+			renrederedAttributes.add(renderString("render", diagramNodeTask.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", diagramNodeTask.getRendered()));
+		}
+	}
+
+	protected void renderRequired(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getRequired() != null) {
+			renrederedAttributes.add(renderBoolean("required", diagramNodeTask.getRequired()));
+		}
+	}
+
+	protected void renderSelected(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getSelected() != null) {
+			renrederedAttributes.add(renderBoolean("selected", diagramNodeTask.getSelected()));
+		}
+	}
+
+	protected void renderShapeBoundary(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getShapeBoundary() != null) {
+			renrederedAttributes.add(renderObject("shapeBoundary", diagramNodeTask.getShapeBoundary()));
+		}
+	}
+
+	protected void renderShapeInvite(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getShapeInvite() != null) {
+			renrederedAttributes.add(renderObject("shapeInvite", diagramNodeTask.getShapeInvite()));
+		}
+	}
+
+	protected void renderShim(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getShim() != null) {
+			renrederedAttributes.add(renderBoolean("shim", diagramNodeTask.getShim()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", diagramNodeTask.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", diagramNodeTask.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", diagramNodeTask.getTabIndex()));
+		}
+	}
+
+	protected void renderTransitions(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getTransitions() != null) {
+			renrederedAttributes.add(renderString("transitions", diagramNodeTask.getTransitions()));
+		}
+	}
+
+	protected void renderType(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getType() != null) {
+			renrederedAttributes.add(renderString("type", diagramNodeTask.getType()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", diagramNodeTask.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getWidth() != null) {
+			renrederedAttributes.add(renderNumber("width", diagramNodeTask.getWidth()));
+		}
+	}
+
+	protected void renderX(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getX() != null) {
+			renrederedAttributes.add(renderNumber("x", diagramNodeTask.getX()));
+		}
+	}
+
+	protected void renderXy(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getXy() != null) {
+			renrederedAttributes.add(renderArray("xy", diagramNodeTask.getXy()));
+		}
+	}
+
+	protected void renderY(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getY() != null) {
+			renrederedAttributes.add(renderNumber("y", diagramNodeTask.getY()));
+		}
+	}
+
+	protected void renderZIndex(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		if (diagramNodeTask.getZIndex() != null) {
+			renrederedAttributes.add(renderNumber("zIndex", diagramNodeTask.getZIndex()));
+		}
 	}
 
 }

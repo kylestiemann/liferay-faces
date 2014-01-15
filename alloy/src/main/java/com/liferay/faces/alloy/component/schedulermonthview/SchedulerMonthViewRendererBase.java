@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.schedulermonthview;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,62 +57,63 @@ public abstract class SchedulerMonthViewRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, schedulerMonthView);
 
-		bufferedResponseWriter.write("var schedulerMonthView = new Y.SchedulerMonthView");
+		bufferedResponseWriter.write("var schedulerMonthView = new A.SchedulerMonthView");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderSchedulermonthviewBodyContent(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderColHeaderDaysNode(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisplayDaysInterval(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisplayRows(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFilterFn(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderFixedHeight(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderDateFormatter(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeaderTableNode(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderIsoTime(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderName(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNavigationDateFormatter(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderNextDate(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderPrevDate(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRowsContainerNode(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScheduler(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderScrollable(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStrings(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTableGridNode(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTriggerNode(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, schedulerMonthView);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderVisible(bufferedResponseWriter, schedulerMonthView);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderSchedulermonthviewBodyContent(renrederedAttributes, schedulerMonthView);
+		renderBoundingBox(renrederedAttributes, schedulerMonthView);
+		renderColHeaderDaysNode(renrederedAttributes, schedulerMonthView);
+		renderContentBox(renrederedAttributes, schedulerMonthView);
+		renderCssClass(renrederedAttributes, schedulerMonthView);
+		renderDestroyed(renrederedAttributes, schedulerMonthView);
+		renderDisabled(renrederedAttributes, schedulerMonthView);
+		renderDisplayDaysInterval(renrederedAttributes, schedulerMonthView);
+		renderDisplayRows(renrederedAttributes, schedulerMonthView);
+		renderFilterFn(renrederedAttributes, schedulerMonthView);
+		renderFixedHeight(renrederedAttributes, schedulerMonthView);
+		renderFocused(renrederedAttributes, schedulerMonthView);
+		renderHeaderDateFormatter(renrederedAttributes, schedulerMonthView);
+		renderHeaderTableNode(renrederedAttributes, schedulerMonthView);
+		renderHeight(renrederedAttributes, schedulerMonthView);
+		renderHideClass(renrederedAttributes, schedulerMonthView);
+		renderSchedulermonthviewId(renrederedAttributes, schedulerMonthView);
+		renderInitialized(renrederedAttributes, schedulerMonthView);
+		renderIsoTime(renrederedAttributes, schedulerMonthView);
+		renderSchedulermonthviewLocale(renrederedAttributes, schedulerMonthView);
+		renderName(renrederedAttributes, schedulerMonthView);
+		renderNavigationDateFormatter(renrederedAttributes, schedulerMonthView);
+		renderNextDate(renrederedAttributes, schedulerMonthView);
+		renderPrevDate(renrederedAttributes, schedulerMonthView);
+		renderRender(renrederedAttributes, schedulerMonthView);
+		renderRendered(renrederedAttributes, schedulerMonthView);
+		renderRowsContainerNode(renrederedAttributes, schedulerMonthView);
+		renderScheduler(renrederedAttributes, schedulerMonthView);
+		renderScrollable(renrederedAttributes, schedulerMonthView);
+		renderSrcNode(renrederedAttributes, schedulerMonthView);
+		renderStrings(renrederedAttributes, schedulerMonthView);
+		renderTabIndex(renrederedAttributes, schedulerMonthView);
+		renderTableGridNode(renrederedAttributes, schedulerMonthView);
+		renderTriggerNode(renrederedAttributes, schedulerMonthView);
+		renderUseARIA(renrederedAttributes, schedulerMonthView);
+		renderVisible(renrederedAttributes, schedulerMonthView);
+		renderWidth(renrederedAttributes, schedulerMonthView);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -124,104 +127,226 @@ public abstract class SchedulerMonthViewRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulermonthviewBodyContent(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "schedulermonthviewBodyContent", schedulerMonthView.getSchedulermonthviewBodyContent());
+	protected void renderSchedulermonthviewBodyContent(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getSchedulermonthviewBodyContent() != null) {
+			renrederedAttributes.add(renderString("schedulermonthviewBodyContent", schedulerMonthView.getSchedulermonthviewBodyContent()));
+		}
 	}
 
-	protected void renderColHeaderDaysNode(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "colHeaderDaysNode", schedulerMonthView.getColHeaderDaysNode());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", schedulerMonthView.getBoundingBox()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "cssClass", schedulerMonthView.getCssClass());
+	protected void renderColHeaderDaysNode(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getColHeaderDaysNode() != null) {
+			renrederedAttributes.add(renderString("colHeaderDaysNode", schedulerMonthView.getColHeaderDaysNode()));
+		}
 	}
 
-	protected void renderDisplayDaysInterval(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderNumber(responseWriter, "displayDaysInterval", schedulerMonthView.getDisplayDaysInterval());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", schedulerMonthView.getContentBox()));
+		}
 	}
 
-	protected void renderDisplayRows(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderNumber(responseWriter, "displayRows", schedulerMonthView.getDisplayRows());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", schedulerMonthView.getCssClass()));
+		}
 	}
 
-	protected void renderFilterFn(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "filterFn", schedulerMonthView.getFilterFn());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", schedulerMonthView.getDestroyed()));
+		}
 	}
 
-	protected void renderFixedHeight(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderBoolean(responseWriter, "fixedHeight", schedulerMonthView.getFixedHeight());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", schedulerMonthView.getDisabled()));
+		}
 	}
 
-	protected void renderHeaderDateFormatter(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "headerDateFormatter", schedulerMonthView.getHeaderDateFormatter());
+	protected void renderDisplayDaysInterval(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getDisplayDaysInterval() != null) {
+			renrederedAttributes.add(renderNumber("displayDaysInterval", schedulerMonthView.getDisplayDaysInterval()));
+		}
 	}
 
-	protected void renderHeaderTableNode(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "headerTableNode", schedulerMonthView.getHeaderTableNode());
+	protected void renderDisplayRows(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getDisplayRows() != null) {
+			renrederedAttributes.add(renderNumber("displayRows", schedulerMonthView.getDisplayRows()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderNumber(responseWriter, "height", schedulerMonthView.getHeight());
+	protected void renderFilterFn(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getFilterFn() != null) {
+			renrederedAttributes.add(renderString("filterFn", schedulerMonthView.getFilterFn()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "hideClass", schedulerMonthView.getHideClass());
+	protected void renderFixedHeight(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getFixedHeight() != null) {
+			renrederedAttributes.add(renderBoolean("fixedHeight", schedulerMonthView.getFixedHeight()));
+		}
 	}
 
-	protected void renderIsoTime(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderBoolean(responseWriter, "isoTime", schedulerMonthView.getIsoTime());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", schedulerMonthView.getFocused()));
+		}
 	}
 
-	protected void renderName(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "name", schedulerMonthView.getName());
+	protected void renderHeaderDateFormatter(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getHeaderDateFormatter() != null) {
+			renrederedAttributes.add(renderString("headerDateFormatter", schedulerMonthView.getHeaderDateFormatter()));
+		}
 	}
 
-	protected void renderNavigationDateFormatter(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "navigationDateFormatter", schedulerMonthView.getNavigationDateFormatter());
+	protected void renderHeaderTableNode(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getHeaderTableNode() != null) {
+			renrederedAttributes.add(renderString("headerTableNode", schedulerMonthView.getHeaderTableNode()));
+		}
 	}
 
-	protected void renderNextDate(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "nextDate", schedulerMonthView.getNextDate());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", schedulerMonthView.getHeight()));
+		}
 	}
 
-	protected void renderPrevDate(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "prevDate", schedulerMonthView.getPrevDate());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", schedulerMonthView.getHideClass()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "render", schedulerMonthView.getRender());
+	protected void renderSchedulermonthviewId(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getSchedulermonthviewId() != null) {
+			renrederedAttributes.add(renderString("schedulermonthviewId", schedulerMonthView.getSchedulermonthviewId()));
+		}
 	}
 
-	protected void renderRowsContainerNode(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "rowsContainerNode", schedulerMonthView.getRowsContainerNode());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", schedulerMonthView.getInitialized()));
+		}
 	}
 
-	protected void renderScheduler(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "scheduler", schedulerMonthView.getScheduler());
+	protected void renderIsoTime(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getIsoTime() != null) {
+			renrederedAttributes.add(renderBoolean("isoTime", schedulerMonthView.getIsoTime()));
+		}
 	}
 
-	protected void renderScrollable(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderBoolean(responseWriter, "scrollable", schedulerMonthView.getScrollable());
+	protected void renderSchedulermonthviewLocale(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getSchedulermonthviewLocale() != null) {
+			renrederedAttributes.add(renderString("schedulermonthviewLocale", schedulerMonthView.getSchedulermonthviewLocale()));
+		}
 	}
 
-	protected void renderStrings(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "strings", schedulerMonthView.getStrings());
+	protected void renderName(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getName() != null) {
+			renrederedAttributes.add(renderString("name", schedulerMonthView.getName()));
+		}
 	}
 
-	protected void renderTableGridNode(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "tableGridNode", schedulerMonthView.getTableGridNode());
+	protected void renderNavigationDateFormatter(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getNavigationDateFormatter() != null) {
+			renrederedAttributes.add(renderString("navigationDateFormatter", schedulerMonthView.getNavigationDateFormatter()));
+		}
 	}
 
-	protected void renderTriggerNode(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderString(responseWriter, "triggerNode", schedulerMonthView.getTriggerNode());
+	protected void renderNextDate(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getNextDate() != null) {
+			renrederedAttributes.add(renderString("nextDate", schedulerMonthView.getNextDate()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderBoolean(responseWriter, "useARIA", schedulerMonthView.getUseARIA());
+	protected void renderPrevDate(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getPrevDate() != null) {
+			renrederedAttributes.add(renderString("prevDate", schedulerMonthView.getPrevDate()));
+		}
 	}
 
-	protected void renderVisible(ResponseWriter responseWriter, SchedulerMonthView schedulerMonthView) throws IOException {
-		renderBoolean(responseWriter, "visible", schedulerMonthView.getVisible());
+	protected void renderRender(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getRender() != null) {
+			renrederedAttributes.add(renderString("render", schedulerMonthView.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", schedulerMonthView.getRendered()));
+		}
+	}
+
+	protected void renderRowsContainerNode(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getRowsContainerNode() != null) {
+			renrederedAttributes.add(renderString("rowsContainerNode", schedulerMonthView.getRowsContainerNode()));
+		}
+	}
+
+	protected void renderScheduler(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getScheduler() != null) {
+			renrederedAttributes.add(renderString("scheduler", schedulerMonthView.getScheduler()));
+		}
+	}
+
+	protected void renderScrollable(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getScrollable() != null) {
+			renrederedAttributes.add(renderBoolean("scrollable", schedulerMonthView.getScrollable()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", schedulerMonthView.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getStrings() != null) {
+			renrederedAttributes.add(renderString("strings", schedulerMonthView.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", schedulerMonthView.getTabIndex()));
+		}
+	}
+
+	protected void renderTableGridNode(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getTableGridNode() != null) {
+			renrederedAttributes.add(renderString("tableGridNode", schedulerMonthView.getTableGridNode()));
+		}
+	}
+
+	protected void renderTriggerNode(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getTriggerNode() != null) {
+			renrederedAttributes.add(renderString("triggerNode", schedulerMonthView.getTriggerNode()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", schedulerMonthView.getUseARIA()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", schedulerMonthView.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		if (schedulerMonthView.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", schedulerMonthView.getWidth()));
+		}
 	}
 
 }

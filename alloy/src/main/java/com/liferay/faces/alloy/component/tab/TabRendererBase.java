@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.tab;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,14 +57,31 @@ public abstract class TabRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, tab);
 
-		bufferedResponseWriter.write("var tab = new Y.Tab");
+		bufferedResponseWriter.write("var tab = new A.Tab");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDisabled(bufferedResponseWriter, tab);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderContent(renrederedAttributes, tab);
+		renderDisabled(renrederedAttributes, tab);
+		renderLabel(renrederedAttributes, tab);
+		renderPanelNode(renrederedAttributes, tab);
+		renderTriggerEvent(renrederedAttributes, tab);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -76,8 +95,34 @@ public abstract class TabRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, Tab tab) throws IOException {
-		renderString(responseWriter, "disabled", tab.getDisabled());
+	protected void renderContent(ArrayList<String> renrederedAttributes, Tab tab) throws IOException {
+		if (tab.getContent() != null) {
+			renrederedAttributes.add(renderString("content", tab.getContent()));
+		}
+	}
+
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, Tab tab) throws IOException {
+		if (tab.getDisabled() != null) {
+			renrederedAttributes.add(renderString("disabled", tab.getDisabled()));
+		}
+	}
+
+	protected void renderLabel(ArrayList<String> renrederedAttributes, Tab tab) throws IOException {
+		if (tab.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", tab.getLabel()));
+		}
+	}
+
+	protected void renderPanelNode(ArrayList<String> renrederedAttributes, Tab tab) throws IOException {
+		if (tab.getPanelNode() != null) {
+			renrederedAttributes.add(renderString("panelNode", tab.getPanelNode()));
+		}
+	}
+
+	protected void renderTriggerEvent(ArrayList<String> renrederedAttributes, Tab tab) throws IOException {
+		if (tab.getTriggerEvent() != null) {
+			renrederedAttributes.add(renderString("triggerEvent", tab.getTriggerEvent()));
+		}
 	}
 
 }

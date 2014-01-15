@@ -25,27 +25,27 @@ public abstract class CellEditorSupportBase extends javax.faces.component.UIPane
 	private static final String AFTER_EDIT_EVENT_CHANGE = "afterEditEventChange";
 	private static final String ON_EDIT_EVENT_CHANGE = "onEditEventChange";
 
-	protected java.lang.String getEditEvent() {
+	public java.lang.String getEditEvent() {
 		return (java.lang.String) getStateHelper().eval(EDIT_EVENT, null);
 	}
 
-	protected void setEditEvent(java.lang.String editEvent) {
+	public void setEditEvent(java.lang.String editEvent) {
 		getStateHelper().put(EDIT_EVENT, editEvent);
 	}
 
-	protected java.lang.String getAfterEditEventChange() {
+	public java.lang.String getAfterEditEventChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_EDIT_EVENT_CHANGE, null);
 	}
 
-	protected void setAfterEditEventChange(java.lang.String afterEditEventChange) {
+	public void setAfterEditEventChange(java.lang.String afterEditEventChange) {
 		getStateHelper().put(AFTER_EDIT_EVENT_CHANGE, afterEditEventChange);
 	}
 
-	protected java.lang.String getOnEditEventChange() {
+	public java.lang.String getOnEditEventChange() {
 		return (java.lang.String) getStateHelper().eval(ON_EDIT_EVENT_CHANGE, null);
 	}
 
-	protected void setOnEditEventChange(java.lang.String onEditEventChange) {
+	public void setOnEditEventChange(java.lang.String onEditEventChange) {
 		getStateHelper().put(ON_EDIT_EVENT_CHANGE, onEditEventChange);
 	}
 

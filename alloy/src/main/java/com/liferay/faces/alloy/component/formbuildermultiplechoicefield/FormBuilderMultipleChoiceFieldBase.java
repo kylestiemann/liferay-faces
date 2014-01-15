@@ -115,747 +115,747 @@ public abstract class FormBuilderMultipleChoiceFieldBase extends javax.faces.com
 	private static final String ON_UNIQUE_CHANGE = "onUniqueChange";
 	private static final String ON_ZINDEX_CHANGE = "onZIndexChange";
 
-	protected java.lang.Boolean getAcceptChildren() {
+	public java.lang.Boolean getAcceptChildren() {
 		return (java.lang.Boolean) getStateHelper().eval(ACCEPT_CHILDREN, null);
 	}
 
-	protected void setAcceptChildren(java.lang.Boolean acceptChildren) {
+	public void setAcceptChildren(java.lang.Boolean acceptChildren) {
 		getStateHelper().put(ACCEPT_CHILDREN, acceptChildren);
 	}
 
-	protected java.lang.Boolean getBuilder() {
+	public java.lang.Boolean getBuilder() {
 		return (java.lang.Boolean) getStateHelper().eval(BUILDER, null);
 	}
 
-	protected void setBuilder(java.lang.Boolean builder) {
+	public void setBuilder(java.lang.Boolean builder) {
 		getStateHelper().put(BUILDER, builder);
 	}
 
-	protected java.lang.Object getControlsToolbar() {
+	public java.lang.Object getControlsToolbar() {
 		return (java.lang.Object) getStateHelper().eval(CONTROLS_TOOLBAR, null);
 	}
 
-	protected void setControlsToolbar(java.lang.Object controlsToolbar) {
+	public void setControlsToolbar(java.lang.Object controlsToolbar) {
 		getStateHelper().put(CONTROLS_TOOLBAR, controlsToolbar);
 	}
 
-	protected java.lang.String getDataType() {
+	public java.lang.String getDataType() {
 		return (java.lang.String) getStateHelper().eval(DATA_TYPE, null);
 	}
 
-	protected void setDataType(java.lang.String dataType) {
+	public void setDataType(java.lang.String dataType) {
 		getStateHelper().put(DATA_TYPE, dataType);
 	}
 
-	protected java.lang.Boolean getDisabled() {
+	public java.lang.Boolean getDisabled() {
 		return (java.lang.Boolean) getStateHelper().eval(DISABLED, null);
 	}
 
-	protected void setDisabled(java.lang.Boolean disabled) {
+	public void setDisabled(java.lang.Boolean disabled) {
 		getStateHelper().put(DISABLED, disabled);
 	}
 
-	protected java.lang.String getDropZoneNode() {
+	public java.lang.String getDropZoneNode() {
 		return (java.lang.String) getStateHelper().eval(DROP_ZONE_NODE, null);
 	}
 
-	protected void setDropZoneNode(java.lang.String dropZoneNode) {
+	public void setDropZoneNode(java.lang.String dropZoneNode) {
 		getStateHelper().put(DROP_ZONE_NODE, dropZoneNode);
 	}
 
-	protected java.lang.Object getHiddenAttributes() {
+	public java.lang.Object getHiddenAttributes() {
 		return (java.lang.Object) getStateHelper().eval(HIDDEN_ATTRIBUTES, null);
 	}
 
-	protected void setHiddenAttributes(java.lang.Object hiddenAttributes) {
+	public void setHiddenAttributes(java.lang.Object hiddenAttributes) {
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	protected java.lang.String getFormbuildermultiplechoicefieldId() {
+	public java.lang.String getFormbuildermultiplechoicefieldId() {
 		return (java.lang.String) getStateHelper().eval(FORMBUILDERMULTIPLECHOICEFIELD_ID, null);
 	}
 
-	protected void setFormbuildermultiplechoicefieldId(java.lang.String formbuildermultiplechoicefieldId) {
+	public void setFormbuildermultiplechoicefieldId(java.lang.String formbuildermultiplechoicefieldId) {
 		getStateHelper().put(FORMBUILDERMULTIPLECHOICEFIELD_ID, formbuildermultiplechoicefieldId);
 	}
 
-	protected java.lang.String getLabel() {
+	public java.lang.String getLabel() {
 		return (java.lang.String) getStateHelper().eval(LABEL, null);
 	}
 
-	protected void setLabel(java.lang.String label) {
+	public void setLabel(java.lang.String label) {
 		getStateHelper().put(LABEL, label);
 	}
 
-	protected java.lang.String getLabelNode() {
+	public java.lang.String getLabelNode() {
 		return (java.lang.String) getStateHelper().eval(LABEL_NODE, null);
 	}
 
-	protected void setLabelNode(java.lang.String labelNode) {
+	public void setLabelNode(java.lang.String labelNode) {
 		getStateHelper().put(LABEL_NODE, labelNode);
 	}
 
-	protected java.lang.Object getLocalizationMap() {
+	public java.lang.Object getLocalizationMap() {
 		return (java.lang.Object) getStateHelper().eval(LOCALIZATION_MAP, null);
 	}
 
-	protected void setLocalizationMap(java.lang.Object localizationMap) {
+	public void setLocalizationMap(java.lang.Object localizationMap) {
 		getStateHelper().put(LOCALIZATION_MAP, localizationMap);
 	}
 
-	protected java.lang.String getName() {
+	public java.lang.String getName() {
 		return (java.lang.String) getStateHelper().eval(NAME, null);
 	}
 
-	protected void setName(java.lang.String name) {
+	public void setName(java.lang.String name) {
 		getStateHelper().put(NAME, name);
 	}
 
-	protected java.lang.String getOptionTemplate() {
+	public java.lang.String getOptionTemplate() {
 		return (java.lang.String) getStateHelper().eval(OPTION_TEMPLATE, null);
 	}
 
-	protected void setOptionTemplate(java.lang.String optionTemplate) {
+	public void setOptionTemplate(java.lang.String optionTemplate) {
 		getStateHelper().put(OPTION_TEMPLATE, optionTemplate);
 	}
 
-	protected java.lang.Object getOptions() {
+	public java.lang.Object getOptions() {
 		return (java.lang.Object) getStateHelper().eval(OPTIONS, null);
 	}
 
-	protected void setOptions(java.lang.Object options) {
+	public void setOptions(java.lang.Object options) {
 		getStateHelper().put(OPTIONS, options);
 	}
 
-	protected java.lang.String getFormbuildermultiplechoicefieldParent() {
+	public java.lang.String getFormbuildermultiplechoicefieldParent() {
 		return (java.lang.String) getStateHelper().eval(FORMBUILDERMULTIPLECHOICEFIELD_PARENT, null);
 	}
 
-	protected void setFormbuildermultiplechoicefieldParent(java.lang.String formbuildermultiplechoicefieldParent) {
+	public void setFormbuildermultiplechoicefieldParent(java.lang.String formbuildermultiplechoicefieldParent) {
 		getStateHelper().put(FORMBUILDERMULTIPLECHOICEFIELD_PARENT, formbuildermultiplechoicefieldParent);
 	}
 
-	protected java.lang.String getPredefinedValue() {
+	public java.lang.String getPredefinedValue() {
 		return (java.lang.String) getStateHelper().eval(PREDEFINED_VALUE, null);
 	}
 
-	protected void setPredefinedValue(java.lang.String predefinedValue) {
+	public void setPredefinedValue(java.lang.String predefinedValue) {
 		getStateHelper().put(PREDEFINED_VALUE, predefinedValue);
 	}
 
-	protected java.lang.Boolean getReadOnly() {
+	public java.lang.Boolean getReadOnly() {
 		return (java.lang.Boolean) getStateHelper().eval(READ_ONLY, null);
 	}
 
-	protected void setReadOnly(java.lang.Boolean readOnly) {
+	public void setReadOnly(java.lang.Boolean readOnly) {
 		getStateHelper().put(READ_ONLY, readOnly);
 	}
 
-	protected java.lang.Object getReadOnlyAttributes() {
+	public java.lang.Object getReadOnlyAttributes() {
 		return (java.lang.Object) getStateHelper().eval(READ_ONLY_ATTRIBUTES, null);
 	}
 
-	protected void setReadOnlyAttributes(java.lang.Object readOnlyAttributes) {
+	public void setReadOnlyAttributes(java.lang.Object readOnlyAttributes) {
 		getStateHelper().put(READ_ONLY_ATTRIBUTES, readOnlyAttributes);
 	}
 
-	protected java.lang.Boolean getRequired() {
+	public java.lang.Boolean getRequired() {
 		return (java.lang.Boolean) getStateHelper().eval(REQUIRED, null);
 	}
 
-	protected void setRequired(java.lang.Boolean required) {
+	public void setRequired(java.lang.Boolean required) {
 		getStateHelper().put(REQUIRED, required);
 	}
 
-	protected java.lang.String getRequiredFlagNode() {
+	public java.lang.String getRequiredFlagNode() {
 		return (java.lang.String) getStateHelper().eval(REQUIRED_FLAG_NODE, null);
 	}
 
-	protected void setRequiredFlagNode(java.lang.String requiredFlagNode) {
+	public void setRequiredFlagNode(java.lang.String requiredFlagNode) {
 		getStateHelper().put(REQUIRED_FLAG_NODE, requiredFlagNode);
 	}
 
-	protected java.lang.Boolean getSelected() {
+	public java.lang.Boolean getSelected() {
 		return (java.lang.Boolean) getStateHelper().eval(SELECTED, null);
 	}
 
-	protected void setSelected(java.lang.Boolean selected) {
+	public void setSelected(java.lang.Boolean selected) {
 		getStateHelper().put(SELECTED, selected);
 	}
 
-	protected java.lang.Boolean getShowLabel() {
+	public java.lang.Boolean getShowLabel() {
 		return (java.lang.Boolean) getStateHelper().eval(SHOW_LABEL, null);
 	}
 
-	protected void setShowLabel(java.lang.Boolean showLabel) {
+	public void setShowLabel(java.lang.Boolean showLabel) {
 		getStateHelper().put(SHOW_LABEL, showLabel);
 	}
 
-	protected java.lang.Object getStrings() {
+	public java.lang.Object getStrings() {
 		return (java.lang.Object) getStateHelper().eval(STRINGS, null);
 	}
 
-	protected void setStrings(java.lang.Object strings) {
+	public void setStrings(java.lang.Object strings) {
 		getStateHelper().put(STRINGS, strings);
 	}
 
-	protected java.lang.Object getTabIndex() {
+	public java.lang.Object getTabIndex() {
 		return (java.lang.Object) getStateHelper().eval(TAB_INDEX, null);
 	}
 
-	protected void setTabIndex(java.lang.Object tabIndex) {
+	public void setTabIndex(java.lang.Object tabIndex) {
 		getStateHelper().put(TAB_INDEX, tabIndex);
 	}
 
-	protected java.lang.String getTemplate() {
+	public java.lang.String getTemplate() {
 		return (java.lang.String) getStateHelper().eval(TEMPLATE, null);
 	}
 
-	protected void setTemplate(java.lang.String template) {
+	public void setTemplate(java.lang.String template) {
 		getStateHelper().put(TEMPLATE, template);
 	}
 
-	protected java.lang.String getTemplateNode() {
+	public java.lang.String getTemplateNode() {
 		return (java.lang.String) getStateHelper().eval(TEMPLATE_NODE, null);
 	}
 
-	protected void setTemplateNode(java.lang.String templateNode) {
+	public void setTemplateNode(java.lang.String templateNode) {
 		getStateHelper().put(TEMPLATE_NODE, templateNode);
 	}
 
-	protected java.lang.String getTip() {
+	public java.lang.String getTip() {
 		return (java.lang.String) getStateHelper().eval(TIP, null);
 	}
 
-	protected void setTip(java.lang.String tip) {
+	public void setTip(java.lang.String tip) {
 		getStateHelper().put(TIP, tip);
 	}
 
-	protected java.lang.String getTipFlagNode() {
+	public java.lang.String getTipFlagNode() {
 		return (java.lang.String) getStateHelper().eval(TIP_FLAG_NODE, null);
 	}
 
-	protected void setTipFlagNode(java.lang.String tipFlagNode) {
+	public void setTipFlagNode(java.lang.String tipFlagNode) {
 		getStateHelper().put(TIP_FLAG_NODE, tipFlagNode);
 	}
 
-	protected java.lang.String getType() {
+	public java.lang.String getType() {
 		return (java.lang.String) getStateHelper().eval(TYPE, null);
 	}
 
-	protected void setType(java.lang.String type) {
+	public void setType(java.lang.String type) {
 		getStateHelper().put(TYPE, type);
 	}
 
-	protected java.lang.Boolean getUnique() {
+	public java.lang.Boolean getUnique() {
 		return (java.lang.Boolean) getStateHelper().eval(UNIQUE, null);
 	}
 
-	protected void setUnique(java.lang.Boolean unique) {
+	public void setUnique(java.lang.Boolean unique) {
 		getStateHelper().put(UNIQUE, unique);
 	}
 
-	protected java.lang.Object getZIndex() {
+	public java.lang.Object getZIndex() {
 		return (java.lang.Object) getStateHelper().eval(Z_INDEX, null);
 	}
 
-	protected void setZIndex(java.lang.Object zIndex) {
+	public void setZIndex(java.lang.Object zIndex) {
 		getStateHelper().put(Z_INDEX, zIndex);
 	}
 
-	protected java.lang.String getAfterAcceptChildrenChange() {
+	public java.lang.String getAfterAcceptChildrenChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ACCEPT_CHILDREN_CHANGE, null);
 	}
 
-	protected void setAfterAcceptChildrenChange(java.lang.String afterAcceptChildrenChange) {
+	public void setAfterAcceptChildrenChange(java.lang.String afterAcceptChildrenChange) {
 		getStateHelper().put(AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange);
 	}
 
-	protected java.lang.String getAfterBuilderChange() {
+	public java.lang.String getAfterBuilderChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_BUILDER_CHANGE, null);
 	}
 
-	protected void setAfterBuilderChange(java.lang.String afterBuilderChange) {
+	public void setAfterBuilderChange(java.lang.String afterBuilderChange) {
 		getStateHelper().put(AFTER_BUILDER_CHANGE, afterBuilderChange);
 	}
 
-	protected java.lang.String getAfterControlsToolbarChange() {
+	public java.lang.String getAfterControlsToolbarChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CONTROLS_TOOLBAR_CHANGE, null);
 	}
 
-	protected void setAfterControlsToolbarChange(java.lang.String afterControlsToolbarChange) {
+	public void setAfterControlsToolbarChange(java.lang.String afterControlsToolbarChange) {
 		getStateHelper().put(AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange);
 	}
 
-	protected java.lang.String getAfterDataTypeChange() {
+	public java.lang.String getAfterDataTypeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DATA_TYPE_CHANGE, null);
 	}
 
-	protected void setAfterDataTypeChange(java.lang.String afterDataTypeChange) {
+	public void setAfterDataTypeChange(java.lang.String afterDataTypeChange) {
 		getStateHelper().put(AFTER_DATA_TYPE_CHANGE, afterDataTypeChange);
 	}
 
-	protected java.lang.String getAfterDisabledChange() {
+	public java.lang.String getAfterDisabledChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DISABLED_CHANGE, null);
 	}
 
-	protected void setAfterDisabledChange(java.lang.String afterDisabledChange) {
+	public void setAfterDisabledChange(java.lang.String afterDisabledChange) {
 		getStateHelper().put(AFTER_DISABLED_CHANGE, afterDisabledChange);
 	}
 
-	protected java.lang.String getAfterDropZoneNodeChange() {
+	public java.lang.String getAfterDropZoneNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DROP_ZONE_NODE_CHANGE, null);
 	}
 
-	protected void setAfterDropZoneNodeChange(java.lang.String afterDropZoneNodeChange) {
+	public void setAfterDropZoneNodeChange(java.lang.String afterDropZoneNodeChange) {
 		getStateHelper().put(AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange);
 	}
 
-	protected java.lang.String getAfterHiddenAttributesChange() {
+	public java.lang.String getAfterHiddenAttributesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_HIDDEN_ATTRIBUTES_CHANGE, null);
 	}
 
-	protected void setAfterHiddenAttributesChange(java.lang.String afterHiddenAttributesChange) {
+	public void setAfterHiddenAttributesChange(java.lang.String afterHiddenAttributesChange) {
 		getStateHelper().put(AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange);
 	}
 
-	protected java.lang.String getAfterIdChange() {
+	public java.lang.String getAfterIdChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ID_CHANGE, null);
 	}
 
-	protected void setAfterIdChange(java.lang.String afterIdChange) {
+	public void setAfterIdChange(java.lang.String afterIdChange) {
 		getStateHelper().put(AFTER_ID_CHANGE, afterIdChange);
 	}
 
-	protected java.lang.String getAfterLabelChange() {
+	public java.lang.String getAfterLabelChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_LABEL_CHANGE, null);
 	}
 
-	protected void setAfterLabelChange(java.lang.String afterLabelChange) {
+	public void setAfterLabelChange(java.lang.String afterLabelChange) {
 		getStateHelper().put(AFTER_LABEL_CHANGE, afterLabelChange);
 	}
 
-	protected java.lang.String getAfterLabelNodeChange() {
+	public java.lang.String getAfterLabelNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_LABEL_NODE_CHANGE, null);
 	}
 
-	protected void setAfterLabelNodeChange(java.lang.String afterLabelNodeChange) {
+	public void setAfterLabelNodeChange(java.lang.String afterLabelNodeChange) {
 		getStateHelper().put(AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange);
 	}
 
-	protected java.lang.String getAfterLocalizationMapChange() {
+	public java.lang.String getAfterLocalizationMapChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_LOCALIZATION_MAP_CHANGE, null);
 	}
 
-	protected void setAfterLocalizationMapChange(java.lang.String afterLocalizationMapChange) {
+	public void setAfterLocalizationMapChange(java.lang.String afterLocalizationMapChange) {
 		getStateHelper().put(AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange);
 	}
 
-	protected java.lang.String getAfterNameChange() {
+	public java.lang.String getAfterNameChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_NAME_CHANGE, null);
 	}
 
-	protected void setAfterNameChange(java.lang.String afterNameChange) {
+	public void setAfterNameChange(java.lang.String afterNameChange) {
 		getStateHelper().put(AFTER_NAME_CHANGE, afterNameChange);
 	}
 
-	protected java.lang.String getAfterOptionTemplateChange() {
+	public java.lang.String getAfterOptionTemplateChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_OPTION_TEMPLATE_CHANGE, null);
 	}
 
-	protected void setAfterOptionTemplateChange(java.lang.String afterOptionTemplateChange) {
+	public void setAfterOptionTemplateChange(java.lang.String afterOptionTemplateChange) {
 		getStateHelper().put(AFTER_OPTION_TEMPLATE_CHANGE, afterOptionTemplateChange);
 	}
 
-	protected java.lang.String getAfterOptionsChange() {
+	public java.lang.String getAfterOptionsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_OPTIONS_CHANGE, null);
 	}
 
-	protected void setAfterOptionsChange(java.lang.String afterOptionsChange) {
+	public void setAfterOptionsChange(java.lang.String afterOptionsChange) {
 		getStateHelper().put(AFTER_OPTIONS_CHANGE, afterOptionsChange);
 	}
 
-	protected java.lang.String getAfterParentChange() {
+	public java.lang.String getAfterParentChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PARENT_CHANGE, null);
 	}
 
-	protected void setAfterParentChange(java.lang.String afterParentChange) {
+	public void setAfterParentChange(java.lang.String afterParentChange) {
 		getStateHelper().put(AFTER_PARENT_CHANGE, afterParentChange);
 	}
 
-	protected java.lang.String getAfterPredefinedValueChange() {
+	public java.lang.String getAfterPredefinedValueChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_PREDEFINED_VALUE_CHANGE, null);
 	}
 
-	protected void setAfterPredefinedValueChange(java.lang.String afterPredefinedValueChange) {
+	public void setAfterPredefinedValueChange(java.lang.String afterPredefinedValueChange) {
 		getStateHelper().put(AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange);
 	}
 
-	protected java.lang.String getAfterReadOnlyChange() {
+	public java.lang.String getAfterReadOnlyChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_READ_ONLY_CHANGE, null);
 	}
 
-	protected void setAfterReadOnlyChange(java.lang.String afterReadOnlyChange) {
+	public void setAfterReadOnlyChange(java.lang.String afterReadOnlyChange) {
 		getStateHelper().put(AFTER_READ_ONLY_CHANGE, afterReadOnlyChange);
 	}
 
-	protected java.lang.String getAfterReadOnlyAttributesChange() {
+	public java.lang.String getAfterReadOnlyAttributesChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_READ_ONLY_ATTRIBUTES_CHANGE, null);
 	}
 
-	protected void setAfterReadOnlyAttributesChange(java.lang.String afterReadOnlyAttributesChange) {
+	public void setAfterReadOnlyAttributesChange(java.lang.String afterReadOnlyAttributesChange) {
 		getStateHelper().put(AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange);
 	}
 
-	protected java.lang.String getAfterRequiredChange() {
+	public java.lang.String getAfterRequiredChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_REQUIRED_CHANGE, null);
 	}
 
-	protected void setAfterRequiredChange(java.lang.String afterRequiredChange) {
+	public void setAfterRequiredChange(java.lang.String afterRequiredChange) {
 		getStateHelper().put(AFTER_REQUIRED_CHANGE, afterRequiredChange);
 	}
 
-	protected java.lang.String getAfterRequiredFlagNodeChange() {
+	public java.lang.String getAfterRequiredFlagNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_REQUIRED_FLAG_NODE_CHANGE, null);
 	}
 
-	protected void setAfterRequiredFlagNodeChange(java.lang.String afterRequiredFlagNodeChange) {
+	public void setAfterRequiredFlagNodeChange(java.lang.String afterRequiredFlagNodeChange) {
 		getStateHelper().put(AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange);
 	}
 
-	protected java.lang.String getAfterSelectedChange() {
+	public java.lang.String getAfterSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SELECTED_CHANGE, null);
 	}
 
-	protected void setAfterSelectedChange(java.lang.String afterSelectedChange) {
+	public void setAfterSelectedChange(java.lang.String afterSelectedChange) {
 		getStateHelper().put(AFTER_SELECTED_CHANGE, afterSelectedChange);
 	}
 
-	protected java.lang.String getAfterShowLabelChange() {
+	public java.lang.String getAfterShowLabelChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SHOW_LABEL_CHANGE, null);
 	}
 
-	protected void setAfterShowLabelChange(java.lang.String afterShowLabelChange) {
+	public void setAfterShowLabelChange(java.lang.String afterShowLabelChange) {
 		getStateHelper().put(AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange);
 	}
 
-	protected java.lang.String getAfterStringsChange() {
+	public java.lang.String getAfterStringsChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_STRINGS_CHANGE, null);
 	}
 
-	protected void setAfterStringsChange(java.lang.String afterStringsChange) {
+	public void setAfterStringsChange(java.lang.String afterStringsChange) {
 		getStateHelper().put(AFTER_STRINGS_CHANGE, afterStringsChange);
 	}
 
-	protected java.lang.String getAfterTabIndexChange() {
+	public java.lang.String getAfterTabIndexChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TAB_INDEX_CHANGE, null);
 	}
 
-	protected void setAfterTabIndexChange(java.lang.String afterTabIndexChange) {
+	public void setAfterTabIndexChange(java.lang.String afterTabIndexChange) {
 		getStateHelper().put(AFTER_TAB_INDEX_CHANGE, afterTabIndexChange);
 	}
 
-	protected java.lang.String getAfterTemplateChange() {
+	public java.lang.String getAfterTemplateChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TEMPLATE_CHANGE, null);
 	}
 
-	protected void setAfterTemplateChange(java.lang.String afterTemplateChange) {
+	public void setAfterTemplateChange(java.lang.String afterTemplateChange) {
 		getStateHelper().put(AFTER_TEMPLATE_CHANGE, afterTemplateChange);
 	}
 
-	protected java.lang.String getAfterTemplateNodeChange() {
+	public java.lang.String getAfterTemplateNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TEMPLATE_NODE_CHANGE, null);
 	}
 
-	protected void setAfterTemplateNodeChange(java.lang.String afterTemplateNodeChange) {
+	public void setAfterTemplateNodeChange(java.lang.String afterTemplateNodeChange) {
 		getStateHelper().put(AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange);
 	}
 
-	protected java.lang.String getAfterTipChange() {
+	public java.lang.String getAfterTipChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TIP_CHANGE, null);
 	}
 
-	protected void setAfterTipChange(java.lang.String afterTipChange) {
+	public void setAfterTipChange(java.lang.String afterTipChange) {
 		getStateHelper().put(AFTER_TIP_CHANGE, afterTipChange);
 	}
 
-	protected java.lang.String getAfterTipFlagNodeChange() {
+	public java.lang.String getAfterTipFlagNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TIP_FLAG_NODE_CHANGE, null);
 	}
 
-	protected void setAfterTipFlagNodeChange(java.lang.String afterTipFlagNodeChange) {
+	public void setAfterTipFlagNodeChange(java.lang.String afterTipFlagNodeChange) {
 		getStateHelper().put(AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange);
 	}
 
-	protected java.lang.String getAfterTypeChange() {
+	public java.lang.String getAfterTypeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_TYPE_CHANGE, null);
 	}
 
-	protected void setAfterTypeChange(java.lang.String afterTypeChange) {
+	public void setAfterTypeChange(java.lang.String afterTypeChange) {
 		getStateHelper().put(AFTER_TYPE_CHANGE, afterTypeChange);
 	}
 
-	protected java.lang.String getAfterUniqueChange() {
+	public java.lang.String getAfterUniqueChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_UNIQUE_CHANGE, null);
 	}
 
-	protected void setAfterUniqueChange(java.lang.String afterUniqueChange) {
+	public void setAfterUniqueChange(java.lang.String afterUniqueChange) {
 		getStateHelper().put(AFTER_UNIQUE_CHANGE, afterUniqueChange);
 	}
 
-	protected java.lang.String getAfterZIndexChange() {
+	public java.lang.String getAfterZIndexChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_ZINDEX_CHANGE, null);
 	}
 
-	protected void setAfterZIndexChange(java.lang.String afterZIndexChange) {
+	public void setAfterZIndexChange(java.lang.String afterZIndexChange) {
 		getStateHelper().put(AFTER_ZINDEX_CHANGE, afterZIndexChange);
 	}
 
-	protected java.lang.String getOnAcceptChildrenChange() {
+	public java.lang.String getOnAcceptChildrenChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ACCEPT_CHILDREN_CHANGE, null);
 	}
 
-	protected void setOnAcceptChildrenChange(java.lang.String onAcceptChildrenChange) {
+	public void setOnAcceptChildrenChange(java.lang.String onAcceptChildrenChange) {
 		getStateHelper().put(ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange);
 	}
 
-	protected java.lang.String getOnBuilderChange() {
+	public java.lang.String getOnBuilderChange() {
 		return (java.lang.String) getStateHelper().eval(ON_BUILDER_CHANGE, null);
 	}
 
-	protected void setOnBuilderChange(java.lang.String onBuilderChange) {
+	public void setOnBuilderChange(java.lang.String onBuilderChange) {
 		getStateHelper().put(ON_BUILDER_CHANGE, onBuilderChange);
 	}
 
-	protected java.lang.String getOnControlsToolbarChange() {
+	public java.lang.String getOnControlsToolbarChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CONTROLS_TOOLBAR_CHANGE, null);
 	}
 
-	protected void setOnControlsToolbarChange(java.lang.String onControlsToolbarChange) {
+	public void setOnControlsToolbarChange(java.lang.String onControlsToolbarChange) {
 		getStateHelper().put(ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange);
 	}
 
-	protected java.lang.String getOnDataTypeChange() {
+	public java.lang.String getOnDataTypeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DATA_TYPE_CHANGE, null);
 	}
 
-	protected void setOnDataTypeChange(java.lang.String onDataTypeChange) {
+	public void setOnDataTypeChange(java.lang.String onDataTypeChange) {
 		getStateHelper().put(ON_DATA_TYPE_CHANGE, onDataTypeChange);
 	}
 
-	protected java.lang.String getOnDisabledChange() {
+	public java.lang.String getOnDisabledChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DISABLED_CHANGE, null);
 	}
 
-	protected void setOnDisabledChange(java.lang.String onDisabledChange) {
+	public void setOnDisabledChange(java.lang.String onDisabledChange) {
 		getStateHelper().put(ON_DISABLED_CHANGE, onDisabledChange);
 	}
 
-	protected java.lang.String getOnDropZoneNodeChange() {
+	public java.lang.String getOnDropZoneNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DROP_ZONE_NODE_CHANGE, null);
 	}
 
-	protected void setOnDropZoneNodeChange(java.lang.String onDropZoneNodeChange) {
+	public void setOnDropZoneNodeChange(java.lang.String onDropZoneNodeChange) {
 		getStateHelper().put(ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange);
 	}
 
-	protected java.lang.String getOnHiddenAttributesChange() {
+	public java.lang.String getOnHiddenAttributesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_HIDDEN_ATTRIBUTES_CHANGE, null);
 	}
 
-	protected void setOnHiddenAttributesChange(java.lang.String onHiddenAttributesChange) {
+	public void setOnHiddenAttributesChange(java.lang.String onHiddenAttributesChange) {
 		getStateHelper().put(ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange);
 	}
 
-	protected java.lang.String getOnIdChange() {
+	public java.lang.String getOnIdChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ID_CHANGE, null);
 	}
 
-	protected void setOnIdChange(java.lang.String onIdChange) {
+	public void setOnIdChange(java.lang.String onIdChange) {
 		getStateHelper().put(ON_ID_CHANGE, onIdChange);
 	}
 
-	protected java.lang.String getOnLabelChange() {
+	public java.lang.String getOnLabelChange() {
 		return (java.lang.String) getStateHelper().eval(ON_LABEL_CHANGE, null);
 	}
 
-	protected void setOnLabelChange(java.lang.String onLabelChange) {
+	public void setOnLabelChange(java.lang.String onLabelChange) {
 		getStateHelper().put(ON_LABEL_CHANGE, onLabelChange);
 	}
 
-	protected java.lang.String getOnLabelNodeChange() {
+	public java.lang.String getOnLabelNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_LABEL_NODE_CHANGE, null);
 	}
 
-	protected void setOnLabelNodeChange(java.lang.String onLabelNodeChange) {
+	public void setOnLabelNodeChange(java.lang.String onLabelNodeChange) {
 		getStateHelper().put(ON_LABEL_NODE_CHANGE, onLabelNodeChange);
 	}
 
-	protected java.lang.String getOnLocalizationMapChange() {
+	public java.lang.String getOnLocalizationMapChange() {
 		return (java.lang.String) getStateHelper().eval(ON_LOCALIZATION_MAP_CHANGE, null);
 	}
 
-	protected void setOnLocalizationMapChange(java.lang.String onLocalizationMapChange) {
+	public void setOnLocalizationMapChange(java.lang.String onLocalizationMapChange) {
 		getStateHelper().put(ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange);
 	}
 
-	protected java.lang.String getOnNameChange() {
+	public java.lang.String getOnNameChange() {
 		return (java.lang.String) getStateHelper().eval(ON_NAME_CHANGE, null);
 	}
 
-	protected void setOnNameChange(java.lang.String onNameChange) {
+	public void setOnNameChange(java.lang.String onNameChange) {
 		getStateHelper().put(ON_NAME_CHANGE, onNameChange);
 	}
 
-	protected java.lang.String getOnOptionTemplateChange() {
+	public java.lang.String getOnOptionTemplateChange() {
 		return (java.lang.String) getStateHelper().eval(ON_OPTION_TEMPLATE_CHANGE, null);
 	}
 
-	protected void setOnOptionTemplateChange(java.lang.String onOptionTemplateChange) {
+	public void setOnOptionTemplateChange(java.lang.String onOptionTemplateChange) {
 		getStateHelper().put(ON_OPTION_TEMPLATE_CHANGE, onOptionTemplateChange);
 	}
 
-	protected java.lang.String getOnOptionsChange() {
+	public java.lang.String getOnOptionsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_OPTIONS_CHANGE, null);
 	}
 
-	protected void setOnOptionsChange(java.lang.String onOptionsChange) {
+	public void setOnOptionsChange(java.lang.String onOptionsChange) {
 		getStateHelper().put(ON_OPTIONS_CHANGE, onOptionsChange);
 	}
 
-	protected java.lang.String getOnParentChange() {
+	public java.lang.String getOnParentChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PARENT_CHANGE, null);
 	}
 
-	protected void setOnParentChange(java.lang.String onParentChange) {
+	public void setOnParentChange(java.lang.String onParentChange) {
 		getStateHelper().put(ON_PARENT_CHANGE, onParentChange);
 	}
 
-	protected java.lang.String getOnPredefinedValueChange() {
+	public java.lang.String getOnPredefinedValueChange() {
 		return (java.lang.String) getStateHelper().eval(ON_PREDEFINED_VALUE_CHANGE, null);
 	}
 
-	protected void setOnPredefinedValueChange(java.lang.String onPredefinedValueChange) {
+	public void setOnPredefinedValueChange(java.lang.String onPredefinedValueChange) {
 		getStateHelper().put(ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange);
 	}
 
-	protected java.lang.String getOnReadOnlyChange() {
+	public java.lang.String getOnReadOnlyChange() {
 		return (java.lang.String) getStateHelper().eval(ON_READ_ONLY_CHANGE, null);
 	}
 
-	protected void setOnReadOnlyChange(java.lang.String onReadOnlyChange) {
+	public void setOnReadOnlyChange(java.lang.String onReadOnlyChange) {
 		getStateHelper().put(ON_READ_ONLY_CHANGE, onReadOnlyChange);
 	}
 
-	protected java.lang.String getOnReadOnlyAttributesChange() {
+	public java.lang.String getOnReadOnlyAttributesChange() {
 		return (java.lang.String) getStateHelper().eval(ON_READ_ONLY_ATTRIBUTES_CHANGE, null);
 	}
 
-	protected void setOnReadOnlyAttributesChange(java.lang.String onReadOnlyAttributesChange) {
+	public void setOnReadOnlyAttributesChange(java.lang.String onReadOnlyAttributesChange) {
 		getStateHelper().put(ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange);
 	}
 
-	protected java.lang.String getOnRequiredChange() {
+	public java.lang.String getOnRequiredChange() {
 		return (java.lang.String) getStateHelper().eval(ON_REQUIRED_CHANGE, null);
 	}
 
-	protected void setOnRequiredChange(java.lang.String onRequiredChange) {
+	public void setOnRequiredChange(java.lang.String onRequiredChange) {
 		getStateHelper().put(ON_REQUIRED_CHANGE, onRequiredChange);
 	}
 
-	protected java.lang.String getOnRequiredFlagNodeChange() {
+	public java.lang.String getOnRequiredFlagNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_REQUIRED_FLAG_NODE_CHANGE, null);
 	}
 
-	protected void setOnRequiredFlagNodeChange(java.lang.String onRequiredFlagNodeChange) {
+	public void setOnRequiredFlagNodeChange(java.lang.String onRequiredFlagNodeChange) {
 		getStateHelper().put(ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange);
 	}
 
-	protected java.lang.String getOnSelectedChange() {
+	public java.lang.String getOnSelectedChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SELECTED_CHANGE, null);
 	}
 
-	protected void setOnSelectedChange(java.lang.String onSelectedChange) {
+	public void setOnSelectedChange(java.lang.String onSelectedChange) {
 		getStateHelper().put(ON_SELECTED_CHANGE, onSelectedChange);
 	}
 
-	protected java.lang.String getOnShowLabelChange() {
+	public java.lang.String getOnShowLabelChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SHOW_LABEL_CHANGE, null);
 	}
 
-	protected void setOnShowLabelChange(java.lang.String onShowLabelChange) {
+	public void setOnShowLabelChange(java.lang.String onShowLabelChange) {
 		getStateHelper().put(ON_SHOW_LABEL_CHANGE, onShowLabelChange);
 	}
 
-	protected java.lang.String getOnStringsChange() {
+	public java.lang.String getOnStringsChange() {
 		return (java.lang.String) getStateHelper().eval(ON_STRINGS_CHANGE, null);
 	}
 
-	protected void setOnStringsChange(java.lang.String onStringsChange) {
+	public void setOnStringsChange(java.lang.String onStringsChange) {
 		getStateHelper().put(ON_STRINGS_CHANGE, onStringsChange);
 	}
 
-	protected java.lang.String getOnTabIndexChange() {
+	public java.lang.String getOnTabIndexChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TAB_INDEX_CHANGE, null);
 	}
 
-	protected void setOnTabIndexChange(java.lang.String onTabIndexChange) {
+	public void setOnTabIndexChange(java.lang.String onTabIndexChange) {
 		getStateHelper().put(ON_TAB_INDEX_CHANGE, onTabIndexChange);
 	}
 
-	protected java.lang.String getOnTemplateChange() {
+	public java.lang.String getOnTemplateChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TEMPLATE_CHANGE, null);
 	}
 
-	protected void setOnTemplateChange(java.lang.String onTemplateChange) {
+	public void setOnTemplateChange(java.lang.String onTemplateChange) {
 		getStateHelper().put(ON_TEMPLATE_CHANGE, onTemplateChange);
 	}
 
-	protected java.lang.String getOnTemplateNodeChange() {
+	public java.lang.String getOnTemplateNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TEMPLATE_NODE_CHANGE, null);
 	}
 
-	protected void setOnTemplateNodeChange(java.lang.String onTemplateNodeChange) {
+	public void setOnTemplateNodeChange(java.lang.String onTemplateNodeChange) {
 		getStateHelper().put(ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange);
 	}
 
-	protected java.lang.String getOnTipChange() {
+	public java.lang.String getOnTipChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TIP_CHANGE, null);
 	}
 
-	protected void setOnTipChange(java.lang.String onTipChange) {
+	public void setOnTipChange(java.lang.String onTipChange) {
 		getStateHelper().put(ON_TIP_CHANGE, onTipChange);
 	}
 
-	protected java.lang.String getOnTipFlagNodeChange() {
+	public java.lang.String getOnTipFlagNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TIP_FLAG_NODE_CHANGE, null);
 	}
 
-	protected void setOnTipFlagNodeChange(java.lang.String onTipFlagNodeChange) {
+	public void setOnTipFlagNodeChange(java.lang.String onTipFlagNodeChange) {
 		getStateHelper().put(ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange);
 	}
 
-	protected java.lang.String getOnTypeChange() {
+	public java.lang.String getOnTypeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_TYPE_CHANGE, null);
 	}
 
-	protected void setOnTypeChange(java.lang.String onTypeChange) {
+	public void setOnTypeChange(java.lang.String onTypeChange) {
 		getStateHelper().put(ON_TYPE_CHANGE, onTypeChange);
 	}
 
-	protected java.lang.String getOnUniqueChange() {
+	public java.lang.String getOnUniqueChange() {
 		return (java.lang.String) getStateHelper().eval(ON_UNIQUE_CHANGE, null);
 	}
 
-	protected void setOnUniqueChange(java.lang.String onUniqueChange) {
+	public void setOnUniqueChange(java.lang.String onUniqueChange) {
 		getStateHelper().put(ON_UNIQUE_CHANGE, onUniqueChange);
 	}
 
-	protected java.lang.String getOnZIndexChange() {
+	public java.lang.String getOnZIndexChange() {
 		return (java.lang.String) getStateHelper().eval(ON_ZINDEX_CHANGE, null);
 	}
 
-	protected void setOnZIndexChange(java.lang.String onZIndexChange) {
+	public void setOnZIndexChange(java.lang.String onZIndexChange) {
 		getStateHelper().put(ON_ZINDEX_CHANGE, onZIndexChange);
 	}
 

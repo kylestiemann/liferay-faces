@@ -23,137 +23,191 @@ public abstract class TernarySearchNodeBase extends javax.faces.component.UIPane
 
 	private static final String CHARACTER = "character";
 	private static final String CHILD = "child";
+	private static final String DESTROYED = "destroyed";
+	private static final String INITIALIZED = "initialized";
 	private static final String LARGER_NODE = "largerNode";
 	private static final String SMALLER_NODE = "smallerNode";
 	private static final String WORD = "word";
 	private static final String AFTER_CHARACTER_CHANGE = "afterCharacterChange";
 	private static final String AFTER_CHILD_CHANGE = "afterChildChange";
+	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
 	private static final String AFTER_LARGER_NODE_CHANGE = "afterLargerNodeChange";
 	private static final String AFTER_SMALLER_NODE_CHANGE = "afterSmallerNodeChange";
 	private static final String AFTER_WORD_CHANGE = "afterWordChange";
 	private static final String ON_CHARACTER_CHANGE = "onCharacterChange";
 	private static final String ON_CHILD_CHANGE = "onChildChange";
+	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 	private static final String ON_LARGER_NODE_CHANGE = "onLargerNodeChange";
 	private static final String ON_SMALLER_NODE_CHANGE = "onSmallerNodeChange";
 	private static final String ON_WORD_CHANGE = "onWordChange";
 
-	protected java.lang.String getCharacter() {
+	public java.lang.String getCharacter() {
 		return (java.lang.String) getStateHelper().eval(CHARACTER, null);
 	}
 
-	protected void setCharacter(java.lang.String character) {
+	public void setCharacter(java.lang.String character) {
 		getStateHelper().put(CHARACTER, character);
 	}
 
-	protected java.lang.String getChild() {
+	public java.lang.String getChild() {
 		return (java.lang.String) getStateHelper().eval(CHILD, null);
 	}
 
-	protected void setChild(java.lang.String child) {
+	public void setChild(java.lang.String child) {
 		getStateHelper().put(CHILD, child);
 	}
 
-	protected java.lang.Object getLargerNode() {
+	public java.lang.Boolean getDestroyed() {
+		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);
+	}
+
+	public void setDestroyed(java.lang.Boolean destroyed) {
+		getStateHelper().put(DESTROYED, destroyed);
+	}
+
+	public java.lang.Boolean getInitialized() {
+		return (java.lang.Boolean) getStateHelper().eval(INITIALIZED, null);
+	}
+
+	public void setInitialized(java.lang.Boolean initialized) {
+		getStateHelper().put(INITIALIZED, initialized);
+	}
+
+	public java.lang.Object getLargerNode() {
 		return (java.lang.Object) getStateHelper().eval(LARGER_NODE, null);
 	}
 
-	protected void setLargerNode(java.lang.Object largerNode) {
+	public void setLargerNode(java.lang.Object largerNode) {
 		getStateHelper().put(LARGER_NODE, largerNode);
 	}
 
-	protected java.lang.Object getSmallerNode() {
+	public java.lang.Object getSmallerNode() {
 		return (java.lang.Object) getStateHelper().eval(SMALLER_NODE, null);
 	}
 
-	protected void setSmallerNode(java.lang.Object smallerNode) {
+	public void setSmallerNode(java.lang.Object smallerNode) {
 		getStateHelper().put(SMALLER_NODE, smallerNode);
 	}
 
-	protected java.lang.String getWord() {
+	public java.lang.String getWord() {
 		return (java.lang.String) getStateHelper().eval(WORD, null);
 	}
 
-	protected void setWord(java.lang.String word) {
+	public void setWord(java.lang.String word) {
 		getStateHelper().put(WORD, word);
 	}
 
-	protected java.lang.String getAfterCharacterChange() {
+	public java.lang.String getAfterCharacterChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CHARACTER_CHANGE, null);
 	}
 
-	protected void setAfterCharacterChange(java.lang.String afterCharacterChange) {
+	public void setAfterCharacterChange(java.lang.String afterCharacterChange) {
 		getStateHelper().put(AFTER_CHARACTER_CHANGE, afterCharacterChange);
 	}
 
-	protected java.lang.String getAfterChildChange() {
+	public java.lang.String getAfterChildChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_CHILD_CHANGE, null);
 	}
 
-	protected void setAfterChildChange(java.lang.String afterChildChange) {
+	public void setAfterChildChange(java.lang.String afterChildChange) {
 		getStateHelper().put(AFTER_CHILD_CHANGE, afterChildChange);
 	}
 
-	protected java.lang.String getAfterLargerNodeChange() {
+	public java.lang.String getAfterDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_DESTROYED_CHANGE, null);
+	}
+
+	public void setAfterDestroyedChange(java.lang.String afterDestroyedChange) {
+		getStateHelper().put(AFTER_DESTROYED_CHANGE, afterDestroyedChange);
+	}
+
+	public java.lang.String getAfterInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(AFTER_INITIALIZED_CHANGE, null);
+	}
+
+	public void setAfterInitializedChange(java.lang.String afterInitializedChange) {
+		getStateHelper().put(AFTER_INITIALIZED_CHANGE, afterInitializedChange);
+	}
+
+	public java.lang.String getAfterLargerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_LARGER_NODE_CHANGE, null);
 	}
 
-	protected void setAfterLargerNodeChange(java.lang.String afterLargerNodeChange) {
+	public void setAfterLargerNodeChange(java.lang.String afterLargerNodeChange) {
 		getStateHelper().put(AFTER_LARGER_NODE_CHANGE, afterLargerNodeChange);
 	}
 
-	protected java.lang.String getAfterSmallerNodeChange() {
+	public java.lang.String getAfterSmallerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_SMALLER_NODE_CHANGE, null);
 	}
 
-	protected void setAfterSmallerNodeChange(java.lang.String afterSmallerNodeChange) {
+	public void setAfterSmallerNodeChange(java.lang.String afterSmallerNodeChange) {
 		getStateHelper().put(AFTER_SMALLER_NODE_CHANGE, afterSmallerNodeChange);
 	}
 
-	protected java.lang.String getAfterWordChange() {
+	public java.lang.String getAfterWordChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_WORD_CHANGE, null);
 	}
 
-	protected void setAfterWordChange(java.lang.String afterWordChange) {
+	public void setAfterWordChange(java.lang.String afterWordChange) {
 		getStateHelper().put(AFTER_WORD_CHANGE, afterWordChange);
 	}
 
-	protected java.lang.String getOnCharacterChange() {
+	public java.lang.String getOnCharacterChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CHARACTER_CHANGE, null);
 	}
 
-	protected void setOnCharacterChange(java.lang.String onCharacterChange) {
+	public void setOnCharacterChange(java.lang.String onCharacterChange) {
 		getStateHelper().put(ON_CHARACTER_CHANGE, onCharacterChange);
 	}
 
-	protected java.lang.String getOnChildChange() {
+	public java.lang.String getOnChildChange() {
 		return (java.lang.String) getStateHelper().eval(ON_CHILD_CHANGE, null);
 	}
 
-	protected void setOnChildChange(java.lang.String onChildChange) {
+	public void setOnChildChange(java.lang.String onChildChange) {
 		getStateHelper().put(ON_CHILD_CHANGE, onChildChange);
 	}
 
-	protected java.lang.String getOnLargerNodeChange() {
+	public java.lang.String getOnDestroyedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_DESTROYED_CHANGE, null);
+	}
+
+	public void setOnDestroyedChange(java.lang.String onDestroyedChange) {
+		getStateHelper().put(ON_DESTROYED_CHANGE, onDestroyedChange);
+	}
+
+	public java.lang.String getOnInitializedChange() {
+		return (java.lang.String) getStateHelper().eval(ON_INITIALIZED_CHANGE, null);
+	}
+
+	public void setOnInitializedChange(java.lang.String onInitializedChange) {
+		getStateHelper().put(ON_INITIALIZED_CHANGE, onInitializedChange);
+	}
+
+	public java.lang.String getOnLargerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_LARGER_NODE_CHANGE, null);
 	}
 
-	protected void setOnLargerNodeChange(java.lang.String onLargerNodeChange) {
+	public void setOnLargerNodeChange(java.lang.String onLargerNodeChange) {
 		getStateHelper().put(ON_LARGER_NODE_CHANGE, onLargerNodeChange);
 	}
 
-	protected java.lang.String getOnSmallerNodeChange() {
+	public java.lang.String getOnSmallerNodeChange() {
 		return (java.lang.String) getStateHelper().eval(ON_SMALLER_NODE_CHANGE, null);
 	}
 
-	protected void setOnSmallerNodeChange(java.lang.String onSmallerNodeChange) {
+	public void setOnSmallerNodeChange(java.lang.String onSmallerNodeChange) {
 		getStateHelper().put(ON_SMALLER_NODE_CHANGE, onSmallerNodeChange);
 	}
 
-	protected java.lang.String getOnWordChange() {
+	public java.lang.String getOnWordChange() {
 		return (java.lang.String) getStateHelper().eval(ON_WORD_CHANGE, null);
 	}
 
-	protected void setOnWordChange(java.lang.String onWordChange) {
+	public void setOnWordChange(java.lang.String onWordChange) {
 		getStateHelper().put(ON_WORD_CHANGE, onWordChange);
 	}
 

@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.progressbar;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,38 +57,53 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, progressBar);
 
-		bufferedResponseWriter.write("var progressBar = new Y.ProgressBar");
+		bufferedResponseWriter.write("var progressBar = new A.ProgressBar");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCssClass(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHeight(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMax(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderMin(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderOrientation(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRatio(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderStep(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTextNode(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, progressBar);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderProgressbarValue(bufferedResponseWriter, progressBar);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, progressBar);
+		renderContentBox(renrederedAttributes, progressBar);
+		renderCssClass(renrederedAttributes, progressBar);
+		renderDestroyed(renrederedAttributes, progressBar);
+		renderDisabled(renrederedAttributes, progressBar);
+		renderFocused(renrederedAttributes, progressBar);
+		renderHeight(renrederedAttributes, progressBar);
+		renderHideClass(renrederedAttributes, progressBar);
+		renderProgressbarId(renrederedAttributes, progressBar);
+		renderInitialized(renrederedAttributes, progressBar);
+		renderLabel(renrederedAttributes, progressBar);
+		renderProgressbarLocale(renrederedAttributes, progressBar);
+		renderMax(renrederedAttributes, progressBar);
+		renderMin(renrederedAttributes, progressBar);
+		renderOrientation(renrederedAttributes, progressBar);
+		renderRatio(renrederedAttributes, progressBar);
+		renderRender(renrederedAttributes, progressBar);
+		renderRendered(renrederedAttributes, progressBar);
+		renderSrcNode(renrederedAttributes, progressBar);
+		renderStep(renrederedAttributes, progressBar);
+		renderStrings(renrederedAttributes, progressBar);
+		renderTabIndex(renrederedAttributes, progressBar);
+		renderTextNode(renrederedAttributes, progressBar);
+		renderUseARIA(renrederedAttributes, progressBar);
+		renderProgressbarValue(renrederedAttributes, progressBar);
+		renderVisible(renrederedAttributes, progressBar);
+		renderWidth(renrederedAttributes, progressBar);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -100,56 +117,166 @@ public abstract class ProgressBarRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "cssClass", progressBar.getCssClass());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", progressBar.getBoundingBox()));
+		}
 	}
 
-	protected void renderHeight(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderNumber(responseWriter, "height", progressBar.getHeight());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", progressBar.getContentBox()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "hideClass", progressBar.getHideClass());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", progressBar.getCssClass()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "label", progressBar.getLabel());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", progressBar.getDestroyed()));
+		}
 	}
 
-	protected void renderMax(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderNumber(responseWriter, "max", progressBar.getMax());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", progressBar.getDisabled()));
+		}
 	}
 
-	protected void renderMin(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderNumber(responseWriter, "min", progressBar.getMin());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", progressBar.getFocused()));
+		}
 	}
 
-	protected void renderOrientation(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "orientation", progressBar.getOrientation());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getHeight() != null) {
+			renrederedAttributes.add(renderNumber("height", progressBar.getHeight()));
+		}
 	}
 
-	protected void renderRatio(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderNumber(responseWriter, "ratio", progressBar.getRatio());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", progressBar.getHideClass()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "render", progressBar.getRender());
+	protected void renderProgressbarId(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getProgressbarId() != null) {
+			renrederedAttributes.add(renderString("progressbarId", progressBar.getProgressbarId()));
+		}
 	}
 
-	protected void renderStep(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderNumber(responseWriter, "step", progressBar.getStep());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", progressBar.getInitialized()));
+		}
 	}
 
-	protected void renderTextNode(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "textNode", progressBar.getTextNode());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", progressBar.getLabel()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderBoolean(responseWriter, "useARIA", progressBar.getUseARIA());
+	protected void renderProgressbarLocale(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getProgressbarLocale() != null) {
+			renrederedAttributes.add(renderString("progressbarLocale", progressBar.getProgressbarLocale()));
+		}
 	}
 
-	protected void renderProgressbarValue(ResponseWriter responseWriter, ProgressBar progressBar) throws IOException {
-		renderString(responseWriter, "progressbarValue", progressBar.getProgressbarValue());
+	protected void renderMax(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getMax() != null) {
+			renrederedAttributes.add(renderNumber("max", progressBar.getMax()));
+		}
+	}
+
+	protected void renderMin(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getMin() != null) {
+			renrederedAttributes.add(renderNumber("min", progressBar.getMin()));
+		}
+	}
+
+	protected void renderOrientation(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getOrientation() != null) {
+			renrederedAttributes.add(renderString("orientation", progressBar.getOrientation()));
+		}
+	}
+
+	protected void renderRatio(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getRatio() != null) {
+			renrederedAttributes.add(renderNumber("ratio", progressBar.getRatio()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getRender() != null) {
+			renrederedAttributes.add(renderString("render", progressBar.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", progressBar.getRendered()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", progressBar.getSrcNode()));
+		}
+	}
+
+	protected void renderStep(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getStep() != null) {
+			renrederedAttributes.add(renderNumber("step", progressBar.getStep()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", progressBar.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", progressBar.getTabIndex()));
+		}
+	}
+
+	protected void renderTextNode(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getTextNode() != null) {
+			renrederedAttributes.add(renderString("textNode", progressBar.getTextNode()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", progressBar.getUseARIA()));
+		}
+	}
+
+	protected void renderProgressbarValue(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getProgressbarValue() != null) {
+			renrederedAttributes.add(renderString("progressbarValue", progressBar.getProgressbarValue()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", progressBar.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, ProgressBar progressBar) throws IOException {
+		if (progressBar.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", progressBar.getWidth()));
+		}
 	}
 
 }

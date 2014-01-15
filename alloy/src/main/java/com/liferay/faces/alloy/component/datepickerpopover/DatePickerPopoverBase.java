@@ -31,75 +31,75 @@ public abstract class DatePickerPopoverBase extends javax.faces.component.UIPane
 	private static final String ON_POPOVER_CHANGE = "onPopoverChange";
 	private static final String ON_POPOVER_CSS_CLASS_CHANGE = "onPopoverCssClassChange";
 
-	protected java.lang.Boolean getAutoHide() {
+	public java.lang.Boolean getAutoHide() {
 		return (java.lang.Boolean) getStateHelper().eval(AUTO_HIDE, null);
 	}
 
-	protected void setAutoHide(java.lang.Boolean autoHide) {
+	public void setAutoHide(java.lang.Boolean autoHide) {
 		getStateHelper().put(AUTO_HIDE, autoHide);
 	}
 
-	protected java.lang.String getPopover() {
+	public java.lang.String getPopover() {
 		return (java.lang.String) getStateHelper().eval(POPOVER, null);
 	}
 
-	protected void setPopover(java.lang.String popover) {
+	public void setPopover(java.lang.String popover) {
 		getStateHelper().put(POPOVER, popover);
 	}
 
-	protected java.lang.String getPopoverCssClass() {
+	public java.lang.String getPopoverCssClass() {
 		return (java.lang.String) getStateHelper().eval(POPOVER_CSS_CLASS, null);
 	}
 
-	protected void setPopoverCssClass(java.lang.String popoverCssClass) {
+	public void setPopoverCssClass(java.lang.String popoverCssClass) {
 		getStateHelper().put(POPOVER_CSS_CLASS, popoverCssClass);
 	}
 
-	protected java.lang.String getAfterAutoHideChange() {
+	public java.lang.String getAfterAutoHideChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_AUTO_HIDE_CHANGE, null);
 	}
 
-	protected void setAfterAutoHideChange(java.lang.String afterAutoHideChange) {
+	public void setAfterAutoHideChange(java.lang.String afterAutoHideChange) {
 		getStateHelper().put(AFTER_AUTO_HIDE_CHANGE, afterAutoHideChange);
 	}
 
-	protected java.lang.String getAfterPopoverChange() {
+	public java.lang.String getAfterPopoverChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_POPOVER_CHANGE, null);
 	}
 
-	protected void setAfterPopoverChange(java.lang.String afterPopoverChange) {
+	public void setAfterPopoverChange(java.lang.String afterPopoverChange) {
 		getStateHelper().put(AFTER_POPOVER_CHANGE, afterPopoverChange);
 	}
 
-	protected java.lang.String getAfterPopoverCssClassChange() {
+	public java.lang.String getAfterPopoverCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_POPOVER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setAfterPopoverCssClassChange(java.lang.String afterPopoverCssClassChange) {
+	public void setAfterPopoverCssClassChange(java.lang.String afterPopoverCssClassChange) {
 		getStateHelper().put(AFTER_POPOVER_CSS_CLASS_CHANGE, afterPopoverCssClassChange);
 	}
 
-	protected java.lang.String getOnAutoHideChange() {
+	public java.lang.String getOnAutoHideChange() {
 		return (java.lang.String) getStateHelper().eval(ON_AUTO_HIDE_CHANGE, null);
 	}
 
-	protected void setOnAutoHideChange(java.lang.String onAutoHideChange) {
+	public void setOnAutoHideChange(java.lang.String onAutoHideChange) {
 		getStateHelper().put(ON_AUTO_HIDE_CHANGE, onAutoHideChange);
 	}
 
-	protected java.lang.String getOnPopoverChange() {
+	public java.lang.String getOnPopoverChange() {
 		return (java.lang.String) getStateHelper().eval(ON_POPOVER_CHANGE, null);
 	}
 
-	protected void setOnPopoverChange(java.lang.String onPopoverChange) {
+	public void setOnPopoverChange(java.lang.String onPopoverChange) {
 		getStateHelper().put(ON_POPOVER_CHANGE, onPopoverChange);
 	}
 
-	protected java.lang.String getOnPopoverCssClassChange() {
+	public java.lang.String getOnPopoverCssClassChange() {
 		return (java.lang.String) getStateHelper().eval(ON_POPOVER_CSS_CLASS_CHANGE, null);
 	}
 
-	protected void setOnPopoverCssClassChange(java.lang.String onPopoverCssClassChange) {
+	public void setOnPopoverCssClassChange(java.lang.String onPopoverCssClassChange) {
 		getStateHelper().put(ON_POPOVER_CSS_CLASS_CHANGE, onPopoverCssClassChange);
 	}
 

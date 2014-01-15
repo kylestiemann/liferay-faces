@@ -25,27 +25,27 @@ public abstract class SchedulerTableViewDDBase extends javax.faces.component.UIP
 	private static final String AFTER_DELEGATE_CONFIG_CHANGE = "afterDelegateConfigChange";
 	private static final String ON_DELEGATE_CONFIG_CHANGE = "onDelegateConfigChange";
 
-	protected java.lang.Object getDelegateConfig() {
+	public java.lang.Object getDelegateConfig() {
 		return (java.lang.Object) getStateHelper().eval(DELEGATE_CONFIG, null);
 	}
 
-	protected void setDelegateConfig(java.lang.Object delegateConfig) {
+	public void setDelegateConfig(java.lang.Object delegateConfig) {
 		getStateHelper().put(DELEGATE_CONFIG, delegateConfig);
 	}
 
-	protected java.lang.String getAfterDelegateConfigChange() {
+	public java.lang.String getAfterDelegateConfigChange() {
 		return (java.lang.String) getStateHelper().eval(AFTER_DELEGATE_CONFIG_CHANGE, null);
 	}
 
-	protected void setAfterDelegateConfigChange(java.lang.String afterDelegateConfigChange) {
+	public void setAfterDelegateConfigChange(java.lang.String afterDelegateConfigChange) {
 		getStateHelper().put(AFTER_DELEGATE_CONFIG_CHANGE, afterDelegateConfigChange);
 	}
 
-	protected java.lang.String getOnDelegateConfigChange() {
+	public java.lang.String getOnDelegateConfigChange() {
 		return (java.lang.String) getStateHelper().eval(ON_DELEGATE_CONFIG_CHANGE, null);
 	}
 
-	protected void setOnDelegateConfigChange(java.lang.String onDelegateConfigChange) {
+	public void setOnDelegateConfigChange(java.lang.String onDelegateConfigChange) {
 		getStateHelper().put(ON_DELEGATE_CONFIG_CHANGE, onDelegateConfigChange);
 	}
 

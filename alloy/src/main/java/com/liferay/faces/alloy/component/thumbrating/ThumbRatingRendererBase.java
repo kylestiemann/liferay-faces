@@ -14,6 +14,8 @@
 package com.liferay.faces.alloy.component.thumbrating;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -55,48 +57,58 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 
 		beginJavaScript(facesContext, thumbRating);
 
-		bufferedResponseWriter.write("var thumbRating = new Y.ThumbRating");
+		bufferedResponseWriter.write("var thumbRating = new A.ThumbRating");
 		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
 		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCanReset(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClass(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderCssClasses(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDefaultSelected(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderDisabled(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderElements(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHiddenInput(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderHideClass(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderInputName(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabel(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderLabelNode(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderRender(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSelectedIndex(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderShowTitle(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderSize(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderTitle(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderUseARIA(bufferedResponseWriter, thumbRating);
-		bufferedResponseWriter.write(StringPool.COMMA);
-		renderThumbratingValue(bufferedResponseWriter, thumbRating);
+		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+
+		renderBoundingBox(renrederedAttributes, thumbRating);
+		renderCanReset(renrederedAttributes, thumbRating);
+		renderContentBox(renrederedAttributes, thumbRating);
+		renderCssClass(renrederedAttributes, thumbRating);
+		renderCssClasses(renrederedAttributes, thumbRating);
+		renderDefaultSelected(renrederedAttributes, thumbRating);
+		renderDestroyed(renrederedAttributes, thumbRating);
+		renderDisabled(renrederedAttributes, thumbRating);
+		renderElements(renrederedAttributes, thumbRating);
+		renderFocused(renrederedAttributes, thumbRating);
+		renderHeight(renrederedAttributes, thumbRating);
+		renderHiddenInput(renrederedAttributes, thumbRating);
+		renderHideClass(renrederedAttributes, thumbRating);
+		renderThumbratingId(renrederedAttributes, thumbRating);
+		renderInitialized(renrederedAttributes, thumbRating);
+		renderInputName(renrederedAttributes, thumbRating);
+		renderLabel(renrederedAttributes, thumbRating);
+		renderLabelNode(renrederedAttributes, thumbRating);
+		renderThumbratingLocale(renrederedAttributes, thumbRating);
+		renderRender(renrederedAttributes, thumbRating);
+		renderRendered(renrederedAttributes, thumbRating);
+		renderSelectedIndex(renrederedAttributes, thumbRating);
+		renderShowTitle(renrederedAttributes, thumbRating);
+		renderSize(renrederedAttributes, thumbRating);
+		renderSrcNode(renrederedAttributes, thumbRating);
+		renderStrings(renrederedAttributes, thumbRating);
+		renderTabIndex(renrederedAttributes, thumbRating);
+		renderTitle(renrederedAttributes, thumbRating);
+		renderUseARIA(renrederedAttributes, thumbRating);
+		renderThumbratingValue(renrederedAttributes, thumbRating);
+		renderVisible(renrederedAttributes, thumbRating);
+		renderWidth(renrederedAttributes, thumbRating);
+
+		Iterator<String> it = renrederedAttributes.iterator();
+
+		while (it.hasNext()) {
+			bufferedResponseWriter.write(it.next());
+
+			if (it.hasNext()) {
+				bufferedResponseWriter.write(StringPool.COMMA);
+			}
+		}
 
 		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		bufferedResponseWriter.write(".render()");
 		bufferedResponseWriter.write(StringPool.SEMICOLON);
 
 		endJavaScript(facesContext);
@@ -110,76 +122,196 @@ public abstract class ThumbRatingRendererBase extends AUIRenderer {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCanReset(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderBoolean(responseWriter, "canReset", thumbRating.getCanReset());
+	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getBoundingBox() != null) {
+			renrederedAttributes.add(renderString("boundingBox", thumbRating.getBoundingBox()));
+		}
 	}
 
-	protected void renderCssClass(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "cssClass", thumbRating.getCssClass());
+	protected void renderCanReset(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getCanReset() != null) {
+			renrederedAttributes.add(renderBoolean("canReset", thumbRating.getCanReset()));
+		}
 	}
 
-	protected void renderCssClasses(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderObject(responseWriter, "cssClasses", thumbRating.getCssClasses());
+	protected void renderContentBox(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getContentBox() != null) {
+			renrederedAttributes.add(renderString("contentBox", thumbRating.getContentBox()));
+		}
 	}
 
-	protected void renderDefaultSelected(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderNumber(responseWriter, "defaultSelected", thumbRating.getDefaultSelected());
+	protected void renderCssClass(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getCssClass() != null) {
+			renrederedAttributes.add(renderString("cssClass", thumbRating.getCssClass()));
+		}
 	}
 
-	protected void renderDisabled(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderBoolean(responseWriter, "disabled", thumbRating.getDisabled());
+	protected void renderCssClasses(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getCssClasses() != null) {
+			renrederedAttributes.add(renderObject("cssClasses", thumbRating.getCssClasses()));
+		}
 	}
 
-	protected void renderElements(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "elements", thumbRating.getElements());
+	protected void renderDefaultSelected(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getDefaultSelected() != null) {
+			renrederedAttributes.add(renderNumber("defaultSelected", thumbRating.getDefaultSelected()));
+		}
 	}
 
-	protected void renderHiddenInput(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "hiddenInput", thumbRating.getHiddenInput());
+	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getDestroyed() != null) {
+			renrederedAttributes.add(renderBoolean("destroyed", thumbRating.getDestroyed()));
+		}
 	}
 
-	protected void renderHideClass(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "hideClass", thumbRating.getHideClass());
+	protected void renderDisabled(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getDisabled() != null) {
+			renrederedAttributes.add(renderBoolean("disabled", thumbRating.getDisabled()));
+		}
 	}
 
-	protected void renderInputName(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "inputName", thumbRating.getInputName());
+	protected void renderElements(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getElements() != null) {
+			renrederedAttributes.add(renderString("elements", thumbRating.getElements()));
+		}
 	}
 
-	protected void renderLabel(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "label", thumbRating.getLabel());
+	protected void renderFocused(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getFocused() != null) {
+			renrederedAttributes.add(renderBoolean("focused", thumbRating.getFocused()));
+		}
 	}
 
-	protected void renderLabelNode(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "labelNode", thumbRating.getLabelNode());
+	protected void renderHeight(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getHeight() != null) {
+			renrederedAttributes.add(renderString("height", thumbRating.getHeight()));
+		}
 	}
 
-	protected void renderRender(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "render", thumbRating.getRender());
+	protected void renderHiddenInput(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getHiddenInput() != null) {
+			renrederedAttributes.add(renderString("hiddenInput", thumbRating.getHiddenInput()));
+		}
 	}
 
-	protected void renderSelectedIndex(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderNumber(responseWriter, "selectedIndex", thumbRating.getSelectedIndex());
+	protected void renderHideClass(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getHideClass() != null) {
+			renrederedAttributes.add(renderString("hideClass", thumbRating.getHideClass()));
+		}
 	}
 
-	protected void renderShowTitle(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderBoolean(responseWriter, "showTitle", thumbRating.getShowTitle());
+	protected void renderThumbratingId(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getThumbratingId() != null) {
+			renrederedAttributes.add(renderString("thumbratingId", thumbRating.getThumbratingId()));
+		}
 	}
 
-	protected void renderSize(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderNumber(responseWriter, "size", thumbRating.getSize());
+	protected void renderInitialized(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getInitialized() != null) {
+			renrederedAttributes.add(renderBoolean("initialized", thumbRating.getInitialized()));
+		}
 	}
 
-	protected void renderTitle(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "title", thumbRating.getTitle());
+	protected void renderInputName(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getInputName() != null) {
+			renrederedAttributes.add(renderString("inputName", thumbRating.getInputName()));
+		}
 	}
 
-	protected void renderUseARIA(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderBoolean(responseWriter, "useARIA", thumbRating.getUseARIA());
+	protected void renderLabel(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getLabel() != null) {
+			renrederedAttributes.add(renderString("label", thumbRating.getLabel()));
+		}
 	}
 
-	protected void renderThumbratingValue(ResponseWriter responseWriter, ThumbRating thumbRating) throws IOException {
-		renderString(responseWriter, "thumbratingValue", thumbRating.getThumbratingValue());
+	protected void renderLabelNode(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getLabelNode() != null) {
+			renrederedAttributes.add(renderString("labelNode", thumbRating.getLabelNode()));
+		}
+	}
+
+	protected void renderThumbratingLocale(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getThumbratingLocale() != null) {
+			renrederedAttributes.add(renderString("thumbratingLocale", thumbRating.getThumbratingLocale()));
+		}
+	}
+
+	protected void renderRender(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getRender() != null) {
+			renrederedAttributes.add(renderString("render", thumbRating.getRender()));
+		}
+	}
+
+	protected void renderRendered(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getRendered() != null) {
+			renrederedAttributes.add(renderBoolean("rendered", thumbRating.getRendered()));
+		}
+	}
+
+	protected void renderSelectedIndex(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getSelectedIndex() != null) {
+			renrederedAttributes.add(renderNumber("selectedIndex", thumbRating.getSelectedIndex()));
+		}
+	}
+
+	protected void renderShowTitle(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getShowTitle() != null) {
+			renrederedAttributes.add(renderBoolean("showTitle", thumbRating.getShowTitle()));
+		}
+	}
+
+	protected void renderSize(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getSize() != null) {
+			renrederedAttributes.add(renderNumber("size", thumbRating.getSize()));
+		}
+	}
+
+	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getSrcNode() != null) {
+			renrederedAttributes.add(renderString("srcNode", thumbRating.getSrcNode()));
+		}
+	}
+
+	protected void renderStrings(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getStrings() != null) {
+			renrederedAttributes.add(renderObject("strings", thumbRating.getStrings()));
+		}
+	}
+
+	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getTabIndex() != null) {
+			renrederedAttributes.add(renderNumber("tabIndex", thumbRating.getTabIndex()));
+		}
+	}
+
+	protected void renderTitle(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getTitle() != null) {
+			renrederedAttributes.add(renderString("title", thumbRating.getTitle()));
+		}
+	}
+
+	protected void renderUseARIA(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getUseARIA() != null) {
+			renrederedAttributes.add(renderBoolean("useARIA", thumbRating.getUseARIA()));
+		}
+	}
+
+	protected void renderThumbratingValue(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getThumbratingValue() != null) {
+			renrederedAttributes.add(renderString("thumbratingValue", thumbRating.getThumbratingValue()));
+		}
+	}
+
+	protected void renderVisible(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getVisible() != null) {
+			renrederedAttributes.add(renderBoolean("visible", thumbRating.getVisible()));
+		}
+	}
+
+	protected void renderWidth(ArrayList<String> renrederedAttributes, ThumbRating thumbRating) throws IOException {
+		if (thumbRating.getWidth() != null) {
+			renrederedAttributes.add(renderString("width", thumbRating.getWidth()));
+		}
 	}
 
 }
