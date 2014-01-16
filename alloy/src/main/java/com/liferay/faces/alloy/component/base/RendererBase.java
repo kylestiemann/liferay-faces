@@ -35,7 +35,7 @@ import com.liferay.portal.model.Portlet;
 /**
  * @author  Neil Griffin
  */
-public abstract class AUIRenderer extends Renderer {
+public abstract class RendererBase extends Renderer {
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
@@ -51,13 +51,15 @@ public abstract class AUIRenderer extends Renderer {
 		encodeJavaScript(facesContext, uiComponent);
 	}
 
-	protected abstract void encodeHTMLBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException;
-
-	protected abstract void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException;
+	protected void encodeHTMLBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
+		//no-op
+	}
 
 	protected void encodeHTMLEnd(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 		// no-op
 	}
+
+	protected abstract void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException;
 
 	protected void encodeJavaScript(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
@@ -78,27 +80,27 @@ public abstract class AUIRenderer extends Renderer {
 
 	protected void encodeJavaScriptBegin(FacesContext facesContext) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		bufferedResponseWriter.write(StringPool.FORWARD_SLASH);
-		bufferedResponseWriter.write(StringPool.FORWARD_SLASH);
-		bufferedResponseWriter.write(StringPool.SPACE);
-		bufferedResponseWriter.write(StringPool.CDATA_OPEN);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+		responseWriter.write(StringPool.FORWARD_SLASH);
+		responseWriter.write(StringPool.FORWARD_SLASH);
+		responseWriter.write(StringPool.SPACE);
+		responseWriter.write(StringPool.CDATA_OPEN);
+		responseWriter.write(StringPool.NEW_LINE);
 
 		if (facesContext.getPartialViewContext().isAjaxRequest()) {
 
-			bufferedResponseWriter.write("YUI().use");
-			bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(getModule());
-			bufferedResponseWriter.write(StringPool.COMMA);
-			bufferedResponseWriter.write(StringPool.APOSTROPHE);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-			bufferedResponseWriter.write("function(Y) ");
-			bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
+			responseWriter.write("YUI().use");
+			responseWriter.write(StringPool.OPEN_PARENTHESIS);
+			responseWriter.write(StringPool.NEW_LINE);
+			responseWriter.write(StringPool.APOSTROPHE);
+			responseWriter.write(getModule());
+			responseWriter.write(StringPool.COMMA);
+			responseWriter.write(StringPool.APOSTROPHE);
+			responseWriter.write(StringPool.NEW_LINE);
+			responseWriter.write("function(Y) ");
+			responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+			responseWriter.write(StringPool.NEW_LINE);
 		}
 	}
 
@@ -108,22 +110,22 @@ public abstract class AUIRenderer extends Renderer {
 
 	protected void encodeJavaScriptEnd(FacesContext facesContext) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
 		if (facesContext.getPartialViewContext().isAjaxRequest()) {
 
-			bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-			bufferedResponseWriter.write(StringPool.NEW_LINE);
-			bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-			bufferedResponseWriter.write(StringPool.SEMICOLON);
+			responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+			responseWriter.write(StringPool.NEW_LINE);
+			responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+			responseWriter.write(StringPool.SEMICOLON);
 		}
 
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
-		bufferedResponseWriter.write(StringPool.FORWARD_SLASH);
-		bufferedResponseWriter.write(StringPool.FORWARD_SLASH);
-		bufferedResponseWriter.write(StringPool.SPACE);
-		bufferedResponseWriter.write(StringPool.CDATA_CLOSE);
-		bufferedResponseWriter.write(StringPool.NEW_LINE);
+		responseWriter.write(StringPool.NEW_LINE);
+		responseWriter.write(StringPool.FORWARD_SLASH);
+		responseWriter.write(StringPool.FORWARD_SLASH);
+		responseWriter.write(StringPool.SPACE);
+		responseWriter.write(StringPool.CDATA_CLOSE);
+		responseWriter.write(StringPool.NEW_LINE);
 	}
 
 	protected void handleBuffer(FacesContext facesContext, UIComponent uiComponent) {
