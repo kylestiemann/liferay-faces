@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.datecelleditor;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,77 +30,88 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class DateCellEditorRendererBase extends AUIRenderer {
+public abstract class DateCellEditorRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		DateCellEditor dateCellEditor = (DateCellEditor) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		DateCellEditor dateCellEditor = (DateCellEditor) uiComponent;
 
-		bufferedResponseWriter.write("var dateCellEditor = new A.DateCellEditor");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var dateCellEditor = new A.DateCellEditor");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDatecelleditorBodyContent(renrederedAttributes, dateCellEditor);
-		renderCalendar(renrederedAttributes, dateCellEditor);
-		renderDateFormat(renrederedAttributes, dateCellEditor);
-		renderInputFormatter(renrederedAttributes, dateCellEditor);
-		renderOutputFormatter(renrederedAttributes, dateCellEditor);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderDatecelleditorBodyContent(renderedAttributes, dateCellEditor);
+		renderCalendar(renderedAttributes, dateCellEditor);
+		renderDateFormat(renderedAttributes, dateCellEditor);
+		renderInputFormatter(renderedAttributes, dateCellEditor);
+		renderOutputFormatter(renderedAttributes, dateCellEditor);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDatecelleditorBodyContent(ArrayList<String> renrederedAttributes, DateCellEditor dateCellEditor) throws IOException {
-		if (dateCellEditor.getDatecelleditorBodyContent() != null) {
-			renrederedAttributes.add(renderString("datecelleditorBodyContent", dateCellEditor.getDatecelleditorBodyContent()));
+	protected void renderDatecelleditorBodyContent(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String datecelleditorBodyContent = dateCellEditor.getDatecelleditorBodyContent();
+
+		if (datecelleditorBodyContent != null) {
+			renderedAttributes.add(renderString(DateCellEditor.DATECELLEDITOR_BODY_CONTENT, datecelleditorBodyContent));
 		}
 	}
 
-	protected void renderCalendar(ArrayList<String> renrederedAttributes, DateCellEditor dateCellEditor) throws IOException {
-		if (dateCellEditor.getCalendar() != null) {
-			renrederedAttributes.add(renderObject("calendar", dateCellEditor.getCalendar()));
+	protected void renderCalendar(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.Object calendar = dateCellEditor.getCalendar();
+
+		if (calendar != null) {
+			renderedAttributes.add(renderObject(DateCellEditor.CALENDAR, calendar));
 		}
 	}
 
-	protected void renderDateFormat(ArrayList<String> renrederedAttributes, DateCellEditor dateCellEditor) throws IOException {
-		if (dateCellEditor.getDateFormat() != null) {
-			renrederedAttributes.add(renderString("dateFormat", dateCellEditor.getDateFormat()));
+	protected void renderDateFormat(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String dateFormat = dateCellEditor.getDateFormat();
+
+		if (dateFormat != null) {
+			renderedAttributes.add(renderString(DateCellEditor.DATE_FORMAT, dateFormat));
 		}
 	}
 
-	protected void renderInputFormatter(ArrayList<String> renrederedAttributes, DateCellEditor dateCellEditor) throws IOException {
-		if (dateCellEditor.getInputFormatter() != null) {
-			renrederedAttributes.add(renderString("inputFormatter", dateCellEditor.getInputFormatter()));
+	protected void renderInputFormatter(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.Object inputFormatter = dateCellEditor.getInputFormatter();
+
+		if (inputFormatter != null) {
+			renderedAttributes.add(renderString(DateCellEditor.INPUT_FORMATTER, inputFormatter));
 		}
 	}
 
-	protected void renderOutputFormatter(ArrayList<String> renrederedAttributes, DateCellEditor dateCellEditor) throws IOException {
-		if (dateCellEditor.getOutputFormatter() != null) {
-			renrederedAttributes.add(renderString("outputFormatter", dateCellEditor.getOutputFormatter()));
+	protected void renderOutputFormatter(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.Object outputFormatter = dateCellEditor.getOutputFormatter();
+
+		if (outputFormatter != null) {
+			renderedAttributes.add(renderString(DateCellEditor.OUTPUT_FORMATTER, outputFormatter));
 		}
 	}
 

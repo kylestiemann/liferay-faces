@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.propertylist;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,301 +30,376 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class PropertyListRendererBase extends AUIRenderer {
+public abstract class PropertyListRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-property-list";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		PropertyList propertyList = (PropertyList) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		PropertyList propertyList = (PropertyList) uiComponent;
 
-		bufferedResponseWriter.write("var propertyList = new A.PropertyList");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var propertyList = new A.PropertyList");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAutoSync(renrederedAttributes, propertyList);
-		renderBodyConfig(renrederedAttributes, propertyList);
-		renderBodyView(renrederedAttributes, propertyList);
-		renderBoundingBox(renrederedAttributes, propertyList);
-		renderCaption(renrederedAttributes, propertyList);
-		renderColumns(renrederedAttributes, propertyList);
-		renderColumnset(renrederedAttributes, propertyList);
-		renderContentBox(renrederedAttributes, propertyList);
-		renderData(renrederedAttributes, propertyList);
-		renderDestroyed(renrederedAttributes, propertyList);
-		renderDisabled(renrederedAttributes, propertyList);
-		renderEditEvent(renrederedAttributes, propertyList);
-		renderFocused(renrederedAttributes, propertyList);
-		renderFooterConfig(renrederedAttributes, propertyList);
-		renderFooterView(renrederedAttributes, propertyList);
-		renderHeaderConfig(renrederedAttributes, propertyList);
-		renderHeaderView(renrederedAttributes, propertyList);
-		renderHeight(renrederedAttributes, propertyList);
-		renderPropertylistId(renrederedAttributes, propertyList);
-		renderInitialized(renrederedAttributes, propertyList);
-		renderPropertylistLocale(renrederedAttributes, propertyList);
-		renderRecordType(renrederedAttributes, propertyList);
-		renderRecordset(renrederedAttributes, propertyList);
-		renderRender(renrederedAttributes, propertyList);
-		renderRendered(renrederedAttributes, propertyList);
-		renderScrollable(renrederedAttributes, propertyList);
-		renderShowMessages(renrederedAttributes, propertyList);
-		renderSortBy(renrederedAttributes, propertyList);
-		renderSortable(renrederedAttributes, propertyList);
-		renderSrcNode(renrederedAttributes, propertyList);
-		renderStrings(renrederedAttributes, propertyList);
-		renderSummary(renrederedAttributes, propertyList);
-		renderTabIndex(renrederedAttributes, propertyList);
-		renderView(renrederedAttributes, propertyList);
-		renderViewConfig(renrederedAttributes, propertyList);
-		renderVisible(renrederedAttributes, propertyList);
-		renderWidth(renrederedAttributes, propertyList);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAutoSync(renderedAttributes, propertyList);
+		renderBodyConfig(renderedAttributes, propertyList);
+		renderBodyView(renderedAttributes, propertyList);
+		renderBoundingBox(renderedAttributes, propertyList);
+		renderCaption(renderedAttributes, propertyList);
+		renderColumns(renderedAttributes, propertyList);
+		renderColumnset(renderedAttributes, propertyList);
+		renderContentBox(renderedAttributes, propertyList);
+		renderData(renderedAttributes, propertyList);
+		renderDestroyed(renderedAttributes, propertyList);
+		renderDisabled(renderedAttributes, propertyList);
+		renderEditEvent(renderedAttributes, propertyList);
+		renderFocused(renderedAttributes, propertyList);
+		renderFooterConfig(renderedAttributes, propertyList);
+		renderFooterView(renderedAttributes, propertyList);
+		renderHeaderConfig(renderedAttributes, propertyList);
+		renderHeaderView(renderedAttributes, propertyList);
+		renderHeight(renderedAttributes, propertyList);
+		renderPropertylistId(renderedAttributes, propertyList);
+		renderInitialized(renderedAttributes, propertyList);
+		renderPropertylistLocale(renderedAttributes, propertyList);
+		renderRecordType(renderedAttributes, propertyList);
+		renderRecordset(renderedAttributes, propertyList);
+		renderRender(renderedAttributes, propertyList);
+		renderRendered(renderedAttributes, propertyList);
+		renderScrollable(renderedAttributes, propertyList);
+		renderShowMessages(renderedAttributes, propertyList);
+		renderSortBy(renderedAttributes, propertyList);
+		renderSortable(renderedAttributes, propertyList);
+		renderSrcNode(renderedAttributes, propertyList);
+		renderStrings(renderedAttributes, propertyList);
+		renderSummary(renderedAttributes, propertyList);
+		renderTabIndex(renderedAttributes, propertyList);
+		renderView(renderedAttributes, propertyList);
+		renderViewConfig(renderedAttributes, propertyList);
+		renderVisible(renderedAttributes, propertyList);
+		renderWidth(renderedAttributes, propertyList);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAutoSync(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getAutoSync() != null) {
-			renrederedAttributes.add(renderString("autoSync", propertyList.getAutoSync()));
+	protected void renderAutoSync(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object autoSync = propertyList.getAutoSync();
+
+		if (autoSync != null) {
+			renderedAttributes.add(renderString(PropertyList.AUTO_SYNC, autoSync));
 		}
 	}
 
-	protected void renderBodyConfig(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getBodyConfig() != null) {
-			renrederedAttributes.add(renderString("bodyConfig", propertyList.getBodyConfig()));
+	protected void renderBodyConfig(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object bodyConfig = propertyList.getBodyConfig();
+
+		if (bodyConfig != null) {
+			renderedAttributes.add(renderString(PropertyList.BODY_CONFIG, bodyConfig));
 		}
 	}
 
-	protected void renderBodyView(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getBodyView() != null) {
-			renrederedAttributes.add(renderString("bodyView", propertyList.getBodyView()));
+	protected void renderBodyView(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object bodyView = propertyList.getBodyView();
+
+		if (bodyView != null) {
+			renderedAttributes.add(renderString(PropertyList.BODY_VIEW, bodyView));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", propertyList.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String boundingBox = propertyList.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(PropertyList.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCaption(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getCaption() != null) {
-			renrederedAttributes.add(renderString("caption", propertyList.getCaption()));
+	protected void renderCaption(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object caption = propertyList.getCaption();
+
+		if (caption != null) {
+			renderedAttributes.add(renderString(PropertyList.CAPTION, caption));
 		}
 	}
 
-	protected void renderColumns(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getColumns() != null) {
-			renrederedAttributes.add(renderString("columns", propertyList.getColumns()));
+	protected void renderColumns(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object columns = propertyList.getColumns();
+
+		if (columns != null) {
+			renderedAttributes.add(renderString(PropertyList.COLUMNS, columns));
 		}
 	}
 
-	protected void renderColumnset(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getColumnset() != null) {
-			renrederedAttributes.add(renderString("columnset", propertyList.getColumnset()));
+	protected void renderColumnset(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object columnset = propertyList.getColumnset();
+
+		if (columnset != null) {
+			renderedAttributes.add(renderString(PropertyList.COLUMNSET, columnset));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", propertyList.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String contentBox = propertyList.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(PropertyList.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderData(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getData() != null) {
-			renrederedAttributes.add(renderString("data", propertyList.getData()));
+	protected void renderData(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object data = propertyList.getData();
+
+		if (data != null) {
+			renderedAttributes.add(renderString(PropertyList.DATA, data));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", propertyList.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean destroyed = propertyList.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", propertyList.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean disabled = propertyList.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.DISABLED, disabled));
 		}
 	}
 
-	protected void renderEditEvent(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getEditEvent() != null) {
-			renrederedAttributes.add(renderString("editEvent", propertyList.getEditEvent()));
+	protected void renderEditEvent(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String editEvent = propertyList.getEditEvent();
+
+		if (editEvent != null) {
+			renderedAttributes.add(renderString(PropertyList.EDIT_EVENT, editEvent));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", propertyList.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean focused = propertyList.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterConfig(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getFooterConfig() != null) {
-			renrederedAttributes.add(renderString("footerConfig", propertyList.getFooterConfig()));
+	protected void renderFooterConfig(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object footerConfig = propertyList.getFooterConfig();
+
+		if (footerConfig != null) {
+			renderedAttributes.add(renderString(PropertyList.FOOTER_CONFIG, footerConfig));
 		}
 	}
 
-	protected void renderFooterView(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getFooterView() != null) {
-			renrederedAttributes.add(renderString("footerView", propertyList.getFooterView()));
+	protected void renderFooterView(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object footerView = propertyList.getFooterView();
+
+		if (footerView != null) {
+			renderedAttributes.add(renderString(PropertyList.FOOTER_VIEW, footerView));
 		}
 	}
 
-	protected void renderHeaderConfig(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getHeaderConfig() != null) {
-			renrederedAttributes.add(renderString("headerConfig", propertyList.getHeaderConfig()));
+	protected void renderHeaderConfig(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object headerConfig = propertyList.getHeaderConfig();
+
+		if (headerConfig != null) {
+			renderedAttributes.add(renderString(PropertyList.HEADER_CONFIG, headerConfig));
 		}
 	}
 
-	protected void renderHeaderView(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getHeaderView() != null) {
-			renrederedAttributes.add(renderString("headerView", propertyList.getHeaderView()));
+	protected void renderHeaderView(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object headerView = propertyList.getHeaderView();
+
+		if (headerView != null) {
+			renderedAttributes.add(renderString(PropertyList.HEADER_VIEW, headerView));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", propertyList.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object height = propertyList.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(PropertyList.HEIGHT, height));
 		}
 	}
 
-	protected void renderPropertylistId(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getPropertylistId() != null) {
-			renrederedAttributes.add(renderString("propertylistId", propertyList.getPropertylistId()));
+	protected void renderPropertylistId(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String propertylistId = propertyList.getPropertylistId();
+
+		if (propertylistId != null) {
+			renderedAttributes.add(renderString(PropertyList.PROPERTYLIST_ID, propertylistId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", propertyList.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean initialized = propertyList.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderPropertylistLocale(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getPropertylistLocale() != null) {
-			renrederedAttributes.add(renderString("propertylistLocale", propertyList.getPropertylistLocale()));
+	protected void renderPropertylistLocale(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String propertylistLocale = propertyList.getPropertylistLocale();
+
+		if (propertylistLocale != null) {
+			renderedAttributes.add(renderString(PropertyList.PROPERTYLIST_LOCALE, propertylistLocale));
 		}
 	}
 
-	protected void renderRecordType(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getRecordType() != null) {
-			renrederedAttributes.add(renderString("recordType", propertyList.getRecordType()));
+	protected void renderRecordType(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object recordType = propertyList.getRecordType();
+
+		if (recordType != null) {
+			renderedAttributes.add(renderString(PropertyList.RECORD_TYPE, recordType));
 		}
 	}
 
-	protected void renderRecordset(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getRecordset() != null) {
-			renrederedAttributes.add(renderString("recordset", propertyList.getRecordset()));
+	protected void renderRecordset(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object recordset = propertyList.getRecordset();
+
+		if (recordset != null) {
+			renderedAttributes.add(renderString(PropertyList.RECORDSET, recordset));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getRender() != null) {
-			renrederedAttributes.add(renderString("render", propertyList.getRender()));
+	protected void renderRender(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object render = propertyList.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(PropertyList.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", propertyList.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean rendered = propertyList.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.RENDERED, rendered));
 		}
 	}
 
-	protected void renderScrollable(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getScrollable() != null) {
-			renrederedAttributes.add(renderBoolean("scrollable", propertyList.getScrollable()));
+	protected void renderScrollable(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean scrollable = propertyList.getScrollable();
+
+		if (scrollable != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.SCROLLABLE, scrollable));
 		}
 	}
 
-	protected void renderShowMessages(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getShowMessages() != null) {
-			renrederedAttributes.add(renderString("showMessages", propertyList.getShowMessages()));
+	protected void renderShowMessages(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object showMessages = propertyList.getShowMessages();
+
+		if (showMessages != null) {
+			renderedAttributes.add(renderString(PropertyList.SHOW_MESSAGES, showMessages));
 		}
 	}
 
-	protected void renderSortBy(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getSortBy() != null) {
-			renrederedAttributes.add(renderString("sortBy", propertyList.getSortBy()));
+	protected void renderSortBy(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object sortBy = propertyList.getSortBy();
+
+		if (sortBy != null) {
+			renderedAttributes.add(renderString(PropertyList.SORT_BY, sortBy));
 		}
 	}
 
-	protected void renderSortable(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getSortable() != null) {
-			renrederedAttributes.add(renderString("sortable", propertyList.getSortable()));
+	protected void renderSortable(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object sortable = propertyList.getSortable();
+
+		if (sortable != null) {
+			renderedAttributes.add(renderString(PropertyList.SORTABLE, sortable));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", propertyList.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String srcNode = propertyList.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(PropertyList.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getStrings() != null) {
-			renrederedAttributes.add(renderString("strings", propertyList.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String strings = propertyList.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderString(PropertyList.STRINGS, strings));
 		}
 	}
 
-	protected void renderSummary(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getSummary() != null) {
-			renrederedAttributes.add(renderString("summary", propertyList.getSummary()));
+	protected void renderSummary(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object summary = propertyList.getSummary();
+
+		if (summary != null) {
+			renderedAttributes.add(renderString(PropertyList.SUMMARY, summary));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", propertyList.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object tabIndex = propertyList.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(PropertyList.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderView(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getView() != null) {
-			renrederedAttributes.add(renderString("view", propertyList.getView()));
+	protected void renderView(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object view = propertyList.getView();
+
+		if (view != null) {
+			renderedAttributes.add(renderString(PropertyList.VIEW, view));
 		}
 	}
 
-	protected void renderViewConfig(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getViewConfig() != null) {
-			renrederedAttributes.add(renderString("viewConfig", propertyList.getViewConfig()));
+	protected void renderViewConfig(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Object viewConfig = propertyList.getViewConfig();
+
+		if (viewConfig != null) {
+			renderedAttributes.add(renderString(PropertyList.VIEW_CONFIG, viewConfig));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", propertyList.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.Boolean visible = propertyList.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(PropertyList.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, PropertyList propertyList) throws IOException {
-		if (propertyList.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", propertyList.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String width = propertyList.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(PropertyList.WIDTH, width));
 		}
 	}
 

@@ -21,21 +21,21 @@ package com.liferay.faces.alloy.component.datatableselection;
  */
 public abstract class DataTableSelectionBase extends javax.faces.component.UIPanel {
 
-	private static final String ACTIVE_CELL = "activeCell";
-	private static final String ACTIVE_COORD = "activeCoord";
-	private static final String ACTIVE_ROW = "activeRow";
-	private static final String SELECTION = "selection";
-	private static final String TAB_INDEX = "tabIndex";
-	private static final String AFTER_ACTIVE_CELL_CHANGE = "afterActiveCellChange";
-	private static final String AFTER_ACTIVE_COORD_CHANGE = "afterActiveCoordChange";
-	private static final String AFTER_ACTIVE_ROW_CHANGE = "afterActiveRowChange";
-	private static final String AFTER_SELECTION_CHANGE = "afterSelectionChange";
-	private static final String AFTER_TAB_INDEX_CHANGE = "afterTabIndexChange";
-	private static final String ON_ACTIVE_CELL_CHANGE = "onActiveCellChange";
-	private static final String ON_ACTIVE_COORD_CHANGE = "onActiveCoordChange";
-	private static final String ON_ACTIVE_ROW_CHANGE = "onActiveRowChange";
-	private static final String ON_SELECTION_CHANGE = "onSelectionChange";
-	private static final String ON_TAB_INDEX_CHANGE = "onTabIndexChange";
+	public static final String ACTIVE_CELL = "activeCell";
+	public static final String ACTIVE_COORD = "activeCoord";
+	public static final String ACTIVE_ROW = "activeRow";
+	public static final String SELECTION = "selection";
+	public static final String TAB_INDEX = "tabIndex";
+	public static final String AFTER_ACTIVE_CELL_CHANGE = "afterActiveCellChange";
+	public static final String AFTER_ACTIVE_COORD_CHANGE = "afterActiveCoordChange";
+	public static final String AFTER_ACTIVE_ROW_CHANGE = "afterActiveRowChange";
+	public static final String AFTER_SELECTION_CHANGE = "afterSelectionChange";
+	public static final String AFTER_TAB_INDEX_CHANGE = "afterTabIndexChange";
+	public static final String ON_ACTIVE_CELL_CHANGE = "onActiveCellChange";
+	public static final String ON_ACTIVE_COORD_CHANGE = "onActiveCoordChange";
+	public static final String ON_ACTIVE_ROW_CHANGE = "onActiveRowChange";
+	public static final String ON_SELECTION_CHANGE = "onSelectionChange";
+	public static final String ON_TAB_INDEX_CHANGE = "onTabIndexChange";
 
 	public java.lang.String getActiveCell() {
 		return (java.lang.String) getStateHelper().eval(ACTIVE_CELL, null);

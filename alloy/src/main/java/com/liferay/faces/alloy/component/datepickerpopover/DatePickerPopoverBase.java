@@ -21,15 +21,15 @@ package com.liferay.faces.alloy.component.datepickerpopover;
  */
 public abstract class DatePickerPopoverBase extends javax.faces.component.UIPanel {
 
-	private static final String AUTO_HIDE = "autoHide";
-	private static final String POPOVER = "popover";
-	private static final String POPOVER_CSS_CLASS = "popoverCssClass";
-	private static final String AFTER_AUTO_HIDE_CHANGE = "afterAutoHideChange";
-	private static final String AFTER_POPOVER_CHANGE = "afterPopoverChange";
-	private static final String AFTER_POPOVER_CSS_CLASS_CHANGE = "afterPopoverCssClassChange";
-	private static final String ON_AUTO_HIDE_CHANGE = "onAutoHideChange";
-	private static final String ON_POPOVER_CHANGE = "onPopoverChange";
-	private static final String ON_POPOVER_CSS_CLASS_CHANGE = "onPopoverCssClassChange";
+	public static final String AUTO_HIDE = "autoHide";
+	public static final String POPOVER = "popover";
+	public static final String POPOVER_CSS_CLASS = "popoverCssClass";
+	public static final String AFTER_AUTO_HIDE_CHANGE = "afterAutoHideChange";
+	public static final String AFTER_POPOVER_CHANGE = "afterPopoverChange";
+	public static final String AFTER_POPOVER_CSS_CLASS_CHANGE = "afterPopoverCssClassChange";
+	public static final String ON_AUTO_HIDE_CHANGE = "onAutoHideChange";
+	public static final String ON_POPOVER_CHANGE = "onPopoverChange";
+	public static final String ON_POPOVER_CSS_CLASS_CHANGE = "onPopoverCssClassChange";
 
 	public java.lang.Boolean getAutoHide() {
 		return (java.lang.Boolean) getStateHelper().eval(AUTO_HIDE, null);

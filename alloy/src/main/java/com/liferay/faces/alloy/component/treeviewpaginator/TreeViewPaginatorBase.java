@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.treeviewpaginator;
  */
 public abstract class TreeViewPaginatorBase extends javax.faces.component.UIPanel {
 
-	private static final String PAGINATOR = "paginator";
-	private static final String AFTER_PAGINATOR_CHANGE = "afterPaginatorChange";
-	private static final String ON_PAGINATOR_CHANGE = "onPaginatorChange";
+	public static final String PAGINATOR = "paginator";
+	public static final String AFTER_PAGINATOR_CHANGE = "afterPaginatorChange";
+	public static final String ON_PAGINATOR_CHANGE = "onPaginatorChange";
 
 	public java.lang.Object getPaginator() {
 		return (java.lang.Object) getStateHelper().eval(PAGINATOR, null);

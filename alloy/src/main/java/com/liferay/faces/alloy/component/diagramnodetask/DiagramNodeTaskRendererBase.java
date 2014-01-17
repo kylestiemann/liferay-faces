@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.diagramnodetask;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,350 +30,439 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class DiagramNodeTaskRendererBase extends AUIRenderer {
+public abstract class DiagramNodeTaskRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		DiagramNodeTask diagramNodeTask = (DiagramNodeTask) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		DiagramNodeTask diagramNodeTask = (DiagramNodeTask) uiComponent;
 
-		bufferedResponseWriter.write("var diagramNodeTask = new A.DiagramNodeTask");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var diagramNodeTask = new A.DiagramNodeTask");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, diagramNodeTask);
-		renderAlignOn(renrederedAttributes, diagramNodeTask);
-		renderDiagramnodetaskBodyContent(renrederedAttributes, diagramNodeTask);
-		renderBoundingBox(renrederedAttributes, diagramNodeTask);
-		renderBuilder(renrederedAttributes, diagramNodeTask);
-		renderCentered(renrederedAttributes, diagramNodeTask);
-		renderConnectors(renrederedAttributes, diagramNodeTask);
-		renderConstrain(renrederedAttributes, diagramNodeTask);
-		renderContentBox(renrederedAttributes, diagramNodeTask);
-		renderControlsToolbar(renrederedAttributes, diagramNodeTask);
-		renderDescription(renrederedAttributes, diagramNodeTask);
-		renderDestroyed(renrederedAttributes, diagramNodeTask);
-		renderDisabled(renrederedAttributes, diagramNodeTask);
-		renderFillHeight(renrederedAttributes, diagramNodeTask);
-		renderFocused(renrederedAttributes, diagramNodeTask);
-		renderFooterContent(renrederedAttributes, diagramNodeTask);
-		renderGraphic(renrederedAttributes, diagramNodeTask);
-		renderHeaderContent(renrederedAttributes, diagramNodeTask);
-		renderHeight(renrederedAttributes, diagramNodeTask);
-		renderHighlightBoundaryStroke(renrederedAttributes, diagramNodeTask);
-		renderHighlighted(renrederedAttributes, diagramNodeTask);
-		renderDiagramnodetaskId(renrederedAttributes, diagramNodeTask);
-		renderInitialized(renrederedAttributes, diagramNodeTask);
-		renderDiagramnodetaskLocale(renrederedAttributes, diagramNodeTask);
-		renderName(renrederedAttributes, diagramNodeTask);
-		renderPreventOverlap(renrederedAttributes, diagramNodeTask);
-		renderRender(renrederedAttributes, diagramNodeTask);
-		renderRendered(renrederedAttributes, diagramNodeTask);
-		renderRequired(renrederedAttributes, diagramNodeTask);
-		renderSelected(renrederedAttributes, diagramNodeTask);
-		renderShapeBoundary(renrederedAttributes, diagramNodeTask);
-		renderShapeInvite(renrederedAttributes, diagramNodeTask);
-		renderShim(renrederedAttributes, diagramNodeTask);
-		renderSrcNode(renrederedAttributes, diagramNodeTask);
-		renderStrings(renrederedAttributes, diagramNodeTask);
-		renderTabIndex(renrederedAttributes, diagramNodeTask);
-		renderTransitions(renrederedAttributes, diagramNodeTask);
-		renderType(renrederedAttributes, diagramNodeTask);
-		renderVisible(renrederedAttributes, diagramNodeTask);
-		renderWidth(renrederedAttributes, diagramNodeTask);
-		renderX(renrederedAttributes, diagramNodeTask);
-		renderXy(renrederedAttributes, diagramNodeTask);
-		renderY(renrederedAttributes, diagramNodeTask);
-		renderZIndex(renrederedAttributes, diagramNodeTask);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, diagramNodeTask);
+		renderAlignOn(renderedAttributes, diagramNodeTask);
+		renderDiagramnodetaskBodyContent(renderedAttributes, diagramNodeTask);
+		renderBoundingBox(renderedAttributes, diagramNodeTask);
+		renderBuilder(renderedAttributes, diagramNodeTask);
+		renderCentered(renderedAttributes, diagramNodeTask);
+		renderConnectors(renderedAttributes, diagramNodeTask);
+		renderConstrain(renderedAttributes, diagramNodeTask);
+		renderContentBox(renderedAttributes, diagramNodeTask);
+		renderControlsToolbar(renderedAttributes, diagramNodeTask);
+		renderDescription(renderedAttributes, diagramNodeTask);
+		renderDestroyed(renderedAttributes, diagramNodeTask);
+		renderDisabled(renderedAttributes, diagramNodeTask);
+		renderFillHeight(renderedAttributes, diagramNodeTask);
+		renderFocused(renderedAttributes, diagramNodeTask);
+		renderFooterContent(renderedAttributes, diagramNodeTask);
+		renderGraphic(renderedAttributes, diagramNodeTask);
+		renderHeaderContent(renderedAttributes, diagramNodeTask);
+		renderHeight(renderedAttributes, diagramNodeTask);
+		renderHighlightBoundaryStroke(renderedAttributes, diagramNodeTask);
+		renderHighlighted(renderedAttributes, diagramNodeTask);
+		renderDiagramnodetaskId(renderedAttributes, diagramNodeTask);
+		renderInitialized(renderedAttributes, diagramNodeTask);
+		renderDiagramnodetaskLocale(renderedAttributes, diagramNodeTask);
+		renderName(renderedAttributes, diagramNodeTask);
+		renderPreventOverlap(renderedAttributes, diagramNodeTask);
+		renderRender(renderedAttributes, diagramNodeTask);
+		renderRendered(renderedAttributes, diagramNodeTask);
+		renderRequired(renderedAttributes, diagramNodeTask);
+		renderSelected(renderedAttributes, diagramNodeTask);
+		renderShapeBoundary(renderedAttributes, diagramNodeTask);
+		renderShapeInvite(renderedAttributes, diagramNodeTask);
+		renderShim(renderedAttributes, diagramNodeTask);
+		renderSrcNode(renderedAttributes, diagramNodeTask);
+		renderStrings(renderedAttributes, diagramNodeTask);
+		renderTabIndex(renderedAttributes, diagramNodeTask);
+		renderTransitions(renderedAttributes, diagramNodeTask);
+		renderType(renderedAttributes, diagramNodeTask);
+		renderVisible(renderedAttributes, diagramNodeTask);
+		renderWidth(renderedAttributes, diagramNodeTask);
+		renderX(renderedAttributes, diagramNodeTask);
+		renderXy(renderedAttributes, diagramNodeTask);
+		renderY(renderedAttributes, diagramNodeTask);
+		renderZIndex(renderedAttributes, diagramNodeTask);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", diagramNodeTask.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object align = diagramNodeTask.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.ALIGN, align));
 		}
 	}
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", diagramNodeTask.getAlignOn()));
+	protected void renderAlignOn(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object alignOn = diagramNodeTask.getAlignOn();
+
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(DiagramNodeTask.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderDiagramnodetaskBodyContent(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getDiagramnodetaskBodyContent() != null) {
-			renrederedAttributes.add(renderString("diagramnodetaskBodyContent", diagramNodeTask.getDiagramnodetaskBodyContent()));
+	protected void renderDiagramnodetaskBodyContent(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object diagramnodetaskBodyContent = diagramNodeTask.getDiagramnodetaskBodyContent();
+
+		if (diagramnodetaskBodyContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAMNODETASK_BODY_CONTENT, diagramnodetaskBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", diagramNodeTask.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String boundingBox = diagramNodeTask.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderBuilder(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getBuilder() != null) {
-			renrederedAttributes.add(renderString("builder", diagramNodeTask.getBuilder()));
+	protected void renderBuilder(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object builder = diagramNodeTask.getBuilder();
+
+		if (builder != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.BUILDER, builder));
 		}
 	}
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getCentered() != null) {
-			renrederedAttributes.add(renderString("centered", diagramNodeTask.getCentered()));
+	protected void renderCentered(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object centered = diagramNodeTask.getCentered();
+
+		if (centered != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.CENTERED, centered));
 		}
 	}
 
-	protected void renderConnectors(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getConnectors() != null) {
-			renrederedAttributes.add(renderString("connectors", diagramNodeTask.getConnectors()));
+	protected void renderConnectors(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String connectors = diagramNodeTask.getConnectors();
+
+		if (connectors != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.CONNECTORS, connectors));
 		}
 	}
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", diagramNodeTask.getConstrain()));
+	protected void renderConstrain(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object constrain = diagramNodeTask.getConstrain();
+
+		if (constrain != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", diagramNodeTask.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String contentBox = diagramNodeTask.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getControlsToolbar() != null) {
-			renrederedAttributes.add(renderObject("controlsToolbar", diagramNodeTask.getControlsToolbar()));
+	protected void renderControlsToolbar(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object controlsToolbar = diagramNodeTask.getControlsToolbar();
+
+		if (controlsToolbar != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.CONTROLS_TOOLBAR, controlsToolbar));
 		}
 	}
 
-	protected void renderDescription(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getDescription() != null) {
-			renrederedAttributes.add(renderString("description", diagramNodeTask.getDescription()));
+	protected void renderDescription(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String description = diagramNodeTask.getDescription();
+
+		if (description != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DESCRIPTION, description));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", diagramNodeTask.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean destroyed = diagramNodeTask.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", diagramNodeTask.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean disabled = diagramNodeTask.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", diagramNodeTask.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object fillHeight = diagramNodeTask.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.FILL_HEIGHT, fillHeight));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", diagramNodeTask.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean focused = diagramNodeTask.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", diagramNodeTask.getFooterContent()));
+	protected void renderFooterContent(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object footerContent = diagramNodeTask.getFooterContent();
+
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderGraphic(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getGraphic() != null) {
-			renrederedAttributes.add(renderObject("graphic", diagramNodeTask.getGraphic()));
+	protected void renderGraphic(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object graphic = diagramNodeTask.getGraphic();
+
+		if (graphic != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.GRAPHIC, graphic));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", diagramNodeTask.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object headerContent = diagramNodeTask.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.HEADER_CONTENT, headerContent));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getHeight() != null) {
-			renrederedAttributes.add(renderNumber("height", diagramNodeTask.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object height = diagramNodeTask.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeTask.HEIGHT, height));
 		}
 	}
 
-	protected void renderHighlightBoundaryStroke(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getHighlightBoundaryStroke() != null) {
-			renrederedAttributes.add(renderObject("highlightBoundaryStroke", diagramNodeTask.getHighlightBoundaryStroke()));
+	protected void renderHighlightBoundaryStroke(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object highlightBoundaryStroke = diagramNodeTask.getHighlightBoundaryStroke();
+
+		if (highlightBoundaryStroke != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.HIGHLIGHT_BOUNDARY_STROKE, highlightBoundaryStroke));
 		}
 	}
 
-	protected void renderHighlighted(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getHighlighted() != null) {
-			renrederedAttributes.add(renderBoolean("highlighted", diagramNodeTask.getHighlighted()));
+	protected void renderHighlighted(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean highlighted = diagramNodeTask.getHighlighted();
+
+		if (highlighted != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.HIGHLIGHTED, highlighted));
 		}
 	}
 
-	protected void renderDiagramnodetaskId(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getDiagramnodetaskId() != null) {
-			renrederedAttributes.add(renderString("diagramnodetaskId", diagramNodeTask.getDiagramnodetaskId()));
+	protected void renderDiagramnodetaskId(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String diagramnodetaskId = diagramNodeTask.getDiagramnodetaskId();
+
+		if (diagramnodetaskId != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAMNODETASK_ID, diagramnodetaskId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", diagramNodeTask.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean initialized = diagramNodeTask.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderDiagramnodetaskLocale(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getDiagramnodetaskLocale() != null) {
-			renrederedAttributes.add(renderString("diagramnodetaskLocale", diagramNodeTask.getDiagramnodetaskLocale()));
+	protected void renderDiagramnodetaskLocale(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String diagramnodetaskLocale = diagramNodeTask.getDiagramnodetaskLocale();
+
+		if (diagramnodetaskLocale != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAMNODETASK_LOCALE, diagramnodetaskLocale));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getName() != null) {
-			renrederedAttributes.add(renderString("name", diagramNodeTask.getName()));
+	protected void renderName(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String name = diagramNodeTask.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.NAME, name));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", diagramNodeTask.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean preventOverlap = diagramNodeTask.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getRender() != null) {
-			renrederedAttributes.add(renderString("render", diagramNodeTask.getRender()));
+	protected void renderRender(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object render = diagramNodeTask.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", diagramNodeTask.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean rendered = diagramNodeTask.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.RENDERED, rendered));
 		}
 	}
 
-	protected void renderRequired(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getRequired() != null) {
-			renrederedAttributes.add(renderBoolean("required", diagramNodeTask.getRequired()));
+	protected void renderRequired(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean required = diagramNodeTask.getRequired();
+
+		if (required != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.REQUIRED, required));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getSelected() != null) {
-			renrederedAttributes.add(renderBoolean("selected", diagramNodeTask.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean selected = diagramNodeTask.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.SELECTED, selected));
 		}
 	}
 
-	protected void renderShapeBoundary(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getShapeBoundary() != null) {
-			renrederedAttributes.add(renderObject("shapeBoundary", diagramNodeTask.getShapeBoundary()));
+	protected void renderShapeBoundary(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object shapeBoundary = diagramNodeTask.getShapeBoundary();
+
+		if (shapeBoundary != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.SHAPE_BOUNDARY, shapeBoundary));
 		}
 	}
 
-	protected void renderShapeInvite(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getShapeInvite() != null) {
-			renrederedAttributes.add(renderObject("shapeInvite", diagramNodeTask.getShapeInvite()));
+	protected void renderShapeInvite(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object shapeInvite = diagramNodeTask.getShapeInvite();
+
+		if (shapeInvite != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.SHAPE_INVITE, shapeInvite));
 		}
 	}
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", diagramNodeTask.getShim()));
+	protected void renderShim(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean shim = diagramNodeTask.getShim();
+
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.SHIM, shim));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", diagramNodeTask.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String srcNode = diagramNodeTask.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", diagramNodeTask.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object strings = diagramNodeTask.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(DiagramNodeTask.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", diagramNodeTask.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object tabIndex = diagramNodeTask.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeTask.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTransitions(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getTransitions() != null) {
-			renrederedAttributes.add(renderString("transitions", diagramNodeTask.getTransitions()));
+	protected void renderTransitions(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String transitions = diagramNodeTask.getTransitions();
+
+		if (transitions != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.TRANSITIONS, transitions));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getType() != null) {
-			renrederedAttributes.add(renderString("type", diagramNodeTask.getType()));
+	protected void renderType(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String type = diagramNodeTask.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.TYPE, type));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", diagramNodeTask.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Boolean visible = diagramNodeTask.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeTask.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getWidth() != null) {
-			renrederedAttributes.add(renderNumber("width", diagramNodeTask.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object width = diagramNodeTask.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeTask.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", diagramNodeTask.getX()));
+	protected void renderX(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object x = diagramNodeTask.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeTask.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", diagramNodeTask.getXy()));
+	protected void renderXy(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object xy = diagramNodeTask.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(DiagramNodeTask.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", diagramNodeTask.getY()));
+	protected void renderY(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object y = diagramNodeTask.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeTask.Y, y));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		if (diagramNodeTask.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", diagramNodeTask.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object zIndex = diagramNodeTask.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeTask.Z_INDEX, zIndex));
 		}
 	}
 

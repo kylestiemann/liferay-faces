@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.dropdowncelleditor;
  */
 public abstract class DropDownCellEditorBase extends javax.faces.component.UIPanel {
 
-	private static final String MULTIPLE = "multiple";
-	private static final String AFTER_MULTIPLE_CHANGE = "afterMultipleChange";
-	private static final String ON_MULTIPLE_CHANGE = "onMultipleChange";
+	public static final String MULTIPLE = "multiple";
+	public static final String AFTER_MULTIPLE_CHANGE = "afterMultipleChange";
+	public static final String ON_MULTIPLE_CHANGE = "onMultipleChange";
 
 	public java.lang.Boolean getMultiple() {
 		return (java.lang.Boolean) getStateHelper().eval(MULTIPLE, null);

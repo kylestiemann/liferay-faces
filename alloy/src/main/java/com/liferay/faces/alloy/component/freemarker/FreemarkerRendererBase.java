@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.freemarker;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,77 +30,88 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class FreemarkerRendererBase extends AUIRenderer {
+public abstract class FreemarkerRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-freemarker";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		Freemarker freemarker = (Freemarker) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		Freemarker freemarker = (Freemarker) uiComponent;
 
-		bufferedResponseWriter.write("var freemarker = new A.Freemarker");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var freemarker = new A.Freemarker");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDirectives(renrederedAttributes, freemarker);
-		renderDirectivesMatcher(renrederedAttributes, freemarker);
-		renderHost(renrederedAttributes, freemarker);
-		renderVariables(renrederedAttributes, freemarker);
-		renderVariablesMatcher(renrederedAttributes, freemarker);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderDirectives(renderedAttributes, freemarker);
+		renderDirectivesMatcher(renderedAttributes, freemarker);
+		renderHost(renderedAttributes, freemarker);
+		renderVariables(renderedAttributes, freemarker);
+		renderVariablesMatcher(renderedAttributes, freemarker);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDirectives(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
-		if (freemarker.getDirectives() != null) {
-			renrederedAttributes.add(renderArray("directives", freemarker.getDirectives()));
+	protected void renderDirectives(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
+		java.lang.Object directives = freemarker.getDirectives();
+
+		if (directives != null) {
+			renderedAttributes.add(renderArray(Freemarker.DIRECTIVES, directives));
 		}
 	}
 
-	protected void renderDirectivesMatcher(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
-		if (freemarker.getDirectivesMatcher() != null) {
-			renrederedAttributes.add(renderString("directivesMatcher", freemarker.getDirectivesMatcher()));
+	protected void renderDirectivesMatcher(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
+		java.lang.String directivesMatcher = freemarker.getDirectivesMatcher();
+
+		if (directivesMatcher != null) {
+			renderedAttributes.add(renderString(Freemarker.DIRECTIVES_MATCHER, directivesMatcher));
 		}
 	}
 
-	protected void renderHost(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
-		if (freemarker.getHost() != null) {
-			renrederedAttributes.add(renderObject("host", freemarker.getHost()));
+	protected void renderHost(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
+		java.lang.Object host = freemarker.getHost();
+
+		if (host != null) {
+			renderedAttributes.add(renderObject(Freemarker.HOST, host));
 		}
 	}
 
-	protected void renderVariables(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
-		if (freemarker.getVariables() != null) {
-			renrederedAttributes.add(renderObject("variables", freemarker.getVariables()));
+	protected void renderVariables(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
+		java.lang.Object variables = freemarker.getVariables();
+
+		if (variables != null) {
+			renderedAttributes.add(renderObject(Freemarker.VARIABLES, variables));
 		}
 	}
 
-	protected void renderVariablesMatcher(ArrayList<String> renrederedAttributes, Freemarker freemarker) throws IOException {
-		if (freemarker.getVariablesMatcher() != null) {
-			renrederedAttributes.add(renderString("variablesMatcher", freemarker.getVariablesMatcher()));
+	protected void renderVariablesMatcher(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
+		java.lang.String variablesMatcher = freemarker.getVariablesMatcher();
+
+		if (variablesMatcher != null) {
+			renderedAttributes.add(renderString(Freemarker.VARIABLES_MATCHER, variablesMatcher));
 		}
 	}
 

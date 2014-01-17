@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.formbuilderfileuploadfield;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,245 +30,304 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class FormBuilderFileUploadFieldRendererBase extends AUIRenderer {
+public abstract class FormBuilderFileUploadFieldRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-upload";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		FormBuilderFileUploadField formBuilderFileUploadField = (FormBuilderFileUploadField) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		FormBuilderFileUploadField formBuilderFileUploadField = (FormBuilderFileUploadField) uiComponent;
 
-		bufferedResponseWriter.write("var formBuilderFileUploadField = new A.FormBuilderFileUploadField");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var formBuilderFileUploadField = new A.FormBuilderFileUploadField");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(renrederedAttributes, formBuilderFileUploadField);
-		renderBuilder(renrederedAttributes, formBuilderFileUploadField);
-		renderControlsToolbar(renrederedAttributes, formBuilderFileUploadField);
-		renderDataType(renrederedAttributes, formBuilderFileUploadField);
-		renderDisabled(renrederedAttributes, formBuilderFileUploadField);
-		renderDropZoneNode(renrederedAttributes, formBuilderFileUploadField);
-		renderHiddenAttributes(renrederedAttributes, formBuilderFileUploadField);
-		renderFormbuilderfileuploadfieldId(renrederedAttributes, formBuilderFileUploadField);
-		renderLabel(renrederedAttributes, formBuilderFileUploadField);
-		renderLabelNode(renrederedAttributes, formBuilderFileUploadField);
-		renderLocalizationMap(renrederedAttributes, formBuilderFileUploadField);
-		renderName(renrederedAttributes, formBuilderFileUploadField);
-		renderFormbuilderfileuploadfieldParent(renrederedAttributes, formBuilderFileUploadField);
-		renderPredefinedValue(renrederedAttributes, formBuilderFileUploadField);
-		renderReadOnly(renrederedAttributes, formBuilderFileUploadField);
-		renderReadOnlyAttributes(renrederedAttributes, formBuilderFileUploadField);
-		renderRequired(renrederedAttributes, formBuilderFileUploadField);
-		renderRequiredFlagNode(renrederedAttributes, formBuilderFileUploadField);
-		renderSelected(renrederedAttributes, formBuilderFileUploadField);
-		renderShowLabel(renrederedAttributes, formBuilderFileUploadField);
-		renderStrings(renrederedAttributes, formBuilderFileUploadField);
-		renderTabIndex(renrederedAttributes, formBuilderFileUploadField);
-		renderTemplate(renrederedAttributes, formBuilderFileUploadField);
-		renderTemplateNode(renrederedAttributes, formBuilderFileUploadField);
-		renderTip(renrederedAttributes, formBuilderFileUploadField);
-		renderTipFlagNode(renrederedAttributes, formBuilderFileUploadField);
-		renderType(renrederedAttributes, formBuilderFileUploadField);
-		renderUnique(renrederedAttributes, formBuilderFileUploadField);
-		renderZIndex(renrederedAttributes, formBuilderFileUploadField);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAcceptChildren(renderedAttributes, formBuilderFileUploadField);
+		renderBuilder(renderedAttributes, formBuilderFileUploadField);
+		renderControlsToolbar(renderedAttributes, formBuilderFileUploadField);
+		renderDataType(renderedAttributes, formBuilderFileUploadField);
+		renderDisabled(renderedAttributes, formBuilderFileUploadField);
+		renderDropZoneNode(renderedAttributes, formBuilderFileUploadField);
+		renderHiddenAttributes(renderedAttributes, formBuilderFileUploadField);
+		renderFormbuilderfileuploadfieldId(renderedAttributes, formBuilderFileUploadField);
+		renderLabel(renderedAttributes, formBuilderFileUploadField);
+		renderLabelNode(renderedAttributes, formBuilderFileUploadField);
+		renderLocalizationMap(renderedAttributes, formBuilderFileUploadField);
+		renderName(renderedAttributes, formBuilderFileUploadField);
+		renderFormbuilderfileuploadfieldParent(renderedAttributes, formBuilderFileUploadField);
+		renderPredefinedValue(renderedAttributes, formBuilderFileUploadField);
+		renderReadOnly(renderedAttributes, formBuilderFileUploadField);
+		renderReadOnlyAttributes(renderedAttributes, formBuilderFileUploadField);
+		renderRequired(renderedAttributes, formBuilderFileUploadField);
+		renderRequiredFlagNode(renderedAttributes, formBuilderFileUploadField);
+		renderSelected(renderedAttributes, formBuilderFileUploadField);
+		renderShowLabel(renderedAttributes, formBuilderFileUploadField);
+		renderStrings(renderedAttributes, formBuilderFileUploadField);
+		renderTabIndex(renderedAttributes, formBuilderFileUploadField);
+		renderTemplate(renderedAttributes, formBuilderFileUploadField);
+		renderTemplateNode(renderedAttributes, formBuilderFileUploadField);
+		renderTip(renderedAttributes, formBuilderFileUploadField);
+		renderTipFlagNode(renderedAttributes, formBuilderFileUploadField);
+		renderType(renderedAttributes, formBuilderFileUploadField);
+		renderUnique(renderedAttributes, formBuilderFileUploadField);
+		renderZIndex(renderedAttributes, formBuilderFileUploadField);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getAcceptChildren() != null) {
-			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderFileUploadField.getAcceptChildren()));
+	protected void renderAcceptChildren(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean acceptChildren = formBuilderFileUploadField.getAcceptChildren();
+
+		if (acceptChildren != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.ACCEPT_CHILDREN, acceptChildren));
 		}
 	}
 
-	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getBuilder() != null) {
-			renrederedAttributes.add(renderBoolean("builder", formBuilderFileUploadField.getBuilder()));
+	protected void renderBuilder(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean builder = formBuilderFileUploadField.getBuilder();
+
+		if (builder != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.BUILDER, builder));
 		}
 	}
 
-	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getControlsToolbar() != null) {
-			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderFileUploadField.getControlsToolbar()));
+	protected void renderControlsToolbar(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object controlsToolbar = formBuilderFileUploadField.getControlsToolbar();
+
+		if (controlsToolbar != null) {
+			renderedAttributes.add(renderObject(FormBuilderFileUploadField.CONTROLS_TOOLBAR, controlsToolbar));
 		}
 	}
 
-	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getDataType() != null) {
-			renrederedAttributes.add(renderString("dataType", formBuilderFileUploadField.getDataType()));
+	protected void renderDataType(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String dataType = formBuilderFileUploadField.getDataType();
+
+		if (dataType != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.DATA_TYPE, dataType));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", formBuilderFileUploadField.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean disabled = formBuilderFileUploadField.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.DISABLED, disabled));
 		}
 	}
 
-	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getDropZoneNode() != null) {
-			renrederedAttributes.add(renderString("dropZoneNode", formBuilderFileUploadField.getDropZoneNode()));
+	protected void renderDropZoneNode(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String dropZoneNode = formBuilderFileUploadField.getDropZoneNode();
+
+		if (dropZoneNode != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.DROP_ZONE_NODE, dropZoneNode));
 		}
 	}
 
-	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getHiddenAttributes() != null) {
-			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderFileUploadField.getHiddenAttributes()));
+	protected void renderHiddenAttributes(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object hiddenAttributes = formBuilderFileUploadField.getHiddenAttributes();
+
+		if (hiddenAttributes != null) {
+			renderedAttributes.add(renderArray(FormBuilderFileUploadField.HIDDEN_ATTRIBUTES, hiddenAttributes));
 		}
 	}
 
-	protected void renderFormbuilderfileuploadfieldId(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getFormbuilderfileuploadfieldId() != null) {
-			renrederedAttributes.add(renderString("formbuilderfileuploadfieldId", formBuilderFileUploadField.getFormbuilderfileuploadfieldId()));
+	protected void renderFormbuilderfileuploadfieldId(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String formbuilderfileuploadfieldId = formBuilderFileUploadField.getFormbuilderfileuploadfieldId();
+
+		if (formbuilderfileuploadfieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.FORMBUILDERFILEUPLOADFIELD_ID, formbuilderfileuploadfieldId));
 		}
 	}
 
-	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getLabel() != null) {
-			renrederedAttributes.add(renderString("label", formBuilderFileUploadField.getLabel()));
+	protected void renderLabel(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String label = formBuilderFileUploadField.getLabel();
+
+		if (label != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.LABEL, label));
 		}
 	}
 
-	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getLabelNode() != null) {
-			renrederedAttributes.add(renderString("labelNode", formBuilderFileUploadField.getLabelNode()));
+	protected void renderLabelNode(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String labelNode = formBuilderFileUploadField.getLabelNode();
+
+		if (labelNode != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.LABEL_NODE, labelNode));
 		}
 	}
 
-	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getLocalizationMap() != null) {
-			renrederedAttributes.add(renderObject("localizationMap", formBuilderFileUploadField.getLocalizationMap()));
+	protected void renderLocalizationMap(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object localizationMap = formBuilderFileUploadField.getLocalizationMap();
+
+		if (localizationMap != null) {
+			renderedAttributes.add(renderObject(FormBuilderFileUploadField.LOCALIZATION_MAP, localizationMap));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getName() != null) {
-			renrederedAttributes.add(renderString("name", formBuilderFileUploadField.getName()));
+	protected void renderName(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String name = formBuilderFileUploadField.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.NAME, name));
 		}
 	}
 
-	protected void renderFormbuilderfileuploadfieldParent(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getFormbuilderfileuploadfieldParent() != null) {
-			renrederedAttributes.add(renderString("formbuilderfileuploadfieldParent", formBuilderFileUploadField.getFormbuilderfileuploadfieldParent()));
+	protected void renderFormbuilderfileuploadfieldParent(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String formbuilderfileuploadfieldParent = formBuilderFileUploadField.getFormbuilderfileuploadfieldParent();
+
+		if (formbuilderfileuploadfieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.FORMBUILDERFILEUPLOADFIELD_PARENT, formbuilderfileuploadfieldParent));
 		}
 	}
 
-	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getPredefinedValue() != null) {
-			renrederedAttributes.add(renderString("predefinedValue", formBuilderFileUploadField.getPredefinedValue()));
+	protected void renderPredefinedValue(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String predefinedValue = formBuilderFileUploadField.getPredefinedValue();
+
+		if (predefinedValue != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.PREDEFINED_VALUE, predefinedValue));
 		}
 	}
 
-	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getReadOnly() != null) {
-			renrederedAttributes.add(renderBoolean("readOnly", formBuilderFileUploadField.getReadOnly()));
+	protected void renderReadOnly(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean readOnly = formBuilderFileUploadField.getReadOnly();
+
+		if (readOnly != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.READ_ONLY, readOnly));
 		}
 	}
 
-	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getReadOnlyAttributes() != null) {
-			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderFileUploadField.getReadOnlyAttributes()));
+	protected void renderReadOnlyAttributes(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object readOnlyAttributes = formBuilderFileUploadField.getReadOnlyAttributes();
+
+		if (readOnlyAttributes != null) {
+			renderedAttributes.add(renderArray(FormBuilderFileUploadField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
 		}
 	}
 
-	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getRequired() != null) {
-			renrederedAttributes.add(renderBoolean("required", formBuilderFileUploadField.getRequired()));
+	protected void renderRequired(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean required = formBuilderFileUploadField.getRequired();
+
+		if (required != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.REQUIRED, required));
 		}
 	}
 
-	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getRequiredFlagNode() != null) {
-			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderFileUploadField.getRequiredFlagNode()));
+	protected void renderRequiredFlagNode(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String requiredFlagNode = formBuilderFileUploadField.getRequiredFlagNode();
+
+		if (requiredFlagNode != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.REQUIRED_FLAG_NODE, requiredFlagNode));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getSelected() != null) {
-			renrederedAttributes.add(renderBoolean("selected", formBuilderFileUploadField.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean selected = formBuilderFileUploadField.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.SELECTED, selected));
 		}
 	}
 
-	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getShowLabel() != null) {
-			renrederedAttributes.add(renderBoolean("showLabel", formBuilderFileUploadField.getShowLabel()));
+	protected void renderShowLabel(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean showLabel = formBuilderFileUploadField.getShowLabel();
+
+		if (showLabel != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.SHOW_LABEL, showLabel));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", formBuilderFileUploadField.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object strings = formBuilderFileUploadField.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(FormBuilderFileUploadField.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", formBuilderFileUploadField.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object tabIndex = formBuilderFileUploadField.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(FormBuilderFileUploadField.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getTemplate() != null) {
-			renrederedAttributes.add(renderString("template", formBuilderFileUploadField.getTemplate()));
+	protected void renderTemplate(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String template = formBuilderFileUploadField.getTemplate();
+
+		if (template != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.TEMPLATE, template));
 		}
 	}
 
-	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getTemplateNode() != null) {
-			renrederedAttributes.add(renderString("templateNode", formBuilderFileUploadField.getTemplateNode()));
+	protected void renderTemplateNode(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String templateNode = formBuilderFileUploadField.getTemplateNode();
+
+		if (templateNode != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.TEMPLATE_NODE, templateNode));
 		}
 	}
 
-	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getTip() != null) {
-			renrederedAttributes.add(renderString("tip", formBuilderFileUploadField.getTip()));
+	protected void renderTip(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String tip = formBuilderFileUploadField.getTip();
+
+		if (tip != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.TIP, tip));
 		}
 	}
 
-	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getTipFlagNode() != null) {
-			renrederedAttributes.add(renderString("tipFlagNode", formBuilderFileUploadField.getTipFlagNode()));
+	protected void renderTipFlagNode(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String tipFlagNode = formBuilderFileUploadField.getTipFlagNode();
+
+		if (tipFlagNode != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.TIP_FLAG_NODE, tipFlagNode));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getType() != null) {
-			renrederedAttributes.add(renderString("type", formBuilderFileUploadField.getType()));
+	protected void renderType(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String type = formBuilderFileUploadField.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.TYPE, type));
 		}
 	}
 
-	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getUnique() != null) {
-			renrederedAttributes.add(renderBoolean("unique", formBuilderFileUploadField.getUnique()));
+	protected void renderUnique(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Boolean unique = formBuilderFileUploadField.getUnique();
+
+		if (unique != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderFileUploadField.UNIQUE, unique));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		if (formBuilderFileUploadField.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", formBuilderFileUploadField.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.Object zIndex = formBuilderFileUploadField.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(FormBuilderFileUploadField.Z_INDEX, zIndex));
 		}
 	}
 

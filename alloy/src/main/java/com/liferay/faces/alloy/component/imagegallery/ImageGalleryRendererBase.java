@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.imagegallery;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,518 +30,655 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class ImageGalleryRendererBase extends AUIRenderer {
+public abstract class ImageGalleryRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-image-viewer-gallery";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		ImageGallery imageGallery = (ImageGallery) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		ImageGallery imageGallery = (ImageGallery) uiComponent;
 
-		bufferedResponseWriter.write("var imageGallery = new A.ImageGallery");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var imageGallery = new A.ImageGallery");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, imageGallery);
-		renderAlignOn(renrederedAttributes, imageGallery);
-		renderAnim(renrederedAttributes, imageGallery);
-		renderAutoPlay(renrederedAttributes, imageGallery);
-		renderImagegalleryBodyContent(renrederedAttributes, imageGallery);
-		renderBoundingBox(renrederedAttributes, imageGallery);
-		renderCaption(renrederedAttributes, imageGallery);
-		renderCaptionEl(renrederedAttributes, imageGallery);
-		renderCaptionFromTitle(renrederedAttributes, imageGallery);
-		renderCentered(renrederedAttributes, imageGallery);
-		renderCloseEl(renrederedAttributes, imageGallery);
-		renderConstrain(renrederedAttributes, imageGallery);
-		renderContentBox(renrederedAttributes, imageGallery);
-		renderControlLeftEl(renrederedAttributes, imageGallery);
-		renderControlRightEl(renrederedAttributes, imageGallery);
-		renderCurrentIndex(renrederedAttributes, imageGallery);
-		renderDelay(renrederedAttributes, imageGallery);
-		renderDestroyed(renrederedAttributes, imageGallery);
-		renderDisabled(renrederedAttributes, imageGallery);
-		renderFillHeight(renrederedAttributes, imageGallery);
-		renderFocusOn(renrederedAttributes, imageGallery);
-		renderFocused(renrederedAttributes, imageGallery);
-		renderFooterContent(renrederedAttributes, imageGallery);
-		renderHeaderContent(renrederedAttributes, imageGallery);
-		renderHeight(renrederedAttributes, imageGallery);
-		renderImagegalleryId(renrederedAttributes, imageGallery);
-		renderImage(renrederedAttributes, imageGallery);
-		renderImageAnim(renrederedAttributes, imageGallery);
-		renderInfoEl(renrederedAttributes, imageGallery);
-		renderInfoTemplate(renrederedAttributes, imageGallery);
-		renderInitialized(renrederedAttributes, imageGallery);
-		renderLinks(renrederedAttributes, imageGallery);
-		renderLoader(renrederedAttributes, imageGallery);
-		renderLoading(renrederedAttributes, imageGallery);
-		renderLoadingEl(renrederedAttributes, imageGallery);
-		renderImagegalleryLocale(renrederedAttributes, imageGallery);
-		renderMaskNode(renrederedAttributes, imageGallery);
-		renderMaxHeight(renrederedAttributes, imageGallery);
-		renderMaxWidth(renrederedAttributes, imageGallery);
-		renderModal(renrederedAttributes, imageGallery);
-		renderPagination(renrederedAttributes, imageGallery);
-		renderPaginationEl(renrederedAttributes, imageGallery);
-		renderPaginationInstance(renrederedAttributes, imageGallery);
-		renderPaused(renrederedAttributes, imageGallery);
-		renderPausedLabel(renrederedAttributes, imageGallery);
-		renderPlaying(renrederedAttributes, imageGallery);
-		renderPlayingLabel(renrederedAttributes, imageGallery);
-		renderPreloadAllImages(renrederedAttributes, imageGallery);
-		renderPreventOverlap(renrederedAttributes, imageGallery);
-		renderRender(renrederedAttributes, imageGallery);
-		renderRendered(renrederedAttributes, imageGallery);
-		renderRepeat(renrederedAttributes, imageGallery);
-		renderShim(renrederedAttributes, imageGallery);
-		renderShowClose(renrederedAttributes, imageGallery);
-		renderShowControls(renrederedAttributes, imageGallery);
-		renderShowPlayer(renrederedAttributes, imageGallery);
-		renderSrcNode(renrederedAttributes, imageGallery);
-		renderStrings(renrederedAttributes, imageGallery);
-		renderTabIndex(renrederedAttributes, imageGallery);
-		renderToolbar(renrederedAttributes, imageGallery);
-		renderTotalLinks(renrederedAttributes, imageGallery);
-		renderUseOriginalImage(renrederedAttributes, imageGallery);
-		renderVisible(renrederedAttributes, imageGallery);
-		renderWidth(renrederedAttributes, imageGallery);
-		renderX(renrederedAttributes, imageGallery);
-		renderXy(renrederedAttributes, imageGallery);
-		renderY(renrederedAttributes, imageGallery);
-		renderZIndex(renrederedAttributes, imageGallery);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, imageGallery);
+		renderAlignOn(renderedAttributes, imageGallery);
+		renderAnim(renderedAttributes, imageGallery);
+		renderAutoPlay(renderedAttributes, imageGallery);
+		renderImagegalleryBodyContent(renderedAttributes, imageGallery);
+		renderBoundingBox(renderedAttributes, imageGallery);
+		renderCaption(renderedAttributes, imageGallery);
+		renderCaptionEl(renderedAttributes, imageGallery);
+		renderCaptionFromTitle(renderedAttributes, imageGallery);
+		renderCentered(renderedAttributes, imageGallery);
+		renderCloseEl(renderedAttributes, imageGallery);
+		renderConstrain(renderedAttributes, imageGallery);
+		renderContentBox(renderedAttributes, imageGallery);
+		renderControlLeftEl(renderedAttributes, imageGallery);
+		renderControlRightEl(renderedAttributes, imageGallery);
+		renderCurrentIndex(renderedAttributes, imageGallery);
+		renderDelay(renderedAttributes, imageGallery);
+		renderDestroyed(renderedAttributes, imageGallery);
+		renderDisabled(renderedAttributes, imageGallery);
+		renderFillHeight(renderedAttributes, imageGallery);
+		renderFocusOn(renderedAttributes, imageGallery);
+		renderFocused(renderedAttributes, imageGallery);
+		renderFooterContent(renderedAttributes, imageGallery);
+		renderHeaderContent(renderedAttributes, imageGallery);
+		renderHeight(renderedAttributes, imageGallery);
+		renderImagegalleryId(renderedAttributes, imageGallery);
+		renderImage(renderedAttributes, imageGallery);
+		renderImageAnim(renderedAttributes, imageGallery);
+		renderInfoEl(renderedAttributes, imageGallery);
+		renderInfoTemplate(renderedAttributes, imageGallery);
+		renderInitialized(renderedAttributes, imageGallery);
+		renderLinks(renderedAttributes, imageGallery);
+		renderLoader(renderedAttributes, imageGallery);
+		renderLoading(renderedAttributes, imageGallery);
+		renderLoadingEl(renderedAttributes, imageGallery);
+		renderImagegalleryLocale(renderedAttributes, imageGallery);
+		renderMaskNode(renderedAttributes, imageGallery);
+		renderMaxHeight(renderedAttributes, imageGallery);
+		renderMaxWidth(renderedAttributes, imageGallery);
+		renderModal(renderedAttributes, imageGallery);
+		renderPagination(renderedAttributes, imageGallery);
+		renderPaginationEl(renderedAttributes, imageGallery);
+		renderPaginationInstance(renderedAttributes, imageGallery);
+		renderPaused(renderedAttributes, imageGallery);
+		renderPausedLabel(renderedAttributes, imageGallery);
+		renderPlaying(renderedAttributes, imageGallery);
+		renderPlayingLabel(renderedAttributes, imageGallery);
+		renderPreloadAllImages(renderedAttributes, imageGallery);
+		renderPreventOverlap(renderedAttributes, imageGallery);
+		renderRender(renderedAttributes, imageGallery);
+		renderRendered(renderedAttributes, imageGallery);
+		renderRepeat(renderedAttributes, imageGallery);
+		renderShim(renderedAttributes, imageGallery);
+		renderShowClose(renderedAttributes, imageGallery);
+		renderShowControls(renderedAttributes, imageGallery);
+		renderShowPlayer(renderedAttributes, imageGallery);
+		renderSrcNode(renderedAttributes, imageGallery);
+		renderStrings(renderedAttributes, imageGallery);
+		renderTabIndex(renderedAttributes, imageGallery);
+		renderToolbar(renderedAttributes, imageGallery);
+		renderTotalLinks(renderedAttributes, imageGallery);
+		renderUseOriginalImage(renderedAttributes, imageGallery);
+		renderVisible(renderedAttributes, imageGallery);
+		renderWidth(renderedAttributes, imageGallery);
+		renderX(renderedAttributes, imageGallery);
+		renderXy(renderedAttributes, imageGallery);
+		renderY(renderedAttributes, imageGallery);
+		renderZIndex(renderedAttributes, imageGallery);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", imageGallery.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object align = imageGallery.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(ImageGallery.ALIGN, align));
 		}
 	}
+
+	protected void renderAlignOn(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object alignOn = imageGallery.getAlignOn();
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", imageGallery.getAlignOn()));
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(ImageGallery.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderAnim(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getAnim() != null) {
-			renrederedAttributes.add(renderBoolean("anim", imageGallery.getAnim()));
+	protected void renderAnim(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean anim = imageGallery.getAnim();
+
+		if (anim != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.ANIM, anim));
 		}
 	}
+
+	protected void renderAutoPlay(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean autoPlay = imageGallery.getAutoPlay();
 
-	protected void renderAutoPlay(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getAutoPlay() != null) {
-			renrederedAttributes.add(renderBoolean("autoPlay", imageGallery.getAutoPlay()));
+		if (autoPlay != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.AUTO_PLAY, autoPlay));
 		}
 	}
 
-	protected void renderImagegalleryBodyContent(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getImagegalleryBodyContent() != null) {
-			renrederedAttributes.add(renderString("imagegalleryBodyContent", imageGallery.getImagegalleryBodyContent()));
+	protected void renderImagegalleryBodyContent(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String imagegalleryBodyContent = imageGallery.getImagegalleryBodyContent();
+
+		if (imagegalleryBodyContent != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGEGALLERY_BODY_CONTENT, imagegalleryBodyContent));
 		}
 	}
+
+	protected void renderBoundingBox(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String boundingBox = imageGallery.getBoundingBox();
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", imageGallery.getBoundingBox()));
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(ImageGallery.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCaption(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getCaption() != null) {
-			renrederedAttributes.add(renderString("caption", imageGallery.getCaption()));
+	protected void renderCaption(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String caption = imageGallery.getCaption();
+
+		if (caption != null) {
+			renderedAttributes.add(renderString(ImageGallery.CAPTION, caption));
 		}
 	}
+
+	protected void renderCaptionEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object captionEl = imageGallery.getCaptionEl();
 
-	protected void renderCaptionEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getCaptionEl() != null) {
-			renrederedAttributes.add(renderString("captionEl", imageGallery.getCaptionEl()));
+		if (captionEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.CAPTION_EL, captionEl));
 		}
 	}
 
-	protected void renderCaptionFromTitle(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getCaptionFromTitle() != null) {
-			renrederedAttributes.add(renderBoolean("captionFromTitle", imageGallery.getCaptionFromTitle()));
+	protected void renderCaptionFromTitle(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean captionFromTitle = imageGallery.getCaptionFromTitle();
+
+		if (captionFromTitle != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.CAPTION_FROM_TITLE, captionFromTitle));
 		}
 	}
+
+	protected void renderCentered(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean centered = imageGallery.getCentered();
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getCentered() != null) {
-			renrederedAttributes.add(renderBoolean("centered", imageGallery.getCentered()));
+		if (centered != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.CENTERED, centered));
 		}
 	}
 
-	protected void renderCloseEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getCloseEl() != null) {
-			renrederedAttributes.add(renderString("closeEl", imageGallery.getCloseEl()));
+	protected void renderCloseEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object closeEl = imageGallery.getCloseEl();
+
+		if (closeEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.CLOSE_EL, closeEl));
 		}
 	}
+
+	protected void renderConstrain(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object constrain = imageGallery.getConstrain();
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", imageGallery.getConstrain()));
+		if (constrain != null) {
+			renderedAttributes.add(renderString(ImageGallery.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", imageGallery.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String contentBox = imageGallery.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(ImageGallery.CONTENT_BOX, contentBox));
 		}
 	}
+
+	protected void renderControlLeftEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object controlLeftEl = imageGallery.getControlLeftEl();
 
-	protected void renderControlLeftEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getControlLeftEl() != null) {
-			renrederedAttributes.add(renderString("controlLeftEl", imageGallery.getControlLeftEl()));
+		if (controlLeftEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.CONTROL_LEFT_EL, controlLeftEl));
 		}
 	}
 
-	protected void renderControlRightEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getControlRightEl() != null) {
-			renrederedAttributes.add(renderString("controlRightEl", imageGallery.getControlRightEl()));
+	protected void renderControlRightEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object controlRightEl = imageGallery.getControlRightEl();
+
+		if (controlRightEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.CONTROL_RIGHT_EL, controlRightEl));
 		}
 	}
 
-	protected void renderCurrentIndex(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getCurrentIndex() != null) {
-			renrederedAttributes.add(renderNumber("currentIndex", imageGallery.getCurrentIndex()));
+	protected void renderCurrentIndex(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object currentIndex = imageGallery.getCurrentIndex();
+
+		if (currentIndex != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.CURRENT_INDEX, currentIndex));
 		}
 	}
+
+	protected void renderDelay(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object delay = imageGallery.getDelay();
 
-	protected void renderDelay(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getDelay() != null) {
-			renrederedAttributes.add(renderNumber("delay", imageGallery.getDelay()));
+		if (delay != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.DELAY, delay));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", imageGallery.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean destroyed = imageGallery.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.DESTROYED, destroyed));
 		}
 	}
+
+	protected void renderDisabled(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean disabled = imageGallery.getDisabled();
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", imageGallery.getDisabled()));
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", imageGallery.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object fillHeight = imageGallery.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(ImageGallery.FILL_HEIGHT, fillHeight));
 		}
 	}
+
+	protected void renderFocusOn(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object focusOn = imageGallery.getFocusOn();
 
-	protected void renderFocusOn(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getFocusOn() != null) {
-			renrederedAttributes.add(renderArray("focusOn", imageGallery.getFocusOn()));
+		if (focusOn != null) {
+			renderedAttributes.add(renderArray(ImageGallery.FOCUS_ON, focusOn));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", imageGallery.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean focused = imageGallery.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.FOCUSED, focused));
 		}
 	}
+
+	protected void renderFooterContent(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object footerContent = imageGallery.getFooterContent();
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", imageGallery.getFooterContent()));
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(ImageGallery.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", imageGallery.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object headerContent = imageGallery.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(ImageGallery.HEADER_CONTENT, headerContent));
 		}
 	}
+
+	protected void renderHeight(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object height = imageGallery.getHeight();
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", imageGallery.getHeight()));
+		if (height != null) {
+			renderedAttributes.add(renderString(ImageGallery.HEIGHT, height));
 		}
 	}
 
-	protected void renderImagegalleryId(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getImagegalleryId() != null) {
-			renrederedAttributes.add(renderString("imagegalleryId", imageGallery.getImagegalleryId()));
+	protected void renderImagegalleryId(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String imagegalleryId = imageGallery.getImagegalleryId();
+
+		if (imagegalleryId != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGEGALLERY_ID, imagegalleryId));
 		}
 	}
+
+	protected void renderImage(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object image = imageGallery.getImage();
 
-	protected void renderImage(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getImage() != null) {
-			renrederedAttributes.add(renderString("image", imageGallery.getImage()));
+		if (image != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGE, image));
 		}
 	}
 
-	protected void renderImageAnim(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getImageAnim() != null) {
-			renrederedAttributes.add(renderObject("imageAnim", imageGallery.getImageAnim()));
+	protected void renderImageAnim(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object imageAnim = imageGallery.getImageAnim();
+
+		if (imageAnim != null) {
+			renderedAttributes.add(renderObject(ImageGallery.IMAGE_ANIM, imageAnim));
 		}
 	}
+
+	protected void renderInfoEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object infoEl = imageGallery.getInfoEl();
 
-	protected void renderInfoEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getInfoEl() != null) {
-			renrederedAttributes.add(renderString("infoEl", imageGallery.getInfoEl()));
+		if (infoEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.INFO_EL, infoEl));
 		}
 	}
 
-	protected void renderInfoTemplate(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getInfoTemplate() != null) {
-			renrederedAttributes.add(renderString("infoTemplate", imageGallery.getInfoTemplate()));
+	protected void renderInfoTemplate(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String infoTemplate = imageGallery.getInfoTemplate();
+
+		if (infoTemplate != null) {
+			renderedAttributes.add(renderString(ImageGallery.INFO_TEMPLATE, infoTemplate));
 		}
 	}
+
+	protected void renderInitialized(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean initialized = imageGallery.getInitialized();
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", imageGallery.getInitialized()));
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLinks(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getLinks() != null) {
-			renrederedAttributes.add(renderString("links", imageGallery.getLinks()));
+	protected void renderLinks(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object links = imageGallery.getLinks();
+
+		if (links != null) {
+			renderedAttributes.add(renderString(ImageGallery.LINKS, links));
 		}
 	}
 
-	protected void renderLoader(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getLoader() != null) {
-			renrederedAttributes.add(renderString("loader", imageGallery.getLoader()));
+	protected void renderLoader(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object loader = imageGallery.getLoader();
+
+		if (loader != null) {
+			renderedAttributes.add(renderString(ImageGallery.LOADER, loader));
 		}
 	}
+
+	protected void renderLoading(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean loading = imageGallery.getLoading();
 
-	protected void renderLoading(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getLoading() != null) {
-			renrederedAttributes.add(renderBoolean("loading", imageGallery.getLoading()));
+		if (loading != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.LOADING, loading));
 		}
 	}
 
-	protected void renderLoadingEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getLoadingEl() != null) {
-			renrederedAttributes.add(renderString("loadingEl", imageGallery.getLoadingEl()));
+	protected void renderLoadingEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object loadingEl = imageGallery.getLoadingEl();
+
+		if (loadingEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.LOADING_EL, loadingEl));
 		}
 	}
+
+	protected void renderImagegalleryLocale(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String imagegalleryLocale = imageGallery.getImagegalleryLocale();
 
-	protected void renderImagegalleryLocale(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getImagegalleryLocale() != null) {
-			renrederedAttributes.add(renderString("imagegalleryLocale", imageGallery.getImagegalleryLocale()));
+		if (imagegalleryLocale != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGEGALLERY_LOCALE, imagegalleryLocale));
 		}
 	}
 
-	protected void renderMaskNode(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getMaskNode() != null) {
-			renrederedAttributes.add(renderString("maskNode", imageGallery.getMaskNode()));
+	protected void renderMaskNode(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object maskNode = imageGallery.getMaskNode();
+
+		if (maskNode != null) {
+			renderedAttributes.add(renderString(ImageGallery.MASK_NODE, maskNode));
 		}
 	}
+
+	protected void renderMaxHeight(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object maxHeight = imageGallery.getMaxHeight();
 
-	protected void renderMaxHeight(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getMaxHeight() != null) {
-			renrederedAttributes.add(renderNumber("maxHeight", imageGallery.getMaxHeight()));
+		if (maxHeight != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.MAX_HEIGHT, maxHeight));
 		}
 	}
 
-	protected void renderMaxWidth(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getMaxWidth() != null) {
-			renrederedAttributes.add(renderNumber("maxWidth", imageGallery.getMaxWidth()));
+	protected void renderMaxWidth(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object maxWidth = imageGallery.getMaxWidth();
+
+		if (maxWidth != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.MAX_WIDTH, maxWidth));
 		}
 	}
+
+	protected void renderModal(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean modal = imageGallery.getModal();
 
-	protected void renderModal(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getModal() != null) {
-			renrederedAttributes.add(renderBoolean("modal", imageGallery.getModal()));
+		if (modal != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.MODAL, modal));
 		}
 	}
 
-	protected void renderPagination(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPagination() != null) {
-			renrederedAttributes.add(renderObject("pagination", imageGallery.getPagination()));
+	protected void renderPagination(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object pagination = imageGallery.getPagination();
+
+		if (pagination != null) {
+			renderedAttributes.add(renderObject(ImageGallery.PAGINATION, pagination));
 		}
 	}
+
+	protected void renderPaginationEl(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object paginationEl = imageGallery.getPaginationEl();
 
-	protected void renderPaginationEl(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPaginationEl() != null) {
-			renrederedAttributes.add(renderString("paginationEl", imageGallery.getPaginationEl()));
+		if (paginationEl != null) {
+			renderedAttributes.add(renderString(ImageGallery.PAGINATION_EL, paginationEl));
 		}
 	}
 
-	protected void renderPaginationInstance(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPaginationInstance() != null) {
-			renrederedAttributes.add(renderString("paginationInstance", imageGallery.getPaginationInstance()));
+	protected void renderPaginationInstance(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object paginationInstance = imageGallery.getPaginationInstance();
+
+		if (paginationInstance != null) {
+			renderedAttributes.add(renderString(ImageGallery.PAGINATION_INSTANCE, paginationInstance));
 		}
 	}
+
+	protected void renderPaused(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean paused = imageGallery.getPaused();
 
-	protected void renderPaused(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPaused() != null) {
-			renrederedAttributes.add(renderBoolean("paused", imageGallery.getPaused()));
+		if (paused != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.PAUSED, paused));
 		}
 	}
 
-	protected void renderPausedLabel(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPausedLabel() != null) {
-			renrederedAttributes.add(renderString("pausedLabel", imageGallery.getPausedLabel()));
+	protected void renderPausedLabel(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String pausedLabel = imageGallery.getPausedLabel();
+
+		if (pausedLabel != null) {
+			renderedAttributes.add(renderString(ImageGallery.PAUSED_LABEL, pausedLabel));
 		}
 	}
+
+	protected void renderPlaying(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean playing = imageGallery.getPlaying();
 
-	protected void renderPlaying(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPlaying() != null) {
-			renrederedAttributes.add(renderBoolean("playing", imageGallery.getPlaying()));
+		if (playing != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.PLAYING, playing));
 		}
 	}
 
-	protected void renderPlayingLabel(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPlayingLabel() != null) {
-			renrederedAttributes.add(renderString("playingLabel", imageGallery.getPlayingLabel()));
+	protected void renderPlayingLabel(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String playingLabel = imageGallery.getPlayingLabel();
+
+		if (playingLabel != null) {
+			renderedAttributes.add(renderString(ImageGallery.PLAYING_LABEL, playingLabel));
 		}
 	}
+
+	protected void renderPreloadAllImages(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean preloadAllImages = imageGallery.getPreloadAllImages();
 
-	protected void renderPreloadAllImages(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPreloadAllImages() != null) {
-			renrederedAttributes.add(renderBoolean("preloadAllImages", imageGallery.getPreloadAllImages()));
+		if (preloadAllImages != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.PRELOAD_ALL_IMAGES, preloadAllImages));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", imageGallery.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean preventOverlap = imageGallery.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getRender() != null) {
-			renrederedAttributes.add(renderString("render", imageGallery.getRender()));
+	protected void renderRender(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object render = imageGallery.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(ImageGallery.RENDER, render));
 		}
 	}
+
+	protected void renderRendered(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean rendered = imageGallery.getRendered();
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", imageGallery.getRendered()));
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.RENDERED, rendered));
 		}
 	}
 
-	protected void renderRepeat(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getRepeat() != null) {
-			renrederedAttributes.add(renderBoolean("repeat", imageGallery.getRepeat()));
+	protected void renderRepeat(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean repeat = imageGallery.getRepeat();
+
+		if (repeat != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.REPEAT, repeat));
 		}
 	}
+
+	protected void renderShim(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean shim = imageGallery.getShim();
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", imageGallery.getShim()));
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.SHIM, shim));
 		}
 	}
 
-	protected void renderShowClose(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getShowClose() != null) {
-			renrederedAttributes.add(renderBoolean("showClose", imageGallery.getShowClose()));
+	protected void renderShowClose(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean showClose = imageGallery.getShowClose();
+
+		if (showClose != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.SHOW_CLOSE, showClose));
 		}
 	}
+
+	protected void renderShowControls(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean showControls = imageGallery.getShowControls();
 
-	protected void renderShowControls(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getShowControls() != null) {
-			renrederedAttributes.add(renderBoolean("showControls", imageGallery.getShowControls()));
+		if (showControls != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.SHOW_CONTROLS, showControls));
 		}
 	}
 
-	protected void renderShowPlayer(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getShowPlayer() != null) {
-			renrederedAttributes.add(renderBoolean("showPlayer", imageGallery.getShowPlayer()));
+	protected void renderShowPlayer(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean showPlayer = imageGallery.getShowPlayer();
+
+		if (showPlayer != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.SHOW_PLAYER, showPlayer));
 		}
 	}
+
+	protected void renderSrcNode(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String srcNode = imageGallery.getSrcNode();
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", imageGallery.getSrcNode()));
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(ImageGallery.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", imageGallery.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object strings = imageGallery.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(ImageGallery.STRINGS, strings));
 		}
 	}
+
+	protected void renderTabIndex(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object tabIndex = imageGallery.getTabIndex();
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", imageGallery.getTabIndex()));
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderToolbar(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getToolbar() != null) {
-			renrederedAttributes.add(renderString("toolbar", imageGallery.getToolbar()));
+	protected void renderToolbar(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object toolbar = imageGallery.getToolbar();
+
+		if (toolbar != null) {
+			renderedAttributes.add(renderString(ImageGallery.TOOLBAR, toolbar));
 		}
 	}
+
+	protected void renderTotalLinks(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean totalLinks = imageGallery.getTotalLinks();
 
-	protected void renderTotalLinks(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getTotalLinks() != null) {
-			renrederedAttributes.add(renderBoolean("totalLinks", imageGallery.getTotalLinks()));
+		if (totalLinks != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.TOTAL_LINKS, totalLinks));
 		}
 	}
 
-	protected void renderUseOriginalImage(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getUseOriginalImage() != null) {
-			renrederedAttributes.add(renderBoolean("useOriginalImage", imageGallery.getUseOriginalImage()));
+	protected void renderUseOriginalImage(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean useOriginalImage = imageGallery.getUseOriginalImage();
+
+		if (useOriginalImage != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.USE_ORIGINAL_IMAGE, useOriginalImage));
 		}
 	}
+
+	protected void renderVisible(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Boolean visible = imageGallery.getVisible();
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", imageGallery.getVisible()));
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(ImageGallery.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", imageGallery.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object width = imageGallery.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(ImageGallery.WIDTH, width));
 		}
 	}
+
+	protected void renderX(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object x = imageGallery.getX();
 
-	protected void renderX(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", imageGallery.getX()));
+		if (x != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", imageGallery.getXy()));
+	protected void renderXy(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object xy = imageGallery.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(ImageGallery.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", imageGallery.getY()));
+	protected void renderY(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object y = imageGallery.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.Y, y));
 		}
 	}
+
+	protected void renderZIndex(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.Object zIndex = imageGallery.getZIndex();
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, ImageGallery imageGallery) throws IOException {
-		if (imageGallery.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", imageGallery.getZIndex()));
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(ImageGallery.Z_INDEX, zIndex));
 		}
 	}
 

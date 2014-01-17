@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.treeviewio;
  */
 public abstract class TreeViewIOBase extends javax.faces.component.UIPanel {
 
-	private static final String IO = "io";
-	private static final String AFTER_IO_CHANGE = "afterIoChange";
-	private static final String ON_IO_CHANGE = "onIoChange";
+	public static final String IO = "io";
+	public static final String AFTER_IO_CHANGE = "afterIoChange";
+	public static final String ON_IO_CHANGE = "onIoChange";
 
 	public java.lang.Object getIo() {
 		return (java.lang.Object) getStateHelper().eval(IO, null);

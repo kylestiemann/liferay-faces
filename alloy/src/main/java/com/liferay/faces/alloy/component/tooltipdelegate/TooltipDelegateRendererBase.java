@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.tooltipdelegate;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,105 +30,124 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TooltipDelegateRendererBase extends AUIRenderer {
+public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tooltip";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TooltipDelegate tooltipDelegate = (TooltipDelegate) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TooltipDelegate tooltipDelegate = (TooltipDelegate) uiComponent;
 
-		bufferedResponseWriter.write("var tooltipDelegate = new A.TooltipDelegate");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var tooltipDelegate = new A.TooltipDelegate");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, tooltipDelegate);
-		renderContainer(renrederedAttributes, tooltipDelegate);
-		renderDestroyed(renrederedAttributes, tooltipDelegate);
-		renderDuration(renrederedAttributes, tooltipDelegate);
-		renderInitialized(renrederedAttributes, tooltipDelegate);
-		renderOpacity(renrederedAttributes, tooltipDelegate);
-		renderTriggerHideEvent(renrederedAttributes, tooltipDelegate);
-		renderTriggerShowEvent(renrederedAttributes, tooltipDelegate);
-		renderZIndex(renrederedAttributes, tooltipDelegate);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, tooltipDelegate);
+		renderContainer(renderedAttributes, tooltipDelegate);
+		renderDestroyed(renderedAttributes, tooltipDelegate);
+		renderDuration(renderedAttributes, tooltipDelegate);
+		renderInitialized(renderedAttributes, tooltipDelegate);
+		renderOpacity(renderedAttributes, tooltipDelegate);
+		renderTriggerHideEvent(renderedAttributes, tooltipDelegate);
+		renderTriggerShowEvent(renderedAttributes, tooltipDelegate);
+		renderZIndex(renderedAttributes, tooltipDelegate);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", tooltipDelegate.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.Object align = tooltipDelegate.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(TooltipDelegate.ALIGN, align));
 		}
 	}
 
-	protected void renderContainer(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getContainer() != null) {
-			renrederedAttributes.add(renderString("container", tooltipDelegate.getContainer()));
+	protected void renderContainer(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String container = tooltipDelegate.getContainer();
+
+		if (container != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.CONTAINER, container));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", tooltipDelegate.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.Boolean destroyed = tooltipDelegate.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TooltipDelegate.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDuration(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getDuration() != null) {
-			renrederedAttributes.add(renderString("duration", tooltipDelegate.getDuration()));
+	protected void renderDuration(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.Object duration = tooltipDelegate.getDuration();
+
+		if (duration != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.DURATION, duration));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", tooltipDelegate.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.Boolean initialized = tooltipDelegate.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TooltipDelegate.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderOpacity(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getOpacity() != null) {
-			renrederedAttributes.add(renderString("opacity", tooltipDelegate.getOpacity()));
+	protected void renderOpacity(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.Object opacity = tooltipDelegate.getOpacity();
+
+		if (opacity != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.OPACITY, opacity));
 		}
 	}
 
-	protected void renderTriggerHideEvent(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getTriggerHideEvent() != null) {
-			renrederedAttributes.add(renderString("triggerHideEvent", tooltipDelegate.getTriggerHideEvent()));
+	protected void renderTriggerHideEvent(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String triggerHideEvent = tooltipDelegate.getTriggerHideEvent();
+
+		if (triggerHideEvent != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.TRIGGER_HIDE_EVENT, triggerHideEvent));
 		}
 	}
 
-	protected void renderTriggerShowEvent(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getTriggerShowEvent() != null) {
-			renrederedAttributes.add(renderString("triggerShowEvent", tooltipDelegate.getTriggerShowEvent()));
+	protected void renderTriggerShowEvent(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String triggerShowEvent = tooltipDelegate.getTriggerShowEvent();
+
+		if (triggerShowEvent != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.TRIGGER_SHOW_EVENT, triggerShowEvent));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
-		if (tooltipDelegate.getZIndex() != null) {
-			renrederedAttributes.add(renderString("zIndex", tooltipDelegate.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.Object zIndex = tooltipDelegate.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.Z_INDEX, zIndex));
 		}
 	}
 

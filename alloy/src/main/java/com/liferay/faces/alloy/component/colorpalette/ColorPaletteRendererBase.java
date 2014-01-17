@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.colorpalette;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,196 +30,241 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class ColorPaletteRendererBase extends AUIRenderer {
+public abstract class ColorPaletteRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-color-palette";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		ColorPalette colorPalette = (ColorPalette) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		ColorPalette colorPalette = (ColorPalette) uiComponent;
 
-		bufferedResponseWriter.write("var colorPalette = new A.ColorPalette");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var colorPalette = new A.ColorPalette");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(renrederedAttributes, colorPalette);
-		renderColumns(renrederedAttributes, colorPalette);
-		renderContainerNode(renrederedAttributes, colorPalette);
-		renderContentBox(renrederedAttributes, colorPalette);
-		renderDestroyed(renrederedAttributes, colorPalette);
-		renderDisabled(renrederedAttributes, colorPalette);
-		renderFocused(renrederedAttributes, colorPalette);
-		renderFormatter(renrederedAttributes, colorPalette);
-		renderHeight(renrederedAttributes, colorPalette);
-		renderColorpaletteId(renrederedAttributes, colorPalette);
-		renderInitialized(renrederedAttributes, colorPalette);
-		renderItems(renrederedAttributes, colorPalette);
-		renderColorpaletteLocale(renrederedAttributes, colorPalette);
-		renderRender(renrederedAttributes, colorPalette);
-		renderRendered(renrederedAttributes, colorPalette);
-		renderSelected(renrederedAttributes, colorPalette);
-		renderSrcNode(renrederedAttributes, colorPalette);
-		renderStrings(renrederedAttributes, colorPalette);
-		renderTabIndex(renrederedAttributes, colorPalette);
-		renderToggleSelection(renrederedAttributes, colorPalette);
-		renderVisible(renrederedAttributes, colorPalette);
-		renderWidth(renrederedAttributes, colorPalette);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderBoundingBox(renderedAttributes, colorPalette);
+		renderColumns(renderedAttributes, colorPalette);
+		renderContainerNode(renderedAttributes, colorPalette);
+		renderContentBox(renderedAttributes, colorPalette);
+		renderDestroyed(renderedAttributes, colorPalette);
+		renderDisabled(renderedAttributes, colorPalette);
+		renderFocused(renderedAttributes, colorPalette);
+		renderFormatter(renderedAttributes, colorPalette);
+		renderHeight(renderedAttributes, colorPalette);
+		renderColorpaletteId(renderedAttributes, colorPalette);
+		renderInitialized(renderedAttributes, colorPalette);
+		renderItems(renderedAttributes, colorPalette);
+		renderColorpaletteLocale(renderedAttributes, colorPalette);
+		renderRender(renderedAttributes, colorPalette);
+		renderRendered(renderedAttributes, colorPalette);
+		renderSelected(renderedAttributes, colorPalette);
+		renderSrcNode(renderedAttributes, colorPalette);
+		renderStrings(renderedAttributes, colorPalette);
+		renderTabIndex(renderedAttributes, colorPalette);
+		renderToggleSelection(renderedAttributes, colorPalette);
+		renderVisible(renderedAttributes, colorPalette);
+		renderWidth(renderedAttributes, colorPalette);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", colorPalette.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String boundingBox = colorPalette.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(ColorPalette.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderColumns(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getColumns() != null) {
-			renrederedAttributes.add(renderNumber("columns", colorPalette.getColumns()));
+	protected void renderColumns(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object columns = colorPalette.getColumns();
+
+		if (columns != null) {
+			renderedAttributes.add(renderNumber(ColorPalette.COLUMNS, columns));
 		}
 	}
 
-	protected void renderContainerNode(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getContainerNode() != null) {
-			renrederedAttributes.add(renderString("containerNode", colorPalette.getContainerNode()));
+	protected void renderContainerNode(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object containerNode = colorPalette.getContainerNode();
+
+		if (containerNode != null) {
+			renderedAttributes.add(renderString(ColorPalette.CONTAINER_NODE, containerNode));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", colorPalette.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String contentBox = colorPalette.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(ColorPalette.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", colorPalette.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean destroyed = colorPalette.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", colorPalette.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean disabled = colorPalette.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", colorPalette.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean focused = colorPalette.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFormatter(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getFormatter() != null) {
-			renrederedAttributes.add(renderString("formatter", colorPalette.getFormatter()));
+	protected void renderFormatter(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object formatter = colorPalette.getFormatter();
+
+		if (formatter != null) {
+			renderedAttributes.add(renderString(ColorPalette.FORMATTER, formatter));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", colorPalette.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object height = colorPalette.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(ColorPalette.HEIGHT, height));
 		}
 	}
 
-	protected void renderColorpaletteId(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getColorpaletteId() != null) {
-			renrederedAttributes.add(renderString("colorpaletteId", colorPalette.getColorpaletteId()));
+	protected void renderColorpaletteId(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String colorpaletteId = colorPalette.getColorpaletteId();
+
+		if (colorpaletteId != null) {
+			renderedAttributes.add(renderString(ColorPalette.COLORPALETTE_ID, colorpaletteId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", colorPalette.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean initialized = colorPalette.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderItems(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getItems() != null) {
-			renrederedAttributes.add(renderArray("items", colorPalette.getItems()));
+	protected void renderItems(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object items = colorPalette.getItems();
+
+		if (items != null) {
+			renderedAttributes.add(renderArray(ColorPalette.ITEMS, items));
 		}
 	}
 
-	protected void renderColorpaletteLocale(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getColorpaletteLocale() != null) {
-			renrederedAttributes.add(renderString("colorpaletteLocale", colorPalette.getColorpaletteLocale()));
+	protected void renderColorpaletteLocale(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String colorpaletteLocale = colorPalette.getColorpaletteLocale();
+
+		if (colorpaletteLocale != null) {
+			renderedAttributes.add(renderString(ColorPalette.COLORPALETTE_LOCALE, colorpaletteLocale));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getRender() != null) {
-			renrederedAttributes.add(renderString("render", colorPalette.getRender()));
+	protected void renderRender(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object render = colorPalette.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(ColorPalette.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", colorPalette.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean rendered = colorPalette.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.RENDERED, rendered));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getSelected() != null) {
-			renrederedAttributes.add(renderNumber("selected", colorPalette.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object selected = colorPalette.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderNumber(ColorPalette.SELECTED, selected));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", colorPalette.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String srcNode = colorPalette.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(ColorPalette.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", colorPalette.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object strings = colorPalette.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(ColorPalette.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", colorPalette.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object tabIndex = colorPalette.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(ColorPalette.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderToggleSelection(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getToggleSelection() != null) {
-			renrederedAttributes.add(renderBoolean("toggleSelection", colorPalette.getToggleSelection()));
+	protected void renderToggleSelection(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean toggleSelection = colorPalette.getToggleSelection();
+
+		if (toggleSelection != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.TOGGLE_SELECTION, toggleSelection));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", colorPalette.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Boolean visible = colorPalette.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(ColorPalette.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, ColorPalette colorPalette) throws IOException {
-		if (colorPalette.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", colorPalette.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.Object width = colorPalette.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(ColorPalette.WIDTH, width));
 		}
 	}
 

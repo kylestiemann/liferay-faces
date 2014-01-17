@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.diagramnodejoin;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,350 +30,439 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class DiagramNodeJoinRendererBase extends AUIRenderer {
+public abstract class DiagramNodeJoinRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-impl";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		DiagramNodeJoin diagramNodeJoin = (DiagramNodeJoin) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		DiagramNodeJoin diagramNodeJoin = (DiagramNodeJoin) uiComponent;
 
-		bufferedResponseWriter.write("var diagramNodeJoin = new A.DiagramNodeJoin");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var diagramNodeJoin = new A.DiagramNodeJoin");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, diagramNodeJoin);
-		renderAlignOn(renrederedAttributes, diagramNodeJoin);
-		renderDiagramnodejoinBodyContent(renrederedAttributes, diagramNodeJoin);
-		renderBoundingBox(renrederedAttributes, diagramNodeJoin);
-		renderBuilder(renrederedAttributes, diagramNodeJoin);
-		renderCentered(renrederedAttributes, diagramNodeJoin);
-		renderConnectors(renrederedAttributes, diagramNodeJoin);
-		renderConstrain(renrederedAttributes, diagramNodeJoin);
-		renderContentBox(renrederedAttributes, diagramNodeJoin);
-		renderControlsToolbar(renrederedAttributes, diagramNodeJoin);
-		renderDescription(renrederedAttributes, diagramNodeJoin);
-		renderDestroyed(renrederedAttributes, diagramNodeJoin);
-		renderDisabled(renrederedAttributes, diagramNodeJoin);
-		renderFillHeight(renrederedAttributes, diagramNodeJoin);
-		renderFocused(renrederedAttributes, diagramNodeJoin);
-		renderFooterContent(renrederedAttributes, diagramNodeJoin);
-		renderGraphic(renrederedAttributes, diagramNodeJoin);
-		renderHeaderContent(renrederedAttributes, diagramNodeJoin);
-		renderHeight(renrederedAttributes, diagramNodeJoin);
-		renderHighlightBoundaryStroke(renrederedAttributes, diagramNodeJoin);
-		renderHighlighted(renrederedAttributes, diagramNodeJoin);
-		renderDiagramnodejoinId(renrederedAttributes, diagramNodeJoin);
-		renderInitialized(renrederedAttributes, diagramNodeJoin);
-		renderDiagramnodejoinLocale(renrederedAttributes, diagramNodeJoin);
-		renderName(renrederedAttributes, diagramNodeJoin);
-		renderPreventOverlap(renrederedAttributes, diagramNodeJoin);
-		renderRender(renrederedAttributes, diagramNodeJoin);
-		renderRendered(renrederedAttributes, diagramNodeJoin);
-		renderRequired(renrederedAttributes, diagramNodeJoin);
-		renderSelected(renrederedAttributes, diagramNodeJoin);
-		renderShapeBoundary(renrederedAttributes, diagramNodeJoin);
-		renderShapeInvite(renrederedAttributes, diagramNodeJoin);
-		renderShim(renrederedAttributes, diagramNodeJoin);
-		renderSrcNode(renrederedAttributes, diagramNodeJoin);
-		renderStrings(renrederedAttributes, diagramNodeJoin);
-		renderTabIndex(renrederedAttributes, diagramNodeJoin);
-		renderTransitions(renrederedAttributes, diagramNodeJoin);
-		renderType(renrederedAttributes, diagramNodeJoin);
-		renderVisible(renrederedAttributes, diagramNodeJoin);
-		renderWidth(renrederedAttributes, diagramNodeJoin);
-		renderX(renrederedAttributes, diagramNodeJoin);
-		renderXy(renrederedAttributes, diagramNodeJoin);
-		renderY(renrederedAttributes, diagramNodeJoin);
-		renderZIndex(renrederedAttributes, diagramNodeJoin);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, diagramNodeJoin);
+		renderAlignOn(renderedAttributes, diagramNodeJoin);
+		renderDiagramnodejoinBodyContent(renderedAttributes, diagramNodeJoin);
+		renderBoundingBox(renderedAttributes, diagramNodeJoin);
+		renderBuilder(renderedAttributes, diagramNodeJoin);
+		renderCentered(renderedAttributes, diagramNodeJoin);
+		renderConnectors(renderedAttributes, diagramNodeJoin);
+		renderConstrain(renderedAttributes, diagramNodeJoin);
+		renderContentBox(renderedAttributes, diagramNodeJoin);
+		renderControlsToolbar(renderedAttributes, diagramNodeJoin);
+		renderDescription(renderedAttributes, diagramNodeJoin);
+		renderDestroyed(renderedAttributes, diagramNodeJoin);
+		renderDisabled(renderedAttributes, diagramNodeJoin);
+		renderFillHeight(renderedAttributes, diagramNodeJoin);
+		renderFocused(renderedAttributes, diagramNodeJoin);
+		renderFooterContent(renderedAttributes, diagramNodeJoin);
+		renderGraphic(renderedAttributes, diagramNodeJoin);
+		renderHeaderContent(renderedAttributes, diagramNodeJoin);
+		renderHeight(renderedAttributes, diagramNodeJoin);
+		renderHighlightBoundaryStroke(renderedAttributes, diagramNodeJoin);
+		renderHighlighted(renderedAttributes, diagramNodeJoin);
+		renderDiagramnodejoinId(renderedAttributes, diagramNodeJoin);
+		renderInitialized(renderedAttributes, diagramNodeJoin);
+		renderDiagramnodejoinLocale(renderedAttributes, diagramNodeJoin);
+		renderName(renderedAttributes, diagramNodeJoin);
+		renderPreventOverlap(renderedAttributes, diagramNodeJoin);
+		renderRender(renderedAttributes, diagramNodeJoin);
+		renderRendered(renderedAttributes, diagramNodeJoin);
+		renderRequired(renderedAttributes, diagramNodeJoin);
+		renderSelected(renderedAttributes, diagramNodeJoin);
+		renderShapeBoundary(renderedAttributes, diagramNodeJoin);
+		renderShapeInvite(renderedAttributes, diagramNodeJoin);
+		renderShim(renderedAttributes, diagramNodeJoin);
+		renderSrcNode(renderedAttributes, diagramNodeJoin);
+		renderStrings(renderedAttributes, diagramNodeJoin);
+		renderTabIndex(renderedAttributes, diagramNodeJoin);
+		renderTransitions(renderedAttributes, diagramNodeJoin);
+		renderType(renderedAttributes, diagramNodeJoin);
+		renderVisible(renderedAttributes, diagramNodeJoin);
+		renderWidth(renderedAttributes, diagramNodeJoin);
+		renderX(renderedAttributes, diagramNodeJoin);
+		renderXy(renderedAttributes, diagramNodeJoin);
+		renderY(renderedAttributes, diagramNodeJoin);
+		renderZIndex(renderedAttributes, diagramNodeJoin);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", diagramNodeJoin.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object align = diagramNodeJoin.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.ALIGN, align));
 		}
 	}
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", diagramNodeJoin.getAlignOn()));
+	protected void renderAlignOn(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object alignOn = diagramNodeJoin.getAlignOn();
+
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(DiagramNodeJoin.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderDiagramnodejoinBodyContent(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getDiagramnodejoinBodyContent() != null) {
-			renrederedAttributes.add(renderString("diagramnodejoinBodyContent", diagramNodeJoin.getDiagramnodejoinBodyContent()));
+	protected void renderDiagramnodejoinBodyContent(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object diagramnodejoinBodyContent = diagramNodeJoin.getDiagramnodejoinBodyContent();
+
+		if (diagramnodejoinBodyContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.DIAGRAMNODEJOIN_BODY_CONTENT, diagramnodejoinBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", diagramNodeJoin.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String boundingBox = diagramNodeJoin.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderBuilder(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getBuilder() != null) {
-			renrederedAttributes.add(renderString("builder", diagramNodeJoin.getBuilder()));
+	protected void renderBuilder(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object builder = diagramNodeJoin.getBuilder();
+
+		if (builder != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.BUILDER, builder));
 		}
 	}
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getCentered() != null) {
-			renrederedAttributes.add(renderString("centered", diagramNodeJoin.getCentered()));
+	protected void renderCentered(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object centered = diagramNodeJoin.getCentered();
+
+		if (centered != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.CENTERED, centered));
 		}
 	}
 
-	protected void renderConnectors(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getConnectors() != null) {
-			renrederedAttributes.add(renderString("connectors", diagramNodeJoin.getConnectors()));
+	protected void renderConnectors(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String connectors = diagramNodeJoin.getConnectors();
+
+		if (connectors != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.CONNECTORS, connectors));
 		}
 	}
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", diagramNodeJoin.getConstrain()));
+	protected void renderConstrain(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object constrain = diagramNodeJoin.getConstrain();
+
+		if (constrain != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", diagramNodeJoin.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String contentBox = diagramNodeJoin.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getControlsToolbar() != null) {
-			renrederedAttributes.add(renderObject("controlsToolbar", diagramNodeJoin.getControlsToolbar()));
+	protected void renderControlsToolbar(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object controlsToolbar = diagramNodeJoin.getControlsToolbar();
+
+		if (controlsToolbar != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.CONTROLS_TOOLBAR, controlsToolbar));
 		}
 	}
 
-	protected void renderDescription(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getDescription() != null) {
-			renrederedAttributes.add(renderString("description", diagramNodeJoin.getDescription()));
+	protected void renderDescription(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String description = diagramNodeJoin.getDescription();
+
+		if (description != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.DESCRIPTION, description));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", diagramNodeJoin.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean destroyed = diagramNodeJoin.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", diagramNodeJoin.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean disabled = diagramNodeJoin.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", diagramNodeJoin.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object fillHeight = diagramNodeJoin.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.FILL_HEIGHT, fillHeight));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", diagramNodeJoin.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean focused = diagramNodeJoin.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", diagramNodeJoin.getFooterContent()));
+	protected void renderFooterContent(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object footerContent = diagramNodeJoin.getFooterContent();
+
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderGraphic(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getGraphic() != null) {
-			renrederedAttributes.add(renderObject("graphic", diagramNodeJoin.getGraphic()));
+	protected void renderGraphic(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object graphic = diagramNodeJoin.getGraphic();
+
+		if (graphic != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.GRAPHIC, graphic));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", diagramNodeJoin.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object headerContent = diagramNodeJoin.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.HEADER_CONTENT, headerContent));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getHeight() != null) {
-			renrederedAttributes.add(renderNumber("height", diagramNodeJoin.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object height = diagramNodeJoin.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeJoin.HEIGHT, height));
 		}
 	}
 
-	protected void renderHighlightBoundaryStroke(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getHighlightBoundaryStroke() != null) {
-			renrederedAttributes.add(renderObject("highlightBoundaryStroke", diagramNodeJoin.getHighlightBoundaryStroke()));
+	protected void renderHighlightBoundaryStroke(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object highlightBoundaryStroke = diagramNodeJoin.getHighlightBoundaryStroke();
+
+		if (highlightBoundaryStroke != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.HIGHLIGHT_BOUNDARY_STROKE, highlightBoundaryStroke));
 		}
 	}
 
-	protected void renderHighlighted(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getHighlighted() != null) {
-			renrederedAttributes.add(renderBoolean("highlighted", diagramNodeJoin.getHighlighted()));
+	protected void renderHighlighted(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean highlighted = diagramNodeJoin.getHighlighted();
+
+		if (highlighted != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.HIGHLIGHTED, highlighted));
 		}
 	}
 
-	protected void renderDiagramnodejoinId(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getDiagramnodejoinId() != null) {
-			renrederedAttributes.add(renderString("diagramnodejoinId", diagramNodeJoin.getDiagramnodejoinId()));
+	protected void renderDiagramnodejoinId(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String diagramnodejoinId = diagramNodeJoin.getDiagramnodejoinId();
+
+		if (diagramnodejoinId != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.DIAGRAMNODEJOIN_ID, diagramnodejoinId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", diagramNodeJoin.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean initialized = diagramNodeJoin.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderDiagramnodejoinLocale(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getDiagramnodejoinLocale() != null) {
-			renrederedAttributes.add(renderString("diagramnodejoinLocale", diagramNodeJoin.getDiagramnodejoinLocale()));
+	protected void renderDiagramnodejoinLocale(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String diagramnodejoinLocale = diagramNodeJoin.getDiagramnodejoinLocale();
+
+		if (diagramnodejoinLocale != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.DIAGRAMNODEJOIN_LOCALE, diagramnodejoinLocale));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getName() != null) {
-			renrederedAttributes.add(renderString("name", diagramNodeJoin.getName()));
+	protected void renderName(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String name = diagramNodeJoin.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.NAME, name));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", diagramNodeJoin.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean preventOverlap = diagramNodeJoin.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getRender() != null) {
-			renrederedAttributes.add(renderString("render", diagramNodeJoin.getRender()));
+	protected void renderRender(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object render = diagramNodeJoin.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", diagramNodeJoin.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean rendered = diagramNodeJoin.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.RENDERED, rendered));
 		}
 	}
 
-	protected void renderRequired(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getRequired() != null) {
-			renrederedAttributes.add(renderBoolean("required", diagramNodeJoin.getRequired()));
+	protected void renderRequired(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean required = diagramNodeJoin.getRequired();
+
+		if (required != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.REQUIRED, required));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getSelected() != null) {
-			renrederedAttributes.add(renderBoolean("selected", diagramNodeJoin.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean selected = diagramNodeJoin.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.SELECTED, selected));
 		}
 	}
 
-	protected void renderShapeBoundary(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getShapeBoundary() != null) {
-			renrederedAttributes.add(renderObject("shapeBoundary", diagramNodeJoin.getShapeBoundary()));
+	protected void renderShapeBoundary(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object shapeBoundary = diagramNodeJoin.getShapeBoundary();
+
+		if (shapeBoundary != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.SHAPE_BOUNDARY, shapeBoundary));
 		}
 	}
 
-	protected void renderShapeInvite(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getShapeInvite() != null) {
-			renrederedAttributes.add(renderObject("shapeInvite", diagramNodeJoin.getShapeInvite()));
+	protected void renderShapeInvite(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object shapeInvite = diagramNodeJoin.getShapeInvite();
+
+		if (shapeInvite != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.SHAPE_INVITE, shapeInvite));
 		}
 	}
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", diagramNodeJoin.getShim()));
+	protected void renderShim(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean shim = diagramNodeJoin.getShim();
+
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.SHIM, shim));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", diagramNodeJoin.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String srcNode = diagramNodeJoin.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", diagramNodeJoin.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object strings = diagramNodeJoin.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(DiagramNodeJoin.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", diagramNodeJoin.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object tabIndex = diagramNodeJoin.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeJoin.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTransitions(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getTransitions() != null) {
-			renrederedAttributes.add(renderString("transitions", diagramNodeJoin.getTransitions()));
+	protected void renderTransitions(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String transitions = diagramNodeJoin.getTransitions();
+
+		if (transitions != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.TRANSITIONS, transitions));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getType() != null) {
-			renrederedAttributes.add(renderString("type", diagramNodeJoin.getType()));
+	protected void renderType(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.String type = diagramNodeJoin.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(DiagramNodeJoin.TYPE, type));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", diagramNodeJoin.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Boolean visible = diagramNodeJoin.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(DiagramNodeJoin.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getWidth() != null) {
-			renrederedAttributes.add(renderNumber("width", diagramNodeJoin.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object width = diagramNodeJoin.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeJoin.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", diagramNodeJoin.getX()));
+	protected void renderX(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object x = diagramNodeJoin.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeJoin.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", diagramNodeJoin.getXy()));
+	protected void renderXy(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object xy = diagramNodeJoin.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(DiagramNodeJoin.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", diagramNodeJoin.getY()));
+	protected void renderY(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object y = diagramNodeJoin.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeJoin.Y, y));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
-		if (diagramNodeJoin.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", diagramNodeJoin.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, DiagramNodeJoin diagramNodeJoin) throws IOException {
+		java.lang.Object zIndex = diagramNodeJoin.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(DiagramNodeJoin.Z_INDEX, zIndex));
 		}
 	}
 

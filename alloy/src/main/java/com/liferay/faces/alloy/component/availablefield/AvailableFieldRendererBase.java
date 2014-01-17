@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.availablefield;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,98 +30,115 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class AvailableFieldRendererBase extends AUIRenderer {
+public abstract class AvailableFieldRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-base";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		AvailableField availableField = (AvailableField) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		AvailableField availableField = (AvailableField) uiComponent;
 
-		bufferedResponseWriter.write("var availableField = new A.AvailableField");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var availableField = new A.AvailableField");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDestroyed(renrederedAttributes, availableField);
-		renderDraggable(renrederedAttributes, availableField);
-		renderIconClass(renrederedAttributes, availableField);
-		renderAvailablefieldId(renrederedAttributes, availableField);
-		renderInitialized(renrederedAttributes, availableField);
-		renderLabel(renrederedAttributes, availableField);
-		renderNode(renrederedAttributes, availableField);
-		renderType(renrederedAttributes, availableField);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderDestroyed(renderedAttributes, availableField);
+		renderDraggable(renderedAttributes, availableField);
+		renderIconClass(renderedAttributes, availableField);
+		renderAvailablefieldId(renderedAttributes, availableField);
+		renderInitialized(renderedAttributes, availableField);
+		renderLabel(renderedAttributes, availableField);
+		renderNode(renderedAttributes, availableField);
+		renderType(renderedAttributes, availableField);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", availableField.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.Boolean destroyed = availableField.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(AvailableField.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDraggable(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getDraggable() != null) {
-			renrederedAttributes.add(renderBoolean("draggable", availableField.getDraggable()));
+	protected void renderDraggable(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.Boolean draggable = availableField.getDraggable();
+
+		if (draggable != null) {
+			renderedAttributes.add(renderBoolean(AvailableField.DRAGGABLE, draggable));
 		}
 	}
 
-	protected void renderIconClass(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getIconClass() != null) {
-			renrederedAttributes.add(renderString("iconClass", availableField.getIconClass()));
+	protected void renderIconClass(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String iconClass = availableField.getIconClass();
+
+		if (iconClass != null) {
+			renderedAttributes.add(renderString(AvailableField.ICON_CLASS, iconClass));
 		}
 	}
 
-	protected void renderAvailablefieldId(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getAvailablefieldId() != null) {
-			renrederedAttributes.add(renderString("availablefieldId", availableField.getAvailablefieldId()));
+	protected void renderAvailablefieldId(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String availablefieldId = availableField.getAvailablefieldId();
+
+		if (availablefieldId != null) {
+			renderedAttributes.add(renderString(AvailableField.AVAILABLEFIELD_ID, availablefieldId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", availableField.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.Boolean initialized = availableField.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(AvailableField.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLabel(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getLabel() != null) {
-			renrederedAttributes.add(renderString("label", availableField.getLabel()));
+	protected void renderLabel(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String label = availableField.getLabel();
+
+		if (label != null) {
+			renderedAttributes.add(renderString(AvailableField.LABEL, label));
 		}
 	}
 
-	protected void renderNode(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getNode() != null) {
-			renrederedAttributes.add(renderString("node", availableField.getNode()));
+	protected void renderNode(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.Object node = availableField.getNode();
+
+		if (node != null) {
+			renderedAttributes.add(renderString(AvailableField.NODE, node));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, AvailableField availableField) throws IOException {
-		if (availableField.getType() != null) {
-			renrederedAttributes.add(renderString("type", availableField.getType()));
+	protected void renderType(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String type = availableField.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(AvailableField.TYPE, type));
 		}
 	}
 

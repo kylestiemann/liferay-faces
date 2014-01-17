@@ -21,21 +21,21 @@ package com.liferay.faces.alloy.component.tab;
  */
 public abstract class TabBase extends javax.faces.component.UIPanel {
 
-	private static final String CONTENT = "content";
-	private static final String DISABLED = "disabled";
-	private static final String LABEL = "label";
-	private static final String PANEL_NODE = "panelNode";
-	private static final String TRIGGER_EVENT = "triggerEvent";
-	private static final String AFTER_CONTENT_CHANGE = "afterContentChange";
-	private static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
-	private static final String AFTER_LABEL_CHANGE = "afterLabelChange";
-	private static final String AFTER_PANEL_NODE_CHANGE = "afterPanelNodeChange";
-	private static final String AFTER_TRIGGER_EVENT_CHANGE = "afterTriggerEventChange";
-	private static final String ON_CONTENT_CHANGE = "onContentChange";
-	private static final String ON_DISABLED_CHANGE = "onDisabledChange";
-	private static final String ON_LABEL_CHANGE = "onLabelChange";
-	private static final String ON_PANEL_NODE_CHANGE = "onPanelNodeChange";
-	private static final String ON_TRIGGER_EVENT_CHANGE = "onTriggerEventChange";
+	public static final String CONTENT = "content";
+	public static final String DISABLED = "disabled";
+	public static final String LABEL = "label";
+	public static final String PANEL_NODE = "panelNode";
+	public static final String TRIGGER_EVENT = "triggerEvent";
+	public static final String AFTER_CONTENT_CHANGE = "afterContentChange";
+	public static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
+	public static final String AFTER_LABEL_CHANGE = "afterLabelChange";
+	public static final String AFTER_PANEL_NODE_CHANGE = "afterPanelNodeChange";
+	public static final String AFTER_TRIGGER_EVENT_CHANGE = "afterTriggerEventChange";
+	public static final String ON_CONTENT_CHANGE = "onContentChange";
+	public static final String ON_DISABLED_CHANGE = "onDisabledChange";
+	public static final String ON_LABEL_CHANGE = "onLabelChange";
+	public static final String ON_PANEL_NODE_CHANGE = "onPanelNodeChange";
+	public static final String ON_TRIGGER_EVENT_CHANGE = "onTriggerEventChange";
 
 	public java.lang.Object getContent() {
 		return (java.lang.Object) getStateHelper().eval(CONTENT, null);

@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.schedulercalendar;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,98 +30,115 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class SchedulerCalendarRendererBase extends AUIRenderer {
+public abstract class SchedulerCalendarRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-base-calendar";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		SchedulerCalendar schedulerCalendar = (SchedulerCalendar) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		SchedulerCalendar schedulerCalendar = (SchedulerCalendar) uiComponent;
 
-		bufferedResponseWriter.write("var schedulerCalendar = new A.SchedulerCalendar");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var schedulerCalendar = new A.SchedulerCalendar");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderColor(renrederedAttributes, schedulerCalendar);
-		renderDestroyed(renrederedAttributes, schedulerCalendar);
-		renderDisabled(renrederedAttributes, schedulerCalendar);
-		renderInitialized(renrederedAttributes, schedulerCalendar);
-		renderName(renrederedAttributes, schedulerCalendar);
-		renderPalette(renrederedAttributes, schedulerCalendar);
-		renderScheduler(renrederedAttributes, schedulerCalendar);
-		renderVisible(renrederedAttributes, schedulerCalendar);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderColor(renderedAttributes, schedulerCalendar);
+		renderDestroyed(renderedAttributes, schedulerCalendar);
+		renderDisabled(renderedAttributes, schedulerCalendar);
+		renderInitialized(renderedAttributes, schedulerCalendar);
+		renderName(renderedAttributes, schedulerCalendar);
+		renderPalette(renderedAttributes, schedulerCalendar);
+		renderScheduler(renderedAttributes, schedulerCalendar);
+		renderVisible(renderedAttributes, schedulerCalendar);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderColor(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getColor() != null) {
-			renrederedAttributes.add(renderString("color", schedulerCalendar.getColor()));
+	protected void renderColor(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.String color = schedulerCalendar.getColor();
+
+		if (color != null) {
+			renderedAttributes.add(renderString(SchedulerCalendar.COLOR, color));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", schedulerCalendar.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.Boolean destroyed = schedulerCalendar.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(SchedulerCalendar.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", schedulerCalendar.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.Boolean disabled = schedulerCalendar.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(SchedulerCalendar.DISABLED, disabled));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", schedulerCalendar.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.Boolean initialized = schedulerCalendar.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(SchedulerCalendar.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getName() != null) {
-			renrederedAttributes.add(renderString("name", schedulerCalendar.getName()));
+	protected void renderName(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.String name = schedulerCalendar.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(SchedulerCalendar.NAME, name));
 		}
 	}
 
-	protected void renderPalette(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getPalette() != null) {
-			renrederedAttributes.add(renderArray("palette", schedulerCalendar.getPalette()));
+	protected void renderPalette(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.Object palette = schedulerCalendar.getPalette();
+
+		if (palette != null) {
+			renderedAttributes.add(renderArray(SchedulerCalendar.PALETTE, palette));
 		}
 	}
 
-	protected void renderScheduler(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getScheduler() != null) {
-			renrederedAttributes.add(renderString("scheduler", schedulerCalendar.getScheduler()));
+	protected void renderScheduler(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.String scheduler = schedulerCalendar.getScheduler();
+
+		if (scheduler != null) {
+			renderedAttributes.add(renderString(SchedulerCalendar.SCHEDULER, scheduler));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
-		if (schedulerCalendar.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", schedulerCalendar.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
+		java.lang.Boolean visible = schedulerCalendar.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(SchedulerCalendar.VISIBLE, visible));
 		}
 	}
 

@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.connector;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,196 +30,241 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class ConnectorRendererBase extends AUIRenderer {
+public abstract class ConnectorRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-diagram-builder-connector";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		Connector connector = (Connector) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		Connector connector = (Connector) uiComponent;
 
-		bufferedResponseWriter.write("var connector = new A.Connector");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var connector = new A.Connector");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderArrowPoints(renrederedAttributes, connector);
-		renderBuilder(renrederedAttributes, connector);
-		renderColor(renrederedAttributes, connector);
-		renderCoord(renrederedAttributes, connector);
-		renderDestroyed(renrederedAttributes, connector);
-		renderGraphic(renrederedAttributes, connector);
-		renderInitialized(renrederedAttributes, connector);
-		renderLazyDraw(renrederedAttributes, connector);
-		renderName(renrederedAttributes, connector);
-		renderNodeName(renrederedAttributes, connector);
-		renderP1(renrederedAttributes, connector);
-		renderP2(renrederedAttributes, connector);
-		renderSelected(renrederedAttributes, connector);
-		renderShape(renrederedAttributes, connector);
-		renderShapeArrow(renrederedAttributes, connector);
-		renderShapeArrowHover(renrederedAttributes, connector);
-		renderShapeArrowSelected(renrederedAttributes, connector);
-		renderShapeHover(renrederedAttributes, connector);
-		renderShapeSelected(renrederedAttributes, connector);
-		renderShowName(renrederedAttributes, connector);
-		renderTransition(renrederedAttributes, connector);
-		renderVisible(renrederedAttributes, connector);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderArrowPoints(renderedAttributes, connector);
+		renderBuilder(renderedAttributes, connector);
+		renderColor(renderedAttributes, connector);
+		renderCoord(renderedAttributes, connector);
+		renderDestroyed(renderedAttributes, connector);
+		renderGraphic(renderedAttributes, connector);
+		renderInitialized(renderedAttributes, connector);
+		renderLazyDraw(renderedAttributes, connector);
+		renderName(renderedAttributes, connector);
+		renderNodeName(renderedAttributes, connector);
+		renderP1(renderedAttributes, connector);
+		renderP2(renderedAttributes, connector);
+		renderSelected(renderedAttributes, connector);
+		renderShape(renderedAttributes, connector);
+		renderShapeArrow(renderedAttributes, connector);
+		renderShapeArrowHover(renderedAttributes, connector);
+		renderShapeArrowSelected(renderedAttributes, connector);
+		renderShapeHover(renderedAttributes, connector);
+		renderShapeSelected(renderedAttributes, connector);
+		renderShowName(renderedAttributes, connector);
+		renderTransition(renderedAttributes, connector);
+		renderVisible(renderedAttributes, connector);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderArrowPoints(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getArrowPoints() != null) {
-			renrederedAttributes.add(renderString("arrowPoints", connector.getArrowPoints()));
+	protected void renderArrowPoints(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String arrowPoints = connector.getArrowPoints();
+
+		if (arrowPoints != null) {
+			renderedAttributes.add(renderString(Connector.ARROW_POINTS, arrowPoints));
 		}
 	}
 
-	protected void renderBuilder(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getBuilder() != null) {
-			renrederedAttributes.add(renderString("builder", connector.getBuilder()));
+	protected void renderBuilder(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String builder = connector.getBuilder();
+
+		if (builder != null) {
+			renderedAttributes.add(renderString(Connector.BUILDER, builder));
 		}
 	}
 
-	protected void renderColor(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getColor() != null) {
-			renrederedAttributes.add(renderString("color", connector.getColor()));
+	protected void renderColor(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String color = connector.getColor();
+
+		if (color != null) {
+			renderedAttributes.add(renderString(Connector.COLOR, color));
 		}
 	}
 
-	protected void renderCoord(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getCoord() != null) {
-			renrederedAttributes.add(renderString("coord", connector.getCoord()));
+	protected void renderCoord(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String coord = connector.getCoord();
+
+		if (coord != null) {
+			renderedAttributes.add(renderString(Connector.COORD, coord));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", connector.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Boolean destroyed = connector.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(Connector.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderGraphic(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getGraphic() != null) {
-			renrederedAttributes.add(renderString("graphic", connector.getGraphic()));
+	protected void renderGraphic(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object graphic = connector.getGraphic();
+
+		if (graphic != null) {
+			renderedAttributes.add(renderString(Connector.GRAPHIC, graphic));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", connector.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Boolean initialized = connector.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(Connector.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLazyDraw(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getLazyDraw() != null) {
-			renrederedAttributes.add(renderBoolean("lazyDraw", connector.getLazyDraw()));
+	protected void renderLazyDraw(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Boolean lazyDraw = connector.getLazyDraw();
+
+		if (lazyDraw != null) {
+			renderedAttributes.add(renderBoolean(Connector.LAZY_DRAW, lazyDraw));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getName() != null) {
-			renrederedAttributes.add(renderString("name", connector.getName()));
+	protected void renderName(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String name = connector.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(Connector.NAME, name));
 		}
 	}
 
-	protected void renderNodeName(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getNodeName() != null) {
-			renrederedAttributes.add(renderString("nodeName", connector.getNodeName()));
+	protected void renderNodeName(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String nodeName = connector.getNodeName();
+
+		if (nodeName != null) {
+			renderedAttributes.add(renderString(Connector.NODE_NAME, nodeName));
 		}
 	}
 
-	protected void renderP1(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getP1() != null) {
-			renrederedAttributes.add(renderArray("p1", connector.getP1()));
+	protected void renderP1(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object p1 = connector.getP1();
+
+		if (p1 != null) {
+			renderedAttributes.add(renderArray(Connector.P1, p1));
 		}
 	}
 
-	protected void renderP2(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getP2() != null) {
-			renrederedAttributes.add(renderArray("p2", connector.getP2()));
+	protected void renderP2(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object p2 = connector.getP2();
+
+		if (p2 != null) {
+			renderedAttributes.add(renderArray(Connector.P2, p2));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getSelected() != null) {
-			renrederedAttributes.add(renderBoolean("selected", connector.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Boolean selected = connector.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderBoolean(Connector.SELECTED, selected));
 		}
 	}
 
-	protected void renderShape(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShape() != null) {
-			renrederedAttributes.add(renderString("shape", connector.getShape()));
+	protected void renderShape(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String shape = connector.getShape();
+
+		if (shape != null) {
+			renderedAttributes.add(renderString(Connector.SHAPE, shape));
 		}
 	}
 
-	protected void renderShapeArrow(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShapeArrow() != null) {
-			renrederedAttributes.add(renderString("shapeArrow", connector.getShapeArrow()));
+	protected void renderShapeArrow(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.String shapeArrow = connector.getShapeArrow();
+
+		if (shapeArrow != null) {
+			renderedAttributes.add(renderString(Connector.SHAPE_ARROW, shapeArrow));
 		}
 	}
 
-	protected void renderShapeArrowHover(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShapeArrowHover() != null) {
-			renrederedAttributes.add(renderObject("shapeArrowHover", connector.getShapeArrowHover()));
+	protected void renderShapeArrowHover(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object shapeArrowHover = connector.getShapeArrowHover();
+
+		if (shapeArrowHover != null) {
+			renderedAttributes.add(renderObject(Connector.SHAPE_ARROW_HOVER, shapeArrowHover));
 		}
 	}
 
-	protected void renderShapeArrowSelected(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShapeArrowSelected() != null) {
-			renrederedAttributes.add(renderObject("shapeArrowSelected", connector.getShapeArrowSelected()));
+	protected void renderShapeArrowSelected(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object shapeArrowSelected = connector.getShapeArrowSelected();
+
+		if (shapeArrowSelected != null) {
+			renderedAttributes.add(renderObject(Connector.SHAPE_ARROW_SELECTED, shapeArrowSelected));
 		}
 	}
 
-	protected void renderShapeHover(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShapeHover() != null) {
-			renrederedAttributes.add(renderObject("shapeHover", connector.getShapeHover()));
+	protected void renderShapeHover(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object shapeHover = connector.getShapeHover();
+
+		if (shapeHover != null) {
+			renderedAttributes.add(renderObject(Connector.SHAPE_HOVER, shapeHover));
 		}
 	}
 
-	protected void renderShapeSelected(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShapeSelected() != null) {
-			renrederedAttributes.add(renderObject("shapeSelected", connector.getShapeSelected()));
+	protected void renderShapeSelected(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object shapeSelected = connector.getShapeSelected();
+
+		if (shapeSelected != null) {
+			renderedAttributes.add(renderObject(Connector.SHAPE_SELECTED, shapeSelected));
 		}
 	}
 
-	protected void renderShowName(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getShowName() != null) {
-			renrederedAttributes.add(renderBoolean("showName", connector.getShowName()));
+	protected void renderShowName(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Boolean showName = connector.getShowName();
+
+		if (showName != null) {
+			renderedAttributes.add(renderBoolean(Connector.SHOW_NAME, showName));
 		}
 	}
 
-	protected void renderTransition(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getTransition() != null) {
-			renrederedAttributes.add(renderObject("transition", connector.getTransition()));
+	protected void renderTransition(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Object transition = connector.getTransition();
+
+		if (transition != null) {
+			renderedAttributes.add(renderObject(Connector.TRANSITION, transition));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, Connector connector) throws IOException {
-		if (connector.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", connector.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, Connector connector) throws IOException {
+		java.lang.Boolean visible = connector.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(Connector.VISIBLE, visible));
 		}
 	}
 

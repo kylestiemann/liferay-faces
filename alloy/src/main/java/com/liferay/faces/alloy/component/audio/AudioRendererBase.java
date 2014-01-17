@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.audio;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,231 +30,286 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class AudioRendererBase extends AUIRenderer {
+public abstract class AudioRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-audio";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		Audio audio = (Audio) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		Audio audio = (Audio) uiComponent;
 
-		bufferedResponseWriter.write("var audio = new A.Audio");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var audio = new A.Audio");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(renrederedAttributes, audio);
-		renderContentBox(renrederedAttributes, audio);
-		renderCssClass(renrederedAttributes, audio);
-		renderDestroyed(renrederedAttributes, audio);
-		renderDisabled(renrederedAttributes, audio);
-		renderFixedAttributes(renrederedAttributes, audio);
-		renderFlashVars(renrederedAttributes, audio);
-		renderFocused(renrederedAttributes, audio);
-		renderHeight(renrederedAttributes, audio);
-		renderHideClass(renrederedAttributes, audio);
-		renderAudioId(renrederedAttributes, audio);
-		renderInitialized(renrederedAttributes, audio);
-		renderAudioLocale(renrederedAttributes, audio);
-		renderOggUrl(renrederedAttributes, audio);
-		renderRender(renrederedAttributes, audio);
-		renderRendered(renrederedAttributes, audio);
-		renderSrcNode(renrederedAttributes, audio);
-		renderStrings(renrederedAttributes, audio);
-		renderSwfHeight(renrederedAttributes, audio);
-		renderSwfUrl(renrederedAttributes, audio);
-		renderSwfWidth(renrederedAttributes, audio);
-		renderTabIndex(renrederedAttributes, audio);
-		renderType(renrederedAttributes, audio);
-		renderUrl(renrederedAttributes, audio);
-		renderUseARIA(renrederedAttributes, audio);
-		renderVisible(renrederedAttributes, audio);
-		renderWidth(renrederedAttributes, audio);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderBoundingBox(renderedAttributes, audio);
+		renderContentBox(renderedAttributes, audio);
+		renderCssClass(renderedAttributes, audio);
+		renderDestroyed(renderedAttributes, audio);
+		renderDisabled(renderedAttributes, audio);
+		renderFixedAttributes(renderedAttributes, audio);
+		renderFlashVars(renderedAttributes, audio);
+		renderFocused(renderedAttributes, audio);
+		renderHeight(renderedAttributes, audio);
+		renderHideClass(renderedAttributes, audio);
+		renderAudioId(renderedAttributes, audio);
+		renderInitialized(renderedAttributes, audio);
+		renderAudioLocale(renderedAttributes, audio);
+		renderOggUrl(renderedAttributes, audio);
+		renderRender(renderedAttributes, audio);
+		renderRendered(renderedAttributes, audio);
+		renderSrcNode(renderedAttributes, audio);
+		renderStrings(renderedAttributes, audio);
+		renderSwfHeight(renderedAttributes, audio);
+		renderSwfUrl(renderedAttributes, audio);
+		renderSwfWidth(renderedAttributes, audio);
+		renderTabIndex(renderedAttributes, audio);
+		renderType(renderedAttributes, audio);
+		renderUrl(renderedAttributes, audio);
+		renderUseARIA(renderedAttributes, audio);
+		renderVisible(renderedAttributes, audio);
+		renderWidth(renderedAttributes, audio);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", audio.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String boundingBox = audio.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(Audio.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", audio.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String contentBox = audio.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(Audio.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderCssClass(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getCssClass() != null) {
-			renrederedAttributes.add(renderString("cssClass", audio.getCssClass()));
+	protected void renderCssClass(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String cssClass = audio.getCssClass();
+
+		if (cssClass != null) {
+			renderedAttributes.add(renderString(Audio.CSS_CLASS, cssClass));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", audio.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean destroyed = audio.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(Audio.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", audio.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean disabled = audio.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(Audio.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFixedAttributes(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getFixedAttributes() != null) {
-			renrederedAttributes.add(renderObject("fixedAttributes", audio.getFixedAttributes()));
+	protected void renderFixedAttributes(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Object fixedAttributes = audio.getFixedAttributes();
+
+		if (fixedAttributes != null) {
+			renderedAttributes.add(renderObject(Audio.FIXED_ATTRIBUTES, fixedAttributes));
 		}
 	}
 
-	protected void renderFlashVars(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getFlashVars() != null) {
-			renrederedAttributes.add(renderObject("flashVars", audio.getFlashVars()));
+	protected void renderFlashVars(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Object flashVars = audio.getFlashVars();
+
+		if (flashVars != null) {
+			renderedAttributes.add(renderObject(Audio.FLASH_VARS, flashVars));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", audio.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean focused = audio.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(Audio.FOCUSED, focused));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", audio.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Object height = audio.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(Audio.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideClass(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getHideClass() != null) {
-			renrederedAttributes.add(renderString("hideClass", audio.getHideClass()));
+	protected void renderHideClass(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String hideClass = audio.getHideClass();
+
+		if (hideClass != null) {
+			renderedAttributes.add(renderString(Audio.HIDE_CLASS, hideClass));
 		}
 	}
 
-	protected void renderAudioId(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getAudioId() != null) {
-			renrederedAttributes.add(renderString("audioId", audio.getAudioId()));
+	protected void renderAudioId(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String audioId = audio.getAudioId();
+
+		if (audioId != null) {
+			renderedAttributes.add(renderString(Audio.AUDIO_ID, audioId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", audio.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean initialized = audio.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(Audio.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderAudioLocale(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getAudioLocale() != null) {
-			renrederedAttributes.add(renderString("audioLocale", audio.getAudioLocale()));
+	protected void renderAudioLocale(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String audioLocale = audio.getAudioLocale();
+
+		if (audioLocale != null) {
+			renderedAttributes.add(renderString(Audio.AUDIO_LOCALE, audioLocale));
 		}
 	}
 
-	protected void renderOggUrl(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getOggUrl() != null) {
-			renrederedAttributes.add(renderString("oggUrl", audio.getOggUrl()));
+	protected void renderOggUrl(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String oggUrl = audio.getOggUrl();
+
+		if (oggUrl != null) {
+			renderedAttributes.add(renderString(Audio.OGG_URL, oggUrl));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getRender() != null) {
-			renrederedAttributes.add(renderBoolean("render", audio.getRender()));
+	protected void renderRender(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean render = audio.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderBoolean(Audio.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", audio.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean rendered = audio.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(Audio.RENDERED, rendered));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", audio.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String srcNode = audio.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(Audio.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", audio.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Object strings = audio.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(Audio.STRINGS, strings));
 		}
 	}
 
-	protected void renderSwfHeight(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getSwfHeight() != null) {
-			renrederedAttributes.add(renderString("swfHeight", audio.getSwfHeight()));
+	protected void renderSwfHeight(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String swfHeight = audio.getSwfHeight();
+
+		if (swfHeight != null) {
+			renderedAttributes.add(renderString(Audio.SWF_HEIGHT, swfHeight));
 		}
 	}
 
-	protected void renderSwfUrl(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getSwfUrl() != null) {
-			renrederedAttributes.add(renderString("swfUrl", audio.getSwfUrl()));
+	protected void renderSwfUrl(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String swfUrl = audio.getSwfUrl();
+
+		if (swfUrl != null) {
+			renderedAttributes.add(renderString(Audio.SWF_URL, swfUrl));
 		}
 	}
 
-	protected void renderSwfWidth(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getSwfWidth() != null) {
-			renrederedAttributes.add(renderString("swfWidth", audio.getSwfWidth()));
+	protected void renderSwfWidth(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String swfWidth = audio.getSwfWidth();
+
+		if (swfWidth != null) {
+			renderedAttributes.add(renderString(Audio.SWF_WIDTH, swfWidth));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", audio.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Object tabIndex = audio.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(Audio.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getType() != null) {
-			renrederedAttributes.add(renderString("type", audio.getType()));
+	protected void renderType(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String type = audio.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(Audio.TYPE, type));
 		}
 	}
 
-	protected void renderUrl(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getUrl() != null) {
-			renrederedAttributes.add(renderString("url", audio.getUrl()));
+	protected void renderUrl(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.String url = audio.getUrl();
+
+		if (url != null) {
+			renderedAttributes.add(renderString(Audio.URL, url));
 		}
 	}
 
-	protected void renderUseARIA(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getUseARIA() != null) {
-			renrederedAttributes.add(renderBoolean("useARIA", audio.getUseARIA()));
+	protected void renderUseARIA(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean useARIA = audio.getUseARIA();
+
+		if (useARIA != null) {
+			renderedAttributes.add(renderBoolean(Audio.USE_ARIA, useARIA));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", audio.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Boolean visible = audio.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(Audio.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, Audio audio) throws IOException {
-		if (audio.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", audio.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, Audio audio) throws IOException {
+		java.lang.Object width = audio.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(Audio.WIDTH, width));
 		}
 	}
 

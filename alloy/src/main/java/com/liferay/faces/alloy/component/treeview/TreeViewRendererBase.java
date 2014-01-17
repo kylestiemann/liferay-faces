@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.treeview;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,105 +30,124 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TreeViewRendererBase extends AUIRenderer {
+public abstract class TreeViewRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-view";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TreeView treeView = (TreeView) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TreeView treeView = (TreeView) uiComponent;
 
-		bufferedResponseWriter.write("var treeView = new A.TreeView");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var treeView = new A.TreeView");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderTreeviewChildren(renrederedAttributes, treeView);
-		renderContainer(renrederedAttributes, treeView);
-		renderDestroyed(renrederedAttributes, treeView);
-		renderIndex(renrederedAttributes, treeView);
-		renderInitialized(renrederedAttributes, treeView);
-		renderLastSelected(renrederedAttributes, treeView);
-		renderLazyLoad(renrederedAttributes, treeView);
-		renderSelectOnToggle(renrederedAttributes, treeView);
-		renderType(renrederedAttributes, treeView);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderTreeviewChildren(renderedAttributes, treeView);
+		renderContainer(renderedAttributes, treeView);
+		renderDestroyed(renderedAttributes, treeView);
+		renderIndex(renderedAttributes, treeView);
+		renderInitialized(renderedAttributes, treeView);
+		renderLastSelected(renderedAttributes, treeView);
+		renderLazyLoad(renderedAttributes, treeView);
+		renderSelectOnToggle(renderedAttributes, treeView);
+		renderType(renderedAttributes, treeView);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderTreeviewChildren(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getTreeviewChildren() != null) {
-			renrederedAttributes.add(renderArray("treeviewChildren", treeView.getTreeviewChildren()));
+	protected void renderTreeviewChildren(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Object treeviewChildren = treeView.getTreeviewChildren();
+
+		if (treeviewChildren != null) {
+			renderedAttributes.add(renderArray(TreeView.TREEVIEW_CHILDREN, treeviewChildren));
 		}
 	}
 
-	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getContainer() != null) {
-			renrederedAttributes.add(renderString("container", treeView.getContainer()));
+	protected void renderContainer(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.String container = treeView.getContainer();
+
+		if (container != null) {
+			renderedAttributes.add(renderString(TreeView.CONTAINER, container));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", treeView.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Boolean destroyed = treeView.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TreeView.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getIndex() != null) {
-			renrederedAttributes.add(renderObject("index", treeView.getIndex()));
+	protected void renderIndex(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Object index = treeView.getIndex();
+
+		if (index != null) {
+			renderedAttributes.add(renderObject(TreeView.INDEX, index));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", treeView.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Boolean initialized = treeView.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TreeView.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLastSelected(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getLastSelected() != null) {
-			renrederedAttributes.add(renderString("lastSelected", treeView.getLastSelected()));
+	protected void renderLastSelected(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Object lastSelected = treeView.getLastSelected();
+
+		if (lastSelected != null) {
+			renderedAttributes.add(renderString(TreeView.LAST_SELECTED, lastSelected));
 		}
 	}
 
-	protected void renderLazyLoad(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getLazyLoad() != null) {
-			renrederedAttributes.add(renderBoolean("lazyLoad", treeView.getLazyLoad()));
+	protected void renderLazyLoad(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Boolean lazyLoad = treeView.getLazyLoad();
+
+		if (lazyLoad != null) {
+			renderedAttributes.add(renderBoolean(TreeView.LAZY_LOAD, lazyLoad));
 		}
 	}
 
-	protected void renderSelectOnToggle(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getSelectOnToggle() != null) {
-			renrederedAttributes.add(renderBoolean("selectOnToggle", treeView.getSelectOnToggle()));
+	protected void renderSelectOnToggle(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Boolean selectOnToggle = treeView.getSelectOnToggle();
+
+		if (selectOnToggle != null) {
+			renderedAttributes.add(renderBoolean(TreeView.SELECT_ON_TOGGLE, selectOnToggle));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, TreeView treeView) throws IOException {
-		if (treeView.getType() != null) {
-			renrederedAttributes.add(renderString("type", treeView.getType()));
+	protected void renderType(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.String type = treeView.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(TreeView.TYPE, type));
 		}
 	}
 

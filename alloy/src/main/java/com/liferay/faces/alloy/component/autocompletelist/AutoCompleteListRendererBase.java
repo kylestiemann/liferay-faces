@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.autocompletelist;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,343 +30,430 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class AutoCompleteListRendererBase extends AUIRenderer {
+public abstract class AutoCompleteListRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-autocomplete-list";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		AutoCompleteList autoCompleteList = (AutoCompleteList) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		AutoCompleteList autoCompleteList = (AutoCompleteList) uiComponent;
 
-		bufferedResponseWriter.write("var autoCompleteList = new A.AutoCompleteList");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var autoCompleteList = new A.AutoCompleteList");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActivateFirstItem(renrederedAttributes, autoCompleteList);
-		renderActiveItem(renrederedAttributes, autoCompleteList);
-		renderAlign(renrederedAttributes, autoCompleteList);
-		renderAlignOn(renrederedAttributes, autoCompleteList);
-		renderAlwaysShowList(renrederedAttributes, autoCompleteList);
-		renderAutocompletelistBodyContent(renrederedAttributes, autoCompleteList);
-		renderBoundingBox(renrederedAttributes, autoCompleteList);
-		renderCentered(renrederedAttributes, autoCompleteList);
-		renderCircular(renrederedAttributes, autoCompleteList);
-		renderConstrain(renrederedAttributes, autoCompleteList);
-		renderContentBox(renrederedAttributes, autoCompleteList);
-		renderDestroyed(renrederedAttributes, autoCompleteList);
-		renderDisabled(renrederedAttributes, autoCompleteList);
-		renderFillHeight(renrederedAttributes, autoCompleteList);
-		renderFocused(renrederedAttributes, autoCompleteList);
-		renderFooterContent(renrederedAttributes, autoCompleteList);
-		renderHeaderContent(renrederedAttributes, autoCompleteList);
-		renderHeight(renrederedAttributes, autoCompleteList);
-		renderHideOn(renrederedAttributes, autoCompleteList);
-		renderHost(renrederedAttributes, autoCompleteList);
-		renderHoveredItem(renrederedAttributes, autoCompleteList);
-		renderAutocompletelistId(renrederedAttributes, autoCompleteList);
-		renderInitialized(renrederedAttributes, autoCompleteList);
-		renderListNode(renrederedAttributes, autoCompleteList);
-		renderLoadingMessage(renrederedAttributes, autoCompleteList);
-		renderAutocompletelistLocale(renrederedAttributes, autoCompleteList);
-		renderPreventOverlap(renrederedAttributes, autoCompleteList);
-		renderRender(renrederedAttributes, autoCompleteList);
-		renderRendered(renrederedAttributes, autoCompleteList);
-		renderResults(renrederedAttributes, autoCompleteList);
-		renderScrollIntoView(renrederedAttributes, autoCompleteList);
-		renderSelectedEntry(renrederedAttributes, autoCompleteList);
-		renderShim(renrederedAttributes, autoCompleteList);
-		renderSrcNode(renrederedAttributes, autoCompleteList);
-		renderStrings(renrederedAttributes, autoCompleteList);
-		renderTabIndex(renrederedAttributes, autoCompleteList);
-		renderTabSelect(renrederedAttributes, autoCompleteList);
-		renderVisible(renrederedAttributes, autoCompleteList);
-		renderWidth(renrederedAttributes, autoCompleteList);
-		renderX(renrederedAttributes, autoCompleteList);
-		renderXy(renrederedAttributes, autoCompleteList);
-		renderY(renrederedAttributes, autoCompleteList);
-		renderZIndex(renrederedAttributes, autoCompleteList);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderActivateFirstItem(renderedAttributes, autoCompleteList);
+		renderActiveItem(renderedAttributes, autoCompleteList);
+		renderAlign(renderedAttributes, autoCompleteList);
+		renderAlignOn(renderedAttributes, autoCompleteList);
+		renderAlwaysShowList(renderedAttributes, autoCompleteList);
+		renderAutocompletelistBodyContent(renderedAttributes, autoCompleteList);
+		renderBoundingBox(renderedAttributes, autoCompleteList);
+		renderCentered(renderedAttributes, autoCompleteList);
+		renderCircular(renderedAttributes, autoCompleteList);
+		renderConstrain(renderedAttributes, autoCompleteList);
+		renderContentBox(renderedAttributes, autoCompleteList);
+		renderDestroyed(renderedAttributes, autoCompleteList);
+		renderDisabled(renderedAttributes, autoCompleteList);
+		renderFillHeight(renderedAttributes, autoCompleteList);
+		renderFocused(renderedAttributes, autoCompleteList);
+		renderFooterContent(renderedAttributes, autoCompleteList);
+		renderHeaderContent(renderedAttributes, autoCompleteList);
+		renderHeight(renderedAttributes, autoCompleteList);
+		renderHideOn(renderedAttributes, autoCompleteList);
+		renderHost(renderedAttributes, autoCompleteList);
+		renderHoveredItem(renderedAttributes, autoCompleteList);
+		renderAutocompletelistId(renderedAttributes, autoCompleteList);
+		renderInitialized(renderedAttributes, autoCompleteList);
+		renderListNode(renderedAttributes, autoCompleteList);
+		renderLoadingMessage(renderedAttributes, autoCompleteList);
+		renderAutocompletelistLocale(renderedAttributes, autoCompleteList);
+		renderPreventOverlap(renderedAttributes, autoCompleteList);
+		renderRender(renderedAttributes, autoCompleteList);
+		renderRendered(renderedAttributes, autoCompleteList);
+		renderResults(renderedAttributes, autoCompleteList);
+		renderScrollIntoView(renderedAttributes, autoCompleteList);
+		renderSelectedEntry(renderedAttributes, autoCompleteList);
+		renderShim(renderedAttributes, autoCompleteList);
+		renderSrcNode(renderedAttributes, autoCompleteList);
+		renderStrings(renderedAttributes, autoCompleteList);
+		renderTabIndex(renderedAttributes, autoCompleteList);
+		renderTabSelect(renderedAttributes, autoCompleteList);
+		renderVisible(renderedAttributes, autoCompleteList);
+		renderWidth(renderedAttributes, autoCompleteList);
+		renderX(renderedAttributes, autoCompleteList);
+		renderXy(renderedAttributes, autoCompleteList);
+		renderY(renderedAttributes, autoCompleteList);
+		renderZIndex(renderedAttributes, autoCompleteList);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActivateFirstItem(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getActivateFirstItem() != null) {
-			renrederedAttributes.add(renderBoolean("activateFirstItem", autoCompleteList.getActivateFirstItem()));
+	protected void renderActivateFirstItem(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean activateFirstItem = autoCompleteList.getActivateFirstItem();
+
+		if (activateFirstItem != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.ACTIVATE_FIRST_ITEM, activateFirstItem));
 		}
 	}
 
-	protected void renderActiveItem(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getActiveItem() != null) {
-			renrederedAttributes.add(renderString("activeItem", autoCompleteList.getActiveItem()));
+	protected void renderActiveItem(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object activeItem = autoCompleteList.getActiveItem();
+
+		if (activeItem != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.ACTIVE_ITEM, activeItem));
 		}
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", autoCompleteList.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object align = autoCompleteList.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(AutoCompleteList.ALIGN, align));
 		}
 	}
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", autoCompleteList.getAlignOn()));
+	protected void renderAlignOn(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object alignOn = autoCompleteList.getAlignOn();
+
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(AutoCompleteList.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderAlwaysShowList(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getAlwaysShowList() != null) {
-			renrederedAttributes.add(renderBoolean("alwaysShowList", autoCompleteList.getAlwaysShowList()));
+	protected void renderAlwaysShowList(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean alwaysShowList = autoCompleteList.getAlwaysShowList();
+
+		if (alwaysShowList != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.ALWAYS_SHOW_LIST, alwaysShowList));
 		}
 	}
 
-	protected void renderAutocompletelistBodyContent(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getAutocompletelistBodyContent() != null) {
-			renrederedAttributes.add(renderString("autocompletelistBodyContent", autoCompleteList.getAutocompletelistBodyContent()));
+	protected void renderAutocompletelistBodyContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object autocompletelistBodyContent = autoCompleteList.getAutocompletelistBodyContent();
+
+		if (autocompletelistBodyContent != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.AUTOCOMPLETELIST_BODY_CONTENT, autocompletelistBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", autoCompleteList.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String boundingBox = autoCompleteList.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getCentered() != null) {
-			renrederedAttributes.add(renderString("centered", autoCompleteList.getCentered()));
+	protected void renderCentered(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object centered = autoCompleteList.getCentered();
+
+		if (centered != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.CENTERED, centered));
 		}
 	}
 
-	protected void renderCircular(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getCircular() != null) {
-			renrederedAttributes.add(renderBoolean("circular", autoCompleteList.getCircular()));
+	protected void renderCircular(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean circular = autoCompleteList.getCircular();
+
+		if (circular != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.CIRCULAR, circular));
 		}
 	}
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", autoCompleteList.getConstrain()));
+	protected void renderConstrain(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object constrain = autoCompleteList.getConstrain();
+
+		if (constrain != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", autoCompleteList.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String contentBox = autoCompleteList.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", autoCompleteList.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean destroyed = autoCompleteList.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", autoCompleteList.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean disabled = autoCompleteList.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", autoCompleteList.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object fillHeight = autoCompleteList.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.FILL_HEIGHT, fillHeight));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", autoCompleteList.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean focused = autoCompleteList.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", autoCompleteList.getFooterContent()));
+	protected void renderFooterContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object footerContent = autoCompleteList.getFooterContent();
+
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", autoCompleteList.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object headerContent = autoCompleteList.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.HEADER_CONTENT, headerContent));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", autoCompleteList.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object height = autoCompleteList.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideOn(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getHideOn() != null) {
-			renrederedAttributes.add(renderArray("hideOn", autoCompleteList.getHideOn()));
+	protected void renderHideOn(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object hideOn = autoCompleteList.getHideOn();
+
+		if (hideOn != null) {
+			renderedAttributes.add(renderArray(AutoCompleteList.HIDE_ON, hideOn));
 		}
 	}
 
-	protected void renderHost(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getHost() != null) {
-			renrederedAttributes.add(renderObject("host", autoCompleteList.getHost()));
+	protected void renderHost(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object host = autoCompleteList.getHost();
+
+		if (host != null) {
+			renderedAttributes.add(renderObject(AutoCompleteList.HOST, host));
 		}
 	}
 
-	protected void renderHoveredItem(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getHoveredItem() != null) {
-			renrederedAttributes.add(renderString("hoveredItem", autoCompleteList.getHoveredItem()));
+	protected void renderHoveredItem(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object hoveredItem = autoCompleteList.getHoveredItem();
+
+		if (hoveredItem != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.HOVERED_ITEM, hoveredItem));
 		}
 	}
 
-	protected void renderAutocompletelistId(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getAutocompletelistId() != null) {
-			renrederedAttributes.add(renderString("autocompletelistId", autoCompleteList.getAutocompletelistId()));
+	protected void renderAutocompletelistId(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String autocompletelistId = autoCompleteList.getAutocompletelistId();
+
+		if (autocompletelistId != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.AUTOCOMPLETELIST_ID, autocompletelistId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", autoCompleteList.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean initialized = autoCompleteList.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderListNode(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getListNode() != null) {
-			renrederedAttributes.add(renderString("listNode", autoCompleteList.getListNode()));
+	protected void renderListNode(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object listNode = autoCompleteList.getListNode();
+
+		if (listNode != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.LIST_NODE, listNode));
 		}
 	}
 
-	protected void renderLoadingMessage(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getLoadingMessage() != null) {
-			renrederedAttributes.add(renderString("loadingMessage", autoCompleteList.getLoadingMessage()));
+	protected void renderLoadingMessage(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String loadingMessage = autoCompleteList.getLoadingMessage();
+
+		if (loadingMessage != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.LOADING_MESSAGE, loadingMessage));
 		}
 	}
 
-	protected void renderAutocompletelistLocale(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getAutocompletelistLocale() != null) {
-			renrederedAttributes.add(renderString("autocompletelistLocale", autoCompleteList.getAutocompletelistLocale()));
+	protected void renderAutocompletelistLocale(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String autocompletelistLocale = autoCompleteList.getAutocompletelistLocale();
+
+		if (autocompletelistLocale != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.AUTOCOMPLETELIST_LOCALE, autocompletelistLocale));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", autoCompleteList.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean preventOverlap = autoCompleteList.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getRender() != null) {
-			renrederedAttributes.add(renderString("render", autoCompleteList.getRender()));
+	protected void renderRender(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object render = autoCompleteList.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", autoCompleteList.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean rendered = autoCompleteList.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.RENDERED, rendered));
 		}
 	}
 
-	protected void renderResults(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getResults() != null) {
-			renrederedAttributes.add(renderArray("results", autoCompleteList.getResults()));
+	protected void renderResults(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object results = autoCompleteList.getResults();
+
+		if (results != null) {
+			renderedAttributes.add(renderArray(AutoCompleteList.RESULTS, results));
 		}
 	}
 
-	protected void renderScrollIntoView(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getScrollIntoView() != null) {
-			renrederedAttributes.add(renderBoolean("scrollIntoView", autoCompleteList.getScrollIntoView()));
+	protected void renderScrollIntoView(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean scrollIntoView = autoCompleteList.getScrollIntoView();
+
+		if (scrollIntoView != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.SCROLL_INTO_VIEW, scrollIntoView));
 		}
 	}
 
-	protected void renderSelectedEntry(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getSelectedEntry() != null) {
-			renrederedAttributes.add(renderString("selectedEntry", autoCompleteList.getSelectedEntry()));
+	protected void renderSelectedEntry(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String selectedEntry = autoCompleteList.getSelectedEntry();
+
+		if (selectedEntry != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.SELECTED_ENTRY, selectedEntry));
 		}
 	}
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", autoCompleteList.getShim()));
+	protected void renderShim(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean shim = autoCompleteList.getShim();
+
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.SHIM, shim));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", autoCompleteList.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String srcNode = autoCompleteList.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", autoCompleteList.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object strings = autoCompleteList.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(AutoCompleteList.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", autoCompleteList.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object tabIndex = autoCompleteList.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(AutoCompleteList.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTabSelect(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getTabSelect() != null) {
-			renrederedAttributes.add(renderBoolean("tabSelect", autoCompleteList.getTabSelect()));
+	protected void renderTabSelect(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean tabSelect = autoCompleteList.getTabSelect();
+
+		if (tabSelect != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.TAB_SELECT, tabSelect));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", autoCompleteList.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Boolean visible = autoCompleteList.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(AutoCompleteList.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", autoCompleteList.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object width = autoCompleteList.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", autoCompleteList.getX()));
+	protected void renderX(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object x = autoCompleteList.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(AutoCompleteList.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", autoCompleteList.getXy()));
+	protected void renderXy(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object xy = autoCompleteList.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(AutoCompleteList.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", autoCompleteList.getY()));
+	protected void renderY(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object y = autoCompleteList.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(AutoCompleteList.Y, y));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		if (autoCompleteList.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", autoCompleteList.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object zIndex = autoCompleteList.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(AutoCompleteList.Z_INDEX, zIndex));
 		}
 	}
 

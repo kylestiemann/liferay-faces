@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.scheduleragendaview;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,287 +30,358 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class SchedulerAgendaViewRendererBase extends AUIRenderer {
+public abstract class SchedulerAgendaViewRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-scheduler-view-agenda";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		SchedulerAgendaView schedulerAgendaView = (SchedulerAgendaView) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		SchedulerAgendaView schedulerAgendaView = (SchedulerAgendaView) uiComponent;
 
-		bufferedResponseWriter.write("var schedulerAgendaView = new A.SchedulerAgendaView");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var schedulerAgendaView = new A.SchedulerAgendaView");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderScheduleragendaviewBodyContent(renrederedAttributes, schedulerAgendaView);
-		renderBoundingBox(renrederedAttributes, schedulerAgendaView);
-		renderContentBox(renrederedAttributes, schedulerAgendaView);
-		renderCssClass(renrederedAttributes, schedulerAgendaView);
-		renderDestroyed(renrederedAttributes, schedulerAgendaView);
-		renderDisabled(renrederedAttributes, schedulerAgendaView);
-		renderEventsDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderFilterFn(renrederedAttributes, schedulerAgendaView);
-		renderFocused(renrederedAttributes, schedulerAgendaView);
-		renderHeaderDayDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderHeaderExtraDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderHeight(renrederedAttributes, schedulerAgendaView);
-		renderHideClass(renrederedAttributes, schedulerAgendaView);
-		renderScheduleragendaviewId(renrederedAttributes, schedulerAgendaView);
-		renderInfoDayDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderInfoLabelBigDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderInfoLabelSmallDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderInitialized(renrederedAttributes, schedulerAgendaView);
-		renderIsoTime(renrederedAttributes, schedulerAgendaView);
-		renderScheduleragendaviewLocale(renrederedAttributes, schedulerAgendaView);
-		renderName(renrederedAttributes, schedulerAgendaView);
-		renderNavigationDateFormatter(renrederedAttributes, schedulerAgendaView);
-		renderNextDate(renrederedAttributes, schedulerAgendaView);
-		renderPrevDate(renrederedAttributes, schedulerAgendaView);
-		renderRender(renrederedAttributes, schedulerAgendaView);
-		renderRendered(renrederedAttributes, schedulerAgendaView);
-		renderScheduler(renrederedAttributes, schedulerAgendaView);
-		renderScrollable(renrederedAttributes, schedulerAgendaView);
-		renderSrcNode(renrederedAttributes, schedulerAgendaView);
-		renderStrings(renrederedAttributes, schedulerAgendaView);
-		renderTabIndex(renrederedAttributes, schedulerAgendaView);
-		renderTriggerNode(renrederedAttributes, schedulerAgendaView);
-		renderUseARIA(renrederedAttributes, schedulerAgendaView);
-		renderVisible(renrederedAttributes, schedulerAgendaView);
-		renderWidth(renrederedAttributes, schedulerAgendaView);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderScheduleragendaviewBodyContent(renderedAttributes, schedulerAgendaView);
+		renderBoundingBox(renderedAttributes, schedulerAgendaView);
+		renderContentBox(renderedAttributes, schedulerAgendaView);
+		renderCssClass(renderedAttributes, schedulerAgendaView);
+		renderDestroyed(renderedAttributes, schedulerAgendaView);
+		renderDisabled(renderedAttributes, schedulerAgendaView);
+		renderEventsDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderFilterFn(renderedAttributes, schedulerAgendaView);
+		renderFocused(renderedAttributes, schedulerAgendaView);
+		renderHeaderDayDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderHeaderExtraDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderHeight(renderedAttributes, schedulerAgendaView);
+		renderHideClass(renderedAttributes, schedulerAgendaView);
+		renderScheduleragendaviewId(renderedAttributes, schedulerAgendaView);
+		renderInfoDayDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderInfoLabelBigDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderInfoLabelSmallDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderInitialized(renderedAttributes, schedulerAgendaView);
+		renderIsoTime(renderedAttributes, schedulerAgendaView);
+		renderScheduleragendaviewLocale(renderedAttributes, schedulerAgendaView);
+		renderName(renderedAttributes, schedulerAgendaView);
+		renderNavigationDateFormatter(renderedAttributes, schedulerAgendaView);
+		renderNextDate(renderedAttributes, schedulerAgendaView);
+		renderPrevDate(renderedAttributes, schedulerAgendaView);
+		renderRender(renderedAttributes, schedulerAgendaView);
+		renderRendered(renderedAttributes, schedulerAgendaView);
+		renderScheduler(renderedAttributes, schedulerAgendaView);
+		renderScrollable(renderedAttributes, schedulerAgendaView);
+		renderSrcNode(renderedAttributes, schedulerAgendaView);
+		renderStrings(renderedAttributes, schedulerAgendaView);
+		renderTabIndex(renderedAttributes, schedulerAgendaView);
+		renderTriggerNode(renderedAttributes, schedulerAgendaView);
+		renderUseARIA(renderedAttributes, schedulerAgendaView);
+		renderVisible(renderedAttributes, schedulerAgendaView);
+		renderWidth(renderedAttributes, schedulerAgendaView);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderScheduleragendaviewBodyContent(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getScheduleragendaviewBodyContent() != null) {
-			renrederedAttributes.add(renderString("scheduleragendaviewBodyContent", schedulerAgendaView.getScheduleragendaviewBodyContent()));
+	protected void renderScheduleragendaviewBodyContent(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String scheduleragendaviewBodyContent = schedulerAgendaView.getScheduleragendaviewBodyContent();
+
+		if (scheduleragendaviewBodyContent != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.SCHEDULERAGENDAVIEW_BODY_CONTENT, scheduleragendaviewBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", schedulerAgendaView.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String boundingBox = schedulerAgendaView.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", schedulerAgendaView.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String contentBox = schedulerAgendaView.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderCssClass(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getCssClass() != null) {
-			renrederedAttributes.add(renderString("cssClass", schedulerAgendaView.getCssClass()));
+	protected void renderCssClass(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String cssClass = schedulerAgendaView.getCssClass();
+
+		if (cssClass != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.CSS_CLASS, cssClass));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", schedulerAgendaView.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean destroyed = schedulerAgendaView.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", schedulerAgendaView.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean disabled = schedulerAgendaView.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.DISABLED, disabled));
 		}
 	}
 
-	protected void renderEventsDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getEventsDateFormatter() != null) {
-			renrederedAttributes.add(renderString("eventsDateFormatter", schedulerAgendaView.getEventsDateFormatter()));
+	protected void renderEventsDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object eventsDateFormatter = schedulerAgendaView.getEventsDateFormatter();
+
+		if (eventsDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.EVENTS_DATE_FORMATTER, eventsDateFormatter));
 		}
 	}
 
-	protected void renderFilterFn(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getFilterFn() != null) {
-			renrederedAttributes.add(renderString("filterFn", schedulerAgendaView.getFilterFn()));
+	protected void renderFilterFn(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String filterFn = schedulerAgendaView.getFilterFn();
+
+		if (filterFn != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.FILTER_FN, filterFn));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", schedulerAgendaView.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean focused = schedulerAgendaView.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.FOCUSED, focused));
 		}
 	}
 
-	protected void renderHeaderDayDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getHeaderDayDateFormatter() != null) {
-			renrederedAttributes.add(renderString("headerDayDateFormatter", schedulerAgendaView.getHeaderDayDateFormatter()));
+	protected void renderHeaderDayDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object headerDayDateFormatter = schedulerAgendaView.getHeaderDayDateFormatter();
+
+		if (headerDayDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.HEADER_DAY_DATE_FORMATTER, headerDayDateFormatter));
 		}
 	}
 
-	protected void renderHeaderExtraDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getHeaderExtraDateFormatter() != null) {
-			renrederedAttributes.add(renderString("headerExtraDateFormatter", schedulerAgendaView.getHeaderExtraDateFormatter()));
+	protected void renderHeaderExtraDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object headerExtraDateFormatter = schedulerAgendaView.getHeaderExtraDateFormatter();
+
+		if (headerExtraDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.HEADER_EXTRA_DATE_FORMATTER, headerExtraDateFormatter));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getHeight() != null) {
-			renrederedAttributes.add(renderNumber("height", schedulerAgendaView.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object height = schedulerAgendaView.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderNumber(SchedulerAgendaView.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideClass(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getHideClass() != null) {
-			renrederedAttributes.add(renderString("hideClass", schedulerAgendaView.getHideClass()));
+	protected void renderHideClass(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String hideClass = schedulerAgendaView.getHideClass();
+
+		if (hideClass != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.HIDE_CLASS, hideClass));
 		}
 	}
 
-	protected void renderScheduleragendaviewId(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getScheduleragendaviewId() != null) {
-			renrederedAttributes.add(renderString("scheduleragendaviewId", schedulerAgendaView.getScheduleragendaviewId()));
+	protected void renderScheduleragendaviewId(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String scheduleragendaviewId = schedulerAgendaView.getScheduleragendaviewId();
+
+		if (scheduleragendaviewId != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.SCHEDULERAGENDAVIEW_ID, scheduleragendaviewId));
 		}
 	}
 
-	protected void renderInfoDayDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getInfoDayDateFormatter() != null) {
-			renrederedAttributes.add(renderString("infoDayDateFormatter", schedulerAgendaView.getInfoDayDateFormatter()));
+	protected void renderInfoDayDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object infoDayDateFormatter = schedulerAgendaView.getInfoDayDateFormatter();
+
+		if (infoDayDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.INFO_DAY_DATE_FORMATTER, infoDayDateFormatter));
 		}
 	}
 
-	protected void renderInfoLabelBigDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getInfoLabelBigDateFormatter() != null) {
-			renrederedAttributes.add(renderString("infoLabelBigDateFormatter", schedulerAgendaView.getInfoLabelBigDateFormatter()));
+	protected void renderInfoLabelBigDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object infoLabelBigDateFormatter = schedulerAgendaView.getInfoLabelBigDateFormatter();
+
+		if (infoLabelBigDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.INFO_LABEL_BIG_DATE_FORMATTER, infoLabelBigDateFormatter));
 		}
 	}
 
-	protected void renderInfoLabelSmallDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getInfoLabelSmallDateFormatter() != null) {
-			renrederedAttributes.add(renderString("infoLabelSmallDateFormatter", schedulerAgendaView.getInfoLabelSmallDateFormatter()));
+	protected void renderInfoLabelSmallDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object infoLabelSmallDateFormatter = schedulerAgendaView.getInfoLabelSmallDateFormatter();
+
+		if (infoLabelSmallDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.INFO_LABEL_SMALL_DATE_FORMATTER, infoLabelSmallDateFormatter));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", schedulerAgendaView.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean initialized = schedulerAgendaView.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderIsoTime(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getIsoTime() != null) {
-			renrederedAttributes.add(renderBoolean("isoTime", schedulerAgendaView.getIsoTime()));
+	protected void renderIsoTime(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean isoTime = schedulerAgendaView.getIsoTime();
+
+		if (isoTime != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.ISO_TIME, isoTime));
 		}
 	}
 
-	protected void renderScheduleragendaviewLocale(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getScheduleragendaviewLocale() != null) {
-			renrederedAttributes.add(renderString("scheduleragendaviewLocale", schedulerAgendaView.getScheduleragendaviewLocale()));
+	protected void renderScheduleragendaviewLocale(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String scheduleragendaviewLocale = schedulerAgendaView.getScheduleragendaviewLocale();
+
+		if (scheduleragendaviewLocale != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.SCHEDULERAGENDAVIEW_LOCALE, scheduleragendaviewLocale));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getName() != null) {
-			renrederedAttributes.add(renderString("name", schedulerAgendaView.getName()));
+	protected void renderName(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String name = schedulerAgendaView.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.NAME, name));
 		}
 	}
 
-	protected void renderNavigationDateFormatter(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getNavigationDateFormatter() != null) {
-			renrederedAttributes.add(renderString("navigationDateFormatter", schedulerAgendaView.getNavigationDateFormatter()));
+	protected void renderNavigationDateFormatter(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object navigationDateFormatter = schedulerAgendaView.getNavigationDateFormatter();
+
+		if (navigationDateFormatter != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.NAVIGATION_DATE_FORMATTER, navigationDateFormatter));
 		}
 	}
 
-	protected void renderNextDate(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getNextDate() != null) {
-			renrederedAttributes.add(renderString("nextDate", schedulerAgendaView.getNextDate()));
+	protected void renderNextDate(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String nextDate = schedulerAgendaView.getNextDate();
+
+		if (nextDate != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.NEXT_DATE, nextDate));
 		}
 	}
 
-	protected void renderPrevDate(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getPrevDate() != null) {
-			renrederedAttributes.add(renderString("prevDate", schedulerAgendaView.getPrevDate()));
+	protected void renderPrevDate(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String prevDate = schedulerAgendaView.getPrevDate();
+
+		if (prevDate != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.PREV_DATE, prevDate));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getRender() != null) {
-			renrederedAttributes.add(renderString("render", schedulerAgendaView.getRender()));
+	protected void renderRender(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object render = schedulerAgendaView.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", schedulerAgendaView.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean rendered = schedulerAgendaView.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.RENDERED, rendered));
 		}
 	}
 
-	protected void renderScheduler(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getScheduler() != null) {
-			renrederedAttributes.add(renderString("scheduler", schedulerAgendaView.getScheduler()));
+	protected void renderScheduler(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String scheduler = schedulerAgendaView.getScheduler();
+
+		if (scheduler != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.SCHEDULER, scheduler));
 		}
 	}
 
-	protected void renderScrollable(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getScrollable() != null) {
-			renrederedAttributes.add(renderBoolean("scrollable", schedulerAgendaView.getScrollable()));
+	protected void renderScrollable(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean scrollable = schedulerAgendaView.getScrollable();
+
+		if (scrollable != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.SCROLLABLE, scrollable));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", schedulerAgendaView.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String srcNode = schedulerAgendaView.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getStrings() != null) {
-			renrederedAttributes.add(renderString("strings", schedulerAgendaView.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String strings = schedulerAgendaView.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", schedulerAgendaView.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object tabIndex = schedulerAgendaView.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(SchedulerAgendaView.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTriggerNode(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getTriggerNode() != null) {
-			renrederedAttributes.add(renderString("triggerNode", schedulerAgendaView.getTriggerNode()));
+	protected void renderTriggerNode(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.String triggerNode = schedulerAgendaView.getTriggerNode();
+
+		if (triggerNode != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.TRIGGER_NODE, triggerNode));
 		}
 	}
 
-	protected void renderUseARIA(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getUseARIA() != null) {
-			renrederedAttributes.add(renderBoolean("useARIA", schedulerAgendaView.getUseARIA()));
+	protected void renderUseARIA(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean useARIA = schedulerAgendaView.getUseARIA();
+
+		if (useARIA != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.USE_ARIA, useARIA));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", schedulerAgendaView.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Boolean visible = schedulerAgendaView.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(SchedulerAgendaView.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
-		if (schedulerAgendaView.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", schedulerAgendaView.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, SchedulerAgendaView schedulerAgendaView) throws IOException {
+		java.lang.Object width = schedulerAgendaView.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(SchedulerAgendaView.WIDTH, width));
 		}
 	}
 

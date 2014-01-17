@@ -21,21 +21,21 @@ package com.liferay.faces.alloy.component.charcounter;
  */
 public abstract class CharCounterBase extends javax.faces.component.UIPanel {
 
-	private static final String COUNTER = "counter";
-	private static final String DESTROYED = "destroyed";
-	private static final String INITIALIZED = "initialized";
-	private static final String INPUT = "input";
-	private static final String MAX_LENGTH = "maxLength";
-	private static final String AFTER_COUNTER_CHANGE = "afterCounterChange";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String AFTER_INPUT_CHANGE = "afterInputChange";
-	private static final String AFTER_MAX_LENGTH_CHANGE = "afterMaxLengthChange";
-	private static final String ON_COUNTER_CHANGE = "onCounterChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
-	private static final String ON_INPUT_CHANGE = "onInputChange";
-	private static final String ON_MAX_LENGTH_CHANGE = "onMaxLengthChange";
+	public static final String COUNTER = "counter";
+	public static final String DESTROYED = "destroyed";
+	public static final String INITIALIZED = "initialized";
+	public static final String INPUT = "input";
+	public static final String MAX_LENGTH = "maxLength";
+	public static final String AFTER_COUNTER_CHANGE = "afterCounterChange";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String AFTER_INPUT_CHANGE = "afterInputChange";
+	public static final String AFTER_MAX_LENGTH_CHANGE = "afterMaxLengthChange";
+	public static final String ON_COUNTER_CHANGE = "onCounterChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String ON_INPUT_CHANGE = "onInputChange";
+	public static final String ON_MAX_LENGTH_CHANGE = "onMaxLengthChange";
 
 	public java.lang.Object getCounter() {
 		return (java.lang.Object) getStateHelper().eval(COUNTER, null);

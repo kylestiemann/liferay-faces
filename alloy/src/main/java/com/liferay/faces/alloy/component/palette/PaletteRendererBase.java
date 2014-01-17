@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.palette;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,196 +30,241 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class PaletteRendererBase extends AUIRenderer {
+public abstract class PaletteRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-palette";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		Palette palette = (Palette) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		Palette palette = (Palette) uiComponent;
 
-		bufferedResponseWriter.write("var palette = new A.Palette");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var palette = new A.Palette");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(renrederedAttributes, palette);
-		renderColumns(renrederedAttributes, palette);
-		renderContainerNode(renrederedAttributes, palette);
-		renderContentBox(renrederedAttributes, palette);
-		renderDestroyed(renrederedAttributes, palette);
-		renderDisabled(renrederedAttributes, palette);
-		renderFocused(renrederedAttributes, palette);
-		renderFormatter(renrederedAttributes, palette);
-		renderHeight(renrederedAttributes, palette);
-		renderPaletteId(renrederedAttributes, palette);
-		renderInitialized(renrederedAttributes, palette);
-		renderItems(renrederedAttributes, palette);
-		renderPaletteLocale(renrederedAttributes, palette);
-		renderRender(renrederedAttributes, palette);
-		renderRendered(renrederedAttributes, palette);
-		renderSelected(renrederedAttributes, palette);
-		renderSrcNode(renrederedAttributes, palette);
-		renderStrings(renrederedAttributes, palette);
-		renderTabIndex(renrederedAttributes, palette);
-		renderToggleSelection(renrederedAttributes, palette);
-		renderVisible(renrederedAttributes, palette);
-		renderWidth(renrederedAttributes, palette);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderBoundingBox(renderedAttributes, palette);
+		renderColumns(renderedAttributes, palette);
+		renderContainerNode(renderedAttributes, palette);
+		renderContentBox(renderedAttributes, palette);
+		renderDestroyed(renderedAttributes, palette);
+		renderDisabled(renderedAttributes, palette);
+		renderFocused(renderedAttributes, palette);
+		renderFormatter(renderedAttributes, palette);
+		renderHeight(renderedAttributes, palette);
+		renderPaletteId(renderedAttributes, palette);
+		renderInitialized(renderedAttributes, palette);
+		renderItems(renderedAttributes, palette);
+		renderPaletteLocale(renderedAttributes, palette);
+		renderRender(renderedAttributes, palette);
+		renderRendered(renderedAttributes, palette);
+		renderSelected(renderedAttributes, palette);
+		renderSrcNode(renderedAttributes, palette);
+		renderStrings(renderedAttributes, palette);
+		renderTabIndex(renderedAttributes, palette);
+		renderToggleSelection(renderedAttributes, palette);
+		renderVisible(renderedAttributes, palette);
+		renderWidth(renderedAttributes, palette);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", palette.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.String boundingBox = palette.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(Palette.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderColumns(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getColumns() != null) {
-			renrederedAttributes.add(renderNumber("columns", palette.getColumns()));
+	protected void renderColumns(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object columns = palette.getColumns();
+
+		if (columns != null) {
+			renderedAttributes.add(renderNumber(Palette.COLUMNS, columns));
 		}
 	}
 
-	protected void renderContainerNode(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getContainerNode() != null) {
-			renrederedAttributes.add(renderString("containerNode", palette.getContainerNode()));
+	protected void renderContainerNode(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object containerNode = palette.getContainerNode();
+
+		if (containerNode != null) {
+			renderedAttributes.add(renderString(Palette.CONTAINER_NODE, containerNode));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", palette.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.String contentBox = palette.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(Palette.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", palette.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean destroyed = palette.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(Palette.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", palette.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean disabled = palette.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(Palette.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", palette.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean focused = palette.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(Palette.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFormatter(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getFormatter() != null) {
-			renrederedAttributes.add(renderString("formatter", palette.getFormatter()));
+	protected void renderFormatter(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object formatter = palette.getFormatter();
+
+		if (formatter != null) {
+			renderedAttributes.add(renderString(Palette.FORMATTER, formatter));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", palette.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object height = palette.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(Palette.HEIGHT, height));
 		}
 	}
 
-	protected void renderPaletteId(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getPaletteId() != null) {
-			renrederedAttributes.add(renderString("paletteId", palette.getPaletteId()));
+	protected void renderPaletteId(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.String paletteId = palette.getPaletteId();
+
+		if (paletteId != null) {
+			renderedAttributes.add(renderString(Palette.PALETTE_ID, paletteId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", palette.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean initialized = palette.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(Palette.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderItems(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getItems() != null) {
-			renrederedAttributes.add(renderArray("items", palette.getItems()));
+	protected void renderItems(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object items = palette.getItems();
+
+		if (items != null) {
+			renderedAttributes.add(renderArray(Palette.ITEMS, items));
 		}
 	}
 
-	protected void renderPaletteLocale(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getPaletteLocale() != null) {
-			renrederedAttributes.add(renderString("paletteLocale", palette.getPaletteLocale()));
+	protected void renderPaletteLocale(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.String paletteLocale = palette.getPaletteLocale();
+
+		if (paletteLocale != null) {
+			renderedAttributes.add(renderString(Palette.PALETTE_LOCALE, paletteLocale));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getRender() != null) {
-			renrederedAttributes.add(renderString("render", palette.getRender()));
+	protected void renderRender(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object render = palette.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(Palette.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", palette.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean rendered = palette.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(Palette.RENDERED, rendered));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getSelected() != null) {
-			renrederedAttributes.add(renderNumber("selected", palette.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object selected = palette.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderNumber(Palette.SELECTED, selected));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", palette.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.String srcNode = palette.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(Palette.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", palette.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object strings = palette.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(Palette.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", palette.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object tabIndex = palette.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(Palette.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderToggleSelection(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getToggleSelection() != null) {
-			renrederedAttributes.add(renderBoolean("toggleSelection", palette.getToggleSelection()));
+	protected void renderToggleSelection(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean toggleSelection = palette.getToggleSelection();
+
+		if (toggleSelection != null) {
+			renderedAttributes.add(renderBoolean(Palette.TOGGLE_SELECTION, toggleSelection));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", palette.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Boolean visible = palette.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(Palette.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, Palette palette) throws IOException {
-		if (palette.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", palette.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, Palette palette) throws IOException {
+		java.lang.Object width = palette.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(Palette.WIDTH, width));
 		}
 	}
 

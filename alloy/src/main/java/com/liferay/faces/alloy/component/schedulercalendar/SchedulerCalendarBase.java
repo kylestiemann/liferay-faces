@@ -21,30 +21,30 @@ package com.liferay.faces.alloy.component.schedulercalendar;
  */
 public abstract class SchedulerCalendarBase extends javax.faces.component.UIPanel {
 
-	private static final String COLOR = "color";
-	private static final String DESTROYED = "destroyed";
-	private static final String DISABLED = "disabled";
-	private static final String INITIALIZED = "initialized";
-	private static final String NAME = "name";
-	private static final String PALETTE = "palette";
-	private static final String SCHEDULER = "scheduler";
-	private static final String VISIBLE = "visible";
-	private static final String AFTER_COLOR_CHANGE = "afterColorChange";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String AFTER_NAME_CHANGE = "afterNameChange";
-	private static final String AFTER_PALETTE_CHANGE = "afterPaletteChange";
-	private static final String AFTER_SCHEDULER_CHANGE = "afterSchedulerChange";
-	private static final String AFTER_VISIBLE_CHANGE = "afterVisibleChange";
-	private static final String ON_COLOR_CHANGE = "onColorChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_DISABLED_CHANGE = "onDisabledChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
-	private static final String ON_NAME_CHANGE = "onNameChange";
-	private static final String ON_PALETTE_CHANGE = "onPaletteChange";
-	private static final String ON_SCHEDULER_CHANGE = "onSchedulerChange";
-	private static final String ON_VISIBLE_CHANGE = "onVisibleChange";
+	public static final String COLOR = "color";
+	public static final String DESTROYED = "destroyed";
+	public static final String DISABLED = "disabled";
+	public static final String INITIALIZED = "initialized";
+	public static final String NAME = "name";
+	public static final String PALETTE = "palette";
+	public static final String SCHEDULER = "scheduler";
+	public static final String VISIBLE = "visible";
+	public static final String AFTER_COLOR_CHANGE = "afterColorChange";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_DISABLED_CHANGE = "afterDisabledChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String AFTER_NAME_CHANGE = "afterNameChange";
+	public static final String AFTER_PALETTE_CHANGE = "afterPaletteChange";
+	public static final String AFTER_SCHEDULER_CHANGE = "afterSchedulerChange";
+	public static final String AFTER_VISIBLE_CHANGE = "afterVisibleChange";
+	public static final String ON_COLOR_CHANGE = "onColorChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_DISABLED_CHANGE = "onDisabledChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String ON_NAME_CHANGE = "onNameChange";
+	public static final String ON_PALETTE_CHANGE = "onPaletteChange";
+	public static final String ON_SCHEDULER_CHANGE = "onSchedulerChange";
+	public static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 
 	public java.lang.String getColor() {
 		return (java.lang.String) getStateHelper().eval(COLOR, null);

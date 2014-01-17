@@ -21,21 +21,21 @@ package com.liferay.faces.alloy.component.freemarker;
  */
 public abstract class FreemarkerBase extends javax.faces.component.UIPanel {
 
-	private static final String DIRECTIVES = "directives";
-	private static final String DIRECTIVES_MATCHER = "directivesMatcher";
-	private static final String HOST = "host";
-	private static final String VARIABLES = "variables";
-	private static final String VARIABLES_MATCHER = "variablesMatcher";
-	private static final String AFTER_DIRECTIVES_CHANGE = "afterDirectivesChange";
-	private static final String AFTER_DIRECTIVES_MATCHER_CHANGE = "afterDirectivesMatcherChange";
-	private static final String AFTER_HOST_CHANGE = "afterHostChange";
-	private static final String AFTER_VARIABLES_CHANGE = "afterVariablesChange";
-	private static final String AFTER_VARIABLES_MATCHER_CHANGE = "afterVariablesMatcherChange";
-	private static final String ON_DIRECTIVES_CHANGE = "onDirectivesChange";
-	private static final String ON_DIRECTIVES_MATCHER_CHANGE = "onDirectivesMatcherChange";
-	private static final String ON_HOST_CHANGE = "onHostChange";
-	private static final String ON_VARIABLES_CHANGE = "onVariablesChange";
-	private static final String ON_VARIABLES_MATCHER_CHANGE = "onVariablesMatcherChange";
+	public static final String DIRECTIVES = "directives";
+	public static final String DIRECTIVES_MATCHER = "directivesMatcher";
+	public static final String HOST = "host";
+	public static final String VARIABLES = "variables";
+	public static final String VARIABLES_MATCHER = "variablesMatcher";
+	public static final String AFTER_DIRECTIVES_CHANGE = "afterDirectivesChange";
+	public static final String AFTER_DIRECTIVES_MATCHER_CHANGE = "afterDirectivesMatcherChange";
+	public static final String AFTER_HOST_CHANGE = "afterHostChange";
+	public static final String AFTER_VARIABLES_CHANGE = "afterVariablesChange";
+	public static final String AFTER_VARIABLES_MATCHER_CHANGE = "afterVariablesMatcherChange";
+	public static final String ON_DIRECTIVES_CHANGE = "onDirectivesChange";
+	public static final String ON_DIRECTIVES_MATCHER_CHANGE = "onDirectivesMatcherChange";
+	public static final String ON_HOST_CHANGE = "onHostChange";
+	public static final String ON_VARIABLES_CHANGE = "onVariablesChange";
+	public static final String ON_VARIABLES_MATCHER_CHANGE = "onVariablesMatcherChange";
 
 	public java.lang.Object getDirectives() {
 		return (java.lang.Object) getStateHelper().eval(DIRECTIVES, null);

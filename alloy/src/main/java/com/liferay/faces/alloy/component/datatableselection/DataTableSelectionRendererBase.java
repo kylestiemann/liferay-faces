@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.datatableselection;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,77 +30,88 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class DataTableSelectionRendererBase extends AUIRenderer {
+public abstract class DataTableSelectionRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-selection";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		DataTableSelection dataTableSelection = (DataTableSelection) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		DataTableSelection dataTableSelection = (DataTableSelection) uiComponent;
 
-		bufferedResponseWriter.write("var dataTableSelection = new A.DataTableSelection");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var dataTableSelection = new A.DataTableSelection");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveCell(renrederedAttributes, dataTableSelection);
-		renderActiveCoord(renrederedAttributes, dataTableSelection);
-		renderActiveRow(renrederedAttributes, dataTableSelection);
-		renderSelection(renrederedAttributes, dataTableSelection);
-		renderTabIndex(renrederedAttributes, dataTableSelection);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderActiveCell(renderedAttributes, dataTableSelection);
+		renderActiveCoord(renderedAttributes, dataTableSelection);
+		renderActiveRow(renderedAttributes, dataTableSelection);
+		renderSelection(renderedAttributes, dataTableSelection);
+		renderTabIndex(renderedAttributes, dataTableSelection);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActiveCell(ArrayList<String> renrederedAttributes, DataTableSelection dataTableSelection) throws IOException {
-		if (dataTableSelection.getActiveCell() != null) {
-			renrederedAttributes.add(renderString("activeCell", dataTableSelection.getActiveCell()));
+	protected void renderActiveCell(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String activeCell = dataTableSelection.getActiveCell();
+
+		if (activeCell != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ACTIVE_CELL, activeCell));
 		}
 	}
 
-	protected void renderActiveCoord(ArrayList<String> renrederedAttributes, DataTableSelection dataTableSelection) throws IOException {
-		if (dataTableSelection.getActiveCoord() != null) {
-			renrederedAttributes.add(renderArray("activeCoord", dataTableSelection.getActiveCoord()));
+	protected void renderActiveCoord(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.Object activeCoord = dataTableSelection.getActiveCoord();
+
+		if (activeCoord != null) {
+			renderedAttributes.add(renderArray(DataTableSelection.ACTIVE_COORD, activeCoord));
 		}
 	}
 
-	protected void renderActiveRow(ArrayList<String> renrederedAttributes, DataTableSelection dataTableSelection) throws IOException {
-		if (dataTableSelection.getActiveRow() != null) {
-			renrederedAttributes.add(renderString("activeRow", dataTableSelection.getActiveRow()));
+	protected void renderActiveRow(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String activeRow = dataTableSelection.getActiveRow();
+
+		if (activeRow != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ACTIVE_ROW, activeRow));
 		}
 	}
 
-	protected void renderSelection(ArrayList<String> renrederedAttributes, DataTableSelection dataTableSelection) throws IOException {
-		if (dataTableSelection.getSelection() != null) {
-			renrederedAttributes.add(renderString("selection", dataTableSelection.getSelection()));
+	protected void renderSelection(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String selection = dataTableSelection.getSelection();
+
+		if (selection != null) {
+			renderedAttributes.add(renderString(DataTableSelection.SELECTION, selection));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, DataTableSelection dataTableSelection) throws IOException {
-		if (dataTableSelection.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", dataTableSelection.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.Object tabIndex = dataTableSelection.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(DataTableSelection.TAB_INDEX, tabIndex));
 		}
 	}
 

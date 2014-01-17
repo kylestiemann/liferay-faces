@@ -13,10 +13,6 @@
  */
 package com.liferay.faces.alloy.component.diagramnodeend;
 
-import java.io.IOException;
-
-import javax.faces.component.UIComponent;
-import javax.faces.context.FacesContext;
 import javax.faces.render.FacesRenderer;
 
 
@@ -29,9 +25,4 @@ import javax.faces.render.FacesRenderer;
 	componentFamily = "javax.faces.Panel", rendererType = "com.liferay.faces.alloy.component.diagramnodeend.DiagramNodeEndRenderer"
 )
 public class DiagramNodeEndRenderer extends DiagramNodeEndRendererBase {
-
-	@Override 
-	protected void encodeHTMLBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
-	}
-
 }

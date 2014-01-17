@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.treenodecheck;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,266 +30,331 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TreeNodeCheckRendererBase extends AUIRenderer {
+public abstract class TreeNodeCheckRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-node";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TreeNodeCheck treeNodeCheck = (TreeNodeCheck) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TreeNodeCheck treeNodeCheck = (TreeNodeCheck) uiComponent;
 
-		bufferedResponseWriter.write("var treeNodeCheck = new A.TreeNodeCheck");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var treeNodeCheck = new A.TreeNodeCheck");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlwaysShowHitArea(renrederedAttributes, treeNodeCheck);
-		renderBoundingBox(renrederedAttributes, treeNodeCheck);
-		renderCache(renrederedAttributes, treeNodeCheck);
-		renderCheckContainerEl(renrederedAttributes, treeNodeCheck);
-		renderCheckEl(renrederedAttributes, treeNodeCheck);
-		renderCheckName(renrederedAttributes, treeNodeCheck);
-		renderChecked(renrederedAttributes, treeNodeCheck);
-		renderTreenodecheckChildren(renrederedAttributes, treeNodeCheck);
-		renderContainer(renrederedAttributes, treeNodeCheck);
-		renderContentBox(renrederedAttributes, treeNodeCheck);
-		renderCssClasses(renrederedAttributes, treeNodeCheck);
-		renderDestroyed(renrederedAttributes, treeNodeCheck);
-		renderDraggable(renrederedAttributes, treeNodeCheck);
-		renderExpanded(renrederedAttributes, treeNodeCheck);
-		renderHitAreaEl(renrederedAttributes, treeNodeCheck);
-		renderIconEl(renrederedAttributes, treeNodeCheck);
-		renderTreenodecheckId(renrederedAttributes, treeNodeCheck);
-		renderIndex(renrederedAttributes, treeNodeCheck);
-		renderInitialized(renrederedAttributes, treeNodeCheck);
-		renderIo(renrederedAttributes, treeNodeCheck);
-		renderLabel(renrederedAttributes, treeNodeCheck);
-		renderLabelEl(renrederedAttributes, treeNodeCheck);
-		renderLeaf(renrederedAttributes, treeNodeCheck);
-		renderLoaded(renrederedAttributes, treeNodeCheck);
-		renderLoading(renrederedAttributes, treeNodeCheck);
-		renderNextSibling(renrederedAttributes, treeNodeCheck);
-		renderOwnerTree(renrederedAttributes, treeNodeCheck);
-		renderPaginator(renrederedAttributes, treeNodeCheck);
-		renderParentNode(renrederedAttributes, treeNodeCheck);
-		renderPrevSibling(renrederedAttributes, treeNodeCheck);
-		renderRendered(renrederedAttributes, treeNodeCheck);
-		renderTabIndex(renrederedAttributes, treeNodeCheck);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlwaysShowHitArea(renderedAttributes, treeNodeCheck);
+		renderBoundingBox(renderedAttributes, treeNodeCheck);
+		renderCache(renderedAttributes, treeNodeCheck);
+		renderCheckContainerEl(renderedAttributes, treeNodeCheck);
+		renderCheckEl(renderedAttributes, treeNodeCheck);
+		renderCheckName(renderedAttributes, treeNodeCheck);
+		renderChecked(renderedAttributes, treeNodeCheck);
+		renderTreenodecheckChildren(renderedAttributes, treeNodeCheck);
+		renderContainer(renderedAttributes, treeNodeCheck);
+		renderContentBox(renderedAttributes, treeNodeCheck);
+		renderCssClasses(renderedAttributes, treeNodeCheck);
+		renderDestroyed(renderedAttributes, treeNodeCheck);
+		renderDraggable(renderedAttributes, treeNodeCheck);
+		renderExpanded(renderedAttributes, treeNodeCheck);
+		renderHitAreaEl(renderedAttributes, treeNodeCheck);
+		renderIconEl(renderedAttributes, treeNodeCheck);
+		renderTreenodecheckId(renderedAttributes, treeNodeCheck);
+		renderIndex(renderedAttributes, treeNodeCheck);
+		renderInitialized(renderedAttributes, treeNodeCheck);
+		renderIo(renderedAttributes, treeNodeCheck);
+		renderLabel(renderedAttributes, treeNodeCheck);
+		renderLabelEl(renderedAttributes, treeNodeCheck);
+		renderLeaf(renderedAttributes, treeNodeCheck);
+		renderLoaded(renderedAttributes, treeNodeCheck);
+		renderLoading(renderedAttributes, treeNodeCheck);
+		renderNextSibling(renderedAttributes, treeNodeCheck);
+		renderOwnerTree(renderedAttributes, treeNodeCheck);
+		renderPaginator(renderedAttributes, treeNodeCheck);
+		renderParentNode(renderedAttributes, treeNodeCheck);
+		renderPrevSibling(renderedAttributes, treeNodeCheck);
+		renderRendered(renderedAttributes, treeNodeCheck);
+		renderTabIndex(renderedAttributes, treeNodeCheck);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlwaysShowHitArea(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getAlwaysShowHitArea() != null) {
-			renrederedAttributes.add(renderBoolean("alwaysShowHitArea", treeNodeCheck.getAlwaysShowHitArea()));
+	protected void renderAlwaysShowHitArea(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean alwaysShowHitArea = treeNodeCheck.getAlwaysShowHitArea();
+
+		if (alwaysShowHitArea != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.ALWAYS_SHOW_HIT_AREA, alwaysShowHitArea));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", treeNodeCheck.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String boundingBox = treeNodeCheck.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCache(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getCache() != null) {
-			renrederedAttributes.add(renderBoolean("cache", treeNodeCheck.getCache()));
+	protected void renderCache(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean cache = treeNodeCheck.getCache();
+
+		if (cache != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.CACHE, cache));
 		}
 	}
 
-	protected void renderCheckContainerEl(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getCheckContainerEl() != null) {
-			renrederedAttributes.add(renderString("checkContainerEl", treeNodeCheck.getCheckContainerEl()));
+	protected void renderCheckContainerEl(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String checkContainerEl = treeNodeCheck.getCheckContainerEl();
+
+		if (checkContainerEl != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.CHECK_CONTAINER_EL, checkContainerEl));
 		}
 	}
 
-	protected void renderCheckEl(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getCheckEl() != null) {
-			renrederedAttributes.add(renderString("checkEl", treeNodeCheck.getCheckEl()));
+	protected void renderCheckEl(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String checkEl = treeNodeCheck.getCheckEl();
+
+		if (checkEl != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.CHECK_EL, checkEl));
 		}
 	}
 
-	protected void renderCheckName(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getCheckName() != null) {
-			renrederedAttributes.add(renderString("checkName", treeNodeCheck.getCheckName()));
+	protected void renderCheckName(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String checkName = treeNodeCheck.getCheckName();
+
+		if (checkName != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.CHECK_NAME, checkName));
 		}
 	}
 
-	protected void renderChecked(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getChecked() != null) {
-			renrederedAttributes.add(renderBoolean("checked", treeNodeCheck.getChecked()));
+	protected void renderChecked(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean checked = treeNodeCheck.getChecked();
+
+		if (checked != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.CHECKED, checked));
 		}
 	}
 
-	protected void renderTreenodecheckChildren(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getTreenodecheckChildren() != null) {
-			renrederedAttributes.add(renderArray("treenodecheckChildren", treeNodeCheck.getTreenodecheckChildren()));
+	protected void renderTreenodecheckChildren(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object treenodecheckChildren = treeNodeCheck.getTreenodecheckChildren();
+
+		if (treenodecheckChildren != null) {
+			renderedAttributes.add(renderArray(TreeNodeCheck.TREENODECHECK_CHILDREN, treenodecheckChildren));
 		}
 	}
 
-	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getContainer() != null) {
-			renrederedAttributes.add(renderString("container", treeNodeCheck.getContainer()));
+	protected void renderContainer(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String container = treeNodeCheck.getContainer();
+
+		if (container != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.CONTAINER, container));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", treeNodeCheck.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String contentBox = treeNodeCheck.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderCssClasses(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getCssClasses() != null) {
-			renrederedAttributes.add(renderObject("cssClasses", treeNodeCheck.getCssClasses()));
+	protected void renderCssClasses(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object cssClasses = treeNodeCheck.getCssClasses();
+
+		if (cssClasses != null) {
+			renderedAttributes.add(renderObject(TreeNodeCheck.CSS_CLASSES, cssClasses));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", treeNodeCheck.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean destroyed = treeNodeCheck.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDraggable(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getDraggable() != null) {
-			renrederedAttributes.add(renderBoolean("draggable", treeNodeCheck.getDraggable()));
+	protected void renderDraggable(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean draggable = treeNodeCheck.getDraggable();
+
+		if (draggable != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.DRAGGABLE, draggable));
 		}
 	}
 
-	protected void renderExpanded(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getExpanded() != null) {
-			renrederedAttributes.add(renderBoolean("expanded", treeNodeCheck.getExpanded()));
+	protected void renderExpanded(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean expanded = treeNodeCheck.getExpanded();
+
+		if (expanded != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.EXPANDED, expanded));
 		}
 	}
 
-	protected void renderHitAreaEl(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getHitAreaEl() != null) {
-			renrederedAttributes.add(renderString("hitAreaEl", treeNodeCheck.getHitAreaEl()));
+	protected void renderHitAreaEl(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String hitAreaEl = treeNodeCheck.getHitAreaEl();
+
+		if (hitAreaEl != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.HIT_AREA_EL, hitAreaEl));
 		}
 	}
 
-	protected void renderIconEl(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getIconEl() != null) {
-			renrederedAttributes.add(renderString("iconEl", treeNodeCheck.getIconEl()));
+	protected void renderIconEl(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String iconEl = treeNodeCheck.getIconEl();
+
+		if (iconEl != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.ICON_EL, iconEl));
 		}
 	}
 
-	protected void renderTreenodecheckId(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getTreenodecheckId() != null) {
-			renrederedAttributes.add(renderString("treenodecheckId", treeNodeCheck.getTreenodecheckId()));
+	protected void renderTreenodecheckId(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String treenodecheckId = treeNodeCheck.getTreenodecheckId();
+
+		if (treenodecheckId != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.TREENODECHECK_ID, treenodecheckId));
 		}
 	}
 
-	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getIndex() != null) {
-			renrederedAttributes.add(renderObject("index", treeNodeCheck.getIndex()));
+	protected void renderIndex(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object index = treeNodeCheck.getIndex();
+
+		if (index != null) {
+			renderedAttributes.add(renderObject(TreeNodeCheck.INDEX, index));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", treeNodeCheck.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean initialized = treeNodeCheck.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderIo(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getIo() != null) {
-			renrederedAttributes.add(renderObject("io", treeNodeCheck.getIo()));
+	protected void renderIo(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object io = treeNodeCheck.getIo();
+
+		if (io != null) {
+			renderedAttributes.add(renderObject(TreeNodeCheck.IO, io));
 		}
 	}
 
-	protected void renderLabel(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getLabel() != null) {
-			renrederedAttributes.add(renderString("label", treeNodeCheck.getLabel()));
+	protected void renderLabel(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String label = treeNodeCheck.getLabel();
+
+		if (label != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.LABEL, label));
 		}
 	}
 
-	protected void renderLabelEl(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getLabelEl() != null) {
-			renrederedAttributes.add(renderString("labelEl", treeNodeCheck.getLabelEl()));
+	protected void renderLabelEl(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String labelEl = treeNodeCheck.getLabelEl();
+
+		if (labelEl != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.LABEL_EL, labelEl));
 		}
 	}
 
-	protected void renderLeaf(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getLeaf() != null) {
-			renrederedAttributes.add(renderBoolean("leaf", treeNodeCheck.getLeaf()));
+	protected void renderLeaf(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean leaf = treeNodeCheck.getLeaf();
+
+		if (leaf != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.LEAF, leaf));
 		}
 	}
 
-	protected void renderLoaded(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getLoaded() != null) {
-			renrederedAttributes.add(renderBoolean("loaded", treeNodeCheck.getLoaded()));
+	protected void renderLoaded(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean loaded = treeNodeCheck.getLoaded();
+
+		if (loaded != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.LOADED, loaded));
 		}
 	}
 
-	protected void renderLoading(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getLoading() != null) {
-			renrederedAttributes.add(renderBoolean("loading", treeNodeCheck.getLoading()));
+	protected void renderLoading(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean loading = treeNodeCheck.getLoading();
+
+		if (loading != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.LOADING, loading));
 		}
 	}
 
-	protected void renderNextSibling(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getNextSibling() != null) {
-			renrederedAttributes.add(renderString("nextSibling", treeNodeCheck.getNextSibling()));
+	protected void renderNextSibling(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object nextSibling = treeNodeCheck.getNextSibling();
+
+		if (nextSibling != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.NEXT_SIBLING, nextSibling));
 		}
 	}
 
-	protected void renderOwnerTree(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getOwnerTree() != null) {
-			renrederedAttributes.add(renderString("ownerTree", treeNodeCheck.getOwnerTree()));
+	protected void renderOwnerTree(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object ownerTree = treeNodeCheck.getOwnerTree();
+
+		if (ownerTree != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.OWNER_TREE, ownerTree));
 		}
 	}
 
-	protected void renderPaginator(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getPaginator() != null) {
-			renrederedAttributes.add(renderObject("paginator", treeNodeCheck.getPaginator()));
+	protected void renderPaginator(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object paginator = treeNodeCheck.getPaginator();
+
+		if (paginator != null) {
+			renderedAttributes.add(renderObject(TreeNodeCheck.PAGINATOR, paginator));
 		}
 	}
 
-	protected void renderParentNode(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getParentNode() != null) {
-			renrederedAttributes.add(renderString("parentNode", treeNodeCheck.getParentNode()));
+	protected void renderParentNode(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object parentNode = treeNodeCheck.getParentNode();
+
+		if (parentNode != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.PARENT_NODE, parentNode));
 		}
 	}
 
-	protected void renderPrevSibling(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getPrevSibling() != null) {
-			renrederedAttributes.add(renderString("prevSibling", treeNodeCheck.getPrevSibling()));
+	protected void renderPrevSibling(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object prevSibling = treeNodeCheck.getPrevSibling();
+
+		if (prevSibling != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.PREV_SIBLING, prevSibling));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", treeNodeCheck.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Boolean rendered = treeNodeCheck.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeCheck.RENDERED, rendered));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		if (treeNodeCheck.getTabIndex() != null) {
-			renrederedAttributes.add(renderString("tabIndex", treeNodeCheck.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String tabIndex = treeNodeCheck.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.TAB_INDEX, tabIndex));
 		}
 	}
 

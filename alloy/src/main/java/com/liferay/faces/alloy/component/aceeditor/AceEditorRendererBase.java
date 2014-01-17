@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.aceeditor;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,210 +30,259 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class AceEditorRendererBase extends AUIRenderer {
+public abstract class AceEditorRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-ace-editor";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		AceEditor aceEditor = (AceEditor) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		AceEditor aceEditor = (AceEditor) uiComponent;
 
-		bufferedResponseWriter.write("var aceEditor = new A.AceEditor");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var aceEditor = new A.AceEditor");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(renrederedAttributes, aceEditor);
-		renderContentBox(renrederedAttributes, aceEditor);
-		renderDestroyed(renrederedAttributes, aceEditor);
-		renderDisabled(renrederedAttributes, aceEditor);
-		renderFocused(renrederedAttributes, aceEditor);
-		renderHeight(renrederedAttributes, aceEditor);
-		renderHighlightActiveLine(renrederedAttributes, aceEditor);
-		renderAceeditorId(renrederedAttributes, aceEditor);
-		renderInitialized(renrederedAttributes, aceEditor);
-		renderAceeditorLocale(renrederedAttributes, aceEditor);
-		renderMode(renrederedAttributes, aceEditor);
-		renderReadOnly(renrederedAttributes, aceEditor);
-		renderRender(renrederedAttributes, aceEditor);
-		renderRendered(renrederedAttributes, aceEditor);
-		renderShowPrintMargin(renrederedAttributes, aceEditor);
-		renderSrcNode(renrederedAttributes, aceEditor);
-		renderStrings(renrederedAttributes, aceEditor);
-		renderTabIndex(renrederedAttributes, aceEditor);
-		renderTabSize(renrederedAttributes, aceEditor);
-		renderUseSoftTabs(renrederedAttributes, aceEditor);
-		renderUseWrapMode(renrederedAttributes, aceEditor);
-		renderAceeditorValue(renrederedAttributes, aceEditor);
-		renderVisible(renrederedAttributes, aceEditor);
-		renderWidth(renrederedAttributes, aceEditor);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderBoundingBox(renderedAttributes, aceEditor);
+		renderContentBox(renderedAttributes, aceEditor);
+		renderDestroyed(renderedAttributes, aceEditor);
+		renderDisabled(renderedAttributes, aceEditor);
+		renderFocused(renderedAttributes, aceEditor);
+		renderHeight(renderedAttributes, aceEditor);
+		renderHighlightActiveLine(renderedAttributes, aceEditor);
+		renderAceeditorId(renderedAttributes, aceEditor);
+		renderInitialized(renderedAttributes, aceEditor);
+		renderAceeditorLocale(renderedAttributes, aceEditor);
+		renderMode(renderedAttributes, aceEditor);
+		renderReadOnly(renderedAttributes, aceEditor);
+		renderRender(renderedAttributes, aceEditor);
+		renderRendered(renderedAttributes, aceEditor);
+		renderShowPrintMargin(renderedAttributes, aceEditor);
+		renderSrcNode(renderedAttributes, aceEditor);
+		renderStrings(renderedAttributes, aceEditor);
+		renderTabIndex(renderedAttributes, aceEditor);
+		renderTabSize(renderedAttributes, aceEditor);
+		renderUseSoftTabs(renderedAttributes, aceEditor);
+		renderUseWrapMode(renderedAttributes, aceEditor);
+		renderAceeditorValue(renderedAttributes, aceEditor);
+		renderVisible(renderedAttributes, aceEditor);
+		renderWidth(renderedAttributes, aceEditor);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", aceEditor.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String boundingBox = aceEditor.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(AceEditor.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", aceEditor.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String contentBox = aceEditor.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(AceEditor.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", aceEditor.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean destroyed = aceEditor.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", aceEditor.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean disabled = aceEditor.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", aceEditor.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean focused = aceEditor.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.FOCUSED, focused));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getHeight() != null) {
-			renrederedAttributes.add(renderNumber("height", aceEditor.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Object height = aceEditor.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderNumber(AceEditor.HEIGHT, height));
 		}
 	}
 
-	protected void renderHighlightActiveLine(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getHighlightActiveLine() != null) {
-			renrederedAttributes.add(renderBoolean("highlightActiveLine", aceEditor.getHighlightActiveLine()));
+	protected void renderHighlightActiveLine(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean highlightActiveLine = aceEditor.getHighlightActiveLine();
+
+		if (highlightActiveLine != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.HIGHLIGHT_ACTIVE_LINE, highlightActiveLine));
 		}
 	}
 
-	protected void renderAceeditorId(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getAceeditorId() != null) {
-			renrederedAttributes.add(renderString("aceeditorId", aceEditor.getAceeditorId()));
+	protected void renderAceeditorId(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String aceeditorId = aceEditor.getAceeditorId();
+
+		if (aceeditorId != null) {
+			renderedAttributes.add(renderString(AceEditor.ACEEDITOR_ID, aceeditorId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", aceEditor.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean initialized = aceEditor.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderAceeditorLocale(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getAceeditorLocale() != null) {
-			renrederedAttributes.add(renderString("aceeditorLocale", aceEditor.getAceeditorLocale()));
+	protected void renderAceeditorLocale(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String aceeditorLocale = aceEditor.getAceeditorLocale();
+
+		if (aceeditorLocale != null) {
+			renderedAttributes.add(renderString(AceEditor.ACEEDITOR_LOCALE, aceeditorLocale));
 		}
 	}
 
-	protected void renderMode(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getMode() != null) {
-			renrederedAttributes.add(renderString("mode", aceEditor.getMode()));
+	protected void renderMode(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String mode = aceEditor.getMode();
+
+		if (mode != null) {
+			renderedAttributes.add(renderString(AceEditor.MODE, mode));
 		}
 	}
 
-	protected void renderReadOnly(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getReadOnly() != null) {
-			renrederedAttributes.add(renderBoolean("readOnly", aceEditor.getReadOnly()));
+	protected void renderReadOnly(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean readOnly = aceEditor.getReadOnly();
+
+		if (readOnly != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.READ_ONLY, readOnly));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getRender() != null) {
-			renrederedAttributes.add(renderString("render", aceEditor.getRender()));
+	protected void renderRender(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Object render = aceEditor.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(AceEditor.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", aceEditor.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean rendered = aceEditor.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.RENDERED, rendered));
 		}
 	}
 
-	protected void renderShowPrintMargin(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getShowPrintMargin() != null) {
-			renrederedAttributes.add(renderBoolean("showPrintMargin", aceEditor.getShowPrintMargin()));
+	protected void renderShowPrintMargin(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean showPrintMargin = aceEditor.getShowPrintMargin();
+
+		if (showPrintMargin != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.SHOW_PRINT_MARGIN, showPrintMargin));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", aceEditor.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String srcNode = aceEditor.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(AceEditor.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", aceEditor.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Object strings = aceEditor.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(AceEditor.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", aceEditor.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Object tabIndex = aceEditor.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(AceEditor.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTabSize(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getTabSize() != null) {
-			renrederedAttributes.add(renderNumber("tabSize", aceEditor.getTabSize()));
+	protected void renderTabSize(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Object tabSize = aceEditor.getTabSize();
+
+		if (tabSize != null) {
+			renderedAttributes.add(renderNumber(AceEditor.TAB_SIZE, tabSize));
 		}
 	}
 
-	protected void renderUseSoftTabs(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getUseSoftTabs() != null) {
-			renrederedAttributes.add(renderBoolean("useSoftTabs", aceEditor.getUseSoftTabs()));
+	protected void renderUseSoftTabs(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean useSoftTabs = aceEditor.getUseSoftTabs();
+
+		if (useSoftTabs != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.USE_SOFT_TABS, useSoftTabs));
 		}
 	}
 
-	protected void renderUseWrapMode(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getUseWrapMode() != null) {
-			renrederedAttributes.add(renderBoolean("useWrapMode", aceEditor.getUseWrapMode()));
+	protected void renderUseWrapMode(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean useWrapMode = aceEditor.getUseWrapMode();
+
+		if (useWrapMode != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.USE_WRAP_MODE, useWrapMode));
 		}
 	}
 
-	protected void renderAceeditorValue(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getAceeditorValue() != null) {
-			renrederedAttributes.add(renderString("aceeditorValue", aceEditor.getAceeditorValue()));
+	protected void renderAceeditorValue(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String aceeditorValue = aceEditor.getAceeditorValue();
+
+		if (aceeditorValue != null) {
+			renderedAttributes.add(renderString(AceEditor.ACEEDITOR_VALUE, aceeditorValue));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", aceEditor.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Boolean visible = aceEditor.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(AceEditor.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, AceEditor aceEditor) throws IOException {
-		if (aceEditor.getWidth() != null) {
-			renrederedAttributes.add(renderNumber("width", aceEditor.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.Object width = aceEditor.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderNumber(AceEditor.WIDTH, width));
 		}
 	}
 

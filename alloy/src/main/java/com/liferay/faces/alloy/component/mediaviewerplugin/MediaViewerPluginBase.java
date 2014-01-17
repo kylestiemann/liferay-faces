@@ -21,18 +21,18 @@ package com.liferay.faces.alloy.component.mediaviewerplugin;
  */
 public abstract class MediaViewerPluginBase extends javax.faces.component.UIPanel {
 
-	private static final String DESTROYED = "destroyed";
-	private static final String HOST = "host";
-	private static final String INITIALIZED = "initialized";
-	private static final String PROVIDERS = "providers";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_HOST_CHANGE = "afterHostChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String AFTER_PROVIDERS_CHANGE = "afterProvidersChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_HOST_CHANGE = "onHostChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
-	private static final String ON_PROVIDERS_CHANGE = "onProvidersChange";
+	public static final String DESTROYED = "destroyed";
+	public static final String HOST = "host";
+	public static final String INITIALIZED = "initialized";
+	public static final String PROVIDERS = "providers";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_HOST_CHANGE = "afterHostChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String AFTER_PROVIDERS_CHANGE = "afterProvidersChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_HOST_CHANGE = "onHostChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String ON_PROVIDERS_CHANGE = "onProvidersChange";
 
 	public java.lang.Boolean getDestroyed() {
 		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);

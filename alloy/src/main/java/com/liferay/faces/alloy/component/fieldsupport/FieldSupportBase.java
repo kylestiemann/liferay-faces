@@ -21,12 +21,12 @@ package com.liferay.faces.alloy.component.fieldsupport;
  */
 public abstract class FieldSupportBase extends javax.faces.component.UIPanel {
 
-	private static final String FIELDS = "fields";
-	private static final String MAX_FIELDS = "maxFields";
-	private static final String AFTER_FIELDS_CHANGE = "afterFieldsChange";
-	private static final String AFTER_MAX_FIELDS_CHANGE = "afterMaxFieldsChange";
-	private static final String ON_FIELDS_CHANGE = "onFieldsChange";
-	private static final String ON_MAX_FIELDS_CHANGE = "onMaxFieldsChange";
+	public static final String FIELDS = "fields";
+	public static final String MAX_FIELDS = "maxFields";
+	public static final String AFTER_FIELDS_CHANGE = "afterFieldsChange";
+	public static final String AFTER_MAX_FIELDS_CHANGE = "afterMaxFieldsChange";
+	public static final String ON_FIELDS_CHANGE = "onFieldsChange";
+	public static final String ON_MAX_FIELDS_CHANGE = "onMaxFieldsChange";
 
 	public java.lang.Object getFields() {
 		return (java.lang.Object) getStateHelper().eval(FIELDS, null);

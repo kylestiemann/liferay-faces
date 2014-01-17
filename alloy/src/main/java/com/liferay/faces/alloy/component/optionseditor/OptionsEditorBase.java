@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.optionseditor;
  */
 public abstract class OptionsEditorBase extends javax.faces.component.UIPanel {
 
-	private static final String EDITABLE = "editable";
-	private static final String AFTER_EDITABLE_CHANGE = "afterEditableChange";
-	private static final String ON_EDITABLE_CHANGE = "onEditableChange";
+	public static final String EDITABLE = "editable";
+	public static final String AFTER_EDITABLE_CHANGE = "afterEditableChange";
+	public static final String ON_EDITABLE_CHANGE = "onEditableChange";
 
 	public java.lang.String getEditable() {
 		return (java.lang.String) getStateHelper().eval(EDITABLE, null);

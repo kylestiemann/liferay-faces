@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.aria;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,105 +30,124 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class AriaRendererBase extends AUIRenderer {
+public abstract class AriaRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-aria";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		Aria aria = (Aria) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		Aria aria = (Aria) uiComponent;
 
-		bufferedResponseWriter.write("var aria = new A.Aria");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var aria = new A.Aria");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAttributeNode(renrederedAttributes, aria);
-		renderAttributeValueFormat(renrederedAttributes, aria);
-		renderAriaAttributes(renrederedAttributes, aria);
-		renderDestroyed(renrederedAttributes, aria);
-		renderHost(renrederedAttributes, aria);
-		renderInitialized(renrederedAttributes, aria);
-		renderRoleName(renrederedAttributes, aria);
-		renderRoleNode(renrederedAttributes, aria);
-		renderValidateW3C(renrederedAttributes, aria);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAttributeNode(renderedAttributes, aria);
+		renderAttributeValueFormat(renderedAttributes, aria);
+		renderAriaAttributes(renderedAttributes, aria);
+		renderDestroyed(renderedAttributes, aria);
+		renderHost(renderedAttributes, aria);
+		renderInitialized(renderedAttributes, aria);
+		renderRoleName(renderedAttributes, aria);
+		renderRoleNode(renderedAttributes, aria);
+		renderValidateW3C(renderedAttributes, aria);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAttributeNode(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getAttributeNode() != null) {
-			renrederedAttributes.add(renderString("attributeNode", aria.getAttributeNode()));
+	protected void renderAttributeNode(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.String attributeNode = aria.getAttributeNode();
+
+		if (attributeNode != null) {
+			renderedAttributes.add(renderString(Aria.ATTRIBUTE_NODE, attributeNode));
 		}
 	}
 
-	protected void renderAttributeValueFormat(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getAttributeValueFormat() != null) {
-			renrederedAttributes.add(renderString("attributeValueFormat", aria.getAttributeValueFormat()));
+	protected void renderAttributeValueFormat(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.Object attributeValueFormat = aria.getAttributeValueFormat();
+
+		if (attributeValueFormat != null) {
+			renderedAttributes.add(renderString(Aria.ATTRIBUTE_VALUE_FORMAT, attributeValueFormat));
 		}
 	}
 
-	protected void renderAriaAttributes(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getAriaAttributes() != null) {
-			renrederedAttributes.add(renderObject("ariaAttributes", aria.getAriaAttributes()));
+	protected void renderAriaAttributes(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.Object ariaAttributes = aria.getAriaAttributes();
+
+		if (ariaAttributes != null) {
+			renderedAttributes.add(renderObject(Aria.ARIA_ATTRIBUTES, ariaAttributes));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", aria.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.Boolean destroyed = aria.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(Aria.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderHost(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getHost() != null) {
-			renrederedAttributes.add(renderString("host", aria.getHost()));
+	protected void renderHost(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.Object host = aria.getHost();
+
+		if (host != null) {
+			renderedAttributes.add(renderString(Aria.HOST, host));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", aria.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.Boolean initialized = aria.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(Aria.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderRoleName(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getRoleName() != null) {
-			renrederedAttributes.add(renderString("roleName", aria.getRoleName()));
+	protected void renderRoleName(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.String roleName = aria.getRoleName();
+
+		if (roleName != null) {
+			renderedAttributes.add(renderString(Aria.ROLE_NAME, roleName));
 		}
 	}
 
-	protected void renderRoleNode(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getRoleNode() != null) {
-			renrederedAttributes.add(renderString("roleNode", aria.getRoleNode()));
+	protected void renderRoleNode(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.String roleNode = aria.getRoleNode();
+
+		if (roleNode != null) {
+			renderedAttributes.add(renderString(Aria.ROLE_NODE, roleNode));
 		}
 	}
 
-	protected void renderValidateW3C(ArrayList<String> renrederedAttributes, Aria aria) throws IOException {
-		if (aria.getValidateW3C() != null) {
-			renrederedAttributes.add(renderBoolean("validateW3C", aria.getValidateW3C()));
+	protected void renderValidateW3C(List<String> renderedAttributes, Aria aria) throws IOException {
+		java.lang.Boolean validateW3C = aria.getValidateW3C();
+
+		if (validateW3C != null) {
+			renderedAttributes.add(renderBoolean(Aria.VALIDATE_W3_C, validateW3C));
 		}
 	}
 

@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.datatablehighlight;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,105 +30,124 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class DataTableHighlightRendererBase extends AUIRenderer {
+public abstract class DataTableHighlightRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-highlight";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		DataTableHighlight dataTableHighlight = (DataTableHighlight) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		DataTableHighlight dataTableHighlight = (DataTableHighlight) uiComponent;
 
-		bufferedResponseWriter.write("var dataTableHighlight = new A.DataTableHighlight");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var dataTableHighlight = new A.DataTableHighlight");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveBorderWidth(renrederedAttributes, dataTableHighlight);
-		renderDestroyed(renrederedAttributes, dataTableHighlight);
-		renderHighlightRange(renrederedAttributes, dataTableHighlight);
-		renderHost(renrederedAttributes, dataTableHighlight);
-		renderInitialized(renrederedAttributes, dataTableHighlight);
-		renderOverlayActiveNode(renrederedAttributes, dataTableHighlight);
-		renderOverlayNode(renrederedAttributes, dataTableHighlight);
-		renderRangeBorderWidth(renrederedAttributes, dataTableHighlight);
-		renderType(renrederedAttributes, dataTableHighlight);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderActiveBorderWidth(renderedAttributes, dataTableHighlight);
+		renderDestroyed(renderedAttributes, dataTableHighlight);
+		renderHighlightRange(renderedAttributes, dataTableHighlight);
+		renderHost(renderedAttributes, dataTableHighlight);
+		renderInitialized(renderedAttributes, dataTableHighlight);
+		renderOverlayActiveNode(renderedAttributes, dataTableHighlight);
+		renderOverlayNode(renderedAttributes, dataTableHighlight);
+		renderRangeBorderWidth(renderedAttributes, dataTableHighlight);
+		renderType(renderedAttributes, dataTableHighlight);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActiveBorderWidth(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getActiveBorderWidth() != null) {
-			renrederedAttributes.add(renderNumber("activeBorderWidth", dataTableHighlight.getActiveBorderWidth()));
+	protected void renderActiveBorderWidth(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.Object activeBorderWidth = dataTableHighlight.getActiveBorderWidth();
+
+		if (activeBorderWidth != null) {
+			renderedAttributes.add(renderNumber(DataTableHighlight.ACTIVE_BORDER_WIDTH, activeBorderWidth));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", dataTableHighlight.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.Boolean destroyed = dataTableHighlight.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(DataTableHighlight.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderHighlightRange(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getHighlightRange() != null) {
-			renrederedAttributes.add(renderBoolean("highlightRange", dataTableHighlight.getHighlightRange()));
+	protected void renderHighlightRange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.Boolean highlightRange = dataTableHighlight.getHighlightRange();
+
+		if (highlightRange != null) {
+			renderedAttributes.add(renderBoolean(DataTableHighlight.HIGHLIGHT_RANGE, highlightRange));
 		}
 	}
 
-	protected void renderHost(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getHost() != null) {
-			renrederedAttributes.add(renderString("host", dataTableHighlight.getHost()));
+	protected void renderHost(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.Object host = dataTableHighlight.getHost();
+
+		if (host != null) {
+			renderedAttributes.add(renderString(DataTableHighlight.HOST, host));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", dataTableHighlight.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.Boolean initialized = dataTableHighlight.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(DataTableHighlight.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderOverlayActiveNode(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getOverlayActiveNode() != null) {
-			renrederedAttributes.add(renderString("overlayActiveNode", dataTableHighlight.getOverlayActiveNode()));
+	protected void renderOverlayActiveNode(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.String overlayActiveNode = dataTableHighlight.getOverlayActiveNode();
+
+		if (overlayActiveNode != null) {
+			renderedAttributes.add(renderString(DataTableHighlight.OVERLAY_ACTIVE_NODE, overlayActiveNode));
 		}
 	}
 
-	protected void renderOverlayNode(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getOverlayNode() != null) {
-			renrederedAttributes.add(renderString("overlayNode", dataTableHighlight.getOverlayNode()));
+	protected void renderOverlayNode(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.String overlayNode = dataTableHighlight.getOverlayNode();
+
+		if (overlayNode != null) {
+			renderedAttributes.add(renderString(DataTableHighlight.OVERLAY_NODE, overlayNode));
 		}
 	}
 
-	protected void renderRangeBorderWidth(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getRangeBorderWidth() != null) {
-			renrederedAttributes.add(renderNumber("rangeBorderWidth", dataTableHighlight.getRangeBorderWidth()));
+	protected void renderRangeBorderWidth(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.Object rangeBorderWidth = dataTableHighlight.getRangeBorderWidth();
+
+		if (rangeBorderWidth != null) {
+			renderedAttributes.add(renderNumber(DataTableHighlight.RANGE_BORDER_WIDTH, rangeBorderWidth));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
-		if (dataTableHighlight.getType() != null) {
-			renrederedAttributes.add(renderString("type", dataTableHighlight.getType()));
+	protected void renderType(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
+		java.lang.String type = dataTableHighlight.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(DataTableHighlight.TYPE, type));
 		}
 	}
 

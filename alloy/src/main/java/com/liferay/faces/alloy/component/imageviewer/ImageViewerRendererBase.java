@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.imageviewer;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,427 +30,538 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class ImageViewerRendererBase extends AUIRenderer {
+public abstract class ImageViewerRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-image-viewer-base";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		ImageViewer imageViewer = (ImageViewer) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		ImageViewer imageViewer = (ImageViewer) uiComponent;
 
-		bufferedResponseWriter.write("var imageViewer = new A.ImageViewer");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var imageViewer = new A.ImageViewer");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, imageViewer);
-		renderAlignOn(renrederedAttributes, imageViewer);
-		renderAnim(renrederedAttributes, imageViewer);
-		renderImageviewerBodyContent(renrederedAttributes, imageViewer);
-		renderBoundingBox(renrederedAttributes, imageViewer);
-		renderCaption(renrederedAttributes, imageViewer);
-		renderCaptionEl(renrederedAttributes, imageViewer);
-		renderCaptionFromTitle(renrederedAttributes, imageViewer);
-		renderCentered(renrederedAttributes, imageViewer);
-		renderCloseEl(renrederedAttributes, imageViewer);
-		renderConstrain(renrederedAttributes, imageViewer);
-		renderContentBox(renrederedAttributes, imageViewer);
-		renderControlLeftEl(renrederedAttributes, imageViewer);
-		renderControlRightEl(renrederedAttributes, imageViewer);
-		renderCurrentIndex(renrederedAttributes, imageViewer);
-		renderDestroyed(renrederedAttributes, imageViewer);
-		renderDisabled(renrederedAttributes, imageViewer);
-		renderFillHeight(renrederedAttributes, imageViewer);
-		renderFocusOn(renrederedAttributes, imageViewer);
-		renderFocused(renrederedAttributes, imageViewer);
-		renderFooterContent(renrederedAttributes, imageViewer);
-		renderHeaderContent(renrederedAttributes, imageViewer);
-		renderHeight(renrederedAttributes, imageViewer);
-		renderImageviewerId(renrederedAttributes, imageViewer);
-		renderImage(renrederedAttributes, imageViewer);
-		renderImageAnim(renrederedAttributes, imageViewer);
-		renderInfoEl(renrederedAttributes, imageViewer);
-		renderInfoTemplate(renrederedAttributes, imageViewer);
-		renderInitialized(renrederedAttributes, imageViewer);
-		renderLinks(renrederedAttributes, imageViewer);
-		renderLoader(renrederedAttributes, imageViewer);
-		renderLoading(renrederedAttributes, imageViewer);
-		renderLoadingEl(renrederedAttributes, imageViewer);
-		renderImageviewerLocale(renrederedAttributes, imageViewer);
-		renderMaskNode(renrederedAttributes, imageViewer);
-		renderMaxHeight(renrederedAttributes, imageViewer);
-		renderMaxWidth(renrederedAttributes, imageViewer);
-		renderModal(renrederedAttributes, imageViewer);
-		renderPreloadAllImages(renrederedAttributes, imageViewer);
-		renderPreventOverlap(renrederedAttributes, imageViewer);
-		renderRender(renrederedAttributes, imageViewer);
-		renderRendered(renrederedAttributes, imageViewer);
-		renderShim(renrederedAttributes, imageViewer);
-		renderShowClose(renrederedAttributes, imageViewer);
-		renderShowControls(renrederedAttributes, imageViewer);
-		renderSrcNode(renrederedAttributes, imageViewer);
-		renderStrings(renrederedAttributes, imageViewer);
-		renderTabIndex(renrederedAttributes, imageViewer);
-		renderTotalLinks(renrederedAttributes, imageViewer);
-		renderVisible(renrederedAttributes, imageViewer);
-		renderWidth(renrederedAttributes, imageViewer);
-		renderX(renrederedAttributes, imageViewer);
-		renderXy(renrederedAttributes, imageViewer);
-		renderY(renrederedAttributes, imageViewer);
-		renderZIndex(renrederedAttributes, imageViewer);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, imageViewer);
+		renderAlignOn(renderedAttributes, imageViewer);
+		renderAnim(renderedAttributes, imageViewer);
+		renderImageviewerBodyContent(renderedAttributes, imageViewer);
+		renderBoundingBox(renderedAttributes, imageViewer);
+		renderCaption(renderedAttributes, imageViewer);
+		renderCaptionEl(renderedAttributes, imageViewer);
+		renderCaptionFromTitle(renderedAttributes, imageViewer);
+		renderCentered(renderedAttributes, imageViewer);
+		renderCloseEl(renderedAttributes, imageViewer);
+		renderConstrain(renderedAttributes, imageViewer);
+		renderContentBox(renderedAttributes, imageViewer);
+		renderControlLeftEl(renderedAttributes, imageViewer);
+		renderControlRightEl(renderedAttributes, imageViewer);
+		renderCurrentIndex(renderedAttributes, imageViewer);
+		renderDestroyed(renderedAttributes, imageViewer);
+		renderDisabled(renderedAttributes, imageViewer);
+		renderFillHeight(renderedAttributes, imageViewer);
+		renderFocusOn(renderedAttributes, imageViewer);
+		renderFocused(renderedAttributes, imageViewer);
+		renderFooterContent(renderedAttributes, imageViewer);
+		renderHeaderContent(renderedAttributes, imageViewer);
+		renderHeight(renderedAttributes, imageViewer);
+		renderImageviewerId(renderedAttributes, imageViewer);
+		renderImage(renderedAttributes, imageViewer);
+		renderImageAnim(renderedAttributes, imageViewer);
+		renderInfoEl(renderedAttributes, imageViewer);
+		renderInfoTemplate(renderedAttributes, imageViewer);
+		renderInitialized(renderedAttributes, imageViewer);
+		renderLinks(renderedAttributes, imageViewer);
+		renderLoader(renderedAttributes, imageViewer);
+		renderLoading(renderedAttributes, imageViewer);
+		renderLoadingEl(renderedAttributes, imageViewer);
+		renderImageviewerLocale(renderedAttributes, imageViewer);
+		renderMaskNode(renderedAttributes, imageViewer);
+		renderMaxHeight(renderedAttributes, imageViewer);
+		renderMaxWidth(renderedAttributes, imageViewer);
+		renderModal(renderedAttributes, imageViewer);
+		renderPreloadAllImages(renderedAttributes, imageViewer);
+		renderPreventOverlap(renderedAttributes, imageViewer);
+		renderRender(renderedAttributes, imageViewer);
+		renderRendered(renderedAttributes, imageViewer);
+		renderShim(renderedAttributes, imageViewer);
+		renderShowClose(renderedAttributes, imageViewer);
+		renderShowControls(renderedAttributes, imageViewer);
+		renderSrcNode(renderedAttributes, imageViewer);
+		renderStrings(renderedAttributes, imageViewer);
+		renderTabIndex(renderedAttributes, imageViewer);
+		renderTotalLinks(renderedAttributes, imageViewer);
+		renderVisible(renderedAttributes, imageViewer);
+		renderWidth(renderedAttributes, imageViewer);
+		renderX(renderedAttributes, imageViewer);
+		renderXy(renderedAttributes, imageViewer);
+		renderY(renderedAttributes, imageViewer);
+		renderZIndex(renderedAttributes, imageViewer);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", imageViewer.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object align = imageViewer.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(ImageViewer.ALIGN, align));
 		}
 	}
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", imageViewer.getAlignOn()));
+	protected void renderAlignOn(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object alignOn = imageViewer.getAlignOn();
+
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(ImageViewer.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderAnim(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getAnim() != null) {
-			renrederedAttributes.add(renderBoolean("anim", imageViewer.getAnim()));
+	protected void renderAnim(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean anim = imageViewer.getAnim();
+
+		if (anim != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.ANIM, anim));
 		}
 	}
 
-	protected void renderImageviewerBodyContent(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getImageviewerBodyContent() != null) {
-			renrederedAttributes.add(renderString("imageviewerBodyContent", imageViewer.getImageviewerBodyContent()));
+	protected void renderImageviewerBodyContent(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String imageviewerBodyContent = imageViewer.getImageviewerBodyContent();
+
+		if (imageviewerBodyContent != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGEVIEWER_BODY_CONTENT, imageviewerBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", imageViewer.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String boundingBox = imageViewer.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(ImageViewer.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCaption(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getCaption() != null) {
-			renrederedAttributes.add(renderString("caption", imageViewer.getCaption()));
+	protected void renderCaption(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String caption = imageViewer.getCaption();
+
+		if (caption != null) {
+			renderedAttributes.add(renderString(ImageViewer.CAPTION, caption));
 		}
 	}
 
-	protected void renderCaptionEl(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getCaptionEl() != null) {
-			renrederedAttributes.add(renderString("captionEl", imageViewer.getCaptionEl()));
+	protected void renderCaptionEl(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object captionEl = imageViewer.getCaptionEl();
+
+		if (captionEl != null) {
+			renderedAttributes.add(renderString(ImageViewer.CAPTION_EL, captionEl));
 		}
 	}
 
-	protected void renderCaptionFromTitle(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getCaptionFromTitle() != null) {
-			renrederedAttributes.add(renderBoolean("captionFromTitle", imageViewer.getCaptionFromTitle()));
+	protected void renderCaptionFromTitle(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean captionFromTitle = imageViewer.getCaptionFromTitle();
+
+		if (captionFromTitle != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.CAPTION_FROM_TITLE, captionFromTitle));
 		}
 	}
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getCentered() != null) {
-			renrederedAttributes.add(renderBoolean("centered", imageViewer.getCentered()));
+	protected void renderCentered(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean centered = imageViewer.getCentered();
+
+		if (centered != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.CENTERED, centered));
 		}
 	}
 
-	protected void renderCloseEl(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getCloseEl() != null) {
-			renrederedAttributes.add(renderString("closeEl", imageViewer.getCloseEl()));
+	protected void renderCloseEl(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object closeEl = imageViewer.getCloseEl();
+
+		if (closeEl != null) {
+			renderedAttributes.add(renderString(ImageViewer.CLOSE_EL, closeEl));
 		}
 	}
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", imageViewer.getConstrain()));
+	protected void renderConstrain(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object constrain = imageViewer.getConstrain();
+
+		if (constrain != null) {
+			renderedAttributes.add(renderString(ImageViewer.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", imageViewer.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String contentBox = imageViewer.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(ImageViewer.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderControlLeftEl(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getControlLeftEl() != null) {
-			renrederedAttributes.add(renderString("controlLeftEl", imageViewer.getControlLeftEl()));
+	protected void renderControlLeftEl(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object controlLeftEl = imageViewer.getControlLeftEl();
+
+		if (controlLeftEl != null) {
+			renderedAttributes.add(renderString(ImageViewer.CONTROL_LEFT_EL, controlLeftEl));
 		}
 	}
 
-	protected void renderControlRightEl(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getControlRightEl() != null) {
-			renrederedAttributes.add(renderString("controlRightEl", imageViewer.getControlRightEl()));
+	protected void renderControlRightEl(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object controlRightEl = imageViewer.getControlRightEl();
+
+		if (controlRightEl != null) {
+			renderedAttributes.add(renderString(ImageViewer.CONTROL_RIGHT_EL, controlRightEl));
 		}
 	}
 
-	protected void renderCurrentIndex(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getCurrentIndex() != null) {
-			renrederedAttributes.add(renderNumber("currentIndex", imageViewer.getCurrentIndex()));
+	protected void renderCurrentIndex(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object currentIndex = imageViewer.getCurrentIndex();
+
+		if (currentIndex != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.CURRENT_INDEX, currentIndex));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", imageViewer.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean destroyed = imageViewer.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", imageViewer.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean disabled = imageViewer.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", imageViewer.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object fillHeight = imageViewer.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(ImageViewer.FILL_HEIGHT, fillHeight));
 		}
 	}
 
-	protected void renderFocusOn(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getFocusOn() != null) {
-			renrederedAttributes.add(renderArray("focusOn", imageViewer.getFocusOn()));
+	protected void renderFocusOn(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object focusOn = imageViewer.getFocusOn();
+
+		if (focusOn != null) {
+			renderedAttributes.add(renderArray(ImageViewer.FOCUS_ON, focusOn));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", imageViewer.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean focused = imageViewer.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", imageViewer.getFooterContent()));
+	protected void renderFooterContent(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object footerContent = imageViewer.getFooterContent();
+
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(ImageViewer.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", imageViewer.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object headerContent = imageViewer.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(ImageViewer.HEADER_CONTENT, headerContent));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", imageViewer.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object height = imageViewer.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(ImageViewer.HEIGHT, height));
 		}
 	}
 
-	protected void renderImageviewerId(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getImageviewerId() != null) {
-			renrederedAttributes.add(renderString("imageviewerId", imageViewer.getImageviewerId()));
+	protected void renderImageviewerId(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String imageviewerId = imageViewer.getImageviewerId();
+
+		if (imageviewerId != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGEVIEWER_ID, imageviewerId));
 		}
 	}
 
-	protected void renderImage(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getImage() != null) {
-			renrederedAttributes.add(renderString("image", imageViewer.getImage()));
+	protected void renderImage(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object image = imageViewer.getImage();
+
+		if (image != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGE, image));
 		}
 	}
 
-	protected void renderImageAnim(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getImageAnim() != null) {
-			renrederedAttributes.add(renderObject("imageAnim", imageViewer.getImageAnim()));
+	protected void renderImageAnim(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object imageAnim = imageViewer.getImageAnim();
+
+		if (imageAnim != null) {
+			renderedAttributes.add(renderObject(ImageViewer.IMAGE_ANIM, imageAnim));
 		}
 	}
 
-	protected void renderInfoEl(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getInfoEl() != null) {
-			renrederedAttributes.add(renderString("infoEl", imageViewer.getInfoEl()));
+	protected void renderInfoEl(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object infoEl = imageViewer.getInfoEl();
+
+		if (infoEl != null) {
+			renderedAttributes.add(renderString(ImageViewer.INFO_EL, infoEl));
 		}
 	}
 
-	protected void renderInfoTemplate(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getInfoTemplate() != null) {
-			renrederedAttributes.add(renderString("infoTemplate", imageViewer.getInfoTemplate()));
+	protected void renderInfoTemplate(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String infoTemplate = imageViewer.getInfoTemplate();
+
+		if (infoTemplate != null) {
+			renderedAttributes.add(renderString(ImageViewer.INFO_TEMPLATE, infoTemplate));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", imageViewer.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean initialized = imageViewer.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLinks(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getLinks() != null) {
-			renrederedAttributes.add(renderString("links", imageViewer.getLinks()));
+	protected void renderLinks(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object links = imageViewer.getLinks();
+
+		if (links != null) {
+			renderedAttributes.add(renderString(ImageViewer.LINKS, links));
 		}
 	}
 
-	protected void renderLoader(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getLoader() != null) {
-			renrederedAttributes.add(renderString("loader", imageViewer.getLoader()));
+	protected void renderLoader(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object loader = imageViewer.getLoader();
+
+		if (loader != null) {
+			renderedAttributes.add(renderString(ImageViewer.LOADER, loader));
 		}
 	}
 
-	protected void renderLoading(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getLoading() != null) {
-			renrederedAttributes.add(renderBoolean("loading", imageViewer.getLoading()));
+	protected void renderLoading(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean loading = imageViewer.getLoading();
+
+		if (loading != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.LOADING, loading));
 		}
 	}
 
-	protected void renderLoadingEl(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getLoadingEl() != null) {
-			renrederedAttributes.add(renderString("loadingEl", imageViewer.getLoadingEl()));
+	protected void renderLoadingEl(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object loadingEl = imageViewer.getLoadingEl();
+
+		if (loadingEl != null) {
+			renderedAttributes.add(renderString(ImageViewer.LOADING_EL, loadingEl));
 		}
 	}
 
-	protected void renderImageviewerLocale(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getImageviewerLocale() != null) {
-			renrederedAttributes.add(renderString("imageviewerLocale", imageViewer.getImageviewerLocale()));
+	protected void renderImageviewerLocale(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String imageviewerLocale = imageViewer.getImageviewerLocale();
+
+		if (imageviewerLocale != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGEVIEWER_LOCALE, imageviewerLocale));
 		}
 	}
 
-	protected void renderMaskNode(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getMaskNode() != null) {
-			renrederedAttributes.add(renderString("maskNode", imageViewer.getMaskNode()));
+	protected void renderMaskNode(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object maskNode = imageViewer.getMaskNode();
+
+		if (maskNode != null) {
+			renderedAttributes.add(renderString(ImageViewer.MASK_NODE, maskNode));
 		}
 	}
 
-	protected void renderMaxHeight(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getMaxHeight() != null) {
-			renrederedAttributes.add(renderNumber("maxHeight", imageViewer.getMaxHeight()));
+	protected void renderMaxHeight(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object maxHeight = imageViewer.getMaxHeight();
+
+		if (maxHeight != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.MAX_HEIGHT, maxHeight));
 		}
 	}
 
-	protected void renderMaxWidth(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getMaxWidth() != null) {
-			renrederedAttributes.add(renderNumber("maxWidth", imageViewer.getMaxWidth()));
+	protected void renderMaxWidth(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object maxWidth = imageViewer.getMaxWidth();
+
+		if (maxWidth != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.MAX_WIDTH, maxWidth));
 		}
 	}
 
-	protected void renderModal(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getModal() != null) {
-			renrederedAttributes.add(renderBoolean("modal", imageViewer.getModal()));
+	protected void renderModal(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean modal = imageViewer.getModal();
+
+		if (modal != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.MODAL, modal));
 		}
 	}
 
-	protected void renderPreloadAllImages(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getPreloadAllImages() != null) {
-			renrederedAttributes.add(renderBoolean("preloadAllImages", imageViewer.getPreloadAllImages()));
+	protected void renderPreloadAllImages(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean preloadAllImages = imageViewer.getPreloadAllImages();
+
+		if (preloadAllImages != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.PRELOAD_ALL_IMAGES, preloadAllImages));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", imageViewer.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean preventOverlap = imageViewer.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getRender() != null) {
-			renrederedAttributes.add(renderString("render", imageViewer.getRender()));
+	protected void renderRender(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object render = imageViewer.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(ImageViewer.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", imageViewer.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean rendered = imageViewer.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.RENDERED, rendered));
 		}
 	}
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", imageViewer.getShim()));
+	protected void renderShim(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean shim = imageViewer.getShim();
+
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.SHIM, shim));
 		}
 	}
 
-	protected void renderShowClose(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getShowClose() != null) {
-			renrederedAttributes.add(renderBoolean("showClose", imageViewer.getShowClose()));
+	protected void renderShowClose(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean showClose = imageViewer.getShowClose();
+
+		if (showClose != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.SHOW_CLOSE, showClose));
 		}
 	}
 
-	protected void renderShowControls(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getShowControls() != null) {
-			renrederedAttributes.add(renderBoolean("showControls", imageViewer.getShowControls()));
+	protected void renderShowControls(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean showControls = imageViewer.getShowControls();
+
+		if (showControls != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.SHOW_CONTROLS, showControls));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", imageViewer.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String srcNode = imageViewer.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(ImageViewer.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", imageViewer.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object strings = imageViewer.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(ImageViewer.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", imageViewer.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object tabIndex = imageViewer.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTotalLinks(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getTotalLinks() != null) {
-			renrederedAttributes.add(renderBoolean("totalLinks", imageViewer.getTotalLinks()));
+	protected void renderTotalLinks(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean totalLinks = imageViewer.getTotalLinks();
+
+		if (totalLinks != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.TOTAL_LINKS, totalLinks));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", imageViewer.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Boolean visible = imageViewer.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(ImageViewer.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", imageViewer.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object width = imageViewer.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(ImageViewer.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", imageViewer.getX()));
+	protected void renderX(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object x = imageViewer.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", imageViewer.getXy()));
+	protected void renderXy(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object xy = imageViewer.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(ImageViewer.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", imageViewer.getY()));
+	protected void renderY(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object y = imageViewer.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.Y, y));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, ImageViewer imageViewer) throws IOException {
-		if (imageViewer.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", imageViewer.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.Object zIndex = imageViewer.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(ImageViewer.Z_INDEX, zIndex));
 		}
 	}
 

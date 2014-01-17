@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.schedulertableviewdd;
  */
 public abstract class SchedulerTableViewDDBase extends javax.faces.component.UIPanel {
 
-	private static final String DELEGATE_CONFIG = "delegateConfig";
-	private static final String AFTER_DELEGATE_CONFIG_CHANGE = "afterDelegateConfigChange";
-	private static final String ON_DELEGATE_CONFIG_CHANGE = "onDelegateConfigChange";
+	public static final String DELEGATE_CONFIG = "delegateConfig";
+	public static final String AFTER_DELEGATE_CONFIG_CHANGE = "afterDelegateConfigChange";
+	public static final String ON_DELEGATE_CONFIG_CHANGE = "onDelegateConfigChange";
 
 	public java.lang.Object getDelegateConfig() {
 		return (java.lang.Object) getStateHelper().eval(DELEGATE_CONFIG, null);

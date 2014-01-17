@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.buttongroup;
  */
 public abstract class ButtonGroupBase extends javax.faces.component.UIPanel {
 
-	private static final String TYPE = "type";
-	private static final String AFTER_TYPE_CHANGE = "afterTypeChange";
-	private static final String ON_TYPE_CHANGE = "onTypeChange";
+	public static final String TYPE = "type";
+	public static final String AFTER_TYPE_CHANGE = "afterTypeChange";
+	public static final String ON_TYPE_CHANGE = "onTypeChange";
 
 	public java.lang.String getType() {
 		return (java.lang.String) getStateHelper().eval(TYPE, null);

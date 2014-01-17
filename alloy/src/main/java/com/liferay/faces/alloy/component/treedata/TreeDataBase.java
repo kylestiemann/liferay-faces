@@ -21,21 +21,21 @@ package com.liferay.faces.alloy.component.treedata;
  */
 public abstract class TreeDataBase extends javax.faces.component.UIPanel {
 
-	private static final String TREEDATA_CHILDREN = "treedataChildren";
-	private static final String CONTAINER = "container";
-	private static final String DESTROYED = "destroyed";
-	private static final String INDEX = "index";
-	private static final String INITIALIZED = "initialized";
-	private static final String AFTER_CHILDREN_CHANGE = "afterChildrenChange";
-	private static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_INDEX_CHANGE = "afterIndexChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String ON_CHILDREN_CHANGE = "onChildrenChange";
-	private static final String ON_CONTAINER_CHANGE = "onContainerChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_INDEX_CHANGE = "onIndexChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String TREEDATA_CHILDREN = "treedataChildren";
+	public static final String CONTAINER = "container";
+	public static final String DESTROYED = "destroyed";
+	public static final String INDEX = "index";
+	public static final String INITIALIZED = "initialized";
+	public static final String AFTER_CHILDREN_CHANGE = "afterChildrenChange";
+	public static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_INDEX_CHANGE = "afterIndexChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String ON_CHILDREN_CHANGE = "onChildrenChange";
+	public static final String ON_CONTAINER_CHANGE = "onContainerChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_INDEX_CHANGE = "onIndexChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 
 	public java.lang.Object getTreedataChildren() {
 		return (java.lang.Object) getStateHelper().eval(TREEDATA_CHILDREN, null);

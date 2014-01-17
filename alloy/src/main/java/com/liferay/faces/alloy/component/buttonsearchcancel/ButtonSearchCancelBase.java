@@ -21,27 +21,27 @@ package com.liferay.faces.alloy.component.buttonsearchcancel;
  */
 public abstract class ButtonSearchCancelBase extends javax.faces.component.UIPanel {
 
-	private static final String CONTAINER = "container";
-	private static final String DESTROYED = "destroyed";
-	private static final String GUTTER = "gutter";
-	private static final String ICON_CLASS = "iconClass";
-	private static final String INITIALIZED = "initialized";
-	private static final String TRIGGER = "trigger";
-	private static final String Z_INDEX = "zIndex";
-	private static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_GUTTER_CHANGE = "afterGutterChange";
-	private static final String AFTER_ICON_CLASS_CHANGE = "afterIconClassChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String AFTER_TRIGGER_CHANGE = "afterTriggerChange";
-	private static final String AFTER_ZINDEX_CHANGE = "afterZIndexChange";
-	private static final String ON_CONTAINER_CHANGE = "onContainerChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_GUTTER_CHANGE = "onGutterChange";
-	private static final String ON_ICON_CLASS_CHANGE = "onIconClassChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
-	private static final String ON_TRIGGER_CHANGE = "onTriggerChange";
-	private static final String ON_ZINDEX_CHANGE = "onZIndexChange";
+	public static final String CONTAINER = "container";
+	public static final String DESTROYED = "destroyed";
+	public static final String GUTTER = "gutter";
+	public static final String ICON_CLASS = "iconClass";
+	public static final String INITIALIZED = "initialized";
+	public static final String TRIGGER = "trigger";
+	public static final String Z_INDEX = "zIndex";
+	public static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_GUTTER_CHANGE = "afterGutterChange";
+	public static final String AFTER_ICON_CLASS_CHANGE = "afterIconClassChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String AFTER_TRIGGER_CHANGE = "afterTriggerChange";
+	public static final String AFTER_ZINDEX_CHANGE = "afterZIndexChange";
+	public static final String ON_CONTAINER_CHANGE = "onContainerChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_GUTTER_CHANGE = "onGutterChange";
+	public static final String ON_ICON_CLASS_CHANGE = "onIconClassChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String ON_TRIGGER_CHANGE = "onTriggerChange";
+	public static final String ON_ZINDEX_CHANGE = "onZIndexChange";
 
 	public java.lang.String getContainer() {
 		return (java.lang.String) getStateHelper().eval(CONTAINER, null);

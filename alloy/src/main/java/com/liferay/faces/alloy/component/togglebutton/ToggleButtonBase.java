@@ -21,24 +21,24 @@ package com.liferay.faces.alloy.component.togglebutton;
  */
 public abstract class ToggleButtonBase extends javax.faces.component.UIPanel {
 
-	private static final String CSS_CLASS = "cssClass";
-	private static final String ICON = "icon";
-	private static final String ICON_ALIGN = "iconAlign";
-	private static final String ICON_ELEMENT = "iconElement";
-	private static final String PRIMARY = "primary";
-	private static final String TYPE = "type";
-	private static final String AFTER_CSS_CLASS_CHANGE = "afterCssClassChange";
-	private static final String AFTER_ICON_CHANGE = "afterIconChange";
-	private static final String AFTER_ICON_ALIGN_CHANGE = "afterIconAlignChange";
-	private static final String AFTER_ICON_ELEMENT_CHANGE = "afterIconElementChange";
-	private static final String AFTER_PRIMARY_CHANGE = "afterPrimaryChange";
-	private static final String AFTER_TYPE_CHANGE = "afterTypeChange";
-	private static final String ON_CSS_CLASS_CHANGE = "onCssClassChange";
-	private static final String ON_ICON_CHANGE = "onIconChange";
-	private static final String ON_ICON_ALIGN_CHANGE = "onIconAlignChange";
-	private static final String ON_ICON_ELEMENT_CHANGE = "onIconElementChange";
-	private static final String ON_PRIMARY_CHANGE = "onPrimaryChange";
-	private static final String ON_TYPE_CHANGE = "onTypeChange";
+	public static final String CSS_CLASS = "cssClass";
+	public static final String ICON = "icon";
+	public static final String ICON_ALIGN = "iconAlign";
+	public static final String ICON_ELEMENT = "iconElement";
+	public static final String PRIMARY = "primary";
+	public static final String TYPE = "type";
+	public static final String AFTER_CSS_CLASS_CHANGE = "afterCssClassChange";
+	public static final String AFTER_ICON_CHANGE = "afterIconChange";
+	public static final String AFTER_ICON_ALIGN_CHANGE = "afterIconAlignChange";
+	public static final String AFTER_ICON_ELEMENT_CHANGE = "afterIconElementChange";
+	public static final String AFTER_PRIMARY_CHANGE = "afterPrimaryChange";
+	public static final String AFTER_TYPE_CHANGE = "afterTypeChange";
+	public static final String ON_CSS_CLASS_CHANGE = "onCssClassChange";
+	public static final String ON_ICON_CHANGE = "onIconChange";
+	public static final String ON_ICON_ALIGN_CHANGE = "onIconAlignChange";
+	public static final String ON_ICON_ELEMENT_CHANGE = "onIconElementChange";
+	public static final String ON_PRIMARY_CHANGE = "onPrimaryChange";
+	public static final String ON_TYPE_CHANGE = "onTypeChange";
 
 	public java.lang.String getCssClass() {
 		return (java.lang.String) getStateHelper().eval(CSS_CLASS, null);

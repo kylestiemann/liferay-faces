@@ -21,12 +21,12 @@ package com.liferay.faces.alloy.component.schedulerevents;
  */
 public abstract class SchedulerEventsBase extends javax.faces.component.UIPanel {
 
-	private static final String DESTROYED = "destroyed";
-	private static final String INITIALIZED = "initialized";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String DESTROYED = "destroyed";
+	public static final String INITIALIZED = "initialized";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 
 	public java.lang.Boolean getDestroyed() {
 		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);

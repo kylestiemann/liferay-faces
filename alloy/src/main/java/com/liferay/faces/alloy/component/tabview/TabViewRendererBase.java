@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.tabview;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,196 +30,241 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TabViewRendererBase extends AUIRenderer {
+public abstract class TabViewRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tabview";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TabView tabView = (TabView) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TabView tabView = (TabView) uiComponent;
 
-		bufferedResponseWriter.write("var tabView = new A.TabView");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var tabView = new A.TabView");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderActiveDescendant(renrederedAttributes, tabView);
-		renderBoundingBox(renrederedAttributes, tabView);
-		renderContentBox(renrederedAttributes, tabView);
-		renderDefaultChildType(renrederedAttributes, tabView);
-		renderDestroyed(renrederedAttributes, tabView);
-		renderDisabled(renrederedAttributes, tabView);
-		renderFocused(renrederedAttributes, tabView);
-		renderHeight(renrederedAttributes, tabView);
-		renderTabviewId(renrederedAttributes, tabView);
-		renderInitialized(renrederedAttributes, tabView);
-		renderTabviewLocale(renrederedAttributes, tabView);
-		renderMultiple(renrederedAttributes, tabView);
-		renderRender(renrederedAttributes, tabView);
-		renderRendered(renrederedAttributes, tabView);
-		renderSelection(renrederedAttributes, tabView);
-		renderSrcNode(renrederedAttributes, tabView);
-		renderStacked(renrederedAttributes, tabView);
-		renderStrings(renrederedAttributes, tabView);
-		renderTabIndex(renrederedAttributes, tabView);
-		renderType(renrederedAttributes, tabView);
-		renderVisible(renrederedAttributes, tabView);
-		renderWidth(renrederedAttributes, tabView);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderActiveDescendant(renderedAttributes, tabView);
+		renderBoundingBox(renderedAttributes, tabView);
+		renderContentBox(renderedAttributes, tabView);
+		renderDefaultChildType(renderedAttributes, tabView);
+		renderDestroyed(renderedAttributes, tabView);
+		renderDisabled(renderedAttributes, tabView);
+		renderFocused(renderedAttributes, tabView);
+		renderHeight(renderedAttributes, tabView);
+		renderTabviewId(renderedAttributes, tabView);
+		renderInitialized(renderedAttributes, tabView);
+		renderTabviewLocale(renderedAttributes, tabView);
+		renderMultiple(renderedAttributes, tabView);
+		renderRender(renderedAttributes, tabView);
+		renderRendered(renderedAttributes, tabView);
+		renderSelection(renderedAttributes, tabView);
+		renderSrcNode(renderedAttributes, tabView);
+		renderStacked(renderedAttributes, tabView);
+		renderStrings(renderedAttributes, tabView);
+		renderTabIndex(renderedAttributes, tabView);
+		renderType(renderedAttributes, tabView);
+		renderVisible(renderedAttributes, tabView);
+		renderWidth(renderedAttributes, tabView);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderActiveDescendant(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getActiveDescendant() != null) {
-			renrederedAttributes.add(renderString("activeDescendant", tabView.getActiveDescendant()));
+	protected void renderActiveDescendant(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object activeDescendant = tabView.getActiveDescendant();
+
+		if (activeDescendant != null) {
+			renderedAttributes.add(renderString(TabView.ACTIVE_DESCENDANT, activeDescendant));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", tabView.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String boundingBox = tabView.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(TabView.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", tabView.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String contentBox = tabView.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(TabView.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDefaultChildType(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getDefaultChildType() != null) {
-			renrederedAttributes.add(renderString("defaultChildType", tabView.getDefaultChildType()));
+	protected void renderDefaultChildType(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object defaultChildType = tabView.getDefaultChildType();
+
+		if (defaultChildType != null) {
+			renderedAttributes.add(renderString(TabView.DEFAULT_CHILD_TYPE, defaultChildType));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", tabView.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean destroyed = tabView.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TabView.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", tabView.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean disabled = tabView.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(TabView.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", tabView.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean focused = tabView.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(TabView.FOCUSED, focused));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", tabView.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object height = tabView.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(TabView.HEIGHT, height));
 		}
 	}
 
-	protected void renderTabviewId(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getTabviewId() != null) {
-			renrederedAttributes.add(renderString("tabviewId", tabView.getTabviewId()));
+	protected void renderTabviewId(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String tabviewId = tabView.getTabviewId();
+
+		if (tabviewId != null) {
+			renderedAttributes.add(renderString(TabView.TABVIEW_ID, tabviewId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", tabView.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean initialized = tabView.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TabView.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderTabviewLocale(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getTabviewLocale() != null) {
-			renrederedAttributes.add(renderString("tabviewLocale", tabView.getTabviewLocale()));
+	protected void renderTabviewLocale(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String tabviewLocale = tabView.getTabviewLocale();
+
+		if (tabviewLocale != null) {
+			renderedAttributes.add(renderString(TabView.TABVIEW_LOCALE, tabviewLocale));
 		}
 	}
 
-	protected void renderMultiple(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getMultiple() != null) {
-			renrederedAttributes.add(renderBoolean("multiple", tabView.getMultiple()));
+	protected void renderMultiple(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean multiple = tabView.getMultiple();
+
+		if (multiple != null) {
+			renderedAttributes.add(renderBoolean(TabView.MULTIPLE, multiple));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getRender() != null) {
-			renrederedAttributes.add(renderString("render", tabView.getRender()));
+	protected void renderRender(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object render = tabView.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(TabView.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", tabView.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean rendered = tabView.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(TabView.RENDERED, rendered));
 		}
 	}
 
-	protected void renderSelection(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getSelection() != null) {
-			renrederedAttributes.add(renderString("selection", tabView.getSelection()));
+	protected void renderSelection(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object selection = tabView.getSelection();
+
+		if (selection != null) {
+			renderedAttributes.add(renderString(TabView.SELECTION, selection));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", tabView.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String srcNode = tabView.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(TabView.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStacked(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getStacked() != null) {
-			renrederedAttributes.add(renderString("stacked", tabView.getStacked()));
+	protected void renderStacked(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object stacked = tabView.getStacked();
+
+		if (stacked != null) {
+			renderedAttributes.add(renderString(TabView.STACKED, stacked));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", tabView.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object strings = tabView.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(TabView.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", tabView.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object tabIndex = tabView.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(TabView.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getType() != null) {
-			renrederedAttributes.add(renderString("type", tabView.getType()));
+	protected void renderType(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object type = tabView.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(TabView.TYPE, type));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", tabView.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Boolean visible = tabView.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(TabView.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, TabView tabView) throws IOException {
-		if (tabView.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", tabView.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.Object width = tabView.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(TabView.WIDTH, width));
 		}
 	}
 

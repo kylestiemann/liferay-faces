@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.formbuilderavailablefield;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,168 +30,205 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class FormBuilderAvailableFieldRendererBase extends AUIRenderer {
+public abstract class FormBuilderAvailableFieldRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-base";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		FormBuilderAvailableField formBuilderAvailableField = (FormBuilderAvailableField) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		FormBuilderAvailableField formBuilderAvailableField = (FormBuilderAvailableField) uiComponent;
 
-		bufferedResponseWriter.write("var formBuilderAvailableField = new A.FormBuilderAvailableField");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var formBuilderAvailableField = new A.FormBuilderAvailableField");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderDestroyed(renrederedAttributes, formBuilderAvailableField);
-		renderDraggable(renrederedAttributes, formBuilderAvailableField);
-		renderHiddenAttributes(renrederedAttributes, formBuilderAvailableField);
-		renderIconClass(renrederedAttributes, formBuilderAvailableField);
-		renderFormbuilderavailablefieldId(renrederedAttributes, formBuilderAvailableField);
-		renderInitialized(renrederedAttributes, formBuilderAvailableField);
-		renderLabel(renrederedAttributes, formBuilderAvailableField);
-		renderName(renrederedAttributes, formBuilderAvailableField);
-		renderNode(renrederedAttributes, formBuilderAvailableField);
-		renderOptions(renrederedAttributes, formBuilderAvailableField);
-		renderPredefinedValue(renrederedAttributes, formBuilderAvailableField);
-		renderReadOnlyAttributes(renrederedAttributes, formBuilderAvailableField);
-		renderRequired(renrederedAttributes, formBuilderAvailableField);
-		renderShowLabel(renrederedAttributes, formBuilderAvailableField);
-		renderTip(renrederedAttributes, formBuilderAvailableField);
-		renderType(renrederedAttributes, formBuilderAvailableField);
-		renderUnique(renrederedAttributes, formBuilderAvailableField);
-		renderWidth(renrederedAttributes, formBuilderAvailableField);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderDestroyed(renderedAttributes, formBuilderAvailableField);
+		renderDraggable(renderedAttributes, formBuilderAvailableField);
+		renderHiddenAttributes(renderedAttributes, formBuilderAvailableField);
+		renderIconClass(renderedAttributes, formBuilderAvailableField);
+		renderFormbuilderavailablefieldId(renderedAttributes, formBuilderAvailableField);
+		renderInitialized(renderedAttributes, formBuilderAvailableField);
+		renderLabel(renderedAttributes, formBuilderAvailableField);
+		renderName(renderedAttributes, formBuilderAvailableField);
+		renderNode(renderedAttributes, formBuilderAvailableField);
+		renderOptions(renderedAttributes, formBuilderAvailableField);
+		renderPredefinedValue(renderedAttributes, formBuilderAvailableField);
+		renderReadOnlyAttributes(renderedAttributes, formBuilderAvailableField);
+		renderRequired(renderedAttributes, formBuilderAvailableField);
+		renderShowLabel(renderedAttributes, formBuilderAvailableField);
+		renderTip(renderedAttributes, formBuilderAvailableField);
+		renderType(renderedAttributes, formBuilderAvailableField);
+		renderUnique(renderedAttributes, formBuilderAvailableField);
+		renderWidth(renderedAttributes, formBuilderAvailableField);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", formBuilderAvailableField.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Boolean destroyed = formBuilderAvailableField.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderAvailableField.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDraggable(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getDraggable() != null) {
-			renrederedAttributes.add(renderBoolean("draggable", formBuilderAvailableField.getDraggable()));
+	protected void renderDraggable(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Boolean draggable = formBuilderAvailableField.getDraggable();
+
+		if (draggable != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderAvailableField.DRAGGABLE, draggable));
 		}
 	}
 
-	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getHiddenAttributes() != null) {
-			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderAvailableField.getHiddenAttributes()));
+	protected void renderHiddenAttributes(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Object hiddenAttributes = formBuilderAvailableField.getHiddenAttributes();
+
+		if (hiddenAttributes != null) {
+			renderedAttributes.add(renderArray(FormBuilderAvailableField.HIDDEN_ATTRIBUTES, hiddenAttributes));
 		}
 	}
 
-	protected void renderIconClass(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getIconClass() != null) {
-			renrederedAttributes.add(renderString("iconClass", formBuilderAvailableField.getIconClass()));
+	protected void renderIconClass(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String iconClass = formBuilderAvailableField.getIconClass();
+
+		if (iconClass != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.ICON_CLASS, iconClass));
 		}
 	}
 
-	protected void renderFormbuilderavailablefieldId(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getFormbuilderavailablefieldId() != null) {
-			renrederedAttributes.add(renderString("formbuilderavailablefieldId", formBuilderAvailableField.getFormbuilderavailablefieldId()));
+	protected void renderFormbuilderavailablefieldId(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String formbuilderavailablefieldId = formBuilderAvailableField.getFormbuilderavailablefieldId();
+
+		if (formbuilderavailablefieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.FORMBUILDERAVAILABLEFIELD_ID, formbuilderavailablefieldId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", formBuilderAvailableField.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Boolean initialized = formBuilderAvailableField.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderAvailableField.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getLabel() != null) {
-			renrederedAttributes.add(renderString("label", formBuilderAvailableField.getLabel()));
+	protected void renderLabel(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String label = formBuilderAvailableField.getLabel();
+
+		if (label != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.LABEL, label));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getName() != null) {
-			renrederedAttributes.add(renderString("name", formBuilderAvailableField.getName()));
+	protected void renderName(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String name = formBuilderAvailableField.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.NAME, name));
 		}
 	}
 
-	protected void renderNode(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getNode() != null) {
-			renrederedAttributes.add(renderString("node", formBuilderAvailableField.getNode()));
+	protected void renderNode(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Object node = formBuilderAvailableField.getNode();
+
+		if (node != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.NODE, node));
 		}
 	}
 
-	protected void renderOptions(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getOptions() != null) {
-			renrederedAttributes.add(renderObject("options", formBuilderAvailableField.getOptions()));
+	protected void renderOptions(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Object options = formBuilderAvailableField.getOptions();
+
+		if (options != null) {
+			renderedAttributes.add(renderObject(FormBuilderAvailableField.OPTIONS, options));
 		}
 	}
 
-	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getPredefinedValue() != null) {
-			renrederedAttributes.add(renderString("predefinedValue", formBuilderAvailableField.getPredefinedValue()));
+	protected void renderPredefinedValue(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String predefinedValue = formBuilderAvailableField.getPredefinedValue();
+
+		if (predefinedValue != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.PREDEFINED_VALUE, predefinedValue));
 		}
 	}
 
-	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getReadOnlyAttributes() != null) {
-			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderAvailableField.getReadOnlyAttributes()));
+	protected void renderReadOnlyAttributes(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Object readOnlyAttributes = formBuilderAvailableField.getReadOnlyAttributes();
+
+		if (readOnlyAttributes != null) {
+			renderedAttributes.add(renderArray(FormBuilderAvailableField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
 		}
 	}
 
-	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getRequired() != null) {
-			renrederedAttributes.add(renderBoolean("required", formBuilderAvailableField.getRequired()));
+	protected void renderRequired(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Boolean required = formBuilderAvailableField.getRequired();
+
+		if (required != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderAvailableField.REQUIRED, required));
 		}
 	}
 
-	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getShowLabel() != null) {
-			renrederedAttributes.add(renderBoolean("showLabel", formBuilderAvailableField.getShowLabel()));
+	protected void renderShowLabel(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Boolean showLabel = formBuilderAvailableField.getShowLabel();
+
+		if (showLabel != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderAvailableField.SHOW_LABEL, showLabel));
 		}
 	}
 
-	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getTip() != null) {
-			renrederedAttributes.add(renderString("tip", formBuilderAvailableField.getTip()));
+	protected void renderTip(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String tip = formBuilderAvailableField.getTip();
+
+		if (tip != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.TIP, tip));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getType() != null) {
-			renrederedAttributes.add(renderString("type", formBuilderAvailableField.getType()));
+	protected void renderType(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String type = formBuilderAvailableField.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.TYPE, type));
 		}
 	}
 
-	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getUnique() != null) {
-			renrederedAttributes.add(renderBoolean("unique", formBuilderAvailableField.getUnique()));
+	protected void renderUnique(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.Boolean unique = formBuilderAvailableField.getUnique();
+
+		if (unique != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderAvailableField.UNIQUE, unique));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		if (formBuilderAvailableField.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", formBuilderAvailableField.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String width = formBuilderAvailableField.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.WIDTH, width));
 		}
 	}
 

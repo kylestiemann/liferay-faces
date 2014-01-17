@@ -21,27 +21,27 @@ package com.liferay.faces.alloy.component.ternarysearchnode;
  */
 public abstract class TernarySearchNodeBase extends javax.faces.component.UIPanel {
 
-	private static final String CHARACTER = "character";
-	private static final String CHILD = "child";
-	private static final String DESTROYED = "destroyed";
-	private static final String INITIALIZED = "initialized";
-	private static final String LARGER_NODE = "largerNode";
-	private static final String SMALLER_NODE = "smallerNode";
-	private static final String WORD = "word";
-	private static final String AFTER_CHARACTER_CHANGE = "afterCharacterChange";
-	private static final String AFTER_CHILD_CHANGE = "afterChildChange";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String AFTER_LARGER_NODE_CHANGE = "afterLargerNodeChange";
-	private static final String AFTER_SMALLER_NODE_CHANGE = "afterSmallerNodeChange";
-	private static final String AFTER_WORD_CHANGE = "afterWordChange";
-	private static final String ON_CHARACTER_CHANGE = "onCharacterChange";
-	private static final String ON_CHILD_CHANGE = "onChildChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
-	private static final String ON_LARGER_NODE_CHANGE = "onLargerNodeChange";
-	private static final String ON_SMALLER_NODE_CHANGE = "onSmallerNodeChange";
-	private static final String ON_WORD_CHANGE = "onWordChange";
+	public static final String CHARACTER = "character";
+	public static final String CHILD = "child";
+	public static final String DESTROYED = "destroyed";
+	public static final String INITIALIZED = "initialized";
+	public static final String LARGER_NODE = "largerNode";
+	public static final String SMALLER_NODE = "smallerNode";
+	public static final String WORD = "word";
+	public static final String AFTER_CHARACTER_CHANGE = "afterCharacterChange";
+	public static final String AFTER_CHILD_CHANGE = "afterChildChange";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String AFTER_LARGER_NODE_CHANGE = "afterLargerNodeChange";
+	public static final String AFTER_SMALLER_NODE_CHANGE = "afterSmallerNodeChange";
+	public static final String AFTER_WORD_CHANGE = "afterWordChange";
+	public static final String ON_CHARACTER_CHANGE = "onCharacterChange";
+	public static final String ON_CHILD_CHANGE = "onChildChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String ON_LARGER_NODE_CHANGE = "onLargerNodeChange";
+	public static final String ON_SMALLER_NODE_CHANGE = "onSmallerNodeChange";
+	public static final String ON_WORD_CHANGE = "onWordChange";
 
 	public java.lang.String getCharacter() {
 		return (java.lang.String) getStateHelper().eval(CHARACTER, null);

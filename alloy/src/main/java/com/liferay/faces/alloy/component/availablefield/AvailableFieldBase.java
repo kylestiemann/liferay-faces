@@ -21,30 +21,30 @@ package com.liferay.faces.alloy.component.availablefield;
  */
 public abstract class AvailableFieldBase extends javax.faces.component.UIPanel {
 
-	private static final String DESTROYED = "destroyed";
-	private static final String DRAGGABLE = "draggable";
-	private static final String ICON_CLASS = "iconClass";
-	private static final String AVAILABLEFIELD_ID = "availablefieldId";
-	private static final String INITIALIZED = "initialized";
-	private static final String LABEL = "label";
-	private static final String NODE = "node";
-	private static final String TYPE = "type";
-	private static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
-	private static final String AFTER_DRAGGABLE_CHANGE = "afterDraggableChange";
-	private static final String AFTER_ICON_CLASS_CHANGE = "afterIconClassChange";
-	private static final String AFTER_ID_CHANGE = "afterIdChange";
-	private static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
-	private static final String AFTER_LABEL_CHANGE = "afterLabelChange";
-	private static final String AFTER_NODE_CHANGE = "afterNodeChange";
-	private static final String AFTER_TYPE_CHANGE = "afterTypeChange";
-	private static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
-	private static final String ON_DRAGGABLE_CHANGE = "onDraggableChange";
-	private static final String ON_ICON_CLASS_CHANGE = "onIconClassChange";
-	private static final String ON_ID_CHANGE = "onIdChange";
-	private static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
-	private static final String ON_LABEL_CHANGE = "onLabelChange";
-	private static final String ON_NODE_CHANGE = "onNodeChange";
-	private static final String ON_TYPE_CHANGE = "onTypeChange";
+	public static final String DESTROYED = "destroyed";
+	public static final String DRAGGABLE = "draggable";
+	public static final String ICON_CLASS = "iconClass";
+	public static final String AVAILABLEFIELD_ID = "availablefieldId";
+	public static final String INITIALIZED = "initialized";
+	public static final String LABEL = "label";
+	public static final String NODE = "node";
+	public static final String TYPE = "type";
+	public static final String AFTER_DESTROYED_CHANGE = "afterDestroyedChange";
+	public static final String AFTER_DRAGGABLE_CHANGE = "afterDraggableChange";
+	public static final String AFTER_ICON_CLASS_CHANGE = "afterIconClassChange";
+	public static final String AFTER_ID_CHANGE = "afterIdChange";
+	public static final String AFTER_INITIALIZED_CHANGE = "afterInitializedChange";
+	public static final String AFTER_LABEL_CHANGE = "afterLabelChange";
+	public static final String AFTER_NODE_CHANGE = "afterNodeChange";
+	public static final String AFTER_TYPE_CHANGE = "afterTypeChange";
+	public static final String ON_DESTROYED_CHANGE = "onDestroyedChange";
+	public static final String ON_DRAGGABLE_CHANGE = "onDraggableChange";
+	public static final String ON_ICON_CLASS_CHANGE = "onIconClassChange";
+	public static final String ON_ID_CHANGE = "onIdChange";
+	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
+	public static final String ON_LABEL_CHANGE = "onLabelChange";
+	public static final String ON_NODE_CHANGE = "onNodeChange";
+	public static final String ON_TYPE_CHANGE = "onTypeChange";
 
 	public java.lang.Boolean getDestroyed() {
 		return (java.lang.Boolean) getStateHelper().eval(DESTROYED, null);

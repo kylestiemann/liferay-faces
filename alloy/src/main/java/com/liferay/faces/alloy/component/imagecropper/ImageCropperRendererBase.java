@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.imagecropper;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,245 +30,304 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class ImageCropperRendererBase extends AUIRenderer {
+public abstract class ImageCropperRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-image-cropper";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		ImageCropper imageCropper = (ImageCropper) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		ImageCropper imageCropper = (ImageCropper) uiComponent;
 
-		bufferedResponseWriter.write("var imageCropper = new A.ImageCropper");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var imageCropper = new A.ImageCropper");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderBoundingBox(renrederedAttributes, imageCropper);
-		renderContentBox(renrederedAttributes, imageCropper);
-		renderCropHeight(renrederedAttributes, imageCropper);
-		renderCropWidth(renrederedAttributes, imageCropper);
-		renderCssClass(renrederedAttributes, imageCropper);
-		renderDestroyed(renrederedAttributes, imageCropper);
-		renderDisabled(renrederedAttributes, imageCropper);
-		renderFocused(renrederedAttributes, imageCropper);
-		renderHeight(renrederedAttributes, imageCropper);
-		renderHideClass(renrederedAttributes, imageCropper);
-		renderImagecropperId(renrederedAttributes, imageCropper);
-		renderInitialized(renrederedAttributes, imageCropper);
-		renderImagecropperLocale(renrederedAttributes, imageCropper);
-		renderMinHeight(renrederedAttributes, imageCropper);
-		renderMinWidth(renrederedAttributes, imageCropper);
-		renderMovable(renrederedAttributes, imageCropper);
-		renderPreserveRatio(renrederedAttributes, imageCropper);
-		renderRegion(renrederedAttributes, imageCropper);
-		renderRender(renrederedAttributes, imageCropper);
-		renderRendered(renrederedAttributes, imageCropper);
-		renderResizable(renrederedAttributes, imageCropper);
-		renderSrcNode(renrederedAttributes, imageCropper);
-		renderStrings(renrederedAttributes, imageCropper);
-		renderTabIndex(renrederedAttributes, imageCropper);
-		renderUseARIA(renrederedAttributes, imageCropper);
-		renderVisible(renrederedAttributes, imageCropper);
-		renderWidth(renrederedAttributes, imageCropper);
-		renderX(renrederedAttributes, imageCropper);
-		renderY(renrederedAttributes, imageCropper);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderBoundingBox(renderedAttributes, imageCropper);
+		renderContentBox(renderedAttributes, imageCropper);
+		renderCropHeight(renderedAttributes, imageCropper);
+		renderCropWidth(renderedAttributes, imageCropper);
+		renderCssClass(renderedAttributes, imageCropper);
+		renderDestroyed(renderedAttributes, imageCropper);
+		renderDisabled(renderedAttributes, imageCropper);
+		renderFocused(renderedAttributes, imageCropper);
+		renderHeight(renderedAttributes, imageCropper);
+		renderHideClass(renderedAttributes, imageCropper);
+		renderImagecropperId(renderedAttributes, imageCropper);
+		renderInitialized(renderedAttributes, imageCropper);
+		renderImagecropperLocale(renderedAttributes, imageCropper);
+		renderMinHeight(renderedAttributes, imageCropper);
+		renderMinWidth(renderedAttributes, imageCropper);
+		renderMovable(renderedAttributes, imageCropper);
+		renderPreserveRatio(renderedAttributes, imageCropper);
+		renderRegion(renderedAttributes, imageCropper);
+		renderRender(renderedAttributes, imageCropper);
+		renderRendered(renderedAttributes, imageCropper);
+		renderResizable(renderedAttributes, imageCropper);
+		renderSrcNode(renderedAttributes, imageCropper);
+		renderStrings(renderedAttributes, imageCropper);
+		renderTabIndex(renderedAttributes, imageCropper);
+		renderUseARIA(renderedAttributes, imageCropper);
+		renderVisible(renderedAttributes, imageCropper);
+		renderWidth(renderedAttributes, imageCropper);
+		renderX(renderedAttributes, imageCropper);
+		renderY(renderedAttributes, imageCropper);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", imageCropper.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String boundingBox = imageCropper.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(ImageCropper.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", imageCropper.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String contentBox = imageCropper.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(ImageCropper.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderCropHeight(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getCropHeight() != null) {
-			renrederedAttributes.add(renderNumber("cropHeight", imageCropper.getCropHeight()));
+	protected void renderCropHeight(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object cropHeight = imageCropper.getCropHeight();
+
+		if (cropHeight != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.CROP_HEIGHT, cropHeight));
 		}
 	}
 
-	protected void renderCropWidth(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getCropWidth() != null) {
-			renrederedAttributes.add(renderNumber("cropWidth", imageCropper.getCropWidth()));
+	protected void renderCropWidth(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object cropWidth = imageCropper.getCropWidth();
+
+		if (cropWidth != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.CROP_WIDTH, cropWidth));
 		}
 	}
 
-	protected void renderCssClass(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getCssClass() != null) {
-			renrederedAttributes.add(renderString("cssClass", imageCropper.getCssClass()));
+	protected void renderCssClass(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String cssClass = imageCropper.getCssClass();
+
+		if (cssClass != null) {
+			renderedAttributes.add(renderString(ImageCropper.CSS_CLASS, cssClass));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", imageCropper.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean destroyed = imageCropper.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", imageCropper.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean disabled = imageCropper.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.DISABLED, disabled));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", imageCropper.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean focused = imageCropper.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.FOCUSED, focused));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", imageCropper.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object height = imageCropper.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(ImageCropper.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideClass(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getHideClass() != null) {
-			renrederedAttributes.add(renderString("hideClass", imageCropper.getHideClass()));
+	protected void renderHideClass(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String hideClass = imageCropper.getHideClass();
+
+		if (hideClass != null) {
+			renderedAttributes.add(renderString(ImageCropper.HIDE_CLASS, hideClass));
 		}
 	}
 
-	protected void renderImagecropperId(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getImagecropperId() != null) {
-			renrederedAttributes.add(renderString("imagecropperId", imageCropper.getImagecropperId()));
+	protected void renderImagecropperId(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String imagecropperId = imageCropper.getImagecropperId();
+
+		if (imagecropperId != null) {
+			renderedAttributes.add(renderString(ImageCropper.IMAGECROPPER_ID, imagecropperId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", imageCropper.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean initialized = imageCropper.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderImagecropperLocale(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getImagecropperLocale() != null) {
-			renrederedAttributes.add(renderString("imagecropperLocale", imageCropper.getImagecropperLocale()));
+	protected void renderImagecropperLocale(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String imagecropperLocale = imageCropper.getImagecropperLocale();
+
+		if (imagecropperLocale != null) {
+			renderedAttributes.add(renderString(ImageCropper.IMAGECROPPER_LOCALE, imagecropperLocale));
 		}
 	}
 
-	protected void renderMinHeight(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getMinHeight() != null) {
-			renrederedAttributes.add(renderNumber("minHeight", imageCropper.getMinHeight()));
+	protected void renderMinHeight(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object minHeight = imageCropper.getMinHeight();
+
+		if (minHeight != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.MIN_HEIGHT, minHeight));
 		}
 	}
 
-	protected void renderMinWidth(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getMinWidth() != null) {
-			renrederedAttributes.add(renderNumber("minWidth", imageCropper.getMinWidth()));
+	protected void renderMinWidth(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object minWidth = imageCropper.getMinWidth();
+
+		if (minWidth != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.MIN_WIDTH, minWidth));
 		}
 	}
 
-	protected void renderMovable(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getMovable() != null) {
-			renrederedAttributes.add(renderBoolean("movable", imageCropper.getMovable()));
+	protected void renderMovable(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean movable = imageCropper.getMovable();
+
+		if (movable != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.MOVABLE, movable));
 		}
 	}
 
-	protected void renderPreserveRatio(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getPreserveRatio() != null) {
-			renrederedAttributes.add(renderBoolean("preserveRatio", imageCropper.getPreserveRatio()));
+	protected void renderPreserveRatio(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean preserveRatio = imageCropper.getPreserveRatio();
+
+		if (preserveRatio != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.PRESERVE_RATIO, preserveRatio));
 		}
 	}
 
-	protected void renderRegion(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getRegion() != null) {
-			renrederedAttributes.add(renderObject("region", imageCropper.getRegion()));
+	protected void renderRegion(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object region = imageCropper.getRegion();
+
+		if (region != null) {
+			renderedAttributes.add(renderObject(ImageCropper.REGION, region));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getRender() != null) {
-			renrederedAttributes.add(renderString("render", imageCropper.getRender()));
+	protected void renderRender(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object render = imageCropper.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(ImageCropper.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", imageCropper.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean rendered = imageCropper.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.RENDERED, rendered));
 		}
 	}
 
-	protected void renderResizable(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getResizable() != null) {
-			renrederedAttributes.add(renderBoolean("resizable", imageCropper.getResizable()));
+	protected void renderResizable(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean resizable = imageCropper.getResizable();
+
+		if (resizable != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.RESIZABLE, resizable));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", imageCropper.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String srcNode = imageCropper.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(ImageCropper.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", imageCropper.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object strings = imageCropper.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(ImageCropper.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", imageCropper.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object tabIndex = imageCropper.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderUseARIA(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getUseARIA() != null) {
-			renrederedAttributes.add(renderBoolean("useARIA", imageCropper.getUseARIA()));
+	protected void renderUseARIA(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean useARIA = imageCropper.getUseARIA();
+
+		if (useARIA != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.USE_ARIA, useARIA));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", imageCropper.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Boolean visible = imageCropper.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(ImageCropper.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", imageCropper.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object width = imageCropper.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(ImageCropper.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", imageCropper.getX()));
+	protected void renderX(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object x = imageCropper.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.X, x));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, ImageCropper imageCropper) throws IOException {
-		if (imageCropper.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", imageCropper.getY()));
+	protected void renderY(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.Object y = imageCropper.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(ImageCropper.Y, y));
 		}
 	}
 

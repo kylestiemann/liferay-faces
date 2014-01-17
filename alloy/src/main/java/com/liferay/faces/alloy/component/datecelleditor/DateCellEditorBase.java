@@ -21,21 +21,21 @@ package com.liferay.faces.alloy.component.datecelleditor;
  */
 public abstract class DateCellEditorBase extends javax.faces.component.UIPanel {
 
-	private static final String DATECELLEDITOR_BODY_CONTENT = "datecelleditorBodyContent";
-	private static final String CALENDAR = "calendar";
-	private static final String DATE_FORMAT = "dateFormat";
-	private static final String INPUT_FORMATTER = "inputFormatter";
-	private static final String OUTPUT_FORMATTER = "outputFormatter";
-	private static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
-	private static final String AFTER_CALENDAR_CHANGE = "afterCalendarChange";
-	private static final String AFTER_DATE_FORMAT_CHANGE = "afterDateFormatChange";
-	private static final String AFTER_INPUT_FORMATTER_CHANGE = "afterInputFormatterChange";
-	private static final String AFTER_OUTPUT_FORMATTER_CHANGE = "afterOutputFormatterChange";
-	private static final String ON_BODY_CONTENT_CHANGE = "onBodyContentChange";
-	private static final String ON_CALENDAR_CHANGE = "onCalendarChange";
-	private static final String ON_DATE_FORMAT_CHANGE = "onDateFormatChange";
-	private static final String ON_INPUT_FORMATTER_CHANGE = "onInputFormatterChange";
-	private static final String ON_OUTPUT_FORMATTER_CHANGE = "onOutputFormatterChange";
+	public static final String DATECELLEDITOR_BODY_CONTENT = "datecelleditorBodyContent";
+	public static final String CALENDAR = "calendar";
+	public static final String DATE_FORMAT = "dateFormat";
+	public static final String INPUT_FORMATTER = "inputFormatter";
+	public static final String OUTPUT_FORMATTER = "outputFormatter";
+	public static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
+	public static final String AFTER_CALENDAR_CHANGE = "afterCalendarChange";
+	public static final String AFTER_DATE_FORMAT_CHANGE = "afterDateFormatChange";
+	public static final String AFTER_INPUT_FORMATTER_CHANGE = "afterInputFormatterChange";
+	public static final String AFTER_OUTPUT_FORMATTER_CHANGE = "afterOutputFormatterChange";
+	public static final String ON_BODY_CONTENT_CHANGE = "onBodyContentChange";
+	public static final String ON_CALENDAR_CHANGE = "onCalendarChange";
+	public static final String ON_DATE_FORMAT_CHANGE = "onDateFormatChange";
+	public static final String ON_INPUT_FORMATTER_CHANGE = "onInputFormatterChange";
+	public static final String ON_OUTPUT_FORMATTER_CHANGE = "onOutputFormatterChange";
 
 	public java.lang.String getDatecelleditorBodyContent() {
 		return (java.lang.String) getStateHelper().eval(DATECELLEDITOR_BODY_CONTENT, null);

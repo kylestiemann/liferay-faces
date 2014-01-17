@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.formbuilder;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,287 +30,358 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class FormBuilderRendererBase extends AUIRenderer {
+public abstract class FormBuilderRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-base";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		FormBuilder formBuilder = (FormBuilder) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		FormBuilder formBuilder = (FormBuilder) uiComponent;
 
-		bufferedResponseWriter.write("var formBuilder = new A.FormBuilder");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var formBuilder = new A.FormBuilder");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAllowRemoveRequiredFields(renrederedAttributes, formBuilder);
-		renderAvailableFields(renrederedAttributes, formBuilder);
-		renderAvailableFieldsDragConfig(renrederedAttributes, formBuilder);
-		renderBoundingBox(renrederedAttributes, formBuilder);
-		renderCanvas(renrederedAttributes, formBuilder);
-		renderContentBox(renrederedAttributes, formBuilder);
-		renderContentContainer(renrederedAttributes, formBuilder);
-		renderCssClass(renrederedAttributes, formBuilder);
-		renderDestroyed(renrederedAttributes, formBuilder);
-		renderDisabled(renrederedAttributes, formBuilder);
-		renderDropConfig(renrederedAttributes, formBuilder);
-		renderDropContainer(renrederedAttributes, formBuilder);
-		renderEnableEditing(renrederedAttributes, formBuilder);
-		renderFields(renrederedAttributes, formBuilder);
-		renderFieldsContainer(renrederedAttributes, formBuilder);
-		renderFieldsSortableListConfig(renrederedAttributes, formBuilder);
-		renderFocused(renrederedAttributes, formBuilder);
-		renderHeight(renrederedAttributes, formBuilder);
-		renderHideClass(renrederedAttributes, formBuilder);
-		renderFormbuilderId(renrederedAttributes, formBuilder);
-		renderInitialized(renrederedAttributes, formBuilder);
-		renderFormbuilderLocale(renrederedAttributes, formBuilder);
-		renderMaxFields(renrederedAttributes, formBuilder);
-		renderPropertyList(renrederedAttributes, formBuilder);
-		renderRender(renrederedAttributes, formBuilder);
-		renderRendered(renrederedAttributes, formBuilder);
-		renderSrcNode(renrederedAttributes, formBuilder);
-		renderStrings(renrederedAttributes, formBuilder);
-		renderTabIndex(renrederedAttributes, formBuilder);
-		renderTabView(renrederedAttributes, formBuilder);
-		renderToolbar(renrederedAttributes, formBuilder);
-		renderToolbarContainer(renrederedAttributes, formBuilder);
-		renderUseARIA(renrederedAttributes, formBuilder);
-		renderVisible(renrederedAttributes, formBuilder);
-		renderWidth(renrederedAttributes, formBuilder);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAllowRemoveRequiredFields(renderedAttributes, formBuilder);
+		renderAvailableFields(renderedAttributes, formBuilder);
+		renderAvailableFieldsDragConfig(renderedAttributes, formBuilder);
+		renderBoundingBox(renderedAttributes, formBuilder);
+		renderCanvas(renderedAttributes, formBuilder);
+		renderContentBox(renderedAttributes, formBuilder);
+		renderContentContainer(renderedAttributes, formBuilder);
+		renderCssClass(renderedAttributes, formBuilder);
+		renderDestroyed(renderedAttributes, formBuilder);
+		renderDisabled(renderedAttributes, formBuilder);
+		renderDropConfig(renderedAttributes, formBuilder);
+		renderDropContainer(renderedAttributes, formBuilder);
+		renderEnableEditing(renderedAttributes, formBuilder);
+		renderFields(renderedAttributes, formBuilder);
+		renderFieldsContainer(renderedAttributes, formBuilder);
+		renderFieldsSortableListConfig(renderedAttributes, formBuilder);
+		renderFocused(renderedAttributes, formBuilder);
+		renderHeight(renderedAttributes, formBuilder);
+		renderHideClass(renderedAttributes, formBuilder);
+		renderFormbuilderId(renderedAttributes, formBuilder);
+		renderInitialized(renderedAttributes, formBuilder);
+		renderFormbuilderLocale(renderedAttributes, formBuilder);
+		renderMaxFields(renderedAttributes, formBuilder);
+		renderPropertyList(renderedAttributes, formBuilder);
+		renderRender(renderedAttributes, formBuilder);
+		renderRendered(renderedAttributes, formBuilder);
+		renderSrcNode(renderedAttributes, formBuilder);
+		renderStrings(renderedAttributes, formBuilder);
+		renderTabIndex(renderedAttributes, formBuilder);
+		renderTabView(renderedAttributes, formBuilder);
+		renderToolbar(renderedAttributes, formBuilder);
+		renderToolbarContainer(renderedAttributes, formBuilder);
+		renderUseARIA(renderedAttributes, formBuilder);
+		renderVisible(renderedAttributes, formBuilder);
+		renderWidth(renderedAttributes, formBuilder);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAllowRemoveRequiredFields(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getAllowRemoveRequiredFields() != null) {
-			renrederedAttributes.add(renderBoolean("allowRemoveRequiredFields", formBuilder.getAllowRemoveRequiredFields()));
+	protected void renderAllowRemoveRequiredFields(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean allowRemoveRequiredFields = formBuilder.getAllowRemoveRequiredFields();
+
+		if (allowRemoveRequiredFields != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.ALLOW_REMOVE_REQUIRED_FIELDS, allowRemoveRequiredFields));
 		}
 	}
 
-	protected void renderAvailableFields(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getAvailableFields() != null) {
-			renrederedAttributes.add(renderArray("availableFields", formBuilder.getAvailableFields()));
+	protected void renderAvailableFields(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object availableFields = formBuilder.getAvailableFields();
+
+		if (availableFields != null) {
+			renderedAttributes.add(renderArray(FormBuilder.AVAILABLE_FIELDS, availableFields));
 		}
 	}
 
-	protected void renderAvailableFieldsDragConfig(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getAvailableFieldsDragConfig() != null) {
-			renrederedAttributes.add(renderObject("availableFieldsDragConfig", formBuilder.getAvailableFieldsDragConfig()));
+	protected void renderAvailableFieldsDragConfig(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object availableFieldsDragConfig = formBuilder.getAvailableFieldsDragConfig();
+
+		if (availableFieldsDragConfig != null) {
+			renderedAttributes.add(renderObject(FormBuilder.AVAILABLE_FIELDS_DRAG_CONFIG, availableFieldsDragConfig));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", formBuilder.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String boundingBox = formBuilder.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(FormBuilder.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCanvas(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getCanvas() != null) {
-			renrederedAttributes.add(renderString("canvas", formBuilder.getCanvas()));
+	protected void renderCanvas(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String canvas = formBuilder.getCanvas();
+
+		if (canvas != null) {
+			renderedAttributes.add(renderString(FormBuilder.CANVAS, canvas));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", formBuilder.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String contentBox = formBuilder.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(FormBuilder.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderContentContainer(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getContentContainer() != null) {
-			renrederedAttributes.add(renderString("contentContainer", formBuilder.getContentContainer()));
+	protected void renderContentContainer(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String contentContainer = formBuilder.getContentContainer();
+
+		if (contentContainer != null) {
+			renderedAttributes.add(renderString(FormBuilder.CONTENT_CONTAINER, contentContainer));
 		}
 	}
 
-	protected void renderCssClass(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getCssClass() != null) {
-			renrederedAttributes.add(renderString("cssClass", formBuilder.getCssClass()));
+	protected void renderCssClass(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String cssClass = formBuilder.getCssClass();
+
+		if (cssClass != null) {
+			renderedAttributes.add(renderString(FormBuilder.CSS_CLASS, cssClass));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", formBuilder.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean destroyed = formBuilder.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", formBuilder.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean disabled = formBuilder.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.DISABLED, disabled));
 		}
 	}
 
-	protected void renderDropConfig(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getDropConfig() != null) {
-			renrederedAttributes.add(renderObject("dropConfig", formBuilder.getDropConfig()));
+	protected void renderDropConfig(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object dropConfig = formBuilder.getDropConfig();
+
+		if (dropConfig != null) {
+			renderedAttributes.add(renderObject(FormBuilder.DROP_CONFIG, dropConfig));
 		}
 	}
 
-	protected void renderDropContainer(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getDropContainer() != null) {
-			renrederedAttributes.add(renderString("dropContainer", formBuilder.getDropContainer()));
+	protected void renderDropContainer(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String dropContainer = formBuilder.getDropContainer();
+
+		if (dropContainer != null) {
+			renderedAttributes.add(renderString(FormBuilder.DROP_CONTAINER, dropContainer));
 		}
 	}
 
-	protected void renderEnableEditing(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getEnableEditing() != null) {
-			renrederedAttributes.add(renderBoolean("enableEditing", formBuilder.getEnableEditing()));
+	protected void renderEnableEditing(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean enableEditing = formBuilder.getEnableEditing();
+
+		if (enableEditing != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.ENABLE_EDITING, enableEditing));
 		}
 	}
 
-	protected void renderFields(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getFields() != null) {
-			renrederedAttributes.add(renderArray("fields", formBuilder.getFields()));
+	protected void renderFields(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object fields = formBuilder.getFields();
+
+		if (fields != null) {
+			renderedAttributes.add(renderArray(FormBuilder.FIELDS, fields));
 		}
 	}
 
-	protected void renderFieldsContainer(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getFieldsContainer() != null) {
-			renrederedAttributes.add(renderString("fieldsContainer", formBuilder.getFieldsContainer()));
+	protected void renderFieldsContainer(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String fieldsContainer = formBuilder.getFieldsContainer();
+
+		if (fieldsContainer != null) {
+			renderedAttributes.add(renderString(FormBuilder.FIELDS_CONTAINER, fieldsContainer));
 		}
 	}
 
-	protected void renderFieldsSortableListConfig(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getFieldsSortableListConfig() != null) {
-			renrederedAttributes.add(renderObject("fieldsSortableListConfig", formBuilder.getFieldsSortableListConfig()));
+	protected void renderFieldsSortableListConfig(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object fieldsSortableListConfig = formBuilder.getFieldsSortableListConfig();
+
+		if (fieldsSortableListConfig != null) {
+			renderedAttributes.add(renderObject(FormBuilder.FIELDS_SORTABLE_LIST_CONFIG, fieldsSortableListConfig));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", formBuilder.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean focused = formBuilder.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.FOCUSED, focused));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", formBuilder.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object height = formBuilder.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(FormBuilder.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideClass(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getHideClass() != null) {
-			renrederedAttributes.add(renderString("hideClass", formBuilder.getHideClass()));
+	protected void renderHideClass(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String hideClass = formBuilder.getHideClass();
+
+		if (hideClass != null) {
+			renderedAttributes.add(renderString(FormBuilder.HIDE_CLASS, hideClass));
 		}
 	}
 
-	protected void renderFormbuilderId(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getFormbuilderId() != null) {
-			renrederedAttributes.add(renderString("formbuilderId", formBuilder.getFormbuilderId()));
+	protected void renderFormbuilderId(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String formbuilderId = formBuilder.getFormbuilderId();
+
+		if (formbuilderId != null) {
+			renderedAttributes.add(renderString(FormBuilder.FORMBUILDER_ID, formbuilderId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", formBuilder.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean initialized = formBuilder.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderFormbuilderLocale(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getFormbuilderLocale() != null) {
-			renrederedAttributes.add(renderString("formbuilderLocale", formBuilder.getFormbuilderLocale()));
+	protected void renderFormbuilderLocale(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String formbuilderLocale = formBuilder.getFormbuilderLocale();
+
+		if (formbuilderLocale != null) {
+			renderedAttributes.add(renderString(FormBuilder.FORMBUILDER_LOCALE, formbuilderLocale));
 		}
 	}
 
-	protected void renderMaxFields(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getMaxFields() != null) {
-			renrederedAttributes.add(renderNumber("maxFields", formBuilder.getMaxFields()));
+	protected void renderMaxFields(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object maxFields = formBuilder.getMaxFields();
+
+		if (maxFields != null) {
+			renderedAttributes.add(renderNumber(FormBuilder.MAX_FIELDS, maxFields));
 		}
 	}
 
-	protected void renderPropertyList(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getPropertyList() != null) {
-			renrederedAttributes.add(renderObject("propertyList", formBuilder.getPropertyList()));
+	protected void renderPropertyList(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object propertyList = formBuilder.getPropertyList();
+
+		if (propertyList != null) {
+			renderedAttributes.add(renderObject(FormBuilder.PROPERTY_LIST, propertyList));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getRender() != null) {
-			renrederedAttributes.add(renderString("render", formBuilder.getRender()));
+	protected void renderRender(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object render = formBuilder.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(FormBuilder.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", formBuilder.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean rendered = formBuilder.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.RENDERED, rendered));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", formBuilder.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String srcNode = formBuilder.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(FormBuilder.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", formBuilder.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object strings = formBuilder.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(FormBuilder.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", formBuilder.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object tabIndex = formBuilder.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(FormBuilder.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTabView(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getTabView() != null) {
-			renrederedAttributes.add(renderObject("tabView", formBuilder.getTabView()));
+	protected void renderTabView(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object tabView = formBuilder.getTabView();
+
+		if (tabView != null) {
+			renderedAttributes.add(renderObject(FormBuilder.TAB_VIEW, tabView));
 		}
 	}
 
-	protected void renderToolbar(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getToolbar() != null) {
-			renrederedAttributes.add(renderObject("toolbar", formBuilder.getToolbar()));
+	protected void renderToolbar(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object toolbar = formBuilder.getToolbar();
+
+		if (toolbar != null) {
+			renderedAttributes.add(renderObject(FormBuilder.TOOLBAR, toolbar));
 		}
 	}
 
-	protected void renderToolbarContainer(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getToolbarContainer() != null) {
-			renrederedAttributes.add(renderString("toolbarContainer", formBuilder.getToolbarContainer()));
+	protected void renderToolbarContainer(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String toolbarContainer = formBuilder.getToolbarContainer();
+
+		if (toolbarContainer != null) {
+			renderedAttributes.add(renderString(FormBuilder.TOOLBAR_CONTAINER, toolbarContainer));
 		}
 	}
 
-	protected void renderUseARIA(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getUseARIA() != null) {
-			renrederedAttributes.add(renderBoolean("useARIA", formBuilder.getUseARIA()));
+	protected void renderUseARIA(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean useARIA = formBuilder.getUseARIA();
+
+		if (useARIA != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.USE_ARIA, useARIA));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", formBuilder.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Boolean visible = formBuilder.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(FormBuilder.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, FormBuilder formBuilder) throws IOException {
-		if (formBuilder.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", formBuilder.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.Object width = formBuilder.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(FormBuilder.WIDTH, width));
 		}
 	}
 

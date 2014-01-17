@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.formbuilderbuttonfield;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,252 +30,313 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class FormBuilderButtonFieldRendererBase extends AUIRenderer {
+public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-form-builder-field-button";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		FormBuilderButtonField formBuilderButtonField = (FormBuilderButtonField) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		FormBuilderButtonField formBuilderButtonField = (FormBuilderButtonField) uiComponent;
 
-		bufferedResponseWriter.write("var formBuilderButtonField = new A.FormBuilderButtonField");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var formBuilderButtonField = new A.FormBuilderButtonField");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAcceptChildren(renrederedAttributes, formBuilderButtonField);
-		renderBuilder(renrederedAttributes, formBuilderButtonField);
-		renderButtonType(renrederedAttributes, formBuilderButtonField);
-		renderControlsToolbar(renrederedAttributes, formBuilderButtonField);
-		renderDataType(renrederedAttributes, formBuilderButtonField);
-		renderDisabled(renrederedAttributes, formBuilderButtonField);
-		renderDropZoneNode(renrederedAttributes, formBuilderButtonField);
-		renderHiddenAttributes(renrederedAttributes, formBuilderButtonField);
-		renderFormbuilderbuttonfieldId(renrederedAttributes, formBuilderButtonField);
-		renderLabel(renrederedAttributes, formBuilderButtonField);
-		renderLabelNode(renrederedAttributes, formBuilderButtonField);
-		renderLocalizationMap(renrederedAttributes, formBuilderButtonField);
-		renderName(renrederedAttributes, formBuilderButtonField);
-		renderFormbuilderbuttonfieldParent(renrederedAttributes, formBuilderButtonField);
-		renderPredefinedValue(renrederedAttributes, formBuilderButtonField);
-		renderReadOnly(renrederedAttributes, formBuilderButtonField);
-		renderReadOnlyAttributes(renrederedAttributes, formBuilderButtonField);
-		renderRequired(renrederedAttributes, formBuilderButtonField);
-		renderRequiredFlagNode(renrederedAttributes, formBuilderButtonField);
-		renderSelected(renrederedAttributes, formBuilderButtonField);
-		renderShowLabel(renrederedAttributes, formBuilderButtonField);
-		renderStrings(renrederedAttributes, formBuilderButtonField);
-		renderTabIndex(renrederedAttributes, formBuilderButtonField);
-		renderTemplate(renrederedAttributes, formBuilderButtonField);
-		renderTemplateNode(renrederedAttributes, formBuilderButtonField);
-		renderTip(renrederedAttributes, formBuilderButtonField);
-		renderTipFlagNode(renrederedAttributes, formBuilderButtonField);
-		renderType(renrederedAttributes, formBuilderButtonField);
-		renderUnique(renrederedAttributes, formBuilderButtonField);
-		renderZIndex(renrederedAttributes, formBuilderButtonField);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAcceptChildren(renderedAttributes, formBuilderButtonField);
+		renderBuilder(renderedAttributes, formBuilderButtonField);
+		renderButtonType(renderedAttributes, formBuilderButtonField);
+		renderControlsToolbar(renderedAttributes, formBuilderButtonField);
+		renderDataType(renderedAttributes, formBuilderButtonField);
+		renderDisabled(renderedAttributes, formBuilderButtonField);
+		renderDropZoneNode(renderedAttributes, formBuilderButtonField);
+		renderHiddenAttributes(renderedAttributes, formBuilderButtonField);
+		renderFormbuilderbuttonfieldId(renderedAttributes, formBuilderButtonField);
+		renderLabel(renderedAttributes, formBuilderButtonField);
+		renderLabelNode(renderedAttributes, formBuilderButtonField);
+		renderLocalizationMap(renderedAttributes, formBuilderButtonField);
+		renderName(renderedAttributes, formBuilderButtonField);
+		renderFormbuilderbuttonfieldParent(renderedAttributes, formBuilderButtonField);
+		renderPredefinedValue(renderedAttributes, formBuilderButtonField);
+		renderReadOnly(renderedAttributes, formBuilderButtonField);
+		renderReadOnlyAttributes(renderedAttributes, formBuilderButtonField);
+		renderRequired(renderedAttributes, formBuilderButtonField);
+		renderRequiredFlagNode(renderedAttributes, formBuilderButtonField);
+		renderSelected(renderedAttributes, formBuilderButtonField);
+		renderShowLabel(renderedAttributes, formBuilderButtonField);
+		renderStrings(renderedAttributes, formBuilderButtonField);
+		renderTabIndex(renderedAttributes, formBuilderButtonField);
+		renderTemplate(renderedAttributes, formBuilderButtonField);
+		renderTemplateNode(renderedAttributes, formBuilderButtonField);
+		renderTip(renderedAttributes, formBuilderButtonField);
+		renderTipFlagNode(renderedAttributes, formBuilderButtonField);
+		renderType(renderedAttributes, formBuilderButtonField);
+		renderUnique(renderedAttributes, formBuilderButtonField);
+		renderZIndex(renderedAttributes, formBuilderButtonField);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAcceptChildren(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getAcceptChildren() != null) {
-			renrederedAttributes.add(renderBoolean("acceptChildren", formBuilderButtonField.getAcceptChildren()));
+	protected void renderAcceptChildren(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean acceptChildren = formBuilderButtonField.getAcceptChildren();
+
+		if (acceptChildren != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.ACCEPT_CHILDREN, acceptChildren));
 		}
 	}
 
-	protected void renderBuilder(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getBuilder() != null) {
-			renrederedAttributes.add(renderBoolean("builder", formBuilderButtonField.getBuilder()));
+	protected void renderBuilder(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean builder = formBuilderButtonField.getBuilder();
+
+		if (builder != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.BUILDER, builder));
 		}
 	}
 
-	protected void renderButtonType(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getButtonType() != null) {
-			renrederedAttributes.add(renderString("buttonType", formBuilderButtonField.getButtonType()));
+	protected void renderButtonType(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String buttonType = formBuilderButtonField.getButtonType();
+
+		if (buttonType != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.BUTTON_TYPE, buttonType));
 		}
 	}
 
-	protected void renderControlsToolbar(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getControlsToolbar() != null) {
-			renrederedAttributes.add(renderObject("controlsToolbar", formBuilderButtonField.getControlsToolbar()));
+	protected void renderControlsToolbar(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object controlsToolbar = formBuilderButtonField.getControlsToolbar();
+
+		if (controlsToolbar != null) {
+			renderedAttributes.add(renderObject(FormBuilderButtonField.CONTROLS_TOOLBAR, controlsToolbar));
 		}
 	}
 
-	protected void renderDataType(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getDataType() != null) {
-			renrederedAttributes.add(renderString("dataType", formBuilderButtonField.getDataType()));
+	protected void renderDataType(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String dataType = formBuilderButtonField.getDataType();
+
+		if (dataType != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.DATA_TYPE, dataType));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", formBuilderButtonField.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean disabled = formBuilderButtonField.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.DISABLED, disabled));
 		}
 	}
 
-	protected void renderDropZoneNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getDropZoneNode() != null) {
-			renrederedAttributes.add(renderString("dropZoneNode", formBuilderButtonField.getDropZoneNode()));
+	protected void renderDropZoneNode(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String dropZoneNode = formBuilderButtonField.getDropZoneNode();
+
+		if (dropZoneNode != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.DROP_ZONE_NODE, dropZoneNode));
 		}
 	}
 
-	protected void renderHiddenAttributes(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getHiddenAttributes() != null) {
-			renrederedAttributes.add(renderArray("hiddenAttributes", formBuilderButtonField.getHiddenAttributes()));
+	protected void renderHiddenAttributes(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object hiddenAttributes = formBuilderButtonField.getHiddenAttributes();
+
+		if (hiddenAttributes != null) {
+			renderedAttributes.add(renderArray(FormBuilderButtonField.HIDDEN_ATTRIBUTES, hiddenAttributes));
 		}
 	}
 
-	protected void renderFormbuilderbuttonfieldId(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getFormbuilderbuttonfieldId() != null) {
-			renrederedAttributes.add(renderString("formbuilderbuttonfieldId", formBuilderButtonField.getFormbuilderbuttonfieldId()));
+	protected void renderFormbuilderbuttonfieldId(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String formbuilderbuttonfieldId = formBuilderButtonField.getFormbuilderbuttonfieldId();
+
+		if (formbuilderbuttonfieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.FORMBUILDERBUTTONFIELD_ID, formbuilderbuttonfieldId));
 		}
 	}
 
-	protected void renderLabel(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getLabel() != null) {
-			renrederedAttributes.add(renderString("label", formBuilderButtonField.getLabel()));
+	protected void renderLabel(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String label = formBuilderButtonField.getLabel();
+
+		if (label != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.LABEL, label));
 		}
 	}
 
-	protected void renderLabelNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getLabelNode() != null) {
-			renrederedAttributes.add(renderString("labelNode", formBuilderButtonField.getLabelNode()));
+	protected void renderLabelNode(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String labelNode = formBuilderButtonField.getLabelNode();
+
+		if (labelNode != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.LABEL_NODE, labelNode));
 		}
 	}
 
-	protected void renderLocalizationMap(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getLocalizationMap() != null) {
-			renrederedAttributes.add(renderObject("localizationMap", formBuilderButtonField.getLocalizationMap()));
+	protected void renderLocalizationMap(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object localizationMap = formBuilderButtonField.getLocalizationMap();
+
+		if (localizationMap != null) {
+			renderedAttributes.add(renderObject(FormBuilderButtonField.LOCALIZATION_MAP, localizationMap));
 		}
 	}
 
-	protected void renderName(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getName() != null) {
-			renrederedAttributes.add(renderString("name", formBuilderButtonField.getName()));
+	protected void renderName(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String name = formBuilderButtonField.getName();
+
+		if (name != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.NAME, name));
 		}
 	}
 
-	protected void renderFormbuilderbuttonfieldParent(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getFormbuilderbuttonfieldParent() != null) {
-			renrederedAttributes.add(renderString("formbuilderbuttonfieldParent", formBuilderButtonField.getFormbuilderbuttonfieldParent()));
+	protected void renderFormbuilderbuttonfieldParent(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String formbuilderbuttonfieldParent = formBuilderButtonField.getFormbuilderbuttonfieldParent();
+
+		if (formbuilderbuttonfieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.FORMBUILDERBUTTONFIELD_PARENT, formbuilderbuttonfieldParent));
 		}
 	}
 
-	protected void renderPredefinedValue(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getPredefinedValue() != null) {
-			renrederedAttributes.add(renderString("predefinedValue", formBuilderButtonField.getPredefinedValue()));
+	protected void renderPredefinedValue(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String predefinedValue = formBuilderButtonField.getPredefinedValue();
+
+		if (predefinedValue != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.PREDEFINED_VALUE, predefinedValue));
 		}
 	}
 
-	protected void renderReadOnly(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getReadOnly() != null) {
-			renrederedAttributes.add(renderBoolean("readOnly", formBuilderButtonField.getReadOnly()));
+	protected void renderReadOnly(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean readOnly = formBuilderButtonField.getReadOnly();
+
+		if (readOnly != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.READ_ONLY, readOnly));
 		}
 	}
 
-	protected void renderReadOnlyAttributes(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getReadOnlyAttributes() != null) {
-			renrederedAttributes.add(renderArray("readOnlyAttributes", formBuilderButtonField.getReadOnlyAttributes()));
+	protected void renderReadOnlyAttributes(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object readOnlyAttributes = formBuilderButtonField.getReadOnlyAttributes();
+
+		if (readOnlyAttributes != null) {
+			renderedAttributes.add(renderArray(FormBuilderButtonField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
 		}
 	}
 
-	protected void renderRequired(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getRequired() != null) {
-			renrederedAttributes.add(renderBoolean("required", formBuilderButtonField.getRequired()));
+	protected void renderRequired(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean required = formBuilderButtonField.getRequired();
+
+		if (required != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.REQUIRED, required));
 		}
 	}
 
-	protected void renderRequiredFlagNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getRequiredFlagNode() != null) {
-			renrederedAttributes.add(renderString("requiredFlagNode", formBuilderButtonField.getRequiredFlagNode()));
+	protected void renderRequiredFlagNode(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String requiredFlagNode = formBuilderButtonField.getRequiredFlagNode();
+
+		if (requiredFlagNode != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.REQUIRED_FLAG_NODE, requiredFlagNode));
 		}
 	}
 
-	protected void renderSelected(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getSelected() != null) {
-			renrederedAttributes.add(renderBoolean("selected", formBuilderButtonField.getSelected()));
+	protected void renderSelected(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean selected = formBuilderButtonField.getSelected();
+
+		if (selected != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.SELECTED, selected));
 		}
 	}
 
-	protected void renderShowLabel(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getShowLabel() != null) {
-			renrederedAttributes.add(renderBoolean("showLabel", formBuilderButtonField.getShowLabel()));
+	protected void renderShowLabel(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean showLabel = formBuilderButtonField.getShowLabel();
+
+		if (showLabel != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.SHOW_LABEL, showLabel));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", formBuilderButtonField.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object strings = formBuilderButtonField.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(FormBuilderButtonField.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", formBuilderButtonField.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object tabIndex = formBuilderButtonField.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(FormBuilderButtonField.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderTemplate(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getTemplate() != null) {
-			renrederedAttributes.add(renderString("template", formBuilderButtonField.getTemplate()));
+	protected void renderTemplate(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String template = formBuilderButtonField.getTemplate();
+
+		if (template != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.TEMPLATE, template));
 		}
 	}
 
-	protected void renderTemplateNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getTemplateNode() != null) {
-			renrederedAttributes.add(renderString("templateNode", formBuilderButtonField.getTemplateNode()));
+	protected void renderTemplateNode(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String templateNode = formBuilderButtonField.getTemplateNode();
+
+		if (templateNode != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.TEMPLATE_NODE, templateNode));
 		}
 	}
 
-	protected void renderTip(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getTip() != null) {
-			renrederedAttributes.add(renderString("tip", formBuilderButtonField.getTip()));
+	protected void renderTip(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String tip = formBuilderButtonField.getTip();
+
+		if (tip != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.TIP, tip));
 		}
 	}
 
-	protected void renderTipFlagNode(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getTipFlagNode() != null) {
-			renrederedAttributes.add(renderString("tipFlagNode", formBuilderButtonField.getTipFlagNode()));
+	protected void renderTipFlagNode(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String tipFlagNode = formBuilderButtonField.getTipFlagNode();
+
+		if (tipFlagNode != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.TIP_FLAG_NODE, tipFlagNode));
 		}
 	}
 
-	protected void renderType(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getType() != null) {
-			renrederedAttributes.add(renderString("type", formBuilderButtonField.getType()));
+	protected void renderType(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String type = formBuilderButtonField.getType();
+
+		if (type != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.TYPE, type));
 		}
 	}
 
-	protected void renderUnique(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getUnique() != null) {
-			renrederedAttributes.add(renderBoolean("unique", formBuilderButtonField.getUnique()));
+	protected void renderUnique(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Boolean unique = formBuilderButtonField.getUnique();
+
+		if (unique != null) {
+			renderedAttributes.add(renderBoolean(FormBuilderButtonField.UNIQUE, unique));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		if (formBuilderButtonField.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", formBuilderButtonField.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.Object zIndex = formBuilderButtonField.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(FormBuilderButtonField.Z_INDEX, zIndex));
 		}
 	}
 

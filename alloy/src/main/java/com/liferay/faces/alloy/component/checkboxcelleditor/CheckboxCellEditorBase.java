@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.checkboxcelleditor;
  */
 public abstract class CheckboxCellEditorBase extends javax.faces.component.UIPanel {
 
-	private static final String SELECTED_ATTR_NAME = "selectedAttrName";
-	private static final String AFTER_SELECTED_ATTR_NAME_CHANGE = "afterSelectedAttrNameChange";
-	private static final String ON_SELECTED_ATTR_NAME_CHANGE = "onSelectedAttrNameChange";
+	public static final String SELECTED_ATTR_NAME = "selectedAttrName";
+	public static final String AFTER_SELECTED_ATTR_NAME_CHANGE = "afterSelectedAttrNameChange";
+	public static final String ON_SELECTED_ATTR_NAME_CHANGE = "onSelectedAttrNameChange";
 
 	public java.lang.String getSelectedAttrName() {
 		return (java.lang.String) getStateHelper().eval(SELECTED_ATTR_NAME, null);

@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.modal;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,315 +30,394 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class ModalRendererBase extends AUIRenderer {
+public abstract class ModalRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-modal";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		Modal modal = (Modal) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		Modal modal = (Modal) uiComponent;
 
-		bufferedResponseWriter.write("var modal = new A.Modal");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var modal = new A.Modal");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, modal);
-		renderAlignOn(renrederedAttributes, modal);
-		renderModalBodyContent(renrederedAttributes, modal);
-		renderBoundingBox(renrederedAttributes, modal);
-		renderCentered(renrederedAttributes, modal);
-		renderConstrain(renrederedAttributes, modal);
-		renderContentBox(renrederedAttributes, modal);
-		renderDestroyOnHide(renrederedAttributes, modal);
-		renderDestroyed(renrederedAttributes, modal);
-		renderDisabled(renrederedAttributes, modal);
-		renderDraggable(renrederedAttributes, modal);
-		renderFillHeight(renrederedAttributes, modal);
-		renderFocusOn(renrederedAttributes, modal);
-		renderFocused(renrederedAttributes, modal);
-		renderFooterContent(renrederedAttributes, modal);
-		renderHeaderContent(renrederedAttributes, modal);
-		renderHeight(renrederedAttributes, modal);
-		renderHideOn(renrederedAttributes, modal);
-		renderModalId(renrederedAttributes, modal);
-		renderInitialized(renrederedAttributes, modal);
-		renderModalLocale(renrederedAttributes, modal);
-		renderMaskNode(renrederedAttributes, modal);
-		renderModal(renrederedAttributes, modal);
-		renderPreventOverlap(renrederedAttributes, modal);
-		renderRender(renrederedAttributes, modal);
-		renderRendered(renrederedAttributes, modal);
-		renderResizable(renrederedAttributes, modal);
-		renderShim(renrederedAttributes, modal);
-		renderSrcNode(renrederedAttributes, modal);
-		renderStrings(renrederedAttributes, modal);
-		renderTabIndex(renrederedAttributes, modal);
-		renderToolbarPosition(renrederedAttributes, modal);
-		renderToolbars(renrederedAttributes, modal);
-		renderVisible(renrederedAttributes, modal);
-		renderWidth(renrederedAttributes, modal);
-		renderX(renrederedAttributes, modal);
-		renderXy(renrederedAttributes, modal);
-		renderY(renrederedAttributes, modal);
-		renderZIndex(renrederedAttributes, modal);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, modal);
+		renderAlignOn(renderedAttributes, modal);
+		renderModalBodyContent(renderedAttributes, modal);
+		renderBoundingBox(renderedAttributes, modal);
+		renderCentered(renderedAttributes, modal);
+		renderConstrain(renderedAttributes, modal);
+		renderContentBox(renderedAttributes, modal);
+		renderDestroyOnHide(renderedAttributes, modal);
+		renderDestroyed(renderedAttributes, modal);
+		renderDisabled(renderedAttributes, modal);
+		renderDraggable(renderedAttributes, modal);
+		renderFillHeight(renderedAttributes, modal);
+		renderFocusOn(renderedAttributes, modal);
+		renderFocused(renderedAttributes, modal);
+		renderFooterContent(renderedAttributes, modal);
+		renderHeaderContent(renderedAttributes, modal);
+		renderHeight(renderedAttributes, modal);
+		renderHideOn(renderedAttributes, modal);
+		renderModalId(renderedAttributes, modal);
+		renderInitialized(renderedAttributes, modal);
+		renderModalLocale(renderedAttributes, modal);
+		renderMaskNode(renderedAttributes, modal);
+		renderModal(renderedAttributes, modal);
+		renderPreventOverlap(renderedAttributes, modal);
+		renderRender(renderedAttributes, modal);
+		renderRendered(renderedAttributes, modal);
+		renderResizable(renderedAttributes, modal);
+		renderShim(renderedAttributes, modal);
+		renderSrcNode(renderedAttributes, modal);
+		renderStrings(renderedAttributes, modal);
+		renderTabIndex(renderedAttributes, modal);
+		renderToolbarPosition(renderedAttributes, modal);
+		renderToolbars(renderedAttributes, modal);
+		renderVisible(renderedAttributes, modal);
+		renderWidth(renderedAttributes, modal);
+		renderX(renderedAttributes, modal);
+		renderXy(renderedAttributes, modal);
+		renderY(renderedAttributes, modal);
+		renderZIndex(renderedAttributes, modal);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", modal.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object align = modal.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(Modal.ALIGN, align));
 		}
 	}
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", modal.getAlignOn()));
+	protected void renderAlignOn(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object alignOn = modal.getAlignOn();
+
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(Modal.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderModalBodyContent(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getModalBodyContent() != null) {
-			renrederedAttributes.add(renderString("modalBodyContent", modal.getModalBodyContent()));
+	protected void renderModalBodyContent(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String modalBodyContent = modal.getModalBodyContent();
+
+		if (modalBodyContent != null) {
+			renderedAttributes.add(renderString(Modal.MODAL_BODY_CONTENT, modalBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", modal.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String boundingBox = modal.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(Modal.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getCentered() != null) {
-			renrederedAttributes.add(renderString("centered", modal.getCentered()));
+	protected void renderCentered(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object centered = modal.getCentered();
+
+		if (centered != null) {
+			renderedAttributes.add(renderString(Modal.CENTERED, centered));
 		}
 	}
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", modal.getConstrain()));
+	protected void renderConstrain(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object constrain = modal.getConstrain();
+
+		if (constrain != null) {
+			renderedAttributes.add(renderString(Modal.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", modal.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String contentBox = modal.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(Modal.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDestroyOnHide(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getDestroyOnHide() != null) {
-			renrederedAttributes.add(renderBoolean("destroyOnHide", modal.getDestroyOnHide()));
+	protected void renderDestroyOnHide(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean destroyOnHide = modal.getDestroyOnHide();
+
+		if (destroyOnHide != null) {
+			renderedAttributes.add(renderBoolean(Modal.DESTROY_ON_HIDE, destroyOnHide));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", modal.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean destroyed = modal.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(Modal.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", modal.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean disabled = modal.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(Modal.DISABLED, disabled));
 		}
 	}
 
-	protected void renderDraggable(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getDraggable() != null) {
-			renrederedAttributes.add(renderObject("draggable", modal.getDraggable()));
+	protected void renderDraggable(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object draggable = modal.getDraggable();
+
+		if (draggable != null) {
+			renderedAttributes.add(renderObject(Modal.DRAGGABLE, draggable));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", modal.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object fillHeight = modal.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(Modal.FILL_HEIGHT, fillHeight));
 		}
 	}
 
-	protected void renderFocusOn(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getFocusOn() != null) {
-			renrederedAttributes.add(renderArray("focusOn", modal.getFocusOn()));
+	protected void renderFocusOn(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object focusOn = modal.getFocusOn();
+
+		if (focusOn != null) {
+			renderedAttributes.add(renderArray(Modal.FOCUS_ON, focusOn));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", modal.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean focused = modal.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(Modal.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", modal.getFooterContent()));
+	protected void renderFooterContent(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object footerContent = modal.getFooterContent();
+
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(Modal.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", modal.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object headerContent = modal.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(Modal.HEADER_CONTENT, headerContent));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", modal.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object height = modal.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(Modal.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideOn(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getHideOn() != null) {
-			renrederedAttributes.add(renderArray("hideOn", modal.getHideOn()));
+	protected void renderHideOn(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object hideOn = modal.getHideOn();
+
+		if (hideOn != null) {
+			renderedAttributes.add(renderArray(Modal.HIDE_ON, hideOn));
 		}
 	}
 
-	protected void renderModalId(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getModalId() != null) {
-			renrederedAttributes.add(renderString("modalId", modal.getModalId()));
+	protected void renderModalId(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String modalId = modal.getModalId();
+
+		if (modalId != null) {
+			renderedAttributes.add(renderString(Modal.MODAL_ID, modalId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", modal.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean initialized = modal.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(Modal.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderModalLocale(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getModalLocale() != null) {
-			renrederedAttributes.add(renderString("modalLocale", modal.getModalLocale()));
+	protected void renderModalLocale(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String modalLocale = modal.getModalLocale();
+
+		if (modalLocale != null) {
+			renderedAttributes.add(renderString(Modal.MODAL_LOCALE, modalLocale));
 		}
 	}
 
-	protected void renderMaskNode(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getMaskNode() != null) {
-			renrederedAttributes.add(renderString("maskNode", modal.getMaskNode()));
+	protected void renderMaskNode(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object maskNode = modal.getMaskNode();
+
+		if (maskNode != null) {
+			renderedAttributes.add(renderString(Modal.MASK_NODE, maskNode));
 		}
 	}
 
-	protected void renderModal(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getModal() != null) {
-			renrederedAttributes.add(renderBoolean("modal", modal.getModal()));
+	protected void renderModal(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean modal = modal.getModal();
+
+		if (modal != null) {
+			renderedAttributes.add(renderBoolean(Modal.MODAL, modal));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", modal.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean preventOverlap = modal.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(Modal.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getRender() != null) {
-			renrederedAttributes.add(renderString("render", modal.getRender()));
+	protected void renderRender(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object render = modal.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(Modal.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", modal.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean rendered = modal.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(Modal.RENDERED, rendered));
 		}
 	}
 
-	protected void renderResizable(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getResizable() != null) {
-			renrederedAttributes.add(renderObject("resizable", modal.getResizable()));
+	protected void renderResizable(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object resizable = modal.getResizable();
+
+		if (resizable != null) {
+			renderedAttributes.add(renderObject(Modal.RESIZABLE, resizable));
 		}
 	}
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", modal.getShim()));
+	protected void renderShim(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean shim = modal.getShim();
+
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(Modal.SHIM, shim));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", modal.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String srcNode = modal.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(Modal.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", modal.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object strings = modal.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(Modal.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", modal.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object tabIndex = modal.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(Modal.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderToolbarPosition(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getToolbarPosition() != null) {
-			renrederedAttributes.add(renderObject("toolbarPosition", modal.getToolbarPosition()));
+	protected void renderToolbarPosition(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object toolbarPosition = modal.getToolbarPosition();
+
+		if (toolbarPosition != null) {
+			renderedAttributes.add(renderObject(Modal.TOOLBAR_POSITION, toolbarPosition));
 		}
 	}
 
-	protected void renderToolbars(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getToolbars() != null) {
-			renrederedAttributes.add(renderString("toolbars", modal.getToolbars()));
+	protected void renderToolbars(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object toolbars = modal.getToolbars();
+
+		if (toolbars != null) {
+			renderedAttributes.add(renderString(Modal.TOOLBARS, toolbars));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", modal.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Boolean visible = modal.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(Modal.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", modal.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object width = modal.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(Modal.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", modal.getX()));
+	protected void renderX(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object x = modal.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(Modal.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", modal.getXy()));
+	protected void renderXy(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object xy = modal.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(Modal.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", modal.getY()));
+	protected void renderY(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object y = modal.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(Modal.Y, y));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, Modal modal) throws IOException {
-		if (modal.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", modal.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.Object zIndex = modal.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(Modal.Z_INDEX, zIndex));
 		}
 	}
 

@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.textcelleditor;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,322 +30,403 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TextCellEditorRendererBase extends AUIRenderer {
+public abstract class TextCellEditorRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-datatable-edit";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TextCellEditor textCellEditor = (TextCellEditor) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TextCellEditor textCellEditor = (TextCellEditor) uiComponent;
 
-		bufferedResponseWriter.write("var textCellEditor = new A.TextCellEditor");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var textCellEditor = new A.TextCellEditor");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlign(renrederedAttributes, textCellEditor);
-		renderAlignOn(renrederedAttributes, textCellEditor);
-		renderTextcelleditorBodyContent(renrederedAttributes, textCellEditor);
-		renderBoundingBox(renrederedAttributes, textCellEditor);
-		renderCentered(renrederedAttributes, textCellEditor);
-		renderConstrain(renrederedAttributes, textCellEditor);
-		renderContentBox(renrederedAttributes, textCellEditor);
-		renderDestroyed(renrederedAttributes, textCellEditor);
-		renderDisabled(renrederedAttributes, textCellEditor);
-		renderEditable(renrederedAttributes, textCellEditor);
-		renderElementName(renrederedAttributes, textCellEditor);
-		renderFillHeight(renrederedAttributes, textCellEditor);
-		renderFocused(renrederedAttributes, textCellEditor);
-		renderFooterContent(renrederedAttributes, textCellEditor);
-		renderHeaderContent(renrederedAttributes, textCellEditor);
-		renderHeight(renrederedAttributes, textCellEditor);
-		renderHideOnSave(renrederedAttributes, textCellEditor);
-		renderTextcelleditorId(renrederedAttributes, textCellEditor);
-		renderInitialized(renrederedAttributes, textCellEditor);
-		renderInputFormatter(renrederedAttributes, textCellEditor);
-		renderTextcelleditorLocale(renrederedAttributes, textCellEditor);
-		renderOutputFormatter(renrederedAttributes, textCellEditor);
-		renderPreventOverlap(renrederedAttributes, textCellEditor);
-		renderRender(renrederedAttributes, textCellEditor);
-		renderRendered(renrederedAttributes, textCellEditor);
-		renderShim(renrederedAttributes, textCellEditor);
-		renderShowToolbar(renrederedAttributes, textCellEditor);
-		renderSrcNode(renrederedAttributes, textCellEditor);
-		renderStrings(renrederedAttributes, textCellEditor);
-		renderTabIndex(renrederedAttributes, textCellEditor);
-		renderToolbar(renrederedAttributes, textCellEditor);
-		renderUnescapeValue(renrederedAttributes, textCellEditor);
-		renderValidator(renrederedAttributes, textCellEditor);
-		renderTextcelleditorValue(renrederedAttributes, textCellEditor);
-		renderVisible(renrederedAttributes, textCellEditor);
-		renderWidth(renrederedAttributes, textCellEditor);
-		renderX(renrederedAttributes, textCellEditor);
-		renderXy(renrederedAttributes, textCellEditor);
-		renderY(renrederedAttributes, textCellEditor);
-		renderZIndex(renrederedAttributes, textCellEditor);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlign(renderedAttributes, textCellEditor);
+		renderAlignOn(renderedAttributes, textCellEditor);
+		renderTextcelleditorBodyContent(renderedAttributes, textCellEditor);
+		renderBoundingBox(renderedAttributes, textCellEditor);
+		renderCentered(renderedAttributes, textCellEditor);
+		renderConstrain(renderedAttributes, textCellEditor);
+		renderContentBox(renderedAttributes, textCellEditor);
+		renderDestroyed(renderedAttributes, textCellEditor);
+		renderDisabled(renderedAttributes, textCellEditor);
+		renderEditable(renderedAttributes, textCellEditor);
+		renderElementName(renderedAttributes, textCellEditor);
+		renderFillHeight(renderedAttributes, textCellEditor);
+		renderFocused(renderedAttributes, textCellEditor);
+		renderFooterContent(renderedAttributes, textCellEditor);
+		renderHeaderContent(renderedAttributes, textCellEditor);
+		renderHeight(renderedAttributes, textCellEditor);
+		renderHideOnSave(renderedAttributes, textCellEditor);
+		renderTextcelleditorId(renderedAttributes, textCellEditor);
+		renderInitialized(renderedAttributes, textCellEditor);
+		renderInputFormatter(renderedAttributes, textCellEditor);
+		renderTextcelleditorLocale(renderedAttributes, textCellEditor);
+		renderOutputFormatter(renderedAttributes, textCellEditor);
+		renderPreventOverlap(renderedAttributes, textCellEditor);
+		renderRender(renderedAttributes, textCellEditor);
+		renderRendered(renderedAttributes, textCellEditor);
+		renderShim(renderedAttributes, textCellEditor);
+		renderShowToolbar(renderedAttributes, textCellEditor);
+		renderSrcNode(renderedAttributes, textCellEditor);
+		renderStrings(renderedAttributes, textCellEditor);
+		renderTabIndex(renderedAttributes, textCellEditor);
+		renderToolbar(renderedAttributes, textCellEditor);
+		renderUnescapeValue(renderedAttributes, textCellEditor);
+		renderValidator(renderedAttributes, textCellEditor);
+		renderTextcelleditorValue(renderedAttributes, textCellEditor);
+		renderVisible(renderedAttributes, textCellEditor);
+		renderWidth(renderedAttributes, textCellEditor);
+		renderX(renderedAttributes, textCellEditor);
+		renderXy(renderedAttributes, textCellEditor);
+		renderY(renderedAttributes, textCellEditor);
+		renderZIndex(renderedAttributes, textCellEditor);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlign(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getAlign() != null) {
-			renrederedAttributes.add(renderObject("align", textCellEditor.getAlign()));
+	protected void renderAlign(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object align = textCellEditor.getAlign();
+
+		if (align != null) {
+			renderedAttributes.add(renderObject(TextCellEditor.ALIGN, align));
 		}
 	}
 
-	protected void renderAlignOn(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getAlignOn() != null) {
-			renrederedAttributes.add(renderArray("alignOn", textCellEditor.getAlignOn()));
+	protected void renderAlignOn(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object alignOn = textCellEditor.getAlignOn();
+
+		if (alignOn != null) {
+			renderedAttributes.add(renderArray(TextCellEditor.ALIGN_ON, alignOn));
 		}
 	}
 
-	protected void renderTextcelleditorBodyContent(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getTextcelleditorBodyContent() != null) {
-			renrederedAttributes.add(renderString("textcelleditorBodyContent", textCellEditor.getTextcelleditorBodyContent()));
+	protected void renderTextcelleditorBodyContent(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object textcelleditorBodyContent = textCellEditor.getTextcelleditorBodyContent();
+
+		if (textcelleditorBodyContent != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_BODY_CONTENT, textcelleditorBodyContent));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", textCellEditor.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String boundingBox = textCellEditor.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(TextCellEditor.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCentered(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getCentered() != null) {
-			renrederedAttributes.add(renderString("centered", textCellEditor.getCentered()));
+	protected void renderCentered(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object centered = textCellEditor.getCentered();
+
+		if (centered != null) {
+			renderedAttributes.add(renderString(TextCellEditor.CENTERED, centered));
 		}
 	}
 
-	protected void renderConstrain(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getConstrain() != null) {
-			renrederedAttributes.add(renderString("constrain", textCellEditor.getConstrain()));
+	protected void renderConstrain(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object constrain = textCellEditor.getConstrain();
+
+		if (constrain != null) {
+			renderedAttributes.add(renderString(TextCellEditor.CONSTRAIN, constrain));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", textCellEditor.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String contentBox = textCellEditor.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(TextCellEditor.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", textCellEditor.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean destroyed = textCellEditor.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDisabled(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getDisabled() != null) {
-			renrederedAttributes.add(renderBoolean("disabled", textCellEditor.getDisabled()));
+	protected void renderDisabled(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean disabled = textCellEditor.getDisabled();
+
+		if (disabled != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.DISABLED, disabled));
 		}
 	}
 
-	protected void renderEditable(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getEditable() != null) {
-			renrederedAttributes.add(renderBoolean("editable", textCellEditor.getEditable()));
+	protected void renderEditable(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean editable = textCellEditor.getEditable();
+
+		if (editable != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.EDITABLE, editable));
 		}
 	}
 
-	protected void renderElementName(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getElementName() != null) {
-			renrederedAttributes.add(renderString("elementName", textCellEditor.getElementName()));
+	protected void renderElementName(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String elementName = textCellEditor.getElementName();
+
+		if (elementName != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ELEMENT_NAME, elementName));
 		}
 	}
 
-	protected void renderFillHeight(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getFillHeight() != null) {
-			renrederedAttributes.add(renderString("fillHeight", textCellEditor.getFillHeight()));
+	protected void renderFillHeight(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object fillHeight = textCellEditor.getFillHeight();
+
+		if (fillHeight != null) {
+			renderedAttributes.add(renderString(TextCellEditor.FILL_HEIGHT, fillHeight));
 		}
 	}
 
-	protected void renderFocused(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getFocused() != null) {
-			renrederedAttributes.add(renderBoolean("focused", textCellEditor.getFocused()));
+	protected void renderFocused(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean focused = textCellEditor.getFocused();
+
+		if (focused != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.FOCUSED, focused));
 		}
 	}
 
-	protected void renderFooterContent(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getFooterContent() != null) {
-			renrederedAttributes.add(renderString("footerContent", textCellEditor.getFooterContent()));
+	protected void renderFooterContent(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String footerContent = textCellEditor.getFooterContent();
+
+		if (footerContent != null) {
+			renderedAttributes.add(renderString(TextCellEditor.FOOTER_CONTENT, footerContent));
 		}
 	}
 
-	protected void renderHeaderContent(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getHeaderContent() != null) {
-			renrederedAttributes.add(renderString("headerContent", textCellEditor.getHeaderContent()));
+	protected void renderHeaderContent(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object headerContent = textCellEditor.getHeaderContent();
+
+		if (headerContent != null) {
+			renderedAttributes.add(renderString(TextCellEditor.HEADER_CONTENT, headerContent));
 		}
 	}
 
-	protected void renderHeight(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getHeight() != null) {
-			renrederedAttributes.add(renderString("height", textCellEditor.getHeight()));
+	protected void renderHeight(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object height = textCellEditor.getHeight();
+
+		if (height != null) {
+			renderedAttributes.add(renderString(TextCellEditor.HEIGHT, height));
 		}
 	}
 
-	protected void renderHideOnSave(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getHideOnSave() != null) {
-			renrederedAttributes.add(renderBoolean("hideOnSave", textCellEditor.getHideOnSave()));
+	protected void renderHideOnSave(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean hideOnSave = textCellEditor.getHideOnSave();
+
+		if (hideOnSave != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.HIDE_ON_SAVE, hideOnSave));
 		}
 	}
 
-	protected void renderTextcelleditorId(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getTextcelleditorId() != null) {
-			renrederedAttributes.add(renderString("textcelleditorId", textCellEditor.getTextcelleditorId()));
+	protected void renderTextcelleditorId(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String textcelleditorId = textCellEditor.getTextcelleditorId();
+
+		if (textcelleditorId != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_ID, textcelleditorId));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", textCellEditor.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean initialized = textCellEditor.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderInputFormatter(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getInputFormatter() != null) {
-			renrederedAttributes.add(renderString("inputFormatter", textCellEditor.getInputFormatter()));
+	protected void renderInputFormatter(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object inputFormatter = textCellEditor.getInputFormatter();
+
+		if (inputFormatter != null) {
+			renderedAttributes.add(renderString(TextCellEditor.INPUT_FORMATTER, inputFormatter));
 		}
 	}
 
-	protected void renderTextcelleditorLocale(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getTextcelleditorLocale() != null) {
-			renrederedAttributes.add(renderString("textcelleditorLocale", textCellEditor.getTextcelleditorLocale()));
+	protected void renderTextcelleditorLocale(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String textcelleditorLocale = textCellEditor.getTextcelleditorLocale();
+
+		if (textcelleditorLocale != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_LOCALE, textcelleditorLocale));
 		}
 	}
 
-	protected void renderOutputFormatter(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getOutputFormatter() != null) {
-			renrederedAttributes.add(renderString("outputFormatter", textCellEditor.getOutputFormatter()));
+	protected void renderOutputFormatter(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object outputFormatter = textCellEditor.getOutputFormatter();
+
+		if (outputFormatter != null) {
+			renderedAttributes.add(renderString(TextCellEditor.OUTPUT_FORMATTER, outputFormatter));
 		}
 	}
 
-	protected void renderPreventOverlap(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getPreventOverlap() != null) {
-			renrederedAttributes.add(renderBoolean("preventOverlap", textCellEditor.getPreventOverlap()));
+	protected void renderPreventOverlap(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean preventOverlap = textCellEditor.getPreventOverlap();
+
+		if (preventOverlap != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.PREVENT_OVERLAP, preventOverlap));
 		}
 	}
 
-	protected void renderRender(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getRender() != null) {
-			renrederedAttributes.add(renderString("render", textCellEditor.getRender()));
+	protected void renderRender(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object render = textCellEditor.getRender();
+
+		if (render != null) {
+			renderedAttributes.add(renderString(TextCellEditor.RENDER, render));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", textCellEditor.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean rendered = textCellEditor.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.RENDERED, rendered));
 		}
 	}
 
-	protected void renderShim(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getShim() != null) {
-			renrederedAttributes.add(renderBoolean("shim", textCellEditor.getShim()));
+	protected void renderShim(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean shim = textCellEditor.getShim();
+
+		if (shim != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.SHIM, shim));
 		}
 	}
 
-	protected void renderShowToolbar(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getShowToolbar() != null) {
-			renrederedAttributes.add(renderBoolean("showToolbar", textCellEditor.getShowToolbar()));
+	protected void renderShowToolbar(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean showToolbar = textCellEditor.getShowToolbar();
+
+		if (showToolbar != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.SHOW_TOOLBAR, showToolbar));
 		}
 	}
 
-	protected void renderSrcNode(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getSrcNode() != null) {
-			renrederedAttributes.add(renderString("srcNode", textCellEditor.getSrcNode()));
+	protected void renderSrcNode(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String srcNode = textCellEditor.getSrcNode();
+
+		if (srcNode != null) {
+			renderedAttributes.add(renderString(TextCellEditor.SRC_NODE, srcNode));
 		}
 	}
 
-	protected void renderStrings(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getStrings() != null) {
-			renrederedAttributes.add(renderObject("strings", textCellEditor.getStrings()));
+	protected void renderStrings(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object strings = textCellEditor.getStrings();
+
+		if (strings != null) {
+			renderedAttributes.add(renderObject(TextCellEditor.STRINGS, strings));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getTabIndex() != null) {
-			renrederedAttributes.add(renderNumber("tabIndex", textCellEditor.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object tabIndex = textCellEditor.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderNumber(TextCellEditor.TAB_INDEX, tabIndex));
 		}
 	}
 
-	protected void renderToolbar(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getToolbar() != null) {
-			renrederedAttributes.add(renderObject("toolbar", textCellEditor.getToolbar()));
+	protected void renderToolbar(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object toolbar = textCellEditor.getToolbar();
+
+		if (toolbar != null) {
+			renderedAttributes.add(renderObject(TextCellEditor.TOOLBAR, toolbar));
 		}
 	}
 
-	protected void renderUnescapeValue(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getUnescapeValue() != null) {
-			renrederedAttributes.add(renderBoolean("unescapeValue", textCellEditor.getUnescapeValue()));
+	protected void renderUnescapeValue(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean unescapeValue = textCellEditor.getUnescapeValue();
+
+		if (unescapeValue != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.UNESCAPE_VALUE, unescapeValue));
 		}
 	}
 
-	protected void renderValidator(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getValidator() != null) {
-			renrederedAttributes.add(renderObject("validator", textCellEditor.getValidator()));
+	protected void renderValidator(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object validator = textCellEditor.getValidator();
+
+		if (validator != null) {
+			renderedAttributes.add(renderObject(TextCellEditor.VALIDATOR, validator));
 		}
 	}
 
-	protected void renderTextcelleditorValue(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getTextcelleditorValue() != null) {
-			renrederedAttributes.add(renderString("textcelleditorValue", textCellEditor.getTextcelleditorValue()));
+	protected void renderTextcelleditorValue(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String textcelleditorValue = textCellEditor.getTextcelleditorValue();
+
+		if (textcelleditorValue != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_VALUE, textcelleditorValue));
 		}
 	}
 
-	protected void renderVisible(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getVisible() != null) {
-			renrederedAttributes.add(renderBoolean("visible", textCellEditor.getVisible()));
+	protected void renderVisible(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Boolean visible = textCellEditor.getVisible();
+
+		if (visible != null) {
+			renderedAttributes.add(renderBoolean(TextCellEditor.VISIBLE, visible));
 		}
 	}
 
-	protected void renderWidth(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getWidth() != null) {
-			renrederedAttributes.add(renderString("width", textCellEditor.getWidth()));
+	protected void renderWidth(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object width = textCellEditor.getWidth();
+
+		if (width != null) {
+			renderedAttributes.add(renderString(TextCellEditor.WIDTH, width));
 		}
 	}
 
-	protected void renderX(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getX() != null) {
-			renrederedAttributes.add(renderNumber("x", textCellEditor.getX()));
+	protected void renderX(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object x = textCellEditor.getX();
+
+		if (x != null) {
+			renderedAttributes.add(renderNumber(TextCellEditor.X, x));
 		}
 	}
 
-	protected void renderXy(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getXy() != null) {
-			renrederedAttributes.add(renderArray("xy", textCellEditor.getXy()));
+	protected void renderXy(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object xy = textCellEditor.getXy();
+
+		if (xy != null) {
+			renderedAttributes.add(renderArray(TextCellEditor.XY, xy));
 		}
 	}
 
-	protected void renderY(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getY() != null) {
-			renrederedAttributes.add(renderNumber("y", textCellEditor.getY()));
+	protected void renderY(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object y = textCellEditor.getY();
+
+		if (y != null) {
+			renderedAttributes.add(renderNumber(TextCellEditor.Y, y));
 		}
 	}
 
-	protected void renderZIndex(ArrayList<String> renrederedAttributes, TextCellEditor textCellEditor) throws IOException {
-		if (textCellEditor.getZIndex() != null) {
-			renrederedAttributes.add(renderNumber("zIndex", textCellEditor.getZIndex()));
+	protected void renderZIndex(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object zIndex = textCellEditor.getZIndex();
+
+		if (zIndex != null) {
+			renderedAttributes.add(renderNumber(TextCellEditor.Z_INDEX, zIndex));
 		}
 	}
 

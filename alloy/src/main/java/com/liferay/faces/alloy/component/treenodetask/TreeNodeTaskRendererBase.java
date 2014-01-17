@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.treenodetask;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,266 +30,331 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TreeNodeTaskRendererBase extends AUIRenderer {
+public abstract class TreeNodeTaskRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-tree-node";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TreeNodeTask treeNodeTask = (TreeNodeTask) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TreeNodeTask treeNodeTask = (TreeNodeTask) uiComponent;
 
-		bufferedResponseWriter.write("var treeNodeTask = new A.TreeNodeTask");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var treeNodeTask = new A.TreeNodeTask");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAlwaysShowHitArea(renrederedAttributes, treeNodeTask);
-		renderBoundingBox(renrederedAttributes, treeNodeTask);
-		renderCache(renrederedAttributes, treeNodeTask);
-		renderCheckContainerEl(renrederedAttributes, treeNodeTask);
-		renderCheckEl(renrederedAttributes, treeNodeTask);
-		renderCheckName(renrederedAttributes, treeNodeTask);
-		renderChecked(renrederedAttributes, treeNodeTask);
-		renderTreenodetaskChildren(renrederedAttributes, treeNodeTask);
-		renderContainer(renrederedAttributes, treeNodeTask);
-		renderContentBox(renrederedAttributes, treeNodeTask);
-		renderCssClasses(renrederedAttributes, treeNodeTask);
-		renderDestroyed(renrederedAttributes, treeNodeTask);
-		renderDraggable(renrederedAttributes, treeNodeTask);
-		renderExpanded(renrederedAttributes, treeNodeTask);
-		renderHitAreaEl(renrederedAttributes, treeNodeTask);
-		renderIconEl(renrederedAttributes, treeNodeTask);
-		renderTreenodetaskId(renrederedAttributes, treeNodeTask);
-		renderIndex(renrederedAttributes, treeNodeTask);
-		renderInitialized(renrederedAttributes, treeNodeTask);
-		renderIo(renrederedAttributes, treeNodeTask);
-		renderLabel(renrederedAttributes, treeNodeTask);
-		renderLabelEl(renrederedAttributes, treeNodeTask);
-		renderLeaf(renrederedAttributes, treeNodeTask);
-		renderLoaded(renrederedAttributes, treeNodeTask);
-		renderLoading(renrederedAttributes, treeNodeTask);
-		renderNextSibling(renrederedAttributes, treeNodeTask);
-		renderOwnerTree(renrederedAttributes, treeNodeTask);
-		renderPaginator(renrederedAttributes, treeNodeTask);
-		renderParentNode(renrederedAttributes, treeNodeTask);
-		renderPrevSibling(renrederedAttributes, treeNodeTask);
-		renderRendered(renrederedAttributes, treeNodeTask);
-		renderTabIndex(renrederedAttributes, treeNodeTask);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAlwaysShowHitArea(renderedAttributes, treeNodeTask);
+		renderBoundingBox(renderedAttributes, treeNodeTask);
+		renderCache(renderedAttributes, treeNodeTask);
+		renderCheckContainerEl(renderedAttributes, treeNodeTask);
+		renderCheckEl(renderedAttributes, treeNodeTask);
+		renderCheckName(renderedAttributes, treeNodeTask);
+		renderChecked(renderedAttributes, treeNodeTask);
+		renderTreenodetaskChildren(renderedAttributes, treeNodeTask);
+		renderContainer(renderedAttributes, treeNodeTask);
+		renderContentBox(renderedAttributes, treeNodeTask);
+		renderCssClasses(renderedAttributes, treeNodeTask);
+		renderDestroyed(renderedAttributes, treeNodeTask);
+		renderDraggable(renderedAttributes, treeNodeTask);
+		renderExpanded(renderedAttributes, treeNodeTask);
+		renderHitAreaEl(renderedAttributes, treeNodeTask);
+		renderIconEl(renderedAttributes, treeNodeTask);
+		renderTreenodetaskId(renderedAttributes, treeNodeTask);
+		renderIndex(renderedAttributes, treeNodeTask);
+		renderInitialized(renderedAttributes, treeNodeTask);
+		renderIo(renderedAttributes, treeNodeTask);
+		renderLabel(renderedAttributes, treeNodeTask);
+		renderLabelEl(renderedAttributes, treeNodeTask);
+		renderLeaf(renderedAttributes, treeNodeTask);
+		renderLoaded(renderedAttributes, treeNodeTask);
+		renderLoading(renderedAttributes, treeNodeTask);
+		renderNextSibling(renderedAttributes, treeNodeTask);
+		renderOwnerTree(renderedAttributes, treeNodeTask);
+		renderPaginator(renderedAttributes, treeNodeTask);
+		renderParentNode(renderedAttributes, treeNodeTask);
+		renderPrevSibling(renderedAttributes, treeNodeTask);
+		renderRendered(renderedAttributes, treeNodeTask);
+		renderTabIndex(renderedAttributes, treeNodeTask);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAlwaysShowHitArea(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getAlwaysShowHitArea() != null) {
-			renrederedAttributes.add(renderBoolean("alwaysShowHitArea", treeNodeTask.getAlwaysShowHitArea()));
+	protected void renderAlwaysShowHitArea(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean alwaysShowHitArea = treeNodeTask.getAlwaysShowHitArea();
+
+		if (alwaysShowHitArea != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.ALWAYS_SHOW_HIT_AREA, alwaysShowHitArea));
 		}
 	}
 
-	protected void renderBoundingBox(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getBoundingBox() != null) {
-			renrederedAttributes.add(renderString("boundingBox", treeNodeTask.getBoundingBox()));
+	protected void renderBoundingBox(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String boundingBox = treeNodeTask.getBoundingBox();
+
+		if (boundingBox != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.BOUNDING_BOX, boundingBox));
 		}
 	}
 
-	protected void renderCache(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getCache() != null) {
-			renrederedAttributes.add(renderBoolean("cache", treeNodeTask.getCache()));
+	protected void renderCache(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean cache = treeNodeTask.getCache();
+
+		if (cache != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.CACHE, cache));
 		}
 	}
 
-	protected void renderCheckContainerEl(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getCheckContainerEl() != null) {
-			renrederedAttributes.add(renderString("checkContainerEl", treeNodeTask.getCheckContainerEl()));
+	protected void renderCheckContainerEl(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String checkContainerEl = treeNodeTask.getCheckContainerEl();
+
+		if (checkContainerEl != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.CHECK_CONTAINER_EL, checkContainerEl));
 		}
 	}
 
-	protected void renderCheckEl(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getCheckEl() != null) {
-			renrederedAttributes.add(renderString("checkEl", treeNodeTask.getCheckEl()));
+	protected void renderCheckEl(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String checkEl = treeNodeTask.getCheckEl();
+
+		if (checkEl != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.CHECK_EL, checkEl));
 		}
 	}
 
-	protected void renderCheckName(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getCheckName() != null) {
-			renrederedAttributes.add(renderString("checkName", treeNodeTask.getCheckName()));
+	protected void renderCheckName(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String checkName = treeNodeTask.getCheckName();
+
+		if (checkName != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.CHECK_NAME, checkName));
 		}
 	}
 
-	protected void renderChecked(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getChecked() != null) {
-			renrederedAttributes.add(renderBoolean("checked", treeNodeTask.getChecked()));
+	protected void renderChecked(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean checked = treeNodeTask.getChecked();
+
+		if (checked != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.CHECKED, checked));
 		}
 	}
 
-	protected void renderTreenodetaskChildren(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getTreenodetaskChildren() != null) {
-			renrederedAttributes.add(renderArray("treenodetaskChildren", treeNodeTask.getTreenodetaskChildren()));
+	protected void renderTreenodetaskChildren(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object treenodetaskChildren = treeNodeTask.getTreenodetaskChildren();
+
+		if (treenodetaskChildren != null) {
+			renderedAttributes.add(renderArray(TreeNodeTask.TREENODETASK_CHILDREN, treenodetaskChildren));
 		}
 	}
 
-	protected void renderContainer(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getContainer() != null) {
-			renrederedAttributes.add(renderString("container", treeNodeTask.getContainer()));
+	protected void renderContainer(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String container = treeNodeTask.getContainer();
+
+		if (container != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.CONTAINER, container));
 		}
 	}
 
-	protected void renderContentBox(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getContentBox() != null) {
-			renrederedAttributes.add(renderString("contentBox", treeNodeTask.getContentBox()));
+	protected void renderContentBox(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String contentBox = treeNodeTask.getContentBox();
+
+		if (contentBox != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.CONTENT_BOX, contentBox));
 		}
 	}
 
-	protected void renderCssClasses(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getCssClasses() != null) {
-			renrederedAttributes.add(renderObject("cssClasses", treeNodeTask.getCssClasses()));
+	protected void renderCssClasses(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object cssClasses = treeNodeTask.getCssClasses();
+
+		if (cssClasses != null) {
+			renderedAttributes.add(renderObject(TreeNodeTask.CSS_CLASSES, cssClasses));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", treeNodeTask.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean destroyed = treeNodeTask.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderDraggable(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getDraggable() != null) {
-			renrederedAttributes.add(renderBoolean("draggable", treeNodeTask.getDraggable()));
+	protected void renderDraggable(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean draggable = treeNodeTask.getDraggable();
+
+		if (draggable != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.DRAGGABLE, draggable));
 		}
 	}
 
-	protected void renderExpanded(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getExpanded() != null) {
-			renrederedAttributes.add(renderBoolean("expanded", treeNodeTask.getExpanded()));
+	protected void renderExpanded(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean expanded = treeNodeTask.getExpanded();
+
+		if (expanded != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.EXPANDED, expanded));
 		}
 	}
 
-	protected void renderHitAreaEl(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getHitAreaEl() != null) {
-			renrederedAttributes.add(renderString("hitAreaEl", treeNodeTask.getHitAreaEl()));
+	protected void renderHitAreaEl(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String hitAreaEl = treeNodeTask.getHitAreaEl();
+
+		if (hitAreaEl != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.HIT_AREA_EL, hitAreaEl));
 		}
 	}
 
-	protected void renderIconEl(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getIconEl() != null) {
-			renrederedAttributes.add(renderString("iconEl", treeNodeTask.getIconEl()));
+	protected void renderIconEl(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String iconEl = treeNodeTask.getIconEl();
+
+		if (iconEl != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.ICON_EL, iconEl));
 		}
 	}
 
-	protected void renderTreenodetaskId(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getTreenodetaskId() != null) {
-			renrederedAttributes.add(renderString("treenodetaskId", treeNodeTask.getTreenodetaskId()));
+	protected void renderTreenodetaskId(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String treenodetaskId = treeNodeTask.getTreenodetaskId();
+
+		if (treenodetaskId != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.TREENODETASK_ID, treenodetaskId));
 		}
 	}
 
-	protected void renderIndex(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getIndex() != null) {
-			renrederedAttributes.add(renderObject("index", treeNodeTask.getIndex()));
+	protected void renderIndex(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object index = treeNodeTask.getIndex();
+
+		if (index != null) {
+			renderedAttributes.add(renderObject(TreeNodeTask.INDEX, index));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", treeNodeTask.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean initialized = treeNodeTask.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderIo(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getIo() != null) {
-			renrederedAttributes.add(renderObject("io", treeNodeTask.getIo()));
+	protected void renderIo(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object io = treeNodeTask.getIo();
+
+		if (io != null) {
+			renderedAttributes.add(renderObject(TreeNodeTask.IO, io));
 		}
 	}
 
-	protected void renderLabel(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getLabel() != null) {
-			renrederedAttributes.add(renderString("label", treeNodeTask.getLabel()));
+	protected void renderLabel(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String label = treeNodeTask.getLabel();
+
+		if (label != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.LABEL, label));
 		}
 	}
 
-	protected void renderLabelEl(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getLabelEl() != null) {
-			renrederedAttributes.add(renderString("labelEl", treeNodeTask.getLabelEl()));
+	protected void renderLabelEl(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String labelEl = treeNodeTask.getLabelEl();
+
+		if (labelEl != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.LABEL_EL, labelEl));
 		}
 	}
 
-	protected void renderLeaf(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getLeaf() != null) {
-			renrederedAttributes.add(renderBoolean("leaf", treeNodeTask.getLeaf()));
+	protected void renderLeaf(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean leaf = treeNodeTask.getLeaf();
+
+		if (leaf != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.LEAF, leaf));
 		}
 	}
 
-	protected void renderLoaded(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getLoaded() != null) {
-			renrederedAttributes.add(renderBoolean("loaded", treeNodeTask.getLoaded()));
+	protected void renderLoaded(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean loaded = treeNodeTask.getLoaded();
+
+		if (loaded != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.LOADED, loaded));
 		}
 	}
 
-	protected void renderLoading(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getLoading() != null) {
-			renrederedAttributes.add(renderBoolean("loading", treeNodeTask.getLoading()));
+	protected void renderLoading(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean loading = treeNodeTask.getLoading();
+
+		if (loading != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.LOADING, loading));
 		}
 	}
 
-	protected void renderNextSibling(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getNextSibling() != null) {
-			renrederedAttributes.add(renderString("nextSibling", treeNodeTask.getNextSibling()));
+	protected void renderNextSibling(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object nextSibling = treeNodeTask.getNextSibling();
+
+		if (nextSibling != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.NEXT_SIBLING, nextSibling));
 		}
 	}
 
-	protected void renderOwnerTree(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getOwnerTree() != null) {
-			renrederedAttributes.add(renderString("ownerTree", treeNodeTask.getOwnerTree()));
+	protected void renderOwnerTree(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object ownerTree = treeNodeTask.getOwnerTree();
+
+		if (ownerTree != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.OWNER_TREE, ownerTree));
 		}
 	}
 
-	protected void renderPaginator(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getPaginator() != null) {
-			renrederedAttributes.add(renderObject("paginator", treeNodeTask.getPaginator()));
+	protected void renderPaginator(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object paginator = treeNodeTask.getPaginator();
+
+		if (paginator != null) {
+			renderedAttributes.add(renderObject(TreeNodeTask.PAGINATOR, paginator));
 		}
 	}
 
-	protected void renderParentNode(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getParentNode() != null) {
-			renrederedAttributes.add(renderString("parentNode", treeNodeTask.getParentNode()));
+	protected void renderParentNode(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object parentNode = treeNodeTask.getParentNode();
+
+		if (parentNode != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.PARENT_NODE, parentNode));
 		}
 	}
 
-	protected void renderPrevSibling(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getPrevSibling() != null) {
-			renrederedAttributes.add(renderString("prevSibling", treeNodeTask.getPrevSibling()));
+	protected void renderPrevSibling(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object prevSibling = treeNodeTask.getPrevSibling();
+
+		if (prevSibling != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.PREV_SIBLING, prevSibling));
 		}
 	}
 
-	protected void renderRendered(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getRendered() != null) {
-			renrederedAttributes.add(renderBoolean("rendered", treeNodeTask.getRendered()));
+	protected void renderRendered(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Boolean rendered = treeNodeTask.getRendered();
+
+		if (rendered != null) {
+			renderedAttributes.add(renderBoolean(TreeNodeTask.RENDERED, rendered));
 		}
 	}
 
-	protected void renderTabIndex(ArrayList<String> renrederedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		if (treeNodeTask.getTabIndex() != null) {
-			renrederedAttributes.add(renderString("tabIndex", treeNodeTask.getTabIndex()));
+	protected void renderTabIndex(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String tabIndex = treeNodeTask.getTabIndex();
+
+		if (tabIndex != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.TAB_INDEX, tabIndex));
 		}
 	}
 

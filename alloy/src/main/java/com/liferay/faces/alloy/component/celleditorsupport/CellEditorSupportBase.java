@@ -21,9 +21,9 @@ package com.liferay.faces.alloy.component.celleditorsupport;
  */
 public abstract class CellEditorSupportBase extends javax.faces.component.UIPanel {
 
-	private static final String EDIT_EVENT = "editEvent";
-	private static final String AFTER_EDIT_EVENT_CHANGE = "afterEditEventChange";
-	private static final String ON_EDIT_EVENT_CHANGE = "onEditEventChange";
+	public static final String EDIT_EVENT = "editEvent";
+	public static final String AFTER_EDIT_EVENT_CHANGE = "afterEditEventChange";
+	public static final String ON_EDIT_EVENT_CHANGE = "onEditEventChange";
 
 	public java.lang.String getEditEvent() {
 		return (java.lang.String) getStateHelper().eval(EDIT_EVENT, null);

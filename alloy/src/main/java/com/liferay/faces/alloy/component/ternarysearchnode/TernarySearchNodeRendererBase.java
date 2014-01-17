@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.ternarysearchnode;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,91 +30,106 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TernarySearchNodeRendererBase extends AUIRenderer {
+public abstract class TernarySearchNodeRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-search-ternary-search-node";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TernarySearchNode ternarySearchNode = (TernarySearchNode) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TernarySearchNode ternarySearchNode = (TernarySearchNode) uiComponent;
 
-		bufferedResponseWriter.write("var ternarySearchNode = new A.TernarySearchNode");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var ternarySearchNode = new A.TernarySearchNode");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderCharacter(renrederedAttributes, ternarySearchNode);
-		renderChild(renrederedAttributes, ternarySearchNode);
-		renderDestroyed(renrederedAttributes, ternarySearchNode);
-		renderInitialized(renrederedAttributes, ternarySearchNode);
-		renderLargerNode(renrederedAttributes, ternarySearchNode);
-		renderSmallerNode(renrederedAttributes, ternarySearchNode);
-		renderWord(renrederedAttributes, ternarySearchNode);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderCharacter(renderedAttributes, ternarySearchNode);
+		renderChild(renderedAttributes, ternarySearchNode);
+		renderDestroyed(renderedAttributes, ternarySearchNode);
+		renderInitialized(renderedAttributes, ternarySearchNode);
+		renderLargerNode(renderedAttributes, ternarySearchNode);
+		renderSmallerNode(renderedAttributes, ternarySearchNode);
+		renderWord(renderedAttributes, ternarySearchNode);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderCharacter(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getCharacter() != null) {
-			renrederedAttributes.add(renderString("character", ternarySearchNode.getCharacter()));
+	protected void renderCharacter(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.String character = ternarySearchNode.getCharacter();
+
+		if (character != null) {
+			renderedAttributes.add(renderString(TernarySearchNode.CHARACTER, character));
 		}
 	}
 
-	protected void renderChild(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getChild() != null) {
-			renrederedAttributes.add(renderString("child", ternarySearchNode.getChild()));
+	protected void renderChild(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.String child = ternarySearchNode.getChild();
+
+		if (child != null) {
+			renderedAttributes.add(renderString(TernarySearchNode.CHILD, child));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", ternarySearchNode.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.Boolean destroyed = ternarySearchNode.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TernarySearchNode.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", ternarySearchNode.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.Boolean initialized = ternarySearchNode.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TernarySearchNode.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderLargerNode(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getLargerNode() != null) {
-			renrederedAttributes.add(renderString("largerNode", ternarySearchNode.getLargerNode()));
+	protected void renderLargerNode(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.Object largerNode = ternarySearchNode.getLargerNode();
+
+		if (largerNode != null) {
+			renderedAttributes.add(renderString(TernarySearchNode.LARGER_NODE, largerNode));
 		}
 	}
 
-	protected void renderSmallerNode(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getSmallerNode() != null) {
-			renrederedAttributes.add(renderString("smallerNode", ternarySearchNode.getSmallerNode()));
+	protected void renderSmallerNode(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.Object smallerNode = ternarySearchNode.getSmallerNode();
+
+		if (smallerNode != null) {
+			renderedAttributes.add(renderString(TernarySearchNode.SMALLER_NODE, smallerNode));
 		}
 	}
 
-	protected void renderWord(ArrayList<String> renrederedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
-		if (ternarySearchNode.getWord() != null) {
-			renrederedAttributes.add(renderString("word", ternarySearchNode.getWord()));
+	protected void renderWord(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
+		java.lang.String word = ternarySearchNode.getWord();
+
+		if (word != null) {
+			renderedAttributes.add(renderString(TernarySearchNode.WORD, word));
 		}
 	}
 

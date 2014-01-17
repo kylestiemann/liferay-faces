@@ -14,6 +14,7 @@
 package com.liferay.faces.alloy.component.togglerdelegate;
 
 import java.io.IOException;
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -21,8 +22,7 @@ import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
 
-import com.liferay.faces.alloy.component.base.AUIRenderer;
-import com.liferay.faces.alloy.renderkit.BufferedResponseWriter;
+import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
 
@@ -30,105 +30,124 @@ import com.liferay.faces.util.lang.StringPool;
  * @author Eduardo Lundgren
  * @author Bruno Basto
  * @author Nathan Cavanaugh
+ * @generated
  */
-public abstract class TogglerDelegateRendererBase extends AUIRenderer {
+public abstract class TogglerDelegateRendererBase extends RendererBase {
 
 	// Private Constants
 	private static final String AUI_MODULE_NAME = "aui-toggler";
 
-	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent component) throws IOException {
-	
-		TogglerDelegate togglerDelegate = (TogglerDelegate) component; 
+	protected void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BufferedResponseWriter bufferedResponseWriter = (BufferedResponseWriter) facesContext.getResponseWriter();
+		TogglerDelegate togglerDelegate = (TogglerDelegate) uiComponent;
 
-		bufferedResponseWriter.write("var togglerDelegate = new A.TogglerDelegate");
-		bufferedResponseWriter.write(StringPool.OPEN_PARENTHESIS);
-		bufferedResponseWriter.write(StringPool.OPEN_CURLY_BRACE);
+		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		ArrayList<String> renrederedAttributes = new ArrayList<String>();
+		responseWriter.write("var togglerDelegate = new A.TogglerDelegate");
+		responseWriter.write(StringPool.OPEN_PARENTHESIS);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-		renderAnimated(renrederedAttributes, togglerDelegate);
-		renderCloseAllOnExpand(renrederedAttributes, togglerDelegate);
-		renderContainer(renrederedAttributes, togglerDelegate);
-		renderContent(renrederedAttributes, togglerDelegate);
-		renderDestroyed(renrederedAttributes, togglerDelegate);
-		renderExpanded(renrederedAttributes, togglerDelegate);
-		renderHeader(renrederedAttributes, togglerDelegate);
-		renderInitialized(renrederedAttributes, togglerDelegate);
-		renderTransition(renrederedAttributes, togglerDelegate);
+		List<String> renderedAttributes = new ArrayList<String>();
 
-		Iterator<String> it = renrederedAttributes.iterator();
+		renderAnimated(renderedAttributes, togglerDelegate);
+		renderCloseAllOnExpand(renderedAttributes, togglerDelegate);
+		renderContainer(renderedAttributes, togglerDelegate);
+		renderContent(renderedAttributes, togglerDelegate);
+		renderDestroyed(renderedAttributes, togglerDelegate);
+		renderExpanded(renderedAttributes, togglerDelegate);
+		renderHeader(renderedAttributes, togglerDelegate);
+		renderInitialized(renderedAttributes, togglerDelegate);
+		renderTransition(renderedAttributes, togglerDelegate);
+
+		Iterator<String> it = renderedAttributes.iterator();
 
 		while (it.hasNext()) {
-			bufferedResponseWriter.write(it.next());
+			responseWriter.write(it.next());
 
 			if (it.hasNext()) {
-				bufferedResponseWriter.write(StringPool.COMMA);
+				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
-		bufferedResponseWriter.write(StringPool.CLOSE_CURLY_BRACE);
-		bufferedResponseWriter.write(StringPool.CLOSE_PARENTHESIS);
-		bufferedResponseWriter.write(".render()");
-		bufferedResponseWriter.write(StringPool.SEMICOLON);
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
+		responseWriter.write(".render()");
+		responseWriter.write(StringPool.SEMICOLON);
 	}
 
 	protected String getModule() {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderAnimated(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getAnimated() != null) {
-			renrederedAttributes.add(renderBoolean("animated", togglerDelegate.getAnimated()));
+	protected void renderAnimated(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.Boolean animated = togglerDelegate.getAnimated();
+
+		if (animated != null) {
+			renderedAttributes.add(renderBoolean(TogglerDelegate.ANIMATED, animated));
 		}
 	}
 
-	protected void renderCloseAllOnExpand(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getCloseAllOnExpand() != null) {
-			renrederedAttributes.add(renderBoolean("closeAllOnExpand", togglerDelegate.getCloseAllOnExpand()));
+	protected void renderCloseAllOnExpand(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.Boolean closeAllOnExpand = togglerDelegate.getCloseAllOnExpand();
+
+		if (closeAllOnExpand != null) {
+			renderedAttributes.add(renderBoolean(TogglerDelegate.CLOSE_ALL_ON_EXPAND, closeAllOnExpand));
 		}
 	}
 
-	protected void renderContainer(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getContainer() != null) {
-			renrederedAttributes.add(renderString("container", togglerDelegate.getContainer()));
+	protected void renderContainer(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.String container = togglerDelegate.getContainer();
+
+		if (container != null) {
+			renderedAttributes.add(renderString(TogglerDelegate.CONTAINER, container));
 		}
 	}
 
-	protected void renderContent(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getContent() != null) {
-			renrederedAttributes.add(renderString("content", togglerDelegate.getContent()));
+	protected void renderContent(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.String content = togglerDelegate.getContent();
+
+		if (content != null) {
+			renderedAttributes.add(renderString(TogglerDelegate.CONTENT, content));
 		}
 	}
 
-	protected void renderDestroyed(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getDestroyed() != null) {
-			renrederedAttributes.add(renderBoolean("destroyed", togglerDelegate.getDestroyed()));
+	protected void renderDestroyed(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.Boolean destroyed = togglerDelegate.getDestroyed();
+
+		if (destroyed != null) {
+			renderedAttributes.add(renderBoolean(TogglerDelegate.DESTROYED, destroyed));
 		}
 	}
 
-	protected void renderExpanded(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getExpanded() != null) {
-			renrederedAttributes.add(renderBoolean("expanded", togglerDelegate.getExpanded()));
+	protected void renderExpanded(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.Boolean expanded = togglerDelegate.getExpanded();
+
+		if (expanded != null) {
+			renderedAttributes.add(renderBoolean(TogglerDelegate.EXPANDED, expanded));
 		}
 	}
 
-	protected void renderHeader(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getHeader() != null) {
-			renrederedAttributes.add(renderString("header", togglerDelegate.getHeader()));
+	protected void renderHeader(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.String header = togglerDelegate.getHeader();
+
+		if (header != null) {
+			renderedAttributes.add(renderString(TogglerDelegate.HEADER, header));
 		}
 	}
 
-	protected void renderInitialized(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getInitialized() != null) {
-			renrederedAttributes.add(renderBoolean("initialized", togglerDelegate.getInitialized()));
+	protected void renderInitialized(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.Boolean initialized = togglerDelegate.getInitialized();
+
+		if (initialized != null) {
+			renderedAttributes.add(renderBoolean(TogglerDelegate.INITIALIZED, initialized));
 		}
 	}
 
-	protected void renderTransition(ArrayList<String> renrederedAttributes, TogglerDelegate togglerDelegate) throws IOException {
-		if (togglerDelegate.getTransition() != null) {
-			renrederedAttributes.add(renderObject("transition", togglerDelegate.getTransition()));
+	protected void renderTransition(List<String> renderedAttributes, TogglerDelegate togglerDelegate) throws IOException {
+		java.lang.Object transition = togglerDelegate.getTransition();
+
+		if (transition != null) {
+			renderedAttributes.add(renderObject(TogglerDelegate.TRANSITION, transition));
 		}
 	}
 

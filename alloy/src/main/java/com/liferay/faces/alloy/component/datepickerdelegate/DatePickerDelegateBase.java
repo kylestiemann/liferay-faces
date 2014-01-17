@@ -21,27 +21,27 @@ package com.liferay.faces.alloy.component.datepickerdelegate;
  */
 public abstract class DatePickerDelegateBase extends javax.faces.component.UIPanel {
 
-	private static final String ACTIVE_INPUT = "activeInput";
-	private static final String CONTAINER = "container";
-	private static final String CONTENT = "content";
-	private static final String DATE_SEPARATOR = "dateSeparator";
-	private static final String MASK = "mask";
-	private static final String VALUE_EXTRACTOR = "valueExtractor";
-	private static final String VALUE_FORMATTER = "valueFormatter";
-	private static final String AFTER_ACTIVE_INPUT_CHANGE = "afterActiveInputChange";
-	private static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
-	private static final String AFTER_CONTENT_CHANGE = "afterContentChange";
-	private static final String AFTER_DATE_SEPARATOR_CHANGE = "afterDateSeparatorChange";
-	private static final String AFTER_MASK_CHANGE = "afterMaskChange";
-	private static final String AFTER_VALUE_EXTRACTOR_CHANGE = "afterValueExtractorChange";
-	private static final String AFTER_VALUE_FORMATTER_CHANGE = "afterValueFormatterChange";
-	private static final String ON_ACTIVE_INPUT_CHANGE = "onActiveInputChange";
-	private static final String ON_CONTAINER_CHANGE = "onContainerChange";
-	private static final String ON_CONTENT_CHANGE = "onContentChange";
-	private static final String ON_DATE_SEPARATOR_CHANGE = "onDateSeparatorChange";
-	private static final String ON_MASK_CHANGE = "onMaskChange";
-	private static final String ON_VALUE_EXTRACTOR_CHANGE = "onValueExtractorChange";
-	private static final String ON_VALUE_FORMATTER_CHANGE = "onValueFormatterChange";
+	public static final String ACTIVE_INPUT = "activeInput";
+	public static final String CONTAINER = "container";
+	public static final String CONTENT = "content";
+	public static final String DATE_SEPARATOR = "dateSeparator";
+	public static final String MASK = "mask";
+	public static final String VALUE_EXTRACTOR = "valueExtractor";
+	public static final String VALUE_FORMATTER = "valueFormatter";
+	public static final String AFTER_ACTIVE_INPUT_CHANGE = "afterActiveInputChange";
+	public static final String AFTER_CONTAINER_CHANGE = "afterContainerChange";
+	public static final String AFTER_CONTENT_CHANGE = "afterContentChange";
+	public static final String AFTER_DATE_SEPARATOR_CHANGE = "afterDateSeparatorChange";
+	public static final String AFTER_MASK_CHANGE = "afterMaskChange";
+	public static final String AFTER_VALUE_EXTRACTOR_CHANGE = "afterValueExtractorChange";
+	public static final String AFTER_VALUE_FORMATTER_CHANGE = "afterValueFormatterChange";
+	public static final String ON_ACTIVE_INPUT_CHANGE = "onActiveInputChange";
+	public static final String ON_CONTAINER_CHANGE = "onContainerChange";
+	public static final String ON_CONTENT_CHANGE = "onContentChange";
+	public static final String ON_DATE_SEPARATOR_CHANGE = "onDateSeparatorChange";
+	public static final String ON_MASK_CHANGE = "onMaskChange";
+	public static final String ON_VALUE_EXTRACTOR_CHANGE = "onValueExtractorChange";
+	public static final String ON_VALUE_FORMATTER_CHANGE = "onValueFormatterChange";
 
 	public java.lang.String getActiveInput() {
 		return (java.lang.String) getStateHelper().eval(ACTIVE_INPUT, null);
