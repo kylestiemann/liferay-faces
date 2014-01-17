@@ -51,7 +51,7 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 
 		renderAlign(renderedAttributes, textCellEditor);
 		renderAlignOn(renderedAttributes, textCellEditor);
-		renderTextcelleditorBodyContent(renderedAttributes, textCellEditor);
+		renderTextCellEditorBodyContent(renderedAttributes, textCellEditor);
 		renderBoundingBox(renderedAttributes, textCellEditor);
 		renderCentered(renderedAttributes, textCellEditor);
 		renderConstrain(renderedAttributes, textCellEditor);
@@ -66,10 +66,10 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		renderHeaderContent(renderedAttributes, textCellEditor);
 		renderHeight(renderedAttributes, textCellEditor);
 		renderHideOnSave(renderedAttributes, textCellEditor);
-		renderTextcelleditorId(renderedAttributes, textCellEditor);
+		renderTextCellEditorId(renderedAttributes, textCellEditor);
 		renderInitialized(renderedAttributes, textCellEditor);
 		renderInputFormatter(renderedAttributes, textCellEditor);
-		renderTextcelleditorLocale(renderedAttributes, textCellEditor);
+		renderTextCellEditorLocale(renderedAttributes, textCellEditor);
 		renderOutputFormatter(renderedAttributes, textCellEditor);
 		renderPreventOverlap(renderedAttributes, textCellEditor);
 		renderRender(renderedAttributes, textCellEditor);
@@ -82,7 +82,7 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		renderToolbar(renderedAttributes, textCellEditor);
 		renderUnescapeValue(renderedAttributes, textCellEditor);
 		renderValidator(renderedAttributes, textCellEditor);
-		renderTextcelleditorValue(renderedAttributes, textCellEditor);
+		renderTextCellEditorValue(renderedAttributes, textCellEditor);
 		renderVisible(renderedAttributes, textCellEditor);
 		renderWidth(renderedAttributes, textCellEditor);
 		renderX(renderedAttributes, textCellEditor);
@@ -126,11 +126,11 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTextcelleditorBodyContent(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
-		java.lang.Object textcelleditorBodyContent = textCellEditor.getTextcelleditorBodyContent();
+	protected void renderTextCellEditorBodyContent(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.Object textCellEditorBodyContent = textCellEditor.getTextCellEditorBodyContent();
 
-		if (textcelleditorBodyContent != null) {
-			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_BODY_CONTENT, textcelleditorBodyContent));
+		if (textCellEditorBodyContent != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXT_CELL_EDITOR_BODY_CONTENT, textCellEditorBodyContent));
 		}
 	}
 
@@ -246,11 +246,11 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTextcelleditorId(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
-		java.lang.String textcelleditorId = textCellEditor.getTextcelleditorId();
+	protected void renderTextCellEditorId(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String textCellEditorId = textCellEditor.getTextCellEditorId();
 
-		if (textcelleditorId != null) {
-			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_ID, textcelleditorId));
+		if (textCellEditorId != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXT_CELL_EDITOR_ID, textCellEditorId));
 		}
 	}
 
@@ -270,11 +270,11 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTextcelleditorLocale(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
-		java.lang.String textcelleditorLocale = textCellEditor.getTextcelleditorLocale();
+	protected void renderTextCellEditorLocale(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String textCellEditorLocale = textCellEditor.getTextCellEditorLocale();
 
-		if (textcelleditorLocale != null) {
-			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_LOCALE, textcelleditorLocale));
+		if (textCellEditorLocale != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXT_CELL_EDITOR_LOCALE, textCellEditorLocale));
 		}
 	}
 
@@ -374,11 +374,11 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTextcelleditorValue(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
-		java.lang.String textcelleditorValue = textCellEditor.getTextcelleditorValue();
+	protected void renderTextCellEditorValue(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String textCellEditorValue = textCellEditor.getTextCellEditorValue();
 
-		if (textcelleditorValue != null) {
-			renderedAttributes.add(renderString(TextCellEditor.TEXTCELLEDITOR_VALUE, textcelleditorValue));
+		if (textCellEditorValue != null) {
+			renderedAttributes.add(renderString(TextCellEditor.TEXT_CELL_EDITOR_VALUE, textCellEditorValue));
 		}
 	}
 

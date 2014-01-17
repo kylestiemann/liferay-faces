@@ -34,7 +34,7 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 	public static final String POPOVER_CSS_CLASS = "popoverCssClass";
 	public static final String VALUE_EXTRACTOR = "valueExtractor";
 	public static final String VALUE_FORMATTER = "valueFormatter";
-	public static final String TIMEPICKER_VALUES = "timepickerValues";
+	public static final String TIME_PICKER_VALUES = "values";
 	public static final String AFTER_ACTIVE_INPUT_CHANGE = "afterActiveInputChange";
 	public static final String AFTER_AUTO_HIDE_CHANGE = "afterAutoHideChange";
 	public static final String AFTER_AUTOCOMPLETE_CHANGE = "afterAutocompleteChange";
@@ -168,12 +168,12 @@ public abstract class TimePickerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(VALUE_FORMATTER, valueFormatter);
 	}
 
-	public java.lang.Object getTimepickerValues() {
-		return (java.lang.Object) getStateHelper().eval(TIMEPICKER_VALUES, null);
+	public java.lang.Object getTimePickerValues() {
+		return (java.lang.Object) getStateHelper().eval(TIME_PICKER_VALUES, null);
 	}
 
-	public void setTimepickerValues(java.lang.Object timepickerValues) {
-		getStateHelper().put(TIMEPICKER_VALUES, timepickerValues);
+	public void setTimePickerValues(java.lang.Object timePickerValues) {
+		getStateHelper().put(TIME_PICKER_VALUES, timePickerValues);
 	}
 
 	public java.lang.String getAfterActiveInputChange() {

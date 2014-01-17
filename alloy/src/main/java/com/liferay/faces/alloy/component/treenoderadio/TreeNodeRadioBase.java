@@ -28,7 +28,7 @@ public abstract class TreeNodeRadioBase extends javax.faces.component.UIPanel {
 	public static final String CHECK_EL = "checkEl";
 	public static final String CHECK_NAME = "checkName";
 	public static final String CHECKED = "checked";
-	public static final String TREENODERADIO_CHILDREN = "treenoderadioChildren";
+	public static final String TREE_NODE_RADIO_CHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASSES = "cssClasses";
@@ -37,7 +37,7 @@ public abstract class TreeNodeRadioBase extends javax.faces.component.UIPanel {
 	public static final String EXPANDED = "expanded";
 	public static final String HIT_AREA_EL = "hitAreaEl";
 	public static final String ICON_EL = "iconEl";
-	public static final String TREENODERADIO_ID = "treenoderadioId";
+	public static final String TREE_NODE_RADIO_ID = "id";
 	public static final String INDEX = "index";
 	public static final String INITIALIZED = "initialized";
 	public static final String IO = "io";
@@ -174,12 +174,12 @@ public abstract class TreeNodeRadioBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CHECKED, checked);
 	}
 
-	public java.lang.Object getTreenoderadioChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREENODERADIO_CHILDREN, null);
+	public java.lang.Object getTreeNodeRadioChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_NODE_RADIO_CHILDREN, null);
 	}
 
-	public void setTreenoderadioChildren(java.lang.Object treenoderadioChildren) {
-		getStateHelper().put(TREENODERADIO_CHILDREN, treenoderadioChildren);
+	public void setTreeNodeRadioChildren(java.lang.Object treeNodeRadioChildren) {
+		getStateHelper().put(TREE_NODE_RADIO_CHILDREN, treeNodeRadioChildren);
 	}
 
 	public java.lang.String getContainer() {
@@ -246,12 +246,12 @@ public abstract class TreeNodeRadioBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_EL, iconEl);
 	}
 
-	public java.lang.String getTreenoderadioId() {
-		return (java.lang.String) getStateHelper().eval(TREENODERADIO_ID, null);
+	public java.lang.String getTreeNodeRadioId() {
+		return (java.lang.String) getStateHelper().eval(TREE_NODE_RADIO_ID, null);
 	}
 
-	public void setTreenoderadioId(java.lang.String treenoderadioId) {
-		getStateHelper().put(TREENODERADIO_ID, treenoderadioId);
+	public void setTreeNodeRadioId(java.lang.String treeNodeRadioId) {
+		getStateHelper().put(TREE_NODE_RADIO_ID, treeNodeRadioId);
 	}
 
 	public java.lang.Object getIndex() {

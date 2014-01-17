@@ -49,7 +49,7 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDatecelleditorBodyContent(renderedAttributes, dateCellEditor);
+		renderDateCellEditorBodyContent(renderedAttributes, dateCellEditor);
 		renderCalendar(renderedAttributes, dateCellEditor);
 		renderDateFormat(renderedAttributes, dateCellEditor);
 		renderInputFormatter(renderedAttributes, dateCellEditor);
@@ -75,11 +75,11 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderDatecelleditorBodyContent(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
-		java.lang.String datecelleditorBodyContent = dateCellEditor.getDatecelleditorBodyContent();
+	protected void renderDateCellEditorBodyContent(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String dateCellEditorBodyContent = dateCellEditor.getDateCellEditorBodyContent();
 
-		if (datecelleditorBodyContent != null) {
-			renderedAttributes.add(renderString(DateCellEditor.DATECELLEDITOR_BODY_CONTENT, datecelleditorBodyContent));
+		if (dateCellEditorBodyContent != null) {
+			renderedAttributes.add(renderString(DateCellEditor.DATE_CELL_EDITOR_BODY_CONTENT, dateCellEditorBodyContent));
 		}
 	}
 

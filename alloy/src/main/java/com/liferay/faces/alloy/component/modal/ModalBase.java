@@ -23,7 +23,7 @@ public abstract class ModalBase extends javax.faces.component.UIPanel {
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String MODAL_BODY_CONTENT = "modalBodyContent";
+	public static final String MODAL_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CENTERED = "centered";
 	public static final String CONSTRAIN = "constrain";
@@ -39,9 +39,9 @@ public abstract class ModalBase extends javax.faces.component.UIPanel {
 	public static final String HEADER_CONTENT = "headerContent";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_ON = "hideOn";
-	public static final String MODAL_ID = "modalId";
+	public static final String MODAL_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String MODAL_LOCALE = "modalLocale";
+	public static final String MODAL_LOCALE = "locale";
 	public static final String MASK_NODE = "maskNode";
 	public static final String MODAL = "modal";
 	public static final String PREVENT_OVERLAP = "preventOverlap";

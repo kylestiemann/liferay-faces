@@ -56,7 +56,7 @@ public abstract class FormBuilderSelectFieldRendererBase extends RendererBase {
 		renderDisabled(renderedAttributes, formBuilderSelectField);
 		renderDropZoneNode(renderedAttributes, formBuilderSelectField);
 		renderHiddenAttributes(renderedAttributes, formBuilderSelectField);
-		renderFormbuilderselectfieldId(renderedAttributes, formBuilderSelectField);
+		renderFormBuilderSelectFieldId(renderedAttributes, formBuilderSelectField);
 		renderLabel(renderedAttributes, formBuilderSelectField);
 		renderLabelNode(renderedAttributes, formBuilderSelectField);
 		renderLocalizationMap(renderedAttributes, formBuilderSelectField);
@@ -64,7 +64,7 @@ public abstract class FormBuilderSelectFieldRendererBase extends RendererBase {
 		renderName(renderedAttributes, formBuilderSelectField);
 		renderOptionTemplate(renderedAttributes, formBuilderSelectField);
 		renderOptions(renderedAttributes, formBuilderSelectField);
-		renderFormbuilderselectfieldParent(renderedAttributes, formBuilderSelectField);
+		renderFormBuilderSelectFieldParent(renderedAttributes, formBuilderSelectField);
 		renderPredefinedValue(renderedAttributes, formBuilderSelectField);
 		renderReadOnly(renderedAttributes, formBuilderSelectField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderSelectField);
@@ -158,11 +158,11 @@ public abstract class FormBuilderSelectFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderselectfieldId(List<String> renderedAttributes, FormBuilderSelectField formBuilderSelectField) throws IOException {
-		java.lang.String formbuilderselectfieldId = formBuilderSelectField.getFormbuilderselectfieldId();
+	protected void renderFormBuilderSelectFieldId(List<String> renderedAttributes, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		java.lang.String formBuilderSelectFieldId = formBuilderSelectField.getFormBuilderSelectFieldId();
 
-		if (formbuilderselectfieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderSelectField.FORMBUILDERSELECTFIELD_ID, formbuilderselectfieldId));
+		if (formBuilderSelectFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderSelectField.FORM_BUILDER_SELECT_FIELD_ID, formBuilderSelectFieldId));
 		}
 	}
 
@@ -222,11 +222,11 @@ public abstract class FormBuilderSelectFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderselectfieldParent(List<String> renderedAttributes, FormBuilderSelectField formBuilderSelectField) throws IOException {
-		java.lang.String formbuilderselectfieldParent = formBuilderSelectField.getFormbuilderselectfieldParent();
+	protected void renderFormBuilderSelectFieldParent(List<String> renderedAttributes, FormBuilderSelectField formBuilderSelectField) throws IOException {
+		java.lang.String formBuilderSelectFieldParent = formBuilderSelectField.getFormBuilderSelectFieldParent();
 
-		if (formbuilderselectfieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderSelectField.FORMBUILDERSELECTFIELD_PARENT, formbuilderselectfieldParent));
+		if (formBuilderSelectFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderSelectField.FORM_BUILDER_SELECT_FIELD_PARENT, formBuilderSelectFieldParent));
 		}
 	}
 

@@ -29,9 +29,9 @@ public abstract class HSVPaletteBase extends javax.faces.component.UIPanel {
 	public static final String FIELD_VALIDATOR = "fieldValidator";
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
-	public static final String HSVPALETTE_ID = "hsvpaletteId";
+	public static final String H_SVPALETTE_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String HSVPALETTE_LOCALE = "hsvpaletteLocale";
+	public static final String H_SVPALETTE_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SELECTED = "selected";
@@ -143,12 +143,12 @@ public abstract class HSVPaletteBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getHsvpaletteId() {
-		return (java.lang.String) getStateHelper().eval(HSVPALETTE_ID, null);
+	public java.lang.String getHSVPaletteId() {
+		return (java.lang.String) getStateHelper().eval(H_SVPALETTE_ID, null);
 	}
 
-	public void setHsvpaletteId(java.lang.String hsvpaletteId) {
-		getStateHelper().put(HSVPALETTE_ID, hsvpaletteId);
+	public void setHSVPaletteId(java.lang.String hSVPaletteId) {
+		getStateHelper().put(H_SVPALETTE_ID, hSVPaletteId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -159,12 +159,12 @@ public abstract class HSVPaletteBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getHsvpaletteLocale() {
-		return (java.lang.String) getStateHelper().eval(HSVPALETTE_LOCALE, null);
+	public java.lang.String getHSVPaletteLocale() {
+		return (java.lang.String) getStateHelper().eval(H_SVPALETTE_LOCALE, null);
 	}
 
-	public void setHsvpaletteLocale(java.lang.String hsvpaletteLocale) {
-		getStateHelper().put(HSVPALETTE_LOCALE, hsvpaletteLocale);
+	public void setHSVPaletteLocale(java.lang.String hSVPaletteLocale) {
+		getStateHelper().put(H_SVPALETTE_LOCALE, hSVPaletteLocale);
 	}
 
 	public java.lang.Object getRender() {

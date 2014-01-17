@@ -28,12 +28,12 @@ public abstract class FormBuilderTextAreaFieldBase extends javax.faces.component
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERTEXTAREAFIELD_ID = "formbuildertextareafieldId";
+	public static final String FORM_BUILDER_TEXT_AREA_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERTEXTAREAFIELD_PARENT = "formbuildertextareafieldParent";
+	public static final String FORM_BUILDER_TEXT_AREA_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -168,12 +168,12 @@ public abstract class FormBuilderTextAreaFieldBase extends javax.faces.component
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuildertextareafieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERTEXTAREAFIELD_ID, null);
+	public java.lang.String getFormBuilderTextAreaFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_TEXT_AREA_FIELD_ID, null);
 	}
 
-	public void setFormbuildertextareafieldId(java.lang.String formbuildertextareafieldId) {
-		getStateHelper().put(FORMBUILDERTEXTAREAFIELD_ID, formbuildertextareafieldId);
+	public void setFormBuilderTextAreaFieldId(java.lang.String formBuilderTextAreaFieldId) {
+		getStateHelper().put(FORM_BUILDER_TEXT_AREA_FIELD_ID, formBuilderTextAreaFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -208,12 +208,12 @@ public abstract class FormBuilderTextAreaFieldBase extends javax.faces.component
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuildertextareafieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERTEXTAREAFIELD_PARENT, null);
+	public java.lang.String getFormBuilderTextAreaFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_TEXT_AREA_FIELD_PARENT, null);
 	}
 
-	public void setFormbuildertextareafieldParent(java.lang.String formbuildertextareafieldParent) {
-		getStateHelper().put(FORMBUILDERTEXTAREAFIELD_PARENT, formbuildertextareafieldParent);
+	public void setFormBuilderTextAreaFieldParent(java.lang.String formBuilderTextAreaFieldParent) {
+		getStateHelper().put(FORM_BUILDER_TEXT_AREA_FIELD_PARENT, formBuilderTextAreaFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

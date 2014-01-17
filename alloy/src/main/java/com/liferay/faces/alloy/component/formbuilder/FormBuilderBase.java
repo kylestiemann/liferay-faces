@@ -40,9 +40,9 @@ public abstract class FormBuilderBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String FORMBUILDER_ID = "formbuilderId";
+	public static final String FORM_BUILDER_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String FORMBUILDER_LOCALE = "formbuilderLocale";
+	public static final String FORM_BUILDER_LOCALE = "locale";
 	public static final String MAX_FIELDS = "maxFields";
 	public static final String PROPERTY_LIST = "propertyList";
 	public static final String RENDER = "render";
@@ -279,12 +279,12 @@ public abstract class FormBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getFormbuilderId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDER_ID, null);
+	public java.lang.String getFormBuilderId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_ID, null);
 	}
 
-	public void setFormbuilderId(java.lang.String formbuilderId) {
-		getStateHelper().put(FORMBUILDER_ID, formbuilderId);
+	public void setFormBuilderId(java.lang.String formBuilderId) {
+		getStateHelper().put(FORM_BUILDER_ID, formBuilderId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -295,12 +295,12 @@ public abstract class FormBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getFormbuilderLocale() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDER_LOCALE, null);
+	public java.lang.String getFormBuilderLocale() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_LOCALE, null);
 	}
 
-	public void setFormbuilderLocale(java.lang.String formbuilderLocale) {
-		getStateHelper().put(FORMBUILDER_LOCALE, formbuilderLocale);
+	public void setFormBuilderLocale(java.lang.String formBuilderLocale) {
+		getStateHelper().put(FORM_BUILDER_LOCALE, formBuilderLocale);
 	}
 
 	public java.lang.Object getMaxFields() {

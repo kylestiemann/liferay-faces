@@ -62,7 +62,7 @@ public abstract class TimePickerRendererBase extends RendererBase {
 		renderPopoverCssClass(renderedAttributes, timePicker);
 		renderValueExtractor(renderedAttributes, timePicker);
 		renderValueFormatter(renderedAttributes, timePicker);
-		renderTimepickerValues(renderedAttributes, timePicker);
+		renderTimePickerValues(renderedAttributes, timePicker);
 
 		Iterator<String> it = renderedAttributes.iterator();
 
@@ -188,11 +188,11 @@ public abstract class TimePickerRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTimepickerValues(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
-		java.lang.Object timepickerValues = timePicker.getTimepickerValues();
+	protected void renderTimePickerValues(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
+		java.lang.Object timePickerValues = timePicker.getTimePickerValues();
 
-		if (timepickerValues != null) {
-			renderedAttributes.add(renderArray(TimePicker.TIMEPICKER_VALUES, timepickerValues));
+		if (timePickerValues != null) {
+			renderedAttributes.add(renderArray(TimePicker.TIME_PICKER_VALUES, timePickerValues));
 		}
 	}
 

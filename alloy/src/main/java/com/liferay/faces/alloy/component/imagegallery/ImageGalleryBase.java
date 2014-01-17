@@ -25,7 +25,7 @@ public abstract class ImageGalleryBase extends javax.faces.component.UIPanel {
 	public static final String ALIGN_ON = "alignOn";
 	public static final String ANIM = "anim";
 	public static final String AUTO_PLAY = "autoPlay";
-	public static final String IMAGEGALLERY_BODY_CONTENT = "imagegalleryBodyContent";
+	public static final String IMAGE_GALLERY_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CAPTION = "caption";
 	public static final String CAPTION_EL = "captionEl";
@@ -46,7 +46,7 @@ public abstract class ImageGalleryBase extends javax.faces.component.UIPanel {
 	public static final String FOOTER_CONTENT = "footerContent";
 	public static final String HEADER_CONTENT = "headerContent";
 	public static final String HEIGHT = "height";
-	public static final String IMAGEGALLERY_ID = "imagegalleryId";
+	public static final String IMAGE_GALLERY_ID = "id";
 	public static final String IMAGE = "image";
 	public static final String IMAGE_ANIM = "imageAnim";
 	public static final String INFO_EL = "infoEl";
@@ -56,7 +56,7 @@ public abstract class ImageGalleryBase extends javax.faces.component.UIPanel {
 	public static final String LOADER = "loader";
 	public static final String LOADING = "loading";
 	public static final String LOADING_EL = "loadingEl";
-	public static final String IMAGEGALLERY_LOCALE = "imagegalleryLocale";
+	public static final String IMAGE_GALLERY_LOCALE = "locale";
 	public static final String MASK_NODE = "maskNode";
 	public static final String MAX_HEIGHT = "maxHeight";
 	public static final String MAX_WIDTH = "maxWidth";
@@ -258,12 +258,12 @@ public abstract class ImageGalleryBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(AUTO_PLAY, autoPlay);
 	}
 
-	public java.lang.String getImagegalleryBodyContent() {
-		return (java.lang.String) getStateHelper().eval(IMAGEGALLERY_BODY_CONTENT, null);
+	public java.lang.String getImageGalleryBodyContent() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_GALLERY_BODY_CONTENT, null);
 	}
 
-	public void setImagegalleryBodyContent(java.lang.String imagegalleryBodyContent) {
-		getStateHelper().put(IMAGEGALLERY_BODY_CONTENT, imagegalleryBodyContent);
+	public void setImageGalleryBodyContent(java.lang.String imageGalleryBodyContent) {
+		getStateHelper().put(IMAGE_GALLERY_BODY_CONTENT, imageGalleryBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -426,12 +426,12 @@ public abstract class ImageGalleryBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getImagegalleryId() {
-		return (java.lang.String) getStateHelper().eval(IMAGEGALLERY_ID, null);
+	public java.lang.String getImageGalleryId() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_GALLERY_ID, null);
 	}
 
-	public void setImagegalleryId(java.lang.String imagegalleryId) {
-		getStateHelper().put(IMAGEGALLERY_ID, imagegalleryId);
+	public void setImageGalleryId(java.lang.String imageGalleryId) {
+		getStateHelper().put(IMAGE_GALLERY_ID, imageGalleryId);
 	}
 
 	public java.lang.Object getImage() {
@@ -506,12 +506,12 @@ public abstract class ImageGalleryBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LOADING_EL, loadingEl);
 	}
 
-	public java.lang.String getImagegalleryLocale() {
-		return (java.lang.String) getStateHelper().eval(IMAGEGALLERY_LOCALE, null);
+	public java.lang.String getImageGalleryLocale() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_GALLERY_LOCALE, null);
 	}
 
-	public void setImagegalleryLocale(java.lang.String imagegalleryLocale) {
-		getStateHelper().put(IMAGEGALLERY_LOCALE, imagegalleryLocale);
+	public void setImageGalleryLocale(java.lang.String imageGalleryLocale) {
+		getStateHelper().put(IMAGE_GALLERY_LOCALE, imageGalleryLocale);
 	}
 
 	public java.lang.Object getMaskNode() {

@@ -31,9 +31,9 @@ public abstract class VideoBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String VIDEO_ID = "videoId";
+	public static final String VIDEO_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String VIDEO_LOCALE = "videoLocale";
+	public static final String VIDEO_LOCALE = "locale";
 	public static final String OGV_URL = "ogvUrl";
 	public static final String POSTER = "poster";
 	public static final String RENDER = "render";

@@ -34,12 +34,12 @@ public abstract class ThumbRatingBase extends javax.faces.component.UIPanel {
 	public static final String HEIGHT = "height";
 	public static final String HIDDEN_INPUT = "hiddenInput";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String THUMBRATING_ID = "thumbratingId";
+	public static final String THUMB_RATING_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String INPUT_NAME = "inputName";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
-	public static final String THUMBRATING_LOCALE = "thumbratingLocale";
+	public static final String THUMB_RATING_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SELECTED_INDEX = "selectedIndex";
@@ -50,7 +50,7 @@ public abstract class ThumbRatingBase extends javax.faces.component.UIPanel {
 	public static final String TAB_INDEX = "tabIndex";
 	public static final String TITLE = "title";
 	public static final String USE_ARIA = "useARIA";
-	public static final String THUMBRATING_VALUE = "thumbratingValue";
+	public static final String THUMB_RATING_VALUE = "value";
 	public static final String VISIBLE = "visible";
 	public static final String WIDTH = "width";
 	public static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";
@@ -222,12 +222,12 @@ public abstract class ThumbRatingBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getThumbratingId() {
-		return (java.lang.String) getStateHelper().eval(THUMBRATING_ID, null);
+	public java.lang.String getThumbRatingId() {
+		return (java.lang.String) getStateHelper().eval(THUMB_RATING_ID, null);
 	}
 
-	public void setThumbratingId(java.lang.String thumbratingId) {
-		getStateHelper().put(THUMBRATING_ID, thumbratingId);
+	public void setThumbRatingId(java.lang.String thumbRatingId) {
+		getStateHelper().put(THUMB_RATING_ID, thumbRatingId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -262,12 +262,12 @@ public abstract class ThumbRatingBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LABEL_NODE, labelNode);
 	}
 
-	public java.lang.String getThumbratingLocale() {
-		return (java.lang.String) getStateHelper().eval(THUMBRATING_LOCALE, null);
+	public java.lang.String getThumbRatingLocale() {
+		return (java.lang.String) getStateHelper().eval(THUMB_RATING_LOCALE, null);
 	}
 
-	public void setThumbratingLocale(java.lang.String thumbratingLocale) {
-		getStateHelper().put(THUMBRATING_LOCALE, thumbratingLocale);
+	public void setThumbRatingLocale(java.lang.String thumbRatingLocale) {
+		getStateHelper().put(THUMB_RATING_LOCALE, thumbRatingLocale);
 	}
 
 	public java.lang.Object getRender() {
@@ -350,12 +350,12 @@ public abstract class ThumbRatingBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(USE_ARIA, useARIA);
 	}
 
-	public java.lang.String getThumbratingValue() {
-		return (java.lang.String) getStateHelper().eval(THUMBRATING_VALUE, null);
+	public java.lang.String getThumbRatingValue() {
+		return (java.lang.String) getStateHelper().eval(THUMB_RATING_VALUE, null);
 	}
 
-	public void setThumbratingValue(java.lang.String thumbratingValue) {
-		getStateHelper().put(THUMBRATING_VALUE, thumbratingValue);
+	public void setThumbRatingValue(java.lang.String thumbRatingValue) {
+		getStateHelper().put(THUMB_RATING_VALUE, thumbRatingValue);
 	}
 
 	public java.lang.Boolean getVisible() {

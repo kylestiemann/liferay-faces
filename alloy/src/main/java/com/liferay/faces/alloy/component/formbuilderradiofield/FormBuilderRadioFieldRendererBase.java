@@ -56,14 +56,14 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		renderDisabled(renderedAttributes, formBuilderRadioField);
 		renderDropZoneNode(renderedAttributes, formBuilderRadioField);
 		renderHiddenAttributes(renderedAttributes, formBuilderRadioField);
-		renderFormbuilderradiofieldId(renderedAttributes, formBuilderRadioField);
+		renderFormBuilderRadioFieldId(renderedAttributes, formBuilderRadioField);
 		renderLabel(renderedAttributes, formBuilderRadioField);
 		renderLabelNode(renderedAttributes, formBuilderRadioField);
 		renderLocalizationMap(renderedAttributes, formBuilderRadioField);
 		renderName(renderedAttributes, formBuilderRadioField);
 		renderOptionTemplate(renderedAttributes, formBuilderRadioField);
 		renderOptions(renderedAttributes, formBuilderRadioField);
-		renderFormbuilderradiofieldParent(renderedAttributes, formBuilderRadioField);
+		renderFormBuilderRadioFieldParent(renderedAttributes, formBuilderRadioField);
 		renderPredefinedValue(renderedAttributes, formBuilderRadioField);
 		renderReadOnly(renderedAttributes, formBuilderRadioField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderRadioField);
@@ -157,11 +157,11 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderradiofieldId(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		java.lang.String formbuilderradiofieldId = formBuilderRadioField.getFormbuilderradiofieldId();
+	protected void renderFormBuilderRadioFieldId(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String formBuilderRadioFieldId = formBuilderRadioField.getFormBuilderRadioFieldId();
 
-		if (formbuilderradiofieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderRadioField.FORMBUILDERRADIOFIELD_ID, formbuilderradiofieldId));
+		if (formBuilderRadioFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.FORM_BUILDER_RADIO_FIELD_ID, formBuilderRadioFieldId));
 		}
 	}
 
@@ -213,11 +213,11 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderradiofieldParent(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
-		java.lang.String formbuilderradiofieldParent = formBuilderRadioField.getFormbuilderradiofieldParent();
+	protected void renderFormBuilderRadioFieldParent(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String formBuilderRadioFieldParent = formBuilderRadioField.getFormBuilderRadioFieldParent();
 
-		if (formbuilderradiofieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderRadioField.FORMBUILDERRADIOFIELD_PARENT, formbuilderradiofieldParent));
+		if (formBuilderRadioFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.FORM_BUILDER_RADIO_FIELD_PARENT, formBuilderRadioFieldParent));
 		}
 	}
 

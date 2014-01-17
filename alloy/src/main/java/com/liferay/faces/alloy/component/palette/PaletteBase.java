@@ -30,10 +30,10 @@ public abstract class PaletteBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String FORMATTER = "formatter";
 	public static final String HEIGHT = "height";
-	public static final String PALETTE_ID = "paletteId";
+	public static final String PALETTE_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ITEMS = "items";
-	public static final String PALETTE_LOCALE = "paletteLocale";
+	public static final String PALETTE_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SELECTED = "selected";

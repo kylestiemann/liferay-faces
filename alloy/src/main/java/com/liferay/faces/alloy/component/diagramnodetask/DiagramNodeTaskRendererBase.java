@@ -51,7 +51,7 @@ public abstract class DiagramNodeTaskRendererBase extends RendererBase {
 
 		renderAlign(renderedAttributes, diagramNodeTask);
 		renderAlignOn(renderedAttributes, diagramNodeTask);
-		renderDiagramnodetaskBodyContent(renderedAttributes, diagramNodeTask);
+		renderDiagramNodeTaskBodyContent(renderedAttributes, diagramNodeTask);
 		renderBoundingBox(renderedAttributes, diagramNodeTask);
 		renderBuilder(renderedAttributes, diagramNodeTask);
 		renderCentered(renderedAttributes, diagramNodeTask);
@@ -70,9 +70,9 @@ public abstract class DiagramNodeTaskRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, diagramNodeTask);
 		renderHighlightBoundaryStroke(renderedAttributes, diagramNodeTask);
 		renderHighlighted(renderedAttributes, diagramNodeTask);
-		renderDiagramnodetaskId(renderedAttributes, diagramNodeTask);
+		renderDiagramNodeTaskId(renderedAttributes, diagramNodeTask);
 		renderInitialized(renderedAttributes, diagramNodeTask);
-		renderDiagramnodetaskLocale(renderedAttributes, diagramNodeTask);
+		renderDiagramNodeTaskLocale(renderedAttributes, diagramNodeTask);
 		renderName(renderedAttributes, diagramNodeTask);
 		renderPreventOverlap(renderedAttributes, diagramNodeTask);
 		renderRender(renderedAttributes, diagramNodeTask);
@@ -130,11 +130,11 @@ public abstract class DiagramNodeTaskRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodetaskBodyContent(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		java.lang.Object diagramnodetaskBodyContent = diagramNodeTask.getDiagramnodetaskBodyContent();
+	protected void renderDiagramNodeTaskBodyContent(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.Object diagramNodeTaskBodyContent = diagramNodeTask.getDiagramNodeTaskBodyContent();
 
-		if (diagramnodetaskBodyContent != null) {
-			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAMNODETASK_BODY_CONTENT, diagramnodetaskBodyContent));
+		if (diagramNodeTaskBodyContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAM_NODE_TASK_BODY_CONTENT, diagramNodeTaskBodyContent));
 		}
 	}
 
@@ -282,11 +282,11 @@ public abstract class DiagramNodeTaskRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodetaskId(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		java.lang.String diagramnodetaskId = diagramNodeTask.getDiagramnodetaskId();
+	protected void renderDiagramNodeTaskId(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String diagramNodeTaskId = diagramNodeTask.getDiagramNodeTaskId();
 
-		if (diagramnodetaskId != null) {
-			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAMNODETASK_ID, diagramnodetaskId));
+		if (diagramNodeTaskId != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAM_NODE_TASK_ID, diagramNodeTaskId));
 		}
 	}
 
@@ -298,11 +298,11 @@ public abstract class DiagramNodeTaskRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodetaskLocale(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
-		java.lang.String diagramnodetaskLocale = diagramNodeTask.getDiagramnodetaskLocale();
+	protected void renderDiagramNodeTaskLocale(List<String> renderedAttributes, DiagramNodeTask diagramNodeTask) throws IOException {
+		java.lang.String diagramNodeTaskLocale = diagramNodeTask.getDiagramNodeTaskLocale();
 
-		if (diagramnodetaskLocale != null) {
-			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAMNODETASK_LOCALE, diagramnodetaskLocale));
+		if (diagramNodeTaskLocale != null) {
+			renderedAttributes.add(renderString(DiagramNodeTask.DIAGRAM_NODE_TASK_LOCALE, diagramNodeTaskLocale));
 		}
 	}
 

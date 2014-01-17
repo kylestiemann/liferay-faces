@@ -49,7 +49,7 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSchedulermonthviewBodyContent(renderedAttributes, schedulerMonthView);
+		renderSchedulerMonthViewBodyContent(renderedAttributes, schedulerMonthView);
 		renderBoundingBox(renderedAttributes, schedulerMonthView);
 		renderColHeaderDaysNode(renderedAttributes, schedulerMonthView);
 		renderContentBox(renderedAttributes, schedulerMonthView);
@@ -65,10 +65,10 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		renderHeaderTableNode(renderedAttributes, schedulerMonthView);
 		renderHeight(renderedAttributes, schedulerMonthView);
 		renderHideClass(renderedAttributes, schedulerMonthView);
-		renderSchedulermonthviewId(renderedAttributes, schedulerMonthView);
+		renderSchedulerMonthViewId(renderedAttributes, schedulerMonthView);
 		renderInitialized(renderedAttributes, schedulerMonthView);
 		renderIsoTime(renderedAttributes, schedulerMonthView);
-		renderSchedulermonthviewLocale(renderedAttributes, schedulerMonthView);
+		renderSchedulerMonthViewLocale(renderedAttributes, schedulerMonthView);
 		renderName(renderedAttributes, schedulerMonthView);
 		renderNavigationDateFormatter(renderedAttributes, schedulerMonthView);
 		renderNextDate(renderedAttributes, schedulerMonthView);
@@ -107,11 +107,11 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulermonthviewBodyContent(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
-		java.lang.String schedulermonthviewBodyContent = schedulerMonthView.getSchedulermonthviewBodyContent();
+	protected void renderSchedulerMonthViewBodyContent(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		java.lang.String schedulerMonthViewBodyContent = schedulerMonthView.getSchedulerMonthViewBodyContent();
 
-		if (schedulermonthviewBodyContent != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULERMONTHVIEW_BODY_CONTENT, schedulermonthviewBodyContent));
+		if (schedulerMonthViewBodyContent != null) {
+			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_BODY_CONTENT, schedulerMonthViewBodyContent));
 		}
 	}
 
@@ -235,11 +235,11 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulermonthviewId(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
-		java.lang.String schedulermonthviewId = schedulerMonthView.getSchedulermonthviewId();
+	protected void renderSchedulerMonthViewId(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		java.lang.String schedulerMonthViewId = schedulerMonthView.getSchedulerMonthViewId();
 
-		if (schedulermonthviewId != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULERMONTHVIEW_ID, schedulermonthviewId));
+		if (schedulerMonthViewId != null) {
+			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_ID, schedulerMonthViewId));
 		}
 	}
 
@@ -259,11 +259,11 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulermonthviewLocale(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
-		java.lang.String schedulermonthviewLocale = schedulerMonthView.getSchedulermonthviewLocale();
+	protected void renderSchedulerMonthViewLocale(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
+		java.lang.String schedulerMonthViewLocale = schedulerMonthView.getSchedulerMonthViewLocale();
 
-		if (schedulermonthviewLocale != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULERMONTHVIEW_LOCALE, schedulermonthviewLocale));
+		if (schedulerMonthViewLocale != null) {
+			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_LOCALE, schedulerMonthViewLocale));
 		}
 	}
 

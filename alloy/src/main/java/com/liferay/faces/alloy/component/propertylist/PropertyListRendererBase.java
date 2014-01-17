@@ -67,9 +67,9 @@ public abstract class PropertyListRendererBase extends RendererBase {
 		renderHeaderConfig(renderedAttributes, propertyList);
 		renderHeaderView(renderedAttributes, propertyList);
 		renderHeight(renderedAttributes, propertyList);
-		renderPropertylistId(renderedAttributes, propertyList);
+		renderPropertyListId(renderedAttributes, propertyList);
 		renderInitialized(renderedAttributes, propertyList);
-		renderPropertylistLocale(renderedAttributes, propertyList);
+		renderPropertyListLocale(renderedAttributes, propertyList);
 		renderRecordType(renderedAttributes, propertyList);
 		renderRecordset(renderedAttributes, propertyList);
 		renderRender(renderedAttributes, propertyList);
@@ -251,11 +251,11 @@ public abstract class PropertyListRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderPropertylistId(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
-		java.lang.String propertylistId = propertyList.getPropertylistId();
+	protected void renderPropertyListId(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String propertyListId = propertyList.getPropertyListId();
 
-		if (propertylistId != null) {
-			renderedAttributes.add(renderString(PropertyList.PROPERTYLIST_ID, propertylistId));
+		if (propertyListId != null) {
+			renderedAttributes.add(renderString(PropertyList.PROPERTY_LIST_ID, propertyListId));
 		}
 	}
 
@@ -267,11 +267,11 @@ public abstract class PropertyListRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderPropertylistLocale(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
-		java.lang.String propertylistLocale = propertyList.getPropertylistLocale();
+	protected void renderPropertyListLocale(List<String> renderedAttributes, PropertyList propertyList) throws IOException {
+		java.lang.String propertyListLocale = propertyList.getPropertyListLocale();
 
-		if (propertylistLocale != null) {
-			renderedAttributes.add(renderString(PropertyList.PROPERTYLIST_LOCALE, propertylistLocale));
+		if (propertyListLocale != null) {
+			renderedAttributes.add(renderString(PropertyList.PROPERTY_LIST_LOCALE, propertyListLocale));
 		}
 	}
 

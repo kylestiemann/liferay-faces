@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.schedulerdayview;
  */
 public abstract class SchedulerDayViewBase extends javax.faces.component.UIPanel {
 
-	public static final String SCHEDULERDAYVIEW_BODY_CONTENT = "schedulerdayviewBodyContent";
+	public static final String SCHEDULER_DAY_VIEW_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String COL_DAYS_NODE = "colDaysNode";
 	public static final String COL_HEADER_DAYS_NODE = "colHeaderDaysNode";
@@ -42,10 +42,10 @@ public abstract class SchedulerDayViewBase extends javax.faces.component.UIPanel
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
 	public static final String HOUR_HEIGHT = "hourHeight";
-	public static final String SCHEDULERDAYVIEW_ID = "schedulerdayviewId";
+	public static final String SCHEDULER_DAY_VIEW_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ISO_TIME = "isoTime";
-	public static final String SCHEDULERDAYVIEW_LOCALE = "schedulerdayviewLocale";
+	public static final String SCHEDULER_DAY_VIEW_LOCALE = "locale";
 	public static final String MARKERCELLS_NODE = "markercellsNode";
 	public static final String NAME = "name";
 	public static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
@@ -154,12 +154,12 @@ public abstract class SchedulerDayViewBase extends javax.faces.component.UIPanel
 	public static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 	public static final String ON_WIDTH_CHANGE = "onWidthChange";
 
-	public java.lang.String getSchedulerdayviewBodyContent() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERDAYVIEW_BODY_CONTENT, null);
+	public java.lang.String getSchedulerDayViewBodyContent() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_DAY_VIEW_BODY_CONTENT, null);
 	}
 
-	public void setSchedulerdayviewBodyContent(java.lang.String schedulerdayviewBodyContent) {
-		getStateHelper().put(SCHEDULERDAYVIEW_BODY_CONTENT, schedulerdayviewBodyContent);
+	public void setSchedulerDayViewBodyContent(java.lang.String schedulerDayViewBodyContent) {
+		getStateHelper().put(SCHEDULER_DAY_VIEW_BODY_CONTENT, schedulerDayViewBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -322,12 +322,12 @@ public abstract class SchedulerDayViewBase extends javax.faces.component.UIPanel
 		getStateHelper().put(HOUR_HEIGHT, hourHeight);
 	}
 
-	public java.lang.String getSchedulerdayviewId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERDAYVIEW_ID, null);
+	public java.lang.String getSchedulerDayViewId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_DAY_VIEW_ID, null);
 	}
 
-	public void setSchedulerdayviewId(java.lang.String schedulerdayviewId) {
-		getStateHelper().put(SCHEDULERDAYVIEW_ID, schedulerdayviewId);
+	public void setSchedulerDayViewId(java.lang.String schedulerDayViewId) {
+		getStateHelper().put(SCHEDULER_DAY_VIEW_ID, schedulerDayViewId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -346,12 +346,12 @@ public abstract class SchedulerDayViewBase extends javax.faces.component.UIPanel
 		getStateHelper().put(ISO_TIME, isoTime);
 	}
 
-	public java.lang.String getSchedulerdayviewLocale() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERDAYVIEW_LOCALE, null);
+	public java.lang.String getSchedulerDayViewLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_DAY_VIEW_LOCALE, null);
 	}
 
-	public void setSchedulerdayviewLocale(java.lang.String schedulerdayviewLocale) {
-		getStateHelper().put(SCHEDULERDAYVIEW_LOCALE, schedulerdayviewLocale);
+	public void setSchedulerDayViewLocale(java.lang.String schedulerDayViewLocale) {
+		getStateHelper().put(SCHEDULER_DAY_VIEW_LOCALE, schedulerDayViewLocale);
 	}
 
 	public java.lang.String getMarkercellsNode() {

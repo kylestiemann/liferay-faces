@@ -23,7 +23,7 @@ public abstract class DiagramNodeEndBase extends javax.faces.component.UIPanel {
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String DIAGRAMNODEEND_BODY_CONTENT = "diagramnodeendBodyContent";
+	public static final String DIAGRAM_NODE_END_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String BUILDER = "builder";
 	public static final String CENTERED = "centered";
@@ -42,9 +42,9 @@ public abstract class DiagramNodeEndBase extends javax.faces.component.UIPanel {
 	public static final String HEIGHT = "height";
 	public static final String HIGHLIGHT_BOUNDARY_STROKE = "highlightBoundaryStroke";
 	public static final String HIGHLIGHTED = "highlighted";
-	public static final String DIAGRAMNODEEND_ID = "diagramnodeendId";
+	public static final String DIAGRAM_NODE_END_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String DIAGRAMNODEEND_LOCALE = "diagramnodeendLocale";
+	public static final String DIAGRAM_NODE_END_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
 	public static final String RENDER = "render";
@@ -170,12 +170,12 @@ public abstract class DiagramNodeEndBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.Object getDiagramnodeendBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(DIAGRAMNODEEND_BODY_CONTENT, null);
+	public java.lang.Object getDiagramNodeEndBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(DIAGRAM_NODE_END_BODY_CONTENT, null);
 	}
 
-	public void setDiagramnodeendBodyContent(java.lang.Object diagramnodeendBodyContent) {
-		getStateHelper().put(DIAGRAMNODEEND_BODY_CONTENT, diagramnodeendBodyContent);
+	public void setDiagramNodeEndBodyContent(java.lang.Object diagramNodeEndBodyContent) {
+		getStateHelper().put(DIAGRAM_NODE_END_BODY_CONTENT, diagramNodeEndBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -322,12 +322,12 @@ public abstract class DiagramNodeEndBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIGHLIGHTED, highlighted);
 	}
 
-	public java.lang.String getDiagramnodeendId() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODEEND_ID, null);
+	public java.lang.String getDiagramNodeEndId() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_END_ID, null);
 	}
 
-	public void setDiagramnodeendId(java.lang.String diagramnodeendId) {
-		getStateHelper().put(DIAGRAMNODEEND_ID, diagramnodeendId);
+	public void setDiagramNodeEndId(java.lang.String diagramNodeEndId) {
+		getStateHelper().put(DIAGRAM_NODE_END_ID, diagramNodeEndId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -338,12 +338,12 @@ public abstract class DiagramNodeEndBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getDiagramnodeendLocale() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODEEND_LOCALE, null);
+	public java.lang.String getDiagramNodeEndLocale() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_END_LOCALE, null);
 	}
 
-	public void setDiagramnodeendLocale(java.lang.String diagramnodeendLocale) {
-		getStateHelper().put(DIAGRAMNODEEND_LOCALE, diagramnodeendLocale);
+	public void setDiagramNodeEndLocale(java.lang.String diagramNodeEndLocale) {
+		getStateHelper().put(DIAGRAM_NODE_END_LOCALE, diagramNodeEndLocale);
 	}
 
 	public java.lang.String getName() {

@@ -28,12 +28,12 @@ public abstract class FormBuilderCheckBoxFieldBase extends javax.faces.component
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERCHECKBOXFIELD_ID = "formbuildercheckboxfieldId";
+	public static final String FORM_BUILDER_CHECK_BOX_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERCHECKBOXFIELD_PARENT = "formbuildercheckboxfieldParent";
+	public static final String FORM_BUILDER_CHECK_BOX_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -165,12 +165,12 @@ public abstract class FormBuilderCheckBoxFieldBase extends javax.faces.component
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuildercheckboxfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERCHECKBOXFIELD_ID, null);
+	public java.lang.String getFormBuilderCheckBoxFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_CHECK_BOX_FIELD_ID, null);
 	}
 
-	public void setFormbuildercheckboxfieldId(java.lang.String formbuildercheckboxfieldId) {
-		getStateHelper().put(FORMBUILDERCHECKBOXFIELD_ID, formbuildercheckboxfieldId);
+	public void setFormBuilderCheckBoxFieldId(java.lang.String formBuilderCheckBoxFieldId) {
+		getStateHelper().put(FORM_BUILDER_CHECK_BOX_FIELD_ID, formBuilderCheckBoxFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -205,12 +205,12 @@ public abstract class FormBuilderCheckBoxFieldBase extends javax.faces.component
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuildercheckboxfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERCHECKBOXFIELD_PARENT, null);
+	public java.lang.String getFormBuilderCheckBoxFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_CHECK_BOX_FIELD_PARENT, null);
 	}
 
-	public void setFormbuildercheckboxfieldParent(java.lang.String formbuildercheckboxfieldParent) {
-		getStateHelper().put(FORMBUILDERCHECKBOXFIELD_PARENT, formbuildercheckboxfieldParent);
+	public void setFormBuilderCheckBoxFieldParent(java.lang.String formBuilderCheckBoxFieldParent) {
+		getStateHelper().put(FORM_BUILDER_CHECK_BOX_FIELD_PARENT, formBuilderCheckBoxFieldParent);
 	}
 
 	public java.lang.Boolean getPredefinedValue() {

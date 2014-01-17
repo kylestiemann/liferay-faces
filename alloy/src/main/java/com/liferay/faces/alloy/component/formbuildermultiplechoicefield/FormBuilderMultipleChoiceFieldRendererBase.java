@@ -56,14 +56,14 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends Rendere
 		renderDisabled(renderedAttributes, formBuilderMultipleChoiceField);
 		renderDropZoneNode(renderedAttributes, formBuilderMultipleChoiceField);
 		renderHiddenAttributes(renderedAttributes, formBuilderMultipleChoiceField);
-		renderFormbuildermultiplechoicefieldId(renderedAttributes, formBuilderMultipleChoiceField);
+		renderFormBuilderMultipleChoiceFieldId(renderedAttributes, formBuilderMultipleChoiceField);
 		renderLabel(renderedAttributes, formBuilderMultipleChoiceField);
 		renderLabelNode(renderedAttributes, formBuilderMultipleChoiceField);
 		renderLocalizationMap(renderedAttributes, formBuilderMultipleChoiceField);
 		renderName(renderedAttributes, formBuilderMultipleChoiceField);
 		renderOptionTemplate(renderedAttributes, formBuilderMultipleChoiceField);
 		renderOptions(renderedAttributes, formBuilderMultipleChoiceField);
-		renderFormbuildermultiplechoicefieldParent(renderedAttributes, formBuilderMultipleChoiceField);
+		renderFormBuilderMultipleChoiceFieldParent(renderedAttributes, formBuilderMultipleChoiceField);
 		renderPredefinedValue(renderedAttributes, formBuilderMultipleChoiceField);
 		renderReadOnly(renderedAttributes, formBuilderMultipleChoiceField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderMultipleChoiceField);
@@ -157,11 +157,11 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends Rendere
 		}
 	}
 
-	protected void renderFormbuildermultiplechoicefieldId(List<String> renderedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		java.lang.String formbuildermultiplechoicefieldId = formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldId();
+	protected void renderFormBuilderMultipleChoiceFieldId(List<String> renderedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		java.lang.String formBuilderMultipleChoiceFieldId = formBuilderMultipleChoiceField.getFormBuilderMultipleChoiceFieldId();
 
-		if (formbuildermultiplechoicefieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderMultipleChoiceField.FORMBUILDERMULTIPLECHOICEFIELD_ID, formbuildermultiplechoicefieldId));
+		if (formBuilderMultipleChoiceFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderMultipleChoiceField.FORM_BUILDER_MULTIPLE_CHOICE_FIELD_ID, formBuilderMultipleChoiceFieldId));
 		}
 	}
 
@@ -213,11 +213,11 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends Rendere
 		}
 	}
 
-	protected void renderFormbuildermultiplechoicefieldParent(List<String> renderedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
-		java.lang.String formbuildermultiplechoicefieldParent = formBuilderMultipleChoiceField.getFormbuildermultiplechoicefieldParent();
+	protected void renderFormBuilderMultipleChoiceFieldParent(List<String> renderedAttributes, FormBuilderMultipleChoiceField formBuilderMultipleChoiceField) throws IOException {
+		java.lang.String formBuilderMultipleChoiceFieldParent = formBuilderMultipleChoiceField.getFormBuilderMultipleChoiceFieldParent();
 
-		if (formbuildermultiplechoicefieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderMultipleChoiceField.FORMBUILDERMULTIPLECHOICEFIELD_PARENT, formbuildermultiplechoicefieldParent));
+		if (formBuilderMultipleChoiceFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderMultipleChoiceField.FORM_BUILDER_MULTIPLE_CHOICE_FIELD_PARENT, formBuilderMultipleChoiceFieldParent));
 		}
 	}
 

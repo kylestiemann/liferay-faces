@@ -23,7 +23,7 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String DIAGRAMNODEJOIN_BODY_CONTENT = "diagramnodejoinBodyContent";
+	public static final String DIAGRAM_NODE_JOIN_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String BUILDER = "builder";
 	public static final String CENTERED = "centered";
@@ -42,9 +42,9 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 	public static final String HEIGHT = "height";
 	public static final String HIGHLIGHT_BOUNDARY_STROKE = "highlightBoundaryStroke";
 	public static final String HIGHLIGHTED = "highlighted";
-	public static final String DIAGRAMNODEJOIN_ID = "diagramnodejoinId";
+	public static final String DIAGRAM_NODE_JOIN_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String DIAGRAMNODEJOIN_LOCALE = "diagramnodejoinLocale";
+	public static final String DIAGRAM_NODE_JOIN_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
 	public static final String RENDER = "render";
@@ -170,12 +170,12 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.Object getDiagramnodejoinBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(DIAGRAMNODEJOIN_BODY_CONTENT, null);
+	public java.lang.Object getDiagramNodeJoinBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(DIAGRAM_NODE_JOIN_BODY_CONTENT, null);
 	}
 
-	public void setDiagramnodejoinBodyContent(java.lang.Object diagramnodejoinBodyContent) {
-		getStateHelper().put(DIAGRAMNODEJOIN_BODY_CONTENT, diagramnodejoinBodyContent);
+	public void setDiagramNodeJoinBodyContent(java.lang.Object diagramNodeJoinBodyContent) {
+		getStateHelper().put(DIAGRAM_NODE_JOIN_BODY_CONTENT, diagramNodeJoinBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -322,12 +322,12 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(HIGHLIGHTED, highlighted);
 	}
 
-	public java.lang.String getDiagramnodejoinId() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODEJOIN_ID, null);
+	public java.lang.String getDiagramNodeJoinId() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_JOIN_ID, null);
 	}
 
-	public void setDiagramnodejoinId(java.lang.String diagramnodejoinId) {
-		getStateHelper().put(DIAGRAMNODEJOIN_ID, diagramnodejoinId);
+	public void setDiagramNodeJoinId(java.lang.String diagramNodeJoinId) {
+		getStateHelper().put(DIAGRAM_NODE_JOIN_ID, diagramNodeJoinId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -338,12 +338,12 @@ public abstract class DiagramNodeJoinBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getDiagramnodejoinLocale() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODEJOIN_LOCALE, null);
+	public java.lang.String getDiagramNodeJoinLocale() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_JOIN_LOCALE, null);
 	}
 
-	public void setDiagramnodejoinLocale(java.lang.String diagramnodejoinLocale) {
-		getStateHelper().put(DIAGRAMNODEJOIN_LOCALE, diagramnodejoinLocale);
+	public void setDiagramNodeJoinLocale(java.lang.String diagramNodeJoinLocale) {
+		getStateHelper().put(DIAGRAM_NODE_JOIN_LOCALE, diagramNodeJoinLocale);
 	}
 
 	public java.lang.String getName() {

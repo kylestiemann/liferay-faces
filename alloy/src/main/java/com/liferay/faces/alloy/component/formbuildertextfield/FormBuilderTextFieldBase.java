@@ -28,12 +28,12 @@ public abstract class FormBuilderTextFieldBase extends javax.faces.component.UIP
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERTEXTFIELD_ID = "formbuildertextfieldId";
+	public static final String FORM_BUILDER_TEXT_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERTEXTFIELD_PARENT = "formbuildertextfieldParent";
+	public static final String FORM_BUILDER_TEXT_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -168,12 +168,12 @@ public abstract class FormBuilderTextFieldBase extends javax.faces.component.UIP
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuildertextfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERTEXTFIELD_ID, null);
+	public java.lang.String getFormBuilderTextFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_TEXT_FIELD_ID, null);
 	}
 
-	public void setFormbuildertextfieldId(java.lang.String formbuildertextfieldId) {
-		getStateHelper().put(FORMBUILDERTEXTFIELD_ID, formbuildertextfieldId);
+	public void setFormBuilderTextFieldId(java.lang.String formBuilderTextFieldId) {
+		getStateHelper().put(FORM_BUILDER_TEXT_FIELD_ID, formBuilderTextFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -208,12 +208,12 @@ public abstract class FormBuilderTextFieldBase extends javax.faces.component.UIP
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuildertextfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERTEXTFIELD_PARENT, null);
+	public java.lang.String getFormBuilderTextFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_TEXT_FIELD_PARENT, null);
 	}
 
-	public void setFormbuildertextfieldParent(java.lang.String formbuildertextfieldParent) {
-		getStateHelper().put(FORMBUILDERTEXTFIELD_PARENT, formbuildertextfieldParent);
+	public void setFormBuilderTextFieldParent(java.lang.String formBuilderTextFieldParent) {
+		getStateHelper().put(FORM_BUILDER_TEXT_FIELD_PARENT, formBuilderTextFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

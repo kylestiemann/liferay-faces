@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.datecelleditor;
  */
 public abstract class DateCellEditorBase extends javax.faces.component.UIPanel {
 
-	public static final String DATECELLEDITOR_BODY_CONTENT = "datecelleditorBodyContent";
+	public static final String DATE_CELL_EDITOR_BODY_CONTENT = "bodyContent";
 	public static final String CALENDAR = "calendar";
 	public static final String DATE_FORMAT = "dateFormat";
 	public static final String INPUT_FORMATTER = "inputFormatter";
@@ -37,12 +37,12 @@ public abstract class DateCellEditorBase extends javax.faces.component.UIPanel {
 	public static final String ON_INPUT_FORMATTER_CHANGE = "onInputFormatterChange";
 	public static final String ON_OUTPUT_FORMATTER_CHANGE = "onOutputFormatterChange";
 
-	public java.lang.String getDatecelleditorBodyContent() {
-		return (java.lang.String) getStateHelper().eval(DATECELLEDITOR_BODY_CONTENT, null);
+	public java.lang.String getDateCellEditorBodyContent() {
+		return (java.lang.String) getStateHelper().eval(DATE_CELL_EDITOR_BODY_CONTENT, null);
 	}
 
-	public void setDatecelleditorBodyContent(java.lang.String datecelleditorBodyContent) {
-		getStateHelper().put(DATECELLEDITOR_BODY_CONTENT, datecelleditorBodyContent);
+	public void setDateCellEditorBodyContent(java.lang.String dateCellEditorBodyContent) {
+		getStateHelper().put(DATE_CELL_EDITOR_BODY_CONTENT, dateCellEditorBodyContent);
 	}
 
 	public java.lang.Object getCalendar() {

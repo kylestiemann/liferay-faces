@@ -56,12 +56,12 @@ public abstract class FormBuilderFileUploadFieldRendererBase extends RendererBas
 		renderDisabled(renderedAttributes, formBuilderFileUploadField);
 		renderDropZoneNode(renderedAttributes, formBuilderFileUploadField);
 		renderHiddenAttributes(renderedAttributes, formBuilderFileUploadField);
-		renderFormbuilderfileuploadfieldId(renderedAttributes, formBuilderFileUploadField);
+		renderFormBuilderFileUploadFieldId(renderedAttributes, formBuilderFileUploadField);
 		renderLabel(renderedAttributes, formBuilderFileUploadField);
 		renderLabelNode(renderedAttributes, formBuilderFileUploadField);
 		renderLocalizationMap(renderedAttributes, formBuilderFileUploadField);
 		renderName(renderedAttributes, formBuilderFileUploadField);
-		renderFormbuilderfileuploadfieldParent(renderedAttributes, formBuilderFileUploadField);
+		renderFormBuilderFileUploadFieldParent(renderedAttributes, formBuilderFileUploadField);
 		renderPredefinedValue(renderedAttributes, formBuilderFileUploadField);
 		renderReadOnly(renderedAttributes, formBuilderFileUploadField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderFileUploadField);
@@ -155,11 +155,11 @@ public abstract class FormBuilderFileUploadFieldRendererBase extends RendererBas
 		}
 	}
 
-	protected void renderFormbuilderfileuploadfieldId(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		java.lang.String formbuilderfileuploadfieldId = formBuilderFileUploadField.getFormbuilderfileuploadfieldId();
+	protected void renderFormBuilderFileUploadFieldId(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String formBuilderFileUploadFieldId = formBuilderFileUploadField.getFormBuilderFileUploadFieldId();
 
-		if (formbuilderfileuploadfieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderFileUploadField.FORMBUILDERFILEUPLOADFIELD_ID, formbuilderfileuploadfieldId));
+		if (formBuilderFileUploadFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.FORM_BUILDER_FILE_UPLOAD_FIELD_ID, formBuilderFileUploadFieldId));
 		}
 	}
 
@@ -195,11 +195,11 @@ public abstract class FormBuilderFileUploadFieldRendererBase extends RendererBas
 		}
 	}
 
-	protected void renderFormbuilderfileuploadfieldParent(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
-		java.lang.String formbuilderfileuploadfieldParent = formBuilderFileUploadField.getFormbuilderfileuploadfieldParent();
+	protected void renderFormBuilderFileUploadFieldParent(List<String> renderedAttributes, FormBuilderFileUploadField formBuilderFileUploadField) throws IOException {
+		java.lang.String formBuilderFileUploadFieldParent = formBuilderFileUploadField.getFormBuilderFileUploadFieldParent();
 
-		if (formbuilderfileuploadfieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderFileUploadField.FORMBUILDERFILEUPLOADFIELD_PARENT, formbuilderfileuploadfieldParent));
+		if (formBuilderFileUploadFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderFileUploadField.FORM_BUILDER_FILE_UPLOAD_FIELD_PARENT, formBuilderFileUploadFieldParent));
 		}
 	}
 

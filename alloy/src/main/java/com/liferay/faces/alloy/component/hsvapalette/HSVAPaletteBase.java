@@ -29,9 +29,9 @@ public abstract class HSVAPaletteBase extends javax.faces.component.UIPanel {
 	public static final String FIELD_VALIDATOR = "fieldValidator";
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
-	public static final String HSVAPALETTE_ID = "hsvapaletteId";
+	public static final String H_SVAPALETTE_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String HSVAPALETTE_LOCALE = "hsvapaletteLocale";
+	public static final String H_SVAPALETTE_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SELECTED = "selected";
@@ -143,12 +143,12 @@ public abstract class HSVAPaletteBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getHsvapaletteId() {
-		return (java.lang.String) getStateHelper().eval(HSVAPALETTE_ID, null);
+	public java.lang.String getHSVAPaletteId() {
+		return (java.lang.String) getStateHelper().eval(H_SVAPALETTE_ID, null);
 	}
 
-	public void setHsvapaletteId(java.lang.String hsvapaletteId) {
-		getStateHelper().put(HSVAPALETTE_ID, hsvapaletteId);
+	public void setHSVAPaletteId(java.lang.String hSVAPaletteId) {
+		getStateHelper().put(H_SVAPALETTE_ID, hSVAPaletteId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -159,12 +159,12 @@ public abstract class HSVAPaletteBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getHsvapaletteLocale() {
-		return (java.lang.String) getStateHelper().eval(HSVAPALETTE_LOCALE, null);
+	public java.lang.String getHSVAPaletteLocale() {
+		return (java.lang.String) getStateHelper().eval(H_SVAPALETTE_LOCALE, null);
 	}
 
-	public void setHsvapaletteLocale(java.lang.String hsvapaletteLocale) {
-		getStateHelper().put(HSVAPALETTE_LOCALE, hsvapaletteLocale);
+	public void setHSVAPaletteLocale(java.lang.String hSVAPaletteLocale) {
+		getStateHelper().put(H_SVAPALETTE_LOCALE, hSVAPaletteLocale);
 	}
 
 	public java.lang.Object getRender() {

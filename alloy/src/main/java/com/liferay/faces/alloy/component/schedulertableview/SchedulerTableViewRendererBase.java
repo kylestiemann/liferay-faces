@@ -49,7 +49,7 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSchedulertableviewBodyContent(renderedAttributes, schedulerTableView);
+		renderSchedulerTableViewBodyContent(renderedAttributes, schedulerTableView);
 		renderBoundingBox(renderedAttributes, schedulerTableView);
 		renderColHeaderDaysNode(renderedAttributes, schedulerTableView);
 		renderContentBox(renderedAttributes, schedulerTableView);
@@ -65,10 +65,10 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		renderHeaderTableNode(renderedAttributes, schedulerTableView);
 		renderHeight(renderedAttributes, schedulerTableView);
 		renderHideClass(renderedAttributes, schedulerTableView);
-		renderSchedulertableviewId(renderedAttributes, schedulerTableView);
+		renderSchedulerTableViewId(renderedAttributes, schedulerTableView);
 		renderInitialized(renderedAttributes, schedulerTableView);
 		renderIsoTime(renderedAttributes, schedulerTableView);
-		renderSchedulertableviewLocale(renderedAttributes, schedulerTableView);
+		renderSchedulerTableViewLocale(renderedAttributes, schedulerTableView);
 		renderName(renderedAttributes, schedulerTableView);
 		renderNavigationDateFormatter(renderedAttributes, schedulerTableView);
 		renderNextDate(renderedAttributes, schedulerTableView);
@@ -107,11 +107,11 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulertableviewBodyContent(List<String> renderedAttributes, SchedulerTableView schedulerTableView) throws IOException {
-		java.lang.String schedulertableviewBodyContent = schedulerTableView.getSchedulertableviewBodyContent();
+	protected void renderSchedulerTableViewBodyContent(List<String> renderedAttributes, SchedulerTableView schedulerTableView) throws IOException {
+		java.lang.String schedulerTableViewBodyContent = schedulerTableView.getSchedulerTableViewBodyContent();
 
-		if (schedulertableviewBodyContent != null) {
-			renderedAttributes.add(renderString(SchedulerTableView.SCHEDULERTABLEVIEW_BODY_CONTENT, schedulertableviewBodyContent));
+		if (schedulerTableViewBodyContent != null) {
+			renderedAttributes.add(renderString(SchedulerTableView.SCHEDULER_TABLE_VIEW_BODY_CONTENT, schedulerTableViewBodyContent));
 		}
 	}
 
@@ -235,11 +235,11 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulertableviewId(List<String> renderedAttributes, SchedulerTableView schedulerTableView) throws IOException {
-		java.lang.String schedulertableviewId = schedulerTableView.getSchedulertableviewId();
+	protected void renderSchedulerTableViewId(List<String> renderedAttributes, SchedulerTableView schedulerTableView) throws IOException {
+		java.lang.String schedulerTableViewId = schedulerTableView.getSchedulerTableViewId();
 
-		if (schedulertableviewId != null) {
-			renderedAttributes.add(renderString(SchedulerTableView.SCHEDULERTABLEVIEW_ID, schedulertableviewId));
+		if (schedulerTableViewId != null) {
+			renderedAttributes.add(renderString(SchedulerTableView.SCHEDULER_TABLE_VIEW_ID, schedulerTableViewId));
 		}
 	}
 
@@ -259,11 +259,11 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulertableviewLocale(List<String> renderedAttributes, SchedulerTableView schedulerTableView) throws IOException {
-		java.lang.String schedulertableviewLocale = schedulerTableView.getSchedulertableviewLocale();
+	protected void renderSchedulerTableViewLocale(List<String> renderedAttributes, SchedulerTableView schedulerTableView) throws IOException {
+		java.lang.String schedulerTableViewLocale = schedulerTableView.getSchedulerTableViewLocale();
 
-		if (schedulertableviewLocale != null) {
-			renderedAttributes.add(renderString(SchedulerTableView.SCHEDULERTABLEVIEW_LOCALE, schedulertableviewLocale));
+		if (schedulerTableViewLocale != null) {
+			renderedAttributes.add(renderString(SchedulerTableView.SCHEDULER_TABLE_VIEW_LOCALE, schedulerTableViewLocale));
 		}
 	}
 

@@ -51,7 +51,7 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 
 		renderAlign(renderedAttributes, diagramNodeCondition);
 		renderAlignOn(renderedAttributes, diagramNodeCondition);
-		renderDiagramnodeconditionBodyContent(renderedAttributes, diagramNodeCondition);
+		renderDiagramNodeConditionBodyContent(renderedAttributes, diagramNodeCondition);
 		renderBoundingBox(renderedAttributes, diagramNodeCondition);
 		renderBuilder(renderedAttributes, diagramNodeCondition);
 		renderCentered(renderedAttributes, diagramNodeCondition);
@@ -70,9 +70,9 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, diagramNodeCondition);
 		renderHighlightBoundaryStroke(renderedAttributes, diagramNodeCondition);
 		renderHighlighted(renderedAttributes, diagramNodeCondition);
-		renderDiagramnodeconditionId(renderedAttributes, diagramNodeCondition);
+		renderDiagramNodeConditionId(renderedAttributes, diagramNodeCondition);
 		renderInitialized(renderedAttributes, diagramNodeCondition);
-		renderDiagramnodeconditionLocale(renderedAttributes, diagramNodeCondition);
+		renderDiagramNodeConditionLocale(renderedAttributes, diagramNodeCondition);
 		renderName(renderedAttributes, diagramNodeCondition);
 		renderPreventOverlap(renderedAttributes, diagramNodeCondition);
 		renderRender(renderedAttributes, diagramNodeCondition);
@@ -130,11 +130,11 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodeconditionBodyContent(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
-		java.lang.Object diagramnodeconditionBodyContent = diagramNodeCondition.getDiagramnodeconditionBodyContent();
+	protected void renderDiagramNodeConditionBodyContent(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		java.lang.Object diagramNodeConditionBodyContent = diagramNodeCondition.getDiagramNodeConditionBodyContent();
 
-		if (diagramnodeconditionBodyContent != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAMNODECONDITION_BODY_CONTENT, diagramnodeconditionBodyContent));
+		if (diagramNodeConditionBodyContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_BODY_CONTENT, diagramNodeConditionBodyContent));
 		}
 	}
 
@@ -282,11 +282,11 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodeconditionId(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
-		java.lang.String diagramnodeconditionId = diagramNodeCondition.getDiagramnodeconditionId();
+	protected void renderDiagramNodeConditionId(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		java.lang.String diagramNodeConditionId = diagramNodeCondition.getDiagramNodeConditionId();
 
-		if (diagramnodeconditionId != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAMNODECONDITION_ID, diagramnodeconditionId));
+		if (diagramNodeConditionId != null) {
+			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_ID, diagramNodeConditionId));
 		}
 	}
 
@@ -298,11 +298,11 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodeconditionLocale(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
-		java.lang.String diagramnodeconditionLocale = diagramNodeCondition.getDiagramnodeconditionLocale();
+	protected void renderDiagramNodeConditionLocale(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
+		java.lang.String diagramNodeConditionLocale = diagramNodeCondition.getDiagramNodeConditionLocale();
 
-		if (diagramnodeconditionLocale != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAMNODECONDITION_LOCALE, diagramnodeconditionLocale));
+		if (diagramNodeConditionLocale != null) {
+			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_LOCALE, diagramNodeConditionLocale));
 		}
 	}
 

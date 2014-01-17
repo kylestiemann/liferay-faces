@@ -61,9 +61,9 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, schedulerBase);
 		renderHeight(renderedAttributes, schedulerBase);
 		renderHideClass(renderedAttributes, schedulerBase);
-		renderSchedulerbaseId(renderedAttributes, schedulerBase);
+		renderSchedulerBaseId(renderedAttributes, schedulerBase);
 		renderInitialized(renderedAttributes, schedulerBase);
-		renderSchedulerbaseLocale(renderedAttributes, schedulerBase);
+		renderSchedulerBaseLocale(renderedAttributes, schedulerBase);
 		renderNavigationDateFormatter(renderedAttributes, schedulerBase);
 		renderRender(renderedAttributes, schedulerBase);
 		renderRendered(renderedAttributes, schedulerBase);
@@ -193,11 +193,11 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerbaseId(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
-		java.lang.String schedulerbaseId = schedulerBase.getSchedulerbaseId();
+	protected void renderSchedulerBaseId(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String schedulerBaseId = schedulerBase.getSchedulerBaseId();
 
-		if (schedulerbaseId != null) {
-			renderedAttributes.add(renderString(SchedulerBase.SCHEDULERBASE_ID, schedulerbaseId));
+		if (schedulerBaseId != null) {
+			renderedAttributes.add(renderString(SchedulerBase.SCHEDULER_BASE_ID, schedulerBaseId));
 		}
 	}
 
@@ -209,11 +209,11 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerbaseLocale(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
-		java.lang.String schedulerbaseLocale = schedulerBase.getSchedulerbaseLocale();
+	protected void renderSchedulerBaseLocale(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String schedulerBaseLocale = schedulerBase.getSchedulerBaseLocale();
 
-		if (schedulerbaseLocale != null) {
-			renderedAttributes.add(renderString(SchedulerBase.SCHEDULERBASE_LOCALE, schedulerbaseLocale));
+		if (schedulerBaseLocale != null) {
+			renderedAttributes.add(renderString(SchedulerBase.SCHEDULER_BASE_LOCALE, schedulerBaseLocale));
 		}
 	}
 

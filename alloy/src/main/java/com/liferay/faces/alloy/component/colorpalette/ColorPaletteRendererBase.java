@@ -58,10 +58,10 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, colorPalette);
 		renderFormatter(renderedAttributes, colorPalette);
 		renderHeight(renderedAttributes, colorPalette);
-		renderColorpaletteId(renderedAttributes, colorPalette);
+		renderColorPaletteId(renderedAttributes, colorPalette);
 		renderInitialized(renderedAttributes, colorPalette);
 		renderItems(renderedAttributes, colorPalette);
-		renderColorpaletteLocale(renderedAttributes, colorPalette);
+		renderColorPaletteLocale(renderedAttributes, colorPalette);
 		renderRender(renderedAttributes, colorPalette);
 		renderRendered(renderedAttributes, colorPalette);
 		renderSelected(renderedAttributes, colorPalette);
@@ -164,11 +164,11 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderColorpaletteId(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
-		java.lang.String colorpaletteId = colorPalette.getColorpaletteId();
+	protected void renderColorPaletteId(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String colorPaletteId = colorPalette.getColorPaletteId();
 
-		if (colorpaletteId != null) {
-			renderedAttributes.add(renderString(ColorPalette.COLORPALETTE_ID, colorpaletteId));
+		if (colorPaletteId != null) {
+			renderedAttributes.add(renderString(ColorPalette.COLOR_PALETTE_ID, colorPaletteId));
 		}
 	}
 
@@ -188,11 +188,11 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderColorpaletteLocale(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
-		java.lang.String colorpaletteLocale = colorPalette.getColorpaletteLocale();
+	protected void renderColorPaletteLocale(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
+		java.lang.String colorPaletteLocale = colorPalette.getColorPaletteLocale();
 
-		if (colorpaletteLocale != null) {
-			renderedAttributes.add(renderString(ColorPalette.COLORPALETTE_LOCALE, colorpaletteLocale));
+		if (colorPaletteLocale != null) {
+			renderedAttributes.add(renderString(ColorPalette.COLOR_PALETTE_LOCALE, colorPaletteLocale));
 		}
 	}
 

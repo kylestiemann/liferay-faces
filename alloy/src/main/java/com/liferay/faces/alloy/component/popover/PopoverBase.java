@@ -23,7 +23,7 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String POPOVER_BODY_CONTENT = "popoverBodyContent";
+	public static final String POPOVER_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CENTERED = "centered";
 	public static final String CONSTRAIN = "constrain";
@@ -37,9 +37,9 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 	public static final String HEADER_CONTENT = "headerContent";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_ON = "hideOn";
-	public static final String POPOVER_ID = "popoverId";
+	public static final String POPOVER_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String POPOVER_LOCALE = "popoverLocale";
+	public static final String POPOVER_LOCALE = "locale";
 	public static final String MASK_NODE = "maskNode";
 	public static final String MODAL = "modal";
 	public static final String PREVENT_OVERLAP = "preventOverlap";

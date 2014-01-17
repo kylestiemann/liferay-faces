@@ -23,7 +23,7 @@ public abstract class TreeNodeBase extends javax.faces.component.UIPanel {
 
 	public static final String ALWAYS_SHOW_HIT_AREA = "alwaysShowHitArea";
 	public static final String BOUNDING_BOX = "boundingBox";
-	public static final String TREENODE_CHILDREN = "treenodeChildren";
+	public static final String TREE_NODE_CHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASSES = "cssClasses";
@@ -32,7 +32,7 @@ public abstract class TreeNodeBase extends javax.faces.component.UIPanel {
 	public static final String EXPANDED = "expanded";
 	public static final String HIT_AREA_EL = "hitAreaEl";
 	public static final String ICON_EL = "iconEl";
-	public static final String TREENODE_ID = "treenodeId";
+	public static final String TREE_NODE_ID = "id";
 	public static final String INDEX = "index";
 	public static final String INITIALIZED = "initialized";
 	public static final String LABEL = "label";
@@ -107,12 +107,12 @@ public abstract class TreeNodeBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(BOUNDING_BOX, boundingBox);
 	}
 
-	public java.lang.Object getTreenodeChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREENODE_CHILDREN, null);
+	public java.lang.Object getTreeNodeChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_NODE_CHILDREN, null);
 	}
 
-	public void setTreenodeChildren(java.lang.Object treenodeChildren) {
-		getStateHelper().put(TREENODE_CHILDREN, treenodeChildren);
+	public void setTreeNodeChildren(java.lang.Object treeNodeChildren) {
+		getStateHelper().put(TREE_NODE_CHILDREN, treeNodeChildren);
 	}
 
 	public java.lang.String getContainer() {
@@ -179,12 +179,12 @@ public abstract class TreeNodeBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_EL, iconEl);
 	}
 
-	public java.lang.String getTreenodeId() {
-		return (java.lang.String) getStateHelper().eval(TREENODE_ID, null);
+	public java.lang.String getTreeNodeId() {
+		return (java.lang.String) getStateHelper().eval(TREE_NODE_ID, null);
 	}
 
-	public void setTreenodeId(java.lang.String treenodeId) {
-		getStateHelper().put(TREENODE_ID, treenodeId);
+	public void setTreeNodeId(java.lang.String treeNodeId) {
+		getStateHelper().put(TREE_NODE_ID, treeNodeId);
 	}
 
 	public java.lang.Object getIndex() {

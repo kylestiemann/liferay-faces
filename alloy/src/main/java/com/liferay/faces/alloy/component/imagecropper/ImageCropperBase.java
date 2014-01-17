@@ -31,9 +31,9 @@ public abstract class ImageCropperBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String IMAGECROPPER_ID = "imagecropperId";
+	public static final String IMAGE_CROPPER_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String IMAGECROPPER_LOCALE = "imagecropperLocale";
+	public static final String IMAGE_CROPPER_LOCALE = "locale";
 	public static final String MIN_HEIGHT = "minHeight";
 	public static final String MIN_WIDTH = "minWidth";
 	public static final String MOVABLE = "movable";
@@ -189,12 +189,12 @@ public abstract class ImageCropperBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getImagecropperId() {
-		return (java.lang.String) getStateHelper().eval(IMAGECROPPER_ID, null);
+	public java.lang.String getImageCropperId() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_CROPPER_ID, null);
 	}
 
-	public void setImagecropperId(java.lang.String imagecropperId) {
-		getStateHelper().put(IMAGECROPPER_ID, imagecropperId);
+	public void setImageCropperId(java.lang.String imageCropperId) {
+		getStateHelper().put(IMAGE_CROPPER_ID, imageCropperId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -205,12 +205,12 @@ public abstract class ImageCropperBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getImagecropperLocale() {
-		return (java.lang.String) getStateHelper().eval(IMAGECROPPER_LOCALE, null);
+	public java.lang.String getImageCropperLocale() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_CROPPER_LOCALE, null);
 	}
 
-	public void setImagecropperLocale(java.lang.String imagecropperLocale) {
-		getStateHelper().put(IMAGECROPPER_LOCALE, imagecropperLocale);
+	public void setImageCropperLocale(java.lang.String imageCropperLocale) {
+		getStateHelper().put(IMAGE_CROPPER_LOCALE, imageCropperLocale);
 	}
 
 	public java.lang.Object getMinHeight() {

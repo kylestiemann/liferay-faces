@@ -28,12 +28,12 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERFIELDSETFIELD_ID = "formbuilderfieldsetfieldId";
+	public static final String FORM_BUILDER_FIELDSET_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERFIELDSETFIELD_PARENT = "formbuilderfieldsetfieldParent";
+	public static final String FORM_BUILDER_FIELDSET_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -165,12 +165,12 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuilderfieldsetfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERFIELDSETFIELD_ID, null);
+	public java.lang.String getFormBuilderFieldsetFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_FIELDSET_FIELD_ID, null);
 	}
 
-	public void setFormbuilderfieldsetfieldId(java.lang.String formbuilderfieldsetfieldId) {
-		getStateHelper().put(FORMBUILDERFIELDSETFIELD_ID, formbuilderfieldsetfieldId);
+	public void setFormBuilderFieldsetFieldId(java.lang.String formBuilderFieldsetFieldId) {
+		getStateHelper().put(FORM_BUILDER_FIELDSET_FIELD_ID, formBuilderFieldsetFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -205,12 +205,12 @@ public abstract class FormBuilderFieldsetFieldBase extends javax.faces.component
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuilderfieldsetfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERFIELDSETFIELD_PARENT, null);
+	public java.lang.String getFormBuilderFieldsetFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_FIELDSET_FIELD_PARENT, null);
 	}
 
-	public void setFormbuilderfieldsetfieldParent(java.lang.String formbuilderfieldsetfieldParent) {
-		getStateHelper().put(FORMBUILDERFIELDSETFIELD_PARENT, formbuilderfieldsetfieldParent);
+	public void setFormBuilderFieldsetFieldParent(java.lang.String formBuilderFieldsetFieldParent) {
+		getStateHelper().put(FORM_BUILDER_FIELDSET_FIELD_PARENT, formBuilderFieldsetFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

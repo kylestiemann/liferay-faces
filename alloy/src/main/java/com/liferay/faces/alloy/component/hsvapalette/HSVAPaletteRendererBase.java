@@ -57,9 +57,9 @@ public abstract class HSVAPaletteRendererBase extends RendererBase {
 		renderFieldValidator(renderedAttributes, hSVAPalette);
 		renderFocused(renderedAttributes, hSVAPalette);
 		renderHeight(renderedAttributes, hSVAPalette);
-		renderHsvapaletteId(renderedAttributes, hSVAPalette);
+		renderHSVAPaletteId(renderedAttributes, hSVAPalette);
 		renderInitialized(renderedAttributes, hSVAPalette);
-		renderHsvapaletteLocale(renderedAttributes, hSVAPalette);
+		renderHSVAPaletteLocale(renderedAttributes, hSVAPalette);
 		renderRender(renderedAttributes, hSVAPalette);
 		renderRendered(renderedAttributes, hSVAPalette);
 		renderSelected(renderedAttributes, hSVAPalette);
@@ -153,11 +153,11 @@ public abstract class HSVAPaletteRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvapaletteId(List<String> renderedAttributes, HSVAPalette hSVAPalette) throws IOException {
-		java.lang.String hsvapaletteId = hSVAPalette.getHsvapaletteId();
+	protected void renderHSVAPaletteId(List<String> renderedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		java.lang.String hSVAPaletteId = hSVAPalette.getHSVAPaletteId();
 
-		if (hsvapaletteId != null) {
-			renderedAttributes.add(renderString(HSVAPalette.HSVAPALETTE_ID, hsvapaletteId));
+		if (hSVAPaletteId != null) {
+			renderedAttributes.add(renderString(HSVAPalette.H_SVAPALETTE_ID, hSVAPaletteId));
 		}
 	}
 
@@ -169,11 +169,11 @@ public abstract class HSVAPaletteRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvapaletteLocale(List<String> renderedAttributes, HSVAPalette hSVAPalette) throws IOException {
-		java.lang.String hsvapaletteLocale = hSVAPalette.getHsvapaletteLocale();
+	protected void renderHSVAPaletteLocale(List<String> renderedAttributes, HSVAPalette hSVAPalette) throws IOException {
+		java.lang.String hSVAPaletteLocale = hSVAPalette.getHSVAPaletteLocale();
 
-		if (hsvapaletteLocale != null) {
-			renderedAttributes.add(renderString(HSVAPalette.HSVAPALETTE_LOCALE, hsvapaletteLocale));
+		if (hSVAPaletteLocale != null) {
+			renderedAttributes.add(renderString(HSVAPalette.H_SVAPALETTE_LOCALE, hSVAPaletteLocale));
 		}
 	}
 

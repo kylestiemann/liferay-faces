@@ -26,7 +26,7 @@ public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
 	public static final String ALWAYS_SHOW_LIST = "alwaysShowList";
-	public static final String AUTOCOMPLETELIST_BODY_CONTENT = "autocompletelistBodyContent";
+	public static final String AUTO_COMPLETE_LIST_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CENTERED = "centered";
 	public static final String CIRCULAR = "circular";
@@ -42,11 +42,11 @@ public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel
 	public static final String HIDE_ON = "hideOn";
 	public static final String HOST = "host";
 	public static final String HOVERED_ITEM = "hoveredItem";
-	public static final String AUTOCOMPLETELIST_ID = "autocompletelistId";
+	public static final String AUTO_COMPLETE_LIST_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String LIST_NODE = "listNode";
 	public static final String LOADING_MESSAGE = "loadingMessage";
-	public static final String AUTOCOMPLETELIST_LOCALE = "autocompletelistLocale";
+	public static final String AUTO_COMPLETE_LIST_LOCALE = "locale";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
@@ -191,12 +191,12 @@ public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel
 		getStateHelper().put(ALWAYS_SHOW_LIST, alwaysShowList);
 	}
 
-	public java.lang.Object getAutocompletelistBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(AUTOCOMPLETELIST_BODY_CONTENT, null);
+	public java.lang.Object getAutoCompleteListBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(AUTO_COMPLETE_LIST_BODY_CONTENT, null);
 	}
 
-	public void setAutocompletelistBodyContent(java.lang.Object autocompletelistBodyContent) {
-		getStateHelper().put(AUTOCOMPLETELIST_BODY_CONTENT, autocompletelistBodyContent);
+	public void setAutoCompleteListBodyContent(java.lang.Object autoCompleteListBodyContent) {
+		getStateHelper().put(AUTO_COMPLETE_LIST_BODY_CONTENT, autoCompleteListBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -319,12 +319,12 @@ public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel
 		getStateHelper().put(HOVERED_ITEM, hoveredItem);
 	}
 
-	public java.lang.String getAutocompletelistId() {
-		return (java.lang.String) getStateHelper().eval(AUTOCOMPLETELIST_ID, null);
+	public java.lang.String getAutoCompleteListId() {
+		return (java.lang.String) getStateHelper().eval(AUTO_COMPLETE_LIST_ID, null);
 	}
 
-	public void setAutocompletelistId(java.lang.String autocompletelistId) {
-		getStateHelper().put(AUTOCOMPLETELIST_ID, autocompletelistId);
+	public void setAutoCompleteListId(java.lang.String autoCompleteListId) {
+		getStateHelper().put(AUTO_COMPLETE_LIST_ID, autoCompleteListId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -351,12 +351,12 @@ public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel
 		getStateHelper().put(LOADING_MESSAGE, loadingMessage);
 	}
 
-	public java.lang.String getAutocompletelistLocale() {
-		return (java.lang.String) getStateHelper().eval(AUTOCOMPLETELIST_LOCALE, null);
+	public java.lang.String getAutoCompleteListLocale() {
+		return (java.lang.String) getStateHelper().eval(AUTO_COMPLETE_LIST_LOCALE, null);
 	}
 
-	public void setAutocompletelistLocale(java.lang.String autocompletelistLocale) {
-		getStateHelper().put(AUTOCOMPLETELIST_LOCALE, autocompletelistLocale);
+	public void setAutoCompleteListLocale(java.lang.String autoCompleteListLocale) {
+		getStateHelper().put(AUTO_COMPLETE_LIST_LOCALE, autoCompleteListLocale);
 	}
 
 	public java.lang.Boolean getPreventOverlap() {

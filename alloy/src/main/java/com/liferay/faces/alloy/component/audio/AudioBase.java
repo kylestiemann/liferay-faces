@@ -31,9 +31,9 @@ public abstract class AudioBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String AUDIO_ID = "audioId";
+	public static final String AUDIO_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String AUDIO_LOCALE = "audioLocale";
+	public static final String AUDIO_LOCALE = "locale";
 	public static final String OGG_URL = "oggUrl";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";

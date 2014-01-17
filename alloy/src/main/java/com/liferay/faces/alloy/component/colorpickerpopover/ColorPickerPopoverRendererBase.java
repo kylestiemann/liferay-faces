@@ -51,7 +51,7 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 
 		renderAlign(renderedAttributes, colorPickerPopover);
 		renderAlignOn(renderedAttributes, colorPickerPopover);
-		renderColorpickerpopoverBodyContent(renderedAttributes, colorPickerPopover);
+		renderColorPickerPopoverBodyContent(renderedAttributes, colorPickerPopover);
 		renderBoundingBox(renderedAttributes, colorPickerPopover);
 		renderCentered(renderedAttributes, colorPickerPopover);
 		renderColor(renderedAttributes, colorPickerPopover);
@@ -71,9 +71,9 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, colorPickerPopover);
 		renderHideOn(renderedAttributes, colorPickerPopover);
 		renderHsvPalette(renderedAttributes, colorPickerPopover);
-		renderColorpickerpopoverId(renderedAttributes, colorPickerPopover);
+		renderColorPickerPopoverId(renderedAttributes, colorPickerPopover);
 		renderInitialized(renderedAttributes, colorPickerPopover);
-		renderColorpickerpopoverLocale(renderedAttributes, colorPickerPopover);
+		renderColorPickerPopoverLocale(renderedAttributes, colorPickerPopover);
 		renderMaskNode(renderedAttributes, colorPickerPopover);
 		renderModal(renderedAttributes, colorPickerPopover);
 		renderPreventOverlap(renderedAttributes, colorPickerPopover);
@@ -134,11 +134,11 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderColorpickerpopoverBodyContent(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
-		java.lang.Object colorpickerpopoverBodyContent = colorPickerPopover.getColorpickerpopoverBodyContent();
+	protected void renderColorPickerPopoverBodyContent(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.Object colorPickerPopoverBodyContent = colorPickerPopover.getColorPickerPopoverBodyContent();
 
-		if (colorpickerpopoverBodyContent != null) {
-			renderedAttributes.add(renderString(ColorPickerPopover.COLORPICKERPOPOVER_BODY_CONTENT, colorpickerpopoverBodyContent));
+		if (colorPickerPopoverBodyContent != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.COLOR_PICKER_POPOVER_BODY_CONTENT, colorPickerPopoverBodyContent));
 		}
 	}
 
@@ -294,11 +294,11 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderColorpickerpopoverId(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
-		java.lang.String colorpickerpopoverId = colorPickerPopover.getColorpickerpopoverId();
+	protected void renderColorPickerPopoverId(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String colorPickerPopoverId = colorPickerPopover.getColorPickerPopoverId();
 
-		if (colorpickerpopoverId != null) {
-			renderedAttributes.add(renderString(ColorPickerPopover.COLORPICKERPOPOVER_ID, colorpickerpopoverId));
+		if (colorPickerPopoverId != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.COLOR_PICKER_POPOVER_ID, colorPickerPopoverId));
 		}
 	}
 
@@ -310,11 +310,11 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderColorpickerpopoverLocale(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
-		java.lang.String colorpickerpopoverLocale = colorPickerPopover.getColorpickerpopoverLocale();
+	protected void renderColorPickerPopoverLocale(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String colorPickerPopoverLocale = colorPickerPopover.getColorPickerPopoverLocale();
 
-		if (colorpickerpopoverLocale != null) {
-			renderedAttributes.add(renderString(ColorPickerPopover.COLORPICKERPOPOVER_LOCALE, colorpickerpopoverLocale));
+		if (colorPickerPopoverLocale != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.COLOR_PICKER_POPOVER_LOCALE, colorPickerPopoverLocale));
 		}
 	}
 

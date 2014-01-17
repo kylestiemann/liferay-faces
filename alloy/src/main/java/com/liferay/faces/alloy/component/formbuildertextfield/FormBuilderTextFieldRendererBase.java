@@ -56,12 +56,12 @@ public abstract class FormBuilderTextFieldRendererBase extends RendererBase {
 		renderDisabled(renderedAttributes, formBuilderTextField);
 		renderDropZoneNode(renderedAttributes, formBuilderTextField);
 		renderHiddenAttributes(renderedAttributes, formBuilderTextField);
-		renderFormbuildertextfieldId(renderedAttributes, formBuilderTextField);
+		renderFormBuilderTextFieldId(renderedAttributes, formBuilderTextField);
 		renderLabel(renderedAttributes, formBuilderTextField);
 		renderLabelNode(renderedAttributes, formBuilderTextField);
 		renderLocalizationMap(renderedAttributes, formBuilderTextField);
 		renderName(renderedAttributes, formBuilderTextField);
-		renderFormbuildertextfieldParent(renderedAttributes, formBuilderTextField);
+		renderFormBuilderTextFieldParent(renderedAttributes, formBuilderTextField);
 		renderPredefinedValue(renderedAttributes, formBuilderTextField);
 		renderReadOnly(renderedAttributes, formBuilderTextField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderTextField);
@@ -156,11 +156,11 @@ public abstract class FormBuilderTextFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuildertextfieldId(List<String> renderedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
-		java.lang.String formbuildertextfieldId = formBuilderTextField.getFormbuildertextfieldId();
+	protected void renderFormBuilderTextFieldId(List<String> renderedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		java.lang.String formBuilderTextFieldId = formBuilderTextField.getFormBuilderTextFieldId();
 
-		if (formbuildertextfieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderTextField.FORMBUILDERTEXTFIELD_ID, formbuildertextfieldId));
+		if (formBuilderTextFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderTextField.FORM_BUILDER_TEXT_FIELD_ID, formBuilderTextFieldId));
 		}
 	}
 
@@ -196,11 +196,11 @@ public abstract class FormBuilderTextFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuildertextfieldParent(List<String> renderedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
-		java.lang.String formbuildertextfieldParent = formBuilderTextField.getFormbuildertextfieldParent();
+	protected void renderFormBuilderTextFieldParent(List<String> renderedAttributes, FormBuilderTextField formBuilderTextField) throws IOException {
+		java.lang.String formBuilderTextFieldParent = formBuilderTextField.getFormBuilderTextFieldParent();
 
-		if (formbuildertextfieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderTextField.FORMBUILDERTEXTFIELD_PARENT, formbuildertextfieldParent));
+		if (formBuilderTextFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderTextField.FORM_BUILDER_TEXT_FIELD_PARENT, formBuilderTextFieldParent));
 		}
 	}
 

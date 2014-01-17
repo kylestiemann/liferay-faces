@@ -54,7 +54,7 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		renderAlign(renderedAttributes, autoCompleteList);
 		renderAlignOn(renderedAttributes, autoCompleteList);
 		renderAlwaysShowList(renderedAttributes, autoCompleteList);
-		renderAutocompletelistBodyContent(renderedAttributes, autoCompleteList);
+		renderAutoCompleteListBodyContent(renderedAttributes, autoCompleteList);
 		renderBoundingBox(renderedAttributes, autoCompleteList);
 		renderCentered(renderedAttributes, autoCompleteList);
 		renderCircular(renderedAttributes, autoCompleteList);
@@ -70,11 +70,11 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		renderHideOn(renderedAttributes, autoCompleteList);
 		renderHost(renderedAttributes, autoCompleteList);
 		renderHoveredItem(renderedAttributes, autoCompleteList);
-		renderAutocompletelistId(renderedAttributes, autoCompleteList);
+		renderAutoCompleteListId(renderedAttributes, autoCompleteList);
 		renderInitialized(renderedAttributes, autoCompleteList);
 		renderListNode(renderedAttributes, autoCompleteList);
 		renderLoadingMessage(renderedAttributes, autoCompleteList);
-		renderAutocompletelistLocale(renderedAttributes, autoCompleteList);
+		renderAutoCompleteListLocale(renderedAttributes, autoCompleteList);
 		renderPreventOverlap(renderedAttributes, autoCompleteList);
 		renderRender(renderedAttributes, autoCompleteList);
 		renderRendered(renderedAttributes, autoCompleteList);
@@ -153,11 +153,11 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAutocompletelistBodyContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		java.lang.Object autocompletelistBodyContent = autoCompleteList.getAutocompletelistBodyContent();
+	protected void renderAutoCompleteListBodyContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.Object autoCompleteListBodyContent = autoCompleteList.getAutoCompleteListBodyContent();
 
-		if (autocompletelistBodyContent != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AUTOCOMPLETELIST_BODY_CONTENT, autocompletelistBodyContent));
+		if (autoCompleteListBodyContent != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_BODY_CONTENT, autoCompleteListBodyContent));
 		}
 	}
 
@@ -281,11 +281,11 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAutocompletelistId(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		java.lang.String autocompletelistId = autoCompleteList.getAutocompletelistId();
+	protected void renderAutoCompleteListId(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String autoCompleteListId = autoCompleteList.getAutoCompleteListId();
 
-		if (autocompletelistId != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AUTOCOMPLETELIST_ID, autocompletelistId));
+		if (autoCompleteListId != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_ID, autoCompleteListId));
 		}
 	}
 
@@ -313,11 +313,11 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAutocompletelistLocale(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
-		java.lang.String autocompletelistLocale = autoCompleteList.getAutocompletelistLocale();
+	protected void renderAutoCompleteListLocale(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
+		java.lang.String autoCompleteListLocale = autoCompleteList.getAutoCompleteListLocale();
 
-		if (autocompletelistLocale != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AUTOCOMPLETELIST_LOCALE, autocompletelistLocale));
+		if (autoCompleteListLocale != null) {
+			renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_LOCALE, autoCompleteListLocale));
 		}
 	}
 

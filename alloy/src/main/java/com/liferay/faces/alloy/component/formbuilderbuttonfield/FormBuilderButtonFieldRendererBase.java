@@ -57,12 +57,12 @@ public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 		renderDisabled(renderedAttributes, formBuilderButtonField);
 		renderDropZoneNode(renderedAttributes, formBuilderButtonField);
 		renderHiddenAttributes(renderedAttributes, formBuilderButtonField);
-		renderFormbuilderbuttonfieldId(renderedAttributes, formBuilderButtonField);
+		renderFormBuilderButtonFieldId(renderedAttributes, formBuilderButtonField);
 		renderLabel(renderedAttributes, formBuilderButtonField);
 		renderLabelNode(renderedAttributes, formBuilderButtonField);
 		renderLocalizationMap(renderedAttributes, formBuilderButtonField);
 		renderName(renderedAttributes, formBuilderButtonField);
-		renderFormbuilderbuttonfieldParent(renderedAttributes, formBuilderButtonField);
+		renderFormBuilderButtonFieldParent(renderedAttributes, formBuilderButtonField);
 		renderPredefinedValue(renderedAttributes, formBuilderButtonField);
 		renderReadOnly(renderedAttributes, formBuilderButtonField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderButtonField);
@@ -164,11 +164,11 @@ public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderbuttonfieldId(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		java.lang.String formbuilderbuttonfieldId = formBuilderButtonField.getFormbuilderbuttonfieldId();
+	protected void renderFormBuilderButtonFieldId(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String formBuilderButtonFieldId = formBuilderButtonField.getFormBuilderButtonFieldId();
 
-		if (formbuilderbuttonfieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderButtonField.FORMBUILDERBUTTONFIELD_ID, formbuilderbuttonfieldId));
+		if (formBuilderButtonFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.FORM_BUILDER_BUTTON_FIELD_ID, formBuilderButtonFieldId));
 		}
 	}
 
@@ -204,11 +204,11 @@ public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderbuttonfieldParent(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
-		java.lang.String formbuilderbuttonfieldParent = formBuilderButtonField.getFormbuilderbuttonfieldParent();
+	protected void renderFormBuilderButtonFieldParent(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String formBuilderButtonFieldParent = formBuilderButtonField.getFormBuilderButtonFieldParent();
 
-		if (formbuilderbuttonfieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderButtonField.FORMBUILDERBUTTONFIELD_PARENT, formbuilderbuttonfieldParent));
+		if (formBuilderButtonFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.FORM_BUILDER_BUTTON_FIELD_PARENT, formBuilderButtonFieldParent));
 		}
 	}
 

@@ -31,12 +31,12 @@ public abstract class PaginationBase extends javax.faces.component.UIPanel {
 	public static final String FORMATTER = "formatter";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String PAGINATION_ID = "paginationId";
+	public static final String PAGINATION_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ITEMS = "items";
-	public static final String PAGINATION_LOCALE = "paginationLocale";
+	public static final String PAGINATION_LOCALE = "locale";
 	public static final String OFFSET = "offset";
-	public static final String PAGINATION_PAGE = "paginationPage";
+	public static final String PAGINATION_PAGE = "page";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SRC_NODE = "srcNode";

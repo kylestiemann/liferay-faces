@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.schedulerweekview;
  */
 public abstract class SchedulerWeekViewBase extends javax.faces.component.UIPanel {
 
-	public static final String SCHEDULERWEEKVIEW_BODY_CONTENT = "schedulerweekviewBodyContent";
+	public static final String SCHEDULER_WEEK_VIEW_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String COL_DAYS_NODE = "colDaysNode";
 	public static final String COL_HEADER_DAYS_NODE = "colHeaderDaysNode";
@@ -42,10 +42,10 @@ public abstract class SchedulerWeekViewBase extends javax.faces.component.UIPane
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
 	public static final String HOUR_HEIGHT = "hourHeight";
-	public static final String SCHEDULERWEEKVIEW_ID = "schedulerweekviewId";
+	public static final String SCHEDULER_WEEK_VIEW_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ISO_TIME = "isoTime";
-	public static final String SCHEDULERWEEKVIEW_LOCALE = "schedulerweekviewLocale";
+	public static final String SCHEDULER_WEEK_VIEW_LOCALE = "locale";
 	public static final String MARKERCELLS_NODE = "markercellsNode";
 	public static final String NAME = "name";
 	public static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
@@ -154,12 +154,12 @@ public abstract class SchedulerWeekViewBase extends javax.faces.component.UIPane
 	public static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 	public static final String ON_WIDTH_CHANGE = "onWidthChange";
 
-	public java.lang.String getSchedulerweekviewBodyContent() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERWEEKVIEW_BODY_CONTENT, null);
+	public java.lang.String getSchedulerWeekViewBodyContent() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_WEEK_VIEW_BODY_CONTENT, null);
 	}
 
-	public void setSchedulerweekviewBodyContent(java.lang.String schedulerweekviewBodyContent) {
-		getStateHelper().put(SCHEDULERWEEKVIEW_BODY_CONTENT, schedulerweekviewBodyContent);
+	public void setSchedulerWeekViewBodyContent(java.lang.String schedulerWeekViewBodyContent) {
+		getStateHelper().put(SCHEDULER_WEEK_VIEW_BODY_CONTENT, schedulerWeekViewBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -322,12 +322,12 @@ public abstract class SchedulerWeekViewBase extends javax.faces.component.UIPane
 		getStateHelper().put(HOUR_HEIGHT, hourHeight);
 	}
 
-	public java.lang.String getSchedulerweekviewId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERWEEKVIEW_ID, null);
+	public java.lang.String getSchedulerWeekViewId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_WEEK_VIEW_ID, null);
 	}
 
-	public void setSchedulerweekviewId(java.lang.String schedulerweekviewId) {
-		getStateHelper().put(SCHEDULERWEEKVIEW_ID, schedulerweekviewId);
+	public void setSchedulerWeekViewId(java.lang.String schedulerWeekViewId) {
+		getStateHelper().put(SCHEDULER_WEEK_VIEW_ID, schedulerWeekViewId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -346,12 +346,12 @@ public abstract class SchedulerWeekViewBase extends javax.faces.component.UIPane
 		getStateHelper().put(ISO_TIME, isoTime);
 	}
 
-	public java.lang.String getSchedulerweekviewLocale() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERWEEKVIEW_LOCALE, null);
+	public java.lang.String getSchedulerWeekViewLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_WEEK_VIEW_LOCALE, null);
 	}
 
-	public void setSchedulerweekviewLocale(java.lang.String schedulerweekviewLocale) {
-		getStateHelper().put(SCHEDULERWEEKVIEW_LOCALE, schedulerweekviewLocale);
+	public void setSchedulerWeekViewLocale(java.lang.String schedulerWeekViewLocale) {
+		getStateHelper().put(SCHEDULER_WEEK_VIEW_LOCALE, schedulerWeekViewLocale);
 	}
 
 	public java.lang.String getMarkercellsNode() {

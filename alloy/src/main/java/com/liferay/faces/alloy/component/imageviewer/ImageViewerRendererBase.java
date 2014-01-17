@@ -52,7 +52,7 @@ public abstract class ImageViewerRendererBase extends RendererBase {
 		renderAlign(renderedAttributes, imageViewer);
 		renderAlignOn(renderedAttributes, imageViewer);
 		renderAnim(renderedAttributes, imageViewer);
-		renderImageviewerBodyContent(renderedAttributes, imageViewer);
+		renderImageViewerBodyContent(renderedAttributes, imageViewer);
 		renderBoundingBox(renderedAttributes, imageViewer);
 		renderCaption(renderedAttributes, imageViewer);
 		renderCaptionEl(renderedAttributes, imageViewer);
@@ -72,7 +72,7 @@ public abstract class ImageViewerRendererBase extends RendererBase {
 		renderFooterContent(renderedAttributes, imageViewer);
 		renderHeaderContent(renderedAttributes, imageViewer);
 		renderHeight(renderedAttributes, imageViewer);
-		renderImageviewerId(renderedAttributes, imageViewer);
+		renderImageViewerId(renderedAttributes, imageViewer);
 		renderImage(renderedAttributes, imageViewer);
 		renderImageAnim(renderedAttributes, imageViewer);
 		renderInfoEl(renderedAttributes, imageViewer);
@@ -82,7 +82,7 @@ public abstract class ImageViewerRendererBase extends RendererBase {
 		renderLoader(renderedAttributes, imageViewer);
 		renderLoading(renderedAttributes, imageViewer);
 		renderLoadingEl(renderedAttributes, imageViewer);
-		renderImageviewerLocale(renderedAttributes, imageViewer);
+		renderImageViewerLocale(renderedAttributes, imageViewer);
 		renderMaskNode(renderedAttributes, imageViewer);
 		renderMaxHeight(renderedAttributes, imageViewer);
 		renderMaxWidth(renderedAttributes, imageViewer);
@@ -149,11 +149,11 @@ public abstract class ImageViewerRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImageviewerBodyContent(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
-		java.lang.String imageviewerBodyContent = imageViewer.getImageviewerBodyContent();
+	protected void renderImageViewerBodyContent(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String imageViewerBodyContent = imageViewer.getImageViewerBodyContent();
 
-		if (imageviewerBodyContent != null) {
-			renderedAttributes.add(renderString(ImageViewer.IMAGEVIEWER_BODY_CONTENT, imageviewerBodyContent));
+		if (imageViewerBodyContent != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGE_VIEWER_BODY_CONTENT, imageViewerBodyContent));
 		}
 	}
 
@@ -309,11 +309,11 @@ public abstract class ImageViewerRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImageviewerId(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
-		java.lang.String imageviewerId = imageViewer.getImageviewerId();
+	protected void renderImageViewerId(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String imageViewerId = imageViewer.getImageViewerId();
 
-		if (imageviewerId != null) {
-			renderedAttributes.add(renderString(ImageViewer.IMAGEVIEWER_ID, imageviewerId));
+		if (imageViewerId != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGE_VIEWER_ID, imageViewerId));
 		}
 	}
 
@@ -389,11 +389,11 @@ public abstract class ImageViewerRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImageviewerLocale(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
-		java.lang.String imageviewerLocale = imageViewer.getImageviewerLocale();
+	protected void renderImageViewerLocale(List<String> renderedAttributes, ImageViewer imageViewer) throws IOException {
+		java.lang.String imageViewerLocale = imageViewer.getImageViewerLocale();
 
-		if (imageviewerLocale != null) {
-			renderedAttributes.add(renderString(ImageViewer.IMAGEVIEWER_LOCALE, imageviewerLocale));
+		if (imageViewerLocale != null) {
+			renderedAttributes.add(renderString(ImageViewer.IMAGE_VIEWER_LOCALE, imageViewerLocale));
 		}
 	}
 

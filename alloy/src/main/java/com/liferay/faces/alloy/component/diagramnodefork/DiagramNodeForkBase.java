@@ -23,7 +23,7 @@ public abstract class DiagramNodeForkBase extends javax.faces.component.UIPanel 
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String DIAGRAMNODEFORK_BODY_CONTENT = "diagramnodeforkBodyContent";
+	public static final String DIAGRAM_NODE_FORK_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String BUILDER = "builder";
 	public static final String CENTERED = "centered";
@@ -42,9 +42,9 @@ public abstract class DiagramNodeForkBase extends javax.faces.component.UIPanel 
 	public static final String HEIGHT = "height";
 	public static final String HIGHLIGHT_BOUNDARY_STROKE = "highlightBoundaryStroke";
 	public static final String HIGHLIGHTED = "highlighted";
-	public static final String DIAGRAMNODEFORK_ID = "diagramnodeforkId";
+	public static final String DIAGRAM_NODE_FORK_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String DIAGRAMNODEFORK_LOCALE = "diagramnodeforkLocale";
+	public static final String DIAGRAM_NODE_FORK_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
 	public static final String RENDER = "render";
@@ -170,12 +170,12 @@ public abstract class DiagramNodeForkBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.Object getDiagramnodeforkBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(DIAGRAMNODEFORK_BODY_CONTENT, null);
+	public java.lang.Object getDiagramNodeForkBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(DIAGRAM_NODE_FORK_BODY_CONTENT, null);
 	}
 
-	public void setDiagramnodeforkBodyContent(java.lang.Object diagramnodeforkBodyContent) {
-		getStateHelper().put(DIAGRAMNODEFORK_BODY_CONTENT, diagramnodeforkBodyContent);
+	public void setDiagramNodeForkBodyContent(java.lang.Object diagramNodeForkBodyContent) {
+		getStateHelper().put(DIAGRAM_NODE_FORK_BODY_CONTENT, diagramNodeForkBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -322,12 +322,12 @@ public abstract class DiagramNodeForkBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(HIGHLIGHTED, highlighted);
 	}
 
-	public java.lang.String getDiagramnodeforkId() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODEFORK_ID, null);
+	public java.lang.String getDiagramNodeForkId() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_FORK_ID, null);
 	}
 
-	public void setDiagramnodeforkId(java.lang.String diagramnodeforkId) {
-		getStateHelper().put(DIAGRAMNODEFORK_ID, diagramnodeforkId);
+	public void setDiagramNodeForkId(java.lang.String diagramNodeForkId) {
+		getStateHelper().put(DIAGRAM_NODE_FORK_ID, diagramNodeForkId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -338,12 +338,12 @@ public abstract class DiagramNodeForkBase extends javax.faces.component.UIPanel 
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getDiagramnodeforkLocale() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODEFORK_LOCALE, null);
+	public java.lang.String getDiagramNodeForkLocale() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_FORK_LOCALE, null);
 	}
 
-	public void setDiagramnodeforkLocale(java.lang.String diagramnodeforkLocale) {
-		getStateHelper().put(DIAGRAMNODEFORK_LOCALE, diagramnodeforkLocale);
+	public void setDiagramNodeForkLocale(java.lang.String diagramNodeForkLocale) {
+		getStateHelper().put(DIAGRAM_NODE_FORK_LOCALE, diagramNodeForkLocale);
 	}
 
 	public java.lang.String getName() {

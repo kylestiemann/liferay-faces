@@ -71,7 +71,7 @@ will be highlighted or not.<!--{"event":false,"inputType":"boolean","outputType"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>aceeditorId</name>
+			<name>aceEditorId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -85,7 +85,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>aceeditorLocale</name>
+			<name>aceEditorLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -167,7 +167,7 @@ when it reaches the end of the line.<!--{"event":false,"inputType":"boolean","ou
 		</attribute>
 		<attribute>
 			<description><![CDATA[Some predefined value on the editor.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>aceeditorValue</name>
+			<name>aceEditorValue</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -1234,7 +1234,7 @@ to display.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requ
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>autocompletelistBodyContent</name>
+			<name>autoCompleteListBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -1354,7 +1354,7 @@ escape key is pressed.</p><!--{"event":false,"inputType":"java.lang.Object","out
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>autocompletelistId</name>
+			<name>autoCompleteListId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -1380,7 +1380,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>autocompletelistLocale</name>
+			<name>autoCompleteListLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -2050,7 +2050,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>availablefieldId</name>
+			<name>availableFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -3206,7 +3206,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>colorpaletteId</name>
+			<name>colorPaletteId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -3226,7 +3226,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>colorpaletteLocale</name>
+			<name>colorPaletteLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -3591,7 +3591,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>colorpickerpopoverBodyContent</name>
+			<name>colorPickerPopoverBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -3739,7 +3739,7 @@ escape key is pressed.</p><!--{"event":false,"inputType":"java.lang.Object","out
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>colorpickerpopoverId</name>
+			<name>colorPickerPopoverId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -3753,7 +3753,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>colorpickerpopoverLocale</name>
+			<name>colorPickerPopoverLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -5183,7 +5183,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>datecelleditorBodyContent</name>
+			<name>dateCellEditorBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -6102,7 +6102,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagrambuilderId</name>
+			<name>diagramBuilderId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -6116,7 +6116,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagrambuilderLocale</name>
+			<name>diagramBuilderLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -6724,7 +6724,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodeBodyContent</name>
+			<name>diagramNodeBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -6854,7 +6854,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodeId</name>
+			<name>diagramNodeId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -6868,7 +6868,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodeLocale</name>
+			<name>diagramNodeLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -7576,7 +7576,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodeconditionBodyContent</name>
+			<name>diagramNodeConditionBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -7706,7 +7706,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodeconditionId</name>
+			<name>diagramNodeConditionId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -7720,7 +7720,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodeconditionLocale</name>
+			<name>diagramNodeConditionLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -8428,7 +8428,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodeendBodyContent</name>
+			<name>diagramNodeEndBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -8558,7 +8558,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodeendId</name>
+			<name>diagramNodeEndId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -8572,7 +8572,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodeendLocale</name>
+			<name>diagramNodeEndLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -9280,7 +9280,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodeforkBodyContent</name>
+			<name>diagramNodeForkBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -9410,7 +9410,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodeforkId</name>
+			<name>diagramNodeForkId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -9424,7 +9424,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodeforkLocale</name>
+			<name>diagramNodeForkLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -10132,7 +10132,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodejoinBodyContent</name>
+			<name>diagramNodeJoinBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -10262,7 +10262,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodejoinId</name>
+			<name>diagramNodeJoinId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -10276,7 +10276,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodejoinLocale</name>
+			<name>diagramNodeJoinLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -11033,7 +11033,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodestartBodyContent</name>
+			<name>diagramNodeStartBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -11163,7 +11163,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodestartId</name>
+			<name>diagramNodeStartId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -11177,7 +11177,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodestartLocale</name>
+			<name>diagramNodeStartLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -11885,7 +11885,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodestateBodyContent</name>
+			<name>diagramNodeStateBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -12015,7 +12015,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodestateId</name>
+			<name>diagramNodeStateId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -12029,7 +12029,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodestateLocale</name>
+			<name>diagramNodeStateLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -12737,7 +12737,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>diagramnodetaskBodyContent</name>
+			<name>diagramNodeTaskBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -12867,7 +12867,7 @@ in the header. If you want to append, or insert new content, use the <a href="#m
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>diagramnodetaskId</name>
+			<name>diagramNodeTaskId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -12881,7 +12881,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>diagramnodetaskLocale</name>
+			<name>diagramNodeTaskLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -13752,7 +13752,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderId</name>
+			<name>formBuilderId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -13766,7 +13766,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>formbuilderLocale</name>
+			<name>formBuilderLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -14315,7 +14315,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderavailablefieldId</name>
+			<name>formBuilderAvailableFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -14675,7 +14675,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderbuttonfieldId</name>
+			<name>formBuilderButtonFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -14705,7 +14705,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuilderbuttonfieldParent</name>
+			<name>formBuilderButtonFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -15220,7 +15220,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuildercheckboxfieldId</name>
+			<name>formBuilderCheckBoxFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -15250,7 +15250,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuildercheckboxfieldParent</name>
+			<name>formBuilderCheckBoxFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -15753,7 +15753,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderfieldId</name>
+			<name>formBuilderFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -15783,7 +15783,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuilderfieldParent</name>
+			<name>formBuilderFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -16297,7 +16297,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderfieldsetfieldId</name>
+			<name>formBuilderFieldsetFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -16327,7 +16327,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuilderfieldsetfieldParent</name>
+			<name>formBuilderFieldsetFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -16830,7 +16830,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderfileuploadfieldId</name>
+			<name>formBuilderFileUploadFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -16860,7 +16860,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuilderfileuploadfieldParent</name>
+			<name>formBuilderFileUploadFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -17363,7 +17363,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuildermultiplechoicefieldId</name>
+			<name>formBuilderMultipleChoiceFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -17405,7 +17405,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuildermultiplechoicefieldParent</name>
+			<name>formBuilderMultipleChoiceFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -17932,7 +17932,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderradiofieldId</name>
+			<name>formBuilderRadioFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -17974,7 +17974,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuilderradiofieldParent</name>
+			<name>formBuilderRadioFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -18501,7 +18501,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuilderselectfieldId</name>
+			<name>formBuilderSelectFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -18549,7 +18549,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuilderselectfieldParent</name>
+			<name>formBuilderSelectFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -19088,7 +19088,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuildertextareafieldId</name>
+			<name>formBuilderTextAreaFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -19118,7 +19118,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuildertextareafieldParent</name>
+			<name>formBuilderTextAreaFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -19639,7 +19639,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>formbuildertextfieldId</name>
+			<name>formBuilderTextFieldId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -19669,7 +19669,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>formbuildertextfieldParent</name>
+			<name>formBuilderTextFieldParent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -20677,7 +20677,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>hsvapaletteId</name>
+			<name>hSVAPaletteId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -20691,7 +20691,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>hsvapaletteLocale</name>
+			<name>hSVAPaletteLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -21029,7 +21029,7 @@ following properties:
 
 Temporary fix for widget-stdmod bug when bodyContent initializes empty.
 this._currFillNode is never updated if _uiSetFillHeight is not called.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>hsvapalettemodalBodyContent</name>
+			<name>hSVAPaletteModalBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -21159,7 +21159,7 @@ escape key is pressed.</p><!--{"event":false,"inputType":"java.lang.Object","out
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>hsvapalettemodalId</name>
+			<name>hSVAPaletteModalId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -21173,7 +21173,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>hsvapalettemodalLocale</name>
+			<name>hSVAPaletteModalLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -21865,7 +21865,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>hsvpaletteId</name>
+			<name>hSVPaletteId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -21879,7 +21879,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>hsvpaletteLocale</name>
+			<name>hSVPaletteLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -22248,7 +22248,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>imagecropperId</name>
+			<name>imageCropperId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -22262,7 +22262,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>imagecropperLocale</name>
+			<name>imageCropperLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -22781,7 +22781,7 @@ ImageGallery is displayed.<!--{"event":false,"inputType":"boolean","outputType":
 		</attribute>
 		<attribute>
 			<description><![CDATA[The content of body.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>imagegalleryBodyContent</name>
+			<name>imageGalleryBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -22927,7 +22927,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>imagegalleryId</name>
+			<name>imageGalleryId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -22991,7 +22991,7 @@ extracts the information to generate the thumbnails.<!--{"event":false,"inputTyp
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>imagegalleryLocale</name>
+			<name>imageGalleryLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -24070,7 +24070,7 @@ following properties:
 		</attribute>
 		<attribute>
 			<description><![CDATA[The content of body.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>imageviewerBodyContent</name>
+			<name>imageViewerBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -24210,7 +24210,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>imageviewerId</name>
+			<name>imageViewerId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -24274,7 +24274,7 @@ extracts the information to generate the thumbnails.<!--{"event":false,"inputTyp
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>imageviewerLocale</name>
+			<name>imageViewerLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -27718,7 +27718,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>progressbarId</name>
+			<name>progressBarId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -27741,7 +27741,7 @@ used as label.<!--{"event":false,"inputType":"java.lang.String","outputType":"ja
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>progressbarLocale</name>
+			<name>progressBarLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -27837,7 +27837,7 @@ should be enabled.<!--{"event":false,"inputType":"boolean","outputType":"boolean
 		<attribute>
 			<description><![CDATA[The value for the bar. Valid values are in between the minValue
 and maxValue attributes.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false,"defaultValue":"0"}-->]]></description>
-			<name>progressbarValue</name>
+			<name>progressBarValue</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -28349,7 +28349,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>propertylistId</name>
+			<name>propertyListId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -28363,7 +28363,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>propertylistLocale</name>
+			<name>propertyListLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -29616,7 +29616,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>scheduleragendaviewBodyContent</name>
+			<name>schedulerAgendaViewBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -29702,7 +29702,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>scheduleragendaviewId</name>
+			<name>schedulerAgendaViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -29740,7 +29740,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>scheduleragendaviewLocale</name>
+			<name>schedulerAgendaViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -30357,7 +30357,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerbaseId</name>
+			<name>schedulerBaseId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -30371,7 +30371,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>schedulerbaseLocale</name>
+			<name>schedulerBaseLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -30951,7 +30951,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerdayviewBodyContent</name>
+			<name>schedulerDayViewBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -31085,7 +31085,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerdayviewId</name>
+			<name>schedulerDayViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -31105,7 +31105,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>schedulerdayviewLocale</name>
+			<name>schedulerDayViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -31784,7 +31784,7 @@ Like the `id` attribute, `clientId` may be used to retrieve model
 instances from lists. Unlike the `id` attribute, `clientId` is
 automatically generated, and is only intended to be used on the client
 during the current pageview.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulereventClientId</name>
+			<name>schedulerEventClientId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -31843,7 +31843,7 @@ of using the `id` attribute (for example, maybe you'd rather use `_id`
 or `uid` as the primary id), you may set the `idAttribute` property to
 the name of your custom id attribute. The `id` attribute will then
 act as an alias for your custom attribute.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false,"defaultValue":"`null`"}-->]]></description>
-			<name>schedulereventId</name>
+			<name>schedulerEventId</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -32154,7 +32154,7 @@ Like the `id` attribute, `clientId` may be used to retrieve model
 instances from lists. Unlike the `id` attribute, `clientId` is
 automatically generated, and is only intended to be used on the client
 during the current pageview.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulereventrecorderClientId</name>
+			<name>schedulerEventRecorderClientId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -32237,7 +32237,7 @@ of using the `id` attribute (for example, maybe you'd rather use `_id`
 or `uid` as the primary id), you may set the `idAttribute` property to
 the name of your custom id attribute. The `id` attribute will then
 act as an alias for your custom attribute.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false,"defaultValue":"`null`"}-->]]></description>
-			<name>schedulereventrecorderId</name>
+			<name>schedulerEventRecorderId</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -32699,7 +32699,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulermonthviewBodyContent</name>
+			<name>schedulerMonthViewBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -32803,7 +32803,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulermonthviewId</name>
+			<name>schedulerMonthViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -32823,7 +32823,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>schedulermonthviewLocale</name>
+			<name>schedulerMonthViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -33395,7 +33395,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulertableviewBodyContent</name>
+			<name>schedulerTableViewBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -33499,7 +33499,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulertableviewId</name>
+			<name>schedulerTableViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -33519,7 +33519,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>schedulertableviewLocale</name>
+			<name>schedulerTableViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -34120,7 +34120,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerviewBodyContent</name>
+			<name>schedulerViewBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -34188,7 +34188,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerviewId</name>
+			<name>schedulerViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -34208,7 +34208,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>schedulerviewLocale</name>
+			<name>schedulerViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -34672,7 +34672,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</component>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerweekviewBodyContent</name>
+			<name>schedulerWeekViewBodyContent</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -34806,7 +34806,7 @@ has focus.<!--{"event":false,"inputType":"boolean","outputType":"boolean","requi
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>schedulerweekviewId</name>
+			<name>schedulerWeekViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -34826,7 +34826,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>schedulerweekviewLocale</name>
+			<name>schedulerWeekViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -36074,7 +36074,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>tabviewId</name>
+			<name>tabViewId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -36088,7 +36088,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>tabviewLocale</name>
+			<name>tabViewLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -36787,7 +36787,7 @@ following properties:
 		<attribute>
 			<description><![CDATA[The content to be added to the body section. This will replace any existing content
 in the body. If you want to append, or insert new content, use the <a href="#method_setStdModContent">setStdModContent</a> method.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.lang.Object","required":false}-->]]></description>
-			<name>textcelleditorBodyContent</name>
+			<name>textCellEditorBodyContent</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -36893,7 +36893,7 @@ the default unit, defined by the Widgets DEF_UNIT, property is used.<!--{"event"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>textcelleditorId</name>
+			<name>textCellEditorId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -36913,7 +36913,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>textcelleditorLocale</name>
+			<name>textCellEditorLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -36996,7 +36996,7 @@ boundingBox, to protect it from select box bleedthrough.<!--{"event":false,"inpu
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>textcelleditorValue</name>
+			<name>textCellEditorValue</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -37624,7 +37624,7 @@ replace the radio elements and keep the same name.<!--{"event":false,"inputType"
 		</attribute>
 		<attribute>
 			<description><![CDATA[<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false}-->]]></description>
-			<name>thumbratingId</name>
+			<name>thumbRatingId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -37660,7 +37660,7 @@ boundingBox which matches <code>aui-rating-label-element</code>.<!--{"event":fal
 		<attribute>
 			<description><![CDATA[The default locale for the widget. NOTE: Using get/set on the "strings" attribute will
 return/set strings for this locale.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"en"}-->]]></description>
-			<name>thumbratingLocale</name>
+			<name>thumbRatingLocale</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -37737,7 +37737,7 @@ enabled for the Widget.<!--{"event":false,"inputType":"boolean","outputType":"bo
 		</attribute>
 		<attribute>
 			<description><![CDATA[Stores the value of the current selected Rating element.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>thumbratingValue</name>
+			<name>thumbRatingValue</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -38231,7 +38231,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[TODO. Wanna help? Please send a Pull Request.<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>timepickerValues</name>
+			<name>timePickerValues</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -40227,7 +40227,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</component>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treedataChildren</name>
+			<name>treeDataChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -40342,7 +40342,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</attribute>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treenodeChildren</name>
+			<name>treeNodeChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -40398,7 +40398,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[Id of the TreeNode.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>treenodeId</name>
+			<name>treeNodeId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -40801,7 +40801,7 @@ children is present the TreeNode is a leaf).<!--{"event":false,"inputType":"bool
 		</attribute>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treenodecheckChildren</name>
+			<name>treeNodeCheckChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -40857,7 +40857,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[Id of the TreeNode.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>treenodecheckId</name>
+			<name>treeNodeCheckId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -41368,7 +41368,7 @@ children is present the TreeNode is a leaf).<!--{"event":false,"inputType":"bool
 		</attribute>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treenodeioChildren</name>
+			<name>treeNodeIOChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -41424,7 +41424,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[Id of the TreeNode.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>treenodeioId</name>
+			<name>treeNodeIOId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -41911,7 +41911,7 @@ children is present the TreeNode is a leaf).<!--{"event":false,"inputType":"bool
 		</attribute>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treenoderadioChildren</name>
+			<name>treeNodeRadioChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -41967,7 +41967,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[Id of the TreeNode.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>treenoderadioId</name>
+			<name>treeNodeRadioId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -42502,7 +42502,7 @@ children is present the TreeNode is a leaf).<!--{"event":false,"inputType":"bool
 		</attribute>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treenodetaskChildren</name>
+			<name>treeNodeTaskChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -42558,7 +42558,7 @@ has been through the destroy lifecycle phase.<!--{"event":false,"inputType":"boo
 		</attribute>
 		<attribute>
 			<description><![CDATA[Id of the TreeNode.<!--{"event":false,"inputType":"java.lang.String","outputType":"java.lang.String","required":false,"defaultValue":"null"}-->]]></description>
-			<name>treenodetaskId</name>
+			<name>treeNodeTaskId</name>
 			<required>false</required>
 			<type>java.lang.String</type>
 		</attribute>
@@ -43051,7 +43051,7 @@ children is present the TreeNode is a leaf).<!--{"event":false,"inputType":"bool
 		</component>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treeviewChildren</name>
+			<name>treeViewChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>
@@ -43226,7 +43226,7 @@ has been through the init lifecycle phase.<!--{"event":false,"inputType":"boolea
 		</component>
 		<attribute>
 			<description><![CDATA[Array of children (i.e. could be a JSON metadata object or a TreeNode instance).<!--{"event":false,"inputType":"java.lang.Object","outputType":"java.util.ArrayList","required":false,"defaultValue":"[]"}-->]]></description>
-			<name>treeviewddChildren</name>
+			<name>treeViewDDChildren</name>
 			<required>false</required>
 			<type>java.lang.Object</type>
 		</attribute>

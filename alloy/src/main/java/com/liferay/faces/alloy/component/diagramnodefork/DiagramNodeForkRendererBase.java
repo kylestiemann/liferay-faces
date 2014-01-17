@@ -51,7 +51,7 @@ public abstract class DiagramNodeForkRendererBase extends RendererBase {
 
 		renderAlign(renderedAttributes, diagramNodeFork);
 		renderAlignOn(renderedAttributes, diagramNodeFork);
-		renderDiagramnodeforkBodyContent(renderedAttributes, diagramNodeFork);
+		renderDiagramNodeForkBodyContent(renderedAttributes, diagramNodeFork);
 		renderBoundingBox(renderedAttributes, diagramNodeFork);
 		renderBuilder(renderedAttributes, diagramNodeFork);
 		renderCentered(renderedAttributes, diagramNodeFork);
@@ -70,9 +70,9 @@ public abstract class DiagramNodeForkRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, diagramNodeFork);
 		renderHighlightBoundaryStroke(renderedAttributes, diagramNodeFork);
 		renderHighlighted(renderedAttributes, diagramNodeFork);
-		renderDiagramnodeforkId(renderedAttributes, diagramNodeFork);
+		renderDiagramNodeForkId(renderedAttributes, diagramNodeFork);
 		renderInitialized(renderedAttributes, diagramNodeFork);
-		renderDiagramnodeforkLocale(renderedAttributes, diagramNodeFork);
+		renderDiagramNodeForkLocale(renderedAttributes, diagramNodeFork);
 		renderName(renderedAttributes, diagramNodeFork);
 		renderPreventOverlap(renderedAttributes, diagramNodeFork);
 		renderRender(renderedAttributes, diagramNodeFork);
@@ -130,11 +130,11 @@ public abstract class DiagramNodeForkRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodeforkBodyContent(List<String> renderedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
-		java.lang.Object diagramnodeforkBodyContent = diagramNodeFork.getDiagramnodeforkBodyContent();
+	protected void renderDiagramNodeForkBodyContent(List<String> renderedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		java.lang.Object diagramNodeForkBodyContent = diagramNodeFork.getDiagramNodeForkBodyContent();
 
-		if (diagramnodeforkBodyContent != null) {
-			renderedAttributes.add(renderString(DiagramNodeFork.DIAGRAMNODEFORK_BODY_CONTENT, diagramnodeforkBodyContent));
+		if (diagramNodeForkBodyContent != null) {
+			renderedAttributes.add(renderString(DiagramNodeFork.DIAGRAM_NODE_FORK_BODY_CONTENT, diagramNodeForkBodyContent));
 		}
 	}
 
@@ -282,11 +282,11 @@ public abstract class DiagramNodeForkRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodeforkId(List<String> renderedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
-		java.lang.String diagramnodeforkId = diagramNodeFork.getDiagramnodeforkId();
+	protected void renderDiagramNodeForkId(List<String> renderedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		java.lang.String diagramNodeForkId = diagramNodeFork.getDiagramNodeForkId();
 
-		if (diagramnodeforkId != null) {
-			renderedAttributes.add(renderString(DiagramNodeFork.DIAGRAMNODEFORK_ID, diagramnodeforkId));
+		if (diagramNodeForkId != null) {
+			renderedAttributes.add(renderString(DiagramNodeFork.DIAGRAM_NODE_FORK_ID, diagramNodeForkId));
 		}
 	}
 
@@ -298,11 +298,11 @@ public abstract class DiagramNodeForkRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagramnodeforkLocale(List<String> renderedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
-		java.lang.String diagramnodeforkLocale = diagramNodeFork.getDiagramnodeforkLocale();
+	protected void renderDiagramNodeForkLocale(List<String> renderedAttributes, DiagramNodeFork diagramNodeFork) throws IOException {
+		java.lang.String diagramNodeForkLocale = diagramNodeFork.getDiagramNodeForkLocale();
 
-		if (diagramnodeforkLocale != null) {
-			renderedAttributes.add(renderString(DiagramNodeFork.DIAGRAMNODEFORK_LOCALE, diagramnodeforkLocale));
+		if (diagramNodeForkLocale != null) {
+			renderedAttributes.add(renderString(DiagramNodeFork.DIAGRAM_NODE_FORK_LOCALE, diagramNodeForkLocale));
 		}
 	}
 

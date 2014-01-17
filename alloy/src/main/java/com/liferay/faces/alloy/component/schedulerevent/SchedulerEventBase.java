@@ -22,7 +22,7 @@ package com.liferay.faces.alloy.component.schedulerevent;
 public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 
 	public static final String ALL_DAY = "allDay";
-	public static final String SCHEDULEREVENT_CLIENT_ID = "schedulereventClientId";
+	public static final String SCHEDULER_EVENT_CLIENT_ID = "clientId";
 	public static final String COLOR = "color";
 	public static final String COLOR_BRIGHTNESS_FACTOR = "colorBrightnessFactor";
 	public static final String COLOR_SATURATION_FACTOR = "colorSaturationFactor";
@@ -30,7 +30,7 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 	public static final String DESTROYED = "destroyed";
 	public static final String DISABLED = "disabled";
 	public static final String END_DATE = "endDate";
-	public static final String SCHEDULEREVENT_ID = "schedulereventId";
+	public static final String SCHEDULER_EVENT_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String MEETING = "meeting";
 	public static final String NODE = "node";
@@ -87,12 +87,12 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ALL_DAY, allDay);
 	}
 
-	public java.lang.String getSchedulereventClientId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULEREVENT_CLIENT_ID, null);
+	public java.lang.String getSchedulerEventClientId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_EVENT_CLIENT_ID, null);
 	}
 
-	public void setSchedulereventClientId(java.lang.String schedulereventClientId) {
-		getStateHelper().put(SCHEDULEREVENT_CLIENT_ID, schedulereventClientId);
+	public void setSchedulerEventClientId(java.lang.String schedulerEventClientId) {
+		getStateHelper().put(SCHEDULER_EVENT_CLIENT_ID, schedulerEventClientId);
 	}
 
 	public java.lang.String getColor() {
@@ -151,12 +151,12 @@ public abstract class SchedulerEventBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(END_DATE, endDate);
 	}
 
-	public java.lang.Object getSchedulereventId() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULEREVENT_ID, null);
+	public java.lang.Object getSchedulerEventId() {
+		return (java.lang.Object) getStateHelper().eval(SCHEDULER_EVENT_ID, null);
 	}
 
-	public void setSchedulereventId(java.lang.Object schedulereventId) {
-		getStateHelper().put(SCHEDULEREVENT_ID, schedulereventId);
+	public void setSchedulerEventId(java.lang.Object schedulerEventId) {
+		getStateHelper().put(SCHEDULER_EVENT_ID, schedulerEventId);
 	}
 
 	public java.lang.Boolean getInitialized() {

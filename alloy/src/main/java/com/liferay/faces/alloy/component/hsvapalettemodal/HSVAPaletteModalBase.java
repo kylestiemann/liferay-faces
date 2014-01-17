@@ -23,7 +23,7 @@ public abstract class HSVAPaletteModalBase extends javax.faces.component.UIPanel
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String HSVAPALETTEMODAL_BODY_CONTENT = "hsvapalettemodalBodyContent";
+	public static final String H_SVAPALETTE_MODAL_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CENTERED = "centered";
 	public static final String CONSTRAIN = "constrain";
@@ -40,9 +40,9 @@ public abstract class HSVAPaletteModalBase extends javax.faces.component.UIPanel
 	public static final String HEIGHT = "height";
 	public static final String HIDE_ON = "hideOn";
 	public static final String HSV = "hsv";
-	public static final String HSVAPALETTEMODAL_ID = "hsvapalettemodalId";
+	public static final String H_SVAPALETTE_MODAL_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String HSVAPALETTEMODAL_LOCALE = "hsvapalettemodalLocale";
+	public static final String H_SVAPALETTE_MODAL_LOCALE = "locale";
 	public static final String MASK_NODE = "maskNode";
 	public static final String MODAL = "modal";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
@@ -161,12 +161,12 @@ public abstract class HSVAPaletteModalBase extends javax.faces.component.UIPanel
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.String getHsvapalettemodalBodyContent() {
-		return (java.lang.String) getStateHelper().eval(HSVAPALETTEMODAL_BODY_CONTENT, null);
+	public java.lang.String getHSVAPaletteModalBodyContent() {
+		return (java.lang.String) getStateHelper().eval(H_SVAPALETTE_MODAL_BODY_CONTENT, null);
 	}
 
-	public void setHsvapalettemodalBodyContent(java.lang.String hsvapalettemodalBodyContent) {
-		getStateHelper().put(HSVAPALETTEMODAL_BODY_CONTENT, hsvapalettemodalBodyContent);
+	public void setHSVAPaletteModalBodyContent(java.lang.String hSVAPaletteModalBodyContent) {
+		getStateHelper().put(H_SVAPALETTE_MODAL_BODY_CONTENT, hSVAPaletteModalBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -297,12 +297,12 @@ public abstract class HSVAPaletteModalBase extends javax.faces.component.UIPanel
 		getStateHelper().put(HSV, hsv);
 	}
 
-	public java.lang.String getHsvapalettemodalId() {
-		return (java.lang.String) getStateHelper().eval(HSVAPALETTEMODAL_ID, null);
+	public java.lang.String getHSVAPaletteModalId() {
+		return (java.lang.String) getStateHelper().eval(H_SVAPALETTE_MODAL_ID, null);
 	}
 
-	public void setHsvapalettemodalId(java.lang.String hsvapalettemodalId) {
-		getStateHelper().put(HSVAPALETTEMODAL_ID, hsvapalettemodalId);
+	public void setHSVAPaletteModalId(java.lang.String hSVAPaletteModalId) {
+		getStateHelper().put(H_SVAPALETTE_MODAL_ID, hSVAPaletteModalId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -313,12 +313,12 @@ public abstract class HSVAPaletteModalBase extends javax.faces.component.UIPanel
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getHsvapalettemodalLocale() {
-		return (java.lang.String) getStateHelper().eval(HSVAPALETTEMODAL_LOCALE, null);
+	public java.lang.String getHSVAPaletteModalLocale() {
+		return (java.lang.String) getStateHelper().eval(H_SVAPALETTE_MODAL_LOCALE, null);
 	}
 
-	public void setHsvapalettemodalLocale(java.lang.String hsvapalettemodalLocale) {
-		getStateHelper().put(HSVAPALETTEMODAL_LOCALE, hsvapalettemodalLocale);
+	public void setHSVAPaletteModalLocale(java.lang.String hSVAPaletteModalLocale) {
+		getStateHelper().put(H_SVAPALETTE_MODAL_LOCALE, hSVAPaletteModalLocale);
 	}
 
 	public java.lang.Object getMaskNode() {

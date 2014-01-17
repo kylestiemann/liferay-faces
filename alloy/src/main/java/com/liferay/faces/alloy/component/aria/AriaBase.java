@@ -23,7 +23,7 @@ public abstract class AriaBase extends javax.faces.component.UIPanel {
 
 	public static final String ATTRIBUTE_NODE = "attributeNode";
 	public static final String ATTRIBUTE_VALUE_FORMAT = "attributeValueFormat";
-	public static final String ARIA_ATTRIBUTES = "ariaAttributes";
+	public static final String ARIA_ATTRIBUTES = "attributes";
 	public static final String DESTROYED = "destroyed";
 	public static final String HOST = "host";
 	public static final String INITIALIZED = "initialized";

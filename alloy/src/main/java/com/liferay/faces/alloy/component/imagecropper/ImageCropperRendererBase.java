@@ -59,9 +59,9 @@ public abstract class ImageCropperRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, imageCropper);
 		renderHeight(renderedAttributes, imageCropper);
 		renderHideClass(renderedAttributes, imageCropper);
-		renderImagecropperId(renderedAttributes, imageCropper);
+		renderImageCropperId(renderedAttributes, imageCropper);
 		renderInitialized(renderedAttributes, imageCropper);
-		renderImagecropperLocale(renderedAttributes, imageCropper);
+		renderImageCropperLocale(renderedAttributes, imageCropper);
 		renderMinHeight(renderedAttributes, imageCropper);
 		renderMinWidth(renderedAttributes, imageCropper);
 		renderMovable(renderedAttributes, imageCropper);
@@ -179,11 +179,11 @@ public abstract class ImageCropperRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImagecropperId(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
-		java.lang.String imagecropperId = imageCropper.getImagecropperId();
+	protected void renderImageCropperId(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String imageCropperId = imageCropper.getImageCropperId();
 
-		if (imagecropperId != null) {
-			renderedAttributes.add(renderString(ImageCropper.IMAGECROPPER_ID, imagecropperId));
+		if (imageCropperId != null) {
+			renderedAttributes.add(renderString(ImageCropper.IMAGE_CROPPER_ID, imageCropperId));
 		}
 	}
 
@@ -195,11 +195,11 @@ public abstract class ImageCropperRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImagecropperLocale(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
-		java.lang.String imagecropperLocale = imageCropper.getImagecropperLocale();
+	protected void renderImageCropperLocale(List<String> renderedAttributes, ImageCropper imageCropper) throws IOException {
+		java.lang.String imageCropperLocale = imageCropper.getImageCropperLocale();
 
-		if (imagecropperLocale != null) {
-			renderedAttributes.add(renderString(ImageCropper.IMAGECROPPER_LOCALE, imagecropperLocale));
+		if (imageCropperLocale != null) {
+			renderedAttributes.add(renderString(ImageCropper.IMAGE_CROPPER_LOCALE, imageCropperLocale));
 		}
 	}
 

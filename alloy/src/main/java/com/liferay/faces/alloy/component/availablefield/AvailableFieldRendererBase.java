@@ -52,7 +52,7 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 		renderDestroyed(renderedAttributes, availableField);
 		renderDraggable(renderedAttributes, availableField);
 		renderIconClass(renderedAttributes, availableField);
-		renderAvailablefieldId(renderedAttributes, availableField);
+		renderAvailableFieldId(renderedAttributes, availableField);
 		renderInitialized(renderedAttributes, availableField);
 		renderLabel(renderedAttributes, availableField);
 		renderNode(renderedAttributes, availableField);
@@ -102,11 +102,11 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAvailablefieldId(List<String> renderedAttributes, AvailableField availableField) throws IOException {
-		java.lang.String availablefieldId = availableField.getAvailablefieldId();
+	protected void renderAvailableFieldId(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String availableFieldId = availableField.getAvailableFieldId();
 
-		if (availablefieldId != null) {
-			renderedAttributes.add(renderString(AvailableField.AVAILABLEFIELD_ID, availablefieldId));
+		if (availableFieldId != null) {
+			renderedAttributes.add(renderString(AvailableField.AVAILABLE_FIELD_ID, availableFieldId));
 		}
 	}
 

@@ -51,7 +51,7 @@ public abstract class TreeNodeRendererBase extends RendererBase {
 
 		renderAlwaysShowHitArea(renderedAttributes, treeNode);
 		renderBoundingBox(renderedAttributes, treeNode);
-		renderTreenodeChildren(renderedAttributes, treeNode);
+		renderTreeNodeChildren(renderedAttributes, treeNode);
 		renderContainer(renderedAttributes, treeNode);
 		renderContentBox(renderedAttributes, treeNode);
 		renderCssClasses(renderedAttributes, treeNode);
@@ -60,7 +60,7 @@ public abstract class TreeNodeRendererBase extends RendererBase {
 		renderExpanded(renderedAttributes, treeNode);
 		renderHitAreaEl(renderedAttributes, treeNode);
 		renderIconEl(renderedAttributes, treeNode);
-		renderTreenodeId(renderedAttributes, treeNode);
+		renderTreeNodeId(renderedAttributes, treeNode);
 		renderIndex(renderedAttributes, treeNode);
 		renderInitialized(renderedAttributes, treeNode);
 		renderLabel(renderedAttributes, treeNode);
@@ -109,11 +109,11 @@ public abstract class TreeNodeRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodeChildren(List<String> renderedAttributes, TreeNode treeNode) throws IOException {
-		java.lang.Object treenodeChildren = treeNode.getTreenodeChildren();
+	protected void renderTreeNodeChildren(List<String> renderedAttributes, TreeNode treeNode) throws IOException {
+		java.lang.Object treeNodeChildren = treeNode.getTreeNodeChildren();
 
-		if (treenodeChildren != null) {
-			renderedAttributes.add(renderArray(TreeNode.TREENODE_CHILDREN, treenodeChildren));
+		if (treeNodeChildren != null) {
+			renderedAttributes.add(renderArray(TreeNode.TREE_NODE_CHILDREN, treeNodeChildren));
 		}
 	}
 
@@ -181,11 +181,11 @@ public abstract class TreeNodeRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodeId(List<String> renderedAttributes, TreeNode treeNode) throws IOException {
-		java.lang.String treenodeId = treeNode.getTreenodeId();
+	protected void renderTreeNodeId(List<String> renderedAttributes, TreeNode treeNode) throws IOException {
+		java.lang.String treeNodeId = treeNode.getTreeNodeId();
 
-		if (treenodeId != null) {
-			renderedAttributes.add(renderString(TreeNode.TREENODE_ID, treenodeId));
+		if (treeNodeId != null) {
+			renderedAttributes.add(renderString(TreeNode.TREE_NODE_ID, treeNodeId));
 		}
 	}
 

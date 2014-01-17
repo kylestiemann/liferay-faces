@@ -23,7 +23,7 @@ public abstract class DiagramNodeConditionBase extends javax.faces.component.UIP
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String DIAGRAMNODECONDITION_BODY_CONTENT = "diagramnodeconditionBodyContent";
+	public static final String DIAGRAM_NODE_CONDITION_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String BUILDER = "builder";
 	public static final String CENTERED = "centered";
@@ -42,9 +42,9 @@ public abstract class DiagramNodeConditionBase extends javax.faces.component.UIP
 	public static final String HEIGHT = "height";
 	public static final String HIGHLIGHT_BOUNDARY_STROKE = "highlightBoundaryStroke";
 	public static final String HIGHLIGHTED = "highlighted";
-	public static final String DIAGRAMNODECONDITION_ID = "diagramnodeconditionId";
+	public static final String DIAGRAM_NODE_CONDITION_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String DIAGRAMNODECONDITION_LOCALE = "diagramnodeconditionLocale";
+	public static final String DIAGRAM_NODE_CONDITION_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
 	public static final String RENDER = "render";
@@ -170,12 +170,12 @@ public abstract class DiagramNodeConditionBase extends javax.faces.component.UIP
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.Object getDiagramnodeconditionBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(DIAGRAMNODECONDITION_BODY_CONTENT, null);
+	public java.lang.Object getDiagramNodeConditionBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(DIAGRAM_NODE_CONDITION_BODY_CONTENT, null);
 	}
 
-	public void setDiagramnodeconditionBodyContent(java.lang.Object diagramnodeconditionBodyContent) {
-		getStateHelper().put(DIAGRAMNODECONDITION_BODY_CONTENT, diagramnodeconditionBodyContent);
+	public void setDiagramNodeConditionBodyContent(java.lang.Object diagramNodeConditionBodyContent) {
+		getStateHelper().put(DIAGRAM_NODE_CONDITION_BODY_CONTENT, diagramNodeConditionBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -322,12 +322,12 @@ public abstract class DiagramNodeConditionBase extends javax.faces.component.UIP
 		getStateHelper().put(HIGHLIGHTED, highlighted);
 	}
 
-	public java.lang.String getDiagramnodeconditionId() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODECONDITION_ID, null);
+	public java.lang.String getDiagramNodeConditionId() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_CONDITION_ID, null);
 	}
 
-	public void setDiagramnodeconditionId(java.lang.String diagramnodeconditionId) {
-		getStateHelper().put(DIAGRAMNODECONDITION_ID, diagramnodeconditionId);
+	public void setDiagramNodeConditionId(java.lang.String diagramNodeConditionId) {
+		getStateHelper().put(DIAGRAM_NODE_CONDITION_ID, diagramNodeConditionId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -338,12 +338,12 @@ public abstract class DiagramNodeConditionBase extends javax.faces.component.UIP
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getDiagramnodeconditionLocale() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMNODECONDITION_LOCALE, null);
+	public java.lang.String getDiagramNodeConditionLocale() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_NODE_CONDITION_LOCALE, null);
 	}
 
-	public void setDiagramnodeconditionLocale(java.lang.String diagramnodeconditionLocale) {
-		getStateHelper().put(DIAGRAMNODECONDITION_LOCALE, diagramnodeconditionLocale);
+	public void setDiagramNodeConditionLocale(java.lang.String diagramNodeConditionLocale) {
+		getStateHelper().put(DIAGRAM_NODE_CONDITION_LOCALE, diagramNodeConditionLocale);
 	}
 
 	public java.lang.String getName() {

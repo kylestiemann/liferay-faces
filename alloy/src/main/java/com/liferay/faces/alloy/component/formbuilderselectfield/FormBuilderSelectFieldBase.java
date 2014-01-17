@@ -28,7 +28,7 @@ public abstract class FormBuilderSelectFieldBase extends javax.faces.component.U
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERSELECTFIELD_ID = "formbuilderselectfieldId";
+	public static final String FORM_BUILDER_SELECT_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
@@ -36,7 +36,7 @@ public abstract class FormBuilderSelectFieldBase extends javax.faces.component.U
 	public static final String NAME = "name";
 	public static final String OPTION_TEMPLATE = "optionTemplate";
 	public static final String OPTIONS = "options";
-	public static final String FORMBUILDERSELECTFIELD_PARENT = "formbuilderselectfieldParent";
+	public static final String FORM_BUILDER_SELECT_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -174,12 +174,12 @@ public abstract class FormBuilderSelectFieldBase extends javax.faces.component.U
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuilderselectfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERSELECTFIELD_ID, null);
+	public java.lang.String getFormBuilderSelectFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_SELECT_FIELD_ID, null);
 	}
 
-	public void setFormbuilderselectfieldId(java.lang.String formbuilderselectfieldId) {
-		getStateHelper().put(FORMBUILDERSELECTFIELD_ID, formbuilderselectfieldId);
+	public void setFormBuilderSelectFieldId(java.lang.String formBuilderSelectFieldId) {
+		getStateHelper().put(FORM_BUILDER_SELECT_FIELD_ID, formBuilderSelectFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -238,12 +238,12 @@ public abstract class FormBuilderSelectFieldBase extends javax.faces.component.U
 		getStateHelper().put(OPTIONS, options);
 	}
 
-	public java.lang.String getFormbuilderselectfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERSELECTFIELD_PARENT, null);
+	public java.lang.String getFormBuilderSelectFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_SELECT_FIELD_PARENT, null);
 	}
 
-	public void setFormbuilderselectfieldParent(java.lang.String formbuilderselectfieldParent) {
-		getStateHelper().put(FORMBUILDERSELECTFIELD_PARENT, formbuilderselectfieldParent);
+	public void setFormBuilderSelectFieldParent(java.lang.String formBuilderSelectFieldParent) {
+		getStateHelper().put(FORM_BUILDER_SELECT_FIELD_PARENT, formBuilderSelectFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

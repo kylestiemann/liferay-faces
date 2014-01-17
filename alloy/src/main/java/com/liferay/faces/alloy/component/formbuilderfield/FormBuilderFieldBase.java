@@ -28,12 +28,12 @@ public abstract class FormBuilderFieldBase extends javax.faces.component.UIPanel
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERFIELD_ID = "formbuilderfieldId";
+	public static final String FORM_BUILDER_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERFIELD_PARENT = "formbuilderfieldParent";
+	public static final String FORM_BUILDER_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -165,12 +165,12 @@ public abstract class FormBuilderFieldBase extends javax.faces.component.UIPanel
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuilderfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERFIELD_ID, null);
+	public java.lang.String getFormBuilderFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_FIELD_ID, null);
 	}
 
-	public void setFormbuilderfieldId(java.lang.String formbuilderfieldId) {
-		getStateHelper().put(FORMBUILDERFIELD_ID, formbuilderfieldId);
+	public void setFormBuilderFieldId(java.lang.String formBuilderFieldId) {
+		getStateHelper().put(FORM_BUILDER_FIELD_ID, formBuilderFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -205,12 +205,12 @@ public abstract class FormBuilderFieldBase extends javax.faces.component.UIPanel
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuilderfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERFIELD_PARENT, null);
+	public java.lang.String getFormBuilderFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_FIELD_PARENT, null);
 	}
 
-	public void setFormbuilderfieldParent(java.lang.String formbuilderfieldParent) {
-		getStateHelper().put(FORMBUILDERFIELD_PARENT, formbuilderfieldParent);
+	public void setFormBuilderFieldParent(java.lang.String formBuilderFieldParent) {
+		getStateHelper().put(FORM_BUILDER_FIELD_PARENT, formBuilderFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

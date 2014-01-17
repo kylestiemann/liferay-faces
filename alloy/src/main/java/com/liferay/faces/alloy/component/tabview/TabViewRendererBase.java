@@ -57,9 +57,9 @@ public abstract class TabViewRendererBase extends RendererBase {
 		renderDisabled(renderedAttributes, tabView);
 		renderFocused(renderedAttributes, tabView);
 		renderHeight(renderedAttributes, tabView);
-		renderTabviewId(renderedAttributes, tabView);
+		renderTabViewId(renderedAttributes, tabView);
 		renderInitialized(renderedAttributes, tabView);
-		renderTabviewLocale(renderedAttributes, tabView);
+		renderTabViewLocale(renderedAttributes, tabView);
 		renderMultiple(renderedAttributes, tabView);
 		renderRender(renderedAttributes, tabView);
 		renderRendered(renderedAttributes, tabView);
@@ -156,11 +156,11 @@ public abstract class TabViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTabviewId(List<String> renderedAttributes, TabView tabView) throws IOException {
-		java.lang.String tabviewId = tabView.getTabviewId();
+	protected void renderTabViewId(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String tabViewId = tabView.getTabViewId();
 
-		if (tabviewId != null) {
-			renderedAttributes.add(renderString(TabView.TABVIEW_ID, tabviewId));
+		if (tabViewId != null) {
+			renderedAttributes.add(renderString(TabView.TAB_VIEW_ID, tabViewId));
 		}
 	}
 
@@ -172,11 +172,11 @@ public abstract class TabViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTabviewLocale(List<String> renderedAttributes, TabView tabView) throws IOException {
-		java.lang.String tabviewLocale = tabView.getTabviewLocale();
+	protected void renderTabViewLocale(List<String> renderedAttributes, TabView tabView) throws IOException {
+		java.lang.String tabViewLocale = tabView.getTabViewLocale();
 
-		if (tabviewLocale != null) {
-			renderedAttributes.add(renderString(TabView.TABVIEW_LOCALE, tabviewLocale));
+		if (tabViewLocale != null) {
+			renderedAttributes.add(renderString(TabView.TAB_VIEW_LOCALE, tabViewLocale));
 		}
 	}
 

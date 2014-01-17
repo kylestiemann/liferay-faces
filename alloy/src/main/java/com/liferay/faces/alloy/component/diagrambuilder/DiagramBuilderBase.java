@@ -41,9 +41,9 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
 	public static final String HIGHLIGHT_DROP_ZONES = "highlightDropZones";
-	public static final String DIAGRAMBUILDER_ID = "diagrambuilderId";
+	public static final String DIAGRAM_BUILDER_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String DIAGRAMBUILDER_LOCALE = "diagrambuilderLocale";
+	public static final String DIAGRAM_BUILDER_LOCALE = "locale";
 	public static final String MAX_FIELDS = "maxFields";
 	public static final String PROPERTY_LIST = "propertyList";
 	public static final String RENDER = "render";
@@ -296,12 +296,12 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIGHLIGHT_DROP_ZONES, highlightDropZones);
 	}
 
-	public java.lang.String getDiagrambuilderId() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMBUILDER_ID, null);
+	public java.lang.String getDiagramBuilderId() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_BUILDER_ID, null);
 	}
 
-	public void setDiagrambuilderId(java.lang.String diagrambuilderId) {
-		getStateHelper().put(DIAGRAMBUILDER_ID, diagrambuilderId);
+	public void setDiagramBuilderId(java.lang.String diagramBuilderId) {
+		getStateHelper().put(DIAGRAM_BUILDER_ID, diagramBuilderId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -312,12 +312,12 @@ public abstract class DiagramBuilderBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getDiagrambuilderLocale() {
-		return (java.lang.String) getStateHelper().eval(DIAGRAMBUILDER_LOCALE, null);
+	public java.lang.String getDiagramBuilderLocale() {
+		return (java.lang.String) getStateHelper().eval(DIAGRAM_BUILDER_LOCALE, null);
 	}
 
-	public void setDiagrambuilderLocale(java.lang.String diagrambuilderLocale) {
-		getStateHelper().put(DIAGRAMBUILDER_LOCALE, diagrambuilderLocale);
+	public void setDiagramBuilderLocale(java.lang.String diagramBuilderLocale) {
+		getStateHelper().put(DIAGRAM_BUILDER_LOCALE, diagramBuilderLocale);
 	}
 
 	public java.lang.Object getMaxFields() {

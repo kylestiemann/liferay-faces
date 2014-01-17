@@ -53,7 +53,7 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		renderAlignOn(renderedAttributes, imageGallery);
 		renderAnim(renderedAttributes, imageGallery);
 		renderAutoPlay(renderedAttributes, imageGallery);
-		renderImagegalleryBodyContent(renderedAttributes, imageGallery);
+		renderImageGalleryBodyContent(renderedAttributes, imageGallery);
 		renderBoundingBox(renderedAttributes, imageGallery);
 		renderCaption(renderedAttributes, imageGallery);
 		renderCaptionEl(renderedAttributes, imageGallery);
@@ -74,7 +74,7 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		renderFooterContent(renderedAttributes, imageGallery);
 		renderHeaderContent(renderedAttributes, imageGallery);
 		renderHeight(renderedAttributes, imageGallery);
-		renderImagegalleryId(renderedAttributes, imageGallery);
+		renderImageGalleryId(renderedAttributes, imageGallery);
 		renderImage(renderedAttributes, imageGallery);
 		renderImageAnim(renderedAttributes, imageGallery);
 		renderInfoEl(renderedAttributes, imageGallery);
@@ -84,7 +84,7 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		renderLoader(renderedAttributes, imageGallery);
 		renderLoading(renderedAttributes, imageGallery);
 		renderLoadingEl(renderedAttributes, imageGallery);
-		renderImagegalleryLocale(renderedAttributes, imageGallery);
+		renderImageGalleryLocale(renderedAttributes, imageGallery);
 		renderMaskNode(renderedAttributes, imageGallery);
 		renderMaxHeight(renderedAttributes, imageGallery);
 		renderMaxWidth(renderedAttributes, imageGallery);
@@ -170,11 +170,11 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImagegalleryBodyContent(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
-		java.lang.String imagegalleryBodyContent = imageGallery.getImagegalleryBodyContent();
+	protected void renderImageGalleryBodyContent(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String imageGalleryBodyContent = imageGallery.getImageGalleryBodyContent();
 
-		if (imagegalleryBodyContent != null) {
-			renderedAttributes.add(renderString(ImageGallery.IMAGEGALLERY_BODY_CONTENT, imagegalleryBodyContent));
+		if (imageGalleryBodyContent != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGE_GALLERY_BODY_CONTENT, imageGalleryBodyContent));
 		}
 	}
 
@@ -338,11 +338,11 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImagegalleryId(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
-		java.lang.String imagegalleryId = imageGallery.getImagegalleryId();
+	protected void renderImageGalleryId(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String imageGalleryId = imageGallery.getImageGalleryId();
 
-		if (imagegalleryId != null) {
-			renderedAttributes.add(renderString(ImageGallery.IMAGEGALLERY_ID, imagegalleryId));
+		if (imageGalleryId != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGE_GALLERY_ID, imageGalleryId));
 		}
 	}
 
@@ -418,11 +418,11 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderImagegalleryLocale(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
-		java.lang.String imagegalleryLocale = imageGallery.getImagegalleryLocale();
+	protected void renderImageGalleryLocale(List<String> renderedAttributes, ImageGallery imageGallery) throws IOException {
+		java.lang.String imageGalleryLocale = imageGallery.getImageGalleryLocale();
 
-		if (imagegalleryLocale != null) {
-			renderedAttributes.add(renderString(ImageGallery.IMAGEGALLERY_LOCALE, imagegalleryLocale));
+		if (imageGalleryLocale != null) {
+			renderedAttributes.add(renderString(ImageGallery.IMAGE_GALLERY_LOCALE, imageGalleryLocale));
 		}
 	}
 

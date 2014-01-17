@@ -50,7 +50,7 @@ public abstract class SchedulerEventRecorderRendererBase extends RendererBase {
 		List<String> renderedAttributes = new ArrayList<String>();
 
 		renderAllDay(renderedAttributes, schedulerEventRecorder);
-		renderSchedulereventrecorderClientId(renderedAttributes, schedulerEventRecorder);
+		renderSchedulerEventRecorderClientId(renderedAttributes, schedulerEventRecorder);
 		renderColor(renderedAttributes, schedulerEventRecorder);
 		renderColorBrightnessFactor(renderedAttributes, schedulerEventRecorder);
 		renderColorSaturationFactor(renderedAttributes, schedulerEventRecorder);
@@ -62,7 +62,7 @@ public abstract class SchedulerEventRecorderRendererBase extends RendererBase {
 		renderEndDate(renderedAttributes, schedulerEventRecorder);
 		renderEvent(renderedAttributes, schedulerEventRecorder);
 		renderEventClass(renderedAttributes, schedulerEventRecorder);
-		renderSchedulereventrecorderId(renderedAttributes, schedulerEventRecorder);
+		renderSchedulerEventRecorderId(renderedAttributes, schedulerEventRecorder);
 		renderInitialized(renderedAttributes, schedulerEventRecorder);
 		renderMeeting(renderedAttributes, schedulerEventRecorder);
 		renderNode(renderedAttributes, schedulerEventRecorder);
@@ -104,11 +104,11 @@ public abstract class SchedulerEventRecorderRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulereventrecorderClientId(List<String> renderedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		java.lang.String schedulereventrecorderClientId = schedulerEventRecorder.getSchedulereventrecorderClientId();
+	protected void renderSchedulerEventRecorderClientId(List<String> renderedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		java.lang.String schedulerEventRecorderClientId = schedulerEventRecorder.getSchedulerEventRecorderClientId();
 
-		if (schedulereventrecorderClientId != null) {
-			renderedAttributes.add(renderString(SchedulerEventRecorder.SCHEDULEREVENTRECORDER_CLIENT_ID, schedulereventrecorderClientId));
+		if (schedulerEventRecorderClientId != null) {
+			renderedAttributes.add(renderString(SchedulerEventRecorder.SCHEDULER_EVENT_RECORDER_CLIENT_ID, schedulerEventRecorderClientId));
 		}
 	}
 
@@ -200,11 +200,11 @@ public abstract class SchedulerEventRecorderRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulereventrecorderId(List<String> renderedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
-		java.lang.Object schedulereventrecorderId = schedulerEventRecorder.getSchedulereventrecorderId();
+	protected void renderSchedulerEventRecorderId(List<String> renderedAttributes, SchedulerEventRecorder schedulerEventRecorder) throws IOException {
+		java.lang.Object schedulerEventRecorderId = schedulerEventRecorder.getSchedulerEventRecorderId();
 
-		if (schedulereventrecorderId != null) {
-			renderedAttributes.add(renderString(SchedulerEventRecorder.SCHEDULEREVENTRECORDER_ID, schedulereventrecorderId));
+		if (schedulerEventRecorderId != null) {
+			renderedAttributes.add(renderString(SchedulerEventRecorder.SCHEDULER_EVENT_RECORDER_ID, schedulerEventRecorderId));
 		}
 	}
 

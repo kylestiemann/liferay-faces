@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.schedulertableview;
  */
 public abstract class SchedulerTableViewBase extends javax.faces.component.UIPanel {
 
-	public static final String SCHEDULERTABLEVIEW_BODY_CONTENT = "schedulertableviewBodyContent";
+	public static final String SCHEDULER_TABLE_VIEW_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String COL_HEADER_DAYS_NODE = "colHeaderDaysNode";
 	public static final String CONTENT_BOX = "contentBox";
@@ -37,10 +37,10 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 	public static final String HEADER_TABLE_NODE = "headerTableNode";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String SCHEDULERTABLEVIEW_ID = "schedulertableviewId";
+	public static final String SCHEDULER_TABLE_VIEW_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ISO_TIME = "isoTime";
-	public static final String SCHEDULERTABLEVIEW_LOCALE = "schedulertableviewLocale";
+	public static final String SCHEDULER_TABLE_VIEW_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
 	public static final String NEXT_DATE = "nextDate";
@@ -133,12 +133,12 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 	public static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 	public static final String ON_WIDTH_CHANGE = "onWidthChange";
 
-	public java.lang.String getSchedulertableviewBodyContent() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERTABLEVIEW_BODY_CONTENT, null);
+	public java.lang.String getSchedulerTableViewBodyContent() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_TABLE_VIEW_BODY_CONTENT, null);
 	}
 
-	public void setSchedulertableviewBodyContent(java.lang.String schedulertableviewBodyContent) {
-		getStateHelper().put(SCHEDULERTABLEVIEW_BODY_CONTENT, schedulertableviewBodyContent);
+	public void setSchedulerTableViewBodyContent(java.lang.String schedulerTableViewBodyContent) {
+		getStateHelper().put(SCHEDULER_TABLE_VIEW_BODY_CONTENT, schedulerTableViewBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -261,12 +261,12 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getSchedulertableviewId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERTABLEVIEW_ID, null);
+	public java.lang.String getSchedulerTableViewId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_TABLE_VIEW_ID, null);
 	}
 
-	public void setSchedulertableviewId(java.lang.String schedulertableviewId) {
-		getStateHelper().put(SCHEDULERTABLEVIEW_ID, schedulertableviewId);
+	public void setSchedulerTableViewId(java.lang.String schedulerTableViewId) {
+		getStateHelper().put(SCHEDULER_TABLE_VIEW_ID, schedulerTableViewId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -285,12 +285,12 @@ public abstract class SchedulerTableViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(ISO_TIME, isoTime);
 	}
 
-	public java.lang.String getSchedulertableviewLocale() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERTABLEVIEW_LOCALE, null);
+	public java.lang.String getSchedulerTableViewLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_TABLE_VIEW_LOCALE, null);
 	}
 
-	public void setSchedulertableviewLocale(java.lang.String schedulertableviewLocale) {
-		getStateHelper().put(SCHEDULERTABLEVIEW_LOCALE, schedulertableviewLocale);
+	public void setSchedulerTableViewLocale(java.lang.String schedulerTableViewLocale) {
+		getStateHelper().put(SCHEDULER_TABLE_VIEW_LOCALE, schedulerTableViewLocale);
 	}
 
 	public java.lang.String getName() {

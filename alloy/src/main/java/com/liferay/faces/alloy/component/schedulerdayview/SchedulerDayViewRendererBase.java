@@ -49,7 +49,7 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSchedulerdayviewBodyContent(renderedAttributes, schedulerDayView);
+		renderSchedulerDayViewBodyContent(renderedAttributes, schedulerDayView);
 		renderBoundingBox(renderedAttributes, schedulerDayView);
 		renderColDaysNode(renderedAttributes, schedulerDayView);
 		renderColHeaderDaysNode(renderedAttributes, schedulerDayView);
@@ -70,10 +70,10 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, schedulerDayView);
 		renderHideClass(renderedAttributes, schedulerDayView);
 		renderHourHeight(renderedAttributes, schedulerDayView);
-		renderSchedulerdayviewId(renderedAttributes, schedulerDayView);
+		renderSchedulerDayViewId(renderedAttributes, schedulerDayView);
 		renderInitialized(renderedAttributes, schedulerDayView);
 		renderIsoTime(renderedAttributes, schedulerDayView);
-		renderSchedulerdayviewLocale(renderedAttributes, schedulerDayView);
+		renderSchedulerDayViewLocale(renderedAttributes, schedulerDayView);
 		renderMarkercellsNode(renderedAttributes, schedulerDayView);
 		renderName(renderedAttributes, schedulerDayView);
 		renderNavigationDateFormatter(renderedAttributes, schedulerDayView);
@@ -114,11 +114,11 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulerdayviewBodyContent(List<String> renderedAttributes, SchedulerDayView schedulerDayView) throws IOException {
-		java.lang.String schedulerdayviewBodyContent = schedulerDayView.getSchedulerdayviewBodyContent();
+	protected void renderSchedulerDayViewBodyContent(List<String> renderedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		java.lang.String schedulerDayViewBodyContent = schedulerDayView.getSchedulerDayViewBodyContent();
 
-		if (schedulerdayviewBodyContent != null) {
-			renderedAttributes.add(renderString(SchedulerDayView.SCHEDULERDAYVIEW_BODY_CONTENT, schedulerdayviewBodyContent));
+		if (schedulerDayViewBodyContent != null) {
+			renderedAttributes.add(renderString(SchedulerDayView.SCHEDULER_DAY_VIEW_BODY_CONTENT, schedulerDayViewBodyContent));
 		}
 	}
 
@@ -282,11 +282,11 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerdayviewId(List<String> renderedAttributes, SchedulerDayView schedulerDayView) throws IOException {
-		java.lang.String schedulerdayviewId = schedulerDayView.getSchedulerdayviewId();
+	protected void renderSchedulerDayViewId(List<String> renderedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		java.lang.String schedulerDayViewId = schedulerDayView.getSchedulerDayViewId();
 
-		if (schedulerdayviewId != null) {
-			renderedAttributes.add(renderString(SchedulerDayView.SCHEDULERDAYVIEW_ID, schedulerdayviewId));
+		if (schedulerDayViewId != null) {
+			renderedAttributes.add(renderString(SchedulerDayView.SCHEDULER_DAY_VIEW_ID, schedulerDayViewId));
 		}
 	}
 
@@ -306,11 +306,11 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerdayviewLocale(List<String> renderedAttributes, SchedulerDayView schedulerDayView) throws IOException {
-		java.lang.String schedulerdayviewLocale = schedulerDayView.getSchedulerdayviewLocale();
+	protected void renderSchedulerDayViewLocale(List<String> renderedAttributes, SchedulerDayView schedulerDayView) throws IOException {
+		java.lang.String schedulerDayViewLocale = schedulerDayView.getSchedulerDayViewLocale();
 
-		if (schedulerdayviewLocale != null) {
-			renderedAttributes.add(renderString(SchedulerDayView.SCHEDULERDAYVIEW_LOCALE, schedulerdayviewLocale));
+		if (schedulerDayViewLocale != null) {
+			renderedAttributes.add(renderString(SchedulerDayView.SCHEDULER_DAY_VIEW_LOCALE, schedulerDayViewLocale));
 		}
 	}
 

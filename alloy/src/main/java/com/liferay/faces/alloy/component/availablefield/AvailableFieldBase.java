@@ -24,7 +24,7 @@ public abstract class AvailableFieldBase extends javax.faces.component.UIPanel {
 	public static final String DESTROYED = "destroyed";
 	public static final String DRAGGABLE = "draggable";
 	public static final String ICON_CLASS = "iconClass";
-	public static final String AVAILABLEFIELD_ID = "availablefieldId";
+	public static final String AVAILABLE_FIELD_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String LABEL = "label";
 	public static final String NODE = "node";
@@ -70,12 +70,12 @@ public abstract class AvailableFieldBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_CLASS, iconClass);
 	}
 
-	public java.lang.String getAvailablefieldId() {
-		return (java.lang.String) getStateHelper().eval(AVAILABLEFIELD_ID, null);
+	public java.lang.String getAvailableFieldId() {
+		return (java.lang.String) getStateHelper().eval(AVAILABLE_FIELD_ID, null);
 	}
 
-	public void setAvailablefieldId(java.lang.String availablefieldId) {
-		getStateHelper().put(AVAILABLEFIELD_ID, availablefieldId);
+	public void setAvailableFieldId(java.lang.String availableFieldId) {
+		getStateHelper().put(AVAILABLE_FIELD_ID, availableFieldId);
 	}
 
 	public java.lang.Boolean getInitialized() {

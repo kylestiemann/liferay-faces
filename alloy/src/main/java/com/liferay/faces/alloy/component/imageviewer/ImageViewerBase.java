@@ -24,7 +24,7 @@ public abstract class ImageViewerBase extends javax.faces.component.UIPanel {
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
 	public static final String ANIM = "anim";
-	public static final String IMAGEVIEWER_BODY_CONTENT = "imageviewerBodyContent";
+	public static final String IMAGE_VIEWER_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CAPTION = "caption";
 	public static final String CAPTION_EL = "captionEl";
@@ -44,7 +44,7 @@ public abstract class ImageViewerBase extends javax.faces.component.UIPanel {
 	public static final String FOOTER_CONTENT = "footerContent";
 	public static final String HEADER_CONTENT = "headerContent";
 	public static final String HEIGHT = "height";
-	public static final String IMAGEVIEWER_ID = "imageviewerId";
+	public static final String IMAGE_VIEWER_ID = "id";
 	public static final String IMAGE = "image";
 	public static final String IMAGE_ANIM = "imageAnim";
 	public static final String INFO_EL = "infoEl";
@@ -54,7 +54,7 @@ public abstract class ImageViewerBase extends javax.faces.component.UIPanel {
 	public static final String LOADER = "loader";
 	public static final String LOADING = "loading";
 	public static final String LOADING_EL = "loadingEl";
-	public static final String IMAGEVIEWER_LOCALE = "imageviewerLocale";
+	public static final String IMAGE_VIEWER_LOCALE = "locale";
 	public static final String MASK_NODE = "maskNode";
 	public static final String MAX_HEIGHT = "maxHeight";
 	public static final String MAX_WIDTH = "maxWidth";
@@ -211,12 +211,12 @@ public abstract class ImageViewerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ANIM, anim);
 	}
 
-	public java.lang.String getImageviewerBodyContent() {
-		return (java.lang.String) getStateHelper().eval(IMAGEVIEWER_BODY_CONTENT, null);
+	public java.lang.String getImageViewerBodyContent() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_VIEWER_BODY_CONTENT, null);
 	}
 
-	public void setImageviewerBodyContent(java.lang.String imageviewerBodyContent) {
-		getStateHelper().put(IMAGEVIEWER_BODY_CONTENT, imageviewerBodyContent);
+	public void setImageViewerBodyContent(java.lang.String imageViewerBodyContent) {
+		getStateHelper().put(IMAGE_VIEWER_BODY_CONTENT, imageViewerBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -371,12 +371,12 @@ public abstract class ImageViewerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getImageviewerId() {
-		return (java.lang.String) getStateHelper().eval(IMAGEVIEWER_ID, null);
+	public java.lang.String getImageViewerId() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_VIEWER_ID, null);
 	}
 
-	public void setImageviewerId(java.lang.String imageviewerId) {
-		getStateHelper().put(IMAGEVIEWER_ID, imageviewerId);
+	public void setImageViewerId(java.lang.String imageViewerId) {
+		getStateHelper().put(IMAGE_VIEWER_ID, imageViewerId);
 	}
 
 	public java.lang.Object getImage() {
@@ -451,12 +451,12 @@ public abstract class ImageViewerBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LOADING_EL, loadingEl);
 	}
 
-	public java.lang.String getImageviewerLocale() {
-		return (java.lang.String) getStateHelper().eval(IMAGEVIEWER_LOCALE, null);
+	public java.lang.String getImageViewerLocale() {
+		return (java.lang.String) getStateHelper().eval(IMAGE_VIEWER_LOCALE, null);
 	}
 
-	public void setImageviewerLocale(java.lang.String imageviewerLocale) {
-		getStateHelper().put(IMAGEVIEWER_LOCALE, imageviewerLocale);
+	public void setImageViewerLocale(java.lang.String imageViewerLocale) {
+		getStateHelper().put(IMAGE_VIEWER_LOCALE, imageViewerLocale);
 	}
 
 	public java.lang.Object getMaskNode() {

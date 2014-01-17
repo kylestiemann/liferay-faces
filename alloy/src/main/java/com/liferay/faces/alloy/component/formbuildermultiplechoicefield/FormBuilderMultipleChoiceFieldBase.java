@@ -28,14 +28,14 @@ public abstract class FormBuilderMultipleChoiceFieldBase extends javax.faces.com
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERMULTIPLECHOICEFIELD_ID = "formbuildermultiplechoicefieldId";
+	public static final String FORM_BUILDER_MULTIPLE_CHOICE_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
 	public static final String OPTION_TEMPLATE = "optionTemplate";
 	public static final String OPTIONS = "options";
-	public static final String FORMBUILDERMULTIPLECHOICEFIELD_PARENT = "formbuildermultiplechoicefieldParent";
+	public static final String FORM_BUILDER_MULTIPLE_CHOICE_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -171,12 +171,12 @@ public abstract class FormBuilderMultipleChoiceFieldBase extends javax.faces.com
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuildermultiplechoicefieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERMULTIPLECHOICEFIELD_ID, null);
+	public java.lang.String getFormBuilderMultipleChoiceFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_MULTIPLE_CHOICE_FIELD_ID, null);
 	}
 
-	public void setFormbuildermultiplechoicefieldId(java.lang.String formbuildermultiplechoicefieldId) {
-		getStateHelper().put(FORMBUILDERMULTIPLECHOICEFIELD_ID, formbuildermultiplechoicefieldId);
+	public void setFormBuilderMultipleChoiceFieldId(java.lang.String formBuilderMultipleChoiceFieldId) {
+		getStateHelper().put(FORM_BUILDER_MULTIPLE_CHOICE_FIELD_ID, formBuilderMultipleChoiceFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -227,12 +227,12 @@ public abstract class FormBuilderMultipleChoiceFieldBase extends javax.faces.com
 		getStateHelper().put(OPTIONS, options);
 	}
 
-	public java.lang.String getFormbuildermultiplechoicefieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERMULTIPLECHOICEFIELD_PARENT, null);
+	public java.lang.String getFormBuilderMultipleChoiceFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_MULTIPLE_CHOICE_FIELD_PARENT, null);
 	}
 
-	public void setFormbuildermultiplechoicefieldParent(java.lang.String formbuildermultiplechoicefieldParent) {
-		getStateHelper().put(FORMBUILDERMULTIPLECHOICEFIELD_PARENT, formbuildermultiplechoicefieldParent);
+	public void setFormBuilderMultipleChoiceFieldParent(java.lang.String formBuilderMultipleChoiceFieldParent) {
+		getStateHelper().put(FORM_BUILDER_MULTIPLE_CHOICE_FIELD_PARENT, formBuilderMultipleChoiceFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

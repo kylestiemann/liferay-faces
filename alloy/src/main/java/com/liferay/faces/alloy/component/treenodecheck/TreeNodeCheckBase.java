@@ -28,7 +28,7 @@ public abstract class TreeNodeCheckBase extends javax.faces.component.UIPanel {
 	public static final String CHECK_EL = "checkEl";
 	public static final String CHECK_NAME = "checkName";
 	public static final String CHECKED = "checked";
-	public static final String TREENODECHECK_CHILDREN = "treenodecheckChildren";
+	public static final String TREE_NODE_CHECK_CHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASSES = "cssClasses";
@@ -37,7 +37,7 @@ public abstract class TreeNodeCheckBase extends javax.faces.component.UIPanel {
 	public static final String EXPANDED = "expanded";
 	public static final String HIT_AREA_EL = "hitAreaEl";
 	public static final String ICON_EL = "iconEl";
-	public static final String TREENODECHECK_ID = "treenodecheckId";
+	public static final String TREE_NODE_CHECK_ID = "id";
 	public static final String INDEX = "index";
 	public static final String INITIALIZED = "initialized";
 	public static final String IO = "io";
@@ -174,12 +174,12 @@ public abstract class TreeNodeCheckBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CHECKED, checked);
 	}
 
-	public java.lang.Object getTreenodecheckChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREENODECHECK_CHILDREN, null);
+	public java.lang.Object getTreeNodeCheckChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_NODE_CHECK_CHILDREN, null);
 	}
 
-	public void setTreenodecheckChildren(java.lang.Object treenodecheckChildren) {
-		getStateHelper().put(TREENODECHECK_CHILDREN, treenodecheckChildren);
+	public void setTreeNodeCheckChildren(java.lang.Object treeNodeCheckChildren) {
+		getStateHelper().put(TREE_NODE_CHECK_CHILDREN, treeNodeCheckChildren);
 	}
 
 	public java.lang.String getContainer() {
@@ -246,12 +246,12 @@ public abstract class TreeNodeCheckBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_EL, iconEl);
 	}
 
-	public java.lang.String getTreenodecheckId() {
-		return (java.lang.String) getStateHelper().eval(TREENODECHECK_ID, null);
+	public java.lang.String getTreeNodeCheckId() {
+		return (java.lang.String) getStateHelper().eval(TREE_NODE_CHECK_ID, null);
 	}
 
-	public void setTreenodecheckId(java.lang.String treenodecheckId) {
-		getStateHelper().put(TREENODECHECK_ID, treenodecheckId);
+	public void setTreeNodeCheckId(java.lang.String treeNodeCheckId) {
+		getStateHelper().put(TREE_NODE_CHECK_ID, treeNodeCheckId);
 	}
 
 	public java.lang.Object getIndex() {

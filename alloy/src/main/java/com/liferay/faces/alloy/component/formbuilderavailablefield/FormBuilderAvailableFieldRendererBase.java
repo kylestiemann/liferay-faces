@@ -53,7 +53,7 @@ public abstract class FormBuilderAvailableFieldRendererBase extends RendererBase
 		renderDraggable(renderedAttributes, formBuilderAvailableField);
 		renderHiddenAttributes(renderedAttributes, formBuilderAvailableField);
 		renderIconClass(renderedAttributes, formBuilderAvailableField);
-		renderFormbuilderavailablefieldId(renderedAttributes, formBuilderAvailableField);
+		renderFormBuilderAvailableFieldId(renderedAttributes, formBuilderAvailableField);
 		renderInitialized(renderedAttributes, formBuilderAvailableField);
 		renderLabel(renderedAttributes, formBuilderAvailableField);
 		renderName(renderedAttributes, formBuilderAvailableField);
@@ -120,11 +120,11 @@ public abstract class FormBuilderAvailableFieldRendererBase extends RendererBase
 		}
 	}
 
-	protected void renderFormbuilderavailablefieldId(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
-		java.lang.String formbuilderavailablefieldId = formBuilderAvailableField.getFormbuilderavailablefieldId();
+	protected void renderFormBuilderAvailableFieldId(List<String> renderedAttributes, FormBuilderAvailableField formBuilderAvailableField) throws IOException {
+		java.lang.String formBuilderAvailableFieldId = formBuilderAvailableField.getFormBuilderAvailableFieldId();
 
-		if (formbuilderavailablefieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderAvailableField.FORMBUILDERAVAILABLEFIELD_ID, formbuilderavailablefieldId));
+		if (formBuilderAvailableFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderAvailableField.FORM_BUILDER_AVAILABLE_FIELD_ID, formBuilderAvailableFieldId));
 		}
 	}
 

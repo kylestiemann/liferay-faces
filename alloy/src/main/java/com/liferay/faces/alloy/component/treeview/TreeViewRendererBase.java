@@ -49,7 +49,7 @@ public abstract class TreeViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderTreeviewChildren(renderedAttributes, treeView);
+		renderTreeViewChildren(renderedAttributes, treeView);
 		renderContainer(renderedAttributes, treeView);
 		renderDestroyed(renderedAttributes, treeView);
 		renderIndex(renderedAttributes, treeView);
@@ -79,11 +79,11 @@ public abstract class TreeViewRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderTreeviewChildren(List<String> renderedAttributes, TreeView treeView) throws IOException {
-		java.lang.Object treeviewChildren = treeView.getTreeviewChildren();
+	protected void renderTreeViewChildren(List<String> renderedAttributes, TreeView treeView) throws IOException {
+		java.lang.Object treeViewChildren = treeView.getTreeViewChildren();
 
-		if (treeviewChildren != null) {
-			renderedAttributes.add(renderArray(TreeView.TREEVIEW_CHILDREN, treeviewChildren));
+		if (treeViewChildren != null) {
+			renderedAttributes.add(renderArray(TreeView.TREE_VIEW_CHILDREN, treeViewChildren));
 		}
 	}
 

@@ -57,10 +57,10 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, progressBar);
 		renderHeight(renderedAttributes, progressBar);
 		renderHideClass(renderedAttributes, progressBar);
-		renderProgressbarId(renderedAttributes, progressBar);
+		renderProgressBarId(renderedAttributes, progressBar);
 		renderInitialized(renderedAttributes, progressBar);
 		renderLabel(renderedAttributes, progressBar);
-		renderProgressbarLocale(renderedAttributes, progressBar);
+		renderProgressBarLocale(renderedAttributes, progressBar);
 		renderMax(renderedAttributes, progressBar);
 		renderMin(renderedAttributes, progressBar);
 		renderOrientation(renderedAttributes, progressBar);
@@ -73,7 +73,7 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		renderTabIndex(renderedAttributes, progressBar);
 		renderTextNode(renderedAttributes, progressBar);
 		renderUseARIA(renderedAttributes, progressBar);
-		renderProgressbarValue(renderedAttributes, progressBar);
+		renderProgressBarValue(renderedAttributes, progressBar);
 		renderVisible(renderedAttributes, progressBar);
 		renderWidth(renderedAttributes, progressBar);
 
@@ -161,11 +161,11 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderProgressbarId(List<String> renderedAttributes, ProgressBar progressBar) throws IOException {
-		java.lang.String progressbarId = progressBar.getProgressbarId();
+	protected void renderProgressBarId(List<String> renderedAttributes, ProgressBar progressBar) throws IOException {
+		java.lang.String progressBarId = progressBar.getProgressBarId();
 
-		if (progressbarId != null) {
-			renderedAttributes.add(renderString(ProgressBar.PROGRESSBAR_ID, progressbarId));
+		if (progressBarId != null) {
+			renderedAttributes.add(renderString(ProgressBar.PROGRESS_BAR_ID, progressBarId));
 		}
 	}
 
@@ -185,11 +185,11 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderProgressbarLocale(List<String> renderedAttributes, ProgressBar progressBar) throws IOException {
-		java.lang.String progressbarLocale = progressBar.getProgressbarLocale();
+	protected void renderProgressBarLocale(List<String> renderedAttributes, ProgressBar progressBar) throws IOException {
+		java.lang.String progressBarLocale = progressBar.getProgressBarLocale();
 
-		if (progressbarLocale != null) {
-			renderedAttributes.add(renderString(ProgressBar.PROGRESSBAR_LOCALE, progressbarLocale));
+		if (progressBarLocale != null) {
+			renderedAttributes.add(renderString(ProgressBar.PROGRESS_BAR_LOCALE, progressBarLocale));
 		}
 	}
 
@@ -289,11 +289,11 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderProgressbarValue(List<String> renderedAttributes, ProgressBar progressBar) throws IOException {
-		java.lang.Object progressbarValue = progressBar.getProgressbarValue();
+	protected void renderProgressBarValue(List<String> renderedAttributes, ProgressBar progressBar) throws IOException {
+		java.lang.Object progressBarValue = progressBar.getProgressBarValue();
 
-		if (progressbarValue != null) {
-			renderedAttributes.add(renderString(ProgressBar.PROGRESSBAR_VALUE, progressbarValue));
+		if (progressBarValue != null) {
+			renderedAttributes.add(renderString(ProgressBar.PROGRESS_BAR_VALUE, progressBarValue));
 		}
 	}
 

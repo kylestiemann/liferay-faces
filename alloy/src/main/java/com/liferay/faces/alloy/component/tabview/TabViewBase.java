@@ -29,9 +29,9 @@ public abstract class TabViewBase extends javax.faces.component.UIPanel {
 	public static final String DISABLED = "disabled";
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
-	public static final String TABVIEW_ID = "tabviewId";
+	public static final String TAB_VIEW_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String TABVIEW_LOCALE = "tabviewLocale";
+	public static final String TAB_VIEW_LOCALE = "locale";
 	public static final String MULTIPLE = "multiple";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
@@ -152,12 +152,12 @@ public abstract class TabViewBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getTabviewId() {
-		return (java.lang.String) getStateHelper().eval(TABVIEW_ID, null);
+	public java.lang.String getTabViewId() {
+		return (java.lang.String) getStateHelper().eval(TAB_VIEW_ID, null);
 	}
 
-	public void setTabviewId(java.lang.String tabviewId) {
-		getStateHelper().put(TABVIEW_ID, tabviewId);
+	public void setTabViewId(java.lang.String tabViewId) {
+		getStateHelper().put(TAB_VIEW_ID, tabViewId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -168,12 +168,12 @@ public abstract class TabViewBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getTabviewLocale() {
-		return (java.lang.String) getStateHelper().eval(TABVIEW_LOCALE, null);
+	public java.lang.String getTabViewLocale() {
+		return (java.lang.String) getStateHelper().eval(TAB_VIEW_LOCALE, null);
 	}
 
-	public void setTabviewLocale(java.lang.String tabviewLocale) {
-		getStateHelper().put(TABVIEW_LOCALE, tabviewLocale);
+	public void setTabViewLocale(java.lang.String tabViewLocale) {
+		getStateHelper().put(TAB_VIEW_LOCALE, tabViewLocale);
 	}
 
 	public java.lang.Boolean getMultiple() {

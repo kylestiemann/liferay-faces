@@ -28,9 +28,9 @@ public abstract class AceEditorBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIGHLIGHT_ACTIVE_LINE = "highlightActiveLine";
-	public static final String ACEEDITOR_ID = "aceeditorId";
+	public static final String ACE_EDITOR_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String ACEEDITOR_LOCALE = "aceeditorLocale";
+	public static final String ACE_EDITOR_LOCALE = "locale";
 	public static final String MODE = "mode";
 	public static final String READ_ONLY = "readOnly";
 	public static final String RENDER = "render";
@@ -42,7 +42,7 @@ public abstract class AceEditorBase extends javax.faces.component.UIPanel {
 	public static final String TAB_SIZE = "tabSize";
 	public static final String USE_SOFT_TABS = "useSoftTabs";
 	public static final String USE_WRAP_MODE = "useWrapMode";
-	public static final String ACEEDITOR_VALUE = "aceeditorValue";
+	public static final String ACE_EDITOR_VALUE = "value";
 	public static final String VISIBLE = "visible";
 	public static final String WIDTH = "width";
 	public static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";
@@ -150,12 +150,12 @@ public abstract class AceEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIGHLIGHT_ACTIVE_LINE, highlightActiveLine);
 	}
 
-	public java.lang.String getAceeditorId() {
-		return (java.lang.String) getStateHelper().eval(ACEEDITOR_ID, null);
+	public java.lang.String getAceEditorId() {
+		return (java.lang.String) getStateHelper().eval(ACE_EDITOR_ID, null);
 	}
 
-	public void setAceeditorId(java.lang.String aceeditorId) {
-		getStateHelper().put(ACEEDITOR_ID, aceeditorId);
+	public void setAceEditorId(java.lang.String aceEditorId) {
+		getStateHelper().put(ACE_EDITOR_ID, aceEditorId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -166,12 +166,12 @@ public abstract class AceEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getAceeditorLocale() {
-		return (java.lang.String) getStateHelper().eval(ACEEDITOR_LOCALE, null);
+	public java.lang.String getAceEditorLocale() {
+		return (java.lang.String) getStateHelper().eval(ACE_EDITOR_LOCALE, null);
 	}
 
-	public void setAceeditorLocale(java.lang.String aceeditorLocale) {
-		getStateHelper().put(ACEEDITOR_LOCALE, aceeditorLocale);
+	public void setAceEditorLocale(java.lang.String aceEditorLocale) {
+		getStateHelper().put(ACE_EDITOR_LOCALE, aceEditorLocale);
 	}
 
 	public java.lang.String getMode() {
@@ -262,12 +262,12 @@ public abstract class AceEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(USE_WRAP_MODE, useWrapMode);
 	}
 
-	public java.lang.String getAceeditorValue() {
-		return (java.lang.String) getStateHelper().eval(ACEEDITOR_VALUE, null);
+	public java.lang.String getAceEditorValue() {
+		return (java.lang.String) getStateHelper().eval(ACE_EDITOR_VALUE, null);
 	}
 
-	public void setAceeditorValue(java.lang.String aceeditorValue) {
-		getStateHelper().put(ACEEDITOR_VALUE, aceeditorValue);
+	public void setAceEditorValue(java.lang.String aceEditorValue) {
+		getStateHelper().put(ACE_EDITOR_VALUE, aceEditorValue);
 	}
 
 	public java.lang.Boolean getVisible() {

@@ -57,9 +57,9 @@ public abstract class HSVPaletteRendererBase extends RendererBase {
 		renderFieldValidator(renderedAttributes, hSVPalette);
 		renderFocused(renderedAttributes, hSVPalette);
 		renderHeight(renderedAttributes, hSVPalette);
-		renderHsvpaletteId(renderedAttributes, hSVPalette);
+		renderHSVPaletteId(renderedAttributes, hSVPalette);
 		renderInitialized(renderedAttributes, hSVPalette);
-		renderHsvpaletteLocale(renderedAttributes, hSVPalette);
+		renderHSVPaletteLocale(renderedAttributes, hSVPalette);
 		renderRender(renderedAttributes, hSVPalette);
 		renderRendered(renderedAttributes, hSVPalette);
 		renderSelected(renderedAttributes, hSVPalette);
@@ -153,11 +153,11 @@ public abstract class HSVPaletteRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvpaletteId(List<String> renderedAttributes, HSVPalette hSVPalette) throws IOException {
-		java.lang.String hsvpaletteId = hSVPalette.getHsvpaletteId();
+	protected void renderHSVPaletteId(List<String> renderedAttributes, HSVPalette hSVPalette) throws IOException {
+		java.lang.String hSVPaletteId = hSVPalette.getHSVPaletteId();
 
-		if (hsvpaletteId != null) {
-			renderedAttributes.add(renderString(HSVPalette.HSVPALETTE_ID, hsvpaletteId));
+		if (hSVPaletteId != null) {
+			renderedAttributes.add(renderString(HSVPalette.H_SVPALETTE_ID, hSVPaletteId));
 		}
 	}
 
@@ -169,11 +169,11 @@ public abstract class HSVPaletteRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvpaletteLocale(List<String> renderedAttributes, HSVPalette hSVPalette) throws IOException {
-		java.lang.String hsvpaletteLocale = hSVPalette.getHsvpaletteLocale();
+	protected void renderHSVPaletteLocale(List<String> renderedAttributes, HSVPalette hSVPalette) throws IOException {
+		java.lang.String hSVPaletteLocale = hSVPalette.getHSVPaletteLocale();
 
-		if (hsvpaletteLocale != null) {
-			renderedAttributes.add(renderString(HSVPalette.HSVPALETTE_LOCALE, hsvpaletteLocale));
+		if (hSVPaletteLocale != null) {
+			renderedAttributes.add(renderString(HSVPalette.H_SVPALETTE_LOCALE, hSVPaletteLocale));
 		}
 	}
 

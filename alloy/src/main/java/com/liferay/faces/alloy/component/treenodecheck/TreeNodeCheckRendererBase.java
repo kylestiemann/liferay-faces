@@ -56,7 +56,7 @@ public abstract class TreeNodeCheckRendererBase extends RendererBase {
 		renderCheckEl(renderedAttributes, treeNodeCheck);
 		renderCheckName(renderedAttributes, treeNodeCheck);
 		renderChecked(renderedAttributes, treeNodeCheck);
-		renderTreenodecheckChildren(renderedAttributes, treeNodeCheck);
+		renderTreeNodeCheckChildren(renderedAttributes, treeNodeCheck);
 		renderContainer(renderedAttributes, treeNodeCheck);
 		renderContentBox(renderedAttributes, treeNodeCheck);
 		renderCssClasses(renderedAttributes, treeNodeCheck);
@@ -65,7 +65,7 @@ public abstract class TreeNodeCheckRendererBase extends RendererBase {
 		renderExpanded(renderedAttributes, treeNodeCheck);
 		renderHitAreaEl(renderedAttributes, treeNodeCheck);
 		renderIconEl(renderedAttributes, treeNodeCheck);
-		renderTreenodecheckId(renderedAttributes, treeNodeCheck);
+		renderTreeNodeCheckId(renderedAttributes, treeNodeCheck);
 		renderIndex(renderedAttributes, treeNodeCheck);
 		renderInitialized(renderedAttributes, treeNodeCheck);
 		renderIo(renderedAttributes, treeNodeCheck);
@@ -158,11 +158,11 @@ public abstract class TreeNodeCheckRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodecheckChildren(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		java.lang.Object treenodecheckChildren = treeNodeCheck.getTreenodecheckChildren();
+	protected void renderTreeNodeCheckChildren(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.Object treeNodeCheckChildren = treeNodeCheck.getTreeNodeCheckChildren();
 
-		if (treenodecheckChildren != null) {
-			renderedAttributes.add(renderArray(TreeNodeCheck.TREENODECHECK_CHILDREN, treenodecheckChildren));
+		if (treeNodeCheckChildren != null) {
+			renderedAttributes.add(renderArray(TreeNodeCheck.TREE_NODE_CHECK_CHILDREN, treeNodeCheckChildren));
 		}
 	}
 
@@ -230,11 +230,11 @@ public abstract class TreeNodeCheckRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodecheckId(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
-		java.lang.String treenodecheckId = treeNodeCheck.getTreenodecheckId();
+	protected void renderTreeNodeCheckId(List<String> renderedAttributes, TreeNodeCheck treeNodeCheck) throws IOException {
+		java.lang.String treeNodeCheckId = treeNodeCheck.getTreeNodeCheckId();
 
-		if (treenodecheckId != null) {
-			renderedAttributes.add(renderString(TreeNodeCheck.TREENODECHECK_ID, treenodecheckId));
+		if (treeNodeCheckId != null) {
+			renderedAttributes.add(renderString(TreeNodeCheck.TREE_NODE_CHECK_ID, treeNodeCheckId));
 		}
 	}
 

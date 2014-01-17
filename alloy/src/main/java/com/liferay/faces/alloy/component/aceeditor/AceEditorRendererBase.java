@@ -56,9 +56,9 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, aceEditor);
 		renderHeight(renderedAttributes, aceEditor);
 		renderHighlightActiveLine(renderedAttributes, aceEditor);
-		renderAceeditorId(renderedAttributes, aceEditor);
+		renderAceEditorId(renderedAttributes, aceEditor);
 		renderInitialized(renderedAttributes, aceEditor);
-		renderAceeditorLocale(renderedAttributes, aceEditor);
+		renderAceEditorLocale(renderedAttributes, aceEditor);
 		renderMode(renderedAttributes, aceEditor);
 		renderReadOnly(renderedAttributes, aceEditor);
 		renderRender(renderedAttributes, aceEditor);
@@ -70,7 +70,7 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		renderTabSize(renderedAttributes, aceEditor);
 		renderUseSoftTabs(renderedAttributes, aceEditor);
 		renderUseWrapMode(renderedAttributes, aceEditor);
-		renderAceeditorValue(renderedAttributes, aceEditor);
+		renderAceEditorValue(renderedAttributes, aceEditor);
 		renderVisible(renderedAttributes, aceEditor);
 		renderWidth(renderedAttributes, aceEditor);
 
@@ -150,11 +150,11 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAceeditorId(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
-		java.lang.String aceeditorId = aceEditor.getAceeditorId();
+	protected void renderAceEditorId(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String aceEditorId = aceEditor.getAceEditorId();
 
-		if (aceeditorId != null) {
-			renderedAttributes.add(renderString(AceEditor.ACEEDITOR_ID, aceeditorId));
+		if (aceEditorId != null) {
+			renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_ID, aceEditorId));
 		}
 	}
 
@@ -166,11 +166,11 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAceeditorLocale(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
-		java.lang.String aceeditorLocale = aceEditor.getAceeditorLocale();
+	protected void renderAceEditorLocale(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String aceEditorLocale = aceEditor.getAceEditorLocale();
 
-		if (aceeditorLocale != null) {
-			renderedAttributes.add(renderString(AceEditor.ACEEDITOR_LOCALE, aceeditorLocale));
+		if (aceEditorLocale != null) {
+			renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_LOCALE, aceEditorLocale));
 		}
 	}
 
@@ -262,11 +262,11 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderAceeditorValue(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
-		java.lang.String aceeditorValue = aceEditor.getAceeditorValue();
+	protected void renderAceEditorValue(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
+		java.lang.String aceEditorValue = aceEditor.getAceEditorValue();
 
-		if (aceeditorValue != null) {
-			renderedAttributes.add(renderString(AceEditor.ACEEDITOR_VALUE, aceeditorValue));
+		if (aceEditorValue != null) {
+			renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_VALUE, aceEditorValue));
 		}
 	}
 

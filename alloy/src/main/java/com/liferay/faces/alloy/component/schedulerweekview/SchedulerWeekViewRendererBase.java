@@ -49,7 +49,7 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSchedulerweekviewBodyContent(renderedAttributes, schedulerWeekView);
+		renderSchedulerWeekViewBodyContent(renderedAttributes, schedulerWeekView);
 		renderBoundingBox(renderedAttributes, schedulerWeekView);
 		renderColDaysNode(renderedAttributes, schedulerWeekView);
 		renderColHeaderDaysNode(renderedAttributes, schedulerWeekView);
@@ -70,10 +70,10 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, schedulerWeekView);
 		renderHideClass(renderedAttributes, schedulerWeekView);
 		renderHourHeight(renderedAttributes, schedulerWeekView);
-		renderSchedulerweekviewId(renderedAttributes, schedulerWeekView);
+		renderSchedulerWeekViewId(renderedAttributes, schedulerWeekView);
 		renderInitialized(renderedAttributes, schedulerWeekView);
 		renderIsoTime(renderedAttributes, schedulerWeekView);
-		renderSchedulerweekviewLocale(renderedAttributes, schedulerWeekView);
+		renderSchedulerWeekViewLocale(renderedAttributes, schedulerWeekView);
 		renderMarkercellsNode(renderedAttributes, schedulerWeekView);
 		renderName(renderedAttributes, schedulerWeekView);
 		renderNavigationDateFormatter(renderedAttributes, schedulerWeekView);
@@ -114,11 +114,11 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulerweekviewBodyContent(List<String> renderedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
-		java.lang.String schedulerweekviewBodyContent = schedulerWeekView.getSchedulerweekviewBodyContent();
+	protected void renderSchedulerWeekViewBodyContent(List<String> renderedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		java.lang.String schedulerWeekViewBodyContent = schedulerWeekView.getSchedulerWeekViewBodyContent();
 
-		if (schedulerweekviewBodyContent != null) {
-			renderedAttributes.add(renderString(SchedulerWeekView.SCHEDULERWEEKVIEW_BODY_CONTENT, schedulerweekviewBodyContent));
+		if (schedulerWeekViewBodyContent != null) {
+			renderedAttributes.add(renderString(SchedulerWeekView.SCHEDULER_WEEK_VIEW_BODY_CONTENT, schedulerWeekViewBodyContent));
 		}
 	}
 
@@ -282,11 +282,11 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerweekviewId(List<String> renderedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
-		java.lang.String schedulerweekviewId = schedulerWeekView.getSchedulerweekviewId();
+	protected void renderSchedulerWeekViewId(List<String> renderedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		java.lang.String schedulerWeekViewId = schedulerWeekView.getSchedulerWeekViewId();
 
-		if (schedulerweekviewId != null) {
-			renderedAttributes.add(renderString(SchedulerWeekView.SCHEDULERWEEKVIEW_ID, schedulerweekviewId));
+		if (schedulerWeekViewId != null) {
+			renderedAttributes.add(renderString(SchedulerWeekView.SCHEDULER_WEEK_VIEW_ID, schedulerWeekViewId));
 		}
 	}
 
@@ -306,11 +306,11 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerweekviewLocale(List<String> renderedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
-		java.lang.String schedulerweekviewLocale = schedulerWeekView.getSchedulerweekviewLocale();
+	protected void renderSchedulerWeekViewLocale(List<String> renderedAttributes, SchedulerWeekView schedulerWeekView) throws IOException {
+		java.lang.String schedulerWeekViewLocale = schedulerWeekView.getSchedulerWeekViewLocale();
 
-		if (schedulerweekviewLocale != null) {
-			renderedAttributes.add(renderString(SchedulerWeekView.SCHEDULERWEEKVIEW_LOCALE, schedulerweekviewLocale));
+		if (schedulerWeekViewLocale != null) {
+			renderedAttributes.add(renderString(SchedulerWeekView.SCHEDULER_WEEK_VIEW_LOCALE, schedulerWeekViewLocale));
 		}
 	}
 

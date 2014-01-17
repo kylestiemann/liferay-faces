@@ -29,12 +29,12 @@ public abstract class FormBuilderButtonFieldBase extends javax.faces.component.U
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERBUTTONFIELD_ID = "formbuilderbuttonfieldId";
+	public static final String FORM_BUILDER_BUTTON_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERBUTTONFIELD_PARENT = "formbuilderbuttonfieldParent";
+	public static final String FORM_BUILDER_BUTTON_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -176,12 +176,12 @@ public abstract class FormBuilderButtonFieldBase extends javax.faces.component.U
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuilderbuttonfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERBUTTONFIELD_ID, null);
+	public java.lang.String getFormBuilderButtonFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_BUTTON_FIELD_ID, null);
 	}
 
-	public void setFormbuilderbuttonfieldId(java.lang.String formbuilderbuttonfieldId) {
-		getStateHelper().put(FORMBUILDERBUTTONFIELD_ID, formbuilderbuttonfieldId);
+	public void setFormBuilderButtonFieldId(java.lang.String formBuilderButtonFieldId) {
+		getStateHelper().put(FORM_BUILDER_BUTTON_FIELD_ID, formBuilderButtonFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -216,12 +216,12 @@ public abstract class FormBuilderButtonFieldBase extends javax.faces.component.U
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuilderbuttonfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERBUTTONFIELD_PARENT, null);
+	public java.lang.String getFormBuilderButtonFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_BUTTON_FIELD_PARENT, null);
 	}
 
-	public void setFormbuilderbuttonfieldParent(java.lang.String formbuilderbuttonfieldParent) {
-		getStateHelper().put(FORMBUILDERBUTTONFIELD_PARENT, formbuilderbuttonfieldParent);
+	public void setFormBuilderButtonFieldParent(java.lang.String formBuilderButtonFieldParent) {
+		getStateHelper().put(FORM_BUILDER_BUTTON_FIELD_PARENT, formBuilderButtonFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

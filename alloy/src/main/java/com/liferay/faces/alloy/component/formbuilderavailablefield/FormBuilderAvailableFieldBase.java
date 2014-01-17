@@ -25,7 +25,7 @@ public abstract class FormBuilderAvailableFieldBase extends javax.faces.componen
 	public static final String DRAGGABLE = "draggable";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
 	public static final String ICON_CLASS = "iconClass";
-	public static final String FORMBUILDERAVAILABLEFIELD_ID = "formbuilderavailablefieldId";
+	public static final String FORM_BUILDER_AVAILABLE_FIELD_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String LABEL = "label";
 	public static final String NAME = "name";
@@ -108,12 +108,12 @@ public abstract class FormBuilderAvailableFieldBase extends javax.faces.componen
 		getStateHelper().put(ICON_CLASS, iconClass);
 	}
 
-	public java.lang.String getFormbuilderavailablefieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERAVAILABLEFIELD_ID, null);
+	public java.lang.String getFormBuilderAvailableFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_AVAILABLE_FIELD_ID, null);
 	}
 
-	public void setFormbuilderavailablefieldId(java.lang.String formbuilderavailablefieldId) {
-		getStateHelper().put(FORMBUILDERAVAILABLEFIELD_ID, formbuilderavailablefieldId);
+	public void setFormBuilderAvailableFieldId(java.lang.String formBuilderAvailableFieldId) {
+		getStateHelper().put(FORM_BUILDER_AVAILABLE_FIELD_ID, formBuilderAvailableFieldId);
 	}
 
 	public java.lang.Boolean getInitialized() {

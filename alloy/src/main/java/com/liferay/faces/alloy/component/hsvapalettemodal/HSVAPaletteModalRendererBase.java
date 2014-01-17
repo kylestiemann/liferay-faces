@@ -51,7 +51,7 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 
 		renderAlign(renderedAttributes, hSVAPaletteModal);
 		renderAlignOn(renderedAttributes, hSVAPaletteModal);
-		renderHsvapalettemodalBodyContent(renderedAttributes, hSVAPaletteModal);
+		renderHSVAPaletteModalBodyContent(renderedAttributes, hSVAPaletteModal);
 		renderBoundingBox(renderedAttributes, hSVAPaletteModal);
 		renderCentered(renderedAttributes, hSVAPaletteModal);
 		renderConstrain(renderedAttributes, hSVAPaletteModal);
@@ -68,9 +68,9 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, hSVAPaletteModal);
 		renderHideOn(renderedAttributes, hSVAPaletteModal);
 		renderHsv(renderedAttributes, hSVAPaletteModal);
-		renderHsvapalettemodalId(renderedAttributes, hSVAPaletteModal);
+		renderHSVAPaletteModalId(renderedAttributes, hSVAPaletteModal);
 		renderInitialized(renderedAttributes, hSVAPaletteModal);
-		renderHsvapalettemodalLocale(renderedAttributes, hSVAPaletteModal);
+		renderHSVAPaletteModalLocale(renderedAttributes, hSVAPaletteModal);
 		renderMaskNode(renderedAttributes, hSVAPaletteModal);
 		renderModal(renderedAttributes, hSVAPaletteModal);
 		renderPreventOverlap(renderedAttributes, hSVAPaletteModal);
@@ -127,11 +127,11 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvapalettemodalBodyContent(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
-		java.lang.String hsvapalettemodalBodyContent = hSVAPaletteModal.getHsvapalettemodalBodyContent();
+	protected void renderHSVAPaletteModalBodyContent(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		java.lang.String hSVAPaletteModalBodyContent = hSVAPaletteModal.getHSVAPaletteModalBodyContent();
 
-		if (hsvapalettemodalBodyContent != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.HSVAPALETTEMODAL_BODY_CONTENT, hsvapalettemodalBodyContent));
+		if (hSVAPaletteModalBodyContent != null) {
+			renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_BODY_CONTENT, hSVAPaletteModalBodyContent));
 		}
 	}
 
@@ -263,11 +263,11 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvapalettemodalId(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
-		java.lang.String hsvapalettemodalId = hSVAPaletteModal.getHsvapalettemodalId();
+	protected void renderHSVAPaletteModalId(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		java.lang.String hSVAPaletteModalId = hSVAPaletteModal.getHSVAPaletteModalId();
 
-		if (hsvapalettemodalId != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.HSVAPALETTEMODAL_ID, hsvapalettemodalId));
+		if (hSVAPaletteModalId != null) {
+			renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_ID, hSVAPaletteModalId));
 		}
 	}
 
@@ -279,11 +279,11 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderHsvapalettemodalLocale(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
-		java.lang.String hsvapalettemodalLocale = hSVAPaletteModal.getHsvapalettemodalLocale();
+	protected void renderHSVAPaletteModalLocale(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
+		java.lang.String hSVAPaletteModalLocale = hSVAPaletteModal.getHSVAPaletteModalLocale();
 
-		if (hsvapalettemodalLocale != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.HSVAPALETTEMODAL_LOCALE, hsvapalettemodalLocale));
+		if (hSVAPaletteModalLocale != null) {
+			renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_LOCALE, hSVAPaletteModalLocale));
 		}
 	}
 

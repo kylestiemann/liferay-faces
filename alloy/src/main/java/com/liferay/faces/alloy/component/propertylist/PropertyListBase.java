@@ -39,9 +39,9 @@ public abstract class PropertyListBase extends javax.faces.component.UIPanel {
 	public static final String HEADER_CONFIG = "headerConfig";
 	public static final String HEADER_VIEW = "headerView";
 	public static final String HEIGHT = "height";
-	public static final String PROPERTYLIST_ID = "propertylistId";
+	public static final String PROPERTY_LIST_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String PROPERTYLIST_LOCALE = "propertylistLocale";
+	public static final String PROPERTY_LIST_LOCALE = "locale";
 	public static final String RECORD_TYPE = "recordType";
 	public static final String RECORDSET = "recordset";
 	public static final String RENDER = "render";
@@ -277,12 +277,12 @@ public abstract class PropertyListBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getPropertylistId() {
-		return (java.lang.String) getStateHelper().eval(PROPERTYLIST_ID, null);
+	public java.lang.String getPropertyListId() {
+		return (java.lang.String) getStateHelper().eval(PROPERTY_LIST_ID, null);
 	}
 
-	public void setPropertylistId(java.lang.String propertylistId) {
-		getStateHelper().put(PROPERTYLIST_ID, propertylistId);
+	public void setPropertyListId(java.lang.String propertyListId) {
+		getStateHelper().put(PROPERTY_LIST_ID, propertyListId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -293,12 +293,12 @@ public abstract class PropertyListBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getPropertylistLocale() {
-		return (java.lang.String) getStateHelper().eval(PROPERTYLIST_LOCALE, null);
+	public java.lang.String getPropertyListLocale() {
+		return (java.lang.String) getStateHelper().eval(PROPERTY_LIST_LOCALE, null);
 	}
 
-	public void setPropertylistLocale(java.lang.String propertylistLocale) {
-		getStateHelper().put(PROPERTYLIST_LOCALE, propertylistLocale);
+	public void setPropertyListLocale(java.lang.String propertyListLocale) {
+		getStateHelper().put(PROPERTY_LIST_LOCALE, propertyListLocale);
 	}
 
 	public java.lang.Object getRecordType() {

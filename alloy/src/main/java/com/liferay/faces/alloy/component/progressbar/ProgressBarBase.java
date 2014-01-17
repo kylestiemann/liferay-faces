@@ -29,10 +29,10 @@ public abstract class ProgressBarBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String PROGRESSBAR_ID = "progressbarId";
+	public static final String PROGRESS_BAR_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String LABEL = "label";
-	public static final String PROGRESSBAR_LOCALE = "progressbarLocale";
+	public static final String PROGRESS_BAR_LOCALE = "locale";
 	public static final String MAX = "max";
 	public static final String MIN = "min";
 	public static final String ORIENTATION = "orientation";
@@ -45,7 +45,7 @@ public abstract class ProgressBarBase extends javax.faces.component.UIPanel {
 	public static final String TAB_INDEX = "tabIndex";
 	public static final String TEXT_NODE = "textNode";
 	public static final String USE_ARIA = "useARIA";
-	public static final String PROGRESSBAR_VALUE = "progressbarValue";
+	public static final String PROGRESS_BAR_VALUE = "value";
 	public static final String VISIBLE = "visible";
 	public static final String WIDTH = "width";
 	public static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";
@@ -167,12 +167,12 @@ public abstract class ProgressBarBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getProgressbarId() {
-		return (java.lang.String) getStateHelper().eval(PROGRESSBAR_ID, null);
+	public java.lang.String getProgressBarId() {
+		return (java.lang.String) getStateHelper().eval(PROGRESS_BAR_ID, null);
 	}
 
-	public void setProgressbarId(java.lang.String progressbarId) {
-		getStateHelper().put(PROGRESSBAR_ID, progressbarId);
+	public void setProgressBarId(java.lang.String progressBarId) {
+		getStateHelper().put(PROGRESS_BAR_ID, progressBarId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -191,12 +191,12 @@ public abstract class ProgressBarBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(LABEL, label);
 	}
 
-	public java.lang.String getProgressbarLocale() {
-		return (java.lang.String) getStateHelper().eval(PROGRESSBAR_LOCALE, null);
+	public java.lang.String getProgressBarLocale() {
+		return (java.lang.String) getStateHelper().eval(PROGRESS_BAR_LOCALE, null);
 	}
 
-	public void setProgressbarLocale(java.lang.String progressbarLocale) {
-		getStateHelper().put(PROGRESSBAR_LOCALE, progressbarLocale);
+	public void setProgressBarLocale(java.lang.String progressBarLocale) {
+		getStateHelper().put(PROGRESS_BAR_LOCALE, progressBarLocale);
 	}
 
 	public java.lang.Object getMax() {
@@ -295,12 +295,12 @@ public abstract class ProgressBarBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(USE_ARIA, useARIA);
 	}
 
-	public java.lang.Object getProgressbarValue() {
-		return (java.lang.Object) getStateHelper().eval(PROGRESSBAR_VALUE, null);
+	public java.lang.Object getProgressBarValue() {
+		return (java.lang.Object) getStateHelper().eval(PROGRESS_BAR_VALUE, null);
 	}
 
-	public void setProgressbarValue(java.lang.Object progressbarValue) {
-		getStateHelper().put(PROGRESSBAR_VALUE, progressbarValue);
+	public void setProgressBarValue(java.lang.Object progressBarValue) {
+		getStateHelper().put(PROGRESS_BAR_VALUE, progressBarValue);
 	}
 
 	public java.lang.Boolean getVisible() {

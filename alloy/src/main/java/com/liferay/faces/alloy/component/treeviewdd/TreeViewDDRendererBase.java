@@ -49,7 +49,7 @@ public abstract class TreeViewDDRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderTreeviewddChildren(renderedAttributes, treeViewDD);
+		renderTreeViewDDChildren(renderedAttributes, treeViewDD);
 		renderContainer(renderedAttributes, treeViewDD);
 		renderDestroyed(renderedAttributes, treeViewDD);
 		renderDropAction(renderedAttributes, treeViewDD);
@@ -85,11 +85,11 @@ public abstract class TreeViewDDRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderTreeviewddChildren(List<String> renderedAttributes, TreeViewDD treeViewDD) throws IOException {
-		java.lang.Object treeviewddChildren = treeViewDD.getTreeviewddChildren();
+	protected void renderTreeViewDDChildren(List<String> renderedAttributes, TreeViewDD treeViewDD) throws IOException {
+		java.lang.Object treeViewDDChildren = treeViewDD.getTreeViewDDChildren();
 
-		if (treeviewddChildren != null) {
-			renderedAttributes.add(renderArray(TreeViewDD.TREEVIEWDD_CHILDREN, treeviewddChildren));
+		if (treeViewDDChildren != null) {
+			renderedAttributes.add(renderArray(TreeViewDD.TREE_VIEW_DDCHILDREN, treeViewDDChildren));
 		}
 	}
 

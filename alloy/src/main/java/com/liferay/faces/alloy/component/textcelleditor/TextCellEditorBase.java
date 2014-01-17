@@ -23,7 +23,7 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String TEXTCELLEDITOR_BODY_CONTENT = "textcelleditorBodyContent";
+	public static final String TEXT_CELL_EDITOR_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CENTERED = "centered";
 	public static final String CONSTRAIN = "constrain";
@@ -38,10 +38,10 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 	public static final String HEADER_CONTENT = "headerContent";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_ON_SAVE = "hideOnSave";
-	public static final String TEXTCELLEDITOR_ID = "textcelleditorId";
+	public static final String TEXT_CELL_EDITOR_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String INPUT_FORMATTER = "inputFormatter";
-	public static final String TEXTCELLEDITOR_LOCALE = "textcelleditorLocale";
+	public static final String TEXT_CELL_EDITOR_LOCALE = "locale";
 	public static final String OUTPUT_FORMATTER = "outputFormatter";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
 	public static final String RENDER = "render";
@@ -54,7 +54,7 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 	public static final String TOOLBAR = "toolbar";
 	public static final String UNESCAPE_VALUE = "unescapeValue";
 	public static final String VALIDATOR = "validator";
-	public static final String TEXTCELLEDITOR_VALUE = "textcelleditorValue";
+	public static final String TEXT_CELL_EDITOR_VALUE = "value";
 	public static final String VISIBLE = "visible";
 	public static final String WIDTH = "width";
 	public static final String X = "x";
@@ -158,12 +158,12 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.Object getTextcelleditorBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(TEXTCELLEDITOR_BODY_CONTENT, null);
+	public java.lang.Object getTextCellEditorBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(TEXT_CELL_EDITOR_BODY_CONTENT, null);
 	}
 
-	public void setTextcelleditorBodyContent(java.lang.Object textcelleditorBodyContent) {
-		getStateHelper().put(TEXTCELLEDITOR_BODY_CONTENT, textcelleditorBodyContent);
+	public void setTextCellEditorBodyContent(java.lang.Object textCellEditorBodyContent) {
+		getStateHelper().put(TEXT_CELL_EDITOR_BODY_CONTENT, textCellEditorBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -278,12 +278,12 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIDE_ON_SAVE, hideOnSave);
 	}
 
-	public java.lang.String getTextcelleditorId() {
-		return (java.lang.String) getStateHelper().eval(TEXTCELLEDITOR_ID, null);
+	public java.lang.String getTextCellEditorId() {
+		return (java.lang.String) getStateHelper().eval(TEXT_CELL_EDITOR_ID, null);
 	}
 
-	public void setTextcelleditorId(java.lang.String textcelleditorId) {
-		getStateHelper().put(TEXTCELLEDITOR_ID, textcelleditorId);
+	public void setTextCellEditorId(java.lang.String textCellEditorId) {
+		getStateHelper().put(TEXT_CELL_EDITOR_ID, textCellEditorId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -302,12 +302,12 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INPUT_FORMATTER, inputFormatter);
 	}
 
-	public java.lang.String getTextcelleditorLocale() {
-		return (java.lang.String) getStateHelper().eval(TEXTCELLEDITOR_LOCALE, null);
+	public java.lang.String getTextCellEditorLocale() {
+		return (java.lang.String) getStateHelper().eval(TEXT_CELL_EDITOR_LOCALE, null);
 	}
 
-	public void setTextcelleditorLocale(java.lang.String textcelleditorLocale) {
-		getStateHelper().put(TEXTCELLEDITOR_LOCALE, textcelleditorLocale);
+	public void setTextCellEditorLocale(java.lang.String textCellEditorLocale) {
+		getStateHelper().put(TEXT_CELL_EDITOR_LOCALE, textCellEditorLocale);
 	}
 
 	public java.lang.Object getOutputFormatter() {
@@ -406,12 +406,12 @@ public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(VALIDATOR, validator);
 	}
 
-	public java.lang.String getTextcelleditorValue() {
-		return (java.lang.String) getStateHelper().eval(TEXTCELLEDITOR_VALUE, null);
+	public java.lang.String getTextCellEditorValue() {
+		return (java.lang.String) getStateHelper().eval(TEXT_CELL_EDITOR_VALUE, null);
 	}
 
-	public void setTextcelleditorValue(java.lang.String textcelleditorValue) {
-		getStateHelper().put(TEXTCELLEDITOR_VALUE, textcelleditorValue);
+	public void setTextCellEditorValue(java.lang.String textCellEditorValue) {
+		getStateHelper().put(TEXT_CELL_EDITOR_VALUE, textCellEditorValue);
 	}
 
 	public java.lang.Boolean getVisible() {

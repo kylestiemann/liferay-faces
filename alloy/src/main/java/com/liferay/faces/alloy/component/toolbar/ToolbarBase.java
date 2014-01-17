@@ -22,7 +22,7 @@ package com.liferay.faces.alloy.component.toolbar;
 public abstract class ToolbarBase extends javax.faces.component.UIPanel {
 
 	public static final String BOUNDING_BOX = "boundingBox";
-	public static final String TOOLBAR_CHILDREN = "toolbarChildren";
+	public static final String TOOLBAR_CHILDREN = "children";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASS = "cssClass";
 	public static final String DESTROYED = "destroyed";
@@ -30,9 +30,9 @@ public abstract class ToolbarBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String TOOLBAR_ID = "toolbarId";
+	public static final String TOOLBAR_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String TOOLBAR_LOCALE = "toolbarLocale";
+	public static final String TOOLBAR_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SRC_NODE = "srcNode";

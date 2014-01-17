@@ -56,12 +56,12 @@ public abstract class FormBuilderFieldsetFieldRendererBase extends RendererBase 
 		renderDisabled(renderedAttributes, formBuilderFieldsetField);
 		renderDropZoneNode(renderedAttributes, formBuilderFieldsetField);
 		renderHiddenAttributes(renderedAttributes, formBuilderFieldsetField);
-		renderFormbuilderfieldsetfieldId(renderedAttributes, formBuilderFieldsetField);
+		renderFormBuilderFieldsetFieldId(renderedAttributes, formBuilderFieldsetField);
 		renderLabel(renderedAttributes, formBuilderFieldsetField);
 		renderLabelNode(renderedAttributes, formBuilderFieldsetField);
 		renderLocalizationMap(renderedAttributes, formBuilderFieldsetField);
 		renderName(renderedAttributes, formBuilderFieldsetField);
-		renderFormbuilderfieldsetfieldParent(renderedAttributes, formBuilderFieldsetField);
+		renderFormBuilderFieldsetFieldParent(renderedAttributes, formBuilderFieldsetField);
 		renderPredefinedValue(renderedAttributes, formBuilderFieldsetField);
 		renderReadOnly(renderedAttributes, formBuilderFieldsetField);
 		renderReadOnlyAttributes(renderedAttributes, formBuilderFieldsetField);
@@ -155,11 +155,11 @@ public abstract class FormBuilderFieldsetFieldRendererBase extends RendererBase 
 		}
 	}
 
-	protected void renderFormbuilderfieldsetfieldId(List<String> renderedAttributes, FormBuilderFieldsetField formBuilderFieldsetField) throws IOException {
-		java.lang.String formbuilderfieldsetfieldId = formBuilderFieldsetField.getFormbuilderfieldsetfieldId();
+	protected void renderFormBuilderFieldsetFieldId(List<String> renderedAttributes, FormBuilderFieldsetField formBuilderFieldsetField) throws IOException {
+		java.lang.String formBuilderFieldsetFieldId = formBuilderFieldsetField.getFormBuilderFieldsetFieldId();
 
-		if (formbuilderfieldsetfieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderFieldsetField.FORMBUILDERFIELDSETFIELD_ID, formbuilderfieldsetfieldId));
+		if (formBuilderFieldsetFieldId != null) {
+			renderedAttributes.add(renderString(FormBuilderFieldsetField.FORM_BUILDER_FIELDSET_FIELD_ID, formBuilderFieldsetFieldId));
 		}
 	}
 
@@ -195,11 +195,11 @@ public abstract class FormBuilderFieldsetFieldRendererBase extends RendererBase 
 		}
 	}
 
-	protected void renderFormbuilderfieldsetfieldParent(List<String> renderedAttributes, FormBuilderFieldsetField formBuilderFieldsetField) throws IOException {
-		java.lang.String formbuilderfieldsetfieldParent = formBuilderFieldsetField.getFormbuilderfieldsetfieldParent();
+	protected void renderFormBuilderFieldsetFieldParent(List<String> renderedAttributes, FormBuilderFieldsetField formBuilderFieldsetField) throws IOException {
+		java.lang.String formBuilderFieldsetFieldParent = formBuilderFieldsetField.getFormBuilderFieldsetFieldParent();
 
-		if (formbuilderfieldsetfieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderFieldsetField.FORMBUILDERFIELDSETFIELD_PARENT, formbuilderfieldsetfieldParent));
+		if (formBuilderFieldsetFieldParent != null) {
+			renderedAttributes.add(renderString(FormBuilderFieldsetField.FORM_BUILDER_FIELDSET_FIELD_PARENT, formBuilderFieldsetFieldParent));
 		}
 	}
 

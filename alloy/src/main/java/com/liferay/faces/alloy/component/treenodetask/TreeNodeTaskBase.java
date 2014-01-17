@@ -28,7 +28,7 @@ public abstract class TreeNodeTaskBase extends javax.faces.component.UIPanel {
 	public static final String CHECK_EL = "checkEl";
 	public static final String CHECK_NAME = "checkName";
 	public static final String CHECKED = "checked";
-	public static final String TREENODETASK_CHILDREN = "treenodetaskChildren";
+	public static final String TREE_NODE_TASK_CHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASSES = "cssClasses";
@@ -37,7 +37,7 @@ public abstract class TreeNodeTaskBase extends javax.faces.component.UIPanel {
 	public static final String EXPANDED = "expanded";
 	public static final String HIT_AREA_EL = "hitAreaEl";
 	public static final String ICON_EL = "iconEl";
-	public static final String TREENODETASK_ID = "treenodetaskId";
+	public static final String TREE_NODE_TASK_ID = "id";
 	public static final String INDEX = "index";
 	public static final String INITIALIZED = "initialized";
 	public static final String IO = "io";
@@ -174,12 +174,12 @@ public abstract class TreeNodeTaskBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CHECKED, checked);
 	}
 
-	public java.lang.Object getTreenodetaskChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREENODETASK_CHILDREN, null);
+	public java.lang.Object getTreeNodeTaskChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_NODE_TASK_CHILDREN, null);
 	}
 
-	public void setTreenodetaskChildren(java.lang.Object treenodetaskChildren) {
-		getStateHelper().put(TREENODETASK_CHILDREN, treenodetaskChildren);
+	public void setTreeNodeTaskChildren(java.lang.Object treeNodeTaskChildren) {
+		getStateHelper().put(TREE_NODE_TASK_CHILDREN, treeNodeTaskChildren);
 	}
 
 	public java.lang.String getContainer() {
@@ -246,12 +246,12 @@ public abstract class TreeNodeTaskBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_EL, iconEl);
 	}
 
-	public java.lang.String getTreenodetaskId() {
-		return (java.lang.String) getStateHelper().eval(TREENODETASK_ID, null);
+	public java.lang.String getTreeNodeTaskId() {
+		return (java.lang.String) getStateHelper().eval(TREE_NODE_TASK_ID, null);
 	}
 
-	public void setTreenodetaskId(java.lang.String treenodetaskId) {
-		getStateHelper().put(TREENODETASK_ID, treenodetaskId);
+	public void setTreeNodeTaskId(java.lang.String treeNodeTaskId) {
+		getStateHelper().put(TREE_NODE_TASK_ID, treeNodeTaskId);
 	}
 
 	public java.lang.Object getIndex() {

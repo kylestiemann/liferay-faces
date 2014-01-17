@@ -31,10 +31,10 @@ public abstract class ButtonBase extends javax.faces.component.UIPanel {
 	public static final String ICON = "icon";
 	public static final String ICON_ALIGN = "iconAlign";
 	public static final String ICON_ELEMENT = "iconElement";
-	public static final String BUTTON_ID = "buttonId";
+	public static final String BUTTON_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String LABEL = "label";
-	public static final String BUTTON_LOCALE = "buttonLocale";
+	public static final String BUTTON_LOCALE = "locale";
 	public static final String PRIMARY = "primary";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";

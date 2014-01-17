@@ -56,7 +56,7 @@ public abstract class TreeNodeRadioRendererBase extends RendererBase {
 		renderCheckEl(renderedAttributes, treeNodeRadio);
 		renderCheckName(renderedAttributes, treeNodeRadio);
 		renderChecked(renderedAttributes, treeNodeRadio);
-		renderTreenoderadioChildren(renderedAttributes, treeNodeRadio);
+		renderTreeNodeRadioChildren(renderedAttributes, treeNodeRadio);
 		renderContainer(renderedAttributes, treeNodeRadio);
 		renderContentBox(renderedAttributes, treeNodeRadio);
 		renderCssClasses(renderedAttributes, treeNodeRadio);
@@ -65,7 +65,7 @@ public abstract class TreeNodeRadioRendererBase extends RendererBase {
 		renderExpanded(renderedAttributes, treeNodeRadio);
 		renderHitAreaEl(renderedAttributes, treeNodeRadio);
 		renderIconEl(renderedAttributes, treeNodeRadio);
-		renderTreenoderadioId(renderedAttributes, treeNodeRadio);
+		renderTreeNodeRadioId(renderedAttributes, treeNodeRadio);
 		renderIndex(renderedAttributes, treeNodeRadio);
 		renderInitialized(renderedAttributes, treeNodeRadio);
 		renderIo(renderedAttributes, treeNodeRadio);
@@ -158,11 +158,11 @@ public abstract class TreeNodeRadioRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenoderadioChildren(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
-		java.lang.Object treenoderadioChildren = treeNodeRadio.getTreenoderadioChildren();
+	protected void renderTreeNodeRadioChildren(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.Object treeNodeRadioChildren = treeNodeRadio.getTreeNodeRadioChildren();
 
-		if (treenoderadioChildren != null) {
-			renderedAttributes.add(renderArray(TreeNodeRadio.TREENODERADIO_CHILDREN, treenoderadioChildren));
+		if (treeNodeRadioChildren != null) {
+			renderedAttributes.add(renderArray(TreeNodeRadio.TREE_NODE_RADIO_CHILDREN, treeNodeRadioChildren));
 		}
 	}
 
@@ -230,11 +230,11 @@ public abstract class TreeNodeRadioRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenoderadioId(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
-		java.lang.String treenoderadioId = treeNodeRadio.getTreenoderadioId();
+	protected void renderTreeNodeRadioId(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String treeNodeRadioId = treeNodeRadio.getTreeNodeRadioId();
 
-		if (treenoderadioId != null) {
-			renderedAttributes.add(renderString(TreeNodeRadio.TREENODERADIO_ID, treenoderadioId));
+		if (treeNodeRadioId != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.TREE_NODE_RADIO_ID, treeNodeRadioId));
 		}
 	}
 

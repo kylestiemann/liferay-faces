@@ -56,7 +56,7 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		renderCheckEl(renderedAttributes, treeNodeTask);
 		renderCheckName(renderedAttributes, treeNodeTask);
 		renderChecked(renderedAttributes, treeNodeTask);
-		renderTreenodetaskChildren(renderedAttributes, treeNodeTask);
+		renderTreeNodeTaskChildren(renderedAttributes, treeNodeTask);
 		renderContainer(renderedAttributes, treeNodeTask);
 		renderContentBox(renderedAttributes, treeNodeTask);
 		renderCssClasses(renderedAttributes, treeNodeTask);
@@ -65,7 +65,7 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		renderExpanded(renderedAttributes, treeNodeTask);
 		renderHitAreaEl(renderedAttributes, treeNodeTask);
 		renderIconEl(renderedAttributes, treeNodeTask);
-		renderTreenodetaskId(renderedAttributes, treeNodeTask);
+		renderTreeNodeTaskId(renderedAttributes, treeNodeTask);
 		renderIndex(renderedAttributes, treeNodeTask);
 		renderInitialized(renderedAttributes, treeNodeTask);
 		renderIo(renderedAttributes, treeNodeTask);
@@ -158,11 +158,11 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodetaskChildren(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		java.lang.Object treenodetaskChildren = treeNodeTask.getTreenodetaskChildren();
+	protected void renderTreeNodeTaskChildren(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.Object treeNodeTaskChildren = treeNodeTask.getTreeNodeTaskChildren();
 
-		if (treenodetaskChildren != null) {
-			renderedAttributes.add(renderArray(TreeNodeTask.TREENODETASK_CHILDREN, treenodetaskChildren));
+		if (treeNodeTaskChildren != null) {
+			renderedAttributes.add(renderArray(TreeNodeTask.TREE_NODE_TASK_CHILDREN, treeNodeTaskChildren));
 		}
 	}
 
@@ -230,11 +230,11 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodetaskId(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
-		java.lang.String treenodetaskId = treeNodeTask.getTreenodetaskId();
+	protected void renderTreeNodeTaskId(List<String> renderedAttributes, TreeNodeTask treeNodeTask) throws IOException {
+		java.lang.String treeNodeTaskId = treeNodeTask.getTreeNodeTaskId();
 
-		if (treenodetaskId != null) {
-			renderedAttributes.add(renderString(TreeNodeTask.TREENODETASK_ID, treenodetaskId));
+		if (treeNodeTaskId != null) {
+			renderedAttributes.add(renderString(TreeNodeTask.TREE_NODE_TASK_ID, treeNodeTaskId));
 		}
 	}
 

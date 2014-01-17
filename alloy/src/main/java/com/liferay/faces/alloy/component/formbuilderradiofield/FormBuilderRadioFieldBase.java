@@ -28,14 +28,14 @@ public abstract class FormBuilderRadioFieldBase extends javax.faces.component.UI
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERRADIOFIELD_ID = "formbuilderradiofieldId";
+	public static final String FORM_BUILDER_RADIO_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
 	public static final String OPTION_TEMPLATE = "optionTemplate";
 	public static final String OPTIONS = "options";
-	public static final String FORMBUILDERRADIOFIELD_PARENT = "formbuilderradiofieldParent";
+	public static final String FORM_BUILDER_RADIO_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -171,12 +171,12 @@ public abstract class FormBuilderRadioFieldBase extends javax.faces.component.UI
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuilderradiofieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERRADIOFIELD_ID, null);
+	public java.lang.String getFormBuilderRadioFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_RADIO_FIELD_ID, null);
 	}
 
-	public void setFormbuilderradiofieldId(java.lang.String formbuilderradiofieldId) {
-		getStateHelper().put(FORMBUILDERRADIOFIELD_ID, formbuilderradiofieldId);
+	public void setFormBuilderRadioFieldId(java.lang.String formBuilderRadioFieldId) {
+		getStateHelper().put(FORM_BUILDER_RADIO_FIELD_ID, formBuilderRadioFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -227,12 +227,12 @@ public abstract class FormBuilderRadioFieldBase extends javax.faces.component.UI
 		getStateHelper().put(OPTIONS, options);
 	}
 
-	public java.lang.String getFormbuilderradiofieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERRADIOFIELD_PARENT, null);
+	public java.lang.String getFormBuilderRadioFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_RADIO_FIELD_PARENT, null);
 	}
 
-	public void setFormbuilderradiofieldParent(java.lang.String formbuilderradiofieldParent) {
-		getStateHelper().put(FORMBUILDERRADIOFIELD_PARENT, formbuilderradiofieldParent);
+	public void setFormBuilderRadioFieldParent(java.lang.String formBuilderRadioFieldParent) {
+		getStateHelper().put(FORM_BUILDER_RADIO_FIELD_PARENT, formBuilderRadioFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

@@ -30,10 +30,10 @@ public abstract class ColorPaletteBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String FORMATTER = "formatter";
 	public static final String HEIGHT = "height";
-	public static final String COLORPALETTE_ID = "colorpaletteId";
+	public static final String COLOR_PALETTE_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ITEMS = "items";
-	public static final String COLORPALETTE_LOCALE = "colorpaletteLocale";
+	public static final String COLOR_PALETTE_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SELECTED = "selected";
@@ -160,12 +160,12 @@ public abstract class ColorPaletteBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HEIGHT, height);
 	}
 
-	public java.lang.String getColorpaletteId() {
-		return (java.lang.String) getStateHelper().eval(COLORPALETTE_ID, null);
+	public java.lang.String getColorPaletteId() {
+		return (java.lang.String) getStateHelper().eval(COLOR_PALETTE_ID, null);
 	}
 
-	public void setColorpaletteId(java.lang.String colorpaletteId) {
-		getStateHelper().put(COLORPALETTE_ID, colorpaletteId);
+	public void setColorPaletteId(java.lang.String colorPaletteId) {
+		getStateHelper().put(COLOR_PALETTE_ID, colorPaletteId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -184,12 +184,12 @@ public abstract class ColorPaletteBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ITEMS, items);
 	}
 
-	public java.lang.String getColorpaletteLocale() {
-		return (java.lang.String) getStateHelper().eval(COLORPALETTE_LOCALE, null);
+	public java.lang.String getColorPaletteLocale() {
+		return (java.lang.String) getStateHelper().eval(COLOR_PALETTE_LOCALE, null);
 	}
 
-	public void setColorpaletteLocale(java.lang.String colorpaletteLocale) {
-		getStateHelper().put(COLORPALETTE_LOCALE, colorpaletteLocale);
+	public void setColorPaletteLocale(java.lang.String colorPaletteLocale) {
+		getStateHelper().put(COLOR_PALETTE_LOCALE, colorPaletteLocale);
 	}
 
 	public java.lang.Object getRender() {

@@ -49,7 +49,7 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSchedulerviewBodyContent(renderedAttributes, schedulerView);
+		renderSchedulerViewBodyContent(renderedAttributes, schedulerView);
 		renderBoundingBox(renderedAttributes, schedulerView);
 		renderContentBox(renderedAttributes, schedulerView);
 		renderCssClass(renderedAttributes, schedulerView);
@@ -59,10 +59,10 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, schedulerView);
 		renderHeight(renderedAttributes, schedulerView);
 		renderHideClass(renderedAttributes, schedulerView);
-		renderSchedulerviewId(renderedAttributes, schedulerView);
+		renderSchedulerViewId(renderedAttributes, schedulerView);
 		renderInitialized(renderedAttributes, schedulerView);
 		renderIsoTime(renderedAttributes, schedulerView);
-		renderSchedulerviewLocale(renderedAttributes, schedulerView);
+		renderSchedulerViewLocale(renderedAttributes, schedulerView);
 		renderName(renderedAttributes, schedulerView);
 		renderNavigationDateFormatter(renderedAttributes, schedulerView);
 		renderNextDate(renderedAttributes, schedulerView);
@@ -99,11 +99,11 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		return AUI_MODULE_NAME;
 	}
 
-	protected void renderSchedulerviewBodyContent(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
-		java.lang.String schedulerviewBodyContent = schedulerView.getSchedulerviewBodyContent();
+	protected void renderSchedulerViewBodyContent(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String schedulerViewBodyContent = schedulerView.getSchedulerViewBodyContent();
 
-		if (schedulerviewBodyContent != null) {
-			renderedAttributes.add(renderString(SchedulerView.SCHEDULERVIEW_BODY_CONTENT, schedulerviewBodyContent));
+		if (schedulerViewBodyContent != null) {
+			renderedAttributes.add(renderString(SchedulerView.SCHEDULER_VIEW_BODY_CONTENT, schedulerViewBodyContent));
 		}
 	}
 
@@ -179,11 +179,11 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerviewId(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
-		java.lang.String schedulerviewId = schedulerView.getSchedulerviewId();
+	protected void renderSchedulerViewId(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String schedulerViewId = schedulerView.getSchedulerViewId();
 
-		if (schedulerviewId != null) {
-			renderedAttributes.add(renderString(SchedulerView.SCHEDULERVIEW_ID, schedulerviewId));
+		if (schedulerViewId != null) {
+			renderedAttributes.add(renderString(SchedulerView.SCHEDULER_VIEW_ID, schedulerViewId));
 		}
 	}
 
@@ -203,11 +203,11 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulerviewLocale(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
-		java.lang.String schedulerviewLocale = schedulerView.getSchedulerviewLocale();
+	protected void renderSchedulerViewLocale(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String schedulerViewLocale = schedulerView.getSchedulerViewLocale();
 
-		if (schedulerviewLocale != null) {
-			renderedAttributes.add(renderString(SchedulerView.SCHEDULERVIEW_LOCALE, schedulerviewLocale));
+		if (schedulerViewLocale != null) {
+			renderedAttributes.add(renderString(SchedulerView.SCHEDULER_VIEW_LOCALE, schedulerViewLocale));
 		}
 	}
 

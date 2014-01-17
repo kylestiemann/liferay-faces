@@ -24,7 +24,7 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 	public static final String ALWAYS_SHOW_HIT_AREA = "alwaysShowHitArea";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CACHE = "cache";
-	public static final String TREENODEIO_CHILDREN = "treenodeioChildren";
+	public static final String TREE_NODE_IOCHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASSES = "cssClasses";
@@ -33,7 +33,7 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 	public static final String EXPANDED = "expanded";
 	public static final String HIT_AREA_EL = "hitAreaEl";
 	public static final String ICON_EL = "iconEl";
-	public static final String TREENODEIO_ID = "treenodeioId";
+	public static final String TREE_NODE_IOID = "id";
 	public static final String INDEX = "index";
 	public static final String INITIALIZED = "initialized";
 	public static final String IO = "io";
@@ -130,12 +130,12 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(CACHE, cache);
 	}
 
-	public java.lang.Object getTreenodeioChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREENODEIO_CHILDREN, null);
+	public java.lang.Object getTreeNodeIOChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_NODE_IOCHILDREN, null);
 	}
 
-	public void setTreenodeioChildren(java.lang.Object treenodeioChildren) {
-		getStateHelper().put(TREENODEIO_CHILDREN, treenodeioChildren);
+	public void setTreeNodeIOChildren(java.lang.Object treeNodeIOChildren) {
+		getStateHelper().put(TREE_NODE_IOCHILDREN, treeNodeIOChildren);
 	}
 
 	public java.lang.String getContainer() {
@@ -202,12 +202,12 @@ public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(ICON_EL, iconEl);
 	}
 
-	public java.lang.String getTreenodeioId() {
-		return (java.lang.String) getStateHelper().eval(TREENODEIO_ID, null);
+	public java.lang.String getTreeNodeIOId() {
+		return (java.lang.String) getStateHelper().eval(TREE_NODE_IOID, null);
 	}
 
-	public void setTreenodeioId(java.lang.String treenodeioId) {
-		getStateHelper().put(TREENODEIO_ID, treenodeioId);
+	public void setTreeNodeIOId(java.lang.String treeNodeIOId) {
+		getStateHelper().put(TREE_NODE_IOID, treeNodeIOId);
 	}
 
 	public java.lang.Object getIndex() {

@@ -34,12 +34,12 @@ public abstract class RatingBase extends javax.faces.component.UIPanel {
 	public static final String HEIGHT = "height";
 	public static final String HIDDEN_INPUT = "hiddenInput";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String RATING_ID = "ratingId";
+	public static final String RATING_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String INPUT_NAME = "inputName";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
-	public static final String RATING_LOCALE = "ratingLocale";
+	public static final String RATING_LOCALE = "locale";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
 	public static final String SELECTED_INDEX = "selectedIndex";
@@ -50,7 +50,7 @@ public abstract class RatingBase extends javax.faces.component.UIPanel {
 	public static final String TAB_INDEX = "tabIndex";
 	public static final String TITLE = "title";
 	public static final String USE_ARIA = "useARIA";
-	public static final String RATING_VALUE = "ratingValue";
+	public static final String RATING_VALUE = "value";
 	public static final String VISIBLE = "visible";
 	public static final String WIDTH = "width";
 	public static final String AFTER_BOUNDING_BOX_CHANGE = "afterBoundingBoxChange";

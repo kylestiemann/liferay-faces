@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.treeviewdd;
  */
 public abstract class TreeViewDDBase extends javax.faces.component.UIPanel {
 
-	public static final String TREEVIEWDD_CHILDREN = "treeviewddChildren";
+	public static final String TREE_VIEW_DDCHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String DESTROYED = "destroyed";
 	public static final String DROP_ACTION = "dropAction";
@@ -67,12 +67,12 @@ public abstract class TreeViewDDBase extends javax.faces.component.UIPanel {
 	public static final String ON_SELECT_ON_TOGGLE_CHANGE = "onSelectOnToggleChange";
 	public static final String ON_TYPE_CHANGE = "onTypeChange";
 
-	public java.lang.Object getTreeviewddChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREEVIEWDD_CHILDREN, null);
+	public java.lang.Object getTreeViewDDChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_VIEW_DDCHILDREN, null);
 	}
 
-	public void setTreeviewddChildren(java.lang.Object treeviewddChildren) {
-		getStateHelper().put(TREEVIEWDD_CHILDREN, treeviewddChildren);
+	public void setTreeViewDDChildren(java.lang.Object treeViewDDChildren) {
+		getStateHelper().put(TREE_VIEW_DDCHILDREN, treeViewDDChildren);
 	}
 
 	public java.lang.String getContainer() {

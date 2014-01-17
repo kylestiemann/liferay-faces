@@ -62,12 +62,12 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, thumbRating);
 		renderHiddenInput(renderedAttributes, thumbRating);
 		renderHideClass(renderedAttributes, thumbRating);
-		renderThumbratingId(renderedAttributes, thumbRating);
+		renderThumbRatingId(renderedAttributes, thumbRating);
 		renderInitialized(renderedAttributes, thumbRating);
 		renderInputName(renderedAttributes, thumbRating);
 		renderLabel(renderedAttributes, thumbRating);
 		renderLabelNode(renderedAttributes, thumbRating);
-		renderThumbratingLocale(renderedAttributes, thumbRating);
+		renderThumbRatingLocale(renderedAttributes, thumbRating);
 		renderRender(renderedAttributes, thumbRating);
 		renderRendered(renderedAttributes, thumbRating);
 		renderSelectedIndex(renderedAttributes, thumbRating);
@@ -78,7 +78,7 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		renderTabIndex(renderedAttributes, thumbRating);
 		renderTitle(renderedAttributes, thumbRating);
 		renderUseARIA(renderedAttributes, thumbRating);
-		renderThumbratingValue(renderedAttributes, thumbRating);
+		renderThumbRatingValue(renderedAttributes, thumbRating);
 		renderVisible(renderedAttributes, thumbRating);
 		renderWidth(renderedAttributes, thumbRating);
 
@@ -206,11 +206,11 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderThumbratingId(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
-		java.lang.String thumbratingId = thumbRating.getThumbratingId();
+	protected void renderThumbRatingId(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String thumbRatingId = thumbRating.getThumbRatingId();
 
-		if (thumbratingId != null) {
-			renderedAttributes.add(renderString(ThumbRating.THUMBRATING_ID, thumbratingId));
+		if (thumbRatingId != null) {
+			renderedAttributes.add(renderString(ThumbRating.THUMB_RATING_ID, thumbRatingId));
 		}
 	}
 
@@ -246,11 +246,11 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderThumbratingLocale(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
-		java.lang.String thumbratingLocale = thumbRating.getThumbratingLocale();
+	protected void renderThumbRatingLocale(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String thumbRatingLocale = thumbRating.getThumbRatingLocale();
 
-		if (thumbratingLocale != null) {
-			renderedAttributes.add(renderString(ThumbRating.THUMBRATING_LOCALE, thumbratingLocale));
+		if (thumbRatingLocale != null) {
+			renderedAttributes.add(renderString(ThumbRating.THUMB_RATING_LOCALE, thumbRatingLocale));
 		}
 	}
 
@@ -334,11 +334,11 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderThumbratingValue(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
-		java.lang.String thumbratingValue = thumbRating.getThumbratingValue();
+	protected void renderThumbRatingValue(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String thumbRatingValue = thumbRating.getThumbRatingValue();
 
-		if (thumbratingValue != null) {
-			renderedAttributes.add(renderString(ThumbRating.THUMBRATING_VALUE, thumbratingValue));
+		if (thumbRatingValue != null) {
+			renderedAttributes.add(renderString(ThumbRating.THUMB_RATING_VALUE, thumbRatingValue));
 		}
 	}
 

@@ -69,9 +69,9 @@ public abstract class DiagramBuilderRendererBase extends RendererBase {
 		renderHeight(renderedAttributes, diagramBuilder);
 		renderHideClass(renderedAttributes, diagramBuilder);
 		renderHighlightDropZones(renderedAttributes, diagramBuilder);
-		renderDiagrambuilderId(renderedAttributes, diagramBuilder);
+		renderDiagramBuilderId(renderedAttributes, diagramBuilder);
 		renderInitialized(renderedAttributes, diagramBuilder);
-		renderDiagrambuilderLocale(renderedAttributes, diagramBuilder);
+		renderDiagramBuilderLocale(renderedAttributes, diagramBuilder);
 		renderMaxFields(renderedAttributes, diagramBuilder);
 		renderPropertyList(renderedAttributes, diagramBuilder);
 		renderRender(renderedAttributes, diagramBuilder);
@@ -268,11 +268,11 @@ public abstract class DiagramBuilderRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagrambuilderId(List<String> renderedAttributes, DiagramBuilder diagramBuilder) throws IOException {
-		java.lang.String diagrambuilderId = diagramBuilder.getDiagrambuilderId();
+	protected void renderDiagramBuilderId(List<String> renderedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		java.lang.String diagramBuilderId = diagramBuilder.getDiagramBuilderId();
 
-		if (diagrambuilderId != null) {
-			renderedAttributes.add(renderString(DiagramBuilder.DIAGRAMBUILDER_ID, diagrambuilderId));
+		if (diagramBuilderId != null) {
+			renderedAttributes.add(renderString(DiagramBuilder.DIAGRAM_BUILDER_ID, diagramBuilderId));
 		}
 	}
 
@@ -284,11 +284,11 @@ public abstract class DiagramBuilderRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderDiagrambuilderLocale(List<String> renderedAttributes, DiagramBuilder diagramBuilder) throws IOException {
-		java.lang.String diagrambuilderLocale = diagramBuilder.getDiagrambuilderLocale();
+	protected void renderDiagramBuilderLocale(List<String> renderedAttributes, DiagramBuilder diagramBuilder) throws IOException {
+		java.lang.String diagramBuilderLocale = diagramBuilder.getDiagramBuilderLocale();
 
-		if (diagrambuilderLocale != null) {
-			renderedAttributes.add(renderString(DiagramBuilder.DIAGRAMBUILDER_LOCALE, diagrambuilderLocale));
+		if (diagramBuilderLocale != null) {
+			renderedAttributes.add(renderString(DiagramBuilder.DIAGRAM_BUILDER_LOCALE, diagramBuilderLocale));
 		}
 	}
 

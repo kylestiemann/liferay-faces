@@ -22,7 +22,7 @@ package com.liferay.faces.alloy.component.schedulereventrecorder;
 public abstract class SchedulerEventRecorderBase extends javax.faces.component.UIPanel {
 
 	public static final String ALL_DAY = "allDay";
-	public static final String SCHEDULEREVENTRECORDER_CLIENT_ID = "schedulereventrecorderClientId";
+	public static final String SCHEDULER_EVENT_RECORDER_CLIENT_ID = "clientId";
 	public static final String COLOR = "color";
 	public static final String COLOR_BRIGHTNESS_FACTOR = "colorBrightnessFactor";
 	public static final String COLOR_SATURATION_FACTOR = "colorSaturationFactor";
@@ -34,7 +34,7 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 	public static final String END_DATE = "endDate";
 	public static final String EVENT = "event";
 	public static final String EVENT_CLASS = "eventClass";
-	public static final String SCHEDULEREVENTRECORDER_ID = "schedulereventrecorderId";
+	public static final String SCHEDULER_EVENT_RECORDER_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String MEETING = "meeting";
 	public static final String NODE = "node";
@@ -108,12 +108,12 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(ALL_DAY, allDay);
 	}
 
-	public java.lang.String getSchedulereventrecorderClientId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULEREVENTRECORDER_CLIENT_ID, null);
+	public java.lang.String getSchedulerEventRecorderClientId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_EVENT_RECORDER_CLIENT_ID, null);
 	}
 
-	public void setSchedulereventrecorderClientId(java.lang.String schedulereventrecorderClientId) {
-		getStateHelper().put(SCHEDULEREVENTRECORDER_CLIENT_ID, schedulereventrecorderClientId);
+	public void setSchedulerEventRecorderClientId(java.lang.String schedulerEventRecorderClientId) {
+		getStateHelper().put(SCHEDULER_EVENT_RECORDER_CLIENT_ID, schedulerEventRecorderClientId);
 	}
 
 	public java.lang.String getColor() {
@@ -204,12 +204,12 @@ public abstract class SchedulerEventRecorderBase extends javax.faces.component.U
 		getStateHelper().put(EVENT_CLASS, eventClass);
 	}
 
-	public java.lang.Object getSchedulereventrecorderId() {
-		return (java.lang.Object) getStateHelper().eval(SCHEDULEREVENTRECORDER_ID, null);
+	public java.lang.Object getSchedulerEventRecorderId() {
+		return (java.lang.Object) getStateHelper().eval(SCHEDULER_EVENT_RECORDER_ID, null);
 	}
 
-	public void setSchedulereventrecorderId(java.lang.Object schedulereventrecorderId) {
-		getStateHelper().put(SCHEDULEREVENTRECORDER_ID, schedulereventrecorderId);
+	public void setSchedulerEventRecorderId(java.lang.Object schedulerEventRecorderId) {
+		getStateHelper().put(SCHEDULER_EVENT_RECORDER_ID, schedulerEventRecorderId);
 	}
 
 	public java.lang.Boolean getInitialized() {

@@ -68,9 +68,9 @@ public abstract class FormBuilderRendererBase extends RendererBase {
 		renderFocused(renderedAttributes, formBuilder);
 		renderHeight(renderedAttributes, formBuilder);
 		renderHideClass(renderedAttributes, formBuilder);
-		renderFormbuilderId(renderedAttributes, formBuilder);
+		renderFormBuilderId(renderedAttributes, formBuilder);
 		renderInitialized(renderedAttributes, formBuilder);
-		renderFormbuilderLocale(renderedAttributes, formBuilder);
+		renderFormBuilderLocale(renderedAttributes, formBuilder);
 		renderMaxFields(renderedAttributes, formBuilder);
 		renderPropertyList(renderedAttributes, formBuilder);
 		renderRender(renderedAttributes, formBuilder);
@@ -257,11 +257,11 @@ public abstract class FormBuilderRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderId(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
-		java.lang.String formbuilderId = formBuilder.getFormbuilderId();
+	protected void renderFormBuilderId(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String formBuilderId = formBuilder.getFormBuilderId();
 
-		if (formbuilderId != null) {
-			renderedAttributes.add(renderString(FormBuilder.FORMBUILDER_ID, formbuilderId));
+		if (formBuilderId != null) {
+			renderedAttributes.add(renderString(FormBuilder.FORM_BUILDER_ID, formBuilderId));
 		}
 	}
 
@@ -273,11 +273,11 @@ public abstract class FormBuilderRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFormbuilderLocale(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
-		java.lang.String formbuilderLocale = formBuilder.getFormbuilderLocale();
+	protected void renderFormBuilderLocale(List<String> renderedAttributes, FormBuilder formBuilder) throws IOException {
+		java.lang.String formBuilderLocale = formBuilder.getFormBuilderLocale();
 
-		if (formbuilderLocale != null) {
-			renderedAttributes.add(renderString(FormBuilder.FORMBUILDER_LOCALE, formbuilderLocale));
+		if (formBuilderLocale != null) {
+			renderedAttributes.add(renderString(FormBuilder.FORM_BUILDER_LOCALE, formBuilderLocale));
 		}
 	}
 

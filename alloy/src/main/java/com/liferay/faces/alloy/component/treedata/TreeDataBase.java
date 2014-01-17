@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.treedata;
  */
 public abstract class TreeDataBase extends javax.faces.component.UIPanel {
 
-	public static final String TREEDATA_CHILDREN = "treedataChildren";
+	public static final String TREE_DATA_CHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String DESTROYED = "destroyed";
 	public static final String INDEX = "index";
@@ -37,12 +37,12 @@ public abstract class TreeDataBase extends javax.faces.component.UIPanel {
 	public static final String ON_INDEX_CHANGE = "onIndexChange";
 	public static final String ON_INITIALIZED_CHANGE = "onInitializedChange";
 
-	public java.lang.Object getTreedataChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREEDATA_CHILDREN, null);
+	public java.lang.Object getTreeDataChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_DATA_CHILDREN, null);
 	}
 
-	public void setTreedataChildren(java.lang.Object treedataChildren) {
-		getStateHelper().put(TREEDATA_CHILDREN, treedataChildren);
+	public void setTreeDataChildren(java.lang.Object treeDataChildren) {
+		getStateHelper().put(TREE_DATA_CHILDREN, treeDataChildren);
 	}
 
 	public java.lang.String getContainer() {

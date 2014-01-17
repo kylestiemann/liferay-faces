@@ -50,7 +50,7 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		List<String> renderedAttributes = new ArrayList<String>();
 
 		renderAllDay(renderedAttributes, schedulerEvent);
-		renderSchedulereventClientId(renderedAttributes, schedulerEvent);
+		renderSchedulerEventClientId(renderedAttributes, schedulerEvent);
 		renderColor(renderedAttributes, schedulerEvent);
 		renderColorBrightnessFactor(renderedAttributes, schedulerEvent);
 		renderColorSaturationFactor(renderedAttributes, schedulerEvent);
@@ -58,7 +58,7 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		renderDestroyed(renderedAttributes, schedulerEvent);
 		renderDisabled(renderedAttributes, schedulerEvent);
 		renderEndDate(renderedAttributes, schedulerEvent);
-		renderSchedulereventId(renderedAttributes, schedulerEvent);
+		renderSchedulerEventId(renderedAttributes, schedulerEvent);
 		renderInitialized(renderedAttributes, schedulerEvent);
 		renderMeeting(renderedAttributes, schedulerEvent);
 		renderNode(renderedAttributes, schedulerEvent);
@@ -97,11 +97,11 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulereventClientId(List<String> renderedAttributes, SchedulerEvent schedulerEvent) throws IOException {
-		java.lang.String schedulereventClientId = schedulerEvent.getSchedulereventClientId();
+	protected void renderSchedulerEventClientId(List<String> renderedAttributes, SchedulerEvent schedulerEvent) throws IOException {
+		java.lang.String schedulerEventClientId = schedulerEvent.getSchedulerEventClientId();
 
-		if (schedulereventClientId != null) {
-			renderedAttributes.add(renderString(SchedulerEvent.SCHEDULEREVENT_CLIENT_ID, schedulereventClientId));
+		if (schedulerEventClientId != null) {
+			renderedAttributes.add(renderString(SchedulerEvent.SCHEDULER_EVENT_CLIENT_ID, schedulerEventClientId));
 		}
 	}
 
@@ -161,11 +161,11 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderSchedulereventId(List<String> renderedAttributes, SchedulerEvent schedulerEvent) throws IOException {
-		java.lang.Object schedulereventId = schedulerEvent.getSchedulereventId();
+	protected void renderSchedulerEventId(List<String> renderedAttributes, SchedulerEvent schedulerEvent) throws IOException {
+		java.lang.Object schedulerEventId = schedulerEvent.getSchedulerEventId();
 
-		if (schedulereventId != null) {
-			renderedAttributes.add(renderString(SchedulerEvent.SCHEDULEREVENT_ID, schedulereventId));
+		if (schedulerEventId != null) {
+			renderedAttributes.add(renderString(SchedulerEvent.SCHEDULER_EVENT_ID, schedulerEventId));
 		}
 	}
 

@@ -52,7 +52,7 @@ public abstract class TreeNodeIORendererBase extends RendererBase {
 		renderAlwaysShowHitArea(renderedAttributes, treeNodeIO);
 		renderBoundingBox(renderedAttributes, treeNodeIO);
 		renderCache(renderedAttributes, treeNodeIO);
-		renderTreenodeioChildren(renderedAttributes, treeNodeIO);
+		renderTreeNodeIOChildren(renderedAttributes, treeNodeIO);
 		renderContainer(renderedAttributes, treeNodeIO);
 		renderContentBox(renderedAttributes, treeNodeIO);
 		renderCssClasses(renderedAttributes, treeNodeIO);
@@ -61,7 +61,7 @@ public abstract class TreeNodeIORendererBase extends RendererBase {
 		renderExpanded(renderedAttributes, treeNodeIO);
 		renderHitAreaEl(renderedAttributes, treeNodeIO);
 		renderIconEl(renderedAttributes, treeNodeIO);
-		renderTreenodeioId(renderedAttributes, treeNodeIO);
+		renderTreeNodeIOId(renderedAttributes, treeNodeIO);
 		renderIndex(renderedAttributes, treeNodeIO);
 		renderInitialized(renderedAttributes, treeNodeIO);
 		renderIo(renderedAttributes, treeNodeIO);
@@ -122,11 +122,11 @@ public abstract class TreeNodeIORendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodeioChildren(List<String> renderedAttributes, TreeNodeIO treeNodeIO) throws IOException {
-		java.lang.Object treenodeioChildren = treeNodeIO.getTreenodeioChildren();
+	protected void renderTreeNodeIOChildren(List<String> renderedAttributes, TreeNodeIO treeNodeIO) throws IOException {
+		java.lang.Object treeNodeIOChildren = treeNodeIO.getTreeNodeIOChildren();
 
-		if (treenodeioChildren != null) {
-			renderedAttributes.add(renderArray(TreeNodeIO.TREENODEIO_CHILDREN, treenodeioChildren));
+		if (treeNodeIOChildren != null) {
+			renderedAttributes.add(renderArray(TreeNodeIO.TREE_NODE_IOCHILDREN, treeNodeIOChildren));
 		}
 	}
 
@@ -194,11 +194,11 @@ public abstract class TreeNodeIORendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderTreenodeioId(List<String> renderedAttributes, TreeNodeIO treeNodeIO) throws IOException {
-		java.lang.String treenodeioId = treeNodeIO.getTreenodeioId();
+	protected void renderTreeNodeIOId(List<String> renderedAttributes, TreeNodeIO treeNodeIO) throws IOException {
+		java.lang.String treeNodeIOId = treeNodeIO.getTreeNodeIOId();
 
-		if (treenodeioId != null) {
-			renderedAttributes.add(renderString(TreeNodeIO.TREENODEIO_ID, treenodeioId));
+		if (treeNodeIOId != null) {
+			renderedAttributes.add(renderString(TreeNodeIO.TREE_NODE_IOID, treeNodeIOId));
 		}
 	}
 

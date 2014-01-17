@@ -23,7 +23,7 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 
 	public static final String ALIGN = "align";
 	public static final String ALIGN_ON = "alignOn";
-	public static final String COLORPICKERPOPOVER_BODY_CONTENT = "colorpickerpopoverBodyContent";
+	public static final String COLOR_PICKER_POPOVER_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CENTERED = "centered";
 	public static final String COLOR = "color";
@@ -43,9 +43,9 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 	public static final String HEIGHT = "height";
 	public static final String HIDE_ON = "hideOn";
 	public static final String HSV_PALETTE = "hsvPalette";
-	public static final String COLORPICKERPOPOVER_ID = "colorpickerpopoverId";
+	public static final String COLOR_PICKER_POPOVER_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String COLORPICKERPOPOVER_LOCALE = "colorpickerpopoverLocale";
+	public static final String COLOR_PICKER_POPOVER_LOCALE = "locale";
 	public static final String MASK_NODE = "maskNode";
 	public static final String MODAL = "modal";
 	public static final String PREVENT_OVERLAP = "preventOverlap";
@@ -182,12 +182,12 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 		getStateHelper().put(ALIGN_ON, alignOn);
 	}
 
-	public java.lang.Object getColorpickerpopoverBodyContent() {
-		return (java.lang.Object) getStateHelper().eval(COLORPICKERPOPOVER_BODY_CONTENT, null);
+	public java.lang.Object getColorPickerPopoverBodyContent() {
+		return (java.lang.Object) getStateHelper().eval(COLOR_PICKER_POPOVER_BODY_CONTENT, null);
 	}
 
-	public void setColorpickerpopoverBodyContent(java.lang.Object colorpickerpopoverBodyContent) {
-		getStateHelper().put(COLORPICKERPOPOVER_BODY_CONTENT, colorpickerpopoverBodyContent);
+	public void setColorPickerPopoverBodyContent(java.lang.Object colorPickerPopoverBodyContent) {
+		getStateHelper().put(COLOR_PICKER_POPOVER_BODY_CONTENT, colorPickerPopoverBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -342,12 +342,12 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 		getStateHelper().put(HSV_PALETTE, hsvPalette);
 	}
 
-	public java.lang.String getColorpickerpopoverId() {
-		return (java.lang.String) getStateHelper().eval(COLORPICKERPOPOVER_ID, null);
+	public java.lang.String getColorPickerPopoverId() {
+		return (java.lang.String) getStateHelper().eval(COLOR_PICKER_POPOVER_ID, null);
 	}
 
-	public void setColorpickerpopoverId(java.lang.String colorpickerpopoverId) {
-		getStateHelper().put(COLORPICKERPOPOVER_ID, colorpickerpopoverId);
+	public void setColorPickerPopoverId(java.lang.String colorPickerPopoverId) {
+		getStateHelper().put(COLOR_PICKER_POPOVER_ID, colorPickerPopoverId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -358,12 +358,12 @@ public abstract class ColorPickerPopoverBase extends javax.faces.component.UIPan
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getColorpickerpopoverLocale() {
-		return (java.lang.String) getStateHelper().eval(COLORPICKERPOPOVER_LOCALE, null);
+	public java.lang.String getColorPickerPopoverLocale() {
+		return (java.lang.String) getStateHelper().eval(COLOR_PICKER_POPOVER_LOCALE, null);
 	}
 
-	public void setColorpickerpopoverLocale(java.lang.String colorpickerpopoverLocale) {
-		getStateHelper().put(COLORPICKERPOPOVER_LOCALE, colorpickerpopoverLocale);
+	public void setColorPickerPopoverLocale(java.lang.String colorPickerPopoverLocale) {
+		getStateHelper().put(COLOR_PICKER_POPOVER_LOCALE, colorPickerPopoverLocale);
 	}
 
 	public java.lang.Object getMaskNode() {

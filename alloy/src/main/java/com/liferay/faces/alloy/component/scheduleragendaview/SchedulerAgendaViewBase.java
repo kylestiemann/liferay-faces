@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.scheduleragendaview;
  */
 public abstract class SchedulerAgendaViewBase extends javax.faces.component.UIPanel {
 
-	public static final String SCHEDULERAGENDAVIEW_BODY_CONTENT = "scheduleragendaviewBodyContent";
+	public static final String SCHEDULER_AGENDA_VIEW_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String CONTENT_BOX = "contentBox";
 	public static final String CSS_CLASS = "cssClass";
@@ -34,13 +34,13 @@ public abstract class SchedulerAgendaViewBase extends javax.faces.component.UIPa
 	public static final String HEADER_EXTRA_DATE_FORMATTER = "headerExtraDateFormatter";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String SCHEDULERAGENDAVIEW_ID = "scheduleragendaviewId";
+	public static final String SCHEDULER_AGENDA_VIEW_ID = "id";
 	public static final String INFO_DAY_DATE_FORMATTER = "infoDayDateFormatter";
 	public static final String INFO_LABEL_BIG_DATE_FORMATTER = "infoLabelBigDateFormatter";
 	public static final String INFO_LABEL_SMALL_DATE_FORMATTER = "infoLabelSmallDateFormatter";
 	public static final String INITIALIZED = "initialized";
 	public static final String ISO_TIME = "isoTime";
-	public static final String SCHEDULERAGENDAVIEW_LOCALE = "scheduleragendaviewLocale";
+	public static final String SCHEDULER_AGENDA_VIEW_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
 	public static final String NEXT_DATE = "nextDate";
@@ -127,12 +127,12 @@ public abstract class SchedulerAgendaViewBase extends javax.faces.component.UIPa
 	public static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 	public static final String ON_WIDTH_CHANGE = "onWidthChange";
 
-	public java.lang.String getScheduleragendaviewBodyContent() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERAGENDAVIEW_BODY_CONTENT, null);
+	public java.lang.String getSchedulerAgendaViewBodyContent() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_AGENDA_VIEW_BODY_CONTENT, null);
 	}
 
-	public void setScheduleragendaviewBodyContent(java.lang.String scheduleragendaviewBodyContent) {
-		getStateHelper().put(SCHEDULERAGENDAVIEW_BODY_CONTENT, scheduleragendaviewBodyContent);
+	public void setSchedulerAgendaViewBodyContent(java.lang.String schedulerAgendaViewBodyContent) {
+		getStateHelper().put(SCHEDULER_AGENDA_VIEW_BODY_CONTENT, schedulerAgendaViewBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -231,12 +231,12 @@ public abstract class SchedulerAgendaViewBase extends javax.faces.component.UIPa
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getScheduleragendaviewId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERAGENDAVIEW_ID, null);
+	public java.lang.String getSchedulerAgendaViewId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_AGENDA_VIEW_ID, null);
 	}
 
-	public void setScheduleragendaviewId(java.lang.String scheduleragendaviewId) {
-		getStateHelper().put(SCHEDULERAGENDAVIEW_ID, scheduleragendaviewId);
+	public void setSchedulerAgendaViewId(java.lang.String schedulerAgendaViewId) {
+		getStateHelper().put(SCHEDULER_AGENDA_VIEW_ID, schedulerAgendaViewId);
 	}
 
 	public java.lang.Object getInfoDayDateFormatter() {
@@ -279,12 +279,12 @@ public abstract class SchedulerAgendaViewBase extends javax.faces.component.UIPa
 		getStateHelper().put(ISO_TIME, isoTime);
 	}
 
-	public java.lang.String getScheduleragendaviewLocale() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERAGENDAVIEW_LOCALE, null);
+	public java.lang.String getSchedulerAgendaViewLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_AGENDA_VIEW_LOCALE, null);
 	}
 
-	public void setScheduleragendaviewLocale(java.lang.String scheduleragendaviewLocale) {
-		getStateHelper().put(SCHEDULERAGENDAVIEW_LOCALE, scheduleragendaviewLocale);
+	public void setSchedulerAgendaViewLocale(java.lang.String schedulerAgendaViewLocale) {
+		getStateHelper().put(SCHEDULER_AGENDA_VIEW_LOCALE, schedulerAgendaViewLocale);
 	}
 
 	public java.lang.String getName() {

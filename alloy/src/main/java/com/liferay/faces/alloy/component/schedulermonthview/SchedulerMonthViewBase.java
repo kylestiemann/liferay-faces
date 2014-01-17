@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.schedulermonthview;
  */
 public abstract class SchedulerMonthViewBase extends javax.faces.component.UIPanel {
 
-	public static final String SCHEDULERMONTHVIEW_BODY_CONTENT = "schedulermonthviewBodyContent";
+	public static final String SCHEDULER_MONTH_VIEW_BODY_CONTENT = "bodyContent";
 	public static final String BOUNDING_BOX = "boundingBox";
 	public static final String COL_HEADER_DAYS_NODE = "colHeaderDaysNode";
 	public static final String CONTENT_BOX = "contentBox";
@@ -37,10 +37,10 @@ public abstract class SchedulerMonthViewBase extends javax.faces.component.UIPan
 	public static final String HEADER_TABLE_NODE = "headerTableNode";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String SCHEDULERMONTHVIEW_ID = "schedulermonthviewId";
+	public static final String SCHEDULER_MONTH_VIEW_ID = "id";
 	public static final String INITIALIZED = "initialized";
 	public static final String ISO_TIME = "isoTime";
-	public static final String SCHEDULERMONTHVIEW_LOCALE = "schedulermonthviewLocale";
+	public static final String SCHEDULER_MONTH_VIEW_LOCALE = "locale";
 	public static final String NAME = "name";
 	public static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
 	public static final String NEXT_DATE = "nextDate";
@@ -133,12 +133,12 @@ public abstract class SchedulerMonthViewBase extends javax.faces.component.UIPan
 	public static final String ON_VISIBLE_CHANGE = "onVisibleChange";
 	public static final String ON_WIDTH_CHANGE = "onWidthChange";
 
-	public java.lang.String getSchedulermonthviewBodyContent() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERMONTHVIEW_BODY_CONTENT, null);
+	public java.lang.String getSchedulerMonthViewBodyContent() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_MONTH_VIEW_BODY_CONTENT, null);
 	}
 
-	public void setSchedulermonthviewBodyContent(java.lang.String schedulermonthviewBodyContent) {
-		getStateHelper().put(SCHEDULERMONTHVIEW_BODY_CONTENT, schedulermonthviewBodyContent);
+	public void setSchedulerMonthViewBodyContent(java.lang.String schedulerMonthViewBodyContent) {
+		getStateHelper().put(SCHEDULER_MONTH_VIEW_BODY_CONTENT, schedulerMonthViewBodyContent);
 	}
 
 	public java.lang.String getBoundingBox() {
@@ -261,12 +261,12 @@ public abstract class SchedulerMonthViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getSchedulermonthviewId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERMONTHVIEW_ID, null);
+	public java.lang.String getSchedulerMonthViewId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_MONTH_VIEW_ID, null);
 	}
 
-	public void setSchedulermonthviewId(java.lang.String schedulermonthviewId) {
-		getStateHelper().put(SCHEDULERMONTHVIEW_ID, schedulermonthviewId);
+	public void setSchedulerMonthViewId(java.lang.String schedulerMonthViewId) {
+		getStateHelper().put(SCHEDULER_MONTH_VIEW_ID, schedulerMonthViewId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -285,12 +285,12 @@ public abstract class SchedulerMonthViewBase extends javax.faces.component.UIPan
 		getStateHelper().put(ISO_TIME, isoTime);
 	}
 
-	public java.lang.String getSchedulermonthviewLocale() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERMONTHVIEW_LOCALE, null);
+	public java.lang.String getSchedulerMonthViewLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_MONTH_VIEW_LOCALE, null);
 	}
 
-	public void setSchedulermonthviewLocale(java.lang.String schedulermonthviewLocale) {
-		getStateHelper().put(SCHEDULERMONTHVIEW_LOCALE, schedulermonthviewLocale);
+	public void setSchedulerMonthViewLocale(java.lang.String schedulerMonthViewLocale) {
+		getStateHelper().put(SCHEDULER_MONTH_VIEW_LOCALE, schedulerMonthViewLocale);
 	}
 
 	public java.lang.String getName() {

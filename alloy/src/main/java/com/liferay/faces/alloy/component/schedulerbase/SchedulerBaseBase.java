@@ -33,9 +33,9 @@ public abstract class SchedulerBaseBase extends javax.faces.component.UIPanel {
 	public static final String FOCUSED = "focused";
 	public static final String HEIGHT = "height";
 	public static final String HIDE_CLASS = "hideClass";
-	public static final String SCHEDULERBASE_ID = "schedulerbaseId";
+	public static final String SCHEDULER_BASE_ID = "id";
 	public static final String INITIALIZED = "initialized";
-	public static final String SCHEDULERBASE_LOCALE = "schedulerbaseLocale";
+	public static final String SCHEDULER_BASE_LOCALE = "locale";
 	public static final String NAVIGATION_DATE_FORMATTER = "navigationDateFormatter";
 	public static final String RENDER = "render";
 	public static final String RENDERED = "rendered";
@@ -199,12 +199,12 @@ public abstract class SchedulerBaseBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(HIDE_CLASS, hideClass);
 	}
 
-	public java.lang.String getSchedulerbaseId() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERBASE_ID, null);
+	public java.lang.String getSchedulerBaseId() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_BASE_ID, null);
 	}
 
-	public void setSchedulerbaseId(java.lang.String schedulerbaseId) {
-		getStateHelper().put(SCHEDULERBASE_ID, schedulerbaseId);
+	public void setSchedulerBaseId(java.lang.String schedulerBaseId) {
+		getStateHelper().put(SCHEDULER_BASE_ID, schedulerBaseId);
 	}
 
 	public java.lang.Boolean getInitialized() {
@@ -215,12 +215,12 @@ public abstract class SchedulerBaseBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(INITIALIZED, initialized);
 	}
 
-	public java.lang.String getSchedulerbaseLocale() {
-		return (java.lang.String) getStateHelper().eval(SCHEDULERBASE_LOCALE, null);
+	public java.lang.String getSchedulerBaseLocale() {
+		return (java.lang.String) getStateHelper().eval(SCHEDULER_BASE_LOCALE, null);
 	}
 
-	public void setSchedulerbaseLocale(java.lang.String schedulerbaseLocale) {
-		getStateHelper().put(SCHEDULERBASE_LOCALE, schedulerbaseLocale);
+	public void setSchedulerBaseLocale(java.lang.String schedulerBaseLocale) {
+		getStateHelper().put(SCHEDULER_BASE_LOCALE, schedulerBaseLocale);
 	}
 
 	public java.lang.Object getNavigationDateFormatter() {

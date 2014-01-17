@@ -28,12 +28,12 @@ public abstract class FormBuilderFileUploadFieldBase extends javax.faces.compone
 	public static final String DISABLED = "disabled";
 	public static final String DROP_ZONE_NODE = "dropZoneNode";
 	public static final String HIDDEN_ATTRIBUTES = "hiddenAttributes";
-	public static final String FORMBUILDERFILEUPLOADFIELD_ID = "formbuilderfileuploadfieldId";
+	public static final String FORM_BUILDER_FILE_UPLOAD_FIELD_ID = "id";
 	public static final String LABEL = "label";
 	public static final String LABEL_NODE = "labelNode";
 	public static final String LOCALIZATION_MAP = "localizationMap";
 	public static final String NAME = "name";
-	public static final String FORMBUILDERFILEUPLOADFIELD_PARENT = "formbuilderfileuploadfieldParent";
+	public static final String FORM_BUILDER_FILE_UPLOAD_FIELD_PARENT = "parent";
 	public static final String PREDEFINED_VALUE = "predefinedValue";
 	public static final String READ_ONLY = "readOnly";
 	public static final String READ_ONLY_ATTRIBUTES = "readOnlyAttributes";
@@ -165,12 +165,12 @@ public abstract class FormBuilderFileUploadFieldBase extends javax.faces.compone
 		getStateHelper().put(HIDDEN_ATTRIBUTES, hiddenAttributes);
 	}
 
-	public java.lang.String getFormbuilderfileuploadfieldId() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERFILEUPLOADFIELD_ID, null);
+	public java.lang.String getFormBuilderFileUploadFieldId() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_FILE_UPLOAD_FIELD_ID, null);
 	}
 
-	public void setFormbuilderfileuploadfieldId(java.lang.String formbuilderfileuploadfieldId) {
-		getStateHelper().put(FORMBUILDERFILEUPLOADFIELD_ID, formbuilderfileuploadfieldId);
+	public void setFormBuilderFileUploadFieldId(java.lang.String formBuilderFileUploadFieldId) {
+		getStateHelper().put(FORM_BUILDER_FILE_UPLOAD_FIELD_ID, formBuilderFileUploadFieldId);
 	}
 
 	public java.lang.String getLabel() {
@@ -205,12 +205,12 @@ public abstract class FormBuilderFileUploadFieldBase extends javax.faces.compone
 		getStateHelper().put(NAME, name);
 	}
 
-	public java.lang.String getFormbuilderfileuploadfieldParent() {
-		return (java.lang.String) getStateHelper().eval(FORMBUILDERFILEUPLOADFIELD_PARENT, null);
+	public java.lang.String getFormBuilderFileUploadFieldParent() {
+		return (java.lang.String) getStateHelper().eval(FORM_BUILDER_FILE_UPLOAD_FIELD_PARENT, null);
 	}
 
-	public void setFormbuilderfileuploadfieldParent(java.lang.String formbuilderfileuploadfieldParent) {
-		getStateHelper().put(FORMBUILDERFILEUPLOADFIELD_PARENT, formbuilderfileuploadfieldParent);
+	public void setFormBuilderFileUploadFieldParent(java.lang.String formBuilderFileUploadFieldParent) {
+		getStateHelper().put(FORM_BUILDER_FILE_UPLOAD_FIELD_PARENT, formBuilderFileUploadFieldParent);
 	}
 
 	public java.lang.String getPredefinedValue() {

@@ -21,7 +21,7 @@ package com.liferay.faces.alloy.component.treeview;
  */
 public abstract class TreeViewBase extends javax.faces.component.UIPanel {
 
-	public static final String TREEVIEW_CHILDREN = "treeviewChildren";
+	public static final String TREE_VIEW_CHILDREN = "children";
 	public static final String CONTAINER = "container";
 	public static final String DESTROYED = "destroyed";
 	public static final String INDEX = "index";
@@ -49,12 +49,12 @@ public abstract class TreeViewBase extends javax.faces.component.UIPanel {
 	public static final String ON_SELECT_ON_TOGGLE_CHANGE = "onSelectOnToggleChange";
 	public static final String ON_TYPE_CHANGE = "onTypeChange";
 
-	public java.lang.Object getTreeviewChildren() {
-		return (java.lang.Object) getStateHelper().eval(TREEVIEW_CHILDREN, null);
+	public java.lang.Object getTreeViewChildren() {
+		return (java.lang.Object) getStateHelper().eval(TREE_VIEW_CHILDREN, null);
 	}
 
-	public void setTreeviewChildren(java.lang.Object treeviewChildren) {
-		getStateHelper().put(TREEVIEW_CHILDREN, treeviewChildren);
+	public void setTreeViewChildren(java.lang.Object treeViewChildren) {
+		getStateHelper().put(TREE_VIEW_CHILDREN, treeViewChildren);
 	}
 
 	public java.lang.String getContainer() {
