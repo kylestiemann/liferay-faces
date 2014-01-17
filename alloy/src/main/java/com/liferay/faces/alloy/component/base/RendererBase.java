@@ -14,7 +14,9 @@
 package com.liferay.faces.alloy.component.base;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.Map;
+import java.util.Set;
 
 import javax.faces.component.UIComponent;
 import javax.faces.context.ExternalContext;
@@ -27,7 +29,6 @@ import com.liferay.faces.util.context.ExtFacesContext;
 import com.liferay.faces.util.lang.StringPool;
 import com.liferay.faces.util.portal.ScriptDataUtil;
 import com.liferay.faces.util.portal.WebKeys;
-
 import com.liferay.portal.kernel.servlet.taglib.aui.ScriptData;
 import com.liferay.portal.model.Portlet;
 
@@ -161,65 +162,92 @@ public abstract class RendererBase extends Renderer {
 			ScriptDataUtil.append(scriptData, portletId, bufferedResponseWriter.toString(), getModule());
 		}
 	}
-
-	protected String renderArray(String attributeName, Object attributeValue) throws IOException {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(attributeName);
-		sb.append(StringPool.COLON);
-		sb.append(String.valueOf(attributeValue));
-
-		return sb.toString();
-	}
-
-	protected String renderBoolean(String attributeName, Object attributeValue) throws IOException {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(attributeName);
-		sb.append(StringPool.COLON);
-		sb.append(String.valueOf(attributeValue));
-
-		return sb.toString();
-	}
-
-	protected String renderNumber(String attributeName, Object attributeValue) throws IOException {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(attributeName);
-		sb.append(StringPool.COLON);
-		sb.append(String.valueOf(attributeValue));
-
-		return sb.toString();
-	}
-
-	protected String renderObject(String attributeName, Object attributeValue) throws IOException {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(attributeName);
-		sb.append(StringPool.COLON);
-		sb.append(StringPool.QUOTE);
-		sb.append(String.valueOf(attributeValue));
-		sb.append(StringPool.QUOTE);
-
-		return sb.toString();
-	}
-
-	protected String renderString(String attributeName, Object attributeValue) throws IOException {
-
-		StringBuilder sb = new StringBuilder();
-
-		sb.append(attributeName);
-		sb.append(StringPool.COLON);
-		sb.append(StringPool.QUOTE);
-		sb.append(String.valueOf(attributeValue));
-		sb.append(StringPool.QUOTE);
-
-		return sb.toString();
-	}
-
+	
 	protected abstract String getModule();
+
+	protected String renderArray(String attributeName, Object attributeValue)
+		throws IOException {
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(String.valueOf(attributeValue));
+		
+		return sb.toString();
+	}
+
+	protected String renderBoolean(String attributeName, Object attributeValue)
+		throws IOException {
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(String.valueOf(attributeValue));
+		
+		return sb.toString();
+	}
+
+	protected String renderNumber(String attributeName, Object attributeValue)
+		throws IOException {
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(String.valueOf(attributeValue));
+		
+		return sb.toString();
+	}
+	
+	protected String renderObject(String attributeName, Object attributeValue)
+		throws IOException {
+		
+		return null;
+	}
+
+	protected String renderMap(
+			String attributeName, Map<String, String> attributeValue)
+		throws IOException {
+
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(StringPool.OPEN_CURLY_BRACE);
+
+		Set<String> keys = attributeValue.keySet();
+
+		Iterator<String> it = keys.iterator();
+
+		while (it.hasNext()) {
+			String key = it.next();
+
+			sb.append(renderString(key, attributeValue.get(key)));
+
+			if (it.hasNext()) {
+				sb.append(StringPool.COMMA);
+			}
+		}
+
+		sb.append(StringPool.CLOSE_CURLY_BRACE);
+
+		return sb.toString();
+	}
+
+	protected String renderString(String attributeName, Object attributeValue)
+		throws IOException {
+		
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(attributeName);
+		sb.append(StringPool.COLON);
+		sb.append(StringPool.QUOTE);
+		sb.append(String.valueOf(attributeValue));
+		sb.append(StringPool.QUOTE);
+		
+		return sb.toString();
+	}
+	
 }

@@ -58,8 +58,7 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 	private static final String XY = "xy";
 	private static final String Y = "y";
 	private static final String Z_INDEX = "zIndex";
-	private static final String ALIGN_NODE = "alignNode";
-	private static final String ALIGN_NODE_LABEL = "alignNodeLabel";
+	private static final String FOR_ = "for_";
 	private static final String AFTER_ALIGN_CHANGE = "afterAlignChange";
 	private static final String AFTER_ALIGN_ON_CHANGE = "afterAlignOnChange";
 	private static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
@@ -431,20 +430,12 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(Z_INDEX, zIndex);
 	}
 
-	public java.lang.String getAlignNode() {
-		return (java.lang.String) getStateHelper().eval(ALIGN_NODE, null);
+	public java.lang.String getFor_() {
+		return (java.lang.String) getStateHelper().eval(FOR_, null);
 	}
 
-	public void setAlignNode(java.lang.String alignNode) {
-		getStateHelper().put(ALIGN_NODE, alignNode);
-	}
-
-	public java.lang.String getAlignNodeLabel() {
-		return (java.lang.String) getStateHelper().eval(ALIGN_NODE_LABEL, null);
-	}
-
-	public void setAlignNodeLabel(java.lang.String alignNodeLabel) {
-		getStateHelper().put(ALIGN_NODE_LABEL, alignNodeLabel);
+	public void setFor_(java.lang.String for_) {
+		getStateHelper().put(FOR_, for_);
 	}
 
 	public java.lang.String getAfterAlignChange() {

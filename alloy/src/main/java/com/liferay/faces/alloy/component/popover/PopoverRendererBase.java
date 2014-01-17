@@ -85,8 +85,7 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 		renderXy(renrederedAttributes, popover);
 		renderY(renrederedAttributes, popover);
 		renderZIndex(renrederedAttributes, popover);
-		renderAlignNode(renrederedAttributes, popover);
-		renderAlignNodeLabel(renrederedAttributes, popover);
+		renderFor_(renrederedAttributes, popover);
 
 		Iterator<String> it = renrederedAttributes.iterator();
 
@@ -330,15 +329,9 @@ public abstract class PopoverRendererBase extends AUIRenderer {
 		}
 	}
 
-	protected void renderAlignNode(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
-		if (popover.getAlignNode() != null) {
-			renrederedAttributes.add(renderString("alignNode", popover.getAlignNode()));
-		}
-	}
-
-	protected void renderAlignNodeLabel(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
-		if (popover.getAlignNodeLabel() != null) {
-			renrederedAttributes.add(renderString("alignNodeLabel", popover.getAlignNodeLabel()));
+	protected void renderFor_(ArrayList<String> renrederedAttributes, Popover popover) throws IOException {
+		if (popover.getFor_() != null) {
+			renrederedAttributes.add(renderString("for_", popover.getFor_()));
 		}
 	}
 

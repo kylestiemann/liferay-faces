@@ -8,15 +8,7 @@
         <description></description>
         <inputType>java.lang.String</inputType>
         <javaScriptType>String</javaScriptType>
-        <name>alignNode</name>
-        <outputType>java.lang.String</outputType>
-      </attribute>
-      <attribute>
-        <defaultValue></defaultValue>
-        <description></description>
-        <inputType>java.lang.String</inputType>
-        <javaScriptType>String</javaScriptType>
-        <name>alignNodeLabel</name>
+        <name>for_</name>
         <outputType>java.lang.String</outputType>
       </attribute>
     </attributes>
