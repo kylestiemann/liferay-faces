@@ -86,7 +86,7 @@ public abstract class PopoverRendererBase extends RendererBase {
 		renderXy(renderedAttributes, popover);
 		renderY(renderedAttributes, popover);
 		renderZIndex(renderedAttributes, popover);
-		renderFor_(renderedAttributes, popover);
+		renderFor(renderedAttributes, popover);
 
 		Iterator<String> it = renderedAttributes.iterator();
 
@@ -404,11 +404,11 @@ public abstract class PopoverRendererBase extends RendererBase {
 		}
 	}
 
-	protected void renderFor_(List<String> renderedAttributes, Popover popover) throws IOException {
-		java.lang.String for_ = popover.getFor_();
+	protected void renderFor(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String for_ = popover.getFor();
 
 		if (for_ != null) {
-			renderedAttributes.add(renderString(Popover.FOR_, for_));
+			renderedAttributes.add(renderString(Popover.FOR, for_));
 		}
 	}
 

@@ -58,7 +58,7 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 	public static final String XY = "xy";
 	public static final String Y = "y";
 	public static final String Z_INDEX = "zIndex";
-	public static final String FOR_ = "for_";
+	public static final String FOR = "for";
 	public static final String AFTER_ALIGN_CHANGE = "afterAlignChange";
 	public static final String AFTER_ALIGN_ON_CHANGE = "afterAlignOnChange";
 	public static final String AFTER_BODY_CONTENT_CHANGE = "afterBodyContentChange";
@@ -430,12 +430,12 @@ public abstract class PopoverBase extends javax.faces.component.UIPanel {
 		getStateHelper().put(Z_INDEX, zIndex);
 	}
 
-	public java.lang.String getFor_() {
-		return (java.lang.String) getStateHelper().eval(FOR_, null);
+	public java.lang.String getFor() {
+		return (java.lang.String) getStateHelper().eval(FOR, null);
 	}
 
-	public void setFor_(java.lang.String for_) {
-		getStateHelper().put(FOR_, for_);
+	public void setFor(java.lang.String for_) {
+		getStateHelper().put(FOR, for_);
 	}
 
 	public java.lang.String getAfterAlignChange() {

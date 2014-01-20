@@ -286,10 +286,10 @@ public abstract class ModalRendererBase extends RendererBase {
 	}
 
 	protected void renderModal(List<String> renderedAttributes, Modal modal) throws IOException {
-		java.lang.Boolean modal = modal.getModal();
+		java.lang.Boolean modal_ = modal.getModal();
 
-		if (modal != null) {
-			renderedAttributes.add(renderBoolean(Modal.MODAL, modal));
+		if (modal_ != null) {
+			renderedAttributes.add(renderBoolean(Modal.MODAL, modal_));
 		}
 	}
 

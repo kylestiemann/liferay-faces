@@ -55,7 +55,7 @@ public class PopoverRenderer extends PopoverRendererBase {
 	protected String getEscapedForClientId(Popover popover) {
 		String escapedForClientId = StringPool.BLANK;
 
-		String for_ = popover.getFor_();
+		String for_ = popover.getFor();
 
 		// Ask Neil for a better findComponent method
 		UIComponent forComponent = popover.findComponent(for_);
@@ -88,7 +88,7 @@ public class PopoverRenderer extends PopoverRendererBase {
 	}
 
 	@Override
-	protected void renderFor_(
+	protected void renderFor(
 			List<String> renrederedAttributes, Popover popover)
 		throws IOException {
 

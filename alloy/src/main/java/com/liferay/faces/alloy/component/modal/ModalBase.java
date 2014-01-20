@@ -319,8 +319,8 @@ public abstract class ModalBase extends javax.faces.component.UIPanel {
 		return (java.lang.Boolean) getStateHelper().eval(MODAL, null);
 	}
 
-	public void setModal(java.lang.Boolean modal) {
-		getStateHelper().put(MODAL, modal);
+	public void setModal(java.lang.Boolean modal_) {
+		getStateHelper().put(MODAL, modal_);
 	}
 
 	public java.lang.Boolean getPreventOverlap() {
