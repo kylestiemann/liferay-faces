@@ -22,8 +22,8 @@ import com.liferay.faces.alloy.util.AlloyUtil;
 import com.liferay.faces.util.lang.StringPool;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
@@ -71,14 +71,14 @@ public class PopoverRenderer extends PopoverRendererBase {
 
 	@Override
 	protected void renderAlign(
-			ArrayList<String> renrederedAttributes, Popover popover)
+			List<String> renrederedAttributes, Popover popover)
 		throws IOException {
 
 		if (popover.getAlign() == null) {
 			Map<String, String> alignMap = new HashMap<String, String>();
 
 			alignMap.put("node", "#" + getEscapedForClientId(popover));
-			
+
 			renrederedAttributes.add(renderMap("align", alignMap));
 		}
 		else {
@@ -89,7 +89,7 @@ public class PopoverRenderer extends PopoverRendererBase {
 
 	@Override
 	protected void renderFor_(
-			ArrayList<String> renrederedAttributes, Popover popover)
+			List<String> renrederedAttributes, Popover popover)
 		throws IOException {
 
 		// no-op in order to prevent rendering the for_ attribute
@@ -97,20 +97,13 @@ public class PopoverRenderer extends PopoverRendererBase {
 
 	@Override
 	protected void renderPopoverBodyContent(
-			ArrayList<String> renrederedAttributes, Popover popover)
+			List<String> renrederedAttributes, Popover popover)
 		throws IOException {
 
 		if (popover.getPopoverBodyContent() != null) {
 			renrederedAttributes.add(
 				renderString("bodyContent", popover.getPopoverBodyContent()));
 		}
-	}
-
-	@Override
-	protected void encodeHTMLBegin(FacesContext facesContext,
-			UIComponent uiComponent) throws IOException {
-		// TODO Auto-generated method stub
-		
 	}
 
 }
