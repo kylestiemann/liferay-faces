@@ -49,43 +49,154 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSchedulerMonthViewBodyContent(renderedAttributes, schedulerMonthView);
-		renderBoundingBox(renderedAttributes, schedulerMonthView);
-		renderColHeaderDaysNode(renderedAttributes, schedulerMonthView);
-		renderContentBox(renderedAttributes, schedulerMonthView);
-		renderCssClass(renderedAttributes, schedulerMonthView);
-		renderDestroyed(renderedAttributes, schedulerMonthView);
-		renderDisabled(renderedAttributes, schedulerMonthView);
-		renderDisplayDaysInterval(renderedAttributes, schedulerMonthView);
-		renderDisplayRows(renderedAttributes, schedulerMonthView);
-		renderFilterFn(renderedAttributes, schedulerMonthView);
-		renderFixedHeight(renderedAttributes, schedulerMonthView);
-		renderFocused(renderedAttributes, schedulerMonthView);
-		renderHeaderDateFormatter(renderedAttributes, schedulerMonthView);
-		renderHeaderTableNode(renderedAttributes, schedulerMonthView);
-		renderHeight(renderedAttributes, schedulerMonthView);
-		renderHideClass(renderedAttributes, schedulerMonthView);
-		renderSchedulerMonthViewId(renderedAttributes, schedulerMonthView);
-		renderInitialized(renderedAttributes, schedulerMonthView);
-		renderIsoTime(renderedAttributes, schedulerMonthView);
-		renderSchedulerMonthViewLocale(renderedAttributes, schedulerMonthView);
-		renderName(renderedAttributes, schedulerMonthView);
-		renderNavigationDateFormatter(renderedAttributes, schedulerMonthView);
-		renderNextDate(renderedAttributes, schedulerMonthView);
-		renderPrevDate(renderedAttributes, schedulerMonthView);
-		renderRender(renderedAttributes, schedulerMonthView);
-		renderRendered(renderedAttributes, schedulerMonthView);
-		renderRowsContainerNode(renderedAttributes, schedulerMonthView);
-		renderScheduler(renderedAttributes, schedulerMonthView);
-		renderScrollable(renderedAttributes, schedulerMonthView);
-		renderSrcNode(renderedAttributes, schedulerMonthView);
-		renderStrings(renderedAttributes, schedulerMonthView);
-		renderTabIndex(renderedAttributes, schedulerMonthView);
-		renderTableGridNode(renderedAttributes, schedulerMonthView);
-		renderTriggerNode(renderedAttributes, schedulerMonthView);
-		renderUseARIA(renderedAttributes, schedulerMonthView);
-		renderVisible(renderedAttributes, schedulerMonthView);
-		renderWidth(renderedAttributes, schedulerMonthView);
+		if (schedulerMonthView.getSchedulerMonthViewBodyContent() != null) {
+			renderSchedulerMonthViewBodyContent(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getBoundingBox() != null) {
+			renderBoundingBox(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getColHeaderDaysNode() != null) {
+			renderColHeaderDaysNode(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getContentBox() != null) {
+			renderContentBox(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getCssClass() != null) {
+			renderCssClass(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getDisabled() != null) {
+			renderDisabled(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getDisplayDaysInterval() != null) {
+			renderDisplayDaysInterval(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getDisplayRows() != null) {
+			renderDisplayRows(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getFilterFn() != null) {
+			renderFilterFn(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getFixedHeight() != null) {
+			renderFixedHeight(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getFocused() != null) {
+			renderFocused(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getHeaderDateFormatter() != null) {
+			renderHeaderDateFormatter(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getHeaderTableNode() != null) {
+			renderHeaderTableNode(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getHeight() != null) {
+			renderHeight(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getHideClass() != null) {
+			renderHideClass(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getSchedulerMonthViewId() != null) {
+			renderSchedulerMonthViewId(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getInitialized() != null) {
+			renderInitialized(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getIsoTime() != null) {
+			renderIsoTime(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getSchedulerMonthViewLocale() != null) {
+			renderSchedulerMonthViewLocale(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getName() != null) {
+			renderName(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getNavigationDateFormatter() != null) {
+			renderNavigationDateFormatter(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getNextDate() != null) {
+			renderNextDate(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getPrevDate() != null) {
+			renderPrevDate(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getRender() != null) {
+			renderRender(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getRendered() != null) {
+			renderRendered(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getRowsContainerNode() != null) {
+			renderRowsContainerNode(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getScheduler() != null) {
+			renderScheduler(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getScrollable() != null) {
+			renderScrollable(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getSrcNode() != null) {
+			renderSrcNode(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getStrings() != null) {
+			renderStrings(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getTableGridNode() != null) {
+			renderTableGridNode(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getTriggerNode() != null) {
+			renderTriggerNode(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getUseARIA() != null) {
+			renderUseARIA(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getVisible() != null) {
+			renderVisible(renderedAttributes, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getWidth() != null) {
+			renderWidth(renderedAttributes, schedulerMonthView);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -98,43 +209,154 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterBodyContentChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterBoundingBoxChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterColHeaderDaysNodeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterContentBoxChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterCssClassChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterDestroyedChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterDisabledChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterDisplayDaysIntervalChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterDisplayRowsChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterFilterFnChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterFixedHeightChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterFocusedChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterHeaderDateFormatterChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterHeaderTableNodeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterHeightChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterHideClassChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterIdChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterInitializedChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterIsoTimeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterLocaleChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterNameChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterNextDateChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterPrevDateChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterRenderChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterRenderedChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterRowsContainerNodeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterSchedulerChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterScrollableChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterSrcNodeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterStringsChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterTabIndexChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterTableGridNodeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterTriggerNodeChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterUseARIAChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterVisibleChange(renderedAfterEvents, schedulerMonthView);
-		renderAfterWidthChange(renderedAfterEvents, schedulerMonthView);
+		if (schedulerMonthView.getAfterBodyContentChange() != null) {
+			renderAfterBodyContentChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterBoundingBoxChange() != null) {
+			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterColHeaderDaysNodeChange() != null) {
+			renderAfterColHeaderDaysNodeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterContentBoxChange() != null) {
+			renderAfterContentBoxChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterCssClassChange() != null) {
+			renderAfterCssClassChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterDisplayDaysIntervalChange() != null) {
+			renderAfterDisplayDaysIntervalChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterDisplayRowsChange() != null) {
+			renderAfterDisplayRowsChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterFilterFnChange() != null) {
+			renderAfterFilterFnChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterFixedHeightChange() != null) {
+			renderAfterFixedHeightChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterFocusedChange() != null) {
+			renderAfterFocusedChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterHeaderDateFormatterChange() != null) {
+			renderAfterHeaderDateFormatterChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterHeaderTableNodeChange() != null) {
+			renderAfterHeaderTableNodeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterHeightChange() != null) {
+			renderAfterHeightChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterHideClassChange() != null) {
+			renderAfterHideClassChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterIsoTimeChange() != null) {
+			renderAfterIsoTimeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterLocaleChange() != null) {
+			renderAfterLocaleChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterNameChange() != null) {
+			renderAfterNameChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterNavigationDateFormatterChange() != null) {
+			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterNextDateChange() != null) {
+			renderAfterNextDateChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterPrevDateChange() != null) {
+			renderAfterPrevDateChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterRenderChange() != null) {
+			renderAfterRenderChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterRenderedChange() != null) {
+			renderAfterRenderedChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterRowsContainerNodeChange() != null) {
+			renderAfterRowsContainerNodeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterSchedulerChange() != null) {
+			renderAfterSchedulerChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterScrollableChange() != null) {
+			renderAfterScrollableChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterSrcNodeChange() != null) {
+			renderAfterSrcNodeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterTableGridNodeChange() != null) {
+			renderAfterTableGridNodeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterTriggerNodeChange() != null) {
+			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterUseARIAChange() != null) {
+			renderAfterUseARIAChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, schedulerMonthView);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -155,43 +377,154 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnBodyContentChange(renderedOnEvents, schedulerMonthView);
-		renderOnBoundingBoxChange(renderedOnEvents, schedulerMonthView);
-		renderOnColHeaderDaysNodeChange(renderedOnEvents, schedulerMonthView);
-		renderOnContentBoxChange(renderedOnEvents, schedulerMonthView);
-		renderOnCssClassChange(renderedOnEvents, schedulerMonthView);
-		renderOnDestroyedChange(renderedOnEvents, schedulerMonthView);
-		renderOnDisabledChange(renderedOnEvents, schedulerMonthView);
-		renderOnDisplayDaysIntervalChange(renderedOnEvents, schedulerMonthView);
-		renderOnDisplayRowsChange(renderedOnEvents, schedulerMonthView);
-		renderOnFilterFnChange(renderedOnEvents, schedulerMonthView);
-		renderOnFixedHeightChange(renderedOnEvents, schedulerMonthView);
-		renderOnFocusedChange(renderedOnEvents, schedulerMonthView);
-		renderOnHeaderDateFormatterChange(renderedOnEvents, schedulerMonthView);
-		renderOnHeaderTableNodeChange(renderedOnEvents, schedulerMonthView);
-		renderOnHeightChange(renderedOnEvents, schedulerMonthView);
-		renderOnHideClassChange(renderedOnEvents, schedulerMonthView);
-		renderOnIdChange(renderedOnEvents, schedulerMonthView);
-		renderOnInitializedChange(renderedOnEvents, schedulerMonthView);
-		renderOnIsoTimeChange(renderedOnEvents, schedulerMonthView);
-		renderOnLocaleChange(renderedOnEvents, schedulerMonthView);
-		renderOnNameChange(renderedOnEvents, schedulerMonthView);
-		renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerMonthView);
-		renderOnNextDateChange(renderedOnEvents, schedulerMonthView);
-		renderOnPrevDateChange(renderedOnEvents, schedulerMonthView);
-		renderOnRenderChange(renderedOnEvents, schedulerMonthView);
-		renderOnRenderedChange(renderedOnEvents, schedulerMonthView);
-		renderOnRowsContainerNodeChange(renderedOnEvents, schedulerMonthView);
-		renderOnSchedulerChange(renderedOnEvents, schedulerMonthView);
-		renderOnScrollableChange(renderedOnEvents, schedulerMonthView);
-		renderOnSrcNodeChange(renderedOnEvents, schedulerMonthView);
-		renderOnStringsChange(renderedOnEvents, schedulerMonthView);
-		renderOnTabIndexChange(renderedOnEvents, schedulerMonthView);
-		renderOnTableGridNodeChange(renderedOnEvents, schedulerMonthView);
-		renderOnTriggerNodeChange(renderedOnEvents, schedulerMonthView);
-		renderOnUseARIAChange(renderedOnEvents, schedulerMonthView);
-		renderOnVisibleChange(renderedOnEvents, schedulerMonthView);
-		renderOnWidthChange(renderedOnEvents, schedulerMonthView);
+		if (schedulerMonthView.getOnBodyContentChange() != null) {
+			renderOnBodyContentChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnBoundingBoxChange() != null) {
+			renderOnBoundingBoxChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnColHeaderDaysNodeChange() != null) {
+			renderOnColHeaderDaysNodeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnContentBoxChange() != null) {
+			renderOnContentBoxChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnCssClassChange() != null) {
+			renderOnCssClassChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnDisplayDaysIntervalChange() != null) {
+			renderOnDisplayDaysIntervalChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnDisplayRowsChange() != null) {
+			renderOnDisplayRowsChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnFilterFnChange() != null) {
+			renderOnFilterFnChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnFixedHeightChange() != null) {
+			renderOnFixedHeightChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnFocusedChange() != null) {
+			renderOnFocusedChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnHeaderDateFormatterChange() != null) {
+			renderOnHeaderDateFormatterChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnHeaderTableNodeChange() != null) {
+			renderOnHeaderTableNodeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnHeightChange() != null) {
+			renderOnHeightChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnHideClassChange() != null) {
+			renderOnHideClassChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnIsoTimeChange() != null) {
+			renderOnIsoTimeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnLocaleChange() != null) {
+			renderOnLocaleChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnNameChange() != null) {
+			renderOnNameChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnNavigationDateFormatterChange() != null) {
+			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnNextDateChange() != null) {
+			renderOnNextDateChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnPrevDateChange() != null) {
+			renderOnPrevDateChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnRenderChange() != null) {
+			renderOnRenderChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnRenderedChange() != null) {
+			renderOnRenderedChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnRowsContainerNodeChange() != null) {
+			renderOnRowsContainerNodeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnSchedulerChange() != null) {
+			renderOnSchedulerChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnScrollableChange() != null) {
+			renderOnScrollableChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnSrcNodeChange() != null) {
+			renderOnSrcNodeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnTableGridNodeChange() != null) {
+			renderOnTableGridNodeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnTriggerNodeChange() != null) {
+			renderOnTriggerNodeChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnUseARIAChange() != null) {
+			renderOnUseARIAChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, schedulerMonthView);
+		}
+		
+		if (schedulerMonthView.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, schedulerMonthView);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -216,890 +549,557 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 
 	protected void renderSchedulerMonthViewBodyContent(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String schedulerMonthViewBodyContent = schedulerMonthView.getSchedulerMonthViewBodyContent();
-
-		if (schedulerMonthViewBodyContent != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_BODY_CONTENT, schedulerMonthViewBodyContent));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_BODY_CONTENT, schedulerMonthViewBodyContent));
 	}
 
 	protected void renderBoundingBox(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String boundingBox = schedulerMonthView.getBoundingBox();
-
-		if (boundingBox != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.BOUNDING_BOX, boundingBox));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.BOUNDING_BOX, boundingBox));
 	}
 
 	protected void renderColHeaderDaysNode(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String colHeaderDaysNode = schedulerMonthView.getColHeaderDaysNode();
-
-		if (colHeaderDaysNode != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.COL_HEADER_DAYS_NODE, colHeaderDaysNode));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.COL_HEADER_DAYS_NODE, colHeaderDaysNode));
 	}
 
 	protected void renderContentBox(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String contentBox = schedulerMonthView.getContentBox();
-
-		if (contentBox != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.CONTENT_BOX, contentBox));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.CONTENT_BOX, contentBox));
 	}
 
 	protected void renderCssClass(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String cssClass = schedulerMonthView.getCssClass();
-
-		if (cssClass != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.CSS_CLASS, cssClass));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.CSS_CLASS, cssClass));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean destroyed = schedulerMonthView.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean disabled = schedulerMonthView.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.DISABLED, disabled));
 	}
 
 	protected void renderDisplayDaysInterval(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object displayDaysInterval = schedulerMonthView.getDisplayDaysInterval();
-
-		if (displayDaysInterval != null) {
-			renderedAttributes.add(renderNumber(SchedulerMonthView.DISPLAY_DAYS_INTERVAL, displayDaysInterval));
-		}
+		renderedAttributes.add(renderNumber(SchedulerMonthView.DISPLAY_DAYS_INTERVAL, displayDaysInterval));
 	}
 
 	protected void renderDisplayRows(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object displayRows = schedulerMonthView.getDisplayRows();
-
-		if (displayRows != null) {
-			renderedAttributes.add(renderNumber(SchedulerMonthView.DISPLAY_ROWS, displayRows));
-		}
+		renderedAttributes.add(renderNumber(SchedulerMonthView.DISPLAY_ROWS, displayRows));
 	}
 
 	protected void renderFilterFn(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String filterFn = schedulerMonthView.getFilterFn();
-
-		if (filterFn != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.FILTER_FN, filterFn));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.FILTER_FN, filterFn));
 	}
 
 	protected void renderFixedHeight(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean fixedHeight = schedulerMonthView.getFixedHeight();
-
-		if (fixedHeight != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.FIXED_HEIGHT, fixedHeight));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.FIXED_HEIGHT, fixedHeight));
 	}
 
 	protected void renderFocused(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean focused = schedulerMonthView.getFocused();
-
-		if (focused != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.FOCUSED, focused));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.FOCUSED, focused));
 	}
 
 	protected void renderHeaderDateFormatter(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String headerDateFormatter = schedulerMonthView.getHeaderDateFormatter();
-
-		if (headerDateFormatter != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.HEADER_DATE_FORMATTER, headerDateFormatter));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.HEADER_DATE_FORMATTER, headerDateFormatter));
 	}
 
 	protected void renderHeaderTableNode(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String headerTableNode = schedulerMonthView.getHeaderTableNode();
-
-		if (headerTableNode != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.HEADER_TABLE_NODE, headerTableNode));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.HEADER_TABLE_NODE, headerTableNode));
 	}
 
 	protected void renderHeight(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object height = schedulerMonthView.getHeight();
-
-		if (height != null) {
-			renderedAttributes.add(renderNumber(SchedulerMonthView.HEIGHT, height));
-		}
+		renderedAttributes.add(renderNumber(SchedulerMonthView.HEIGHT, height));
 	}
 
 	protected void renderHideClass(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String hideClass = schedulerMonthView.getHideClass();
-
-		if (hideClass != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.HIDE_CLASS, hideClass));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.HIDE_CLASS, hideClass));
 	}
 
 	protected void renderSchedulerMonthViewId(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String schedulerMonthViewId = schedulerMonthView.getSchedulerMonthViewId();
-
-		if (schedulerMonthViewId != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_ID, schedulerMonthViewId));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_ID, schedulerMonthViewId));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean initialized = schedulerMonthView.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.INITIALIZED, initialized));
 	}
 
 	protected void renderIsoTime(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean isoTime = schedulerMonthView.getIsoTime();
-
-		if (isoTime != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.ISO_TIME, isoTime));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.ISO_TIME, isoTime));
 	}
 
 	protected void renderSchedulerMonthViewLocale(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String schedulerMonthViewLocale = schedulerMonthView.getSchedulerMonthViewLocale();
-
-		if (schedulerMonthViewLocale != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_LOCALE, schedulerMonthViewLocale));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER_MONTH_VIEW_LOCALE, schedulerMonthViewLocale));
 	}
 
 	protected void renderName(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String name = schedulerMonthView.getName();
-
-		if (name != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.NAME, name));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.NAME, name));
 	}
 
 	protected void renderNavigationDateFormatter(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object navigationDateFormatter = schedulerMonthView.getNavigationDateFormatter();
-
-		if (navigationDateFormatter != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.NAVIGATION_DATE_FORMATTER, navigationDateFormatter));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.NAVIGATION_DATE_FORMATTER, navigationDateFormatter));
 	}
 
 	protected void renderNextDate(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String nextDate = schedulerMonthView.getNextDate();
-
-		if (nextDate != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.NEXT_DATE, nextDate));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.NEXT_DATE, nextDate));
 	}
 
 	protected void renderPrevDate(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String prevDate = schedulerMonthView.getPrevDate();
-
-		if (prevDate != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.PREV_DATE, prevDate));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.PREV_DATE, prevDate));
 	}
 
 	protected void renderRender(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object render = schedulerMonthView.getRender();
-
-		if (render != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.RENDER, render));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.RENDER, render));
 	}
 
 	protected void renderRendered(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean rendered = schedulerMonthView.getRendered();
-
-		if (rendered != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.RENDERED, rendered));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.RENDERED, rendered));
 	}
 
 	protected void renderRowsContainerNode(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String rowsContainerNode = schedulerMonthView.getRowsContainerNode();
-
-		if (rowsContainerNode != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ROWS_CONTAINER_NODE, rowsContainerNode));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ROWS_CONTAINER_NODE, rowsContainerNode));
 	}
 
 	protected void renderScheduler(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String scheduler = schedulerMonthView.getScheduler();
-
-		if (scheduler != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER, scheduler));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.SCHEDULER, scheduler));
 	}
 
 	protected void renderScrollable(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean scrollable = schedulerMonthView.getScrollable();
-
-		if (scrollable != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.SCROLLABLE, scrollable));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.SCROLLABLE, scrollable));
 	}
 
 	protected void renderSrcNode(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String srcNode = schedulerMonthView.getSrcNode();
-
-		if (srcNode != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.SRC_NODE, srcNode));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.SRC_NODE, srcNode));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String strings = schedulerMonthView.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.STRINGS, strings));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object tabIndex = schedulerMonthView.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(SchedulerMonthView.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(SchedulerMonthView.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderTableGridNode(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String tableGridNode = schedulerMonthView.getTableGridNode();
-
-		if (tableGridNode != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.TABLE_GRID_NODE, tableGridNode));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.TABLE_GRID_NODE, tableGridNode));
 	}
 
 	protected void renderTriggerNode(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String triggerNode = schedulerMonthView.getTriggerNode();
-
-		if (triggerNode != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.TRIGGER_NODE, triggerNode));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.TRIGGER_NODE, triggerNode));
 	}
 
 	protected void renderUseARIA(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean useARIA = schedulerMonthView.getUseARIA();
-
-		if (useARIA != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.USE_ARIA, useARIA));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.USE_ARIA, useARIA));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Boolean visible = schedulerMonthView.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(SchedulerMonthView.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerMonthView.VISIBLE, visible));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.Object width = schedulerMonthView.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.WIDTH, width));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.WIDTH, width));
 	}
 
 	protected void renderAfterBodyContentChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterBodyContentChange = schedulerMonthView.getAfterBodyContentChange();
-
-		if (afterBodyContentChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
 	}
 
 	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterBoundingBoxChange = schedulerMonthView.getAfterBoundingBoxChange();
-
-		if (afterBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
 	}
 
 	protected void renderAfterColHeaderDaysNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterColHeaderDaysNodeChange = schedulerMonthView.getAfterColHeaderDaysNodeChange();
-
-		if (afterColHeaderDaysNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_COL_HEADER_DAYS_NODE_CHANGE, afterColHeaderDaysNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_COL_HEADER_DAYS_NODE_CHANGE, afterColHeaderDaysNodeChange));
 	}
 
 	protected void renderAfterContentBoxChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterContentBoxChange = schedulerMonthView.getAfterContentBoxChange();
-
-		if (afterContentBoxChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
 	}
 
 	protected void renderAfterCssClassChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterCssClassChange = schedulerMonthView.getAfterCssClassChange();
-
-		if (afterCssClassChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterDestroyedChange = schedulerMonthView.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterDisabledChange = schedulerMonthView.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterDisplayDaysIntervalChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterDisplayDaysIntervalChange = schedulerMonthView.getAfterDisplayDaysIntervalChange();
-
-		if (afterDisplayDaysIntervalChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DISPLAY_DAYS_INTERVAL_CHANGE, afterDisplayDaysIntervalChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DISPLAY_DAYS_INTERVAL_CHANGE, afterDisplayDaysIntervalChange));
 	}
 
 	protected void renderAfterDisplayRowsChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterDisplayRowsChange = schedulerMonthView.getAfterDisplayRowsChange();
-
-		if (afterDisplayRowsChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DISPLAY_ROWS_CHANGE, afterDisplayRowsChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_DISPLAY_ROWS_CHANGE, afterDisplayRowsChange));
 	}
 
 	protected void renderAfterFilterFnChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterFilterFnChange = schedulerMonthView.getAfterFilterFnChange();
-
-		if (afterFilterFnChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_FILTER_FN_CHANGE, afterFilterFnChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_FILTER_FN_CHANGE, afterFilterFnChange));
 	}
 
 	protected void renderAfterFixedHeightChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterFixedHeightChange = schedulerMonthView.getAfterFixedHeightChange();
-
-		if (afterFixedHeightChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_FIXED_HEIGHT_CHANGE, afterFixedHeightChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_FIXED_HEIGHT_CHANGE, afterFixedHeightChange));
 	}
 
 	protected void renderAfterFocusedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterFocusedChange = schedulerMonthView.getAfterFocusedChange();
-
-		if (afterFocusedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_FOCUSED_CHANGE, afterFocusedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_FOCUSED_CHANGE, afterFocusedChange));
 	}
 
 	protected void renderAfterHeaderDateFormatterChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterHeaderDateFormatterChange = schedulerMonthView.getAfterHeaderDateFormatterChange();
-
-		if (afterHeaderDateFormatterChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HEADER_DATE_FORMATTER_CHANGE, afterHeaderDateFormatterChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HEADER_DATE_FORMATTER_CHANGE, afterHeaderDateFormatterChange));
 	}
 
 	protected void renderAfterHeaderTableNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterHeaderTableNodeChange = schedulerMonthView.getAfterHeaderTableNodeChange();
-
-		if (afterHeaderTableNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HEADER_TABLE_NODE_CHANGE, afterHeaderTableNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HEADER_TABLE_NODE_CHANGE, afterHeaderTableNodeChange));
 	}
 
 	protected void renderAfterHeightChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterHeightChange = schedulerMonthView.getAfterHeightChange();
-
-		if (afterHeightChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HEIGHT_CHANGE, afterHeightChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HEIGHT_CHANGE, afterHeightChange));
 	}
 
 	protected void renderAfterHideClassChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterHideClassChange = schedulerMonthView.getAfterHideClassChange();
-
-		if (afterHideClassChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterIdChange = schedulerMonthView.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterInitializedChange = schedulerMonthView.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterIsoTimeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterIsoTimeChange = schedulerMonthView.getAfterIsoTimeChange();
-
-		if (afterIsoTimeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_ISO_TIME_CHANGE, afterIsoTimeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_ISO_TIME_CHANGE, afterIsoTimeChange));
 	}
 
 	protected void renderAfterLocaleChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterLocaleChange = schedulerMonthView.getAfterLocaleChange();
-
-		if (afterLocaleChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_LOCALE_CHANGE, afterLocaleChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_LOCALE_CHANGE, afterLocaleChange));
 	}
 
 	protected void renderAfterNameChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterNameChange = schedulerMonthView.getAfterNameChange();
-
-		if (afterNameChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_NAME_CHANGE, afterNameChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_NAME_CHANGE, afterNameChange));
 	}
 
 	protected void renderAfterNavigationDateFormatterChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterNavigationDateFormatterChange = schedulerMonthView.getAfterNavigationDateFormatterChange();
-
-		if (afterNavigationDateFormatterChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_NAVIGATION_DATE_FORMATTER_CHANGE, afterNavigationDateFormatterChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_NAVIGATION_DATE_FORMATTER_CHANGE, afterNavigationDateFormatterChange));
 	}
 
 	protected void renderAfterNextDateChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterNextDateChange = schedulerMonthView.getAfterNextDateChange();
-
-		if (afterNextDateChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_NEXT_DATE_CHANGE, afterNextDateChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_NEXT_DATE_CHANGE, afterNextDateChange));
 	}
 
 	protected void renderAfterPrevDateChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterPrevDateChange = schedulerMonthView.getAfterPrevDateChange();
-
-		if (afterPrevDateChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_PREV_DATE_CHANGE, afterPrevDateChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_PREV_DATE_CHANGE, afterPrevDateChange));
 	}
 
 	protected void renderAfterRenderChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterRenderChange = schedulerMonthView.getAfterRenderChange();
-
-		if (afterRenderChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_RENDER_CHANGE, afterRenderChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_RENDER_CHANGE, afterRenderChange));
 	}
 
 	protected void renderAfterRenderedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterRenderedChange = schedulerMonthView.getAfterRenderedChange();
-
-		if (afterRenderedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_RENDERED_CHANGE, afterRenderedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_RENDERED_CHANGE, afterRenderedChange));
 	}
 
 	protected void renderAfterRowsContainerNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterRowsContainerNodeChange = schedulerMonthView.getAfterRowsContainerNodeChange();
-
-		if (afterRowsContainerNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_ROWS_CONTAINER_NODE_CHANGE, afterRowsContainerNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_ROWS_CONTAINER_NODE_CHANGE, afterRowsContainerNodeChange));
 	}
 
 	protected void renderAfterSchedulerChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterSchedulerChange = schedulerMonthView.getAfterSchedulerChange();
-
-		if (afterSchedulerChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_SCHEDULER_CHANGE, afterSchedulerChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_SCHEDULER_CHANGE, afterSchedulerChange));
 	}
 
 	protected void renderAfterScrollableChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterScrollableChange = schedulerMonthView.getAfterScrollableChange();
-
-		if (afterScrollableChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_SCROLLABLE_CHANGE, afterScrollableChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_SCROLLABLE_CHANGE, afterScrollableChange));
 	}
 
 	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterSrcNodeChange = schedulerMonthView.getAfterSrcNodeChange();
-
-		if (afterSrcNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterStringsChange = schedulerMonthView.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterTabIndexChange = schedulerMonthView.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterTableGridNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterTableGridNodeChange = schedulerMonthView.getAfterTableGridNodeChange();
-
-		if (afterTableGridNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_TABLE_GRID_NODE_CHANGE, afterTableGridNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_TABLE_GRID_NODE_CHANGE, afterTableGridNodeChange));
 	}
 
 	protected void renderAfterTriggerNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterTriggerNodeChange = schedulerMonthView.getAfterTriggerNodeChange();
-
-		if (afterTriggerNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_TRIGGER_NODE_CHANGE, afterTriggerNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_TRIGGER_NODE_CHANGE, afterTriggerNodeChange));
 	}
 
 	protected void renderAfterUseARIAChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterUseARIAChange = schedulerMonthView.getAfterUseARIAChange();
-
-		if (afterUseARIAChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_USE_ARIACHANGE, afterUseARIAChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_USE_ARIACHANGE, afterUseARIAChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterVisibleChange = schedulerMonthView.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String afterWidthChange = schedulerMonthView.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderOnBodyContentChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onBodyContentChange = schedulerMonthView.getOnBodyContentChange();
-
-		if (onBodyContentChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
 	}
 
 	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onBoundingBoxChange = schedulerMonthView.getOnBoundingBoxChange();
-
-		if (onBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
 	}
 
 	protected void renderOnColHeaderDaysNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onColHeaderDaysNodeChange = schedulerMonthView.getOnColHeaderDaysNodeChange();
-
-		if (onColHeaderDaysNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_COL_HEADER_DAYS_NODE_CHANGE, onColHeaderDaysNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_COL_HEADER_DAYS_NODE_CHANGE, onColHeaderDaysNodeChange));
 	}
 
 	protected void renderOnContentBoxChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onContentBoxChange = schedulerMonthView.getOnContentBoxChange();
-
-		if (onContentBoxChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
 	}
 
 	protected void renderOnCssClassChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onCssClassChange = schedulerMonthView.getOnCssClassChange();
-
-		if (onCssClassChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_CSS_CLASS_CHANGE, onCssClassChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_CSS_CLASS_CHANGE, onCssClassChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onDestroyedChange = schedulerMonthView.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onDisabledChange = schedulerMonthView.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnDisplayDaysIntervalChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onDisplayDaysIntervalChange = schedulerMonthView.getOnDisplayDaysIntervalChange();
-
-		if (onDisplayDaysIntervalChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_DISPLAY_DAYS_INTERVAL_CHANGE, onDisplayDaysIntervalChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_DISPLAY_DAYS_INTERVAL_CHANGE, onDisplayDaysIntervalChange));
 	}
 
 	protected void renderOnDisplayRowsChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onDisplayRowsChange = schedulerMonthView.getOnDisplayRowsChange();
-
-		if (onDisplayRowsChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_DISPLAY_ROWS_CHANGE, onDisplayRowsChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_DISPLAY_ROWS_CHANGE, onDisplayRowsChange));
 	}
 
 	protected void renderOnFilterFnChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onFilterFnChange = schedulerMonthView.getOnFilterFnChange();
-
-		if (onFilterFnChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_FILTER_FN_CHANGE, onFilterFnChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_FILTER_FN_CHANGE, onFilterFnChange));
 	}
 
 	protected void renderOnFixedHeightChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onFixedHeightChange = schedulerMonthView.getOnFixedHeightChange();
-
-		if (onFixedHeightChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_FIXED_HEIGHT_CHANGE, onFixedHeightChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_FIXED_HEIGHT_CHANGE, onFixedHeightChange));
 	}
 
 	protected void renderOnFocusedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onFocusedChange = schedulerMonthView.getOnFocusedChange();
-
-		if (onFocusedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_FOCUSED_CHANGE, onFocusedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_FOCUSED_CHANGE, onFocusedChange));
 	}
 
 	protected void renderOnHeaderDateFormatterChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onHeaderDateFormatterChange = schedulerMonthView.getOnHeaderDateFormatterChange();
-
-		if (onHeaderDateFormatterChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_HEADER_DATE_FORMATTER_CHANGE, onHeaderDateFormatterChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_HEADER_DATE_FORMATTER_CHANGE, onHeaderDateFormatterChange));
 	}
 
 	protected void renderOnHeaderTableNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onHeaderTableNodeChange = schedulerMonthView.getOnHeaderTableNodeChange();
-
-		if (onHeaderTableNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_HEADER_TABLE_NODE_CHANGE, onHeaderTableNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_HEADER_TABLE_NODE_CHANGE, onHeaderTableNodeChange));
 	}
 
 	protected void renderOnHeightChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onHeightChange = schedulerMonthView.getOnHeightChange();
-
-		if (onHeightChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_HEIGHT_CHANGE, onHeightChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_HEIGHT_CHANGE, onHeightChange));
 	}
 
 	protected void renderOnHideClassChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onHideClassChange = schedulerMonthView.getOnHideClassChange();
-
-		if (onHideClassChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_HIDE_CLASS_CHANGE, onHideClassChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_HIDE_CLASS_CHANGE, onHideClassChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onIdChange = schedulerMonthView.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onInitializedChange = schedulerMonthView.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnIsoTimeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onIsoTimeChange = schedulerMonthView.getOnIsoTimeChange();
-
-		if (onIsoTimeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_ISO_TIME_CHANGE, onIsoTimeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_ISO_TIME_CHANGE, onIsoTimeChange));
 	}
 
 	protected void renderOnLocaleChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onLocaleChange = schedulerMonthView.getOnLocaleChange();
-
-		if (onLocaleChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_LOCALE_CHANGE, onLocaleChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_LOCALE_CHANGE, onLocaleChange));
 	}
 
 	protected void renderOnNameChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onNameChange = schedulerMonthView.getOnNameChange();
-
-		if (onNameChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_NAME_CHANGE, onNameChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_NAME_CHANGE, onNameChange));
 	}
 
 	protected void renderOnNavigationDateFormatterChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onNavigationDateFormatterChange = schedulerMonthView.getOnNavigationDateFormatterChange();
-
-		if (onNavigationDateFormatterChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_NAVIGATION_DATE_FORMATTER_CHANGE, onNavigationDateFormatterChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_NAVIGATION_DATE_FORMATTER_CHANGE, onNavigationDateFormatterChange));
 	}
 
 	protected void renderOnNextDateChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onNextDateChange = schedulerMonthView.getOnNextDateChange();
-
-		if (onNextDateChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_NEXT_DATE_CHANGE, onNextDateChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_NEXT_DATE_CHANGE, onNextDateChange));
 	}
 
 	protected void renderOnPrevDateChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onPrevDateChange = schedulerMonthView.getOnPrevDateChange();
-
-		if (onPrevDateChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_PREV_DATE_CHANGE, onPrevDateChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_PREV_DATE_CHANGE, onPrevDateChange));
 	}
 
 	protected void renderOnRenderChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onRenderChange = schedulerMonthView.getOnRenderChange();
-
-		if (onRenderChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_RENDER_CHANGE, onRenderChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_RENDER_CHANGE, onRenderChange));
 	}
 
 	protected void renderOnRenderedChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onRenderedChange = schedulerMonthView.getOnRenderedChange();
-
-		if (onRenderedChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_RENDERED_CHANGE, onRenderedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_RENDERED_CHANGE, onRenderedChange));
 	}
 
 	protected void renderOnRowsContainerNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onRowsContainerNodeChange = schedulerMonthView.getOnRowsContainerNodeChange();
-
-		if (onRowsContainerNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_ROWS_CONTAINER_NODE_CHANGE, onRowsContainerNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_ROWS_CONTAINER_NODE_CHANGE, onRowsContainerNodeChange));
 	}
 
 	protected void renderOnSchedulerChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onSchedulerChange = schedulerMonthView.getOnSchedulerChange();
-
-		if (onSchedulerChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_SCHEDULER_CHANGE, onSchedulerChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_SCHEDULER_CHANGE, onSchedulerChange));
 	}
 
 	protected void renderOnScrollableChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onScrollableChange = schedulerMonthView.getOnScrollableChange();
-
-		if (onScrollableChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_SCROLLABLE_CHANGE, onScrollableChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_SCROLLABLE_CHANGE, onScrollableChange));
 	}
 
 	protected void renderOnSrcNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onSrcNodeChange = schedulerMonthView.getOnSrcNodeChange();
-
-		if (onSrcNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_SRC_NODE_CHANGE, onSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_SRC_NODE_CHANGE, onSrcNodeChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onStringsChange = schedulerMonthView.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onTabIndexChange = schedulerMonthView.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnTableGridNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onTableGridNodeChange = schedulerMonthView.getOnTableGridNodeChange();
-
-		if (onTableGridNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_TABLE_GRID_NODE_CHANGE, onTableGridNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_TABLE_GRID_NODE_CHANGE, onTableGridNodeChange));
 	}
 
 	protected void renderOnTriggerNodeChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onTriggerNodeChange = schedulerMonthView.getOnTriggerNodeChange();
-
-		if (onTriggerNodeChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_TRIGGER_NODE_CHANGE, onTriggerNodeChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_TRIGGER_NODE_CHANGE, onTriggerNodeChange));
 	}
 
 	protected void renderOnUseARIAChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onUseARIAChange = schedulerMonthView.getOnUseARIAChange();
-
-		if (onUseARIAChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_USE_ARIACHANGE, onUseARIAChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_USE_ARIACHANGE, onUseARIAChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onVisibleChange = schedulerMonthView.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, SchedulerMonthView schedulerMonthView) throws IOException {
 		java.lang.String onWidthChange = schedulerMonthView.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(SchedulerMonthView.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(SchedulerMonthView.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 }

@@ -49,36 +49,126 @@ public abstract class FormBuilderTextAreaFieldRendererBase extends RendererBase 
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAcceptChildren(renderedAttributes, formBuilderTextAreaField);
-		renderBuilder(renderedAttributes, formBuilderTextAreaField);
-		renderControlsToolbar(renderedAttributes, formBuilderTextAreaField);
-		renderDataType(renderedAttributes, formBuilderTextAreaField);
-		renderDisabled(renderedAttributes, formBuilderTextAreaField);
-		renderDropZoneNode(renderedAttributes, formBuilderTextAreaField);
-		renderHiddenAttributes(renderedAttributes, formBuilderTextAreaField);
-		renderFormBuilderTextAreaFieldId(renderedAttributes, formBuilderTextAreaField);
-		renderLabel(renderedAttributes, formBuilderTextAreaField);
-		renderLabelNode(renderedAttributes, formBuilderTextAreaField);
-		renderLocalizationMap(renderedAttributes, formBuilderTextAreaField);
-		renderName(renderedAttributes, formBuilderTextAreaField);
-		renderFormBuilderTextAreaFieldParent(renderedAttributes, formBuilderTextAreaField);
-		renderPredefinedValue(renderedAttributes, formBuilderTextAreaField);
-		renderReadOnly(renderedAttributes, formBuilderTextAreaField);
-		renderReadOnlyAttributes(renderedAttributes, formBuilderTextAreaField);
-		renderRequired(renderedAttributes, formBuilderTextAreaField);
-		renderRequiredFlagNode(renderedAttributes, formBuilderTextAreaField);
-		renderSelected(renderedAttributes, formBuilderTextAreaField);
-		renderShowLabel(renderedAttributes, formBuilderTextAreaField);
-		renderStrings(renderedAttributes, formBuilderTextAreaField);
-		renderTabIndex(renderedAttributes, formBuilderTextAreaField);
-		renderTemplate(renderedAttributes, formBuilderTextAreaField);
-		renderTemplateNode(renderedAttributes, formBuilderTextAreaField);
-		renderTip(renderedAttributes, formBuilderTextAreaField);
-		renderTipFlagNode(renderedAttributes, formBuilderTextAreaField);
-		renderType(renderedAttributes, formBuilderTextAreaField);
-		renderUnique(renderedAttributes, formBuilderTextAreaField);
-		renderWidth(renderedAttributes, formBuilderTextAreaField);
-		renderZIndex(renderedAttributes, formBuilderTextAreaField);
+		if (formBuilderTextAreaField.getAcceptChildren() != null) {
+			renderAcceptChildren(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getBuilder() != null) {
+			renderBuilder(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getControlsToolbar() != null) {
+			renderControlsToolbar(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getDataType() != null) {
+			renderDataType(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getDisabled() != null) {
+			renderDisabled(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getDropZoneNode() != null) {
+			renderDropZoneNode(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getHiddenAttributes() != null) {
+			renderHiddenAttributes(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getFormBuilderTextAreaFieldId() != null) {
+			renderFormBuilderTextAreaFieldId(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getLabel() != null) {
+			renderLabel(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getLabelNode() != null) {
+			renderLabelNode(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getLocalizationMap() != null) {
+			renderLocalizationMap(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getName() != null) {
+			renderName(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getFormBuilderTextAreaFieldParent() != null) {
+			renderFormBuilderTextAreaFieldParent(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getPredefinedValue() != null) {
+			renderPredefinedValue(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getReadOnly() != null) {
+			renderReadOnly(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getReadOnlyAttributes() != null) {
+			renderReadOnlyAttributes(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getRequired() != null) {
+			renderRequired(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getRequiredFlagNode() != null) {
+			renderRequiredFlagNode(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getSelected() != null) {
+			renderSelected(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getShowLabel() != null) {
+			renderShowLabel(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getStrings() != null) {
+			renderStrings(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getTemplate() != null) {
+			renderTemplate(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getTemplateNode() != null) {
+			renderTemplateNode(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getTip() != null) {
+			renderTip(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getTipFlagNode() != null) {
+			renderTipFlagNode(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getType() != null) {
+			renderType(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getUnique() != null) {
+			renderUnique(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getWidth() != null) {
+			renderWidth(renderedAttributes, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getZIndex() != null) {
+			renderZIndex(renderedAttributes, formBuilderTextAreaField);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -91,36 +181,126 @@ public abstract class FormBuilderTextAreaFieldRendererBase extends RendererBase 
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterBuilderChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterDataTypeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterDisabledChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterIdChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterLabelChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterLabelNodeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterNameChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterParentChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterReadOnlyChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterRequiredChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterSelectedChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterShowLabelChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterStringsChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterTabIndexChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterTemplateChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterTipChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterTypeChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterUniqueChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterWidthChange(renderedAfterEvents, formBuilderTextAreaField);
-		renderAfterZIndexChange(renderedAfterEvents, formBuilderTextAreaField);
+		if (formBuilderTextAreaField.getAfterAcceptChildrenChange() != null) {
+			renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterBuilderChange() != null) {
+			renderAfterBuilderChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterControlsToolbarChange() != null) {
+			renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterDataTypeChange() != null) {
+			renderAfterDataTypeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterDropZoneNodeChange() != null) {
+			renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterHiddenAttributesChange() != null) {
+			renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterLabelChange() != null) {
+			renderAfterLabelChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterLabelNodeChange() != null) {
+			renderAfterLabelNodeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterLocalizationMapChange() != null) {
+			renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterNameChange() != null) {
+			renderAfterNameChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterParentChange() != null) {
+			renderAfterParentChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterPredefinedValueChange() != null) {
+			renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterReadOnlyChange() != null) {
+			renderAfterReadOnlyChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterReadOnlyAttributesChange() != null) {
+			renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterRequiredChange() != null) {
+			renderAfterRequiredChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterRequiredFlagNodeChange() != null) {
+			renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterSelectedChange() != null) {
+			renderAfterSelectedChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterShowLabelChange() != null) {
+			renderAfterShowLabelChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterTemplateChange() != null) {
+			renderAfterTemplateChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterTemplateNodeChange() != null) {
+			renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterTipChange() != null) {
+			renderAfterTipChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterTipFlagNodeChange() != null) {
+			renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterUniqueChange() != null) {
+			renderAfterUniqueChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getAfterZIndexChange() != null) {
+			renderAfterZIndexChange(renderedAfterEvents, formBuilderTextAreaField);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -141,36 +321,126 @@ public abstract class FormBuilderTextAreaFieldRendererBase extends RendererBase 
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAcceptChildrenChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnBuilderChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnControlsToolbarChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnDataTypeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnDisabledChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnDropZoneNodeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnHiddenAttributesChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnIdChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnLabelChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnLabelNodeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnLocalizationMapChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnNameChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnParentChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnPredefinedValueChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnReadOnlyChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnRequiredChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnSelectedChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnShowLabelChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnStringsChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnTabIndexChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnTemplateChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnTemplateNodeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnTipChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnTipFlagNodeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnTypeChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnUniqueChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnWidthChange(renderedOnEvents, formBuilderTextAreaField);
-		renderOnZIndexChange(renderedOnEvents, formBuilderTextAreaField);
+		if (formBuilderTextAreaField.getOnAcceptChildrenChange() != null) {
+			renderOnAcceptChildrenChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnBuilderChange() != null) {
+			renderOnBuilderChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnControlsToolbarChange() != null) {
+			renderOnControlsToolbarChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnDataTypeChange() != null) {
+			renderOnDataTypeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnDropZoneNodeChange() != null) {
+			renderOnDropZoneNodeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnHiddenAttributesChange() != null) {
+			renderOnHiddenAttributesChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnLabelChange() != null) {
+			renderOnLabelChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnLabelNodeChange() != null) {
+			renderOnLabelNodeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnLocalizationMapChange() != null) {
+			renderOnLocalizationMapChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnNameChange() != null) {
+			renderOnNameChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnParentChange() != null) {
+			renderOnParentChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnPredefinedValueChange() != null) {
+			renderOnPredefinedValueChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnReadOnlyChange() != null) {
+			renderOnReadOnlyChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnReadOnlyAttributesChange() != null) {
+			renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnRequiredChange() != null) {
+			renderOnRequiredChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnRequiredFlagNodeChange() != null) {
+			renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnSelectedChange() != null) {
+			renderOnSelectedChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnShowLabelChange() != null) {
+			renderOnShowLabelChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnTemplateChange() != null) {
+			renderOnTemplateChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnTemplateNodeChange() != null) {
+			renderOnTemplateNodeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnTipChange() != null) {
+			renderOnTipChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnTipFlagNodeChange() != null) {
+			renderOnTipFlagNodeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnUniqueChange() != null) {
+			renderOnUniqueChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
+		if (formBuilderTextAreaField.getOnZIndexChange() != null) {
+			renderOnZIndexChange(renderedOnEvents, formBuilderTextAreaField);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -195,722 +465,452 @@ public abstract class FormBuilderTextAreaFieldRendererBase extends RendererBase 
 
 	protected void renderAcceptChildren(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean acceptChildren = formBuilderTextAreaField.getAcceptChildren();
-
-		if (acceptChildren != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.ACCEPT_CHILDREN, acceptChildren));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.ACCEPT_CHILDREN, acceptChildren));
 	}
 
 	protected void renderBuilder(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean builder = formBuilderTextAreaField.getBuilder();
-
-		if (builder != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.BUILDER, builder));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.BUILDER, builder));
 	}
 
 	protected void renderControlsToolbar(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object controlsToolbar = formBuilderTextAreaField.getControlsToolbar();
-
-		if (controlsToolbar != null) {
-			renderedAttributes.add(renderObject(FormBuilderTextAreaField.CONTROLS_TOOLBAR, controlsToolbar));
-		}
+		renderedAttributes.add(renderObject(FormBuilderTextAreaField.CONTROLS_TOOLBAR, controlsToolbar));
 	}
 
 	protected void renderDataType(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String dataType = formBuilderTextAreaField.getDataType();
-
-		if (dataType != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.DATA_TYPE, dataType));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.DATA_TYPE, dataType));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean disabled = formBuilderTextAreaField.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.DISABLED, disabled));
 	}
 
 	protected void renderDropZoneNode(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String dropZoneNode = formBuilderTextAreaField.getDropZoneNode();
-
-		if (dropZoneNode != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.DROP_ZONE_NODE, dropZoneNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.DROP_ZONE_NODE, dropZoneNode));
 	}
 
 	protected void renderHiddenAttributes(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object hiddenAttributes = formBuilderTextAreaField.getHiddenAttributes();
-
-		if (hiddenAttributes != null) {
-			renderedAttributes.add(renderArray(FormBuilderTextAreaField.HIDDEN_ATTRIBUTES, hiddenAttributes));
-		}
+		renderedAttributes.add(renderArray(FormBuilderTextAreaField.HIDDEN_ATTRIBUTES, hiddenAttributes));
 	}
 
 	protected void renderFormBuilderTextAreaFieldId(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String formBuilderTextAreaFieldId = formBuilderTextAreaField.getFormBuilderTextAreaFieldId();
-
-		if (formBuilderTextAreaFieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.FORM_BUILDER_TEXT_AREA_FIELD_ID, formBuilderTextAreaFieldId));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.FORM_BUILDER_TEXT_AREA_FIELD_ID, formBuilderTextAreaFieldId));
 	}
 
 	protected void renderLabel(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String label = formBuilderTextAreaField.getLabel();
-
-		if (label != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.LABEL, label));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.LABEL, label));
 	}
 
 	protected void renderLabelNode(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String labelNode = formBuilderTextAreaField.getLabelNode();
-
-		if (labelNode != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.LABEL_NODE, labelNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.LABEL_NODE, labelNode));
 	}
 
 	protected void renderLocalizationMap(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object localizationMap = formBuilderTextAreaField.getLocalizationMap();
-
-		if (localizationMap != null) {
-			renderedAttributes.add(renderObject(FormBuilderTextAreaField.LOCALIZATION_MAP, localizationMap));
-		}
+		renderedAttributes.add(renderObject(FormBuilderTextAreaField.LOCALIZATION_MAP, localizationMap));
 	}
 
 	protected void renderName(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String name = formBuilderTextAreaField.getName();
-
-		if (name != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.NAME, name));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.NAME, name));
 	}
 
 	protected void renderFormBuilderTextAreaFieldParent(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String formBuilderTextAreaFieldParent = formBuilderTextAreaField.getFormBuilderTextAreaFieldParent();
-
-		if (formBuilderTextAreaFieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.FORM_BUILDER_TEXT_AREA_FIELD_PARENT, formBuilderTextAreaFieldParent));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.FORM_BUILDER_TEXT_AREA_FIELD_PARENT, formBuilderTextAreaFieldParent));
 	}
 
 	protected void renderPredefinedValue(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String predefinedValue = formBuilderTextAreaField.getPredefinedValue();
-
-		if (predefinedValue != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.PREDEFINED_VALUE, predefinedValue));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.PREDEFINED_VALUE, predefinedValue));
 	}
 
 	protected void renderReadOnly(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean readOnly = formBuilderTextAreaField.getReadOnly();
-
-		if (readOnly != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.READ_ONLY, readOnly));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.READ_ONLY, readOnly));
 	}
 
 	protected void renderReadOnlyAttributes(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object readOnlyAttributes = formBuilderTextAreaField.getReadOnlyAttributes();
-
-		if (readOnlyAttributes != null) {
-			renderedAttributes.add(renderArray(FormBuilderTextAreaField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
-		}
+		renderedAttributes.add(renderArray(FormBuilderTextAreaField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
 	}
 
 	protected void renderRequired(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean required = formBuilderTextAreaField.getRequired();
-
-		if (required != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.REQUIRED, required));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.REQUIRED, required));
 	}
 
 	protected void renderRequiredFlagNode(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String requiredFlagNode = formBuilderTextAreaField.getRequiredFlagNode();
-
-		if (requiredFlagNode != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.REQUIRED_FLAG_NODE, requiredFlagNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.REQUIRED_FLAG_NODE, requiredFlagNode));
 	}
 
 	protected void renderSelected(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean selected = formBuilderTextAreaField.getSelected();
-
-		if (selected != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.SELECTED, selected));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.SELECTED, selected));
 	}
 
 	protected void renderShowLabel(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean showLabel = formBuilderTextAreaField.getShowLabel();
-
-		if (showLabel != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.SHOW_LABEL, showLabel));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.SHOW_LABEL, showLabel));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object strings = formBuilderTextAreaField.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(FormBuilderTextAreaField.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(FormBuilderTextAreaField.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object tabIndex = formBuilderTextAreaField.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(FormBuilderTextAreaField.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(FormBuilderTextAreaField.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderTemplate(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String template = formBuilderTextAreaField.getTemplate();
-
-		if (template != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.TEMPLATE, template));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.TEMPLATE, template));
 	}
 
 	protected void renderTemplateNode(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String templateNode = formBuilderTextAreaField.getTemplateNode();
-
-		if (templateNode != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.TEMPLATE_NODE, templateNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.TEMPLATE_NODE, templateNode));
 	}
 
 	protected void renderTip(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String tip = formBuilderTextAreaField.getTip();
-
-		if (tip != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.TIP, tip));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.TIP, tip));
 	}
 
 	protected void renderTipFlagNode(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String tipFlagNode = formBuilderTextAreaField.getTipFlagNode();
-
-		if (tipFlagNode != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.TIP_FLAG_NODE, tipFlagNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.TIP_FLAG_NODE, tipFlagNode));
 	}
 
 	protected void renderType(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String type = formBuilderTextAreaField.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.TYPE, type));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.TYPE, type));
 	}
 
 	protected void renderUnique(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Boolean unique = formBuilderTextAreaField.getUnique();
-
-		if (unique != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.UNIQUE, unique));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderTextAreaField.UNIQUE, unique));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String width = formBuilderTextAreaField.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.WIDTH, width));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.WIDTH, width));
 	}
 
 	protected void renderZIndex(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.Object zIndex = formBuilderTextAreaField.getZIndex();
-
-		if (zIndex != null) {
-			renderedAttributes.add(renderNumber(FormBuilderTextAreaField.Z_INDEX, zIndex));
-		}
+		renderedAttributes.add(renderNumber(FormBuilderTextAreaField.Z_INDEX, zIndex));
 	}
 
 	protected void renderAfterAcceptChildrenChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterAcceptChildrenChange = formBuilderTextAreaField.getAfterAcceptChildrenChange();
-
-		if (afterAcceptChildrenChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange));
 	}
 
 	protected void renderAfterBuilderChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterBuilderChange = formBuilderTextAreaField.getAfterBuilderChange();
-
-		if (afterBuilderChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_BUILDER_CHANGE, afterBuilderChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_BUILDER_CHANGE, afterBuilderChange));
 	}
 
 	protected void renderAfterControlsToolbarChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterControlsToolbarChange = formBuilderTextAreaField.getAfterControlsToolbarChange();
-
-		if (afterControlsToolbarChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
 	}
 
 	protected void renderAfterDataTypeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterDataTypeChange = formBuilderTextAreaField.getAfterDataTypeChange();
-
-		if (afterDataTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_DATA_TYPE_CHANGE, afterDataTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_DATA_TYPE_CHANGE, afterDataTypeChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterDisabledChange = formBuilderTextAreaField.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterDropZoneNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterDropZoneNodeChange = formBuilderTextAreaField.getAfterDropZoneNodeChange();
-
-		if (afterDropZoneNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange));
 	}
 
 	protected void renderAfterHiddenAttributesChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterHiddenAttributesChange = formBuilderTextAreaField.getAfterHiddenAttributesChange();
-
-		if (afterHiddenAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterIdChange = formBuilderTextAreaField.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterLabelChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterLabelChange = formBuilderTextAreaField.getAfterLabelChange();
-
-		if (afterLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_LABEL_CHANGE, afterLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_LABEL_CHANGE, afterLabelChange));
 	}
 
 	protected void renderAfterLabelNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterLabelNodeChange = formBuilderTextAreaField.getAfterLabelNodeChange();
-
-		if (afterLabelNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
 	}
 
 	protected void renderAfterLocalizationMapChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterLocalizationMapChange = formBuilderTextAreaField.getAfterLocalizationMapChange();
-
-		if (afterLocalizationMapChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange));
 	}
 
 	protected void renderAfterNameChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterNameChange = formBuilderTextAreaField.getAfterNameChange();
-
-		if (afterNameChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_NAME_CHANGE, afterNameChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_NAME_CHANGE, afterNameChange));
 	}
 
 	protected void renderAfterParentChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterParentChange = formBuilderTextAreaField.getAfterParentChange();
-
-		if (afterParentChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_PARENT_CHANGE, afterParentChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_PARENT_CHANGE, afterParentChange));
 	}
 
 	protected void renderAfterPredefinedValueChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterPredefinedValueChange = formBuilderTextAreaField.getAfterPredefinedValueChange();
-
-		if (afterPredefinedValueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange));
 	}
 
 	protected void renderAfterReadOnlyChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterReadOnlyChange = formBuilderTextAreaField.getAfterReadOnlyChange();
-
-		if (afterReadOnlyChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
 	}
 
 	protected void renderAfterReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterReadOnlyAttributesChange = formBuilderTextAreaField.getAfterReadOnlyAttributesChange();
-
-		if (afterReadOnlyAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange));
 	}
 
 	protected void renderAfterRequiredChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterRequiredChange = formBuilderTextAreaField.getAfterRequiredChange();
-
-		if (afterRequiredChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_REQUIRED_CHANGE, afterRequiredChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_REQUIRED_CHANGE, afterRequiredChange));
 	}
 
 	protected void renderAfterRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterRequiredFlagNodeChange = formBuilderTextAreaField.getAfterRequiredFlagNodeChange();
-
-		if (afterRequiredFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange));
 	}
 
 	protected void renderAfterSelectedChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterSelectedChange = formBuilderTextAreaField.getAfterSelectedChange();
-
-		if (afterSelectedChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_SELECTED_CHANGE, afterSelectedChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_SELECTED_CHANGE, afterSelectedChange));
 	}
 
 	protected void renderAfterShowLabelChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterShowLabelChange = formBuilderTextAreaField.getAfterShowLabelChange();
-
-		if (afterShowLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterStringsChange = formBuilderTextAreaField.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterTabIndexChange = formBuilderTextAreaField.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterTemplateChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterTemplateChange = formBuilderTextAreaField.getAfterTemplateChange();
-
-		if (afterTemplateChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TEMPLATE_CHANGE, afterTemplateChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TEMPLATE_CHANGE, afterTemplateChange));
 	}
 
 	protected void renderAfterTemplateNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterTemplateNodeChange = formBuilderTextAreaField.getAfterTemplateNodeChange();
-
-		if (afterTemplateNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange));
 	}
 
 	protected void renderAfterTipChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterTipChange = formBuilderTextAreaField.getAfterTipChange();
-
-		if (afterTipChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TIP_CHANGE, afterTipChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TIP_CHANGE, afterTipChange));
 	}
 
 	protected void renderAfterTipFlagNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterTipFlagNodeChange = formBuilderTextAreaField.getAfterTipFlagNodeChange();
-
-		if (afterTipFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterTypeChange = formBuilderTextAreaField.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderAfterUniqueChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterUniqueChange = formBuilderTextAreaField.getAfterUniqueChange();
-
-		if (afterUniqueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_UNIQUE_CHANGE, afterUniqueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_UNIQUE_CHANGE, afterUniqueChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterWidthChange = formBuilderTextAreaField.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderAfterZIndexChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String afterZIndexChange = formBuilderTextAreaField.getAfterZIndexChange();
-
-		if (afterZIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_ZINDEX_CHANGE, afterZIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.AFTER_ZINDEX_CHANGE, afterZIndexChange));
 	}
 
 	protected void renderOnAcceptChildrenChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onAcceptChildrenChange = formBuilderTextAreaField.getOnAcceptChildrenChange();
-
-		if (onAcceptChildrenChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange));
 	}
 
 	protected void renderOnBuilderChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onBuilderChange = formBuilderTextAreaField.getOnBuilderChange();
-
-		if (onBuilderChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_BUILDER_CHANGE, onBuilderChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_BUILDER_CHANGE, onBuilderChange));
 	}
 
 	protected void renderOnControlsToolbarChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onControlsToolbarChange = formBuilderTextAreaField.getOnControlsToolbarChange();
-
-		if (onControlsToolbarChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
 	}
 
 	protected void renderOnDataTypeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onDataTypeChange = formBuilderTextAreaField.getOnDataTypeChange();
-
-		if (onDataTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_DATA_TYPE_CHANGE, onDataTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_DATA_TYPE_CHANGE, onDataTypeChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onDisabledChange = formBuilderTextAreaField.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnDropZoneNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onDropZoneNodeChange = formBuilderTextAreaField.getOnDropZoneNodeChange();
-
-		if (onDropZoneNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange));
 	}
 
 	protected void renderOnHiddenAttributesChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onHiddenAttributesChange = formBuilderTextAreaField.getOnHiddenAttributesChange();
-
-		if (onHiddenAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onIdChange = formBuilderTextAreaField.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnLabelChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onLabelChange = formBuilderTextAreaField.getOnLabelChange();
-
-		if (onLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_LABEL_CHANGE, onLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_LABEL_CHANGE, onLabelChange));
 	}
 
 	protected void renderOnLabelNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onLabelNodeChange = formBuilderTextAreaField.getOnLabelNodeChange();
-
-		if (onLabelNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
 	}
 
 	protected void renderOnLocalizationMapChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onLocalizationMapChange = formBuilderTextAreaField.getOnLocalizationMapChange();
-
-		if (onLocalizationMapChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange));
 	}
 
 	protected void renderOnNameChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onNameChange = formBuilderTextAreaField.getOnNameChange();
-
-		if (onNameChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_NAME_CHANGE, onNameChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_NAME_CHANGE, onNameChange));
 	}
 
 	protected void renderOnParentChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onParentChange = formBuilderTextAreaField.getOnParentChange();
-
-		if (onParentChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_PARENT_CHANGE, onParentChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_PARENT_CHANGE, onParentChange));
 	}
 
 	protected void renderOnPredefinedValueChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onPredefinedValueChange = formBuilderTextAreaField.getOnPredefinedValueChange();
-
-		if (onPredefinedValueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange));
 	}
 
 	protected void renderOnReadOnlyChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onReadOnlyChange = formBuilderTextAreaField.getOnReadOnlyChange();
-
-		if (onReadOnlyChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_READ_ONLY_CHANGE, onReadOnlyChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_READ_ONLY_CHANGE, onReadOnlyChange));
 	}
 
 	protected void renderOnReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onReadOnlyAttributesChange = formBuilderTextAreaField.getOnReadOnlyAttributesChange();
-
-		if (onReadOnlyAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange));
 	}
 
 	protected void renderOnRequiredChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onRequiredChange = formBuilderTextAreaField.getOnRequiredChange();
-
-		if (onRequiredChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_REQUIRED_CHANGE, onRequiredChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_REQUIRED_CHANGE, onRequiredChange));
 	}
 
 	protected void renderOnRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onRequiredFlagNodeChange = formBuilderTextAreaField.getOnRequiredFlagNodeChange();
-
-		if (onRequiredFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange));
 	}
 
 	protected void renderOnSelectedChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onSelectedChange = formBuilderTextAreaField.getOnSelectedChange();
-
-		if (onSelectedChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_SELECTED_CHANGE, onSelectedChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_SELECTED_CHANGE, onSelectedChange));
 	}
 
 	protected void renderOnShowLabelChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onShowLabelChange = formBuilderTextAreaField.getOnShowLabelChange();
-
-		if (onShowLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_SHOW_LABEL_CHANGE, onShowLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_SHOW_LABEL_CHANGE, onShowLabelChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onStringsChange = formBuilderTextAreaField.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onTabIndexChange = formBuilderTextAreaField.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnTemplateChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onTemplateChange = formBuilderTextAreaField.getOnTemplateChange();
-
-		if (onTemplateChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TEMPLATE_CHANGE, onTemplateChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TEMPLATE_CHANGE, onTemplateChange));
 	}
 
 	protected void renderOnTemplateNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onTemplateNodeChange = formBuilderTextAreaField.getOnTemplateNodeChange();
-
-		if (onTemplateNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange));
 	}
 
 	protected void renderOnTipChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onTipChange = formBuilderTextAreaField.getOnTipChange();
-
-		if (onTipChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TIP_CHANGE, onTipChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TIP_CHANGE, onTipChange));
 	}
 
 	protected void renderOnTipFlagNodeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onTipFlagNodeChange = formBuilderTextAreaField.getOnTipFlagNodeChange();
-
-		if (onTipFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onTypeChange = formBuilderTextAreaField.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 	protected void renderOnUniqueChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onUniqueChange = formBuilderTextAreaField.getOnUniqueChange();
-
-		if (onUniqueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_UNIQUE_CHANGE, onUniqueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_UNIQUE_CHANGE, onUniqueChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onWidthChange = formBuilderTextAreaField.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 	protected void renderOnZIndexChange(List<String> renderedAttributes, FormBuilderTextAreaField formBuilderTextAreaField) throws IOException {
 		java.lang.String onZIndexChange = formBuilderTextAreaField.getOnZIndexChange();
-
-		if (onZIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_ZINDEX_CHANGE, onZIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderTextAreaField.ON_ZINDEX_CHANGE, onZIndexChange));
 	}
 
 }

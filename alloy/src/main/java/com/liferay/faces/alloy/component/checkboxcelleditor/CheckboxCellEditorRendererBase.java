@@ -49,7 +49,10 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderSelectedAttrName(renderedAttributes, checkboxCellEditor);
+		if (checkboxCellEditor.getSelectedAttrName() != null) {
+			renderSelectedAttrName(renderedAttributes, checkboxCellEditor);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterSelectedAttrNameChange(renderedAfterEvents, checkboxCellEditor);
+		if (checkboxCellEditor.getAfterSelectedAttrNameChange() != null) {
+			renderAfterSelectedAttrNameChange(renderedAfterEvents, checkboxCellEditor);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnSelectedAttrNameChange(renderedOnEvents, checkboxCellEditor);
+		if (checkboxCellEditor.getOnSelectedAttrNameChange() != null) {
+			renderOnSelectedAttrNameChange(renderedOnEvents, checkboxCellEditor);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 
 	protected void renderSelectedAttrName(List<String> renderedAttributes, CheckboxCellEditor checkboxCellEditor) throws IOException {
 		java.lang.String selectedAttrName = checkboxCellEditor.getSelectedAttrName();
-
-		if (selectedAttrName != null) {
-			renderedAttributes.add(renderString(CheckboxCellEditor.SELECTED_ATTR_NAME, selectedAttrName));
-		}
+		renderedAttributes.add(renderString(CheckboxCellEditor.SELECTED_ATTR_NAME, selectedAttrName));
 	}
 
 	protected void renderAfterSelectedAttrNameChange(List<String> renderedAttributes, CheckboxCellEditor checkboxCellEditor) throws IOException {
 		java.lang.String afterSelectedAttrNameChange = checkboxCellEditor.getAfterSelectedAttrNameChange();
-
-		if (afterSelectedAttrNameChange != null) {
-			renderedAttributes.add(renderString(CheckboxCellEditor.AFTER_SELECTED_ATTR_NAME_CHANGE, afterSelectedAttrNameChange));
-		}
+		renderedAttributes.add(renderString(CheckboxCellEditor.AFTER_SELECTED_ATTR_NAME_CHANGE, afterSelectedAttrNameChange));
 	}
 
 	protected void renderOnSelectedAttrNameChange(List<String> renderedAttributes, CheckboxCellEditor checkboxCellEditor) throws IOException {
 		java.lang.String onSelectedAttrNameChange = checkboxCellEditor.getOnSelectedAttrNameChange();
-
-		if (onSelectedAttrNameChange != null) {
-			renderedAttributes.add(renderString(CheckboxCellEditor.ON_SELECTED_ATTR_NAME_CHANGE, onSelectedAttrNameChange));
-		}
+		renderedAttributes.add(renderString(CheckboxCellEditor.ON_SELECTED_ATTR_NAME_CHANGE, onSelectedAttrNameChange));
 	}
 
 }

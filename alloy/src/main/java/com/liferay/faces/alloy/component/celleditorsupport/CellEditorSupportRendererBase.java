@@ -49,7 +49,10 @@ public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderEditEvent(renderedAttributes, cellEditorSupport);
+		if (cellEditorSupport.getEditEvent() != null) {
+			renderEditEvent(renderedAttributes, cellEditorSupport);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterEditEventChange(renderedAfterEvents, cellEditorSupport);
+		if (cellEditorSupport.getAfterEditEventChange() != null) {
+			renderAfterEditEventChange(renderedAfterEvents, cellEditorSupport);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnEditEventChange(renderedOnEvents, cellEditorSupport);
+		if (cellEditorSupport.getOnEditEventChange() != null) {
+			renderOnEditEventChange(renderedOnEvents, cellEditorSupport);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 	protected void renderEditEvent(List<String> renderedAttributes, CellEditorSupport cellEditorSupport) throws IOException {
 		java.lang.String editEvent = cellEditorSupport.getEditEvent();
-
-		if (editEvent != null) {
-			renderedAttributes.add(renderString(CellEditorSupport.EDIT_EVENT, editEvent));
-		}
+		renderedAttributes.add(renderString(CellEditorSupport.EDIT_EVENT, editEvent));
 	}
 
 	protected void renderAfterEditEventChange(List<String> renderedAttributes, CellEditorSupport cellEditorSupport) throws IOException {
 		java.lang.String afterEditEventChange = cellEditorSupport.getAfterEditEventChange();
-
-		if (afterEditEventChange != null) {
-			renderedAttributes.add(renderString(CellEditorSupport.AFTER_EDIT_EVENT_CHANGE, afterEditEventChange));
-		}
+		renderedAttributes.add(renderString(CellEditorSupport.AFTER_EDIT_EVENT_CHANGE, afterEditEventChange));
 	}
 
 	protected void renderOnEditEventChange(List<String> renderedAttributes, CellEditorSupport cellEditorSupport) throws IOException {
 		java.lang.String onEditEventChange = cellEditorSupport.getOnEditEventChange();
-
-		if (onEditEventChange != null) {
-			renderedAttributes.add(renderString(CellEditorSupport.ON_EDIT_EVENT_CHANGE, onEditEventChange));
-		}
+		renderedAttributes.add(renderString(CellEditorSupport.ON_EDIT_EVENT_CHANGE, onEditEventChange));
 	}
 
 }

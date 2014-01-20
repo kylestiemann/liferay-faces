@@ -49,7 +49,10 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderPaginator(renderedAttributes, treeViewPaginator);
+		if (treeViewPaginator.getPaginator() != null) {
+			renderPaginator(renderedAttributes, treeViewPaginator);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterPaginatorChange(renderedAfterEvents, treeViewPaginator);
+		if (treeViewPaginator.getAfterPaginatorChange() != null) {
+			renderAfterPaginatorChange(renderedAfterEvents, treeViewPaginator);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnPaginatorChange(renderedOnEvents, treeViewPaginator);
+		if (treeViewPaginator.getOnPaginatorChange() != null) {
+			renderOnPaginatorChange(renderedOnEvents, treeViewPaginator);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 
 	protected void renderPaginator(List<String> renderedAttributes, TreeViewPaginator treeViewPaginator) throws IOException {
 		java.lang.Object paginator = treeViewPaginator.getPaginator();
-
-		if (paginator != null) {
-			renderedAttributes.add(renderObject(TreeViewPaginator.PAGINATOR, paginator));
-		}
+		renderedAttributes.add(renderObject(TreeViewPaginator.PAGINATOR, paginator));
 	}
 
 	protected void renderAfterPaginatorChange(List<String> renderedAttributes, TreeViewPaginator treeViewPaginator) throws IOException {
 		java.lang.String afterPaginatorChange = treeViewPaginator.getAfterPaginatorChange();
-
-		if (afterPaginatorChange != null) {
-			renderedAttributes.add(renderString(TreeViewPaginator.AFTER_PAGINATOR_CHANGE, afterPaginatorChange));
-		}
+		renderedAttributes.add(renderString(TreeViewPaginator.AFTER_PAGINATOR_CHANGE, afterPaginatorChange));
 	}
 
 	protected void renderOnPaginatorChange(List<String> renderedAttributes, TreeViewPaginator treeViewPaginator) throws IOException {
 		java.lang.String onPaginatorChange = treeViewPaginator.getOnPaginatorChange();
-
-		if (onPaginatorChange != null) {
-			renderedAttributes.add(renderString(TreeViewPaginator.ON_PAGINATOR_CHANGE, onPaginatorChange));
-		}
+		renderedAttributes.add(renderString(TreeViewPaginator.ON_PAGINATOR_CHANGE, onPaginatorChange));
 	}
 
 }

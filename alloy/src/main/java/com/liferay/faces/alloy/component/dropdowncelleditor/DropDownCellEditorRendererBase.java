@@ -49,7 +49,10 @@ public abstract class DropDownCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderMultiple(renderedAttributes, dropDownCellEditor);
+		if (dropDownCellEditor.getMultiple() != null) {
+			renderMultiple(renderedAttributes, dropDownCellEditor);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class DropDownCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterMultipleChange(renderedAfterEvents, dropDownCellEditor);
+		if (dropDownCellEditor.getAfterMultipleChange() != null) {
+			renderAfterMultipleChange(renderedAfterEvents, dropDownCellEditor);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class DropDownCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnMultipleChange(renderedOnEvents, dropDownCellEditor);
+		if (dropDownCellEditor.getOnMultipleChange() != null) {
+			renderOnMultipleChange(renderedOnEvents, dropDownCellEditor);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class DropDownCellEditorRendererBase extends RendererBase {
 
 	protected void renderMultiple(List<String> renderedAttributes, DropDownCellEditor dropDownCellEditor) throws IOException {
 		java.lang.Boolean multiple = dropDownCellEditor.getMultiple();
-
-		if (multiple != null) {
-			renderedAttributes.add(renderBoolean(DropDownCellEditor.MULTIPLE, multiple));
-		}
+		renderedAttributes.add(renderBoolean(DropDownCellEditor.MULTIPLE, multiple));
 	}
 
 	protected void renderAfterMultipleChange(List<String> renderedAttributes, DropDownCellEditor dropDownCellEditor) throws IOException {
 		java.lang.String afterMultipleChange = dropDownCellEditor.getAfterMultipleChange();
-
-		if (afterMultipleChange != null) {
-			renderedAttributes.add(renderString(DropDownCellEditor.AFTER_MULTIPLE_CHANGE, afterMultipleChange));
-		}
+		renderedAttributes.add(renderString(DropDownCellEditor.AFTER_MULTIPLE_CHANGE, afterMultipleChange));
 	}
 
 	protected void renderOnMultipleChange(List<String> renderedAttributes, DropDownCellEditor dropDownCellEditor) throws IOException {
 		java.lang.String onMultipleChange = dropDownCellEditor.getOnMultipleChange();
-
-		if (onMultipleChange != null) {
-			renderedAttributes.add(renderString(DropDownCellEditor.ON_MULTIPLE_CHANGE, onMultipleChange));
-		}
+		renderedAttributes.add(renderString(DropDownCellEditor.ON_MULTIPLE_CHANGE, onMultipleChange));
 	}
 
 }

@@ -49,13 +49,34 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderActiveInput(renderedAttributes, datePickerDelegate);
-		renderContainer(renderedAttributes, datePickerDelegate);
-		renderContent(renderedAttributes, datePickerDelegate);
-		renderDateSeparator(renderedAttributes, datePickerDelegate);
-		renderMask(renderedAttributes, datePickerDelegate);
-		renderValueExtractor(renderedAttributes, datePickerDelegate);
-		renderValueFormatter(renderedAttributes, datePickerDelegate);
+		if (datePickerDelegate.getActiveInput() != null) {
+			renderActiveInput(renderedAttributes, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getContainer() != null) {
+			renderContainer(renderedAttributes, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getContent() != null) {
+			renderContent(renderedAttributes, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getDateSeparator() != null) {
+			renderDateSeparator(renderedAttributes, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getMask() != null) {
+			renderMask(renderedAttributes, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getValueExtractor() != null) {
+			renderValueExtractor(renderedAttributes, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getValueFormatter() != null) {
+			renderValueFormatter(renderedAttributes, datePickerDelegate);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,13 +89,34 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterActiveInputChange(renderedAfterEvents, datePickerDelegate);
-		renderAfterContainerChange(renderedAfterEvents, datePickerDelegate);
-		renderAfterContentChange(renderedAfterEvents, datePickerDelegate);
-		renderAfterDateSeparatorChange(renderedAfterEvents, datePickerDelegate);
-		renderAfterMaskChange(renderedAfterEvents, datePickerDelegate);
-		renderAfterValueExtractorChange(renderedAfterEvents, datePickerDelegate);
-		renderAfterValueFormatterChange(renderedAfterEvents, datePickerDelegate);
+		if (datePickerDelegate.getAfterActiveInputChange() != null) {
+			renderAfterActiveInputChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getAfterContainerChange() != null) {
+			renderAfterContainerChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getAfterContentChange() != null) {
+			renderAfterContentChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getAfterDateSeparatorChange() != null) {
+			renderAfterDateSeparatorChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getAfterMaskChange() != null) {
+			renderAfterMaskChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getAfterValueExtractorChange() != null) {
+			renderAfterValueExtractorChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getAfterValueFormatterChange() != null) {
+			renderAfterValueFormatterChange(renderedAfterEvents, datePickerDelegate);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -95,13 +137,34 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnActiveInputChange(renderedOnEvents, datePickerDelegate);
-		renderOnContainerChange(renderedOnEvents, datePickerDelegate);
-		renderOnContentChange(renderedOnEvents, datePickerDelegate);
-		renderOnDateSeparatorChange(renderedOnEvents, datePickerDelegate);
-		renderOnMaskChange(renderedOnEvents, datePickerDelegate);
-		renderOnValueExtractorChange(renderedOnEvents, datePickerDelegate);
-		renderOnValueFormatterChange(renderedOnEvents, datePickerDelegate);
+		if (datePickerDelegate.getOnActiveInputChange() != null) {
+			renderOnActiveInputChange(renderedOnEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getOnContainerChange() != null) {
+			renderOnContainerChange(renderedOnEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getOnContentChange() != null) {
+			renderOnContentChange(renderedOnEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getOnDateSeparatorChange() != null) {
+			renderOnDateSeparatorChange(renderedOnEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getOnMaskChange() != null) {
+			renderOnMaskChange(renderedOnEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getOnValueExtractorChange() != null) {
+			renderOnValueExtractorChange(renderedOnEvents, datePickerDelegate);
+		}
+		
+		if (datePickerDelegate.getOnValueFormatterChange() != null) {
+			renderOnValueFormatterChange(renderedOnEvents, datePickerDelegate);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -126,170 +189,107 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 
 	protected void renderActiveInput(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String activeInput = datePickerDelegate.getActiveInput();
-
-		if (activeInput != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ACTIVE_INPUT, activeInput));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ACTIVE_INPUT, activeInput));
 	}
 
 	protected void renderContainer(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String container = datePickerDelegate.getContainer();
-
-		if (container != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.CONTAINER, container));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.CONTAINER, container));
 	}
 
 	protected void renderContent(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String content = datePickerDelegate.getContent();
-
-		if (content != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.CONTENT, content));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.CONTENT, content));
 	}
 
 	protected void renderDateSeparator(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String dateSeparator = datePickerDelegate.getDateSeparator();
-
-		if (dateSeparator != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.DATE_SEPARATOR, dateSeparator));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.DATE_SEPARATOR, dateSeparator));
 	}
 
 	protected void renderMask(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String mask = datePickerDelegate.getMask();
-
-		if (mask != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.MASK, mask));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.MASK, mask));
 	}
 
 	protected void renderValueExtractor(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.Object valueExtractor = datePickerDelegate.getValueExtractor();
-
-		if (valueExtractor != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.VALUE_EXTRACTOR, valueExtractor));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.VALUE_EXTRACTOR, valueExtractor));
 	}
 
 	protected void renderValueFormatter(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.Object valueFormatter = datePickerDelegate.getValueFormatter();
-
-		if (valueFormatter != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.VALUE_FORMATTER, valueFormatter));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.VALUE_FORMATTER, valueFormatter));
 	}
 
 	protected void renderAfterActiveInputChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterActiveInputChange = datePickerDelegate.getAfterActiveInputChange();
-
-		if (afterActiveInputChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_ACTIVE_INPUT_CHANGE, afterActiveInputChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_ACTIVE_INPUT_CHANGE, afterActiveInputChange));
 	}
 
 	protected void renderAfterContainerChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterContainerChange = datePickerDelegate.getAfterContainerChange();
-
-		if (afterContainerChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_CONTAINER_CHANGE, afterContainerChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_CONTAINER_CHANGE, afterContainerChange));
 	}
 
 	protected void renderAfterContentChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterContentChange = datePickerDelegate.getAfterContentChange();
-
-		if (afterContentChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_CONTENT_CHANGE, afterContentChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_CONTENT_CHANGE, afterContentChange));
 	}
 
 	protected void renderAfterDateSeparatorChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterDateSeparatorChange = datePickerDelegate.getAfterDateSeparatorChange();
-
-		if (afterDateSeparatorChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_DATE_SEPARATOR_CHANGE, afterDateSeparatorChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_DATE_SEPARATOR_CHANGE, afterDateSeparatorChange));
 	}
 
 	protected void renderAfterMaskChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterMaskChange = datePickerDelegate.getAfterMaskChange();
-
-		if (afterMaskChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_MASK_CHANGE, afterMaskChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_MASK_CHANGE, afterMaskChange));
 	}
 
 	protected void renderAfterValueExtractorChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterValueExtractorChange = datePickerDelegate.getAfterValueExtractorChange();
-
-		if (afterValueExtractorChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_VALUE_EXTRACTOR_CHANGE, afterValueExtractorChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_VALUE_EXTRACTOR_CHANGE, afterValueExtractorChange));
 	}
 
 	protected void renderAfterValueFormatterChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String afterValueFormatterChange = datePickerDelegate.getAfterValueFormatterChange();
-
-		if (afterValueFormatterChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.AFTER_VALUE_FORMATTER_CHANGE, afterValueFormatterChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.AFTER_VALUE_FORMATTER_CHANGE, afterValueFormatterChange));
 	}
 
 	protected void renderOnActiveInputChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onActiveInputChange = datePickerDelegate.getOnActiveInputChange();
-
-		if (onActiveInputChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_ACTIVE_INPUT_CHANGE, onActiveInputChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_ACTIVE_INPUT_CHANGE, onActiveInputChange));
 	}
 
 	protected void renderOnContainerChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onContainerChange = datePickerDelegate.getOnContainerChange();
-
-		if (onContainerChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_CONTAINER_CHANGE, onContainerChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_CONTAINER_CHANGE, onContainerChange));
 	}
 
 	protected void renderOnContentChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onContentChange = datePickerDelegate.getOnContentChange();
-
-		if (onContentChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_CONTENT_CHANGE, onContentChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_CONTENT_CHANGE, onContentChange));
 	}
 
 	protected void renderOnDateSeparatorChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onDateSeparatorChange = datePickerDelegate.getOnDateSeparatorChange();
-
-		if (onDateSeparatorChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_DATE_SEPARATOR_CHANGE, onDateSeparatorChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_DATE_SEPARATOR_CHANGE, onDateSeparatorChange));
 	}
 
 	protected void renderOnMaskChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onMaskChange = datePickerDelegate.getOnMaskChange();
-
-		if (onMaskChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_MASK_CHANGE, onMaskChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_MASK_CHANGE, onMaskChange));
 	}
 
 	protected void renderOnValueExtractorChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onValueExtractorChange = datePickerDelegate.getOnValueExtractorChange();
-
-		if (onValueExtractorChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_VALUE_EXTRACTOR_CHANGE, onValueExtractorChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_VALUE_EXTRACTOR_CHANGE, onValueExtractorChange));
 	}
 
 	protected void renderOnValueFormatterChange(List<String> renderedAttributes, DatePickerDelegate datePickerDelegate) throws IOException {
 		java.lang.String onValueFormatterChange = datePickerDelegate.getOnValueFormatterChange();
-
-		if (onValueFormatterChange != null) {
-			renderedAttributes.add(renderString(DatePickerDelegate.ON_VALUE_FORMATTER_CHANGE, onValueFormatterChange));
-		}
+		renderedAttributes.add(renderString(DatePickerDelegate.ON_VALUE_FORMATTER_CHANGE, onValueFormatterChange));
 	}
 
 }

@@ -49,11 +49,26 @@ public abstract class TabRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderContent(renderedAttributes, tab);
-		renderDisabled(renderedAttributes, tab);
-		renderLabel(renderedAttributes, tab);
-		renderPanelNode(renderedAttributes, tab);
-		renderTriggerEvent(renderedAttributes, tab);
+		if (tab.getContent() != null) {
+			renderContent(renderedAttributes, tab);
+		}
+		
+		if (tab.getDisabled() != null) {
+			renderDisabled(renderedAttributes, tab);
+		}
+		
+		if (tab.getLabel() != null) {
+			renderLabel(renderedAttributes, tab);
+		}
+		
+		if (tab.getPanelNode() != null) {
+			renderPanelNode(renderedAttributes, tab);
+		}
+		
+		if (tab.getTriggerEvent() != null) {
+			renderTriggerEvent(renderedAttributes, tab);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class TabRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterContentChange(renderedAfterEvents, tab);
-		renderAfterDisabledChange(renderedAfterEvents, tab);
-		renderAfterLabelChange(renderedAfterEvents, tab);
-		renderAfterPanelNodeChange(renderedAfterEvents, tab);
-		renderAfterTriggerEventChange(renderedAfterEvents, tab);
+		if (tab.getAfterContentChange() != null) {
+			renderAfterContentChange(renderedAfterEvents, tab);
+		}
+		
+		if (tab.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, tab);
+		}
+		
+		if (tab.getAfterLabelChange() != null) {
+			renderAfterLabelChange(renderedAfterEvents, tab);
+		}
+		
+		if (tab.getAfterPanelNodeChange() != null) {
+			renderAfterPanelNodeChange(renderedAfterEvents, tab);
+		}
+		
+		if (tab.getAfterTriggerEventChange() != null) {
+			renderAfterTriggerEventChange(renderedAfterEvents, tab);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class TabRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnContentChange(renderedOnEvents, tab);
-		renderOnDisabledChange(renderedOnEvents, tab);
-		renderOnLabelChange(renderedOnEvents, tab);
-		renderOnPanelNodeChange(renderedOnEvents, tab);
-		renderOnTriggerEventChange(renderedOnEvents, tab);
+		if (tab.getOnContentChange() != null) {
+			renderOnContentChange(renderedOnEvents, tab);
+		}
+		
+		if (tab.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, tab);
+		}
+		
+		if (tab.getOnLabelChange() != null) {
+			renderOnLabelChange(renderedOnEvents, tab);
+		}
+		
+		if (tab.getOnPanelNodeChange() != null) {
+			renderOnPanelNodeChange(renderedOnEvents, tab);
+		}
+		
+		if (tab.getOnTriggerEventChange() != null) {
+			renderOnTriggerEventChange(renderedOnEvents, tab);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class TabRendererBase extends RendererBase {
 
 	protected void renderContent(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.Object content = tab.getContent();
-
-		if (content != null) {
-			renderedAttributes.add(renderString(Tab.CONTENT, content));
-		}
+		renderedAttributes.add(renderString(Tab.CONTENT, content));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String disabled = tab.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderString(Tab.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderString(Tab.DISABLED, disabled));
 	}
 
 	protected void renderLabel(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.Object label = tab.getLabel();
-
-		if (label != null) {
-			renderedAttributes.add(renderString(Tab.LABEL, label));
-		}
+		renderedAttributes.add(renderString(Tab.LABEL, label));
 	}
 
 	protected void renderPanelNode(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.Object panelNode = tab.getPanelNode();
-
-		if (panelNode != null) {
-			renderedAttributes.add(renderString(Tab.PANEL_NODE, panelNode));
-		}
+		renderedAttributes.add(renderString(Tab.PANEL_NODE, panelNode));
 	}
 
 	protected void renderTriggerEvent(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String triggerEvent = tab.getTriggerEvent();
-
-		if (triggerEvent != null) {
-			renderedAttributes.add(renderString(Tab.TRIGGER_EVENT, triggerEvent));
-		}
+		renderedAttributes.add(renderString(Tab.TRIGGER_EVENT, triggerEvent));
 	}
 
 	protected void renderAfterContentChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String afterContentChange = tab.getAfterContentChange();
-
-		if (afterContentChange != null) {
-			renderedAttributes.add(renderString(Tab.AFTER_CONTENT_CHANGE, afterContentChange));
-		}
+		renderedAttributes.add(renderString(Tab.AFTER_CONTENT_CHANGE, afterContentChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String afterDisabledChange = tab.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(Tab.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(Tab.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterLabelChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String afterLabelChange = tab.getAfterLabelChange();
-
-		if (afterLabelChange != null) {
-			renderedAttributes.add(renderString(Tab.AFTER_LABEL_CHANGE, afterLabelChange));
-		}
+		renderedAttributes.add(renderString(Tab.AFTER_LABEL_CHANGE, afterLabelChange));
 	}
 
 	protected void renderAfterPanelNodeChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String afterPanelNodeChange = tab.getAfterPanelNodeChange();
-
-		if (afterPanelNodeChange != null) {
-			renderedAttributes.add(renderString(Tab.AFTER_PANEL_NODE_CHANGE, afterPanelNodeChange));
-		}
+		renderedAttributes.add(renderString(Tab.AFTER_PANEL_NODE_CHANGE, afterPanelNodeChange));
 	}
 
 	protected void renderAfterTriggerEventChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String afterTriggerEventChange = tab.getAfterTriggerEventChange();
-
-		if (afterTriggerEventChange != null) {
-			renderedAttributes.add(renderString(Tab.AFTER_TRIGGER_EVENT_CHANGE, afterTriggerEventChange));
-		}
+		renderedAttributes.add(renderString(Tab.AFTER_TRIGGER_EVENT_CHANGE, afterTriggerEventChange));
 	}
 
 	protected void renderOnContentChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String onContentChange = tab.getOnContentChange();
-
-		if (onContentChange != null) {
-			renderedAttributes.add(renderString(Tab.ON_CONTENT_CHANGE, onContentChange));
-		}
+		renderedAttributes.add(renderString(Tab.ON_CONTENT_CHANGE, onContentChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String onDisabledChange = tab.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(Tab.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(Tab.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnLabelChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String onLabelChange = tab.getOnLabelChange();
-
-		if (onLabelChange != null) {
-			renderedAttributes.add(renderString(Tab.ON_LABEL_CHANGE, onLabelChange));
-		}
+		renderedAttributes.add(renderString(Tab.ON_LABEL_CHANGE, onLabelChange));
 	}
 
 	protected void renderOnPanelNodeChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String onPanelNodeChange = tab.getOnPanelNodeChange();
-
-		if (onPanelNodeChange != null) {
-			renderedAttributes.add(renderString(Tab.ON_PANEL_NODE_CHANGE, onPanelNodeChange));
-		}
+		renderedAttributes.add(renderString(Tab.ON_PANEL_NODE_CHANGE, onPanelNodeChange));
 	}
 
 	protected void renderOnTriggerEventChange(List<String> renderedAttributes, Tab tab) throws IOException {
 		java.lang.String onTriggerEventChange = tab.getOnTriggerEventChange();
-
-		if (onTriggerEventChange != null) {
-			renderedAttributes.add(renderString(Tab.ON_TRIGGER_EVENT_CHANGE, onTriggerEventChange));
-		}
+		renderedAttributes.add(renderString(Tab.ON_TRIGGER_EVENT_CHANGE, onTriggerEventChange));
 	}
 
 }

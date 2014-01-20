@@ -49,11 +49,26 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDirectives(renderedAttributes, freemarker);
-		renderDirectivesMatcher(renderedAttributes, freemarker);
-		renderHost(renderedAttributes, freemarker);
-		renderVariables(renderedAttributes, freemarker);
-		renderVariablesMatcher(renderedAttributes, freemarker);
+		if (freemarker.getDirectives() != null) {
+			renderDirectives(renderedAttributes, freemarker);
+		}
+		
+		if (freemarker.getDirectivesMatcher() != null) {
+			renderDirectivesMatcher(renderedAttributes, freemarker);
+		}
+		
+		if (freemarker.getHost() != null) {
+			renderHost(renderedAttributes, freemarker);
+		}
+		
+		if (freemarker.getVariables() != null) {
+			renderVariables(renderedAttributes, freemarker);
+		}
+		
+		if (freemarker.getVariablesMatcher() != null) {
+			renderVariablesMatcher(renderedAttributes, freemarker);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDirectivesChange(renderedAfterEvents, freemarker);
-		renderAfterDirectivesMatcherChange(renderedAfterEvents, freemarker);
-		renderAfterHostChange(renderedAfterEvents, freemarker);
-		renderAfterVariablesChange(renderedAfterEvents, freemarker);
-		renderAfterVariablesMatcherChange(renderedAfterEvents, freemarker);
+		if (freemarker.getAfterDirectivesChange() != null) {
+			renderAfterDirectivesChange(renderedAfterEvents, freemarker);
+		}
+		
+		if (freemarker.getAfterDirectivesMatcherChange() != null) {
+			renderAfterDirectivesMatcherChange(renderedAfterEvents, freemarker);
+		}
+		
+		if (freemarker.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, freemarker);
+		}
+		
+		if (freemarker.getAfterVariablesChange() != null) {
+			renderAfterVariablesChange(renderedAfterEvents, freemarker);
+		}
+		
+		if (freemarker.getAfterVariablesMatcherChange() != null) {
+			renderAfterVariablesMatcherChange(renderedAfterEvents, freemarker);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDirectivesChange(renderedOnEvents, freemarker);
-		renderOnDirectivesMatcherChange(renderedOnEvents, freemarker);
-		renderOnHostChange(renderedOnEvents, freemarker);
-		renderOnVariablesChange(renderedOnEvents, freemarker);
-		renderOnVariablesMatcherChange(renderedOnEvents, freemarker);
+		if (freemarker.getOnDirectivesChange() != null) {
+			renderOnDirectivesChange(renderedOnEvents, freemarker);
+		}
+		
+		if (freemarker.getOnDirectivesMatcherChange() != null) {
+			renderOnDirectivesMatcherChange(renderedOnEvents, freemarker);
+		}
+		
+		if (freemarker.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, freemarker);
+		}
+		
+		if (freemarker.getOnVariablesChange() != null) {
+			renderOnVariablesChange(renderedOnEvents, freemarker);
+		}
+		
+		if (freemarker.getOnVariablesMatcherChange() != null) {
+			renderOnVariablesMatcherChange(renderedOnEvents, freemarker);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 
 	protected void renderDirectives(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.Object directives = freemarker.getDirectives();
-
-		if (directives != null) {
-			renderedAttributes.add(renderArray(Freemarker.DIRECTIVES, directives));
-		}
+		renderedAttributes.add(renderArray(Freemarker.DIRECTIVES, directives));
 	}
 
 	protected void renderDirectivesMatcher(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String directivesMatcher = freemarker.getDirectivesMatcher();
-
-		if (directivesMatcher != null) {
-			renderedAttributes.add(renderString(Freemarker.DIRECTIVES_MATCHER, directivesMatcher));
-		}
+		renderedAttributes.add(renderString(Freemarker.DIRECTIVES_MATCHER, directivesMatcher));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.Object host = freemarker.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderObject(Freemarker.HOST, host));
-		}
+		renderedAttributes.add(renderObject(Freemarker.HOST, host));
 	}
 
 	protected void renderVariables(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.Object variables = freemarker.getVariables();
-
-		if (variables != null) {
-			renderedAttributes.add(renderObject(Freemarker.VARIABLES, variables));
-		}
+		renderedAttributes.add(renderObject(Freemarker.VARIABLES, variables));
 	}
 
 	protected void renderVariablesMatcher(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String variablesMatcher = freemarker.getVariablesMatcher();
-
-		if (variablesMatcher != null) {
-			renderedAttributes.add(renderString(Freemarker.VARIABLES_MATCHER, variablesMatcher));
-		}
+		renderedAttributes.add(renderString(Freemarker.VARIABLES_MATCHER, variablesMatcher));
 	}
 
 	protected void renderAfterDirectivesChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String afterDirectivesChange = freemarker.getAfterDirectivesChange();
-
-		if (afterDirectivesChange != null) {
-			renderedAttributes.add(renderString(Freemarker.AFTER_DIRECTIVES_CHANGE, afterDirectivesChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.AFTER_DIRECTIVES_CHANGE, afterDirectivesChange));
 	}
 
 	protected void renderAfterDirectivesMatcherChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String afterDirectivesMatcherChange = freemarker.getAfterDirectivesMatcherChange();
-
-		if (afterDirectivesMatcherChange != null) {
-			renderedAttributes.add(renderString(Freemarker.AFTER_DIRECTIVES_MATCHER_CHANGE, afterDirectivesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.AFTER_DIRECTIVES_MATCHER_CHANGE, afterDirectivesMatcherChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String afterHostChange = freemarker.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(Freemarker.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterVariablesChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String afterVariablesChange = freemarker.getAfterVariablesChange();
-
-		if (afterVariablesChange != null) {
-			renderedAttributes.add(renderString(Freemarker.AFTER_VARIABLES_CHANGE, afterVariablesChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.AFTER_VARIABLES_CHANGE, afterVariablesChange));
 	}
 
 	protected void renderAfterVariablesMatcherChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String afterVariablesMatcherChange = freemarker.getAfterVariablesMatcherChange();
-
-		if (afterVariablesMatcherChange != null) {
-			renderedAttributes.add(renderString(Freemarker.AFTER_VARIABLES_MATCHER_CHANGE, afterVariablesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.AFTER_VARIABLES_MATCHER_CHANGE, afterVariablesMatcherChange));
 	}
 
 	protected void renderOnDirectivesChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String onDirectivesChange = freemarker.getOnDirectivesChange();
-
-		if (onDirectivesChange != null) {
-			renderedAttributes.add(renderString(Freemarker.ON_DIRECTIVES_CHANGE, onDirectivesChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.ON_DIRECTIVES_CHANGE, onDirectivesChange));
 	}
 
 	protected void renderOnDirectivesMatcherChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String onDirectivesMatcherChange = freemarker.getOnDirectivesMatcherChange();
-
-		if (onDirectivesMatcherChange != null) {
-			renderedAttributes.add(renderString(Freemarker.ON_DIRECTIVES_MATCHER_CHANGE, onDirectivesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.ON_DIRECTIVES_MATCHER_CHANGE, onDirectivesMatcherChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String onHostChange = freemarker.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(Freemarker.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnVariablesChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String onVariablesChange = freemarker.getOnVariablesChange();
-
-		if (onVariablesChange != null) {
-			renderedAttributes.add(renderString(Freemarker.ON_VARIABLES_CHANGE, onVariablesChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.ON_VARIABLES_CHANGE, onVariablesChange));
 	}
 
 	protected void renderOnVariablesMatcherChange(List<String> renderedAttributes, Freemarker freemarker) throws IOException {
 		java.lang.String onVariablesMatcherChange = freemarker.getOnVariablesMatcherChange();
-
-		if (onVariablesMatcherChange != null) {
-			renderedAttributes.add(renderString(Freemarker.ON_VARIABLES_MATCHER_CHANGE, onVariablesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Freemarker.ON_VARIABLES_MATCHER_CHANGE, onVariablesMatcherChange));
 	}
 
 }

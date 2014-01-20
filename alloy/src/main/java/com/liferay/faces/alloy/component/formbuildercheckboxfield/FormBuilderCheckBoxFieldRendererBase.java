@@ -49,35 +49,122 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends RendererBase 
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAcceptChildren(renderedAttributes, formBuilderCheckBoxField);
-		renderBuilder(renderedAttributes, formBuilderCheckBoxField);
-		renderControlsToolbar(renderedAttributes, formBuilderCheckBoxField);
-		renderDataType(renderedAttributes, formBuilderCheckBoxField);
-		renderDisabled(renderedAttributes, formBuilderCheckBoxField);
-		renderDropZoneNode(renderedAttributes, formBuilderCheckBoxField);
-		renderHiddenAttributes(renderedAttributes, formBuilderCheckBoxField);
-		renderFormBuilderCheckBoxFieldId(renderedAttributes, formBuilderCheckBoxField);
-		renderLabel(renderedAttributes, formBuilderCheckBoxField);
-		renderLabelNode(renderedAttributes, formBuilderCheckBoxField);
-		renderLocalizationMap(renderedAttributes, formBuilderCheckBoxField);
-		renderName(renderedAttributes, formBuilderCheckBoxField);
-		renderFormBuilderCheckBoxFieldParent(renderedAttributes, formBuilderCheckBoxField);
-		renderPredefinedValue(renderedAttributes, formBuilderCheckBoxField);
-		renderReadOnly(renderedAttributes, formBuilderCheckBoxField);
-		renderReadOnlyAttributes(renderedAttributes, formBuilderCheckBoxField);
-		renderRequired(renderedAttributes, formBuilderCheckBoxField);
-		renderRequiredFlagNode(renderedAttributes, formBuilderCheckBoxField);
-		renderSelected(renderedAttributes, formBuilderCheckBoxField);
-		renderShowLabel(renderedAttributes, formBuilderCheckBoxField);
-		renderStrings(renderedAttributes, formBuilderCheckBoxField);
-		renderTabIndex(renderedAttributes, formBuilderCheckBoxField);
-		renderTemplate(renderedAttributes, formBuilderCheckBoxField);
-		renderTemplateNode(renderedAttributes, formBuilderCheckBoxField);
-		renderTip(renderedAttributes, formBuilderCheckBoxField);
-		renderTipFlagNode(renderedAttributes, formBuilderCheckBoxField);
-		renderType(renderedAttributes, formBuilderCheckBoxField);
-		renderUnique(renderedAttributes, formBuilderCheckBoxField);
-		renderZIndex(renderedAttributes, formBuilderCheckBoxField);
+		if (formBuilderCheckBoxField.getAcceptChildren() != null) {
+			renderAcceptChildren(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getBuilder() != null) {
+			renderBuilder(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getControlsToolbar() != null) {
+			renderControlsToolbar(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getDataType() != null) {
+			renderDataType(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getDisabled() != null) {
+			renderDisabled(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getDropZoneNode() != null) {
+			renderDropZoneNode(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getHiddenAttributes() != null) {
+			renderHiddenAttributes(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getFormBuilderCheckBoxFieldId() != null) {
+			renderFormBuilderCheckBoxFieldId(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getLabel() != null) {
+			renderLabel(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getLabelNode() != null) {
+			renderLabelNode(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getLocalizationMap() != null) {
+			renderLocalizationMap(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getName() != null) {
+			renderName(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getFormBuilderCheckBoxFieldParent() != null) {
+			renderFormBuilderCheckBoxFieldParent(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getPredefinedValue() != null) {
+			renderPredefinedValue(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getReadOnly() != null) {
+			renderReadOnly(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getReadOnlyAttributes() != null) {
+			renderReadOnlyAttributes(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getRequired() != null) {
+			renderRequired(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getRequiredFlagNode() != null) {
+			renderRequiredFlagNode(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getSelected() != null) {
+			renderSelected(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getShowLabel() != null) {
+			renderShowLabel(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getStrings() != null) {
+			renderStrings(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getTemplate() != null) {
+			renderTemplate(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getTemplateNode() != null) {
+			renderTemplateNode(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getTip() != null) {
+			renderTip(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getTipFlagNode() != null) {
+			renderTipFlagNode(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getType() != null) {
+			renderType(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getUnique() != null) {
+			renderUnique(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getZIndex() != null) {
+			renderZIndex(renderedAttributes, formBuilderCheckBoxField);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -90,35 +177,122 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends RendererBase 
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterBuilderChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterDataTypeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterDisabledChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterIdChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterLabelChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterLabelNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterNameChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterParentChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterReadOnlyChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterRequiredChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterSelectedChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterShowLabelChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterStringsChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterTabIndexChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterTemplateChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterTipChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterTypeChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterUniqueChange(renderedAfterEvents, formBuilderCheckBoxField);
-		renderAfterZIndexChange(renderedAfterEvents, formBuilderCheckBoxField);
+		if (formBuilderCheckBoxField.getAfterAcceptChildrenChange() != null) {
+			renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterBuilderChange() != null) {
+			renderAfterBuilderChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterControlsToolbarChange() != null) {
+			renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterDataTypeChange() != null) {
+			renderAfterDataTypeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterDropZoneNodeChange() != null) {
+			renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterHiddenAttributesChange() != null) {
+			renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterLabelChange() != null) {
+			renderAfterLabelChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterLabelNodeChange() != null) {
+			renderAfterLabelNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterLocalizationMapChange() != null) {
+			renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterNameChange() != null) {
+			renderAfterNameChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterParentChange() != null) {
+			renderAfterParentChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterPredefinedValueChange() != null) {
+			renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterReadOnlyChange() != null) {
+			renderAfterReadOnlyChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterReadOnlyAttributesChange() != null) {
+			renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterRequiredChange() != null) {
+			renderAfterRequiredChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterRequiredFlagNodeChange() != null) {
+			renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterSelectedChange() != null) {
+			renderAfterSelectedChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterShowLabelChange() != null) {
+			renderAfterShowLabelChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterTemplateChange() != null) {
+			renderAfterTemplateChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterTemplateNodeChange() != null) {
+			renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterTipChange() != null) {
+			renderAfterTipChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterTipFlagNodeChange() != null) {
+			renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterUniqueChange() != null) {
+			renderAfterUniqueChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getAfterZIndexChange() != null) {
+			renderAfterZIndexChange(renderedAfterEvents, formBuilderCheckBoxField);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -139,35 +313,122 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends RendererBase 
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAcceptChildrenChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnBuilderChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnControlsToolbarChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnDataTypeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnDisabledChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnDropZoneNodeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnHiddenAttributesChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnIdChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnLabelChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnLabelNodeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnLocalizationMapChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnNameChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnParentChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnPredefinedValueChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnReadOnlyChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnRequiredChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnSelectedChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnShowLabelChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnStringsChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnTabIndexChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnTemplateChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnTemplateNodeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnTipChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnTipFlagNodeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnTypeChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnUniqueChange(renderedOnEvents, formBuilderCheckBoxField);
-		renderOnZIndexChange(renderedOnEvents, formBuilderCheckBoxField);
+		if (formBuilderCheckBoxField.getOnAcceptChildrenChange() != null) {
+			renderOnAcceptChildrenChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnBuilderChange() != null) {
+			renderOnBuilderChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnControlsToolbarChange() != null) {
+			renderOnControlsToolbarChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnDataTypeChange() != null) {
+			renderOnDataTypeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnDropZoneNodeChange() != null) {
+			renderOnDropZoneNodeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnHiddenAttributesChange() != null) {
+			renderOnHiddenAttributesChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnLabelChange() != null) {
+			renderOnLabelChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnLabelNodeChange() != null) {
+			renderOnLabelNodeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnLocalizationMapChange() != null) {
+			renderOnLocalizationMapChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnNameChange() != null) {
+			renderOnNameChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnParentChange() != null) {
+			renderOnParentChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnPredefinedValueChange() != null) {
+			renderOnPredefinedValueChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnReadOnlyChange() != null) {
+			renderOnReadOnlyChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnReadOnlyAttributesChange() != null) {
+			renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnRequiredChange() != null) {
+			renderOnRequiredChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnRequiredFlagNodeChange() != null) {
+			renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnSelectedChange() != null) {
+			renderOnSelectedChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnShowLabelChange() != null) {
+			renderOnShowLabelChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnTemplateChange() != null) {
+			renderOnTemplateChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnTemplateNodeChange() != null) {
+			renderOnTemplateNodeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnTipChange() != null) {
+			renderOnTipChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnTipFlagNodeChange() != null) {
+			renderOnTipFlagNodeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnUniqueChange() != null) {
+			renderOnUniqueChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
+		if (formBuilderCheckBoxField.getOnZIndexChange() != null) {
+			renderOnZIndexChange(renderedOnEvents, formBuilderCheckBoxField);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -192,698 +453,437 @@ public abstract class FormBuilderCheckBoxFieldRendererBase extends RendererBase 
 
 	protected void renderAcceptChildren(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean acceptChildren = formBuilderCheckBoxField.getAcceptChildren();
-
-		if (acceptChildren != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.ACCEPT_CHILDREN, acceptChildren));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.ACCEPT_CHILDREN, acceptChildren));
 	}
 
 	protected void renderBuilder(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean builder = formBuilderCheckBoxField.getBuilder();
-
-		if (builder != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.BUILDER, builder));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.BUILDER, builder));
 	}
 
 	protected void renderControlsToolbar(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object controlsToolbar = formBuilderCheckBoxField.getControlsToolbar();
-
-		if (controlsToolbar != null) {
-			renderedAttributes.add(renderObject(FormBuilderCheckBoxField.CONTROLS_TOOLBAR, controlsToolbar));
-		}
+		renderedAttributes.add(renderObject(FormBuilderCheckBoxField.CONTROLS_TOOLBAR, controlsToolbar));
 	}
 
 	protected void renderDataType(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String dataType = formBuilderCheckBoxField.getDataType();
-
-		if (dataType != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.DATA_TYPE, dataType));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.DATA_TYPE, dataType));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean disabled = formBuilderCheckBoxField.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.DISABLED, disabled));
 	}
 
 	protected void renderDropZoneNode(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String dropZoneNode = formBuilderCheckBoxField.getDropZoneNode();
-
-		if (dropZoneNode != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.DROP_ZONE_NODE, dropZoneNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.DROP_ZONE_NODE, dropZoneNode));
 	}
 
 	protected void renderHiddenAttributes(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object hiddenAttributes = formBuilderCheckBoxField.getHiddenAttributes();
-
-		if (hiddenAttributes != null) {
-			renderedAttributes.add(renderArray(FormBuilderCheckBoxField.HIDDEN_ATTRIBUTES, hiddenAttributes));
-		}
+		renderedAttributes.add(renderArray(FormBuilderCheckBoxField.HIDDEN_ATTRIBUTES, hiddenAttributes));
 	}
 
 	protected void renderFormBuilderCheckBoxFieldId(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String formBuilderCheckBoxFieldId = formBuilderCheckBoxField.getFormBuilderCheckBoxFieldId();
-
-		if (formBuilderCheckBoxFieldId != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.FORM_BUILDER_CHECK_BOX_FIELD_ID, formBuilderCheckBoxFieldId));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.FORM_BUILDER_CHECK_BOX_FIELD_ID, formBuilderCheckBoxFieldId));
 	}
 
 	protected void renderLabel(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String label = formBuilderCheckBoxField.getLabel();
-
-		if (label != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.LABEL, label));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.LABEL, label));
 	}
 
 	protected void renderLabelNode(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String labelNode = formBuilderCheckBoxField.getLabelNode();
-
-		if (labelNode != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.LABEL_NODE, labelNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.LABEL_NODE, labelNode));
 	}
 
 	protected void renderLocalizationMap(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object localizationMap = formBuilderCheckBoxField.getLocalizationMap();
-
-		if (localizationMap != null) {
-			renderedAttributes.add(renderObject(FormBuilderCheckBoxField.LOCALIZATION_MAP, localizationMap));
-		}
+		renderedAttributes.add(renderObject(FormBuilderCheckBoxField.LOCALIZATION_MAP, localizationMap));
 	}
 
 	protected void renderName(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String name = formBuilderCheckBoxField.getName();
-
-		if (name != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.NAME, name));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.NAME, name));
 	}
 
 	protected void renderFormBuilderCheckBoxFieldParent(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String formBuilderCheckBoxFieldParent = formBuilderCheckBoxField.getFormBuilderCheckBoxFieldParent();
-
-		if (formBuilderCheckBoxFieldParent != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.FORM_BUILDER_CHECK_BOX_FIELD_PARENT, formBuilderCheckBoxFieldParent));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.FORM_BUILDER_CHECK_BOX_FIELD_PARENT, formBuilderCheckBoxFieldParent));
 	}
 
 	protected void renderPredefinedValue(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean predefinedValue = formBuilderCheckBoxField.getPredefinedValue();
-
-		if (predefinedValue != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.PREDEFINED_VALUE, predefinedValue));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.PREDEFINED_VALUE, predefinedValue));
 	}
 
 	protected void renderReadOnly(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean readOnly = formBuilderCheckBoxField.getReadOnly();
-
-		if (readOnly != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.READ_ONLY, readOnly));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.READ_ONLY, readOnly));
 	}
 
 	protected void renderReadOnlyAttributes(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object readOnlyAttributes = formBuilderCheckBoxField.getReadOnlyAttributes();
-
-		if (readOnlyAttributes != null) {
-			renderedAttributes.add(renderArray(FormBuilderCheckBoxField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
-		}
+		renderedAttributes.add(renderArray(FormBuilderCheckBoxField.READ_ONLY_ATTRIBUTES, readOnlyAttributes));
 	}
 
 	protected void renderRequired(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean required = formBuilderCheckBoxField.getRequired();
-
-		if (required != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.REQUIRED, required));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.REQUIRED, required));
 	}
 
 	protected void renderRequiredFlagNode(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String requiredFlagNode = formBuilderCheckBoxField.getRequiredFlagNode();
-
-		if (requiredFlagNode != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.REQUIRED_FLAG_NODE, requiredFlagNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.REQUIRED_FLAG_NODE, requiredFlagNode));
 	}
 
 	protected void renderSelected(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean selected = formBuilderCheckBoxField.getSelected();
-
-		if (selected != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.SELECTED, selected));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.SELECTED, selected));
 	}
 
 	protected void renderShowLabel(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean showLabel = formBuilderCheckBoxField.getShowLabel();
-
-		if (showLabel != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.SHOW_LABEL, showLabel));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.SHOW_LABEL, showLabel));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object strings = formBuilderCheckBoxField.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(FormBuilderCheckBoxField.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(FormBuilderCheckBoxField.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object tabIndex = formBuilderCheckBoxField.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(FormBuilderCheckBoxField.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(FormBuilderCheckBoxField.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderTemplate(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String template = formBuilderCheckBoxField.getTemplate();
-
-		if (template != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.TEMPLATE, template));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.TEMPLATE, template));
 	}
 
 	protected void renderTemplateNode(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String templateNode = formBuilderCheckBoxField.getTemplateNode();
-
-		if (templateNode != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.TEMPLATE_NODE, templateNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.TEMPLATE_NODE, templateNode));
 	}
 
 	protected void renderTip(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String tip = formBuilderCheckBoxField.getTip();
-
-		if (tip != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.TIP, tip));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.TIP, tip));
 	}
 
 	protected void renderTipFlagNode(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String tipFlagNode = formBuilderCheckBoxField.getTipFlagNode();
-
-		if (tipFlagNode != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.TIP_FLAG_NODE, tipFlagNode));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.TIP_FLAG_NODE, tipFlagNode));
 	}
 
 	protected void renderType(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String type = formBuilderCheckBoxField.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.TYPE, type));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.TYPE, type));
 	}
 
 	protected void renderUnique(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Boolean unique = formBuilderCheckBoxField.getUnique();
-
-		if (unique != null) {
-			renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.UNIQUE, unique));
-		}
+		renderedAttributes.add(renderBoolean(FormBuilderCheckBoxField.UNIQUE, unique));
 	}
 
 	protected void renderZIndex(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.Object zIndex = formBuilderCheckBoxField.getZIndex();
-
-		if (zIndex != null) {
-			renderedAttributes.add(renderNumber(FormBuilderCheckBoxField.Z_INDEX, zIndex));
-		}
+		renderedAttributes.add(renderNumber(FormBuilderCheckBoxField.Z_INDEX, zIndex));
 	}
 
 	protected void renderAfterAcceptChildrenChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterAcceptChildrenChange = formBuilderCheckBoxField.getAfterAcceptChildrenChange();
-
-		if (afterAcceptChildrenChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange));
 	}
 
 	protected void renderAfterBuilderChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterBuilderChange = formBuilderCheckBoxField.getAfterBuilderChange();
-
-		if (afterBuilderChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_BUILDER_CHANGE, afterBuilderChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_BUILDER_CHANGE, afterBuilderChange));
 	}
 
 	protected void renderAfterControlsToolbarChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterControlsToolbarChange = formBuilderCheckBoxField.getAfterControlsToolbarChange();
-
-		if (afterControlsToolbarChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
 	}
 
 	protected void renderAfterDataTypeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterDataTypeChange = formBuilderCheckBoxField.getAfterDataTypeChange();
-
-		if (afterDataTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_DATA_TYPE_CHANGE, afterDataTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_DATA_TYPE_CHANGE, afterDataTypeChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterDisabledChange = formBuilderCheckBoxField.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterDropZoneNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterDropZoneNodeChange = formBuilderCheckBoxField.getAfterDropZoneNodeChange();
-
-		if (afterDropZoneNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange));
 	}
 
 	protected void renderAfterHiddenAttributesChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterHiddenAttributesChange = formBuilderCheckBoxField.getAfterHiddenAttributesChange();
-
-		if (afterHiddenAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterIdChange = formBuilderCheckBoxField.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterLabelChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterLabelChange = formBuilderCheckBoxField.getAfterLabelChange();
-
-		if (afterLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_LABEL_CHANGE, afterLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_LABEL_CHANGE, afterLabelChange));
 	}
 
 	protected void renderAfterLabelNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterLabelNodeChange = formBuilderCheckBoxField.getAfterLabelNodeChange();
-
-		if (afterLabelNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
 	}
 
 	protected void renderAfterLocalizationMapChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterLocalizationMapChange = formBuilderCheckBoxField.getAfterLocalizationMapChange();
-
-		if (afterLocalizationMapChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange));
 	}
 
 	protected void renderAfterNameChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterNameChange = formBuilderCheckBoxField.getAfterNameChange();
-
-		if (afterNameChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_NAME_CHANGE, afterNameChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_NAME_CHANGE, afterNameChange));
 	}
 
 	protected void renderAfterParentChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterParentChange = formBuilderCheckBoxField.getAfterParentChange();
-
-		if (afterParentChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_PARENT_CHANGE, afterParentChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_PARENT_CHANGE, afterParentChange));
 	}
 
 	protected void renderAfterPredefinedValueChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterPredefinedValueChange = formBuilderCheckBoxField.getAfterPredefinedValueChange();
-
-		if (afterPredefinedValueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange));
 	}
 
 	protected void renderAfterReadOnlyChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterReadOnlyChange = formBuilderCheckBoxField.getAfterReadOnlyChange();
-
-		if (afterReadOnlyChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
 	}
 
 	protected void renderAfterReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterReadOnlyAttributesChange = formBuilderCheckBoxField.getAfterReadOnlyAttributesChange();
-
-		if (afterReadOnlyAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange));
 	}
 
 	protected void renderAfterRequiredChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterRequiredChange = formBuilderCheckBoxField.getAfterRequiredChange();
-
-		if (afterRequiredChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_REQUIRED_CHANGE, afterRequiredChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_REQUIRED_CHANGE, afterRequiredChange));
 	}
 
 	protected void renderAfterRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterRequiredFlagNodeChange = formBuilderCheckBoxField.getAfterRequiredFlagNodeChange();
-
-		if (afterRequiredFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange));
 	}
 
 	protected void renderAfterSelectedChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterSelectedChange = formBuilderCheckBoxField.getAfterSelectedChange();
-
-		if (afterSelectedChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_SELECTED_CHANGE, afterSelectedChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_SELECTED_CHANGE, afterSelectedChange));
 	}
 
 	protected void renderAfterShowLabelChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterShowLabelChange = formBuilderCheckBoxField.getAfterShowLabelChange();
-
-		if (afterShowLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterStringsChange = formBuilderCheckBoxField.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterTabIndexChange = formBuilderCheckBoxField.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterTemplateChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterTemplateChange = formBuilderCheckBoxField.getAfterTemplateChange();
-
-		if (afterTemplateChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TEMPLATE_CHANGE, afterTemplateChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TEMPLATE_CHANGE, afterTemplateChange));
 	}
 
 	protected void renderAfterTemplateNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterTemplateNodeChange = formBuilderCheckBoxField.getAfterTemplateNodeChange();
-
-		if (afterTemplateNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange));
 	}
 
 	protected void renderAfterTipChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterTipChange = formBuilderCheckBoxField.getAfterTipChange();
-
-		if (afterTipChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TIP_CHANGE, afterTipChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TIP_CHANGE, afterTipChange));
 	}
 
 	protected void renderAfterTipFlagNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterTipFlagNodeChange = formBuilderCheckBoxField.getAfterTipFlagNodeChange();
-
-		if (afterTipFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterTypeChange = formBuilderCheckBoxField.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderAfterUniqueChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterUniqueChange = formBuilderCheckBoxField.getAfterUniqueChange();
-
-		if (afterUniqueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_UNIQUE_CHANGE, afterUniqueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_UNIQUE_CHANGE, afterUniqueChange));
 	}
 
 	protected void renderAfterZIndexChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String afterZIndexChange = formBuilderCheckBoxField.getAfterZIndexChange();
-
-		if (afterZIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_ZINDEX_CHANGE, afterZIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.AFTER_ZINDEX_CHANGE, afterZIndexChange));
 	}
 
 	protected void renderOnAcceptChildrenChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onAcceptChildrenChange = formBuilderCheckBoxField.getOnAcceptChildrenChange();
-
-		if (onAcceptChildrenChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange));
 	}
 
 	protected void renderOnBuilderChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onBuilderChange = formBuilderCheckBoxField.getOnBuilderChange();
-
-		if (onBuilderChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_BUILDER_CHANGE, onBuilderChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_BUILDER_CHANGE, onBuilderChange));
 	}
 
 	protected void renderOnControlsToolbarChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onControlsToolbarChange = formBuilderCheckBoxField.getOnControlsToolbarChange();
-
-		if (onControlsToolbarChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
 	}
 
 	protected void renderOnDataTypeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onDataTypeChange = formBuilderCheckBoxField.getOnDataTypeChange();
-
-		if (onDataTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_DATA_TYPE_CHANGE, onDataTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_DATA_TYPE_CHANGE, onDataTypeChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onDisabledChange = formBuilderCheckBoxField.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnDropZoneNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onDropZoneNodeChange = formBuilderCheckBoxField.getOnDropZoneNodeChange();
-
-		if (onDropZoneNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange));
 	}
 
 	protected void renderOnHiddenAttributesChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onHiddenAttributesChange = formBuilderCheckBoxField.getOnHiddenAttributesChange();
-
-		if (onHiddenAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onIdChange = formBuilderCheckBoxField.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnLabelChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onLabelChange = formBuilderCheckBoxField.getOnLabelChange();
-
-		if (onLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_LABEL_CHANGE, onLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_LABEL_CHANGE, onLabelChange));
 	}
 
 	protected void renderOnLabelNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onLabelNodeChange = formBuilderCheckBoxField.getOnLabelNodeChange();
-
-		if (onLabelNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
 	}
 
 	protected void renderOnLocalizationMapChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onLocalizationMapChange = formBuilderCheckBoxField.getOnLocalizationMapChange();
-
-		if (onLocalizationMapChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange));
 	}
 
 	protected void renderOnNameChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onNameChange = formBuilderCheckBoxField.getOnNameChange();
-
-		if (onNameChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_NAME_CHANGE, onNameChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_NAME_CHANGE, onNameChange));
 	}
 
 	protected void renderOnParentChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onParentChange = formBuilderCheckBoxField.getOnParentChange();
-
-		if (onParentChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_PARENT_CHANGE, onParentChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_PARENT_CHANGE, onParentChange));
 	}
 
 	protected void renderOnPredefinedValueChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onPredefinedValueChange = formBuilderCheckBoxField.getOnPredefinedValueChange();
-
-		if (onPredefinedValueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange));
 	}
 
 	protected void renderOnReadOnlyChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onReadOnlyChange = formBuilderCheckBoxField.getOnReadOnlyChange();
-
-		if (onReadOnlyChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_READ_ONLY_CHANGE, onReadOnlyChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_READ_ONLY_CHANGE, onReadOnlyChange));
 	}
 
 	protected void renderOnReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onReadOnlyAttributesChange = formBuilderCheckBoxField.getOnReadOnlyAttributesChange();
-
-		if (onReadOnlyAttributesChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange));
 	}
 
 	protected void renderOnRequiredChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onRequiredChange = formBuilderCheckBoxField.getOnRequiredChange();
-
-		if (onRequiredChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_REQUIRED_CHANGE, onRequiredChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_REQUIRED_CHANGE, onRequiredChange));
 	}
 
 	protected void renderOnRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onRequiredFlagNodeChange = formBuilderCheckBoxField.getOnRequiredFlagNodeChange();
-
-		if (onRequiredFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange));
 	}
 
 	protected void renderOnSelectedChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onSelectedChange = formBuilderCheckBoxField.getOnSelectedChange();
-
-		if (onSelectedChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_SELECTED_CHANGE, onSelectedChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_SELECTED_CHANGE, onSelectedChange));
 	}
 
 	protected void renderOnShowLabelChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onShowLabelChange = formBuilderCheckBoxField.getOnShowLabelChange();
-
-		if (onShowLabelChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_SHOW_LABEL_CHANGE, onShowLabelChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_SHOW_LABEL_CHANGE, onShowLabelChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onStringsChange = formBuilderCheckBoxField.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onTabIndexChange = formBuilderCheckBoxField.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnTemplateChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onTemplateChange = formBuilderCheckBoxField.getOnTemplateChange();
-
-		if (onTemplateChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TEMPLATE_CHANGE, onTemplateChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TEMPLATE_CHANGE, onTemplateChange));
 	}
 
 	protected void renderOnTemplateNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onTemplateNodeChange = formBuilderCheckBoxField.getOnTemplateNodeChange();
-
-		if (onTemplateNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange));
 	}
 
 	protected void renderOnTipChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onTipChange = formBuilderCheckBoxField.getOnTipChange();
-
-		if (onTipChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TIP_CHANGE, onTipChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TIP_CHANGE, onTipChange));
 	}
 
 	protected void renderOnTipFlagNodeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onTipFlagNodeChange = formBuilderCheckBoxField.getOnTipFlagNodeChange();
-
-		if (onTipFlagNodeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onTypeChange = formBuilderCheckBoxField.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 	protected void renderOnUniqueChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onUniqueChange = formBuilderCheckBoxField.getOnUniqueChange();
-
-		if (onUniqueChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_UNIQUE_CHANGE, onUniqueChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_UNIQUE_CHANGE, onUniqueChange));
 	}
 
 	protected void renderOnZIndexChange(List<String> renderedAttributes, FormBuilderCheckBoxField formBuilderCheckBoxField) throws IOException {
 		java.lang.String onZIndexChange = formBuilderCheckBoxField.getOnZIndexChange();
-
-		if (onZIndexChange != null) {
-			renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_ZINDEX_CHANGE, onZIndexChange));
-		}
+		renderedAttributes.add(renderString(FormBuilderCheckBoxField.ON_ZINDEX_CHANGE, onZIndexChange));
 	}
 
 }

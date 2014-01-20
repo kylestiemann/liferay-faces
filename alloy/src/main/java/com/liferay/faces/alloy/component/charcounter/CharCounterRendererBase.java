@@ -49,11 +49,26 @@ public abstract class CharCounterRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderCounter(renderedAttributes, charCounter);
-		renderDestroyed(renderedAttributes, charCounter);
-		renderInitialized(renderedAttributes, charCounter);
-		renderInput(renderedAttributes, charCounter);
-		renderMaxLength(renderedAttributes, charCounter);
+		if (charCounter.getCounter() != null) {
+			renderCounter(renderedAttributes, charCounter);
+		}
+		
+		if (charCounter.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, charCounter);
+		}
+		
+		if (charCounter.getInitialized() != null) {
+			renderInitialized(renderedAttributes, charCounter);
+		}
+		
+		if (charCounter.getInput() != null) {
+			renderInput(renderedAttributes, charCounter);
+		}
+		
+		if (charCounter.getMaxLength() != null) {
+			renderMaxLength(renderedAttributes, charCounter);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class CharCounterRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterCounterChange(renderedAfterEvents, charCounter);
-		renderAfterDestroyedChange(renderedAfterEvents, charCounter);
-		renderAfterInitializedChange(renderedAfterEvents, charCounter);
-		renderAfterInputChange(renderedAfterEvents, charCounter);
-		renderAfterMaxLengthChange(renderedAfterEvents, charCounter);
+		if (charCounter.getAfterCounterChange() != null) {
+			renderAfterCounterChange(renderedAfterEvents, charCounter);
+		}
+		
+		if (charCounter.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, charCounter);
+		}
+		
+		if (charCounter.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, charCounter);
+		}
+		
+		if (charCounter.getAfterInputChange() != null) {
+			renderAfterInputChange(renderedAfterEvents, charCounter);
+		}
+		
+		if (charCounter.getAfterMaxLengthChange() != null) {
+			renderAfterMaxLengthChange(renderedAfterEvents, charCounter);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class CharCounterRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnCounterChange(renderedOnEvents, charCounter);
-		renderOnDestroyedChange(renderedOnEvents, charCounter);
-		renderOnInitializedChange(renderedOnEvents, charCounter);
-		renderOnInputChange(renderedOnEvents, charCounter);
-		renderOnMaxLengthChange(renderedOnEvents, charCounter);
+		if (charCounter.getOnCounterChange() != null) {
+			renderOnCounterChange(renderedOnEvents, charCounter);
+		}
+		
+		if (charCounter.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, charCounter);
+		}
+		
+		if (charCounter.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, charCounter);
+		}
+		
+		if (charCounter.getOnInputChange() != null) {
+			renderOnInputChange(renderedOnEvents, charCounter);
+		}
+		
+		if (charCounter.getOnMaxLengthChange() != null) {
+			renderOnMaxLengthChange(renderedOnEvents, charCounter);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class CharCounterRendererBase extends RendererBase {
 
 	protected void renderCounter(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.Object counter = charCounter.getCounter();
-
-		if (counter != null) {
-			renderedAttributes.add(renderString(CharCounter.COUNTER, counter));
-		}
+		renderedAttributes.add(renderString(CharCounter.COUNTER, counter));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.Boolean destroyed = charCounter.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(CharCounter.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(CharCounter.DESTROYED, destroyed));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.Boolean initialized = charCounter.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(CharCounter.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(CharCounter.INITIALIZED, initialized));
 	}
 
 	protected void renderInput(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.Object input = charCounter.getInput();
-
-		if (input != null) {
-			renderedAttributes.add(renderString(CharCounter.INPUT, input));
-		}
+		renderedAttributes.add(renderString(CharCounter.INPUT, input));
 	}
 
 	protected void renderMaxLength(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.Object maxLength = charCounter.getMaxLength();
-
-		if (maxLength != null) {
-			renderedAttributes.add(renderNumber(CharCounter.MAX_LENGTH, maxLength));
-		}
+		renderedAttributes.add(renderNumber(CharCounter.MAX_LENGTH, maxLength));
 	}
 
 	protected void renderAfterCounterChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String afterCounterChange = charCounter.getAfterCounterChange();
-
-		if (afterCounterChange != null) {
-			renderedAttributes.add(renderString(CharCounter.AFTER_COUNTER_CHANGE, afterCounterChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.AFTER_COUNTER_CHANGE, afterCounterChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String afterDestroyedChange = charCounter.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(CharCounter.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String afterInitializedChange = charCounter.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(CharCounter.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterInputChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String afterInputChange = charCounter.getAfterInputChange();
-
-		if (afterInputChange != null) {
-			renderedAttributes.add(renderString(CharCounter.AFTER_INPUT_CHANGE, afterInputChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.AFTER_INPUT_CHANGE, afterInputChange));
 	}
 
 	protected void renderAfterMaxLengthChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String afterMaxLengthChange = charCounter.getAfterMaxLengthChange();
-
-		if (afterMaxLengthChange != null) {
-			renderedAttributes.add(renderString(CharCounter.AFTER_MAX_LENGTH_CHANGE, afterMaxLengthChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.AFTER_MAX_LENGTH_CHANGE, afterMaxLengthChange));
 	}
 
 	protected void renderOnCounterChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String onCounterChange = charCounter.getOnCounterChange();
-
-		if (onCounterChange != null) {
-			renderedAttributes.add(renderString(CharCounter.ON_COUNTER_CHANGE, onCounterChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.ON_COUNTER_CHANGE, onCounterChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String onDestroyedChange = charCounter.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(CharCounter.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String onInitializedChange = charCounter.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(CharCounter.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnInputChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String onInputChange = charCounter.getOnInputChange();
-
-		if (onInputChange != null) {
-			renderedAttributes.add(renderString(CharCounter.ON_INPUT_CHANGE, onInputChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.ON_INPUT_CHANGE, onInputChange));
 	}
 
 	protected void renderOnMaxLengthChange(List<String> renderedAttributes, CharCounter charCounter) throws IOException {
 		java.lang.String onMaxLengthChange = charCounter.getOnMaxLengthChange();
-
-		if (onMaxLengthChange != null) {
-			renderedAttributes.add(renderString(CharCounter.ON_MAX_LENGTH_CHANGE, onMaxLengthChange));
-		}
+		renderedAttributes.add(renderString(CharCounter.ON_MAX_LENGTH_CHANGE, onMaxLengthChange));
 	}
 
 }

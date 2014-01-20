@@ -49,28 +49,94 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderBoundingBox(renderedAttributes, colorPalette);
-		renderColumns(renderedAttributes, colorPalette);
-		renderContainerNode(renderedAttributes, colorPalette);
-		renderContentBox(renderedAttributes, colorPalette);
-		renderDestroyed(renderedAttributes, colorPalette);
-		renderDisabled(renderedAttributes, colorPalette);
-		renderFocused(renderedAttributes, colorPalette);
-		renderFormatter(renderedAttributes, colorPalette);
-		renderHeight(renderedAttributes, colorPalette);
-		renderColorPaletteId(renderedAttributes, colorPalette);
-		renderInitialized(renderedAttributes, colorPalette);
-		renderItems(renderedAttributes, colorPalette);
-		renderColorPaletteLocale(renderedAttributes, colorPalette);
-		renderRender(renderedAttributes, colorPalette);
-		renderRendered(renderedAttributes, colorPalette);
-		renderSelected(renderedAttributes, colorPalette);
-		renderSrcNode(renderedAttributes, colorPalette);
-		renderStrings(renderedAttributes, colorPalette);
-		renderTabIndex(renderedAttributes, colorPalette);
-		renderToggleSelection(renderedAttributes, colorPalette);
-		renderVisible(renderedAttributes, colorPalette);
-		renderWidth(renderedAttributes, colorPalette);
+		if (colorPalette.getBoundingBox() != null) {
+			renderBoundingBox(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getColumns() != null) {
+			renderColumns(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getContainerNode() != null) {
+			renderContainerNode(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getContentBox() != null) {
+			renderContentBox(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getDisabled() != null) {
+			renderDisabled(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getFocused() != null) {
+			renderFocused(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getFormatter() != null) {
+			renderFormatter(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getHeight() != null) {
+			renderHeight(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getColorPaletteId() != null) {
+			renderColorPaletteId(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getInitialized() != null) {
+			renderInitialized(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getItems() != null) {
+			renderItems(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getColorPaletteLocale() != null) {
+			renderColorPaletteLocale(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getRender() != null) {
+			renderRender(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getRendered() != null) {
+			renderRendered(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getSelected() != null) {
+			renderSelected(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getSrcNode() != null) {
+			renderSrcNode(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getStrings() != null) {
+			renderStrings(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getToggleSelection() != null) {
+			renderToggleSelection(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getVisible() != null) {
+			renderVisible(renderedAttributes, colorPalette);
+		}
+		
+		if (colorPalette.getWidth() != null) {
+			renderWidth(renderedAttributes, colorPalette);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -83,28 +149,94 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterBoundingBoxChange(renderedAfterEvents, colorPalette);
-		renderAfterColumnsChange(renderedAfterEvents, colorPalette);
-		renderAfterContainerNodeChange(renderedAfterEvents, colorPalette);
-		renderAfterContentBoxChange(renderedAfterEvents, colorPalette);
-		renderAfterDestroyedChange(renderedAfterEvents, colorPalette);
-		renderAfterDisabledChange(renderedAfterEvents, colorPalette);
-		renderAfterFocusedChange(renderedAfterEvents, colorPalette);
-		renderAfterFormatterChange(renderedAfterEvents, colorPalette);
-		renderAfterHeightChange(renderedAfterEvents, colorPalette);
-		renderAfterIdChange(renderedAfterEvents, colorPalette);
-		renderAfterInitializedChange(renderedAfterEvents, colorPalette);
-		renderAfterItemsChange(renderedAfterEvents, colorPalette);
-		renderAfterLocaleChange(renderedAfterEvents, colorPalette);
-		renderAfterRenderChange(renderedAfterEvents, colorPalette);
-		renderAfterRenderedChange(renderedAfterEvents, colorPalette);
-		renderAfterSelectedChange(renderedAfterEvents, colorPalette);
-		renderAfterSrcNodeChange(renderedAfterEvents, colorPalette);
-		renderAfterStringsChange(renderedAfterEvents, colorPalette);
-		renderAfterTabIndexChange(renderedAfterEvents, colorPalette);
-		renderAfterToggleSelectionChange(renderedAfterEvents, colorPalette);
-		renderAfterVisibleChange(renderedAfterEvents, colorPalette);
-		renderAfterWidthChange(renderedAfterEvents, colorPalette);
+		if (colorPalette.getAfterBoundingBoxChange() != null) {
+			renderAfterBoundingBoxChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterColumnsChange() != null) {
+			renderAfterColumnsChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterContainerNodeChange() != null) {
+			renderAfterContainerNodeChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterContentBoxChange() != null) {
+			renderAfterContentBoxChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterFocusedChange() != null) {
+			renderAfterFocusedChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterFormatterChange() != null) {
+			renderAfterFormatterChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterHeightChange() != null) {
+			renderAfterHeightChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterItemsChange() != null) {
+			renderAfterItemsChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterLocaleChange() != null) {
+			renderAfterLocaleChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterRenderChange() != null) {
+			renderAfterRenderChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterRenderedChange() != null) {
+			renderAfterRenderedChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterSelectedChange() != null) {
+			renderAfterSelectedChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterSrcNodeChange() != null) {
+			renderAfterSrcNodeChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterToggleSelectionChange() != null) {
+			renderAfterToggleSelectionChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, colorPalette);
+		}
+		
+		if (colorPalette.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, colorPalette);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -125,28 +257,94 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnBoundingBoxChange(renderedOnEvents, colorPalette);
-		renderOnColumnsChange(renderedOnEvents, colorPalette);
-		renderOnContainerNodeChange(renderedOnEvents, colorPalette);
-		renderOnContentBoxChange(renderedOnEvents, colorPalette);
-		renderOnDestroyedChange(renderedOnEvents, colorPalette);
-		renderOnDisabledChange(renderedOnEvents, colorPalette);
-		renderOnFocusedChange(renderedOnEvents, colorPalette);
-		renderOnFormatterChange(renderedOnEvents, colorPalette);
-		renderOnHeightChange(renderedOnEvents, colorPalette);
-		renderOnIdChange(renderedOnEvents, colorPalette);
-		renderOnInitializedChange(renderedOnEvents, colorPalette);
-		renderOnItemsChange(renderedOnEvents, colorPalette);
-		renderOnLocaleChange(renderedOnEvents, colorPalette);
-		renderOnRenderChange(renderedOnEvents, colorPalette);
-		renderOnRenderedChange(renderedOnEvents, colorPalette);
-		renderOnSelectedChange(renderedOnEvents, colorPalette);
-		renderOnSrcNodeChange(renderedOnEvents, colorPalette);
-		renderOnStringsChange(renderedOnEvents, colorPalette);
-		renderOnTabIndexChange(renderedOnEvents, colorPalette);
-		renderOnToggleSelectionChange(renderedOnEvents, colorPalette);
-		renderOnVisibleChange(renderedOnEvents, colorPalette);
-		renderOnWidthChange(renderedOnEvents, colorPalette);
+		if (colorPalette.getOnBoundingBoxChange() != null) {
+			renderOnBoundingBoxChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnColumnsChange() != null) {
+			renderOnColumnsChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnContainerNodeChange() != null) {
+			renderOnContainerNodeChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnContentBoxChange() != null) {
+			renderOnContentBoxChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnFocusedChange() != null) {
+			renderOnFocusedChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnFormatterChange() != null) {
+			renderOnFormatterChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnHeightChange() != null) {
+			renderOnHeightChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnItemsChange() != null) {
+			renderOnItemsChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnLocaleChange() != null) {
+			renderOnLocaleChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnRenderChange() != null) {
+			renderOnRenderChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnRenderedChange() != null) {
+			renderOnRenderedChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnSelectedChange() != null) {
+			renderOnSelectedChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnSrcNodeChange() != null) {
+			renderOnSrcNodeChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnToggleSelectionChange() != null) {
+			renderOnToggleSelectionChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, colorPalette);
+		}
+		
+		if (colorPalette.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, colorPalette);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -171,530 +369,332 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 
 	protected void renderBoundingBox(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String boundingBox = colorPalette.getBoundingBox();
-
-		if (boundingBox != null) {
-			renderedAttributes.add(renderString(ColorPalette.BOUNDING_BOX, boundingBox));
-		}
+		renderedAttributes.add(renderString(ColorPalette.BOUNDING_BOX, boundingBox));
 	}
 
 	protected void renderColumns(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object columns = colorPalette.getColumns();
-
-		if (columns != null) {
-			renderedAttributes.add(renderNumber(ColorPalette.COLUMNS, columns));
-		}
+		renderedAttributes.add(renderNumber(ColorPalette.COLUMNS, columns));
 	}
 
 	protected void renderContainerNode(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object containerNode = colorPalette.getContainerNode();
-
-		if (containerNode != null) {
-			renderedAttributes.add(renderString(ColorPalette.CONTAINER_NODE, containerNode));
-		}
+		renderedAttributes.add(renderString(ColorPalette.CONTAINER_NODE, containerNode));
 	}
 
 	protected void renderContentBox(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String contentBox = colorPalette.getContentBox();
-
-		if (contentBox != null) {
-			renderedAttributes.add(renderString(ColorPalette.CONTENT_BOX, contentBox));
-		}
+		renderedAttributes.add(renderString(ColorPalette.CONTENT_BOX, contentBox));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean destroyed = colorPalette.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean disabled = colorPalette.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.DISABLED, disabled));
 	}
 
 	protected void renderFocused(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean focused = colorPalette.getFocused();
-
-		if (focused != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.FOCUSED, focused));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.FOCUSED, focused));
 	}
 
 	protected void renderFormatter(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object formatter = colorPalette.getFormatter();
-
-		if (formatter != null) {
-			renderedAttributes.add(renderString(ColorPalette.FORMATTER, formatter));
-		}
+		renderedAttributes.add(renderString(ColorPalette.FORMATTER, formatter));
 	}
 
 	protected void renderHeight(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object height = colorPalette.getHeight();
-
-		if (height != null) {
-			renderedAttributes.add(renderString(ColorPalette.HEIGHT, height));
-		}
+		renderedAttributes.add(renderString(ColorPalette.HEIGHT, height));
 	}
 
 	protected void renderColorPaletteId(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String colorPaletteId = colorPalette.getColorPaletteId();
-
-		if (colorPaletteId != null) {
-			renderedAttributes.add(renderString(ColorPalette.COLOR_PALETTE_ID, colorPaletteId));
-		}
+		renderedAttributes.add(renderString(ColorPalette.COLOR_PALETTE_ID, colorPaletteId));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean initialized = colorPalette.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.INITIALIZED, initialized));
 	}
 
 	protected void renderItems(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object items = colorPalette.getItems();
-
-		if (items != null) {
-			renderedAttributes.add(renderArray(ColorPalette.ITEMS, items));
-		}
+		renderedAttributes.add(renderArray(ColorPalette.ITEMS, items));
 	}
 
 	protected void renderColorPaletteLocale(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String colorPaletteLocale = colorPalette.getColorPaletteLocale();
-
-		if (colorPaletteLocale != null) {
-			renderedAttributes.add(renderString(ColorPalette.COLOR_PALETTE_LOCALE, colorPaletteLocale));
-		}
+		renderedAttributes.add(renderString(ColorPalette.COLOR_PALETTE_LOCALE, colorPaletteLocale));
 	}
 
 	protected void renderRender(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object render = colorPalette.getRender();
-
-		if (render != null) {
-			renderedAttributes.add(renderString(ColorPalette.RENDER, render));
-		}
+		renderedAttributes.add(renderString(ColorPalette.RENDER, render));
 	}
 
 	protected void renderRendered(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean rendered = colorPalette.getRendered();
-
-		if (rendered != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.RENDERED, rendered));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.RENDERED, rendered));
 	}
 
 	protected void renderSelected(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object selected = colorPalette.getSelected();
-
-		if (selected != null) {
-			renderedAttributes.add(renderNumber(ColorPalette.SELECTED, selected));
-		}
+		renderedAttributes.add(renderNumber(ColorPalette.SELECTED, selected));
 	}
 
 	protected void renderSrcNode(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String srcNode = colorPalette.getSrcNode();
-
-		if (srcNode != null) {
-			renderedAttributes.add(renderString(ColorPalette.SRC_NODE, srcNode));
-		}
+		renderedAttributes.add(renderString(ColorPalette.SRC_NODE, srcNode));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object strings = colorPalette.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(ColorPalette.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(ColorPalette.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object tabIndex = colorPalette.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(ColorPalette.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(ColorPalette.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderToggleSelection(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean toggleSelection = colorPalette.getToggleSelection();
-
-		if (toggleSelection != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.TOGGLE_SELECTION, toggleSelection));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.TOGGLE_SELECTION, toggleSelection));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Boolean visible = colorPalette.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(ColorPalette.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(ColorPalette.VISIBLE, visible));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.Object width = colorPalette.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderString(ColorPalette.WIDTH, width));
-		}
+		renderedAttributes.add(renderString(ColorPalette.WIDTH, width));
 	}
 
 	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterBoundingBoxChange = colorPalette.getAfterBoundingBoxChange();
-
-		if (afterBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
 	}
 
 	protected void renderAfterColumnsChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterColumnsChange = colorPalette.getAfterColumnsChange();
-
-		if (afterColumnsChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_COLUMNS_CHANGE, afterColumnsChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_COLUMNS_CHANGE, afterColumnsChange));
 	}
 
 	protected void renderAfterContainerNodeChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterContainerNodeChange = colorPalette.getAfterContainerNodeChange();
-
-		if (afterContainerNodeChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_CONTAINER_NODE_CHANGE, afterContainerNodeChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_CONTAINER_NODE_CHANGE, afterContainerNodeChange));
 	}
 
 	protected void renderAfterContentBoxChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterContentBoxChange = colorPalette.getAfterContentBoxChange();
-
-		if (afterContentBoxChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterDestroyedChange = colorPalette.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterDisabledChange = colorPalette.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterFocusedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterFocusedChange = colorPalette.getAfterFocusedChange();
-
-		if (afterFocusedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_FOCUSED_CHANGE, afterFocusedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_FOCUSED_CHANGE, afterFocusedChange));
 	}
 
 	protected void renderAfterFormatterChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterFormatterChange = colorPalette.getAfterFormatterChange();
-
-		if (afterFormatterChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_FORMATTER_CHANGE, afterFormatterChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_FORMATTER_CHANGE, afterFormatterChange));
 	}
 
 	protected void renderAfterHeightChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterHeightChange = colorPalette.getAfterHeightChange();
-
-		if (afterHeightChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_HEIGHT_CHANGE, afterHeightChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_HEIGHT_CHANGE, afterHeightChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterIdChange = colorPalette.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterInitializedChange = colorPalette.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterItemsChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterItemsChange = colorPalette.getAfterItemsChange();
-
-		if (afterItemsChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_ITEMS_CHANGE, afterItemsChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_ITEMS_CHANGE, afterItemsChange));
 	}
 
 	protected void renderAfterLocaleChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterLocaleChange = colorPalette.getAfterLocaleChange();
-
-		if (afterLocaleChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_LOCALE_CHANGE, afterLocaleChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_LOCALE_CHANGE, afterLocaleChange));
 	}
 
 	protected void renderAfterRenderChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterRenderChange = colorPalette.getAfterRenderChange();
-
-		if (afterRenderChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_RENDER_CHANGE, afterRenderChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_RENDER_CHANGE, afterRenderChange));
 	}
 
 	protected void renderAfterRenderedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterRenderedChange = colorPalette.getAfterRenderedChange();
-
-		if (afterRenderedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_RENDERED_CHANGE, afterRenderedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_RENDERED_CHANGE, afterRenderedChange));
 	}
 
 	protected void renderAfterSelectedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterSelectedChange = colorPalette.getAfterSelectedChange();
-
-		if (afterSelectedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_SELECTED_CHANGE, afterSelectedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_SELECTED_CHANGE, afterSelectedChange));
 	}
 
 	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterSrcNodeChange = colorPalette.getAfterSrcNodeChange();
-
-		if (afterSrcNodeChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterStringsChange = colorPalette.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterTabIndexChange = colorPalette.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterToggleSelectionChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterToggleSelectionChange = colorPalette.getAfterToggleSelectionChange();
-
-		if (afterToggleSelectionChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_TOGGLE_SELECTION_CHANGE, afterToggleSelectionChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_TOGGLE_SELECTION_CHANGE, afterToggleSelectionChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterVisibleChange = colorPalette.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String afterWidthChange = colorPalette.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onBoundingBoxChange = colorPalette.getOnBoundingBoxChange();
-
-		if (onBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
 	}
 
 	protected void renderOnColumnsChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onColumnsChange = colorPalette.getOnColumnsChange();
-
-		if (onColumnsChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_COLUMNS_CHANGE, onColumnsChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_COLUMNS_CHANGE, onColumnsChange));
 	}
 
 	protected void renderOnContainerNodeChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onContainerNodeChange = colorPalette.getOnContainerNodeChange();
-
-		if (onContainerNodeChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_CONTAINER_NODE_CHANGE, onContainerNodeChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_CONTAINER_NODE_CHANGE, onContainerNodeChange));
 	}
 
 	protected void renderOnContentBoxChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onContentBoxChange = colorPalette.getOnContentBoxChange();
-
-		if (onContentBoxChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onDestroyedChange = colorPalette.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onDisabledChange = colorPalette.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnFocusedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onFocusedChange = colorPalette.getOnFocusedChange();
-
-		if (onFocusedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_FOCUSED_CHANGE, onFocusedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_FOCUSED_CHANGE, onFocusedChange));
 	}
 
 	protected void renderOnFormatterChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onFormatterChange = colorPalette.getOnFormatterChange();
-
-		if (onFormatterChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_FORMATTER_CHANGE, onFormatterChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_FORMATTER_CHANGE, onFormatterChange));
 	}
 
 	protected void renderOnHeightChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onHeightChange = colorPalette.getOnHeightChange();
-
-		if (onHeightChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_HEIGHT_CHANGE, onHeightChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_HEIGHT_CHANGE, onHeightChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onIdChange = colorPalette.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onInitializedChange = colorPalette.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnItemsChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onItemsChange = colorPalette.getOnItemsChange();
-
-		if (onItemsChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_ITEMS_CHANGE, onItemsChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_ITEMS_CHANGE, onItemsChange));
 	}
 
 	protected void renderOnLocaleChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onLocaleChange = colorPalette.getOnLocaleChange();
-
-		if (onLocaleChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_LOCALE_CHANGE, onLocaleChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_LOCALE_CHANGE, onLocaleChange));
 	}
 
 	protected void renderOnRenderChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onRenderChange = colorPalette.getOnRenderChange();
-
-		if (onRenderChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_RENDER_CHANGE, onRenderChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_RENDER_CHANGE, onRenderChange));
 	}
 
 	protected void renderOnRenderedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onRenderedChange = colorPalette.getOnRenderedChange();
-
-		if (onRenderedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_RENDERED_CHANGE, onRenderedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_RENDERED_CHANGE, onRenderedChange));
 	}
 
 	protected void renderOnSelectedChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onSelectedChange = colorPalette.getOnSelectedChange();
-
-		if (onSelectedChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_SELECTED_CHANGE, onSelectedChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_SELECTED_CHANGE, onSelectedChange));
 	}
 
 	protected void renderOnSrcNodeChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onSrcNodeChange = colorPalette.getOnSrcNodeChange();
-
-		if (onSrcNodeChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_SRC_NODE_CHANGE, onSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_SRC_NODE_CHANGE, onSrcNodeChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onStringsChange = colorPalette.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onTabIndexChange = colorPalette.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnToggleSelectionChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onToggleSelectionChange = colorPalette.getOnToggleSelectionChange();
-
-		if (onToggleSelectionChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_TOGGLE_SELECTION_CHANGE, onToggleSelectionChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_TOGGLE_SELECTION_CHANGE, onToggleSelectionChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onVisibleChange = colorPalette.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, ColorPalette colorPalette) throws IOException {
 		java.lang.String onWidthChange = colorPalette.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(ColorPalette.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(ColorPalette.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 }

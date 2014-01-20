@@ -49,11 +49,26 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDateCellEditorBodyContent(renderedAttributes, dateCellEditor);
-		renderCalendar(renderedAttributes, dateCellEditor);
-		renderDateFormat(renderedAttributes, dateCellEditor);
-		renderInputFormatter(renderedAttributes, dateCellEditor);
-		renderOutputFormatter(renderedAttributes, dateCellEditor);
+		if (dateCellEditor.getDateCellEditorBodyContent() != null) {
+			renderDateCellEditorBodyContent(renderedAttributes, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getCalendar() != null) {
+			renderCalendar(renderedAttributes, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getDateFormat() != null) {
+			renderDateFormat(renderedAttributes, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getInputFormatter() != null) {
+			renderInputFormatter(renderedAttributes, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getOutputFormatter() != null) {
+			renderOutputFormatter(renderedAttributes, dateCellEditor);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterBodyContentChange(renderedAfterEvents, dateCellEditor);
-		renderAfterCalendarChange(renderedAfterEvents, dateCellEditor);
-		renderAfterDateFormatChange(renderedAfterEvents, dateCellEditor);
-		renderAfterInputFormatterChange(renderedAfterEvents, dateCellEditor);
-		renderAfterOutputFormatterChange(renderedAfterEvents, dateCellEditor);
+		if (dateCellEditor.getAfterBodyContentChange() != null) {
+			renderAfterBodyContentChange(renderedAfterEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getAfterCalendarChange() != null) {
+			renderAfterCalendarChange(renderedAfterEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getAfterDateFormatChange() != null) {
+			renderAfterDateFormatChange(renderedAfterEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getAfterInputFormatterChange() != null) {
+			renderAfterInputFormatterChange(renderedAfterEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getAfterOutputFormatterChange() != null) {
+			renderAfterOutputFormatterChange(renderedAfterEvents, dateCellEditor);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnBodyContentChange(renderedOnEvents, dateCellEditor);
-		renderOnCalendarChange(renderedOnEvents, dateCellEditor);
-		renderOnDateFormatChange(renderedOnEvents, dateCellEditor);
-		renderOnInputFormatterChange(renderedOnEvents, dateCellEditor);
-		renderOnOutputFormatterChange(renderedOnEvents, dateCellEditor);
+		if (dateCellEditor.getOnBodyContentChange() != null) {
+			renderOnBodyContentChange(renderedOnEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getOnCalendarChange() != null) {
+			renderOnCalendarChange(renderedOnEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getOnDateFormatChange() != null) {
+			renderOnDateFormatChange(renderedOnEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getOnInputFormatterChange() != null) {
+			renderOnInputFormatterChange(renderedOnEvents, dateCellEditor);
+		}
+		
+		if (dateCellEditor.getOnOutputFormatterChange() != null) {
+			renderOnOutputFormatterChange(renderedOnEvents, dateCellEditor);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 
 	protected void renderDateCellEditorBodyContent(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String dateCellEditorBodyContent = dateCellEditor.getDateCellEditorBodyContent();
-
-		if (dateCellEditorBodyContent != null) {
-			renderedAttributes.add(renderString(DateCellEditor.DATE_CELL_EDITOR_BODY_CONTENT, dateCellEditorBodyContent));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.DATE_CELL_EDITOR_BODY_CONTENT, dateCellEditorBodyContent));
 	}
 
 	protected void renderCalendar(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.Object calendar = dateCellEditor.getCalendar();
-
-		if (calendar != null) {
-			renderedAttributes.add(renderObject(DateCellEditor.CALENDAR, calendar));
-		}
+		renderedAttributes.add(renderObject(DateCellEditor.CALENDAR, calendar));
 	}
 
 	protected void renderDateFormat(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String dateFormat = dateCellEditor.getDateFormat();
-
-		if (dateFormat != null) {
-			renderedAttributes.add(renderString(DateCellEditor.DATE_FORMAT, dateFormat));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.DATE_FORMAT, dateFormat));
 	}
 
 	protected void renderInputFormatter(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.Object inputFormatter = dateCellEditor.getInputFormatter();
-
-		if (inputFormatter != null) {
-			renderedAttributes.add(renderString(DateCellEditor.INPUT_FORMATTER, inputFormatter));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.INPUT_FORMATTER, inputFormatter));
 	}
 
 	protected void renderOutputFormatter(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.Object outputFormatter = dateCellEditor.getOutputFormatter();
-
-		if (outputFormatter != null) {
-			renderedAttributes.add(renderString(DateCellEditor.OUTPUT_FORMATTER, outputFormatter));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.OUTPUT_FORMATTER, outputFormatter));
 	}
 
 	protected void renderAfterBodyContentChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String afterBodyContentChange = dateCellEditor.getAfterBodyContentChange();
-
-		if (afterBodyContentChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
 	}
 
 	protected void renderAfterCalendarChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String afterCalendarChange = dateCellEditor.getAfterCalendarChange();
-
-		if (afterCalendarChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.AFTER_CALENDAR_CHANGE, afterCalendarChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.AFTER_CALENDAR_CHANGE, afterCalendarChange));
 	}
 
 	protected void renderAfterDateFormatChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String afterDateFormatChange = dateCellEditor.getAfterDateFormatChange();
-
-		if (afterDateFormatChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.AFTER_DATE_FORMAT_CHANGE, afterDateFormatChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.AFTER_DATE_FORMAT_CHANGE, afterDateFormatChange));
 	}
 
 	protected void renderAfterInputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String afterInputFormatterChange = dateCellEditor.getAfterInputFormatterChange();
-
-		if (afterInputFormatterChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.AFTER_INPUT_FORMATTER_CHANGE, afterInputFormatterChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.AFTER_INPUT_FORMATTER_CHANGE, afterInputFormatterChange));
 	}
 
 	protected void renderAfterOutputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String afterOutputFormatterChange = dateCellEditor.getAfterOutputFormatterChange();
-
-		if (afterOutputFormatterChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.AFTER_OUTPUT_FORMATTER_CHANGE, afterOutputFormatterChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.AFTER_OUTPUT_FORMATTER_CHANGE, afterOutputFormatterChange));
 	}
 
 	protected void renderOnBodyContentChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String onBodyContentChange = dateCellEditor.getOnBodyContentChange();
-
-		if (onBodyContentChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
 	}
 
 	protected void renderOnCalendarChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String onCalendarChange = dateCellEditor.getOnCalendarChange();
-
-		if (onCalendarChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.ON_CALENDAR_CHANGE, onCalendarChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.ON_CALENDAR_CHANGE, onCalendarChange));
 	}
 
 	protected void renderOnDateFormatChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String onDateFormatChange = dateCellEditor.getOnDateFormatChange();
-
-		if (onDateFormatChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.ON_DATE_FORMAT_CHANGE, onDateFormatChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.ON_DATE_FORMAT_CHANGE, onDateFormatChange));
 	}
 
 	protected void renderOnInputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String onInputFormatterChange = dateCellEditor.getOnInputFormatterChange();
-
-		if (onInputFormatterChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.ON_INPUT_FORMATTER_CHANGE, onInputFormatterChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.ON_INPUT_FORMATTER_CHANGE, onInputFormatterChange));
 	}
 
 	protected void renderOnOutputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
 		java.lang.String onOutputFormatterChange = dateCellEditor.getOnOutputFormatterChange();
-
-		if (onOutputFormatterChange != null) {
-			renderedAttributes.add(renderString(DateCellEditor.ON_OUTPUT_FORMATTER_CHANGE, onOutputFormatterChange));
-		}
+		renderedAttributes.add(renderString(DateCellEditor.ON_OUTPUT_FORMATTER_CHANGE, onOutputFormatterChange));
 	}
 
 }

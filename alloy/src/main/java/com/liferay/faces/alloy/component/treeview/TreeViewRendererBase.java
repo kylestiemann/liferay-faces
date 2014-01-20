@@ -49,15 +49,42 @@ public abstract class TreeViewRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderTreeViewChildren(renderedAttributes, treeView);
-		renderContainer(renderedAttributes, treeView);
-		renderDestroyed(renderedAttributes, treeView);
-		renderIndex(renderedAttributes, treeView);
-		renderInitialized(renderedAttributes, treeView);
-		renderLastSelected(renderedAttributes, treeView);
-		renderLazyLoad(renderedAttributes, treeView);
-		renderSelectOnToggle(renderedAttributes, treeView);
-		renderType(renderedAttributes, treeView);
+		if (treeView.getTreeViewChildren() != null) {
+			renderTreeViewChildren(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getContainer() != null) {
+			renderContainer(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getIndex() != null) {
+			renderIndex(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getInitialized() != null) {
+			renderInitialized(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getLastSelected() != null) {
+			renderLastSelected(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getLazyLoad() != null) {
+			renderLazyLoad(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getSelectOnToggle() != null) {
+			renderSelectOnToggle(renderedAttributes, treeView);
+		}
+		
+		if (treeView.getType() != null) {
+			renderType(renderedAttributes, treeView);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -70,15 +97,42 @@ public abstract class TreeViewRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterChildrenChange(renderedAfterEvents, treeView);
-		renderAfterContainerChange(renderedAfterEvents, treeView);
-		renderAfterDestroyedChange(renderedAfterEvents, treeView);
-		renderAfterIndexChange(renderedAfterEvents, treeView);
-		renderAfterInitializedChange(renderedAfterEvents, treeView);
-		renderAfterLastSelectedChange(renderedAfterEvents, treeView);
-		renderAfterLazyLoadChange(renderedAfterEvents, treeView);
-		renderAfterSelectOnToggleChange(renderedAfterEvents, treeView);
-		renderAfterTypeChange(renderedAfterEvents, treeView);
+		if (treeView.getAfterChildrenChange() != null) {
+			renderAfterChildrenChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterContainerChange() != null) {
+			renderAfterContainerChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterIndexChange() != null) {
+			renderAfterIndexChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterLastSelectedChange() != null) {
+			renderAfterLastSelectedChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterLazyLoadChange() != null) {
+			renderAfterLazyLoadChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterSelectOnToggleChange() != null) {
+			renderAfterSelectOnToggleChange(renderedAfterEvents, treeView);
+		}
+		
+		if (treeView.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, treeView);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -99,15 +153,42 @@ public abstract class TreeViewRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnChildrenChange(renderedOnEvents, treeView);
-		renderOnContainerChange(renderedOnEvents, treeView);
-		renderOnDestroyedChange(renderedOnEvents, treeView);
-		renderOnIndexChange(renderedOnEvents, treeView);
-		renderOnInitializedChange(renderedOnEvents, treeView);
-		renderOnLastSelectedChange(renderedOnEvents, treeView);
-		renderOnLazyLoadChange(renderedOnEvents, treeView);
-		renderOnSelectOnToggleChange(renderedOnEvents, treeView);
-		renderOnTypeChange(renderedOnEvents, treeView);
+		if (treeView.getOnChildrenChange() != null) {
+			renderOnChildrenChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnContainerChange() != null) {
+			renderOnContainerChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnIndexChange() != null) {
+			renderOnIndexChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnLastSelectedChange() != null) {
+			renderOnLastSelectedChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnLazyLoadChange() != null) {
+			renderOnLazyLoadChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnSelectOnToggleChange() != null) {
+			renderOnSelectOnToggleChange(renderedOnEvents, treeView);
+		}
+		
+		if (treeView.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, treeView);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -132,218 +213,137 @@ public abstract class TreeViewRendererBase extends RendererBase {
 
 	protected void renderTreeViewChildren(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Object treeViewChildren = treeView.getTreeViewChildren();
-
-		if (treeViewChildren != null) {
-			renderedAttributes.add(renderArray(TreeView.TREE_VIEW_CHILDREN, treeViewChildren));
-		}
+		renderedAttributes.add(renderArray(TreeView.TREE_VIEW_CHILDREN, treeViewChildren));
 	}
 
 	protected void renderContainer(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String container = treeView.getContainer();
-
-		if (container != null) {
-			renderedAttributes.add(renderString(TreeView.CONTAINER, container));
-		}
+		renderedAttributes.add(renderString(TreeView.CONTAINER, container));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Boolean destroyed = treeView.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TreeView.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TreeView.DESTROYED, destroyed));
 	}
 
 	protected void renderIndex(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Object index = treeView.getIndex();
-
-		if (index != null) {
-			renderedAttributes.add(renderObject(TreeView.INDEX, index));
-		}
+		renderedAttributes.add(renderObject(TreeView.INDEX, index));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Boolean initialized = treeView.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TreeView.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TreeView.INITIALIZED, initialized));
 	}
 
 	protected void renderLastSelected(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Object lastSelected = treeView.getLastSelected();
-
-		if (lastSelected != null) {
-			renderedAttributes.add(renderString(TreeView.LAST_SELECTED, lastSelected));
-		}
+		renderedAttributes.add(renderString(TreeView.LAST_SELECTED, lastSelected));
 	}
 
 	protected void renderLazyLoad(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Boolean lazyLoad = treeView.getLazyLoad();
-
-		if (lazyLoad != null) {
-			renderedAttributes.add(renderBoolean(TreeView.LAZY_LOAD, lazyLoad));
-		}
+		renderedAttributes.add(renderBoolean(TreeView.LAZY_LOAD, lazyLoad));
 	}
 
 	protected void renderSelectOnToggle(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.Boolean selectOnToggle = treeView.getSelectOnToggle();
-
-		if (selectOnToggle != null) {
-			renderedAttributes.add(renderBoolean(TreeView.SELECT_ON_TOGGLE, selectOnToggle));
-		}
+		renderedAttributes.add(renderBoolean(TreeView.SELECT_ON_TOGGLE, selectOnToggle));
 	}
 
 	protected void renderType(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String type = treeView.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(TreeView.TYPE, type));
-		}
+		renderedAttributes.add(renderString(TreeView.TYPE, type));
 	}
 
 	protected void renderAfterChildrenChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterChildrenChange = treeView.getAfterChildrenChange();
-
-		if (afterChildrenChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_CHILDREN_CHANGE, afterChildrenChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_CHILDREN_CHANGE, afterChildrenChange));
 	}
 
 	protected void renderAfterContainerChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterContainerChange = treeView.getAfterContainerChange();
-
-		if (afterContainerChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_CONTAINER_CHANGE, afterContainerChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_CONTAINER_CHANGE, afterContainerChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterDestroyedChange = treeView.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterIndexChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterIndexChange = treeView.getAfterIndexChange();
-
-		if (afterIndexChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_INDEX_CHANGE, afterIndexChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_INDEX_CHANGE, afterIndexChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterInitializedChange = treeView.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterLastSelectedChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterLastSelectedChange = treeView.getAfterLastSelectedChange();
-
-		if (afterLastSelectedChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_LAST_SELECTED_CHANGE, afterLastSelectedChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_LAST_SELECTED_CHANGE, afterLastSelectedChange));
 	}
 
 	protected void renderAfterLazyLoadChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterLazyLoadChange = treeView.getAfterLazyLoadChange();
-
-		if (afterLazyLoadChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_LAZY_LOAD_CHANGE, afterLazyLoadChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_LAZY_LOAD_CHANGE, afterLazyLoadChange));
 	}
 
 	protected void renderAfterSelectOnToggleChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterSelectOnToggleChange = treeView.getAfterSelectOnToggleChange();
-
-		if (afterSelectOnToggleChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_SELECT_ON_TOGGLE_CHANGE, afterSelectOnToggleChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_SELECT_ON_TOGGLE_CHANGE, afterSelectOnToggleChange));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String afterTypeChange = treeView.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(TreeView.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(TreeView.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderOnChildrenChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onChildrenChange = treeView.getOnChildrenChange();
-
-		if (onChildrenChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_CHILDREN_CHANGE, onChildrenChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_CHILDREN_CHANGE, onChildrenChange));
 	}
 
 	protected void renderOnContainerChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onContainerChange = treeView.getOnContainerChange();
-
-		if (onContainerChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_CONTAINER_CHANGE, onContainerChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_CONTAINER_CHANGE, onContainerChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onDestroyedChange = treeView.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnIndexChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onIndexChange = treeView.getOnIndexChange();
-
-		if (onIndexChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_INDEX_CHANGE, onIndexChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_INDEX_CHANGE, onIndexChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onInitializedChange = treeView.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnLastSelectedChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onLastSelectedChange = treeView.getOnLastSelectedChange();
-
-		if (onLastSelectedChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_LAST_SELECTED_CHANGE, onLastSelectedChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_LAST_SELECTED_CHANGE, onLastSelectedChange));
 	}
 
 	protected void renderOnLazyLoadChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onLazyLoadChange = treeView.getOnLazyLoadChange();
-
-		if (onLazyLoadChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_LAZY_LOAD_CHANGE, onLazyLoadChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_LAZY_LOAD_CHANGE, onLazyLoadChange));
 	}
 
 	protected void renderOnSelectOnToggleChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onSelectOnToggleChange = treeView.getOnSelectOnToggleChange();
-
-		if (onSelectOnToggleChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_SELECT_ON_TOGGLE_CHANGE, onSelectOnToggleChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_SELECT_ON_TOGGLE_CHANGE, onSelectOnToggleChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, TreeView treeView) throws IOException {
 		java.lang.String onTypeChange = treeView.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(TreeView.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(TreeView.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 }

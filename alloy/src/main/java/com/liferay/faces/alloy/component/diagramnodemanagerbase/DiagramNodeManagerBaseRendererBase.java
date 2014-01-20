@@ -49,8 +49,14 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDestroyed(renderedAttributes, diagramNodeManagerBase);
-		renderInitialized(renderedAttributes, diagramNodeManagerBase);
+		if (diagramNodeManagerBase.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, diagramNodeManagerBase);
+		}
+		
+		if (diagramNodeManagerBase.getInitialized() != null) {
+			renderInitialized(renderedAttributes, diagramNodeManagerBase);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -63,8 +69,14 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDestroyedChange(renderedAfterEvents, diagramNodeManagerBase);
-		renderAfterInitializedChange(renderedAfterEvents, diagramNodeManagerBase);
+		if (diagramNodeManagerBase.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, diagramNodeManagerBase);
+		}
+		
+		if (diagramNodeManagerBase.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, diagramNodeManagerBase);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -85,8 +97,14 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDestroyedChange(renderedOnEvents, diagramNodeManagerBase);
-		renderOnInitializedChange(renderedOnEvents, diagramNodeManagerBase);
+		if (diagramNodeManagerBase.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, diagramNodeManagerBase);
+		}
+		
+		if (diagramNodeManagerBase.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, diagramNodeManagerBase);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -111,50 +129,32 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 
 	protected void renderDestroyed(List<String> renderedAttributes, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 		java.lang.Boolean destroyed = diagramNodeManagerBase.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeManagerBase.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeManagerBase.DESTROYED, destroyed));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 		java.lang.Boolean initialized = diagramNodeManagerBase.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeManagerBase.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeManagerBase.INITIALIZED, initialized));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 		java.lang.String afterDestroyedChange = diagramNodeManagerBase.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeManagerBase.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeManagerBase.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 		java.lang.String afterInitializedChange = diagramNodeManagerBase.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeManagerBase.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeManagerBase.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 		java.lang.String onDestroyedChange = diagramNodeManagerBase.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeManagerBase.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeManagerBase.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, DiagramNodeManagerBase diagramNodeManagerBase) throws IOException {
 		java.lang.String onInitializedChange = diagramNodeManagerBase.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeManagerBase.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeManagerBase.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 }

@@ -49,49 +49,178 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderActivateFirstItem(renderedAttributes, autoCompleteList);
-		renderActiveItem(renderedAttributes, autoCompleteList);
-		renderAlign(renderedAttributes, autoCompleteList);
-		renderAlignOn(renderedAttributes, autoCompleteList);
-		renderAlwaysShowList(renderedAttributes, autoCompleteList);
-		renderAutoCompleteListBodyContent(renderedAttributes, autoCompleteList);
-		renderBoundingBox(renderedAttributes, autoCompleteList);
-		renderCentered(renderedAttributes, autoCompleteList);
-		renderCircular(renderedAttributes, autoCompleteList);
-		renderConstrain(renderedAttributes, autoCompleteList);
-		renderContentBox(renderedAttributes, autoCompleteList);
-		renderDestroyed(renderedAttributes, autoCompleteList);
-		renderDisabled(renderedAttributes, autoCompleteList);
-		renderFillHeight(renderedAttributes, autoCompleteList);
-		renderFocused(renderedAttributes, autoCompleteList);
-		renderFooterContent(renderedAttributes, autoCompleteList);
-		renderHeaderContent(renderedAttributes, autoCompleteList);
-		renderHeight(renderedAttributes, autoCompleteList);
-		renderHideOn(renderedAttributes, autoCompleteList);
-		renderHost(renderedAttributes, autoCompleteList);
-		renderHoveredItem(renderedAttributes, autoCompleteList);
-		renderAutoCompleteListId(renderedAttributes, autoCompleteList);
-		renderInitialized(renderedAttributes, autoCompleteList);
-		renderListNode(renderedAttributes, autoCompleteList);
-		renderLoadingMessage(renderedAttributes, autoCompleteList);
-		renderAutoCompleteListLocale(renderedAttributes, autoCompleteList);
-		renderPreventOverlap(renderedAttributes, autoCompleteList);
-		renderRender(renderedAttributes, autoCompleteList);
-		renderRendered(renderedAttributes, autoCompleteList);
-		renderResults(renderedAttributes, autoCompleteList);
-		renderScrollIntoView(renderedAttributes, autoCompleteList);
-		renderSelectedEntry(renderedAttributes, autoCompleteList);
-		renderShim(renderedAttributes, autoCompleteList);
-		renderSrcNode(renderedAttributes, autoCompleteList);
-		renderStrings(renderedAttributes, autoCompleteList);
-		renderTabIndex(renderedAttributes, autoCompleteList);
-		renderTabSelect(renderedAttributes, autoCompleteList);
-		renderVisible(renderedAttributes, autoCompleteList);
-		renderWidth(renderedAttributes, autoCompleteList);
-		renderX(renderedAttributes, autoCompleteList);
-		renderXy(renderedAttributes, autoCompleteList);
-		renderY(renderedAttributes, autoCompleteList);
-		renderZIndex(renderedAttributes, autoCompleteList);
+		if (autoCompleteList.getActivateFirstItem() != null) {
+			renderActivateFirstItem(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getActiveItem() != null) {
+			renderActiveItem(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAlign() != null) {
+			renderAlign(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAlignOn() != null) {
+			renderAlignOn(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAlwaysShowList() != null) {
+			renderAlwaysShowList(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAutoCompleteListBodyContent() != null) {
+			renderAutoCompleteListBodyContent(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getBoundingBox() != null) {
+			renderBoundingBox(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getCentered() != null) {
+			renderCentered(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getCircular() != null) {
+			renderCircular(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getConstrain() != null) {
+			renderConstrain(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getContentBox() != null) {
+			renderContentBox(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getDisabled() != null) {
+			renderDisabled(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getFillHeight() != null) {
+			renderFillHeight(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getFocused() != null) {
+			renderFocused(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getFooterContent() != null) {
+			renderFooterContent(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getHeaderContent() != null) {
+			renderHeaderContent(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getHeight() != null) {
+			renderHeight(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getHideOn() != null) {
+			renderHideOn(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getHost() != null) {
+			renderHost(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getHoveredItem() != null) {
+			renderHoveredItem(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAutoCompleteListId() != null) {
+			renderAutoCompleteListId(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getInitialized() != null) {
+			renderInitialized(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getListNode() != null) {
+			renderListNode(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getLoadingMessage() != null) {
+			renderLoadingMessage(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAutoCompleteListLocale() != null) {
+			renderAutoCompleteListLocale(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getPreventOverlap() != null) {
+			renderPreventOverlap(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getRender() != null) {
+			renderRender(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getRendered() != null) {
+			renderRendered(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getResults() != null) {
+			renderResults(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getScrollIntoView() != null) {
+			renderScrollIntoView(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getSelectedEntry() != null) {
+			renderSelectedEntry(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getShim() != null) {
+			renderShim(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getSrcNode() != null) {
+			renderSrcNode(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getStrings() != null) {
+			renderStrings(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getTabSelect() != null) {
+			renderTabSelect(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getVisible() != null) {
+			renderVisible(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getWidth() != null) {
+			renderWidth(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getX() != null) {
+			renderX(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getXy() != null) {
+			renderXy(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getY() != null) {
+			renderY(renderedAttributes, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getZIndex() != null) {
+			renderZIndex(renderedAttributes, autoCompleteList);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -104,49 +233,178 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterActivateFirstItemChange(renderedAfterEvents, autoCompleteList);
-		renderAfterActiveItemChange(renderedAfterEvents, autoCompleteList);
-		renderAfterAlignChange(renderedAfterEvents, autoCompleteList);
-		renderAfterAlignOnChange(renderedAfterEvents, autoCompleteList);
-		renderAfterAlwaysShowListChange(renderedAfterEvents, autoCompleteList);
-		renderAfterBodyContentChange(renderedAfterEvents, autoCompleteList);
-		renderAfterBoundingBoxChange(renderedAfterEvents, autoCompleteList);
-		renderAfterCenteredChange(renderedAfterEvents, autoCompleteList);
-		renderAfterCircularChange(renderedAfterEvents, autoCompleteList);
-		renderAfterConstrainChange(renderedAfterEvents, autoCompleteList);
-		renderAfterContentBoxChange(renderedAfterEvents, autoCompleteList);
-		renderAfterDestroyedChange(renderedAfterEvents, autoCompleteList);
-		renderAfterDisabledChange(renderedAfterEvents, autoCompleteList);
-		renderAfterFillHeightChange(renderedAfterEvents, autoCompleteList);
-		renderAfterFocusedChange(renderedAfterEvents, autoCompleteList);
-		renderAfterFooterContentChange(renderedAfterEvents, autoCompleteList);
-		renderAfterHeaderContentChange(renderedAfterEvents, autoCompleteList);
-		renderAfterHeightChange(renderedAfterEvents, autoCompleteList);
-		renderAfterHideOnChange(renderedAfterEvents, autoCompleteList);
-		renderAfterHostChange(renderedAfterEvents, autoCompleteList);
-		renderAfterHoveredItemChange(renderedAfterEvents, autoCompleteList);
-		renderAfterIdChange(renderedAfterEvents, autoCompleteList);
-		renderAfterInitializedChange(renderedAfterEvents, autoCompleteList);
-		renderAfterListNodeChange(renderedAfterEvents, autoCompleteList);
-		renderAfterLoadingMessageChange(renderedAfterEvents, autoCompleteList);
-		renderAfterLocaleChange(renderedAfterEvents, autoCompleteList);
-		renderAfterPreventOverlapChange(renderedAfterEvents, autoCompleteList);
-		renderAfterRenderChange(renderedAfterEvents, autoCompleteList);
-		renderAfterRenderedChange(renderedAfterEvents, autoCompleteList);
-		renderAfterResultsChange(renderedAfterEvents, autoCompleteList);
-		renderAfterScrollIntoViewChange(renderedAfterEvents, autoCompleteList);
-		renderAfterSelectedEntryChange(renderedAfterEvents, autoCompleteList);
-		renderAfterShimChange(renderedAfterEvents, autoCompleteList);
-		renderAfterSrcNodeChange(renderedAfterEvents, autoCompleteList);
-		renderAfterStringsChange(renderedAfterEvents, autoCompleteList);
-		renderAfterTabIndexChange(renderedAfterEvents, autoCompleteList);
-		renderAfterTabSelectChange(renderedAfterEvents, autoCompleteList);
-		renderAfterVisibleChange(renderedAfterEvents, autoCompleteList);
-		renderAfterWidthChange(renderedAfterEvents, autoCompleteList);
-		renderAfterXChange(renderedAfterEvents, autoCompleteList);
-		renderAfterXyChange(renderedAfterEvents, autoCompleteList);
-		renderAfterYChange(renderedAfterEvents, autoCompleteList);
-		renderAfterZIndexChange(renderedAfterEvents, autoCompleteList);
+		if (autoCompleteList.getAfterActivateFirstItemChange() != null) {
+			renderAfterActivateFirstItemChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterActiveItemChange() != null) {
+			renderAfterActiveItemChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterAlignChange() != null) {
+			renderAfterAlignChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterAlignOnChange() != null) {
+			renderAfterAlignOnChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterAlwaysShowListChange() != null) {
+			renderAfterAlwaysShowListChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterBodyContentChange() != null) {
+			renderAfterBodyContentChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterBoundingBoxChange() != null) {
+			renderAfterBoundingBoxChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterCenteredChange() != null) {
+			renderAfterCenteredChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterCircularChange() != null) {
+			renderAfterCircularChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterConstrainChange() != null) {
+			renderAfterConstrainChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterContentBoxChange() != null) {
+			renderAfterContentBoxChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterFillHeightChange() != null) {
+			renderAfterFillHeightChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterFocusedChange() != null) {
+			renderAfterFocusedChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterFooterContentChange() != null) {
+			renderAfterFooterContentChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterHeaderContentChange() != null) {
+			renderAfterHeaderContentChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterHeightChange() != null) {
+			renderAfterHeightChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterHideOnChange() != null) {
+			renderAfterHideOnChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterHoveredItemChange() != null) {
+			renderAfterHoveredItemChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterListNodeChange() != null) {
+			renderAfterListNodeChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterLoadingMessageChange() != null) {
+			renderAfterLoadingMessageChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterLocaleChange() != null) {
+			renderAfterLocaleChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterPreventOverlapChange() != null) {
+			renderAfterPreventOverlapChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterRenderChange() != null) {
+			renderAfterRenderChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterRenderedChange() != null) {
+			renderAfterRenderedChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterResultsChange() != null) {
+			renderAfterResultsChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterScrollIntoViewChange() != null) {
+			renderAfterScrollIntoViewChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterSelectedEntryChange() != null) {
+			renderAfterSelectedEntryChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterShimChange() != null) {
+			renderAfterShimChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterSrcNodeChange() != null) {
+			renderAfterSrcNodeChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterTabSelectChange() != null) {
+			renderAfterTabSelectChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterXChange() != null) {
+			renderAfterXChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterXyChange() != null) {
+			renderAfterXyChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterYChange() != null) {
+			renderAfterYChange(renderedAfterEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getAfterZIndexChange() != null) {
+			renderAfterZIndexChange(renderedAfterEvents, autoCompleteList);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -167,49 +425,178 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnActivateFirstItemChange(renderedOnEvents, autoCompleteList);
-		renderOnActiveItemChange(renderedOnEvents, autoCompleteList);
-		renderOnAlignChange(renderedOnEvents, autoCompleteList);
-		renderOnAlignOnChange(renderedOnEvents, autoCompleteList);
-		renderOnAlwaysShowListChange(renderedOnEvents, autoCompleteList);
-		renderOnBodyContentChange(renderedOnEvents, autoCompleteList);
-		renderOnBoundingBoxChange(renderedOnEvents, autoCompleteList);
-		renderOnCenteredChange(renderedOnEvents, autoCompleteList);
-		renderOnCircularChange(renderedOnEvents, autoCompleteList);
-		renderOnConstrainChange(renderedOnEvents, autoCompleteList);
-		renderOnContentBoxChange(renderedOnEvents, autoCompleteList);
-		renderOnDestroyedChange(renderedOnEvents, autoCompleteList);
-		renderOnDisabledChange(renderedOnEvents, autoCompleteList);
-		renderOnFillHeightChange(renderedOnEvents, autoCompleteList);
-		renderOnFocusedChange(renderedOnEvents, autoCompleteList);
-		renderOnFooterContentChange(renderedOnEvents, autoCompleteList);
-		renderOnHeaderContentChange(renderedOnEvents, autoCompleteList);
-		renderOnHeightChange(renderedOnEvents, autoCompleteList);
-		renderOnHideOnChange(renderedOnEvents, autoCompleteList);
-		renderOnHostChange(renderedOnEvents, autoCompleteList);
-		renderOnHoveredItemChange(renderedOnEvents, autoCompleteList);
-		renderOnIdChange(renderedOnEvents, autoCompleteList);
-		renderOnInitializedChange(renderedOnEvents, autoCompleteList);
-		renderOnListNodeChange(renderedOnEvents, autoCompleteList);
-		renderOnLoadingMessageChange(renderedOnEvents, autoCompleteList);
-		renderOnLocaleChange(renderedOnEvents, autoCompleteList);
-		renderOnPreventOverlapChange(renderedOnEvents, autoCompleteList);
-		renderOnRenderChange(renderedOnEvents, autoCompleteList);
-		renderOnRenderedChange(renderedOnEvents, autoCompleteList);
-		renderOnResultsChange(renderedOnEvents, autoCompleteList);
-		renderOnScrollIntoViewChange(renderedOnEvents, autoCompleteList);
-		renderOnSelectedEntryChange(renderedOnEvents, autoCompleteList);
-		renderOnShimChange(renderedOnEvents, autoCompleteList);
-		renderOnSrcNodeChange(renderedOnEvents, autoCompleteList);
-		renderOnStringsChange(renderedOnEvents, autoCompleteList);
-		renderOnTabIndexChange(renderedOnEvents, autoCompleteList);
-		renderOnTabSelectChange(renderedOnEvents, autoCompleteList);
-		renderOnVisibleChange(renderedOnEvents, autoCompleteList);
-		renderOnWidthChange(renderedOnEvents, autoCompleteList);
-		renderOnXChange(renderedOnEvents, autoCompleteList);
-		renderOnXyChange(renderedOnEvents, autoCompleteList);
-		renderOnYChange(renderedOnEvents, autoCompleteList);
-		renderOnZIndexChange(renderedOnEvents, autoCompleteList);
+		if (autoCompleteList.getOnActivateFirstItemChange() != null) {
+			renderOnActivateFirstItemChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnActiveItemChange() != null) {
+			renderOnActiveItemChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnAlignChange() != null) {
+			renderOnAlignChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnAlignOnChange() != null) {
+			renderOnAlignOnChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnAlwaysShowListChange() != null) {
+			renderOnAlwaysShowListChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnBodyContentChange() != null) {
+			renderOnBodyContentChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnBoundingBoxChange() != null) {
+			renderOnBoundingBoxChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnCenteredChange() != null) {
+			renderOnCenteredChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnCircularChange() != null) {
+			renderOnCircularChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnConstrainChange() != null) {
+			renderOnConstrainChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnContentBoxChange() != null) {
+			renderOnContentBoxChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnFillHeightChange() != null) {
+			renderOnFillHeightChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnFocusedChange() != null) {
+			renderOnFocusedChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnFooterContentChange() != null) {
+			renderOnFooterContentChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnHeaderContentChange() != null) {
+			renderOnHeaderContentChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnHeightChange() != null) {
+			renderOnHeightChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnHideOnChange() != null) {
+			renderOnHideOnChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnHoveredItemChange() != null) {
+			renderOnHoveredItemChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnListNodeChange() != null) {
+			renderOnListNodeChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnLoadingMessageChange() != null) {
+			renderOnLoadingMessageChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnLocaleChange() != null) {
+			renderOnLocaleChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnPreventOverlapChange() != null) {
+			renderOnPreventOverlapChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnRenderChange() != null) {
+			renderOnRenderChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnRenderedChange() != null) {
+			renderOnRenderedChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnResultsChange() != null) {
+			renderOnResultsChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnScrollIntoViewChange() != null) {
+			renderOnScrollIntoViewChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnSelectedEntryChange() != null) {
+			renderOnSelectedEntryChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnShimChange() != null) {
+			renderOnShimChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnSrcNodeChange() != null) {
+			renderOnSrcNodeChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnTabSelectChange() != null) {
+			renderOnTabSelectChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnXChange() != null) {
+			renderOnXChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnXyChange() != null) {
+			renderOnXyChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnYChange() != null) {
+			renderOnYChange(renderedOnEvents, autoCompleteList);
+		}
+		
+		if (autoCompleteList.getOnZIndexChange() != null) {
+			renderOnZIndexChange(renderedOnEvents, autoCompleteList);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -234,1034 +621,647 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 
 	protected void renderActivateFirstItem(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean activateFirstItem = autoCompleteList.getActivateFirstItem();
-
-		if (activateFirstItem != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.ACTIVATE_FIRST_ITEM, activateFirstItem));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.ACTIVATE_FIRST_ITEM, activateFirstItem));
 	}
 
 	protected void renderActiveItem(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object activeItem = autoCompleteList.getActiveItem();
-
-		if (activeItem != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ACTIVE_ITEM, activeItem));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ACTIVE_ITEM, activeItem));
 	}
 
 	protected void renderAlign(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object align = autoCompleteList.getAlign();
-
-		if (align != null) {
-			renderedAttributes.add(renderObject(AutoCompleteList.ALIGN, align));
-		}
+		renderedAttributes.add(renderObject(AutoCompleteList.ALIGN, align));
 	}
 
 	protected void renderAlignOn(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object alignOn = autoCompleteList.getAlignOn();
-
-		if (alignOn != null) {
-			renderedAttributes.add(renderArray(AutoCompleteList.ALIGN_ON, alignOn));
-		}
+		renderedAttributes.add(renderArray(AutoCompleteList.ALIGN_ON, alignOn));
 	}
 
 	protected void renderAlwaysShowList(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean alwaysShowList = autoCompleteList.getAlwaysShowList();
-
-		if (alwaysShowList != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.ALWAYS_SHOW_LIST, alwaysShowList));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.ALWAYS_SHOW_LIST, alwaysShowList));
 	}
 
 	protected void renderAutoCompleteListBodyContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object autoCompleteListBodyContent = autoCompleteList.getAutoCompleteListBodyContent();
-
-		if (autoCompleteListBodyContent != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_BODY_CONTENT, autoCompleteListBodyContent));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_BODY_CONTENT, autoCompleteListBodyContent));
 	}
 
 	protected void renderBoundingBox(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String boundingBox = autoCompleteList.getBoundingBox();
-
-		if (boundingBox != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.BOUNDING_BOX, boundingBox));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.BOUNDING_BOX, boundingBox));
 	}
 
 	protected void renderCentered(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object centered = autoCompleteList.getCentered();
-
-		if (centered != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.CENTERED, centered));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.CENTERED, centered));
 	}
 
 	protected void renderCircular(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean circular = autoCompleteList.getCircular();
-
-		if (circular != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.CIRCULAR, circular));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.CIRCULAR, circular));
 	}
 
 	protected void renderConstrain(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object constrain = autoCompleteList.getConstrain();
-
-		if (constrain != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.CONSTRAIN, constrain));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.CONSTRAIN, constrain));
 	}
 
 	protected void renderContentBox(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String contentBox = autoCompleteList.getContentBox();
-
-		if (contentBox != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.CONTENT_BOX, contentBox));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.CONTENT_BOX, contentBox));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean destroyed = autoCompleteList.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean disabled = autoCompleteList.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.DISABLED, disabled));
 	}
 
 	protected void renderFillHeight(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object fillHeight = autoCompleteList.getFillHeight();
-
-		if (fillHeight != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.FILL_HEIGHT, fillHeight));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.FILL_HEIGHT, fillHeight));
 	}
 
 	protected void renderFocused(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean focused = autoCompleteList.getFocused();
-
-		if (focused != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.FOCUSED, focused));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.FOCUSED, focused));
 	}
 
 	protected void renderFooterContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object footerContent = autoCompleteList.getFooterContent();
-
-		if (footerContent != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.FOOTER_CONTENT, footerContent));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.FOOTER_CONTENT, footerContent));
 	}
 
 	protected void renderHeaderContent(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object headerContent = autoCompleteList.getHeaderContent();
-
-		if (headerContent != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.HEADER_CONTENT, headerContent));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.HEADER_CONTENT, headerContent));
 	}
 
 	protected void renderHeight(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object height = autoCompleteList.getHeight();
-
-		if (height != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.HEIGHT, height));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.HEIGHT, height));
 	}
 
 	protected void renderHideOn(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object hideOn = autoCompleteList.getHideOn();
-
-		if (hideOn != null) {
-			renderedAttributes.add(renderArray(AutoCompleteList.HIDE_ON, hideOn));
-		}
+		renderedAttributes.add(renderArray(AutoCompleteList.HIDE_ON, hideOn));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object host = autoCompleteList.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderObject(AutoCompleteList.HOST, host));
-		}
+		renderedAttributes.add(renderObject(AutoCompleteList.HOST, host));
 	}
 
 	protected void renderHoveredItem(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object hoveredItem = autoCompleteList.getHoveredItem();
-
-		if (hoveredItem != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.HOVERED_ITEM, hoveredItem));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.HOVERED_ITEM, hoveredItem));
 	}
 
 	protected void renderAutoCompleteListId(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String autoCompleteListId = autoCompleteList.getAutoCompleteListId();
-
-		if (autoCompleteListId != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_ID, autoCompleteListId));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_ID, autoCompleteListId));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean initialized = autoCompleteList.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.INITIALIZED, initialized));
 	}
 
 	protected void renderListNode(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object listNode = autoCompleteList.getListNode();
-
-		if (listNode != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.LIST_NODE, listNode));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.LIST_NODE, listNode));
 	}
 
 	protected void renderLoadingMessage(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String loadingMessage = autoCompleteList.getLoadingMessage();
-
-		if (loadingMessage != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.LOADING_MESSAGE, loadingMessage));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.LOADING_MESSAGE, loadingMessage));
 	}
 
 	protected void renderAutoCompleteListLocale(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String autoCompleteListLocale = autoCompleteList.getAutoCompleteListLocale();
-
-		if (autoCompleteListLocale != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_LOCALE, autoCompleteListLocale));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AUTO_COMPLETE_LIST_LOCALE, autoCompleteListLocale));
 	}
 
 	protected void renderPreventOverlap(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean preventOverlap = autoCompleteList.getPreventOverlap();
-
-		if (preventOverlap != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.PREVENT_OVERLAP, preventOverlap));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.PREVENT_OVERLAP, preventOverlap));
 	}
 
 	protected void renderRender(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object render = autoCompleteList.getRender();
-
-		if (render != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.RENDER, render));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.RENDER, render));
 	}
 
 	protected void renderRendered(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean rendered = autoCompleteList.getRendered();
-
-		if (rendered != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.RENDERED, rendered));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.RENDERED, rendered));
 	}
 
 	protected void renderResults(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object results = autoCompleteList.getResults();
-
-		if (results != null) {
-			renderedAttributes.add(renderArray(AutoCompleteList.RESULTS, results));
-		}
+		renderedAttributes.add(renderArray(AutoCompleteList.RESULTS, results));
 	}
 
 	protected void renderScrollIntoView(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean scrollIntoView = autoCompleteList.getScrollIntoView();
-
-		if (scrollIntoView != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.SCROLL_INTO_VIEW, scrollIntoView));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.SCROLL_INTO_VIEW, scrollIntoView));
 	}
 
 	protected void renderSelectedEntry(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String selectedEntry = autoCompleteList.getSelectedEntry();
-
-		if (selectedEntry != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.SELECTED_ENTRY, selectedEntry));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.SELECTED_ENTRY, selectedEntry));
 	}
 
 	protected void renderShim(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean shim = autoCompleteList.getShim();
-
-		if (shim != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.SHIM, shim));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.SHIM, shim));
 	}
 
 	protected void renderSrcNode(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String srcNode = autoCompleteList.getSrcNode();
-
-		if (srcNode != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.SRC_NODE, srcNode));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.SRC_NODE, srcNode));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object strings = autoCompleteList.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(AutoCompleteList.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(AutoCompleteList.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object tabIndex = autoCompleteList.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(AutoCompleteList.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(AutoCompleteList.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderTabSelect(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean tabSelect = autoCompleteList.getTabSelect();
-
-		if (tabSelect != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.TAB_SELECT, tabSelect));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.TAB_SELECT, tabSelect));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Boolean visible = autoCompleteList.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(AutoCompleteList.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(AutoCompleteList.VISIBLE, visible));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object width = autoCompleteList.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.WIDTH, width));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.WIDTH, width));
 	}
 
 	protected void renderX(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object x = autoCompleteList.getX();
-
-		if (x != null) {
-			renderedAttributes.add(renderNumber(AutoCompleteList.X, x));
-		}
+		renderedAttributes.add(renderNumber(AutoCompleteList.X, x));
 	}
 
 	protected void renderXy(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object xy = autoCompleteList.getXy();
-
-		if (xy != null) {
-			renderedAttributes.add(renderArray(AutoCompleteList.XY, xy));
-		}
+		renderedAttributes.add(renderArray(AutoCompleteList.XY, xy));
 	}
 
 	protected void renderY(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object y = autoCompleteList.getY();
-
-		if (y != null) {
-			renderedAttributes.add(renderNumber(AutoCompleteList.Y, y));
-		}
+		renderedAttributes.add(renderNumber(AutoCompleteList.Y, y));
 	}
 
 	protected void renderZIndex(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.Object zIndex = autoCompleteList.getZIndex();
-
-		if (zIndex != null) {
-			renderedAttributes.add(renderNumber(AutoCompleteList.Z_INDEX, zIndex));
-		}
+		renderedAttributes.add(renderNumber(AutoCompleteList.Z_INDEX, zIndex));
 	}
 
 	protected void renderAfterActivateFirstItemChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterActivateFirstItemChange = autoCompleteList.getAfterActivateFirstItemChange();
-
-		if (afterActivateFirstItemChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ACTIVATE_FIRST_ITEM_CHANGE, afterActivateFirstItemChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ACTIVATE_FIRST_ITEM_CHANGE, afterActivateFirstItemChange));
 	}
 
 	protected void renderAfterActiveItemChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterActiveItemChange = autoCompleteList.getAfterActiveItemChange();
-
-		if (afterActiveItemChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ACTIVE_ITEM_CHANGE, afterActiveItemChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ACTIVE_ITEM_CHANGE, afterActiveItemChange));
 	}
 
 	protected void renderAfterAlignChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterAlignChange = autoCompleteList.getAfterAlignChange();
-
-		if (afterAlignChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ALIGN_CHANGE, afterAlignChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ALIGN_CHANGE, afterAlignChange));
 	}
 
 	protected void renderAfterAlignOnChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterAlignOnChange = autoCompleteList.getAfterAlignOnChange();
-
-		if (afterAlignOnChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
 	}
 
 	protected void renderAfterAlwaysShowListChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterAlwaysShowListChange = autoCompleteList.getAfterAlwaysShowListChange();
-
-		if (afterAlwaysShowListChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ALWAYS_SHOW_LIST_CHANGE, afterAlwaysShowListChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ALWAYS_SHOW_LIST_CHANGE, afterAlwaysShowListChange));
 	}
 
 	protected void renderAfterBodyContentChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterBodyContentChange = autoCompleteList.getAfterBodyContentChange();
-
-		if (afterBodyContentChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
 	}
 
 	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterBoundingBoxChange = autoCompleteList.getAfterBoundingBoxChange();
-
-		if (afterBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
 	}
 
 	protected void renderAfterCenteredChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterCenteredChange = autoCompleteList.getAfterCenteredChange();
-
-		if (afterCenteredChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_CENTERED_CHANGE, afterCenteredChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_CENTERED_CHANGE, afterCenteredChange));
 	}
 
 	protected void renderAfterCircularChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterCircularChange = autoCompleteList.getAfterCircularChange();
-
-		if (afterCircularChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_CIRCULAR_CHANGE, afterCircularChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_CIRCULAR_CHANGE, afterCircularChange));
 	}
 
 	protected void renderAfterConstrainChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterConstrainChange = autoCompleteList.getAfterConstrainChange();
-
-		if (afterConstrainChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
 	}
 
 	protected void renderAfterContentBoxChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterContentBoxChange = autoCompleteList.getAfterContentBoxChange();
-
-		if (afterContentBoxChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterDestroyedChange = autoCompleteList.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterDisabledChange = autoCompleteList.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterFillHeightChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterFillHeightChange = autoCompleteList.getAfterFillHeightChange();
-
-		if (afterFillHeightChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
 	}
 
 	protected void renderAfterFocusedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterFocusedChange = autoCompleteList.getAfterFocusedChange();
-
-		if (afterFocusedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_FOCUSED_CHANGE, afterFocusedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_FOCUSED_CHANGE, afterFocusedChange));
 	}
 
 	protected void renderAfterFooterContentChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterFooterContentChange = autoCompleteList.getAfterFooterContentChange();
-
-		if (afterFooterContentChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
 	}
 
 	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterHeaderContentChange = autoCompleteList.getAfterHeaderContentChange();
-
-		if (afterHeaderContentChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
 	}
 
 	protected void renderAfterHeightChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterHeightChange = autoCompleteList.getAfterHeightChange();
-
-		if (afterHeightChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_HEIGHT_CHANGE, afterHeightChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_HEIGHT_CHANGE, afterHeightChange));
 	}
 
 	protected void renderAfterHideOnChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterHideOnChange = autoCompleteList.getAfterHideOnChange();
-
-		if (afterHideOnChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterHostChange = autoCompleteList.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterHoveredItemChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterHoveredItemChange = autoCompleteList.getAfterHoveredItemChange();
-
-		if (afterHoveredItemChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_HOVERED_ITEM_CHANGE, afterHoveredItemChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_HOVERED_ITEM_CHANGE, afterHoveredItemChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterIdChange = autoCompleteList.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterInitializedChange = autoCompleteList.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterListNodeChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterListNodeChange = autoCompleteList.getAfterListNodeChange();
-
-		if (afterListNodeChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_LIST_NODE_CHANGE, afterListNodeChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_LIST_NODE_CHANGE, afterListNodeChange));
 	}
 
 	protected void renderAfterLoadingMessageChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterLoadingMessageChange = autoCompleteList.getAfterLoadingMessageChange();
-
-		if (afterLoadingMessageChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_LOADING_MESSAGE_CHANGE, afterLoadingMessageChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_LOADING_MESSAGE_CHANGE, afterLoadingMessageChange));
 	}
 
 	protected void renderAfterLocaleChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterLocaleChange = autoCompleteList.getAfterLocaleChange();
-
-		if (afterLocaleChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_LOCALE_CHANGE, afterLocaleChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_LOCALE_CHANGE, afterLocaleChange));
 	}
 
 	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterPreventOverlapChange = autoCompleteList.getAfterPreventOverlapChange();
-
-		if (afterPreventOverlapChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
 	}
 
 	protected void renderAfterRenderChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterRenderChange = autoCompleteList.getAfterRenderChange();
-
-		if (afterRenderChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_RENDER_CHANGE, afterRenderChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_RENDER_CHANGE, afterRenderChange));
 	}
 
 	protected void renderAfterRenderedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterRenderedChange = autoCompleteList.getAfterRenderedChange();
-
-		if (afterRenderedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_RENDERED_CHANGE, afterRenderedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_RENDERED_CHANGE, afterRenderedChange));
 	}
 
 	protected void renderAfterResultsChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterResultsChange = autoCompleteList.getAfterResultsChange();
-
-		if (afterResultsChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_RESULTS_CHANGE, afterResultsChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_RESULTS_CHANGE, afterResultsChange));
 	}
 
 	protected void renderAfterScrollIntoViewChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterScrollIntoViewChange = autoCompleteList.getAfterScrollIntoViewChange();
-
-		if (afterScrollIntoViewChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_SCROLL_INTO_VIEW_CHANGE, afterScrollIntoViewChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_SCROLL_INTO_VIEW_CHANGE, afterScrollIntoViewChange));
 	}
 
 	protected void renderAfterSelectedEntryChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterSelectedEntryChange = autoCompleteList.getAfterSelectedEntryChange();
-
-		if (afterSelectedEntryChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_SELECTED_ENTRY_CHANGE, afterSelectedEntryChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_SELECTED_ENTRY_CHANGE, afterSelectedEntryChange));
 	}
 
 	protected void renderAfterShimChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterShimChange = autoCompleteList.getAfterShimChange();
-
-		if (afterShimChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_SHIM_CHANGE, afterShimChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_SHIM_CHANGE, afterShimChange));
 	}
 
 	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterSrcNodeChange = autoCompleteList.getAfterSrcNodeChange();
-
-		if (afterSrcNodeChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterStringsChange = autoCompleteList.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterTabIndexChange = autoCompleteList.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterTabSelectChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterTabSelectChange = autoCompleteList.getAfterTabSelectChange();
-
-		if (afterTabSelectChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_TAB_SELECT_CHANGE, afterTabSelectChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_TAB_SELECT_CHANGE, afterTabSelectChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterVisibleChange = autoCompleteList.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterWidthChange = autoCompleteList.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderAfterXChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterXChange = autoCompleteList.getAfterXChange();
-
-		if (afterXChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_XCHANGE, afterXChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_XCHANGE, afterXChange));
 	}
 
 	protected void renderAfterXyChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterXyChange = autoCompleteList.getAfterXyChange();
-
-		if (afterXyChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_XY_CHANGE, afterXyChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_XY_CHANGE, afterXyChange));
 	}
 
 	protected void renderAfterYChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterYChange = autoCompleteList.getAfterYChange();
-
-		if (afterYChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_YCHANGE, afterYChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_YCHANGE, afterYChange));
 	}
 
 	protected void renderAfterZIndexChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String afterZIndexChange = autoCompleteList.getAfterZIndexChange();
-
-		if (afterZIndexChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.AFTER_ZINDEX_CHANGE, afterZIndexChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.AFTER_ZINDEX_CHANGE, afterZIndexChange));
 	}
 
 	protected void renderOnActivateFirstItemChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onActivateFirstItemChange = autoCompleteList.getOnActivateFirstItemChange();
-
-		if (onActivateFirstItemChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ACTIVATE_FIRST_ITEM_CHANGE, onActivateFirstItemChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ACTIVATE_FIRST_ITEM_CHANGE, onActivateFirstItemChange));
 	}
 
 	protected void renderOnActiveItemChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onActiveItemChange = autoCompleteList.getOnActiveItemChange();
-
-		if (onActiveItemChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ACTIVE_ITEM_CHANGE, onActiveItemChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ACTIVE_ITEM_CHANGE, onActiveItemChange));
 	}
 
 	protected void renderOnAlignChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onAlignChange = autoCompleteList.getOnAlignChange();
-
-		if (onAlignChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ALIGN_CHANGE, onAlignChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ALIGN_CHANGE, onAlignChange));
 	}
 
 	protected void renderOnAlignOnChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onAlignOnChange = autoCompleteList.getOnAlignOnChange();
-
-		if (onAlignOnChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ALIGN_ON_CHANGE, onAlignOnChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ALIGN_ON_CHANGE, onAlignOnChange));
 	}
 
 	protected void renderOnAlwaysShowListChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onAlwaysShowListChange = autoCompleteList.getOnAlwaysShowListChange();
-
-		if (onAlwaysShowListChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ALWAYS_SHOW_LIST_CHANGE, onAlwaysShowListChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ALWAYS_SHOW_LIST_CHANGE, onAlwaysShowListChange));
 	}
 
 	protected void renderOnBodyContentChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onBodyContentChange = autoCompleteList.getOnBodyContentChange();
-
-		if (onBodyContentChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
 	}
 
 	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onBoundingBoxChange = autoCompleteList.getOnBoundingBoxChange();
-
-		if (onBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
 	}
 
 	protected void renderOnCenteredChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onCenteredChange = autoCompleteList.getOnCenteredChange();
-
-		if (onCenteredChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_CENTERED_CHANGE, onCenteredChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_CENTERED_CHANGE, onCenteredChange));
 	}
 
 	protected void renderOnCircularChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onCircularChange = autoCompleteList.getOnCircularChange();
-
-		if (onCircularChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_CIRCULAR_CHANGE, onCircularChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_CIRCULAR_CHANGE, onCircularChange));
 	}
 
 	protected void renderOnConstrainChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onConstrainChange = autoCompleteList.getOnConstrainChange();
-
-		if (onConstrainChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_CONSTRAIN_CHANGE, onConstrainChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_CONSTRAIN_CHANGE, onConstrainChange));
 	}
 
 	protected void renderOnContentBoxChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onContentBoxChange = autoCompleteList.getOnContentBoxChange();
-
-		if (onContentBoxChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onDestroyedChange = autoCompleteList.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onDisabledChange = autoCompleteList.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnFillHeightChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onFillHeightChange = autoCompleteList.getOnFillHeightChange();
-
-		if (onFillHeightChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
 	}
 
 	protected void renderOnFocusedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onFocusedChange = autoCompleteList.getOnFocusedChange();
-
-		if (onFocusedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_FOCUSED_CHANGE, onFocusedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_FOCUSED_CHANGE, onFocusedChange));
 	}
 
 	protected void renderOnFooterContentChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onFooterContentChange = autoCompleteList.getOnFooterContentChange();
-
-		if (onFooterContentChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
 	}
 
 	protected void renderOnHeaderContentChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onHeaderContentChange = autoCompleteList.getOnHeaderContentChange();
-
-		if (onHeaderContentChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
 	}
 
 	protected void renderOnHeightChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onHeightChange = autoCompleteList.getOnHeightChange();
-
-		if (onHeightChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_HEIGHT_CHANGE, onHeightChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_HEIGHT_CHANGE, onHeightChange));
 	}
 
 	protected void renderOnHideOnChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onHideOnChange = autoCompleteList.getOnHideOnChange();
-
-		if (onHideOnChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_HIDE_ON_CHANGE, onHideOnChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_HIDE_ON_CHANGE, onHideOnChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onHostChange = autoCompleteList.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnHoveredItemChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onHoveredItemChange = autoCompleteList.getOnHoveredItemChange();
-
-		if (onHoveredItemChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_HOVERED_ITEM_CHANGE, onHoveredItemChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_HOVERED_ITEM_CHANGE, onHoveredItemChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onIdChange = autoCompleteList.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onInitializedChange = autoCompleteList.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnListNodeChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onListNodeChange = autoCompleteList.getOnListNodeChange();
-
-		if (onListNodeChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_LIST_NODE_CHANGE, onListNodeChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_LIST_NODE_CHANGE, onListNodeChange));
 	}
 
 	protected void renderOnLoadingMessageChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onLoadingMessageChange = autoCompleteList.getOnLoadingMessageChange();
-
-		if (onLoadingMessageChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_LOADING_MESSAGE_CHANGE, onLoadingMessageChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_LOADING_MESSAGE_CHANGE, onLoadingMessageChange));
 	}
 
 	protected void renderOnLocaleChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onLocaleChange = autoCompleteList.getOnLocaleChange();
-
-		if (onLocaleChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_LOCALE_CHANGE, onLocaleChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_LOCALE_CHANGE, onLocaleChange));
 	}
 
 	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onPreventOverlapChange = autoCompleteList.getOnPreventOverlapChange();
-
-		if (onPreventOverlapChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
 	}
 
 	protected void renderOnRenderChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onRenderChange = autoCompleteList.getOnRenderChange();
-
-		if (onRenderChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_RENDER_CHANGE, onRenderChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_RENDER_CHANGE, onRenderChange));
 	}
 
 	protected void renderOnRenderedChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onRenderedChange = autoCompleteList.getOnRenderedChange();
-
-		if (onRenderedChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_RENDERED_CHANGE, onRenderedChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_RENDERED_CHANGE, onRenderedChange));
 	}
 
 	protected void renderOnResultsChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onResultsChange = autoCompleteList.getOnResultsChange();
-
-		if (onResultsChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_RESULTS_CHANGE, onResultsChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_RESULTS_CHANGE, onResultsChange));
 	}
 
 	protected void renderOnScrollIntoViewChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onScrollIntoViewChange = autoCompleteList.getOnScrollIntoViewChange();
-
-		if (onScrollIntoViewChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_SCROLL_INTO_VIEW_CHANGE, onScrollIntoViewChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_SCROLL_INTO_VIEW_CHANGE, onScrollIntoViewChange));
 	}
 
 	protected void renderOnSelectedEntryChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onSelectedEntryChange = autoCompleteList.getOnSelectedEntryChange();
-
-		if (onSelectedEntryChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_SELECTED_ENTRY_CHANGE, onSelectedEntryChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_SELECTED_ENTRY_CHANGE, onSelectedEntryChange));
 	}
 
 	protected void renderOnShimChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onShimChange = autoCompleteList.getOnShimChange();
-
-		if (onShimChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_SHIM_CHANGE, onShimChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_SHIM_CHANGE, onShimChange));
 	}
 
 	protected void renderOnSrcNodeChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onSrcNodeChange = autoCompleteList.getOnSrcNodeChange();
-
-		if (onSrcNodeChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_SRC_NODE_CHANGE, onSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_SRC_NODE_CHANGE, onSrcNodeChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onStringsChange = autoCompleteList.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onTabIndexChange = autoCompleteList.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnTabSelectChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onTabSelectChange = autoCompleteList.getOnTabSelectChange();
-
-		if (onTabSelectChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_TAB_SELECT_CHANGE, onTabSelectChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_TAB_SELECT_CHANGE, onTabSelectChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onVisibleChange = autoCompleteList.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onWidthChange = autoCompleteList.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 	protected void renderOnXChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onXChange = autoCompleteList.getOnXChange();
-
-		if (onXChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_XCHANGE, onXChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_XCHANGE, onXChange));
 	}
 
 	protected void renderOnXyChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onXyChange = autoCompleteList.getOnXyChange();
-
-		if (onXyChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_XY_CHANGE, onXyChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_XY_CHANGE, onXyChange));
 	}
 
 	protected void renderOnYChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onYChange = autoCompleteList.getOnYChange();
-
-		if (onYChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_YCHANGE, onYChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_YCHANGE, onYChange));
 	}
 
 	protected void renderOnZIndexChange(List<String> renderedAttributes, AutoCompleteList autoCompleteList) throws IOException {
 		java.lang.String onZIndexChange = autoCompleteList.getOnZIndexChange();
-
-		if (onZIndexChange != null) {
-			renderedAttributes.add(renderString(AutoCompleteList.ON_ZINDEX_CHANGE, onZIndexChange));
-		}
+		renderedAttributes.add(renderString(AutoCompleteList.ON_ZINDEX_CHANGE, onZIndexChange));
 	}
 
 }

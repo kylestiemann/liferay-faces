@@ -49,11 +49,26 @@ public abstract class VelocityRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDirectives(renderedAttributes, velocity);
-		renderDirectivesMatcher(renderedAttributes, velocity);
-		renderHost(renderedAttributes, velocity);
-		renderVariables(renderedAttributes, velocity);
-		renderVariablesMatcher(renderedAttributes, velocity);
+		if (velocity.getDirectives() != null) {
+			renderDirectives(renderedAttributes, velocity);
+		}
+		
+		if (velocity.getDirectivesMatcher() != null) {
+			renderDirectivesMatcher(renderedAttributes, velocity);
+		}
+		
+		if (velocity.getHost() != null) {
+			renderHost(renderedAttributes, velocity);
+		}
+		
+		if (velocity.getVariables() != null) {
+			renderVariables(renderedAttributes, velocity);
+		}
+		
+		if (velocity.getVariablesMatcher() != null) {
+			renderVariablesMatcher(renderedAttributes, velocity);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class VelocityRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDirectivesChange(renderedAfterEvents, velocity);
-		renderAfterDirectivesMatcherChange(renderedAfterEvents, velocity);
-		renderAfterHostChange(renderedAfterEvents, velocity);
-		renderAfterVariablesChange(renderedAfterEvents, velocity);
-		renderAfterVariablesMatcherChange(renderedAfterEvents, velocity);
+		if (velocity.getAfterDirectivesChange() != null) {
+			renderAfterDirectivesChange(renderedAfterEvents, velocity);
+		}
+		
+		if (velocity.getAfterDirectivesMatcherChange() != null) {
+			renderAfterDirectivesMatcherChange(renderedAfterEvents, velocity);
+		}
+		
+		if (velocity.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, velocity);
+		}
+		
+		if (velocity.getAfterVariablesChange() != null) {
+			renderAfterVariablesChange(renderedAfterEvents, velocity);
+		}
+		
+		if (velocity.getAfterVariablesMatcherChange() != null) {
+			renderAfterVariablesMatcherChange(renderedAfterEvents, velocity);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class VelocityRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDirectivesChange(renderedOnEvents, velocity);
-		renderOnDirectivesMatcherChange(renderedOnEvents, velocity);
-		renderOnHostChange(renderedOnEvents, velocity);
-		renderOnVariablesChange(renderedOnEvents, velocity);
-		renderOnVariablesMatcherChange(renderedOnEvents, velocity);
+		if (velocity.getOnDirectivesChange() != null) {
+			renderOnDirectivesChange(renderedOnEvents, velocity);
+		}
+		
+		if (velocity.getOnDirectivesMatcherChange() != null) {
+			renderOnDirectivesMatcherChange(renderedOnEvents, velocity);
+		}
+		
+		if (velocity.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, velocity);
+		}
+		
+		if (velocity.getOnVariablesChange() != null) {
+			renderOnVariablesChange(renderedOnEvents, velocity);
+		}
+		
+		if (velocity.getOnVariablesMatcherChange() != null) {
+			renderOnVariablesMatcherChange(renderedOnEvents, velocity);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class VelocityRendererBase extends RendererBase {
 
 	protected void renderDirectives(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.Object directives = velocity.getDirectives();
-
-		if (directives != null) {
-			renderedAttributes.add(renderArray(Velocity.DIRECTIVES, directives));
-		}
+		renderedAttributes.add(renderArray(Velocity.DIRECTIVES, directives));
 	}
 
 	protected void renderDirectivesMatcher(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String directivesMatcher = velocity.getDirectivesMatcher();
-
-		if (directivesMatcher != null) {
-			renderedAttributes.add(renderString(Velocity.DIRECTIVES_MATCHER, directivesMatcher));
-		}
+		renderedAttributes.add(renderString(Velocity.DIRECTIVES_MATCHER, directivesMatcher));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.Object host = velocity.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderObject(Velocity.HOST, host));
-		}
+		renderedAttributes.add(renderObject(Velocity.HOST, host));
 	}
 
 	protected void renderVariables(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.Object variables = velocity.getVariables();
-
-		if (variables != null) {
-			renderedAttributes.add(renderObject(Velocity.VARIABLES, variables));
-		}
+		renderedAttributes.add(renderObject(Velocity.VARIABLES, variables));
 	}
 
 	protected void renderVariablesMatcher(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String variablesMatcher = velocity.getVariablesMatcher();
-
-		if (variablesMatcher != null) {
-			renderedAttributes.add(renderString(Velocity.VARIABLES_MATCHER, variablesMatcher));
-		}
+		renderedAttributes.add(renderString(Velocity.VARIABLES_MATCHER, variablesMatcher));
 	}
 
 	protected void renderAfterDirectivesChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String afterDirectivesChange = velocity.getAfterDirectivesChange();
-
-		if (afterDirectivesChange != null) {
-			renderedAttributes.add(renderString(Velocity.AFTER_DIRECTIVES_CHANGE, afterDirectivesChange));
-		}
+		renderedAttributes.add(renderString(Velocity.AFTER_DIRECTIVES_CHANGE, afterDirectivesChange));
 	}
 
 	protected void renderAfterDirectivesMatcherChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String afterDirectivesMatcherChange = velocity.getAfterDirectivesMatcherChange();
-
-		if (afterDirectivesMatcherChange != null) {
-			renderedAttributes.add(renderString(Velocity.AFTER_DIRECTIVES_MATCHER_CHANGE, afterDirectivesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Velocity.AFTER_DIRECTIVES_MATCHER_CHANGE, afterDirectivesMatcherChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String afterHostChange = velocity.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(Velocity.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(Velocity.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterVariablesChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String afterVariablesChange = velocity.getAfterVariablesChange();
-
-		if (afterVariablesChange != null) {
-			renderedAttributes.add(renderString(Velocity.AFTER_VARIABLES_CHANGE, afterVariablesChange));
-		}
+		renderedAttributes.add(renderString(Velocity.AFTER_VARIABLES_CHANGE, afterVariablesChange));
 	}
 
 	protected void renderAfterVariablesMatcherChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String afterVariablesMatcherChange = velocity.getAfterVariablesMatcherChange();
-
-		if (afterVariablesMatcherChange != null) {
-			renderedAttributes.add(renderString(Velocity.AFTER_VARIABLES_MATCHER_CHANGE, afterVariablesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Velocity.AFTER_VARIABLES_MATCHER_CHANGE, afterVariablesMatcherChange));
 	}
 
 	protected void renderOnDirectivesChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String onDirectivesChange = velocity.getOnDirectivesChange();
-
-		if (onDirectivesChange != null) {
-			renderedAttributes.add(renderString(Velocity.ON_DIRECTIVES_CHANGE, onDirectivesChange));
-		}
+		renderedAttributes.add(renderString(Velocity.ON_DIRECTIVES_CHANGE, onDirectivesChange));
 	}
 
 	protected void renderOnDirectivesMatcherChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String onDirectivesMatcherChange = velocity.getOnDirectivesMatcherChange();
-
-		if (onDirectivesMatcherChange != null) {
-			renderedAttributes.add(renderString(Velocity.ON_DIRECTIVES_MATCHER_CHANGE, onDirectivesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Velocity.ON_DIRECTIVES_MATCHER_CHANGE, onDirectivesMatcherChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String onHostChange = velocity.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(Velocity.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(Velocity.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnVariablesChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String onVariablesChange = velocity.getOnVariablesChange();
-
-		if (onVariablesChange != null) {
-			renderedAttributes.add(renderString(Velocity.ON_VARIABLES_CHANGE, onVariablesChange));
-		}
+		renderedAttributes.add(renderString(Velocity.ON_VARIABLES_CHANGE, onVariablesChange));
 	}
 
 	protected void renderOnVariablesMatcherChange(List<String> renderedAttributes, Velocity velocity) throws IOException {
 		java.lang.String onVariablesMatcherChange = velocity.getOnVariablesMatcherChange();
-
-		if (onVariablesMatcherChange != null) {
-			renderedAttributes.add(renderString(Velocity.ON_VARIABLES_MATCHER_CHANGE, onVariablesMatcherChange));
-		}
+		renderedAttributes.add(renderString(Velocity.ON_VARIABLES_MATCHER_CHANGE, onVariablesMatcherChange));
 	}
 
 }

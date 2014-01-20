@@ -49,8 +49,14 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDestroyed(renderedAttributes, ternarySearchTree);
-		renderInitialized(renderedAttributes, ternarySearchTree);
+		if (ternarySearchTree.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, ternarySearchTree);
+		}
+		
+		if (ternarySearchTree.getInitialized() != null) {
+			renderInitialized(renderedAttributes, ternarySearchTree);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -63,8 +69,14 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDestroyedChange(renderedAfterEvents, ternarySearchTree);
-		renderAfterInitializedChange(renderedAfterEvents, ternarySearchTree);
+		if (ternarySearchTree.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, ternarySearchTree);
+		}
+		
+		if (ternarySearchTree.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, ternarySearchTree);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -85,8 +97,14 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDestroyedChange(renderedOnEvents, ternarySearchTree);
-		renderOnInitializedChange(renderedOnEvents, ternarySearchTree);
+		if (ternarySearchTree.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, ternarySearchTree);
+		}
+		
+		if (ternarySearchTree.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, ternarySearchTree);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -111,50 +129,32 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 
 	protected void renderDestroyed(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
 		java.lang.Boolean destroyed = ternarySearchTree.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TernarySearchTree.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TernarySearchTree.DESTROYED, destroyed));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
 		java.lang.Boolean initialized = ternarySearchTree.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TernarySearchTree.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TernarySearchTree.INITIALIZED, initialized));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
 		java.lang.String afterDestroyedChange = ternarySearchTree.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchTree.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchTree.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
 		java.lang.String afterInitializedChange = ternarySearchTree.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchTree.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchTree.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
 		java.lang.String onDestroyedChange = ternarySearchTree.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchTree.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchTree.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
 		java.lang.String onInitializedChange = ternarySearchTree.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchTree.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchTree.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 }

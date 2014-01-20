@@ -49,8 +49,14 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderFields(renderedAttributes, fieldSupport);
-		renderMaxFields(renderedAttributes, fieldSupport);
+		if (fieldSupport.getFields() != null) {
+			renderFields(renderedAttributes, fieldSupport);
+		}
+		
+		if (fieldSupport.getMaxFields() != null) {
+			renderMaxFields(renderedAttributes, fieldSupport);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -63,8 +69,14 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterFieldsChange(renderedAfterEvents, fieldSupport);
-		renderAfterMaxFieldsChange(renderedAfterEvents, fieldSupport);
+		if (fieldSupport.getAfterFieldsChange() != null) {
+			renderAfterFieldsChange(renderedAfterEvents, fieldSupport);
+		}
+		
+		if (fieldSupport.getAfterMaxFieldsChange() != null) {
+			renderAfterMaxFieldsChange(renderedAfterEvents, fieldSupport);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -85,8 +97,14 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnFieldsChange(renderedOnEvents, fieldSupport);
-		renderOnMaxFieldsChange(renderedOnEvents, fieldSupport);
+		if (fieldSupport.getOnFieldsChange() != null) {
+			renderOnFieldsChange(renderedOnEvents, fieldSupport);
+		}
+		
+		if (fieldSupport.getOnMaxFieldsChange() != null) {
+			renderOnMaxFieldsChange(renderedOnEvents, fieldSupport);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -111,50 +129,32 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 
 	protected void renderFields(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
 		java.lang.Object fields = fieldSupport.getFields();
-
-		if (fields != null) {
-			renderedAttributes.add(renderArray(FieldSupport.FIELDS, fields));
-		}
+		renderedAttributes.add(renderArray(FieldSupport.FIELDS, fields));
 	}
 
 	protected void renderMaxFields(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
 		java.lang.Object maxFields = fieldSupport.getMaxFields();
-
-		if (maxFields != null) {
-			renderedAttributes.add(renderNumber(FieldSupport.MAX_FIELDS, maxFields));
-		}
+		renderedAttributes.add(renderNumber(FieldSupport.MAX_FIELDS, maxFields));
 	}
 
 	protected void renderAfterFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
 		java.lang.String afterFieldsChange = fieldSupport.getAfterFieldsChange();
-
-		if (afterFieldsChange != null) {
-			renderedAttributes.add(renderString(FieldSupport.AFTER_FIELDS_CHANGE, afterFieldsChange));
-		}
+		renderedAttributes.add(renderString(FieldSupport.AFTER_FIELDS_CHANGE, afterFieldsChange));
 	}
 
 	protected void renderAfterMaxFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
 		java.lang.String afterMaxFieldsChange = fieldSupport.getAfterMaxFieldsChange();
-
-		if (afterMaxFieldsChange != null) {
-			renderedAttributes.add(renderString(FieldSupport.AFTER_MAX_FIELDS_CHANGE, afterMaxFieldsChange));
-		}
+		renderedAttributes.add(renderString(FieldSupport.AFTER_MAX_FIELDS_CHANGE, afterMaxFieldsChange));
 	}
 
 	protected void renderOnFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
 		java.lang.String onFieldsChange = fieldSupport.getOnFieldsChange();
-
-		if (onFieldsChange != null) {
-			renderedAttributes.add(renderString(FieldSupport.ON_FIELDS_CHANGE, onFieldsChange));
-		}
+		renderedAttributes.add(renderString(FieldSupport.ON_FIELDS_CHANGE, onFieldsChange));
 	}
 
 	protected void renderOnMaxFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
 		java.lang.String onMaxFieldsChange = fieldSupport.getOnMaxFieldsChange();
-
-		if (onMaxFieldsChange != null) {
-			renderedAttributes.add(renderString(FieldSupport.ON_MAX_FIELDS_CHANGE, onMaxFieldsChange));
-		}
+		renderedAttributes.add(renderString(FieldSupport.ON_MAX_FIELDS_CHANGE, onMaxFieldsChange));
 	}
 
 }

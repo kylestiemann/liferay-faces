@@ -49,20 +49,62 @@ public abstract class TimePickerRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderActiveInput(renderedAttributes, timePicker);
-		renderAutoHide(renderedAttributes, timePicker);
-		renderAutocomplete(renderedAttributes, timePicker);
-		renderContainer(renderedAttributes, timePicker);
-		renderContent(renderedAttributes, timePicker);
-		renderDateSeparator(renderedAttributes, timePicker);
-		renderDestroyed(renderedAttributes, timePicker);
-		renderInitialized(renderedAttributes, timePicker);
-		renderMask(renderedAttributes, timePicker);
-		renderPopover(renderedAttributes, timePicker);
-		renderPopoverCssClass(renderedAttributes, timePicker);
-		renderValueExtractor(renderedAttributes, timePicker);
-		renderValueFormatter(renderedAttributes, timePicker);
-		renderTimePickerValues(renderedAttributes, timePicker);
+		if (timePicker.getActiveInput() != null) {
+			renderActiveInput(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getAutoHide() != null) {
+			renderAutoHide(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getAutocomplete() != null) {
+			renderAutocomplete(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getContainer() != null) {
+			renderContainer(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getContent() != null) {
+			renderContent(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getDateSeparator() != null) {
+			renderDateSeparator(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getInitialized() != null) {
+			renderInitialized(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getMask() != null) {
+			renderMask(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getPopover() != null) {
+			renderPopover(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getPopoverCssClass() != null) {
+			renderPopoverCssClass(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getValueExtractor() != null) {
+			renderValueExtractor(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getValueFormatter() != null) {
+			renderValueFormatter(renderedAttributes, timePicker);
+		}
+		
+		if (timePicker.getTimePickerValues() != null) {
+			renderTimePickerValues(renderedAttributes, timePicker);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -75,20 +117,62 @@ public abstract class TimePickerRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterActiveInputChange(renderedAfterEvents, timePicker);
-		renderAfterAutoHideChange(renderedAfterEvents, timePicker);
-		renderAfterAutocompleteChange(renderedAfterEvents, timePicker);
-		renderAfterContainerChange(renderedAfterEvents, timePicker);
-		renderAfterContentChange(renderedAfterEvents, timePicker);
-		renderAfterDateSeparatorChange(renderedAfterEvents, timePicker);
-		renderAfterDestroyedChange(renderedAfterEvents, timePicker);
-		renderAfterInitializedChange(renderedAfterEvents, timePicker);
-		renderAfterMaskChange(renderedAfterEvents, timePicker);
-		renderAfterPopoverChange(renderedAfterEvents, timePicker);
-		renderAfterPopoverCssClassChange(renderedAfterEvents, timePicker);
-		renderAfterValueExtractorChange(renderedAfterEvents, timePicker);
-		renderAfterValueFormatterChange(renderedAfterEvents, timePicker);
-		renderAfterValuesChange(renderedAfterEvents, timePicker);
+		if (timePicker.getAfterActiveInputChange() != null) {
+			renderAfterActiveInputChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterAutoHideChange() != null) {
+			renderAfterAutoHideChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterAutocompleteChange() != null) {
+			renderAfterAutocompleteChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterContainerChange() != null) {
+			renderAfterContainerChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterContentChange() != null) {
+			renderAfterContentChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterDateSeparatorChange() != null) {
+			renderAfterDateSeparatorChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterMaskChange() != null) {
+			renderAfterMaskChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterPopoverChange() != null) {
+			renderAfterPopoverChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterPopoverCssClassChange() != null) {
+			renderAfterPopoverCssClassChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterValueExtractorChange() != null) {
+			renderAfterValueExtractorChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterValueFormatterChange() != null) {
+			renderAfterValueFormatterChange(renderedAfterEvents, timePicker);
+		}
+		
+		if (timePicker.getAfterValuesChange() != null) {
+			renderAfterValuesChange(renderedAfterEvents, timePicker);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -109,20 +193,62 @@ public abstract class TimePickerRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnActiveInputChange(renderedOnEvents, timePicker);
-		renderOnAutoHideChange(renderedOnEvents, timePicker);
-		renderOnAutocompleteChange(renderedOnEvents, timePicker);
-		renderOnContainerChange(renderedOnEvents, timePicker);
-		renderOnContentChange(renderedOnEvents, timePicker);
-		renderOnDateSeparatorChange(renderedOnEvents, timePicker);
-		renderOnDestroyedChange(renderedOnEvents, timePicker);
-		renderOnInitializedChange(renderedOnEvents, timePicker);
-		renderOnMaskChange(renderedOnEvents, timePicker);
-		renderOnPopoverChange(renderedOnEvents, timePicker);
-		renderOnPopoverCssClassChange(renderedOnEvents, timePicker);
-		renderOnValueExtractorChange(renderedOnEvents, timePicker);
-		renderOnValueFormatterChange(renderedOnEvents, timePicker);
-		renderOnValuesChange(renderedOnEvents, timePicker);
+		if (timePicker.getOnActiveInputChange() != null) {
+			renderOnActiveInputChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnAutoHideChange() != null) {
+			renderOnAutoHideChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnAutocompleteChange() != null) {
+			renderOnAutocompleteChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnContainerChange() != null) {
+			renderOnContainerChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnContentChange() != null) {
+			renderOnContentChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnDateSeparatorChange() != null) {
+			renderOnDateSeparatorChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnMaskChange() != null) {
+			renderOnMaskChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnPopoverChange() != null) {
+			renderOnPopoverChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnPopoverCssClassChange() != null) {
+			renderOnPopoverCssClassChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnValueExtractorChange() != null) {
+			renderOnValueExtractorChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnValueFormatterChange() != null) {
+			renderOnValueFormatterChange(renderedOnEvents, timePicker);
+		}
+		
+		if (timePicker.getOnValuesChange() != null) {
+			renderOnValuesChange(renderedOnEvents, timePicker);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -147,338 +273,212 @@ public abstract class TimePickerRendererBase extends RendererBase {
 
 	protected void renderActiveInput(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String activeInput = timePicker.getActiveInput();
-
-		if (activeInput != null) {
-			renderedAttributes.add(renderString(TimePicker.ACTIVE_INPUT, activeInput));
-		}
+		renderedAttributes.add(renderString(TimePicker.ACTIVE_INPUT, activeInput));
 	}
 
 	protected void renderAutoHide(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.Boolean autoHide = timePicker.getAutoHide();
-
-		if (autoHide != null) {
-			renderedAttributes.add(renderBoolean(TimePicker.AUTO_HIDE, autoHide));
-		}
+		renderedAttributes.add(renderBoolean(TimePicker.AUTO_HIDE, autoHide));
 	}
 
 	protected void renderAutocomplete(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String autocomplete = timePicker.getAutocomplete();
-
-		if (autocomplete != null) {
-			renderedAttributes.add(renderString(TimePicker.AUTOCOMPLETE, autocomplete));
-		}
+		renderedAttributes.add(renderString(TimePicker.AUTOCOMPLETE, autocomplete));
 	}
 
 	protected void renderContainer(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String container = timePicker.getContainer();
-
-		if (container != null) {
-			renderedAttributes.add(renderString(TimePicker.CONTAINER, container));
-		}
+		renderedAttributes.add(renderString(TimePicker.CONTAINER, container));
 	}
 
 	protected void renderContent(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String content = timePicker.getContent();
-
-		if (content != null) {
-			renderedAttributes.add(renderString(TimePicker.CONTENT, content));
-		}
+		renderedAttributes.add(renderString(TimePicker.CONTENT, content));
 	}
 
 	protected void renderDateSeparator(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String dateSeparator = timePicker.getDateSeparator();
-
-		if (dateSeparator != null) {
-			renderedAttributes.add(renderString(TimePicker.DATE_SEPARATOR, dateSeparator));
-		}
+		renderedAttributes.add(renderString(TimePicker.DATE_SEPARATOR, dateSeparator));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.Boolean destroyed = timePicker.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TimePicker.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TimePicker.DESTROYED, destroyed));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.Boolean initialized = timePicker.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TimePicker.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TimePicker.INITIALIZED, initialized));
 	}
 
 	protected void renderMask(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String mask = timePicker.getMask();
-
-		if (mask != null) {
-			renderedAttributes.add(renderString(TimePicker.MASK, mask));
-		}
+		renderedAttributes.add(renderString(TimePicker.MASK, mask));
 	}
 
 	protected void renderPopover(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String popover = timePicker.getPopover();
-
-		if (popover != null) {
-			renderedAttributes.add(renderString(TimePicker.POPOVER, popover));
-		}
+		renderedAttributes.add(renderString(TimePicker.POPOVER, popover));
 	}
 
 	protected void renderPopoverCssClass(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String popoverCssClass = timePicker.getPopoverCssClass();
-
-		if (popoverCssClass != null) {
-			renderedAttributes.add(renderString(TimePicker.POPOVER_CSS_CLASS, popoverCssClass));
-		}
+		renderedAttributes.add(renderString(TimePicker.POPOVER_CSS_CLASS, popoverCssClass));
 	}
 
 	protected void renderValueExtractor(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.Object valueExtractor = timePicker.getValueExtractor();
-
-		if (valueExtractor != null) {
-			renderedAttributes.add(renderString(TimePicker.VALUE_EXTRACTOR, valueExtractor));
-		}
+		renderedAttributes.add(renderString(TimePicker.VALUE_EXTRACTOR, valueExtractor));
 	}
 
 	protected void renderValueFormatter(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.Object valueFormatter = timePicker.getValueFormatter();
-
-		if (valueFormatter != null) {
-			renderedAttributes.add(renderString(TimePicker.VALUE_FORMATTER, valueFormatter));
-		}
+		renderedAttributes.add(renderString(TimePicker.VALUE_FORMATTER, valueFormatter));
 	}
 
 	protected void renderTimePickerValues(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.Object timePickerValues = timePicker.getTimePickerValues();
-
-		if (timePickerValues != null) {
-			renderedAttributes.add(renderArray(TimePicker.TIME_PICKER_VALUES, timePickerValues));
-		}
+		renderedAttributes.add(renderArray(TimePicker.TIME_PICKER_VALUES, timePickerValues));
 	}
 
 	protected void renderAfterActiveInputChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterActiveInputChange = timePicker.getAfterActiveInputChange();
-
-		if (afterActiveInputChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_ACTIVE_INPUT_CHANGE, afterActiveInputChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_ACTIVE_INPUT_CHANGE, afterActiveInputChange));
 	}
 
 	protected void renderAfterAutoHideChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterAutoHideChange = timePicker.getAfterAutoHideChange();
-
-		if (afterAutoHideChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_AUTO_HIDE_CHANGE, afterAutoHideChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_AUTO_HIDE_CHANGE, afterAutoHideChange));
 	}
 
 	protected void renderAfterAutocompleteChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterAutocompleteChange = timePicker.getAfterAutocompleteChange();
-
-		if (afterAutocompleteChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_AUTOCOMPLETE_CHANGE, afterAutocompleteChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_AUTOCOMPLETE_CHANGE, afterAutocompleteChange));
 	}
 
 	protected void renderAfterContainerChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterContainerChange = timePicker.getAfterContainerChange();
-
-		if (afterContainerChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_CONTAINER_CHANGE, afterContainerChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_CONTAINER_CHANGE, afterContainerChange));
 	}
 
 	protected void renderAfterContentChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterContentChange = timePicker.getAfterContentChange();
-
-		if (afterContentChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_CONTENT_CHANGE, afterContentChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_CONTENT_CHANGE, afterContentChange));
 	}
 
 	protected void renderAfterDateSeparatorChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterDateSeparatorChange = timePicker.getAfterDateSeparatorChange();
-
-		if (afterDateSeparatorChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_DATE_SEPARATOR_CHANGE, afterDateSeparatorChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_DATE_SEPARATOR_CHANGE, afterDateSeparatorChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterDestroyedChange = timePicker.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterInitializedChange = timePicker.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterMaskChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterMaskChange = timePicker.getAfterMaskChange();
-
-		if (afterMaskChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_MASK_CHANGE, afterMaskChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_MASK_CHANGE, afterMaskChange));
 	}
 
 	protected void renderAfterPopoverChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterPopoverChange = timePicker.getAfterPopoverChange();
-
-		if (afterPopoverChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_POPOVER_CHANGE, afterPopoverChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_POPOVER_CHANGE, afterPopoverChange));
 	}
 
 	protected void renderAfterPopoverCssClassChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterPopoverCssClassChange = timePicker.getAfterPopoverCssClassChange();
-
-		if (afterPopoverCssClassChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_POPOVER_CSS_CLASS_CHANGE, afterPopoverCssClassChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_POPOVER_CSS_CLASS_CHANGE, afterPopoverCssClassChange));
 	}
 
 	protected void renderAfterValueExtractorChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterValueExtractorChange = timePicker.getAfterValueExtractorChange();
-
-		if (afterValueExtractorChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_VALUE_EXTRACTOR_CHANGE, afterValueExtractorChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_VALUE_EXTRACTOR_CHANGE, afterValueExtractorChange));
 	}
 
 	protected void renderAfterValueFormatterChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterValueFormatterChange = timePicker.getAfterValueFormatterChange();
-
-		if (afterValueFormatterChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_VALUE_FORMATTER_CHANGE, afterValueFormatterChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_VALUE_FORMATTER_CHANGE, afterValueFormatterChange));
 	}
 
 	protected void renderAfterValuesChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String afterValuesChange = timePicker.getAfterValuesChange();
-
-		if (afterValuesChange != null) {
-			renderedAttributes.add(renderString(TimePicker.AFTER_VALUES_CHANGE, afterValuesChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.AFTER_VALUES_CHANGE, afterValuesChange));
 	}
 
 	protected void renderOnActiveInputChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onActiveInputChange = timePicker.getOnActiveInputChange();
-
-		if (onActiveInputChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_ACTIVE_INPUT_CHANGE, onActiveInputChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_ACTIVE_INPUT_CHANGE, onActiveInputChange));
 	}
 
 	protected void renderOnAutoHideChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onAutoHideChange = timePicker.getOnAutoHideChange();
-
-		if (onAutoHideChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_AUTO_HIDE_CHANGE, onAutoHideChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_AUTO_HIDE_CHANGE, onAutoHideChange));
 	}
 
 	protected void renderOnAutocompleteChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onAutocompleteChange = timePicker.getOnAutocompleteChange();
-
-		if (onAutocompleteChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_AUTOCOMPLETE_CHANGE, onAutocompleteChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_AUTOCOMPLETE_CHANGE, onAutocompleteChange));
 	}
 
 	protected void renderOnContainerChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onContainerChange = timePicker.getOnContainerChange();
-
-		if (onContainerChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_CONTAINER_CHANGE, onContainerChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_CONTAINER_CHANGE, onContainerChange));
 	}
 
 	protected void renderOnContentChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onContentChange = timePicker.getOnContentChange();
-
-		if (onContentChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_CONTENT_CHANGE, onContentChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_CONTENT_CHANGE, onContentChange));
 	}
 
 	protected void renderOnDateSeparatorChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onDateSeparatorChange = timePicker.getOnDateSeparatorChange();
-
-		if (onDateSeparatorChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_DATE_SEPARATOR_CHANGE, onDateSeparatorChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_DATE_SEPARATOR_CHANGE, onDateSeparatorChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onDestroyedChange = timePicker.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onInitializedChange = timePicker.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnMaskChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onMaskChange = timePicker.getOnMaskChange();
-
-		if (onMaskChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_MASK_CHANGE, onMaskChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_MASK_CHANGE, onMaskChange));
 	}
 
 	protected void renderOnPopoverChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onPopoverChange = timePicker.getOnPopoverChange();
-
-		if (onPopoverChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_POPOVER_CHANGE, onPopoverChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_POPOVER_CHANGE, onPopoverChange));
 	}
 
 	protected void renderOnPopoverCssClassChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onPopoverCssClassChange = timePicker.getOnPopoverCssClassChange();
-
-		if (onPopoverCssClassChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_POPOVER_CSS_CLASS_CHANGE, onPopoverCssClassChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_POPOVER_CSS_CLASS_CHANGE, onPopoverCssClassChange));
 	}
 
 	protected void renderOnValueExtractorChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onValueExtractorChange = timePicker.getOnValueExtractorChange();
-
-		if (onValueExtractorChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_VALUE_EXTRACTOR_CHANGE, onValueExtractorChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_VALUE_EXTRACTOR_CHANGE, onValueExtractorChange));
 	}
 
 	protected void renderOnValueFormatterChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onValueFormatterChange = timePicker.getOnValueFormatterChange();
-
-		if (onValueFormatterChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_VALUE_FORMATTER_CHANGE, onValueFormatterChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_VALUE_FORMATTER_CHANGE, onValueFormatterChange));
 	}
 
 	protected void renderOnValuesChange(List<String> renderedAttributes, TimePicker timePicker) throws IOException {
 		java.lang.String onValuesChange = timePicker.getOnValuesChange();
-
-		if (onValuesChange != null) {
-			renderedAttributes.add(renderString(TimePicker.ON_VALUES_CHANGE, onValuesChange));
-		}
+		renderedAttributes.add(renderString(TimePicker.ON_VALUES_CHANGE, onValuesChange));
 	}
 
 }

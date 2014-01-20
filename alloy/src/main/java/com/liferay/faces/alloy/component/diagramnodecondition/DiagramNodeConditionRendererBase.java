@@ -49,50 +49,182 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAlign(renderedAttributes, diagramNodeCondition);
-		renderAlignOn(renderedAttributes, diagramNodeCondition);
-		renderDiagramNodeConditionBodyContent(renderedAttributes, diagramNodeCondition);
-		renderBoundingBox(renderedAttributes, diagramNodeCondition);
-		renderBuilder(renderedAttributes, diagramNodeCondition);
-		renderCentered(renderedAttributes, diagramNodeCondition);
-		renderConnectors(renderedAttributes, diagramNodeCondition);
-		renderConstrain(renderedAttributes, diagramNodeCondition);
-		renderContentBox(renderedAttributes, diagramNodeCondition);
-		renderControlsToolbar(renderedAttributes, diagramNodeCondition);
-		renderDescription(renderedAttributes, diagramNodeCondition);
-		renderDestroyed(renderedAttributes, diagramNodeCondition);
-		renderDisabled(renderedAttributes, diagramNodeCondition);
-		renderFillHeight(renderedAttributes, diagramNodeCondition);
-		renderFocused(renderedAttributes, diagramNodeCondition);
-		renderFooterContent(renderedAttributes, diagramNodeCondition);
-		renderGraphic(renderedAttributes, diagramNodeCondition);
-		renderHeaderContent(renderedAttributes, diagramNodeCondition);
-		renderHeight(renderedAttributes, diagramNodeCondition);
-		renderHighlightBoundaryStroke(renderedAttributes, diagramNodeCondition);
-		renderHighlighted(renderedAttributes, diagramNodeCondition);
-		renderDiagramNodeConditionId(renderedAttributes, diagramNodeCondition);
-		renderInitialized(renderedAttributes, diagramNodeCondition);
-		renderDiagramNodeConditionLocale(renderedAttributes, diagramNodeCondition);
-		renderName(renderedAttributes, diagramNodeCondition);
-		renderPreventOverlap(renderedAttributes, diagramNodeCondition);
-		renderRender(renderedAttributes, diagramNodeCondition);
-		renderRendered(renderedAttributes, diagramNodeCondition);
-		renderRequired(renderedAttributes, diagramNodeCondition);
-		renderSelected(renderedAttributes, diagramNodeCondition);
-		renderShapeBoundary(renderedAttributes, diagramNodeCondition);
-		renderShapeInvite(renderedAttributes, diagramNodeCondition);
-		renderShim(renderedAttributes, diagramNodeCondition);
-		renderSrcNode(renderedAttributes, diagramNodeCondition);
-		renderStrings(renderedAttributes, diagramNodeCondition);
-		renderTabIndex(renderedAttributes, diagramNodeCondition);
-		renderTransitions(renderedAttributes, diagramNodeCondition);
-		renderType(renderedAttributes, diagramNodeCondition);
-		renderVisible(renderedAttributes, diagramNodeCondition);
-		renderWidth(renderedAttributes, diagramNodeCondition);
-		renderX(renderedAttributes, diagramNodeCondition);
-		renderXy(renderedAttributes, diagramNodeCondition);
-		renderY(renderedAttributes, diagramNodeCondition);
-		renderZIndex(renderedAttributes, diagramNodeCondition);
+		if (diagramNodeCondition.getAlign() != null) {
+			renderAlign(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAlignOn() != null) {
+			renderAlignOn(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getDiagramNodeConditionBodyContent() != null) {
+			renderDiagramNodeConditionBodyContent(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getBoundingBox() != null) {
+			renderBoundingBox(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getBuilder() != null) {
+			renderBuilder(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getCentered() != null) {
+			renderCentered(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getConnectors() != null) {
+			renderConnectors(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getConstrain() != null) {
+			renderConstrain(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getContentBox() != null) {
+			renderContentBox(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getControlsToolbar() != null) {
+			renderControlsToolbar(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getDescription() != null) {
+			renderDescription(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getDisabled() != null) {
+			renderDisabled(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getFillHeight() != null) {
+			renderFillHeight(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getFocused() != null) {
+			renderFocused(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getFooterContent() != null) {
+			renderFooterContent(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getGraphic() != null) {
+			renderGraphic(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getHeaderContent() != null) {
+			renderHeaderContent(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getHeight() != null) {
+			renderHeight(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getHighlightBoundaryStroke() != null) {
+			renderHighlightBoundaryStroke(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getHighlighted() != null) {
+			renderHighlighted(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getDiagramNodeConditionId() != null) {
+			renderDiagramNodeConditionId(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getInitialized() != null) {
+			renderInitialized(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getDiagramNodeConditionLocale() != null) {
+			renderDiagramNodeConditionLocale(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getName() != null) {
+			renderName(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getPreventOverlap() != null) {
+			renderPreventOverlap(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getRender() != null) {
+			renderRender(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getRendered() != null) {
+			renderRendered(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getRequired() != null) {
+			renderRequired(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getSelected() != null) {
+			renderSelected(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getShapeBoundary() != null) {
+			renderShapeBoundary(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getShapeInvite() != null) {
+			renderShapeInvite(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getShim() != null) {
+			renderShim(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getSrcNode() != null) {
+			renderSrcNode(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getStrings() != null) {
+			renderStrings(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getTransitions() != null) {
+			renderTransitions(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getType() != null) {
+			renderType(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getVisible() != null) {
+			renderVisible(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getWidth() != null) {
+			renderWidth(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getX() != null) {
+			renderX(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getXy() != null) {
+			renderXy(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getY() != null) {
+			renderY(renderedAttributes, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getZIndex() != null) {
+			renderZIndex(renderedAttributes, diagramNodeCondition);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -105,50 +237,182 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAlignChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterAlignOnChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterBodyContentChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterBoundingBoxChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterBuilderChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterCenteredChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterConnectorsChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterConstrainChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterContentBoxChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterControlsToolbarChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterDescriptionChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterDestroyedChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterDisabledChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterFillHeightChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterFocusedChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterFooterContentChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterGraphicChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterHeaderContentChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterHeightChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterHighlightBoundaryStrokeChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterHighlightedChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterIdChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterInitializedChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterLocaleChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterNameChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterPreventOverlapChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterRenderChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterRenderedChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterRequiredChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterSelectedChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterShapeBoundaryChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterShapeInviteChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterShimChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterSrcNodeChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterStringsChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterTabIndexChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterTransitionsChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterTypeChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterVisibleChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterWidthChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterXChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterXyChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterYChange(renderedAfterEvents, diagramNodeCondition);
-		renderAfterZIndexChange(renderedAfterEvents, diagramNodeCondition);
+		if (diagramNodeCondition.getAfterAlignChange() != null) {
+			renderAfterAlignChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterAlignOnChange() != null) {
+			renderAfterAlignOnChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterBodyContentChange() != null) {
+			renderAfterBodyContentChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterBoundingBoxChange() != null) {
+			renderAfterBoundingBoxChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterBuilderChange() != null) {
+			renderAfterBuilderChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterCenteredChange() != null) {
+			renderAfterCenteredChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterConnectorsChange() != null) {
+			renderAfterConnectorsChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterConstrainChange() != null) {
+			renderAfterConstrainChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterContentBoxChange() != null) {
+			renderAfterContentBoxChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterControlsToolbarChange() != null) {
+			renderAfterControlsToolbarChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterDescriptionChange() != null) {
+			renderAfterDescriptionChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterFillHeightChange() != null) {
+			renderAfterFillHeightChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterFocusedChange() != null) {
+			renderAfterFocusedChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterFooterContentChange() != null) {
+			renderAfterFooterContentChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterGraphicChange() != null) {
+			renderAfterGraphicChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterHeaderContentChange() != null) {
+			renderAfterHeaderContentChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterHeightChange() != null) {
+			renderAfterHeightChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterHighlightBoundaryStrokeChange() != null) {
+			renderAfterHighlightBoundaryStrokeChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterHighlightedChange() != null) {
+			renderAfterHighlightedChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterLocaleChange() != null) {
+			renderAfterLocaleChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterNameChange() != null) {
+			renderAfterNameChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterPreventOverlapChange() != null) {
+			renderAfterPreventOverlapChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterRenderChange() != null) {
+			renderAfterRenderChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterRenderedChange() != null) {
+			renderAfterRenderedChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterRequiredChange() != null) {
+			renderAfterRequiredChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterSelectedChange() != null) {
+			renderAfterSelectedChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterShapeBoundaryChange() != null) {
+			renderAfterShapeBoundaryChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterShapeInviteChange() != null) {
+			renderAfterShapeInviteChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterShimChange() != null) {
+			renderAfterShimChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterSrcNodeChange() != null) {
+			renderAfterSrcNodeChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterTransitionsChange() != null) {
+			renderAfterTransitionsChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterXChange() != null) {
+			renderAfterXChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterXyChange() != null) {
+			renderAfterXyChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterYChange() != null) {
+			renderAfterYChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getAfterZIndexChange() != null) {
+			renderAfterZIndexChange(renderedAfterEvents, diagramNodeCondition);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -169,50 +433,182 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAlignChange(renderedOnEvents, diagramNodeCondition);
-		renderOnAlignOnChange(renderedOnEvents, diagramNodeCondition);
-		renderOnBodyContentChange(renderedOnEvents, diagramNodeCondition);
-		renderOnBoundingBoxChange(renderedOnEvents, diagramNodeCondition);
-		renderOnBuilderChange(renderedOnEvents, diagramNodeCondition);
-		renderOnCenteredChange(renderedOnEvents, diagramNodeCondition);
-		renderOnConnectorsChange(renderedOnEvents, diagramNodeCondition);
-		renderOnConstrainChange(renderedOnEvents, diagramNodeCondition);
-		renderOnContentBoxChange(renderedOnEvents, diagramNodeCondition);
-		renderOnControlsToolbarChange(renderedOnEvents, diagramNodeCondition);
-		renderOnDescriptionChange(renderedOnEvents, diagramNodeCondition);
-		renderOnDestroyedChange(renderedOnEvents, diagramNodeCondition);
-		renderOnDisabledChange(renderedOnEvents, diagramNodeCondition);
-		renderOnFillHeightChange(renderedOnEvents, diagramNodeCondition);
-		renderOnFocusedChange(renderedOnEvents, diagramNodeCondition);
-		renderOnFooterContentChange(renderedOnEvents, diagramNodeCondition);
-		renderOnGraphicChange(renderedOnEvents, diagramNodeCondition);
-		renderOnHeaderContentChange(renderedOnEvents, diagramNodeCondition);
-		renderOnHeightChange(renderedOnEvents, diagramNodeCondition);
-		renderOnHighlightBoundaryStrokeChange(renderedOnEvents, diagramNodeCondition);
-		renderOnHighlightedChange(renderedOnEvents, diagramNodeCondition);
-		renderOnIdChange(renderedOnEvents, diagramNodeCondition);
-		renderOnInitializedChange(renderedOnEvents, diagramNodeCondition);
-		renderOnLocaleChange(renderedOnEvents, diagramNodeCondition);
-		renderOnNameChange(renderedOnEvents, diagramNodeCondition);
-		renderOnPreventOverlapChange(renderedOnEvents, diagramNodeCondition);
-		renderOnRenderChange(renderedOnEvents, diagramNodeCondition);
-		renderOnRenderedChange(renderedOnEvents, diagramNodeCondition);
-		renderOnRequiredChange(renderedOnEvents, diagramNodeCondition);
-		renderOnSelectedChange(renderedOnEvents, diagramNodeCondition);
-		renderOnShapeBoundaryChange(renderedOnEvents, diagramNodeCondition);
-		renderOnShapeInviteChange(renderedOnEvents, diagramNodeCondition);
-		renderOnShimChange(renderedOnEvents, diagramNodeCondition);
-		renderOnSrcNodeChange(renderedOnEvents, diagramNodeCondition);
-		renderOnStringsChange(renderedOnEvents, diagramNodeCondition);
-		renderOnTabIndexChange(renderedOnEvents, diagramNodeCondition);
-		renderOnTransitionsChange(renderedOnEvents, diagramNodeCondition);
-		renderOnTypeChange(renderedOnEvents, diagramNodeCondition);
-		renderOnVisibleChange(renderedOnEvents, diagramNodeCondition);
-		renderOnWidthChange(renderedOnEvents, diagramNodeCondition);
-		renderOnXChange(renderedOnEvents, diagramNodeCondition);
-		renderOnXyChange(renderedOnEvents, diagramNodeCondition);
-		renderOnYChange(renderedOnEvents, diagramNodeCondition);
-		renderOnZIndexChange(renderedOnEvents, diagramNodeCondition);
+		if (diagramNodeCondition.getOnAlignChange() != null) {
+			renderOnAlignChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnAlignOnChange() != null) {
+			renderOnAlignOnChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnBodyContentChange() != null) {
+			renderOnBodyContentChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnBoundingBoxChange() != null) {
+			renderOnBoundingBoxChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnBuilderChange() != null) {
+			renderOnBuilderChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnCenteredChange() != null) {
+			renderOnCenteredChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnConnectorsChange() != null) {
+			renderOnConnectorsChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnConstrainChange() != null) {
+			renderOnConstrainChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnContentBoxChange() != null) {
+			renderOnContentBoxChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnControlsToolbarChange() != null) {
+			renderOnControlsToolbarChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnDescriptionChange() != null) {
+			renderOnDescriptionChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnFillHeightChange() != null) {
+			renderOnFillHeightChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnFocusedChange() != null) {
+			renderOnFocusedChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnFooterContentChange() != null) {
+			renderOnFooterContentChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnGraphicChange() != null) {
+			renderOnGraphicChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnHeaderContentChange() != null) {
+			renderOnHeaderContentChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnHeightChange() != null) {
+			renderOnHeightChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnHighlightBoundaryStrokeChange() != null) {
+			renderOnHighlightBoundaryStrokeChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnHighlightedChange() != null) {
+			renderOnHighlightedChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnLocaleChange() != null) {
+			renderOnLocaleChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnNameChange() != null) {
+			renderOnNameChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnPreventOverlapChange() != null) {
+			renderOnPreventOverlapChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnRenderChange() != null) {
+			renderOnRenderChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnRenderedChange() != null) {
+			renderOnRenderedChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnRequiredChange() != null) {
+			renderOnRequiredChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnSelectedChange() != null) {
+			renderOnSelectedChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnShapeBoundaryChange() != null) {
+			renderOnShapeBoundaryChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnShapeInviteChange() != null) {
+			renderOnShapeInviteChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnShimChange() != null) {
+			renderOnShimChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnSrcNodeChange() != null) {
+			renderOnSrcNodeChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnTransitionsChange() != null) {
+			renderOnTransitionsChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnXChange() != null) {
+			renderOnXChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnXyChange() != null) {
+			renderOnXyChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnYChange() != null) {
+			renderOnYChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
+		if (diagramNodeCondition.getOnZIndexChange() != null) {
+			renderOnZIndexChange(renderedOnEvents, diagramNodeCondition);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -237,1058 +633,662 @@ public abstract class DiagramNodeConditionRendererBase extends RendererBase {
 
 	protected void renderAlign(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object align = diagramNodeCondition.getAlign();
-
-		if (align != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.ALIGN, align));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.ALIGN, align));
 	}
 
 	protected void renderAlignOn(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object alignOn = diagramNodeCondition.getAlignOn();
-
-		if (alignOn != null) {
-			renderedAttributes.add(renderArray(DiagramNodeCondition.ALIGN_ON, alignOn));
-		}
+		renderedAttributes.add(renderArray(DiagramNodeCondition.ALIGN_ON, alignOn));
 	}
 
 	protected void renderDiagramNodeConditionBodyContent(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object diagramNodeConditionBodyContent = diagramNodeCondition.getDiagramNodeConditionBodyContent();
-
-		if (diagramNodeConditionBodyContent != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_BODY_CONTENT, diagramNodeConditionBodyContent));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_BODY_CONTENT, diagramNodeConditionBodyContent));
 	}
 
 	protected void renderBoundingBox(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String boundingBox = diagramNodeCondition.getBoundingBox();
-
-		if (boundingBox != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.BOUNDING_BOX, boundingBox));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.BOUNDING_BOX, boundingBox));
 	}
 
 	protected void renderBuilder(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object builder = diagramNodeCondition.getBuilder();
-
-		if (builder != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.BUILDER, builder));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.BUILDER, builder));
 	}
 
 	protected void renderCentered(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object centered = diagramNodeCondition.getCentered();
-
-		if (centered != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.CENTERED, centered));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.CENTERED, centered));
 	}
 
 	protected void renderConnectors(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String connectors = diagramNodeCondition.getConnectors();
-
-		if (connectors != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.CONNECTORS, connectors));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.CONNECTORS, connectors));
 	}
 
 	protected void renderConstrain(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object constrain = diagramNodeCondition.getConstrain();
-
-		if (constrain != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.CONSTRAIN, constrain));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.CONSTRAIN, constrain));
 	}
 
 	protected void renderContentBox(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String contentBox = diagramNodeCondition.getContentBox();
-
-		if (contentBox != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.CONTENT_BOX, contentBox));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.CONTENT_BOX, contentBox));
 	}
 
 	protected void renderControlsToolbar(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object controlsToolbar = diagramNodeCondition.getControlsToolbar();
-
-		if (controlsToolbar != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.CONTROLS_TOOLBAR, controlsToolbar));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.CONTROLS_TOOLBAR, controlsToolbar));
 	}
 
 	protected void renderDescription(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String description = diagramNodeCondition.getDescription();
-
-		if (description != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DESCRIPTION, description));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.DESCRIPTION, description));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean destroyed = diagramNodeCondition.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean disabled = diagramNodeCondition.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.DISABLED, disabled));
 	}
 
 	protected void renderFillHeight(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object fillHeight = diagramNodeCondition.getFillHeight();
-
-		if (fillHeight != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.FILL_HEIGHT, fillHeight));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.FILL_HEIGHT, fillHeight));
 	}
 
 	protected void renderFocused(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean focused = diagramNodeCondition.getFocused();
-
-		if (focused != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.FOCUSED, focused));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.FOCUSED, focused));
 	}
 
 	protected void renderFooterContent(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object footerContent = diagramNodeCondition.getFooterContent();
-
-		if (footerContent != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.FOOTER_CONTENT, footerContent));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.FOOTER_CONTENT, footerContent));
 	}
 
 	protected void renderGraphic(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object graphic = diagramNodeCondition.getGraphic();
-
-		if (graphic != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.GRAPHIC, graphic));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.GRAPHIC, graphic));
 	}
 
 	protected void renderHeaderContent(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object headerContent = diagramNodeCondition.getHeaderContent();
-
-		if (headerContent != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.HEADER_CONTENT, headerContent));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.HEADER_CONTENT, headerContent));
 	}
 
 	protected void renderHeight(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object height = diagramNodeCondition.getHeight();
-
-		if (height != null) {
-			renderedAttributes.add(renderNumber(DiagramNodeCondition.HEIGHT, height));
-		}
+		renderedAttributes.add(renderNumber(DiagramNodeCondition.HEIGHT, height));
 	}
 
 	protected void renderHighlightBoundaryStroke(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object highlightBoundaryStroke = diagramNodeCondition.getHighlightBoundaryStroke();
-
-		if (highlightBoundaryStroke != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.HIGHLIGHT_BOUNDARY_STROKE, highlightBoundaryStroke));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.HIGHLIGHT_BOUNDARY_STROKE, highlightBoundaryStroke));
 	}
 
 	protected void renderHighlighted(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean highlighted = diagramNodeCondition.getHighlighted();
-
-		if (highlighted != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.HIGHLIGHTED, highlighted));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.HIGHLIGHTED, highlighted));
 	}
 
 	protected void renderDiagramNodeConditionId(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String diagramNodeConditionId = diagramNodeCondition.getDiagramNodeConditionId();
-
-		if (diagramNodeConditionId != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_ID, diagramNodeConditionId));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_ID, diagramNodeConditionId));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean initialized = diagramNodeCondition.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.INITIALIZED, initialized));
 	}
 
 	protected void renderDiagramNodeConditionLocale(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String diagramNodeConditionLocale = diagramNodeCondition.getDiagramNodeConditionLocale();
-
-		if (diagramNodeConditionLocale != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_LOCALE, diagramNodeConditionLocale));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.DIAGRAM_NODE_CONDITION_LOCALE, diagramNodeConditionLocale));
 	}
 
 	protected void renderName(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String name = diagramNodeCondition.getName();
-
-		if (name != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.NAME, name));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.NAME, name));
 	}
 
 	protected void renderPreventOverlap(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean preventOverlap = diagramNodeCondition.getPreventOverlap();
-
-		if (preventOverlap != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.PREVENT_OVERLAP, preventOverlap));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.PREVENT_OVERLAP, preventOverlap));
 	}
 
 	protected void renderRender(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object render = diagramNodeCondition.getRender();
-
-		if (render != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.RENDER, render));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.RENDER, render));
 	}
 
 	protected void renderRendered(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean rendered = diagramNodeCondition.getRendered();
-
-		if (rendered != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.RENDERED, rendered));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.RENDERED, rendered));
 	}
 
 	protected void renderRequired(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean required = diagramNodeCondition.getRequired();
-
-		if (required != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.REQUIRED, required));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.REQUIRED, required));
 	}
 
 	protected void renderSelected(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean selected = diagramNodeCondition.getSelected();
-
-		if (selected != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.SELECTED, selected));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.SELECTED, selected));
 	}
 
 	protected void renderShapeBoundary(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object shapeBoundary = diagramNodeCondition.getShapeBoundary();
-
-		if (shapeBoundary != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.SHAPE_BOUNDARY, shapeBoundary));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.SHAPE_BOUNDARY, shapeBoundary));
 	}
 
 	protected void renderShapeInvite(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object shapeInvite = diagramNodeCondition.getShapeInvite();
-
-		if (shapeInvite != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.SHAPE_INVITE, shapeInvite));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.SHAPE_INVITE, shapeInvite));
 	}
 
 	protected void renderShim(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean shim = diagramNodeCondition.getShim();
-
-		if (shim != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.SHIM, shim));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.SHIM, shim));
 	}
 
 	protected void renderSrcNode(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String srcNode = diagramNodeCondition.getSrcNode();
-
-		if (srcNode != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.SRC_NODE, srcNode));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.SRC_NODE, srcNode));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object strings = diagramNodeCondition.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(DiagramNodeCondition.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(DiagramNodeCondition.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object tabIndex = diagramNodeCondition.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(DiagramNodeCondition.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(DiagramNodeCondition.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderTransitions(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String transitions = diagramNodeCondition.getTransitions();
-
-		if (transitions != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.TRANSITIONS, transitions));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.TRANSITIONS, transitions));
 	}
 
 	protected void renderType(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String type = diagramNodeCondition.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.TYPE, type));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.TYPE, type));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Boolean visible = diagramNodeCondition.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(DiagramNodeCondition.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(DiagramNodeCondition.VISIBLE, visible));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object width = diagramNodeCondition.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderNumber(DiagramNodeCondition.WIDTH, width));
-		}
+		renderedAttributes.add(renderNumber(DiagramNodeCondition.WIDTH, width));
 	}
 
 	protected void renderX(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object x = diagramNodeCondition.getX();
-
-		if (x != null) {
-			renderedAttributes.add(renderNumber(DiagramNodeCondition.X, x));
-		}
+		renderedAttributes.add(renderNumber(DiagramNodeCondition.X, x));
 	}
 
 	protected void renderXy(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object xy = diagramNodeCondition.getXy();
-
-		if (xy != null) {
-			renderedAttributes.add(renderArray(DiagramNodeCondition.XY, xy));
-		}
+		renderedAttributes.add(renderArray(DiagramNodeCondition.XY, xy));
 	}
 
 	protected void renderY(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object y = diagramNodeCondition.getY();
-
-		if (y != null) {
-			renderedAttributes.add(renderNumber(DiagramNodeCondition.Y, y));
-		}
+		renderedAttributes.add(renderNumber(DiagramNodeCondition.Y, y));
 	}
 
 	protected void renderZIndex(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.Object zIndex = diagramNodeCondition.getZIndex();
-
-		if (zIndex != null) {
-			renderedAttributes.add(renderNumber(DiagramNodeCondition.Z_INDEX, zIndex));
-		}
+		renderedAttributes.add(renderNumber(DiagramNodeCondition.Z_INDEX, zIndex));
 	}
 
 	protected void renderAfterAlignChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterAlignChange = diagramNodeCondition.getAfterAlignChange();
-
-		if (afterAlignChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ALIGN_CHANGE, afterAlignChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ALIGN_CHANGE, afterAlignChange));
 	}
 
 	protected void renderAfterAlignOnChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterAlignOnChange = diagramNodeCondition.getAfterAlignOnChange();
-
-		if (afterAlignOnChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
 	}
 
 	protected void renderAfterBodyContentChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterBodyContentChange = diagramNodeCondition.getAfterBodyContentChange();
-
-		if (afterBodyContentChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
 	}
 
 	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterBoundingBoxChange = diagramNodeCondition.getAfterBoundingBoxChange();
-
-		if (afterBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
 	}
 
 	protected void renderAfterBuilderChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterBuilderChange = diagramNodeCondition.getAfterBuilderChange();
-
-		if (afterBuilderChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_BUILDER_CHANGE, afterBuilderChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_BUILDER_CHANGE, afterBuilderChange));
 	}
 
 	protected void renderAfterCenteredChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterCenteredChange = diagramNodeCondition.getAfterCenteredChange();
-
-		if (afterCenteredChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CENTERED_CHANGE, afterCenteredChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CENTERED_CHANGE, afterCenteredChange));
 	}
 
 	protected void renderAfterConnectorsChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterConnectorsChange = diagramNodeCondition.getAfterConnectorsChange();
-
-		if (afterConnectorsChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONNECTORS_CHANGE, afterConnectorsChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONNECTORS_CHANGE, afterConnectorsChange));
 	}
 
 	protected void renderAfterConstrainChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterConstrainChange = diagramNodeCondition.getAfterConstrainChange();
-
-		if (afterConstrainChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
 	}
 
 	protected void renderAfterContentBoxChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterContentBoxChange = diagramNodeCondition.getAfterContentBoxChange();
-
-		if (afterContentBoxChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
 	}
 
 	protected void renderAfterControlsToolbarChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterControlsToolbarChange = diagramNodeCondition.getAfterControlsToolbarChange();
-
-		if (afterControlsToolbarChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
 	}
 
 	protected void renderAfterDescriptionChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterDescriptionChange = diagramNodeCondition.getAfterDescriptionChange();
-
-		if (afterDescriptionChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_DESCRIPTION_CHANGE, afterDescriptionChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_DESCRIPTION_CHANGE, afterDescriptionChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterDestroyedChange = diagramNodeCondition.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterDisabledChange = diagramNodeCondition.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterFillHeightChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterFillHeightChange = diagramNodeCondition.getAfterFillHeightChange();
-
-		if (afterFillHeightChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
 	}
 
 	protected void renderAfterFocusedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterFocusedChange = diagramNodeCondition.getAfterFocusedChange();
-
-		if (afterFocusedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_FOCUSED_CHANGE, afterFocusedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_FOCUSED_CHANGE, afterFocusedChange));
 	}
 
 	protected void renderAfterFooterContentChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterFooterContentChange = diagramNodeCondition.getAfterFooterContentChange();
-
-		if (afterFooterContentChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
 	}
 
 	protected void renderAfterGraphicChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterGraphicChange = diagramNodeCondition.getAfterGraphicChange();
-
-		if (afterGraphicChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_GRAPHIC_CHANGE, afterGraphicChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_GRAPHIC_CHANGE, afterGraphicChange));
 	}
 
 	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterHeaderContentChange = diagramNodeCondition.getAfterHeaderContentChange();
-
-		if (afterHeaderContentChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
 	}
 
 	protected void renderAfterHeightChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterHeightChange = diagramNodeCondition.getAfterHeightChange();
-
-		if (afterHeightChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HEIGHT_CHANGE, afterHeightChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HEIGHT_CHANGE, afterHeightChange));
 	}
 
 	protected void renderAfterHighlightBoundaryStrokeChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterHighlightBoundaryStrokeChange = diagramNodeCondition.getAfterHighlightBoundaryStrokeChange();
-
-		if (afterHighlightBoundaryStrokeChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HIGHLIGHT_BOUNDARY_STROKE_CHANGE, afterHighlightBoundaryStrokeChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HIGHLIGHT_BOUNDARY_STROKE_CHANGE, afterHighlightBoundaryStrokeChange));
 	}
 
 	protected void renderAfterHighlightedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterHighlightedChange = diagramNodeCondition.getAfterHighlightedChange();
-
-		if (afterHighlightedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HIGHLIGHTED_CHANGE, afterHighlightedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_HIGHLIGHTED_CHANGE, afterHighlightedChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterIdChange = diagramNodeCondition.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterInitializedChange = diagramNodeCondition.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterLocaleChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterLocaleChange = diagramNodeCondition.getAfterLocaleChange();
-
-		if (afterLocaleChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_LOCALE_CHANGE, afterLocaleChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_LOCALE_CHANGE, afterLocaleChange));
 	}
 
 	protected void renderAfterNameChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterNameChange = diagramNodeCondition.getAfterNameChange();
-
-		if (afterNameChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_NAME_CHANGE, afterNameChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_NAME_CHANGE, afterNameChange));
 	}
 
 	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterPreventOverlapChange = diagramNodeCondition.getAfterPreventOverlapChange();
-
-		if (afterPreventOverlapChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
 	}
 
 	protected void renderAfterRenderChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterRenderChange = diagramNodeCondition.getAfterRenderChange();
-
-		if (afterRenderChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_RENDER_CHANGE, afterRenderChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_RENDER_CHANGE, afterRenderChange));
 	}
 
 	protected void renderAfterRenderedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterRenderedChange = diagramNodeCondition.getAfterRenderedChange();
-
-		if (afterRenderedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_RENDERED_CHANGE, afterRenderedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_RENDERED_CHANGE, afterRenderedChange));
 	}
 
 	protected void renderAfterRequiredChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterRequiredChange = diagramNodeCondition.getAfterRequiredChange();
-
-		if (afterRequiredChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_REQUIRED_CHANGE, afterRequiredChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_REQUIRED_CHANGE, afterRequiredChange));
 	}
 
 	protected void renderAfterSelectedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterSelectedChange = diagramNodeCondition.getAfterSelectedChange();
-
-		if (afterSelectedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SELECTED_CHANGE, afterSelectedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SELECTED_CHANGE, afterSelectedChange));
 	}
 
 	protected void renderAfterShapeBoundaryChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterShapeBoundaryChange = diagramNodeCondition.getAfterShapeBoundaryChange();
-
-		if (afterShapeBoundaryChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SHAPE_BOUNDARY_CHANGE, afterShapeBoundaryChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SHAPE_BOUNDARY_CHANGE, afterShapeBoundaryChange));
 	}
 
 	protected void renderAfterShapeInviteChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterShapeInviteChange = diagramNodeCondition.getAfterShapeInviteChange();
-
-		if (afterShapeInviteChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SHAPE_INVITE_CHANGE, afterShapeInviteChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SHAPE_INVITE_CHANGE, afterShapeInviteChange));
 	}
 
 	protected void renderAfterShimChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterShimChange = diagramNodeCondition.getAfterShimChange();
-
-		if (afterShimChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SHIM_CHANGE, afterShimChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SHIM_CHANGE, afterShimChange));
 	}
 
 	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterSrcNodeChange = diagramNodeCondition.getAfterSrcNodeChange();
-
-		if (afterSrcNodeChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterStringsChange = diagramNodeCondition.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterTabIndexChange = diagramNodeCondition.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterTransitionsChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterTransitionsChange = diagramNodeCondition.getAfterTransitionsChange();
-
-		if (afterTransitionsChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_TRANSITIONS_CHANGE, afterTransitionsChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_TRANSITIONS_CHANGE, afterTransitionsChange));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterTypeChange = diagramNodeCondition.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterVisibleChange = diagramNodeCondition.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterWidthChange = diagramNodeCondition.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderAfterXChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterXChange = diagramNodeCondition.getAfterXChange();
-
-		if (afterXChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_XCHANGE, afterXChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_XCHANGE, afterXChange));
 	}
 
 	protected void renderAfterXyChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterXyChange = diagramNodeCondition.getAfterXyChange();
-
-		if (afterXyChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_XY_CHANGE, afterXyChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_XY_CHANGE, afterXyChange));
 	}
 
 	protected void renderAfterYChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterYChange = diagramNodeCondition.getAfterYChange();
-
-		if (afterYChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_YCHANGE, afterYChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_YCHANGE, afterYChange));
 	}
 
 	protected void renderAfterZIndexChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String afterZIndexChange = diagramNodeCondition.getAfterZIndexChange();
-
-		if (afterZIndexChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ZINDEX_CHANGE, afterZIndexChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.AFTER_ZINDEX_CHANGE, afterZIndexChange));
 	}
 
 	protected void renderOnAlignChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onAlignChange = diagramNodeCondition.getOnAlignChange();
-
-		if (onAlignChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_ALIGN_CHANGE, onAlignChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_ALIGN_CHANGE, onAlignChange));
 	}
 
 	protected void renderOnAlignOnChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onAlignOnChange = diagramNodeCondition.getOnAlignOnChange();
-
-		if (onAlignOnChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_ALIGN_ON_CHANGE, onAlignOnChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_ALIGN_ON_CHANGE, onAlignOnChange));
 	}
 
 	protected void renderOnBodyContentChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onBodyContentChange = diagramNodeCondition.getOnBodyContentChange();
-
-		if (onBodyContentChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
 	}
 
 	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onBoundingBoxChange = diagramNodeCondition.getOnBoundingBoxChange();
-
-		if (onBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
 	}
 
 	protected void renderOnBuilderChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onBuilderChange = diagramNodeCondition.getOnBuilderChange();
-
-		if (onBuilderChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_BUILDER_CHANGE, onBuilderChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_BUILDER_CHANGE, onBuilderChange));
 	}
 
 	protected void renderOnCenteredChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onCenteredChange = diagramNodeCondition.getOnCenteredChange();
-
-		if (onCenteredChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_CENTERED_CHANGE, onCenteredChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_CENTERED_CHANGE, onCenteredChange));
 	}
 
 	protected void renderOnConnectorsChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onConnectorsChange = diagramNodeCondition.getOnConnectorsChange();
-
-		if (onConnectorsChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONNECTORS_CHANGE, onConnectorsChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONNECTORS_CHANGE, onConnectorsChange));
 	}
 
 	protected void renderOnConstrainChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onConstrainChange = diagramNodeCondition.getOnConstrainChange();
-
-		if (onConstrainChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONSTRAIN_CHANGE, onConstrainChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONSTRAIN_CHANGE, onConstrainChange));
 	}
 
 	protected void renderOnContentBoxChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onContentBoxChange = diagramNodeCondition.getOnContentBoxChange();
-
-		if (onContentBoxChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
 	}
 
 	protected void renderOnControlsToolbarChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onControlsToolbarChange = diagramNodeCondition.getOnControlsToolbarChange();
-
-		if (onControlsToolbarChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
 	}
 
 	protected void renderOnDescriptionChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onDescriptionChange = diagramNodeCondition.getOnDescriptionChange();
-
-		if (onDescriptionChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_DESCRIPTION_CHANGE, onDescriptionChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_DESCRIPTION_CHANGE, onDescriptionChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onDestroyedChange = diagramNodeCondition.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onDisabledChange = diagramNodeCondition.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnFillHeightChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onFillHeightChange = diagramNodeCondition.getOnFillHeightChange();
-
-		if (onFillHeightChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
 	}
 
 	protected void renderOnFocusedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onFocusedChange = diagramNodeCondition.getOnFocusedChange();
-
-		if (onFocusedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_FOCUSED_CHANGE, onFocusedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_FOCUSED_CHANGE, onFocusedChange));
 	}
 
 	protected void renderOnFooterContentChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onFooterContentChange = diagramNodeCondition.getOnFooterContentChange();
-
-		if (onFooterContentChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
 	}
 
 	protected void renderOnGraphicChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onGraphicChange = diagramNodeCondition.getOnGraphicChange();
-
-		if (onGraphicChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_GRAPHIC_CHANGE, onGraphicChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_GRAPHIC_CHANGE, onGraphicChange));
 	}
 
 	protected void renderOnHeaderContentChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onHeaderContentChange = diagramNodeCondition.getOnHeaderContentChange();
-
-		if (onHeaderContentChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
 	}
 
 	protected void renderOnHeightChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onHeightChange = diagramNodeCondition.getOnHeightChange();
-
-		if (onHeightChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_HEIGHT_CHANGE, onHeightChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_HEIGHT_CHANGE, onHeightChange));
 	}
 
 	protected void renderOnHighlightBoundaryStrokeChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onHighlightBoundaryStrokeChange = diagramNodeCondition.getOnHighlightBoundaryStrokeChange();
-
-		if (onHighlightBoundaryStrokeChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_HIGHLIGHT_BOUNDARY_STROKE_CHANGE, onHighlightBoundaryStrokeChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_HIGHLIGHT_BOUNDARY_STROKE_CHANGE, onHighlightBoundaryStrokeChange));
 	}
 
 	protected void renderOnHighlightedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onHighlightedChange = diagramNodeCondition.getOnHighlightedChange();
-
-		if (onHighlightedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_HIGHLIGHTED_CHANGE, onHighlightedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_HIGHLIGHTED_CHANGE, onHighlightedChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onIdChange = diagramNodeCondition.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onInitializedChange = diagramNodeCondition.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnLocaleChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onLocaleChange = diagramNodeCondition.getOnLocaleChange();
-
-		if (onLocaleChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_LOCALE_CHANGE, onLocaleChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_LOCALE_CHANGE, onLocaleChange));
 	}
 
 	protected void renderOnNameChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onNameChange = diagramNodeCondition.getOnNameChange();
-
-		if (onNameChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_NAME_CHANGE, onNameChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_NAME_CHANGE, onNameChange));
 	}
 
 	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onPreventOverlapChange = diagramNodeCondition.getOnPreventOverlapChange();
-
-		if (onPreventOverlapChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
 	}
 
 	protected void renderOnRenderChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onRenderChange = diagramNodeCondition.getOnRenderChange();
-
-		if (onRenderChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_RENDER_CHANGE, onRenderChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_RENDER_CHANGE, onRenderChange));
 	}
 
 	protected void renderOnRenderedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onRenderedChange = diagramNodeCondition.getOnRenderedChange();
-
-		if (onRenderedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_RENDERED_CHANGE, onRenderedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_RENDERED_CHANGE, onRenderedChange));
 	}
 
 	protected void renderOnRequiredChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onRequiredChange = diagramNodeCondition.getOnRequiredChange();
-
-		if (onRequiredChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_REQUIRED_CHANGE, onRequiredChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_REQUIRED_CHANGE, onRequiredChange));
 	}
 
 	protected void renderOnSelectedChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onSelectedChange = diagramNodeCondition.getOnSelectedChange();
-
-		if (onSelectedChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_SELECTED_CHANGE, onSelectedChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_SELECTED_CHANGE, onSelectedChange));
 	}
 
 	protected void renderOnShapeBoundaryChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onShapeBoundaryChange = diagramNodeCondition.getOnShapeBoundaryChange();
-
-		if (onShapeBoundaryChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_SHAPE_BOUNDARY_CHANGE, onShapeBoundaryChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_SHAPE_BOUNDARY_CHANGE, onShapeBoundaryChange));
 	}
 
 	protected void renderOnShapeInviteChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onShapeInviteChange = diagramNodeCondition.getOnShapeInviteChange();
-
-		if (onShapeInviteChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_SHAPE_INVITE_CHANGE, onShapeInviteChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_SHAPE_INVITE_CHANGE, onShapeInviteChange));
 	}
 
 	protected void renderOnShimChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onShimChange = diagramNodeCondition.getOnShimChange();
-
-		if (onShimChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_SHIM_CHANGE, onShimChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_SHIM_CHANGE, onShimChange));
 	}
 
 	protected void renderOnSrcNodeChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onSrcNodeChange = diagramNodeCondition.getOnSrcNodeChange();
-
-		if (onSrcNodeChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_SRC_NODE_CHANGE, onSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_SRC_NODE_CHANGE, onSrcNodeChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onStringsChange = diagramNodeCondition.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onTabIndexChange = diagramNodeCondition.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnTransitionsChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onTransitionsChange = diagramNodeCondition.getOnTransitionsChange();
-
-		if (onTransitionsChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_TRANSITIONS_CHANGE, onTransitionsChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_TRANSITIONS_CHANGE, onTransitionsChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onTypeChange = diagramNodeCondition.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onVisibleChange = diagramNodeCondition.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onWidthChange = diagramNodeCondition.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 	protected void renderOnXChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onXChange = diagramNodeCondition.getOnXChange();
-
-		if (onXChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_XCHANGE, onXChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_XCHANGE, onXChange));
 	}
 
 	protected void renderOnXyChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onXyChange = diagramNodeCondition.getOnXyChange();
-
-		if (onXyChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_XY_CHANGE, onXyChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_XY_CHANGE, onXyChange));
 	}
 
 	protected void renderOnYChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onYChange = diagramNodeCondition.getOnYChange();
-
-		if (onYChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_YCHANGE, onYChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_YCHANGE, onYChange));
 	}
 
 	protected void renderOnZIndexChange(List<String> renderedAttributes, DiagramNodeCondition diagramNodeCondition) throws IOException {
 		java.lang.String onZIndexChange = diagramNodeCondition.getOnZIndexChange();
-
-		if (onZIndexChange != null) {
-			renderedAttributes.add(renderString(DiagramNodeCondition.ON_ZINDEX_CHANGE, onZIndexChange));
-		}
+		renderedAttributes.add(renderString(DiagramNodeCondition.ON_ZINDEX_CHANGE, onZIndexChange));
 	}
 
 }

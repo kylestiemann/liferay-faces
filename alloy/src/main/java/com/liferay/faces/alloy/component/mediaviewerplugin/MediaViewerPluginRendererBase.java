@@ -49,10 +49,22 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDestroyed(renderedAttributes, mediaViewerPlugin);
-		renderHost(renderedAttributes, mediaViewerPlugin);
-		renderInitialized(renderedAttributes, mediaViewerPlugin);
-		renderProviders(renderedAttributes, mediaViewerPlugin);
+		if (mediaViewerPlugin.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getHost() != null) {
+			renderHost(renderedAttributes, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getInitialized() != null) {
+			renderInitialized(renderedAttributes, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getProviders() != null) {
+			renderProviders(renderedAttributes, mediaViewerPlugin);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -65,10 +77,22 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDestroyedChange(renderedAfterEvents, mediaViewerPlugin);
-		renderAfterHostChange(renderedAfterEvents, mediaViewerPlugin);
-		renderAfterInitializedChange(renderedAfterEvents, mediaViewerPlugin);
-		renderAfterProvidersChange(renderedAfterEvents, mediaViewerPlugin);
+		if (mediaViewerPlugin.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getAfterProvidersChange() != null) {
+			renderAfterProvidersChange(renderedAfterEvents, mediaViewerPlugin);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -89,10 +113,22 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDestroyedChange(renderedOnEvents, mediaViewerPlugin);
-		renderOnHostChange(renderedOnEvents, mediaViewerPlugin);
-		renderOnInitializedChange(renderedOnEvents, mediaViewerPlugin);
-		renderOnProvidersChange(renderedOnEvents, mediaViewerPlugin);
+		if (mediaViewerPlugin.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, mediaViewerPlugin);
+		}
+		
+		if (mediaViewerPlugin.getOnProvidersChange() != null) {
+			renderOnProvidersChange(renderedOnEvents, mediaViewerPlugin);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -117,98 +153,62 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 
 	protected void renderDestroyed(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.Boolean destroyed = mediaViewerPlugin.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(MediaViewerPlugin.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(MediaViewerPlugin.DESTROYED, destroyed));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.Object host = mediaViewerPlugin.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.HOST, host));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.HOST, host));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.Boolean initialized = mediaViewerPlugin.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(MediaViewerPlugin.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(MediaViewerPlugin.INITIALIZED, initialized));
 	}
 
 	protected void renderProviders(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.Object providers = mediaViewerPlugin.getProviders();
-
-		if (providers != null) {
-			renderedAttributes.add(renderObject(MediaViewerPlugin.PROVIDERS, providers));
-		}
+		renderedAttributes.add(renderObject(MediaViewerPlugin.PROVIDERS, providers));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String afterDestroyedChange = mediaViewerPlugin.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String afterHostChange = mediaViewerPlugin.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String afterInitializedChange = mediaViewerPlugin.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterProvidersChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String afterProvidersChange = mediaViewerPlugin.getAfterProvidersChange();
-
-		if (afterProvidersChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_PROVIDERS_CHANGE, afterProvidersChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_PROVIDERS_CHANGE, afterProvidersChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String onDestroyedChange = mediaViewerPlugin.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String onHostChange = mediaViewerPlugin.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String onInitializedChange = mediaViewerPlugin.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnProvidersChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
 		java.lang.String onProvidersChange = mediaViewerPlugin.getOnProvidersChange();
-
-		if (onProvidersChange != null) {
-			renderedAttributes.add(renderString(MediaViewerPlugin.ON_PROVIDERS_CHANGE, onProvidersChange));
-		}
+		renderedAttributes.add(renderString(MediaViewerPlugin.ON_PROVIDERS_CHANGE, onProvidersChange));
 	}
 
 }

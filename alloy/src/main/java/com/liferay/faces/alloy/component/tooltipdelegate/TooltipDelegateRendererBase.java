@@ -49,15 +49,42 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAlign(renderedAttributes, tooltipDelegate);
-		renderContainer(renderedAttributes, tooltipDelegate);
-		renderDestroyed(renderedAttributes, tooltipDelegate);
-		renderDuration(renderedAttributes, tooltipDelegate);
-		renderInitialized(renderedAttributes, tooltipDelegate);
-		renderOpacity(renderedAttributes, tooltipDelegate);
-		renderTriggerHideEvent(renderedAttributes, tooltipDelegate);
-		renderTriggerShowEvent(renderedAttributes, tooltipDelegate);
-		renderZIndex(renderedAttributes, tooltipDelegate);
+		if (tooltipDelegate.getAlign() != null) {
+			renderAlign(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getContainer() != null) {
+			renderContainer(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getDuration() != null) {
+			renderDuration(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getInitialized() != null) {
+			renderInitialized(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOpacity() != null) {
+			renderOpacity(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getTriggerHideEvent() != null) {
+			renderTriggerHideEvent(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getTriggerShowEvent() != null) {
+			renderTriggerShowEvent(renderedAttributes, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getZIndex() != null) {
+			renderZIndex(renderedAttributes, tooltipDelegate);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -70,15 +97,42 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAlignChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterContainerChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterDestroyedChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterDurationChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterInitializedChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterOpacityChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterTriggerHideEventChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterTriggerShowEventChange(renderedAfterEvents, tooltipDelegate);
-		renderAfterZIndexChange(renderedAfterEvents, tooltipDelegate);
+		if (tooltipDelegate.getAfterAlignChange() != null) {
+			renderAfterAlignChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterContainerChange() != null) {
+			renderAfterContainerChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterDurationChange() != null) {
+			renderAfterDurationChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterOpacityChange() != null) {
+			renderAfterOpacityChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterTriggerHideEventChange() != null) {
+			renderAfterTriggerHideEventChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterTriggerShowEventChange() != null) {
+			renderAfterTriggerShowEventChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getAfterZIndexChange() != null) {
+			renderAfterZIndexChange(renderedAfterEvents, tooltipDelegate);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -99,15 +153,42 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAlignChange(renderedOnEvents, tooltipDelegate);
-		renderOnContainerChange(renderedOnEvents, tooltipDelegate);
-		renderOnDestroyedChange(renderedOnEvents, tooltipDelegate);
-		renderOnDurationChange(renderedOnEvents, tooltipDelegate);
-		renderOnInitializedChange(renderedOnEvents, tooltipDelegate);
-		renderOnOpacityChange(renderedOnEvents, tooltipDelegate);
-		renderOnTriggerHideEventChange(renderedOnEvents, tooltipDelegate);
-		renderOnTriggerShowEventChange(renderedOnEvents, tooltipDelegate);
-		renderOnZIndexChange(renderedOnEvents, tooltipDelegate);
+		if (tooltipDelegate.getOnAlignChange() != null) {
+			renderOnAlignChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnContainerChange() != null) {
+			renderOnContainerChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnDurationChange() != null) {
+			renderOnDurationChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnOpacityChange() != null) {
+			renderOnOpacityChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnTriggerHideEventChange() != null) {
+			renderOnTriggerHideEventChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnTriggerShowEventChange() != null) {
+			renderOnTriggerShowEventChange(renderedOnEvents, tooltipDelegate);
+		}
+		
+		if (tooltipDelegate.getOnZIndexChange() != null) {
+			renderOnZIndexChange(renderedOnEvents, tooltipDelegate);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -132,218 +213,137 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 	protected void renderAlign(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.Object align = tooltipDelegate.getAlign();
-
-		if (align != null) {
-			renderedAttributes.add(renderObject(TooltipDelegate.ALIGN, align));
-		}
+		renderedAttributes.add(renderObject(TooltipDelegate.ALIGN, align));
 	}
 
 	protected void renderContainer(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String container = tooltipDelegate.getContainer();
-
-		if (container != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.CONTAINER, container));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.CONTAINER, container));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.Boolean destroyed = tooltipDelegate.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TooltipDelegate.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TooltipDelegate.DESTROYED, destroyed));
 	}
 
 	protected void renderDuration(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.Object duration = tooltipDelegate.getDuration();
-
-		if (duration != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.DURATION, duration));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.DURATION, duration));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.Boolean initialized = tooltipDelegate.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TooltipDelegate.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TooltipDelegate.INITIALIZED, initialized));
 	}
 
 	protected void renderOpacity(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.Object opacity = tooltipDelegate.getOpacity();
-
-		if (opacity != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.OPACITY, opacity));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.OPACITY, opacity));
 	}
 
 	protected void renderTriggerHideEvent(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String triggerHideEvent = tooltipDelegate.getTriggerHideEvent();
-
-		if (triggerHideEvent != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.TRIGGER_HIDE_EVENT, triggerHideEvent));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.TRIGGER_HIDE_EVENT, triggerHideEvent));
 	}
 
 	protected void renderTriggerShowEvent(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String triggerShowEvent = tooltipDelegate.getTriggerShowEvent();
-
-		if (triggerShowEvent != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.TRIGGER_SHOW_EVENT, triggerShowEvent));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.TRIGGER_SHOW_EVENT, triggerShowEvent));
 	}
 
 	protected void renderZIndex(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.Object zIndex = tooltipDelegate.getZIndex();
-
-		if (zIndex != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.Z_INDEX, zIndex));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.Z_INDEX, zIndex));
 	}
 
 	protected void renderAfterAlignChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterAlignChange = tooltipDelegate.getAfterAlignChange();
-
-		if (afterAlignChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_ALIGN_CHANGE, afterAlignChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_ALIGN_CHANGE, afterAlignChange));
 	}
 
 	protected void renderAfterContainerChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterContainerChange = tooltipDelegate.getAfterContainerChange();
-
-		if (afterContainerChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_CONTAINER_CHANGE, afterContainerChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_CONTAINER_CHANGE, afterContainerChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterDestroyedChange = tooltipDelegate.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDurationChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterDurationChange = tooltipDelegate.getAfterDurationChange();
-
-		if (afterDurationChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_DURATION_CHANGE, afterDurationChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_DURATION_CHANGE, afterDurationChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterInitializedChange = tooltipDelegate.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterOpacityChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterOpacityChange = tooltipDelegate.getAfterOpacityChange();
-
-		if (afterOpacityChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_OPACITY_CHANGE, afterOpacityChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_OPACITY_CHANGE, afterOpacityChange));
 	}
 
 	protected void renderAfterTriggerHideEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterTriggerHideEventChange = tooltipDelegate.getAfterTriggerHideEventChange();
-
-		if (afterTriggerHideEventChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_TRIGGER_HIDE_EVENT_CHANGE, afterTriggerHideEventChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_TRIGGER_HIDE_EVENT_CHANGE, afterTriggerHideEventChange));
 	}
 
 	protected void renderAfterTriggerShowEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterTriggerShowEventChange = tooltipDelegate.getAfterTriggerShowEventChange();
-
-		if (afterTriggerShowEventChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_TRIGGER_SHOW_EVENT_CHANGE, afterTriggerShowEventChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_TRIGGER_SHOW_EVENT_CHANGE, afterTriggerShowEventChange));
 	}
 
 	protected void renderAfterZIndexChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String afterZIndexChange = tooltipDelegate.getAfterZIndexChange();
-
-		if (afterZIndexChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.AFTER_ZINDEX_CHANGE, afterZIndexChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.AFTER_ZINDEX_CHANGE, afterZIndexChange));
 	}
 
 	protected void renderOnAlignChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onAlignChange = tooltipDelegate.getOnAlignChange();
-
-		if (onAlignChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_ALIGN_CHANGE, onAlignChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_ALIGN_CHANGE, onAlignChange));
 	}
 
 	protected void renderOnContainerChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onContainerChange = tooltipDelegate.getOnContainerChange();
-
-		if (onContainerChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_CONTAINER_CHANGE, onContainerChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_CONTAINER_CHANGE, onContainerChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onDestroyedChange = tooltipDelegate.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDurationChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onDurationChange = tooltipDelegate.getOnDurationChange();
-
-		if (onDurationChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_DURATION_CHANGE, onDurationChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_DURATION_CHANGE, onDurationChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onInitializedChange = tooltipDelegate.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnOpacityChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onOpacityChange = tooltipDelegate.getOnOpacityChange();
-
-		if (onOpacityChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_OPACITY_CHANGE, onOpacityChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_OPACITY_CHANGE, onOpacityChange));
 	}
 
 	protected void renderOnTriggerHideEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onTriggerHideEventChange = tooltipDelegate.getOnTriggerHideEventChange();
-
-		if (onTriggerHideEventChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_TRIGGER_HIDE_EVENT_CHANGE, onTriggerHideEventChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_TRIGGER_HIDE_EVENT_CHANGE, onTriggerHideEventChange));
 	}
 
 	protected void renderOnTriggerShowEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onTriggerShowEventChange = tooltipDelegate.getOnTriggerShowEventChange();
-
-		if (onTriggerShowEventChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_TRIGGER_SHOW_EVENT_CHANGE, onTriggerShowEventChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_TRIGGER_SHOW_EVENT_CHANGE, onTriggerShowEventChange));
 	}
 
 	protected void renderOnZIndexChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
 		java.lang.String onZIndexChange = tooltipDelegate.getOnZIndexChange();
-
-		if (onZIndexChange != null) {
-			renderedAttributes.add(renderString(TooltipDelegate.ON_ZINDEX_CHANGE, onZIndexChange));
-		}
+		renderedAttributes.add(renderString(TooltipDelegate.ON_ZINDEX_CHANGE, onZIndexChange));
 	}
 
 }

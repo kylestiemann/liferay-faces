@@ -49,15 +49,42 @@ public abstract class AriaRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAttributeNode(renderedAttributes, aria);
-		renderAttributeValueFormat(renderedAttributes, aria);
-		renderAriaAttributes(renderedAttributes, aria);
-		renderDestroyed(renderedAttributes, aria);
-		renderHost(renderedAttributes, aria);
-		renderInitialized(renderedAttributes, aria);
-		renderRoleName(renderedAttributes, aria);
-		renderRoleNode(renderedAttributes, aria);
-		renderValidateW3C(renderedAttributes, aria);
+		if (aria.getAttributeNode() != null) {
+			renderAttributeNode(renderedAttributes, aria);
+		}
+		
+		if (aria.getAttributeValueFormat() != null) {
+			renderAttributeValueFormat(renderedAttributes, aria);
+		}
+		
+		if (aria.getAriaAttributes() != null) {
+			renderAriaAttributes(renderedAttributes, aria);
+		}
+		
+		if (aria.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, aria);
+		}
+		
+		if (aria.getHost() != null) {
+			renderHost(renderedAttributes, aria);
+		}
+		
+		if (aria.getInitialized() != null) {
+			renderInitialized(renderedAttributes, aria);
+		}
+		
+		if (aria.getRoleName() != null) {
+			renderRoleName(renderedAttributes, aria);
+		}
+		
+		if (aria.getRoleNode() != null) {
+			renderRoleNode(renderedAttributes, aria);
+		}
+		
+		if (aria.getValidateW3C() != null) {
+			renderValidateW3C(renderedAttributes, aria);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -70,15 +97,42 @@ public abstract class AriaRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAttributeNodeChange(renderedAfterEvents, aria);
-		renderAfterAttributeValueFormatChange(renderedAfterEvents, aria);
-		renderAfterAttributesChange(renderedAfterEvents, aria);
-		renderAfterDestroyedChange(renderedAfterEvents, aria);
-		renderAfterHostChange(renderedAfterEvents, aria);
-		renderAfterInitializedChange(renderedAfterEvents, aria);
-		renderAfterRoleNameChange(renderedAfterEvents, aria);
-		renderAfterRoleNodeChange(renderedAfterEvents, aria);
-		renderAfterValidateW3CChange(renderedAfterEvents, aria);
+		if (aria.getAfterAttributeNodeChange() != null) {
+			renderAfterAttributeNodeChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterAttributeValueFormatChange() != null) {
+			renderAfterAttributeValueFormatChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterAttributesChange() != null) {
+			renderAfterAttributesChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterRoleNameChange() != null) {
+			renderAfterRoleNameChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterRoleNodeChange() != null) {
+			renderAfterRoleNodeChange(renderedAfterEvents, aria);
+		}
+		
+		if (aria.getAfterValidateW3CChange() != null) {
+			renderAfterValidateW3CChange(renderedAfterEvents, aria);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -99,15 +153,42 @@ public abstract class AriaRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAttributeNodeChange(renderedOnEvents, aria);
-		renderOnAttributeValueFormatChange(renderedOnEvents, aria);
-		renderOnAttributesChange(renderedOnEvents, aria);
-		renderOnDestroyedChange(renderedOnEvents, aria);
-		renderOnHostChange(renderedOnEvents, aria);
-		renderOnInitializedChange(renderedOnEvents, aria);
-		renderOnRoleNameChange(renderedOnEvents, aria);
-		renderOnRoleNodeChange(renderedOnEvents, aria);
-		renderOnValidateW3CChange(renderedOnEvents, aria);
+		if (aria.getOnAttributeNodeChange() != null) {
+			renderOnAttributeNodeChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnAttributeValueFormatChange() != null) {
+			renderOnAttributeValueFormatChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnAttributesChange() != null) {
+			renderOnAttributesChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnRoleNameChange() != null) {
+			renderOnRoleNameChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnRoleNodeChange() != null) {
+			renderOnRoleNodeChange(renderedOnEvents, aria);
+		}
+		
+		if (aria.getOnValidateW3CChange() != null) {
+			renderOnValidateW3CChange(renderedOnEvents, aria);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -132,218 +213,137 @@ public abstract class AriaRendererBase extends RendererBase {
 
 	protected void renderAttributeNode(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String attributeNode = aria.getAttributeNode();
-
-		if (attributeNode != null) {
-			renderedAttributes.add(renderString(Aria.ATTRIBUTE_NODE, attributeNode));
-		}
+		renderedAttributes.add(renderString(Aria.ATTRIBUTE_NODE, attributeNode));
 	}
 
 	protected void renderAttributeValueFormat(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.Object attributeValueFormat = aria.getAttributeValueFormat();
-
-		if (attributeValueFormat != null) {
-			renderedAttributes.add(renderString(Aria.ATTRIBUTE_VALUE_FORMAT, attributeValueFormat));
-		}
+		renderedAttributes.add(renderString(Aria.ATTRIBUTE_VALUE_FORMAT, attributeValueFormat));
 	}
 
 	protected void renderAriaAttributes(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.Object ariaAttributes = aria.getAriaAttributes();
-
-		if (ariaAttributes != null) {
-			renderedAttributes.add(renderObject(Aria.ARIA_ATTRIBUTES, ariaAttributes));
-		}
+		renderedAttributes.add(renderObject(Aria.ARIA_ATTRIBUTES, ariaAttributes));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.Boolean destroyed = aria.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(Aria.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(Aria.DESTROYED, destroyed));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.Object host = aria.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderString(Aria.HOST, host));
-		}
+		renderedAttributes.add(renderString(Aria.HOST, host));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.Boolean initialized = aria.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(Aria.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(Aria.INITIALIZED, initialized));
 	}
 
 	protected void renderRoleName(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String roleName = aria.getRoleName();
-
-		if (roleName != null) {
-			renderedAttributes.add(renderString(Aria.ROLE_NAME, roleName));
-		}
+		renderedAttributes.add(renderString(Aria.ROLE_NAME, roleName));
 	}
 
 	protected void renderRoleNode(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String roleNode = aria.getRoleNode();
-
-		if (roleNode != null) {
-			renderedAttributes.add(renderString(Aria.ROLE_NODE, roleNode));
-		}
+		renderedAttributes.add(renderString(Aria.ROLE_NODE, roleNode));
 	}
 
 	protected void renderValidateW3C(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.Boolean validateW3C = aria.getValidateW3C();
-
-		if (validateW3C != null) {
-			renderedAttributes.add(renderBoolean(Aria.VALIDATE_W3_C, validateW3C));
-		}
+		renderedAttributes.add(renderBoolean(Aria.VALIDATE_W3_C, validateW3C));
 	}
 
 	protected void renderAfterAttributeNodeChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterAttributeNodeChange = aria.getAfterAttributeNodeChange();
-
-		if (afterAttributeNodeChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_ATTRIBUTE_NODE_CHANGE, afterAttributeNodeChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_ATTRIBUTE_NODE_CHANGE, afterAttributeNodeChange));
 	}
 
 	protected void renderAfterAttributeValueFormatChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterAttributeValueFormatChange = aria.getAfterAttributeValueFormatChange();
-
-		if (afterAttributeValueFormatChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_ATTRIBUTE_VALUE_FORMAT_CHANGE, afterAttributeValueFormatChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_ATTRIBUTE_VALUE_FORMAT_CHANGE, afterAttributeValueFormatChange));
 	}
 
 	protected void renderAfterAttributesChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterAttributesChange = aria.getAfterAttributesChange();
-
-		if (afterAttributesChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_ATTRIBUTES_CHANGE, afterAttributesChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_ATTRIBUTES_CHANGE, afterAttributesChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterDestroyedChange = aria.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterHostChange = aria.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterInitializedChange = aria.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterRoleNameChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterRoleNameChange = aria.getAfterRoleNameChange();
-
-		if (afterRoleNameChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_ROLE_NAME_CHANGE, afterRoleNameChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_ROLE_NAME_CHANGE, afterRoleNameChange));
 	}
 
 	protected void renderAfterRoleNodeChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterRoleNodeChange = aria.getAfterRoleNodeChange();
-
-		if (afterRoleNodeChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_ROLE_NODE_CHANGE, afterRoleNodeChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_ROLE_NODE_CHANGE, afterRoleNodeChange));
 	}
 
 	protected void renderAfterValidateW3CChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String afterValidateW3CChange = aria.getAfterValidateW3CChange();
-
-		if (afterValidateW3CChange != null) {
-			renderedAttributes.add(renderString(Aria.AFTER_VALIDATE_W3_CCHANGE, afterValidateW3CChange));
-		}
+		renderedAttributes.add(renderString(Aria.AFTER_VALIDATE_W3_CCHANGE, afterValidateW3CChange));
 	}
 
 	protected void renderOnAttributeNodeChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onAttributeNodeChange = aria.getOnAttributeNodeChange();
-
-		if (onAttributeNodeChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_ATTRIBUTE_NODE_CHANGE, onAttributeNodeChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_ATTRIBUTE_NODE_CHANGE, onAttributeNodeChange));
 	}
 
 	protected void renderOnAttributeValueFormatChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onAttributeValueFormatChange = aria.getOnAttributeValueFormatChange();
-
-		if (onAttributeValueFormatChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_ATTRIBUTE_VALUE_FORMAT_CHANGE, onAttributeValueFormatChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_ATTRIBUTE_VALUE_FORMAT_CHANGE, onAttributeValueFormatChange));
 	}
 
 	protected void renderOnAttributesChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onAttributesChange = aria.getOnAttributesChange();
-
-		if (onAttributesChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_ATTRIBUTES_CHANGE, onAttributesChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_ATTRIBUTES_CHANGE, onAttributesChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onDestroyedChange = aria.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onHostChange = aria.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onInitializedChange = aria.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnRoleNameChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onRoleNameChange = aria.getOnRoleNameChange();
-
-		if (onRoleNameChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_ROLE_NAME_CHANGE, onRoleNameChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_ROLE_NAME_CHANGE, onRoleNameChange));
 	}
 
 	protected void renderOnRoleNodeChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onRoleNodeChange = aria.getOnRoleNodeChange();
-
-		if (onRoleNodeChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_ROLE_NODE_CHANGE, onRoleNodeChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_ROLE_NODE_CHANGE, onRoleNodeChange));
 	}
 
 	protected void renderOnValidateW3CChange(List<String> renderedAttributes, Aria aria) throws IOException {
 		java.lang.String onValidateW3CChange = aria.getOnValidateW3CChange();
-
-		if (onValidateW3CChange != null) {
-			renderedAttributes.add(renderString(Aria.ON_VALIDATE_W3_CCHANGE, onValidateW3CChange));
-		}
+		renderedAttributes.add(renderString(Aria.ON_VALIDATE_W3_CCHANGE, onValidateW3CChange));
 	}
 
 }

@@ -49,7 +49,10 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderEditable(renderedAttributes, optionsEditor);
+		if (optionsEditor.getEditable() != null) {
+			renderEditable(renderedAttributes, optionsEditor);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterEditableChange(renderedAfterEvents, optionsEditor);
+		if (optionsEditor.getAfterEditableChange() != null) {
+			renderAfterEditableChange(renderedAfterEvents, optionsEditor);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnEditableChange(renderedOnEvents, optionsEditor);
+		if (optionsEditor.getOnEditableChange() != null) {
+			renderOnEditableChange(renderedOnEvents, optionsEditor);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 
 	protected void renderEditable(List<String> renderedAttributes, OptionsEditor optionsEditor) throws IOException {
 		java.lang.String editable = optionsEditor.getEditable();
-
-		if (editable != null) {
-			renderedAttributes.add(renderString(OptionsEditor.EDITABLE, editable));
-		}
+		renderedAttributes.add(renderString(OptionsEditor.EDITABLE, editable));
 	}
 
 	protected void renderAfterEditableChange(List<String> renderedAttributes, OptionsEditor optionsEditor) throws IOException {
 		java.lang.String afterEditableChange = optionsEditor.getAfterEditableChange();
-
-		if (afterEditableChange != null) {
-			renderedAttributes.add(renderString(OptionsEditor.AFTER_EDITABLE_CHANGE, afterEditableChange));
-		}
+		renderedAttributes.add(renderString(OptionsEditor.AFTER_EDITABLE_CHANGE, afterEditableChange));
 	}
 
 	protected void renderOnEditableChange(List<String> renderedAttributes, OptionsEditor optionsEditor) throws IOException {
 		java.lang.String onEditableChange = optionsEditor.getOnEditableChange();
-
-		if (onEditableChange != null) {
-			renderedAttributes.add(renderString(OptionsEditor.ON_EDITABLE_CHANGE, onEditableChange));
-		}
+		renderedAttributes.add(renderString(OptionsEditor.ON_EDITABLE_CHANGE, onEditableChange));
 	}
 
 }

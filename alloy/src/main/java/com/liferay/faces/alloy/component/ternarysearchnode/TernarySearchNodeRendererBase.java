@@ -49,13 +49,34 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderCharacter(renderedAttributes, ternarySearchNode);
-		renderChild(renderedAttributes, ternarySearchNode);
-		renderDestroyed(renderedAttributes, ternarySearchNode);
-		renderInitialized(renderedAttributes, ternarySearchNode);
-		renderLargerNode(renderedAttributes, ternarySearchNode);
-		renderSmallerNode(renderedAttributes, ternarySearchNode);
-		renderWord(renderedAttributes, ternarySearchNode);
+		if (ternarySearchNode.getCharacter() != null) {
+			renderCharacter(renderedAttributes, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getChild() != null) {
+			renderChild(renderedAttributes, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getInitialized() != null) {
+			renderInitialized(renderedAttributes, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getLargerNode() != null) {
+			renderLargerNode(renderedAttributes, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getSmallerNode() != null) {
+			renderSmallerNode(renderedAttributes, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getWord() != null) {
+			renderWord(renderedAttributes, ternarySearchNode);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,13 +89,34 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterCharacterChange(renderedAfterEvents, ternarySearchNode);
-		renderAfterChildChange(renderedAfterEvents, ternarySearchNode);
-		renderAfterDestroyedChange(renderedAfterEvents, ternarySearchNode);
-		renderAfterInitializedChange(renderedAfterEvents, ternarySearchNode);
-		renderAfterLargerNodeChange(renderedAfterEvents, ternarySearchNode);
-		renderAfterSmallerNodeChange(renderedAfterEvents, ternarySearchNode);
-		renderAfterWordChange(renderedAfterEvents, ternarySearchNode);
+		if (ternarySearchNode.getAfterCharacterChange() != null) {
+			renderAfterCharacterChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getAfterChildChange() != null) {
+			renderAfterChildChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getAfterLargerNodeChange() != null) {
+			renderAfterLargerNodeChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getAfterSmallerNodeChange() != null) {
+			renderAfterSmallerNodeChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getAfterWordChange() != null) {
+			renderAfterWordChange(renderedAfterEvents, ternarySearchNode);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -95,13 +137,34 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnCharacterChange(renderedOnEvents, ternarySearchNode);
-		renderOnChildChange(renderedOnEvents, ternarySearchNode);
-		renderOnDestroyedChange(renderedOnEvents, ternarySearchNode);
-		renderOnInitializedChange(renderedOnEvents, ternarySearchNode);
-		renderOnLargerNodeChange(renderedOnEvents, ternarySearchNode);
-		renderOnSmallerNodeChange(renderedOnEvents, ternarySearchNode);
-		renderOnWordChange(renderedOnEvents, ternarySearchNode);
+		if (ternarySearchNode.getOnCharacterChange() != null) {
+			renderOnCharacterChange(renderedOnEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getOnChildChange() != null) {
+			renderOnChildChange(renderedOnEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getOnLargerNodeChange() != null) {
+			renderOnLargerNodeChange(renderedOnEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getOnSmallerNodeChange() != null) {
+			renderOnSmallerNodeChange(renderedOnEvents, ternarySearchNode);
+		}
+		
+		if (ternarySearchNode.getOnWordChange() != null) {
+			renderOnWordChange(renderedOnEvents, ternarySearchNode);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -126,170 +189,107 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 
 	protected void renderCharacter(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String character = ternarySearchNode.getCharacter();
-
-		if (character != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.CHARACTER, character));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.CHARACTER, character));
 	}
 
 	protected void renderChild(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String child = ternarySearchNode.getChild();
-
-		if (child != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.CHILD, child));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.CHILD, child));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.Boolean destroyed = ternarySearchNode.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TernarySearchNode.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TernarySearchNode.DESTROYED, destroyed));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.Boolean initialized = ternarySearchNode.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TernarySearchNode.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TernarySearchNode.INITIALIZED, initialized));
 	}
 
 	protected void renderLargerNode(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.Object largerNode = ternarySearchNode.getLargerNode();
-
-		if (largerNode != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.LARGER_NODE, largerNode));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.LARGER_NODE, largerNode));
 	}
 
 	protected void renderSmallerNode(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.Object smallerNode = ternarySearchNode.getSmallerNode();
-
-		if (smallerNode != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.SMALLER_NODE, smallerNode));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.SMALLER_NODE, smallerNode));
 	}
 
 	protected void renderWord(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String word = ternarySearchNode.getWord();
-
-		if (word != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.WORD, word));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.WORD, word));
 	}
 
 	protected void renderAfterCharacterChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterCharacterChange = ternarySearchNode.getAfterCharacterChange();
-
-		if (afterCharacterChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_CHARACTER_CHANGE, afterCharacterChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_CHARACTER_CHANGE, afterCharacterChange));
 	}
 
 	protected void renderAfterChildChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterChildChange = ternarySearchNode.getAfterChildChange();
-
-		if (afterChildChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_CHILD_CHANGE, afterChildChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_CHILD_CHANGE, afterChildChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterDestroyedChange = ternarySearchNode.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterInitializedChange = ternarySearchNode.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterLargerNodeChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterLargerNodeChange = ternarySearchNode.getAfterLargerNodeChange();
-
-		if (afterLargerNodeChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_LARGER_NODE_CHANGE, afterLargerNodeChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_LARGER_NODE_CHANGE, afterLargerNodeChange));
 	}
 
 	protected void renderAfterSmallerNodeChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterSmallerNodeChange = ternarySearchNode.getAfterSmallerNodeChange();
-
-		if (afterSmallerNodeChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_SMALLER_NODE_CHANGE, afterSmallerNodeChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_SMALLER_NODE_CHANGE, afterSmallerNodeChange));
 	}
 
 	protected void renderAfterWordChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String afterWordChange = ternarySearchNode.getAfterWordChange();
-
-		if (afterWordChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.AFTER_WORD_CHANGE, afterWordChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.AFTER_WORD_CHANGE, afterWordChange));
 	}
 
 	protected void renderOnCharacterChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onCharacterChange = ternarySearchNode.getOnCharacterChange();
-
-		if (onCharacterChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_CHARACTER_CHANGE, onCharacterChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_CHARACTER_CHANGE, onCharacterChange));
 	}
 
 	protected void renderOnChildChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onChildChange = ternarySearchNode.getOnChildChange();
-
-		if (onChildChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_CHILD_CHANGE, onChildChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_CHILD_CHANGE, onChildChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onDestroyedChange = ternarySearchNode.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onInitializedChange = ternarySearchNode.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnLargerNodeChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onLargerNodeChange = ternarySearchNode.getOnLargerNodeChange();
-
-		if (onLargerNodeChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_LARGER_NODE_CHANGE, onLargerNodeChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_LARGER_NODE_CHANGE, onLargerNodeChange));
 	}
 
 	protected void renderOnSmallerNodeChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onSmallerNodeChange = ternarySearchNode.getOnSmallerNodeChange();
-
-		if (onSmallerNodeChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_SMALLER_NODE_CHANGE, onSmallerNodeChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_SMALLER_NODE_CHANGE, onSmallerNodeChange));
 	}
 
 	protected void renderOnWordChange(List<String> renderedAttributes, TernarySearchNode ternarySearchNode) throws IOException {
 		java.lang.String onWordChange = ternarySearchNode.getOnWordChange();
-
-		if (onWordChange != null) {
-			renderedAttributes.add(renderString(TernarySearchNode.ON_WORD_CHANGE, onWordChange));
-		}
+		renderedAttributes.add(renderString(TernarySearchNode.ON_WORD_CHANGE, onWordChange));
 	}
 
 }

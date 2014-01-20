@@ -49,15 +49,42 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderActiveBorderWidth(renderedAttributes, dataTableHighlight);
-		renderDestroyed(renderedAttributes, dataTableHighlight);
-		renderHighlightRange(renderedAttributes, dataTableHighlight);
-		renderHost(renderedAttributes, dataTableHighlight);
-		renderInitialized(renderedAttributes, dataTableHighlight);
-		renderOverlayActiveNode(renderedAttributes, dataTableHighlight);
-		renderOverlayNode(renderedAttributes, dataTableHighlight);
-		renderRangeBorderWidth(renderedAttributes, dataTableHighlight);
-		renderType(renderedAttributes, dataTableHighlight);
+		if (dataTableHighlight.getActiveBorderWidth() != null) {
+			renderActiveBorderWidth(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getHighlightRange() != null) {
+			renderHighlightRange(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getHost() != null) {
+			renderHost(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getInitialized() != null) {
+			renderInitialized(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOverlayActiveNode() != null) {
+			renderOverlayActiveNode(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOverlayNode() != null) {
+			renderOverlayNode(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getRangeBorderWidth() != null) {
+			renderRangeBorderWidth(renderedAttributes, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getType() != null) {
+			renderType(renderedAttributes, dataTableHighlight);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -70,15 +97,42 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterActiveBorderWidthChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterDestroyedChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterHighlightRangeChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterHostChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterInitializedChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterOverlayActiveNodeChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterOverlayNodeChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterRangeBorderWidthChange(renderedAfterEvents, dataTableHighlight);
-		renderAfterTypeChange(renderedAfterEvents, dataTableHighlight);
+		if (dataTableHighlight.getAfterActiveBorderWidthChange() != null) {
+			renderAfterActiveBorderWidthChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterHighlightRangeChange() != null) {
+			renderAfterHighlightRangeChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterOverlayActiveNodeChange() != null) {
+			renderAfterOverlayActiveNodeChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterOverlayNodeChange() != null) {
+			renderAfterOverlayNodeChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterRangeBorderWidthChange() != null) {
+			renderAfterRangeBorderWidthChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, dataTableHighlight);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -99,15 +153,42 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnActiveBorderWidthChange(renderedOnEvents, dataTableHighlight);
-		renderOnDestroyedChange(renderedOnEvents, dataTableHighlight);
-		renderOnHighlightRangeChange(renderedOnEvents, dataTableHighlight);
-		renderOnHostChange(renderedOnEvents, dataTableHighlight);
-		renderOnInitializedChange(renderedOnEvents, dataTableHighlight);
-		renderOnOverlayActiveNodeChange(renderedOnEvents, dataTableHighlight);
-		renderOnOverlayNodeChange(renderedOnEvents, dataTableHighlight);
-		renderOnRangeBorderWidthChange(renderedOnEvents, dataTableHighlight);
-		renderOnTypeChange(renderedOnEvents, dataTableHighlight);
+		if (dataTableHighlight.getOnActiveBorderWidthChange() != null) {
+			renderOnActiveBorderWidthChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnHighlightRangeChange() != null) {
+			renderOnHighlightRangeChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnOverlayActiveNodeChange() != null) {
+			renderOnOverlayActiveNodeChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnOverlayNodeChange() != null) {
+			renderOnOverlayNodeChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnRangeBorderWidthChange() != null) {
+			renderOnRangeBorderWidthChange(renderedOnEvents, dataTableHighlight);
+		}
+		
+		if (dataTableHighlight.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, dataTableHighlight);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -132,218 +213,137 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 
 	protected void renderActiveBorderWidth(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.Object activeBorderWidth = dataTableHighlight.getActiveBorderWidth();
-
-		if (activeBorderWidth != null) {
-			renderedAttributes.add(renderNumber(DataTableHighlight.ACTIVE_BORDER_WIDTH, activeBorderWidth));
-		}
+		renderedAttributes.add(renderNumber(DataTableHighlight.ACTIVE_BORDER_WIDTH, activeBorderWidth));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.Boolean destroyed = dataTableHighlight.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(DataTableHighlight.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(DataTableHighlight.DESTROYED, destroyed));
 	}
 
 	protected void renderHighlightRange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.Boolean highlightRange = dataTableHighlight.getHighlightRange();
-
-		if (highlightRange != null) {
-			renderedAttributes.add(renderBoolean(DataTableHighlight.HIGHLIGHT_RANGE, highlightRange));
-		}
+		renderedAttributes.add(renderBoolean(DataTableHighlight.HIGHLIGHT_RANGE, highlightRange));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.Object host = dataTableHighlight.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.HOST, host));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.HOST, host));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.Boolean initialized = dataTableHighlight.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(DataTableHighlight.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(DataTableHighlight.INITIALIZED, initialized));
 	}
 
 	protected void renderOverlayActiveNode(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String overlayActiveNode = dataTableHighlight.getOverlayActiveNode();
-
-		if (overlayActiveNode != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.OVERLAY_ACTIVE_NODE, overlayActiveNode));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.OVERLAY_ACTIVE_NODE, overlayActiveNode));
 	}
 
 	protected void renderOverlayNode(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String overlayNode = dataTableHighlight.getOverlayNode();
-
-		if (overlayNode != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.OVERLAY_NODE, overlayNode));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.OVERLAY_NODE, overlayNode));
 	}
 
 	protected void renderRangeBorderWidth(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.Object rangeBorderWidth = dataTableHighlight.getRangeBorderWidth();
-
-		if (rangeBorderWidth != null) {
-			renderedAttributes.add(renderNumber(DataTableHighlight.RANGE_BORDER_WIDTH, rangeBorderWidth));
-		}
+		renderedAttributes.add(renderNumber(DataTableHighlight.RANGE_BORDER_WIDTH, rangeBorderWidth));
 	}
 
 	protected void renderType(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String type = dataTableHighlight.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.TYPE, type));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.TYPE, type));
 	}
 
 	protected void renderAfterActiveBorderWidthChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterActiveBorderWidthChange = dataTableHighlight.getAfterActiveBorderWidthChange();
-
-		if (afterActiveBorderWidthChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_ACTIVE_BORDER_WIDTH_CHANGE, afterActiveBorderWidthChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_ACTIVE_BORDER_WIDTH_CHANGE, afterActiveBorderWidthChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterDestroyedChange = dataTableHighlight.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterHighlightRangeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterHighlightRangeChange = dataTableHighlight.getAfterHighlightRangeChange();
-
-		if (afterHighlightRangeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_HIGHLIGHT_RANGE_CHANGE, afterHighlightRangeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_HIGHLIGHT_RANGE_CHANGE, afterHighlightRangeChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterHostChange = dataTableHighlight.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterInitializedChange = dataTableHighlight.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterOverlayActiveNodeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterOverlayActiveNodeChange = dataTableHighlight.getAfterOverlayActiveNodeChange();
-
-		if (afterOverlayActiveNodeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_OVERLAY_ACTIVE_NODE_CHANGE, afterOverlayActiveNodeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_OVERLAY_ACTIVE_NODE_CHANGE, afterOverlayActiveNodeChange));
 	}
 
 	protected void renderAfterOverlayNodeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterOverlayNodeChange = dataTableHighlight.getAfterOverlayNodeChange();
-
-		if (afterOverlayNodeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_OVERLAY_NODE_CHANGE, afterOverlayNodeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_OVERLAY_NODE_CHANGE, afterOverlayNodeChange));
 	}
 
 	protected void renderAfterRangeBorderWidthChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterRangeBorderWidthChange = dataTableHighlight.getAfterRangeBorderWidthChange();
-
-		if (afterRangeBorderWidthChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_RANGE_BORDER_WIDTH_CHANGE, afterRangeBorderWidthChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_RANGE_BORDER_WIDTH_CHANGE, afterRangeBorderWidthChange));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String afterTypeChange = dataTableHighlight.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderOnActiveBorderWidthChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onActiveBorderWidthChange = dataTableHighlight.getOnActiveBorderWidthChange();
-
-		if (onActiveBorderWidthChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_ACTIVE_BORDER_WIDTH_CHANGE, onActiveBorderWidthChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_ACTIVE_BORDER_WIDTH_CHANGE, onActiveBorderWidthChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onDestroyedChange = dataTableHighlight.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnHighlightRangeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onHighlightRangeChange = dataTableHighlight.getOnHighlightRangeChange();
-
-		if (onHighlightRangeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_HIGHLIGHT_RANGE_CHANGE, onHighlightRangeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_HIGHLIGHT_RANGE_CHANGE, onHighlightRangeChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onHostChange = dataTableHighlight.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onInitializedChange = dataTableHighlight.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnOverlayActiveNodeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onOverlayActiveNodeChange = dataTableHighlight.getOnOverlayActiveNodeChange();
-
-		if (onOverlayActiveNodeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_OVERLAY_ACTIVE_NODE_CHANGE, onOverlayActiveNodeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_OVERLAY_ACTIVE_NODE_CHANGE, onOverlayActiveNodeChange));
 	}
 
 	protected void renderOnOverlayNodeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onOverlayNodeChange = dataTableHighlight.getOnOverlayNodeChange();
-
-		if (onOverlayNodeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_OVERLAY_NODE_CHANGE, onOverlayNodeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_OVERLAY_NODE_CHANGE, onOverlayNodeChange));
 	}
 
 	protected void renderOnRangeBorderWidthChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onRangeBorderWidthChange = dataTableHighlight.getOnRangeBorderWidthChange();
-
-		if (onRangeBorderWidthChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_RANGE_BORDER_WIDTH_CHANGE, onRangeBorderWidthChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_RANGE_BORDER_WIDTH_CHANGE, onRangeBorderWidthChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, DataTableHighlight dataTableHighlight) throws IOException {
 		java.lang.String onTypeChange = dataTableHighlight.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(DataTableHighlight.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(DataTableHighlight.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 }

@@ -49,47 +49,170 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAlign(renderedAttributes, hSVAPaletteModal);
-		renderAlignOn(renderedAttributes, hSVAPaletteModal);
-		renderHSVAPaletteModalBodyContent(renderedAttributes, hSVAPaletteModal);
-		renderBoundingBox(renderedAttributes, hSVAPaletteModal);
-		renderCentered(renderedAttributes, hSVAPaletteModal);
-		renderConstrain(renderedAttributes, hSVAPaletteModal);
-		renderContentBox(renderedAttributes, hSVAPaletteModal);
-		renderDestroyOnHide(renderedAttributes, hSVAPaletteModal);
-		renderDestroyed(renderedAttributes, hSVAPaletteModal);
-		renderDisabled(renderedAttributes, hSVAPaletteModal);
-		renderDraggable(renderedAttributes, hSVAPaletteModal);
-		renderFillHeight(renderedAttributes, hSVAPaletteModal);
-		renderFocusOn(renderedAttributes, hSVAPaletteModal);
-		renderFocused(renderedAttributes, hSVAPaletteModal);
-		renderFooterContent(renderedAttributes, hSVAPaletteModal);
-		renderHeaderContent(renderedAttributes, hSVAPaletteModal);
-		renderHeight(renderedAttributes, hSVAPaletteModal);
-		renderHideOn(renderedAttributes, hSVAPaletteModal);
-		renderHsv(renderedAttributes, hSVAPaletteModal);
-		renderHSVAPaletteModalId(renderedAttributes, hSVAPaletteModal);
-		renderInitialized(renderedAttributes, hSVAPaletteModal);
-		renderHSVAPaletteModalLocale(renderedAttributes, hSVAPaletteModal);
-		renderMaskNode(renderedAttributes, hSVAPaletteModal);
-		renderModal(renderedAttributes, hSVAPaletteModal);
-		renderPreventOverlap(renderedAttributes, hSVAPaletteModal);
-		renderRender(renderedAttributes, hSVAPaletteModal);
-		renderRendered(renderedAttributes, hSVAPaletteModal);
-		renderResizable(renderedAttributes, hSVAPaletteModal);
-		renderSelected(renderedAttributes, hSVAPaletteModal);
-		renderShim(renderedAttributes, hSVAPaletteModal);
-		renderSrcNode(renderedAttributes, hSVAPaletteModal);
-		renderStrings(renderedAttributes, hSVAPaletteModal);
-		renderTabIndex(renderedAttributes, hSVAPaletteModal);
-		renderToolbarPosition(renderedAttributes, hSVAPaletteModal);
-		renderToolbars(renderedAttributes, hSVAPaletteModal);
-		renderVisible(renderedAttributes, hSVAPaletteModal);
-		renderWidth(renderedAttributes, hSVAPaletteModal);
-		renderX(renderedAttributes, hSVAPaletteModal);
-		renderXy(renderedAttributes, hSVAPaletteModal);
-		renderY(renderedAttributes, hSVAPaletteModal);
-		renderZIndex(renderedAttributes, hSVAPaletteModal);
+		if (hSVAPaletteModal.getAlign() != null) {
+			renderAlign(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAlignOn() != null) {
+			renderAlignOn(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHSVAPaletteModalBodyContent() != null) {
+			renderHSVAPaletteModalBodyContent(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getBoundingBox() != null) {
+			renderBoundingBox(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getCentered() != null) {
+			renderCentered(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getConstrain() != null) {
+			renderConstrain(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getContentBox() != null) {
+			renderContentBox(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getDestroyOnHide() != null) {
+			renderDestroyOnHide(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getDisabled() != null) {
+			renderDisabled(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getDraggable() != null) {
+			renderDraggable(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getFillHeight() != null) {
+			renderFillHeight(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getFocusOn() != null) {
+			renderFocusOn(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getFocused() != null) {
+			renderFocused(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getFooterContent() != null) {
+			renderFooterContent(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHeaderContent() != null) {
+			renderHeaderContent(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHeight() != null) {
+			renderHeight(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHideOn() != null) {
+			renderHideOn(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHsv() != null) {
+			renderHsv(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHSVAPaletteModalId() != null) {
+			renderHSVAPaletteModalId(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getInitialized() != null) {
+			renderInitialized(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getHSVAPaletteModalLocale() != null) {
+			renderHSVAPaletteModalLocale(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getMaskNode() != null) {
+			renderMaskNode(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getModal() != null) {
+			renderModal(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getPreventOverlap() != null) {
+			renderPreventOverlap(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getRender() != null) {
+			renderRender(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getRendered() != null) {
+			renderRendered(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getResizable() != null) {
+			renderResizable(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getSelected() != null) {
+			renderSelected(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getShim() != null) {
+			renderShim(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getSrcNode() != null) {
+			renderSrcNode(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getStrings() != null) {
+			renderStrings(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getToolbarPosition() != null) {
+			renderToolbarPosition(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getToolbars() != null) {
+			renderToolbars(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getVisible() != null) {
+			renderVisible(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getWidth() != null) {
+			renderWidth(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getX() != null) {
+			renderX(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getXy() != null) {
+			renderXy(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getY() != null) {
+			renderY(renderedAttributes, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getZIndex() != null) {
+			renderZIndex(renderedAttributes, hSVAPaletteModal);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -102,47 +225,170 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAlignChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterAlignOnChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterBodyContentChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterBoundingBoxChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterCenteredChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterConstrainChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterContentBoxChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterDestroyOnHideChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterDestroyedChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterDisabledChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterDraggableChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterFillHeightChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterFocusOnChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterFocusedChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterFooterContentChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterHeaderContentChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterHeightChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterHideOnChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterHsvChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterIdChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterInitializedChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterLocaleChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterMaskNodeChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterModalChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterPreventOverlapChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterRenderChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterRenderedChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterResizableChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterSelectedChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterShimChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterSrcNodeChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterStringsChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterTabIndexChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterToolbarPositionChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterToolbarsChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterVisibleChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterWidthChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterXChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterXyChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterYChange(renderedAfterEvents, hSVAPaletteModal);
-		renderAfterZIndexChange(renderedAfterEvents, hSVAPaletteModal);
+		if (hSVAPaletteModal.getAfterAlignChange() != null) {
+			renderAfterAlignChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterAlignOnChange() != null) {
+			renderAfterAlignOnChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterBodyContentChange() != null) {
+			renderAfterBodyContentChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterBoundingBoxChange() != null) {
+			renderAfterBoundingBoxChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterCenteredChange() != null) {
+			renderAfterCenteredChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterConstrainChange() != null) {
+			renderAfterConstrainChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterContentBoxChange() != null) {
+			renderAfterContentBoxChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterDestroyOnHideChange() != null) {
+			renderAfterDestroyOnHideChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterDraggableChange() != null) {
+			renderAfterDraggableChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterFillHeightChange() != null) {
+			renderAfterFillHeightChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterFocusOnChange() != null) {
+			renderAfterFocusOnChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterFocusedChange() != null) {
+			renderAfterFocusedChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterFooterContentChange() != null) {
+			renderAfterFooterContentChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterHeaderContentChange() != null) {
+			renderAfterHeaderContentChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterHeightChange() != null) {
+			renderAfterHeightChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterHideOnChange() != null) {
+			renderAfterHideOnChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterHsvChange() != null) {
+			renderAfterHsvChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterLocaleChange() != null) {
+			renderAfterLocaleChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterMaskNodeChange() != null) {
+			renderAfterMaskNodeChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterModalChange() != null) {
+			renderAfterModalChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterPreventOverlapChange() != null) {
+			renderAfterPreventOverlapChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterRenderChange() != null) {
+			renderAfterRenderChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterRenderedChange() != null) {
+			renderAfterRenderedChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterResizableChange() != null) {
+			renderAfterResizableChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterSelectedChange() != null) {
+			renderAfterSelectedChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterShimChange() != null) {
+			renderAfterShimChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterSrcNodeChange() != null) {
+			renderAfterSrcNodeChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterToolbarPositionChange() != null) {
+			renderAfterToolbarPositionChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterToolbarsChange() != null) {
+			renderAfterToolbarsChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterXChange() != null) {
+			renderAfterXChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterXyChange() != null) {
+			renderAfterXyChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterYChange() != null) {
+			renderAfterYChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getAfterZIndexChange() != null) {
+			renderAfterZIndexChange(renderedAfterEvents, hSVAPaletteModal);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -163,47 +409,170 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAlignChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnAlignOnChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnBodyContentChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnBoundingBoxChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnCenteredChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnConstrainChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnContentBoxChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnDestroyOnHideChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnDestroyedChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnDisabledChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnDraggableChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnFillHeightChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnFocusOnChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnFocusedChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnFooterContentChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnHeaderContentChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnHeightChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnHideOnChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnHsvChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnIdChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnInitializedChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnLocaleChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnMaskNodeChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnModalChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnPreventOverlapChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnRenderChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnRenderedChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnResizableChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnSelectedChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnShimChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnSrcNodeChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnStringsChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnTabIndexChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnToolbarPositionChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnToolbarsChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnVisibleChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnWidthChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnXChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnXyChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnYChange(renderedOnEvents, hSVAPaletteModal);
-		renderOnZIndexChange(renderedOnEvents, hSVAPaletteModal);
+		if (hSVAPaletteModal.getOnAlignChange() != null) {
+			renderOnAlignChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnAlignOnChange() != null) {
+			renderOnAlignOnChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnBodyContentChange() != null) {
+			renderOnBodyContentChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnBoundingBoxChange() != null) {
+			renderOnBoundingBoxChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnCenteredChange() != null) {
+			renderOnCenteredChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnConstrainChange() != null) {
+			renderOnConstrainChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnContentBoxChange() != null) {
+			renderOnContentBoxChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnDestroyOnHideChange() != null) {
+			renderOnDestroyOnHideChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnDraggableChange() != null) {
+			renderOnDraggableChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnFillHeightChange() != null) {
+			renderOnFillHeightChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnFocusOnChange() != null) {
+			renderOnFocusOnChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnFocusedChange() != null) {
+			renderOnFocusedChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnFooterContentChange() != null) {
+			renderOnFooterContentChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnHeaderContentChange() != null) {
+			renderOnHeaderContentChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnHeightChange() != null) {
+			renderOnHeightChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnHideOnChange() != null) {
+			renderOnHideOnChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnHsvChange() != null) {
+			renderOnHsvChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnLocaleChange() != null) {
+			renderOnLocaleChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnMaskNodeChange() != null) {
+			renderOnMaskNodeChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnModalChange() != null) {
+			renderOnModalChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnPreventOverlapChange() != null) {
+			renderOnPreventOverlapChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnRenderChange() != null) {
+			renderOnRenderChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnRenderedChange() != null) {
+			renderOnRenderedChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnResizableChange() != null) {
+			renderOnResizableChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnSelectedChange() != null) {
+			renderOnSelectedChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnShimChange() != null) {
+			renderOnShimChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnSrcNodeChange() != null) {
+			renderOnSrcNodeChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnToolbarPositionChange() != null) {
+			renderOnToolbarPositionChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnToolbarsChange() != null) {
+			renderOnToolbarsChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnXChange() != null) {
+			renderOnXChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnXyChange() != null) {
+			renderOnXyChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnYChange() != null) {
+			renderOnYChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
+		if (hSVAPaletteModal.getOnZIndexChange() != null) {
+			renderOnZIndexChange(renderedOnEvents, hSVAPaletteModal);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -228,986 +597,617 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 
 	protected void renderAlign(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object align = hSVAPaletteModal.getAlign();
-
-		if (align != null) {
-			renderedAttributes.add(renderObject(HSVAPaletteModal.ALIGN, align));
-		}
+		renderedAttributes.add(renderObject(HSVAPaletteModal.ALIGN, align));
 	}
 
 	protected void renderAlignOn(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object alignOn = hSVAPaletteModal.getAlignOn();
-
-		if (alignOn != null) {
-			renderedAttributes.add(renderArray(HSVAPaletteModal.ALIGN_ON, alignOn));
-		}
+		renderedAttributes.add(renderArray(HSVAPaletteModal.ALIGN_ON, alignOn));
 	}
 
 	protected void renderHSVAPaletteModalBodyContent(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String hSVAPaletteModalBodyContent = hSVAPaletteModal.getHSVAPaletteModalBodyContent();
-
-		if (hSVAPaletteModalBodyContent != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_BODY_CONTENT, hSVAPaletteModalBodyContent));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_BODY_CONTENT, hSVAPaletteModalBodyContent));
 	}
 
 	protected void renderBoundingBox(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String boundingBox = hSVAPaletteModal.getBoundingBox();
-
-		if (boundingBox != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.BOUNDING_BOX, boundingBox));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.BOUNDING_BOX, boundingBox));
 	}
 
 	protected void renderCentered(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object centered = hSVAPaletteModal.getCentered();
-
-		if (centered != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.CENTERED, centered));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.CENTERED, centered));
 	}
 
 	protected void renderConstrain(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object constrain = hSVAPaletteModal.getConstrain();
-
-		if (constrain != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.CONSTRAIN, constrain));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.CONSTRAIN, constrain));
 	}
 
 	protected void renderContentBox(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String contentBox = hSVAPaletteModal.getContentBox();
-
-		if (contentBox != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.CONTENT_BOX, contentBox));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.CONTENT_BOX, contentBox));
 	}
 
 	protected void renderDestroyOnHide(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean destroyOnHide = hSVAPaletteModal.getDestroyOnHide();
-
-		if (destroyOnHide != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.DESTROY_ON_HIDE, destroyOnHide));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.DESTROY_ON_HIDE, destroyOnHide));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean destroyed = hSVAPaletteModal.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean disabled = hSVAPaletteModal.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.DISABLED, disabled));
 	}
 
 	protected void renderDraggable(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object draggable = hSVAPaletteModal.getDraggable();
-
-		if (draggable != null) {
-			renderedAttributes.add(renderObject(HSVAPaletteModal.DRAGGABLE, draggable));
-		}
+		renderedAttributes.add(renderObject(HSVAPaletteModal.DRAGGABLE, draggable));
 	}
 
 	protected void renderFillHeight(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object fillHeight = hSVAPaletteModal.getFillHeight();
-
-		if (fillHeight != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.FILL_HEIGHT, fillHeight));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.FILL_HEIGHT, fillHeight));
 	}
 
 	protected void renderFocusOn(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object focusOn = hSVAPaletteModal.getFocusOn();
-
-		if (focusOn != null) {
-			renderedAttributes.add(renderArray(HSVAPaletteModal.FOCUS_ON, focusOn));
-		}
+		renderedAttributes.add(renderArray(HSVAPaletteModal.FOCUS_ON, focusOn));
 	}
 
 	protected void renderFocused(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean focused = hSVAPaletteModal.getFocused();
-
-		if (focused != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.FOCUSED, focused));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.FOCUSED, focused));
 	}
 
 	protected void renderFooterContent(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object footerContent = hSVAPaletteModal.getFooterContent();
-
-		if (footerContent != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.FOOTER_CONTENT, footerContent));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.FOOTER_CONTENT, footerContent));
 	}
 
 	protected void renderHeaderContent(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object headerContent = hSVAPaletteModal.getHeaderContent();
-
-		if (headerContent != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.HEADER_CONTENT, headerContent));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.HEADER_CONTENT, headerContent));
 	}
 
 	protected void renderHeight(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object height = hSVAPaletteModal.getHeight();
-
-		if (height != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.HEIGHT, height));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.HEIGHT, height));
 	}
 
 	protected void renderHideOn(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object hideOn = hSVAPaletteModal.getHideOn();
-
-		if (hideOn != null) {
-			renderedAttributes.add(renderArray(HSVAPaletteModal.HIDE_ON, hideOn));
-		}
+		renderedAttributes.add(renderArray(HSVAPaletteModal.HIDE_ON, hideOn));
 	}
 
 	protected void renderHsv(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object hsv = hSVAPaletteModal.getHsv();
-
-		if (hsv != null) {
-			renderedAttributes.add(renderObject(HSVAPaletteModal.HSV, hsv));
-		}
+		renderedAttributes.add(renderObject(HSVAPaletteModal.HSV, hsv));
 	}
 
 	protected void renderHSVAPaletteModalId(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String hSVAPaletteModalId = hSVAPaletteModal.getHSVAPaletteModalId();
-
-		if (hSVAPaletteModalId != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_ID, hSVAPaletteModalId));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_ID, hSVAPaletteModalId));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean initialized = hSVAPaletteModal.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.INITIALIZED, initialized));
 	}
 
 	protected void renderHSVAPaletteModalLocale(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String hSVAPaletteModalLocale = hSVAPaletteModal.getHSVAPaletteModalLocale();
-
-		if (hSVAPaletteModalLocale != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_LOCALE, hSVAPaletteModalLocale));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.H_SVAPALETTE_MODAL_LOCALE, hSVAPaletteModalLocale));
 	}
 
 	protected void renderMaskNode(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object maskNode = hSVAPaletteModal.getMaskNode();
-
-		if (maskNode != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.MASK_NODE, maskNode));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.MASK_NODE, maskNode));
 	}
 
 	protected void renderModal(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean modal = hSVAPaletteModal.getModal();
-
-		if (modal != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.MODAL, modal));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.MODAL, modal));
 	}
 
 	protected void renderPreventOverlap(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean preventOverlap = hSVAPaletteModal.getPreventOverlap();
-
-		if (preventOverlap != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.PREVENT_OVERLAP, preventOverlap));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.PREVENT_OVERLAP, preventOverlap));
 	}
 
 	protected void renderRender(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object render = hSVAPaletteModal.getRender();
-
-		if (render != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.RENDER, render));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.RENDER, render));
 	}
 
 	protected void renderRendered(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean rendered = hSVAPaletteModal.getRendered();
-
-		if (rendered != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.RENDERED, rendered));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.RENDERED, rendered));
 	}
 
 	protected void renderResizable(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object resizable = hSVAPaletteModal.getResizable();
-
-		if (resizable != null) {
-			renderedAttributes.add(renderObject(HSVAPaletteModal.RESIZABLE, resizable));
-		}
+		renderedAttributes.add(renderObject(HSVAPaletteModal.RESIZABLE, resizable));
 	}
 
 	protected void renderSelected(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String selected = hSVAPaletteModal.getSelected();
-
-		if (selected != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.SELECTED, selected));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.SELECTED, selected));
 	}
 
 	protected void renderShim(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean shim = hSVAPaletteModal.getShim();
-
-		if (shim != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.SHIM, shim));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.SHIM, shim));
 	}
 
 	protected void renderSrcNode(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String srcNode = hSVAPaletteModal.getSrcNode();
-
-		if (srcNode != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.SRC_NODE, srcNode));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.SRC_NODE, srcNode));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object strings = hSVAPaletteModal.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(HSVAPaletteModal.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(HSVAPaletteModal.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object tabIndex = hSVAPaletteModal.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(HSVAPaletteModal.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(HSVAPaletteModal.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderToolbarPosition(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object toolbarPosition = hSVAPaletteModal.getToolbarPosition();
-
-		if (toolbarPosition != null) {
-			renderedAttributes.add(renderObject(HSVAPaletteModal.TOOLBAR_POSITION, toolbarPosition));
-		}
+		renderedAttributes.add(renderObject(HSVAPaletteModal.TOOLBAR_POSITION, toolbarPosition));
 	}
 
 	protected void renderToolbars(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object toolbars = hSVAPaletteModal.getToolbars();
-
-		if (toolbars != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.TOOLBARS, toolbars));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.TOOLBARS, toolbars));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Boolean visible = hSVAPaletteModal.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(HSVAPaletteModal.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(HSVAPaletteModal.VISIBLE, visible));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object width = hSVAPaletteModal.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.WIDTH, width));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.WIDTH, width));
 	}
 
 	protected void renderX(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object x = hSVAPaletteModal.getX();
-
-		if (x != null) {
-			renderedAttributes.add(renderNumber(HSVAPaletteModal.X, x));
-		}
+		renderedAttributes.add(renderNumber(HSVAPaletteModal.X, x));
 	}
 
 	protected void renderXy(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object xy = hSVAPaletteModal.getXy();
-
-		if (xy != null) {
-			renderedAttributes.add(renderArray(HSVAPaletteModal.XY, xy));
-		}
+		renderedAttributes.add(renderArray(HSVAPaletteModal.XY, xy));
 	}
 
 	protected void renderY(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object y = hSVAPaletteModal.getY();
-
-		if (y != null) {
-			renderedAttributes.add(renderNumber(HSVAPaletteModal.Y, y));
-		}
+		renderedAttributes.add(renderNumber(HSVAPaletteModal.Y, y));
 	}
 
 	protected void renderZIndex(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.Object zIndex = hSVAPaletteModal.getZIndex();
-
-		if (zIndex != null) {
-			renderedAttributes.add(renderNumber(HSVAPaletteModal.Z_INDEX, zIndex));
-		}
+		renderedAttributes.add(renderNumber(HSVAPaletteModal.Z_INDEX, zIndex));
 	}
 
 	protected void renderAfterAlignChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterAlignChange = hSVAPaletteModal.getAfterAlignChange();
-
-		if (afterAlignChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ALIGN_CHANGE, afterAlignChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ALIGN_CHANGE, afterAlignChange));
 	}
 
 	protected void renderAfterAlignOnChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterAlignOnChange = hSVAPaletteModal.getAfterAlignOnChange();
-
-		if (afterAlignOnChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
 	}
 
 	protected void renderAfterBodyContentChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterBodyContentChange = hSVAPaletteModal.getAfterBodyContentChange();
-
-		if (afterBodyContentChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
 	}
 
 	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterBoundingBoxChange = hSVAPaletteModal.getAfterBoundingBoxChange();
-
-		if (afterBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
 	}
 
 	protected void renderAfterCenteredChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterCenteredChange = hSVAPaletteModal.getAfterCenteredChange();
-
-		if (afterCenteredChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_CENTERED_CHANGE, afterCenteredChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_CENTERED_CHANGE, afterCenteredChange));
 	}
 
 	protected void renderAfterConstrainChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterConstrainChange = hSVAPaletteModal.getAfterConstrainChange();
-
-		if (afterConstrainChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
 	}
 
 	protected void renderAfterContentBoxChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterContentBoxChange = hSVAPaletteModal.getAfterContentBoxChange();
-
-		if (afterContentBoxChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
 	}
 
 	protected void renderAfterDestroyOnHideChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterDestroyOnHideChange = hSVAPaletteModal.getAfterDestroyOnHideChange();
-
-		if (afterDestroyOnHideChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DESTROY_ON_HIDE_CHANGE, afterDestroyOnHideChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DESTROY_ON_HIDE_CHANGE, afterDestroyOnHideChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterDestroyedChange = hSVAPaletteModal.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterDisabledChange = hSVAPaletteModal.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterDraggableChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterDraggableChange = hSVAPaletteModal.getAfterDraggableChange();
-
-		if (afterDraggableChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DRAGGABLE_CHANGE, afterDraggableChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_DRAGGABLE_CHANGE, afterDraggableChange));
 	}
 
 	protected void renderAfterFillHeightChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterFillHeightChange = hSVAPaletteModal.getAfterFillHeightChange();
-
-		if (afterFillHeightChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
 	}
 
 	protected void renderAfterFocusOnChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterFocusOnChange = hSVAPaletteModal.getAfterFocusOnChange();
-
-		if (afterFocusOnChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FOCUS_ON_CHANGE, afterFocusOnChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FOCUS_ON_CHANGE, afterFocusOnChange));
 	}
 
 	protected void renderAfterFocusedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterFocusedChange = hSVAPaletteModal.getAfterFocusedChange();
-
-		if (afterFocusedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FOCUSED_CHANGE, afterFocusedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FOCUSED_CHANGE, afterFocusedChange));
 	}
 
 	protected void renderAfterFooterContentChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterFooterContentChange = hSVAPaletteModal.getAfterFooterContentChange();
-
-		if (afterFooterContentChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
 	}
 
 	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterHeaderContentChange = hSVAPaletteModal.getAfterHeaderContentChange();
-
-		if (afterHeaderContentChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
 	}
 
 	protected void renderAfterHeightChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterHeightChange = hSVAPaletteModal.getAfterHeightChange();
-
-		if (afterHeightChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HEIGHT_CHANGE, afterHeightChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HEIGHT_CHANGE, afterHeightChange));
 	}
 
 	protected void renderAfterHideOnChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterHideOnChange = hSVAPaletteModal.getAfterHideOnChange();
-
-		if (afterHideOnChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
 	}
 
 	protected void renderAfterHsvChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterHsvChange = hSVAPaletteModal.getAfterHsvChange();
-
-		if (afterHsvChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HSV_CHANGE, afterHsvChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_HSV_CHANGE, afterHsvChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterIdChange = hSVAPaletteModal.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterInitializedChange = hSVAPaletteModal.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterLocaleChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterLocaleChange = hSVAPaletteModal.getAfterLocaleChange();
-
-		if (afterLocaleChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_LOCALE_CHANGE, afterLocaleChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_LOCALE_CHANGE, afterLocaleChange));
 	}
 
 	protected void renderAfterMaskNodeChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterMaskNodeChange = hSVAPaletteModal.getAfterMaskNodeChange();
-
-		if (afterMaskNodeChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_MASK_NODE_CHANGE, afterMaskNodeChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_MASK_NODE_CHANGE, afterMaskNodeChange));
 	}
 
 	protected void renderAfterModalChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterModalChange = hSVAPaletteModal.getAfterModalChange();
-
-		if (afterModalChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_MODAL_CHANGE, afterModalChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_MODAL_CHANGE, afterModalChange));
 	}
 
 	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterPreventOverlapChange = hSVAPaletteModal.getAfterPreventOverlapChange();
-
-		if (afterPreventOverlapChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
 	}
 
 	protected void renderAfterRenderChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterRenderChange = hSVAPaletteModal.getAfterRenderChange();
-
-		if (afterRenderChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_RENDER_CHANGE, afterRenderChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_RENDER_CHANGE, afterRenderChange));
 	}
 
 	protected void renderAfterRenderedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterRenderedChange = hSVAPaletteModal.getAfterRenderedChange();
-
-		if (afterRenderedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_RENDERED_CHANGE, afterRenderedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_RENDERED_CHANGE, afterRenderedChange));
 	}
 
 	protected void renderAfterResizableChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterResizableChange = hSVAPaletteModal.getAfterResizableChange();
-
-		if (afterResizableChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_RESIZABLE_CHANGE, afterResizableChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_RESIZABLE_CHANGE, afterResizableChange));
 	}
 
 	protected void renderAfterSelectedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterSelectedChange = hSVAPaletteModal.getAfterSelectedChange();
-
-		if (afterSelectedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_SELECTED_CHANGE, afterSelectedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_SELECTED_CHANGE, afterSelectedChange));
 	}
 
 	protected void renderAfterShimChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterShimChange = hSVAPaletteModal.getAfterShimChange();
-
-		if (afterShimChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_SHIM_CHANGE, afterShimChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_SHIM_CHANGE, afterShimChange));
 	}
 
 	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterSrcNodeChange = hSVAPaletteModal.getAfterSrcNodeChange();
-
-		if (afterSrcNodeChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterStringsChange = hSVAPaletteModal.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterTabIndexChange = hSVAPaletteModal.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterToolbarPositionChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterToolbarPositionChange = hSVAPaletteModal.getAfterToolbarPositionChange();
-
-		if (afterToolbarPositionChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_TOOLBAR_POSITION_CHANGE, afterToolbarPositionChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_TOOLBAR_POSITION_CHANGE, afterToolbarPositionChange));
 	}
 
 	protected void renderAfterToolbarsChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterToolbarsChange = hSVAPaletteModal.getAfterToolbarsChange();
-
-		if (afterToolbarsChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_TOOLBARS_CHANGE, afterToolbarsChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_TOOLBARS_CHANGE, afterToolbarsChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterVisibleChange = hSVAPaletteModal.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterWidthChange = hSVAPaletteModal.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderAfterXChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterXChange = hSVAPaletteModal.getAfterXChange();
-
-		if (afterXChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_XCHANGE, afterXChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_XCHANGE, afterXChange));
 	}
 
 	protected void renderAfterXyChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterXyChange = hSVAPaletteModal.getAfterXyChange();
-
-		if (afterXyChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_XY_CHANGE, afterXyChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_XY_CHANGE, afterXyChange));
 	}
 
 	protected void renderAfterYChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterYChange = hSVAPaletteModal.getAfterYChange();
-
-		if (afterYChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_YCHANGE, afterYChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_YCHANGE, afterYChange));
 	}
 
 	protected void renderAfterZIndexChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String afterZIndexChange = hSVAPaletteModal.getAfterZIndexChange();
-
-		if (afterZIndexChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ZINDEX_CHANGE, afterZIndexChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.AFTER_ZINDEX_CHANGE, afterZIndexChange));
 	}
 
 	protected void renderOnAlignChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onAlignChange = hSVAPaletteModal.getOnAlignChange();
-
-		if (onAlignChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_ALIGN_CHANGE, onAlignChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_ALIGN_CHANGE, onAlignChange));
 	}
 
 	protected void renderOnAlignOnChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onAlignOnChange = hSVAPaletteModal.getOnAlignOnChange();
-
-		if (onAlignOnChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_ALIGN_ON_CHANGE, onAlignOnChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_ALIGN_ON_CHANGE, onAlignOnChange));
 	}
 
 	protected void renderOnBodyContentChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onBodyContentChange = hSVAPaletteModal.getOnBodyContentChange();
-
-		if (onBodyContentChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
 	}
 
 	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onBoundingBoxChange = hSVAPaletteModal.getOnBoundingBoxChange();
-
-		if (onBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
 	}
 
 	protected void renderOnCenteredChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onCenteredChange = hSVAPaletteModal.getOnCenteredChange();
-
-		if (onCenteredChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_CENTERED_CHANGE, onCenteredChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_CENTERED_CHANGE, onCenteredChange));
 	}
 
 	protected void renderOnConstrainChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onConstrainChange = hSVAPaletteModal.getOnConstrainChange();
-
-		if (onConstrainChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_CONSTRAIN_CHANGE, onConstrainChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_CONSTRAIN_CHANGE, onConstrainChange));
 	}
 
 	protected void renderOnContentBoxChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onContentBoxChange = hSVAPaletteModal.getOnContentBoxChange();
-
-		if (onContentBoxChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
 	}
 
 	protected void renderOnDestroyOnHideChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onDestroyOnHideChange = hSVAPaletteModal.getOnDestroyOnHideChange();
-
-		if (onDestroyOnHideChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_DESTROY_ON_HIDE_CHANGE, onDestroyOnHideChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_DESTROY_ON_HIDE_CHANGE, onDestroyOnHideChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onDestroyedChange = hSVAPaletteModal.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onDisabledChange = hSVAPaletteModal.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnDraggableChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onDraggableChange = hSVAPaletteModal.getOnDraggableChange();
-
-		if (onDraggableChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_DRAGGABLE_CHANGE, onDraggableChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_DRAGGABLE_CHANGE, onDraggableChange));
 	}
 
 	protected void renderOnFillHeightChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onFillHeightChange = hSVAPaletteModal.getOnFillHeightChange();
-
-		if (onFillHeightChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
 	}
 
 	protected void renderOnFocusOnChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onFocusOnChange = hSVAPaletteModal.getOnFocusOnChange();
-
-		if (onFocusOnChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_FOCUS_ON_CHANGE, onFocusOnChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_FOCUS_ON_CHANGE, onFocusOnChange));
 	}
 
 	protected void renderOnFocusedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onFocusedChange = hSVAPaletteModal.getOnFocusedChange();
-
-		if (onFocusedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_FOCUSED_CHANGE, onFocusedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_FOCUSED_CHANGE, onFocusedChange));
 	}
 
 	protected void renderOnFooterContentChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onFooterContentChange = hSVAPaletteModal.getOnFooterContentChange();
-
-		if (onFooterContentChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
 	}
 
 	protected void renderOnHeaderContentChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onHeaderContentChange = hSVAPaletteModal.getOnHeaderContentChange();
-
-		if (onHeaderContentChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
 	}
 
 	protected void renderOnHeightChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onHeightChange = hSVAPaletteModal.getOnHeightChange();
-
-		if (onHeightChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_HEIGHT_CHANGE, onHeightChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_HEIGHT_CHANGE, onHeightChange));
 	}
 
 	protected void renderOnHideOnChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onHideOnChange = hSVAPaletteModal.getOnHideOnChange();
-
-		if (onHideOnChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_HIDE_ON_CHANGE, onHideOnChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_HIDE_ON_CHANGE, onHideOnChange));
 	}
 
 	protected void renderOnHsvChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onHsvChange = hSVAPaletteModal.getOnHsvChange();
-
-		if (onHsvChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_HSV_CHANGE, onHsvChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_HSV_CHANGE, onHsvChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onIdChange = hSVAPaletteModal.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onInitializedChange = hSVAPaletteModal.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnLocaleChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onLocaleChange = hSVAPaletteModal.getOnLocaleChange();
-
-		if (onLocaleChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_LOCALE_CHANGE, onLocaleChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_LOCALE_CHANGE, onLocaleChange));
 	}
 
 	protected void renderOnMaskNodeChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onMaskNodeChange = hSVAPaletteModal.getOnMaskNodeChange();
-
-		if (onMaskNodeChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_MASK_NODE_CHANGE, onMaskNodeChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_MASK_NODE_CHANGE, onMaskNodeChange));
 	}
 
 	protected void renderOnModalChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onModalChange = hSVAPaletteModal.getOnModalChange();
-
-		if (onModalChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_MODAL_CHANGE, onModalChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_MODAL_CHANGE, onModalChange));
 	}
 
 	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onPreventOverlapChange = hSVAPaletteModal.getOnPreventOverlapChange();
-
-		if (onPreventOverlapChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
 	}
 
 	protected void renderOnRenderChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onRenderChange = hSVAPaletteModal.getOnRenderChange();
-
-		if (onRenderChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_RENDER_CHANGE, onRenderChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_RENDER_CHANGE, onRenderChange));
 	}
 
 	protected void renderOnRenderedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onRenderedChange = hSVAPaletteModal.getOnRenderedChange();
-
-		if (onRenderedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_RENDERED_CHANGE, onRenderedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_RENDERED_CHANGE, onRenderedChange));
 	}
 
 	protected void renderOnResizableChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onResizableChange = hSVAPaletteModal.getOnResizableChange();
-
-		if (onResizableChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_RESIZABLE_CHANGE, onResizableChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_RESIZABLE_CHANGE, onResizableChange));
 	}
 
 	protected void renderOnSelectedChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onSelectedChange = hSVAPaletteModal.getOnSelectedChange();
-
-		if (onSelectedChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_SELECTED_CHANGE, onSelectedChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_SELECTED_CHANGE, onSelectedChange));
 	}
 
 	protected void renderOnShimChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onShimChange = hSVAPaletteModal.getOnShimChange();
-
-		if (onShimChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_SHIM_CHANGE, onShimChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_SHIM_CHANGE, onShimChange));
 	}
 
 	protected void renderOnSrcNodeChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onSrcNodeChange = hSVAPaletteModal.getOnSrcNodeChange();
-
-		if (onSrcNodeChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_SRC_NODE_CHANGE, onSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_SRC_NODE_CHANGE, onSrcNodeChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onStringsChange = hSVAPaletteModal.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onTabIndexChange = hSVAPaletteModal.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnToolbarPositionChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onToolbarPositionChange = hSVAPaletteModal.getOnToolbarPositionChange();
-
-		if (onToolbarPositionChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_TOOLBAR_POSITION_CHANGE, onToolbarPositionChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_TOOLBAR_POSITION_CHANGE, onToolbarPositionChange));
 	}
 
 	protected void renderOnToolbarsChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onToolbarsChange = hSVAPaletteModal.getOnToolbarsChange();
-
-		if (onToolbarsChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_TOOLBARS_CHANGE, onToolbarsChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_TOOLBARS_CHANGE, onToolbarsChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onVisibleChange = hSVAPaletteModal.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onWidthChange = hSVAPaletteModal.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 	protected void renderOnXChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onXChange = hSVAPaletteModal.getOnXChange();
-
-		if (onXChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_XCHANGE, onXChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_XCHANGE, onXChange));
 	}
 
 	protected void renderOnXyChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onXyChange = hSVAPaletteModal.getOnXyChange();
-
-		if (onXyChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_XY_CHANGE, onXyChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_XY_CHANGE, onXyChange));
 	}
 
 	protected void renderOnYChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onYChange = hSVAPaletteModal.getOnYChange();
-
-		if (onYChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_YCHANGE, onYChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_YCHANGE, onYChange));
 	}
 
 	protected void renderOnZIndexChange(List<String> renderedAttributes, HSVAPaletteModal hSVAPaletteModal) throws IOException {
 		java.lang.String onZIndexChange = hSVAPaletteModal.getOnZIndexChange();
-
-		if (onZIndexChange != null) {
-			renderedAttributes.add(renderString(HSVAPaletteModal.ON_ZINDEX_CHANGE, onZIndexChange));
-		}
+		renderedAttributes.add(renderString(HSVAPaletteModal.ON_ZINDEX_CHANGE, onZIndexChange));
 	}
 
 }

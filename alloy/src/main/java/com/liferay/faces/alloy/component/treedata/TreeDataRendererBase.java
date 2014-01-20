@@ -49,11 +49,26 @@ public abstract class TreeDataRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderTreeDataChildren(renderedAttributes, treeData);
-		renderContainer(renderedAttributes, treeData);
-		renderDestroyed(renderedAttributes, treeData);
-		renderIndex(renderedAttributes, treeData);
-		renderInitialized(renderedAttributes, treeData);
+		if (treeData.getTreeDataChildren() != null) {
+			renderTreeDataChildren(renderedAttributes, treeData);
+		}
+		
+		if (treeData.getContainer() != null) {
+			renderContainer(renderedAttributes, treeData);
+		}
+		
+		if (treeData.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, treeData);
+		}
+		
+		if (treeData.getIndex() != null) {
+			renderIndex(renderedAttributes, treeData);
+		}
+		
+		if (treeData.getInitialized() != null) {
+			renderInitialized(renderedAttributes, treeData);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class TreeDataRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterChildrenChange(renderedAfterEvents, treeData);
-		renderAfterContainerChange(renderedAfterEvents, treeData);
-		renderAfterDestroyedChange(renderedAfterEvents, treeData);
-		renderAfterIndexChange(renderedAfterEvents, treeData);
-		renderAfterInitializedChange(renderedAfterEvents, treeData);
+		if (treeData.getAfterChildrenChange() != null) {
+			renderAfterChildrenChange(renderedAfterEvents, treeData);
+		}
+		
+		if (treeData.getAfterContainerChange() != null) {
+			renderAfterContainerChange(renderedAfterEvents, treeData);
+		}
+		
+		if (treeData.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, treeData);
+		}
+		
+		if (treeData.getAfterIndexChange() != null) {
+			renderAfterIndexChange(renderedAfterEvents, treeData);
+		}
+		
+		if (treeData.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, treeData);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class TreeDataRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnChildrenChange(renderedOnEvents, treeData);
-		renderOnContainerChange(renderedOnEvents, treeData);
-		renderOnDestroyedChange(renderedOnEvents, treeData);
-		renderOnIndexChange(renderedOnEvents, treeData);
-		renderOnInitializedChange(renderedOnEvents, treeData);
+		if (treeData.getOnChildrenChange() != null) {
+			renderOnChildrenChange(renderedOnEvents, treeData);
+		}
+		
+		if (treeData.getOnContainerChange() != null) {
+			renderOnContainerChange(renderedOnEvents, treeData);
+		}
+		
+		if (treeData.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, treeData);
+		}
+		
+		if (treeData.getOnIndexChange() != null) {
+			renderOnIndexChange(renderedOnEvents, treeData);
+		}
+		
+		if (treeData.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, treeData);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class TreeDataRendererBase extends RendererBase {
 
 	protected void renderTreeDataChildren(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.Object treeDataChildren = treeData.getTreeDataChildren();
-
-		if (treeDataChildren != null) {
-			renderedAttributes.add(renderArray(TreeData.TREE_DATA_CHILDREN, treeDataChildren));
-		}
+		renderedAttributes.add(renderArray(TreeData.TREE_DATA_CHILDREN, treeDataChildren));
 	}
 
 	protected void renderContainer(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String container = treeData.getContainer();
-
-		if (container != null) {
-			renderedAttributes.add(renderString(TreeData.CONTAINER, container));
-		}
+		renderedAttributes.add(renderString(TreeData.CONTAINER, container));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.Boolean destroyed = treeData.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TreeData.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TreeData.DESTROYED, destroyed));
 	}
 
 	protected void renderIndex(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.Object index = treeData.getIndex();
-
-		if (index != null) {
-			renderedAttributes.add(renderObject(TreeData.INDEX, index));
-		}
+		renderedAttributes.add(renderObject(TreeData.INDEX, index));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.Boolean initialized = treeData.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TreeData.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TreeData.INITIALIZED, initialized));
 	}
 
 	protected void renderAfterChildrenChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String afterChildrenChange = treeData.getAfterChildrenChange();
-
-		if (afterChildrenChange != null) {
-			renderedAttributes.add(renderString(TreeData.AFTER_CHILDREN_CHANGE, afterChildrenChange));
-		}
+		renderedAttributes.add(renderString(TreeData.AFTER_CHILDREN_CHANGE, afterChildrenChange));
 	}
 
 	protected void renderAfterContainerChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String afterContainerChange = treeData.getAfterContainerChange();
-
-		if (afterContainerChange != null) {
-			renderedAttributes.add(renderString(TreeData.AFTER_CONTAINER_CHANGE, afterContainerChange));
-		}
+		renderedAttributes.add(renderString(TreeData.AFTER_CONTAINER_CHANGE, afterContainerChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String afterDestroyedChange = treeData.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TreeData.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TreeData.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterIndexChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String afterIndexChange = treeData.getAfterIndexChange();
-
-		if (afterIndexChange != null) {
-			renderedAttributes.add(renderString(TreeData.AFTER_INDEX_CHANGE, afterIndexChange));
-		}
+		renderedAttributes.add(renderString(TreeData.AFTER_INDEX_CHANGE, afterIndexChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String afterInitializedChange = treeData.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TreeData.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TreeData.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderOnChildrenChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String onChildrenChange = treeData.getOnChildrenChange();
-
-		if (onChildrenChange != null) {
-			renderedAttributes.add(renderString(TreeData.ON_CHILDREN_CHANGE, onChildrenChange));
-		}
+		renderedAttributes.add(renderString(TreeData.ON_CHILDREN_CHANGE, onChildrenChange));
 	}
 
 	protected void renderOnContainerChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String onContainerChange = treeData.getOnContainerChange();
-
-		if (onContainerChange != null) {
-			renderedAttributes.add(renderString(TreeData.ON_CONTAINER_CHANGE, onContainerChange));
-		}
+		renderedAttributes.add(renderString(TreeData.ON_CONTAINER_CHANGE, onContainerChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String onDestroyedChange = treeData.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TreeData.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TreeData.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnIndexChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String onIndexChange = treeData.getOnIndexChange();
-
-		if (onIndexChange != null) {
-			renderedAttributes.add(renderString(TreeData.ON_INDEX_CHANGE, onIndexChange));
-		}
+		renderedAttributes.add(renderString(TreeData.ON_INDEX_CHANGE, onIndexChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TreeData treeData) throws IOException {
 		java.lang.String onInitializedChange = treeData.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TreeData.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TreeData.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 }

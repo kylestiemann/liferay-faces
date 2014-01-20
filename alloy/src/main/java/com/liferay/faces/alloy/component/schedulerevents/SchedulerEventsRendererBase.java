@@ -49,8 +49,14 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDestroyed(renderedAttributes, schedulerEvents);
-		renderInitialized(renderedAttributes, schedulerEvents);
+		if (schedulerEvents.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, schedulerEvents);
+		}
+		
+		if (schedulerEvents.getInitialized() != null) {
+			renderInitialized(renderedAttributes, schedulerEvents);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -63,8 +69,14 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDestroyedChange(renderedAfterEvents, schedulerEvents);
-		renderAfterInitializedChange(renderedAfterEvents, schedulerEvents);
+		if (schedulerEvents.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, schedulerEvents);
+		}
+		
+		if (schedulerEvents.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, schedulerEvents);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -85,8 +97,14 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDestroyedChange(renderedOnEvents, schedulerEvents);
-		renderOnInitializedChange(renderedOnEvents, schedulerEvents);
+		if (schedulerEvents.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, schedulerEvents);
+		}
+		
+		if (schedulerEvents.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, schedulerEvents);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -111,50 +129,32 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 
 	protected void renderDestroyed(List<String> renderedAttributes, SchedulerEvents schedulerEvents) throws IOException {
 		java.lang.Boolean destroyed = schedulerEvents.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(SchedulerEvents.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerEvents.DESTROYED, destroyed));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, SchedulerEvents schedulerEvents) throws IOException {
 		java.lang.Boolean initialized = schedulerEvents.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(SchedulerEvents.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerEvents.INITIALIZED, initialized));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, SchedulerEvents schedulerEvents) throws IOException {
 		java.lang.String afterDestroyedChange = schedulerEvents.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(SchedulerEvents.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerEvents.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, SchedulerEvents schedulerEvents) throws IOException {
 		java.lang.String afterInitializedChange = schedulerEvents.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(SchedulerEvents.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerEvents.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, SchedulerEvents schedulerEvents) throws IOException {
 		java.lang.String onDestroyedChange = schedulerEvents.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(SchedulerEvents.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerEvents.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, SchedulerEvents schedulerEvents) throws IOException {
 		java.lang.String onInitializedChange = schedulerEvents.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(SchedulerEvents.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerEvents.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 }

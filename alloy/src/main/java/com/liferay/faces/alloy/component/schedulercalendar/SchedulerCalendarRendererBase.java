@@ -49,14 +49,38 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderColor(renderedAttributes, schedulerCalendar);
-		renderDestroyed(renderedAttributes, schedulerCalendar);
-		renderDisabled(renderedAttributes, schedulerCalendar);
-		renderInitialized(renderedAttributes, schedulerCalendar);
-		renderName(renderedAttributes, schedulerCalendar);
-		renderPalette(renderedAttributes, schedulerCalendar);
-		renderScheduler(renderedAttributes, schedulerCalendar);
-		renderVisible(renderedAttributes, schedulerCalendar);
+		if (schedulerCalendar.getColor() != null) {
+			renderColor(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getDisabled() != null) {
+			renderDisabled(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getInitialized() != null) {
+			renderInitialized(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getName() != null) {
+			renderName(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getPalette() != null) {
+			renderPalette(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getScheduler() != null) {
+			renderScheduler(renderedAttributes, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getVisible() != null) {
+			renderVisible(renderedAttributes, schedulerCalendar);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -69,14 +93,38 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterColorChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterDestroyedChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterDisabledChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterInitializedChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterNameChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterPaletteChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterSchedulerChange(renderedAfterEvents, schedulerCalendar);
-		renderAfterVisibleChange(renderedAfterEvents, schedulerCalendar);
+		if (schedulerCalendar.getAfterColorChange() != null) {
+			renderAfterColorChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterNameChange() != null) {
+			renderAfterNameChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterPaletteChange() != null) {
+			renderAfterPaletteChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterSchedulerChange() != null) {
+			renderAfterSchedulerChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, schedulerCalendar);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -97,14 +145,38 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnColorChange(renderedOnEvents, schedulerCalendar);
-		renderOnDestroyedChange(renderedOnEvents, schedulerCalendar);
-		renderOnDisabledChange(renderedOnEvents, schedulerCalendar);
-		renderOnInitializedChange(renderedOnEvents, schedulerCalendar);
-		renderOnNameChange(renderedOnEvents, schedulerCalendar);
-		renderOnPaletteChange(renderedOnEvents, schedulerCalendar);
-		renderOnSchedulerChange(renderedOnEvents, schedulerCalendar);
-		renderOnVisibleChange(renderedOnEvents, schedulerCalendar);
+		if (schedulerCalendar.getOnColorChange() != null) {
+			renderOnColorChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnNameChange() != null) {
+			renderOnNameChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnPaletteChange() != null) {
+			renderOnPaletteChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnSchedulerChange() != null) {
+			renderOnSchedulerChange(renderedOnEvents, schedulerCalendar);
+		}
+		
+		if (schedulerCalendar.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, schedulerCalendar);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -129,194 +201,122 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 
 	protected void renderColor(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String color = schedulerCalendar.getColor();
-
-		if (color != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.COLOR, color));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.COLOR, color));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.Boolean destroyed = schedulerCalendar.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(SchedulerCalendar.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerCalendar.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.Boolean disabled = schedulerCalendar.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(SchedulerCalendar.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerCalendar.DISABLED, disabled));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.Boolean initialized = schedulerCalendar.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(SchedulerCalendar.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerCalendar.INITIALIZED, initialized));
 	}
 
 	protected void renderName(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String name = schedulerCalendar.getName();
-
-		if (name != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.NAME, name));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.NAME, name));
 	}
 
 	protected void renderPalette(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.Object palette = schedulerCalendar.getPalette();
-
-		if (palette != null) {
-			renderedAttributes.add(renderArray(SchedulerCalendar.PALETTE, palette));
-		}
+		renderedAttributes.add(renderArray(SchedulerCalendar.PALETTE, palette));
 	}
 
 	protected void renderScheduler(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String scheduler = schedulerCalendar.getScheduler();
-
-		if (scheduler != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.SCHEDULER, scheduler));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.SCHEDULER, scheduler));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.Boolean visible = schedulerCalendar.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(SchedulerCalendar.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(SchedulerCalendar.VISIBLE, visible));
 	}
 
 	protected void renderAfterColorChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterColorChange = schedulerCalendar.getAfterColorChange();
-
-		if (afterColorChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_COLOR_CHANGE, afterColorChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_COLOR_CHANGE, afterColorChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterDestroyedChange = schedulerCalendar.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterDisabledChange = schedulerCalendar.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterInitializedChange = schedulerCalendar.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterNameChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterNameChange = schedulerCalendar.getAfterNameChange();
-
-		if (afterNameChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_NAME_CHANGE, afterNameChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_NAME_CHANGE, afterNameChange));
 	}
 
 	protected void renderAfterPaletteChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterPaletteChange = schedulerCalendar.getAfterPaletteChange();
-
-		if (afterPaletteChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_PALETTE_CHANGE, afterPaletteChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_PALETTE_CHANGE, afterPaletteChange));
 	}
 
 	protected void renderAfterSchedulerChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterSchedulerChange = schedulerCalendar.getAfterSchedulerChange();
-
-		if (afterSchedulerChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_SCHEDULER_CHANGE, afterSchedulerChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_SCHEDULER_CHANGE, afterSchedulerChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String afterVisibleChange = schedulerCalendar.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderOnColorChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onColorChange = schedulerCalendar.getOnColorChange();
-
-		if (onColorChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_COLOR_CHANGE, onColorChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_COLOR_CHANGE, onColorChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onDestroyedChange = schedulerCalendar.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onDisabledChange = schedulerCalendar.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onInitializedChange = schedulerCalendar.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnNameChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onNameChange = schedulerCalendar.getOnNameChange();
-
-		if (onNameChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_NAME_CHANGE, onNameChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_NAME_CHANGE, onNameChange));
 	}
 
 	protected void renderOnPaletteChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onPaletteChange = schedulerCalendar.getOnPaletteChange();
-
-		if (onPaletteChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_PALETTE_CHANGE, onPaletteChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_PALETTE_CHANGE, onPaletteChange));
 	}
 
 	protected void renderOnSchedulerChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onSchedulerChange = schedulerCalendar.getOnSchedulerChange();
-
-		if (onSchedulerChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_SCHEDULER_CHANGE, onSchedulerChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_SCHEDULER_CHANGE, onSchedulerChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, SchedulerCalendar schedulerCalendar) throws IOException {
 		java.lang.String onVisibleChange = schedulerCalendar.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(SchedulerCalendar.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(SchedulerCalendar.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 }

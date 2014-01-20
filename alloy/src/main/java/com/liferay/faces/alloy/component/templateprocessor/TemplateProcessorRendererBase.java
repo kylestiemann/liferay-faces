@@ -49,11 +49,26 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDestroyed(renderedAttributes, templateProcessor);
-		renderDirectives(renderedAttributes, templateProcessor);
-		renderHost(renderedAttributes, templateProcessor);
-		renderInitialized(renderedAttributes, templateProcessor);
-		renderVariables(renderedAttributes, templateProcessor);
+		if (templateProcessor.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, templateProcessor);
+		}
+		
+		if (templateProcessor.getDirectives() != null) {
+			renderDirectives(renderedAttributes, templateProcessor);
+		}
+		
+		if (templateProcessor.getHost() != null) {
+			renderHost(renderedAttributes, templateProcessor);
+		}
+		
+		if (templateProcessor.getInitialized() != null) {
+			renderInitialized(renderedAttributes, templateProcessor);
+		}
+		
+		if (templateProcessor.getVariables() != null) {
+			renderVariables(renderedAttributes, templateProcessor);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -66,11 +81,26 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDestroyedChange(renderedAfterEvents, templateProcessor);
-		renderAfterDirectivesChange(renderedAfterEvents, templateProcessor);
-		renderAfterHostChange(renderedAfterEvents, templateProcessor);
-		renderAfterInitializedChange(renderedAfterEvents, templateProcessor);
-		renderAfterVariablesChange(renderedAfterEvents, templateProcessor);
+		if (templateProcessor.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getAfterDirectivesChange() != null) {
+			renderAfterDirectivesChange(renderedAfterEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getAfterHostChange() != null) {
+			renderAfterHostChange(renderedAfterEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getAfterVariablesChange() != null) {
+			renderAfterVariablesChange(renderedAfterEvents, templateProcessor);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -91,11 +121,26 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDestroyedChange(renderedOnEvents, templateProcessor);
-		renderOnDirectivesChange(renderedOnEvents, templateProcessor);
-		renderOnHostChange(renderedOnEvents, templateProcessor);
-		renderOnInitializedChange(renderedOnEvents, templateProcessor);
-		renderOnVariablesChange(renderedOnEvents, templateProcessor);
+		if (templateProcessor.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getOnDirectivesChange() != null) {
+			renderOnDirectivesChange(renderedOnEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getOnHostChange() != null) {
+			renderOnHostChange(renderedOnEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, templateProcessor);
+		}
+		
+		if (templateProcessor.getOnVariablesChange() != null) {
+			renderOnVariablesChange(renderedOnEvents, templateProcessor);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -120,122 +165,77 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 
 	protected void renderDestroyed(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.Boolean destroyed = templateProcessor.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(TemplateProcessor.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(TemplateProcessor.DESTROYED, destroyed));
 	}
 
 	protected void renderDirectives(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.Object directives = templateProcessor.getDirectives();
-
-		if (directives != null) {
-			renderedAttributes.add(renderArray(TemplateProcessor.DIRECTIVES, directives));
-		}
+		renderedAttributes.add(renderArray(TemplateProcessor.DIRECTIVES, directives));
 	}
 
 	protected void renderHost(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.Object host = templateProcessor.getHost();
-
-		if (host != null) {
-			renderedAttributes.add(renderObject(TemplateProcessor.HOST, host));
-		}
+		renderedAttributes.add(renderObject(TemplateProcessor.HOST, host));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.Boolean initialized = templateProcessor.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(TemplateProcessor.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(TemplateProcessor.INITIALIZED, initialized));
 	}
 
 	protected void renderVariables(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.Object variables = templateProcessor.getVariables();
-
-		if (variables != null) {
-			renderedAttributes.add(renderObject(TemplateProcessor.VARIABLES, variables));
-		}
+		renderedAttributes.add(renderObject(TemplateProcessor.VARIABLES, variables));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String afterDestroyedChange = templateProcessor.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDirectivesChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String afterDirectivesChange = templateProcessor.getAfterDirectivesChange();
-
-		if (afterDirectivesChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.AFTER_DIRECTIVES_CHANGE, afterDirectivesChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.AFTER_DIRECTIVES_CHANGE, afterDirectivesChange));
 	}
 
 	protected void renderAfterHostChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String afterHostChange = templateProcessor.getAfterHostChange();
-
-		if (afterHostChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.AFTER_HOST_CHANGE, afterHostChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.AFTER_HOST_CHANGE, afterHostChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String afterInitializedChange = templateProcessor.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterVariablesChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String afterVariablesChange = templateProcessor.getAfterVariablesChange();
-
-		if (afterVariablesChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.AFTER_VARIABLES_CHANGE, afterVariablesChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.AFTER_VARIABLES_CHANGE, afterVariablesChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String onDestroyedChange = templateProcessor.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDirectivesChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String onDirectivesChange = templateProcessor.getOnDirectivesChange();
-
-		if (onDirectivesChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.ON_DIRECTIVES_CHANGE, onDirectivesChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.ON_DIRECTIVES_CHANGE, onDirectivesChange));
 	}
 
 	protected void renderOnHostChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String onHostChange = templateProcessor.getOnHostChange();
-
-		if (onHostChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.ON_HOST_CHANGE, onHostChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.ON_HOST_CHANGE, onHostChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String onInitializedChange = templateProcessor.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnVariablesChange(List<String> renderedAttributes, TemplateProcessor templateProcessor) throws IOException {
 		java.lang.String onVariablesChange = templateProcessor.getOnVariablesChange();
-
-		if (onVariablesChange != null) {
-			renderedAttributes.add(renderString(TemplateProcessor.ON_VARIABLES_CHANGE, onVariablesChange));
-		}
+		renderedAttributes.add(renderString(TemplateProcessor.ON_VARIABLES_CHANGE, onVariablesChange));
 	}
 
 }

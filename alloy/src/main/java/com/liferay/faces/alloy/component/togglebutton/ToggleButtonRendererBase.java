@@ -49,12 +49,30 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderCssClass(renderedAttributes, toggleButton);
-		renderIcon(renderedAttributes, toggleButton);
-		renderIconAlign(renderedAttributes, toggleButton);
-		renderIconElement(renderedAttributes, toggleButton);
-		renderPrimary(renderedAttributes, toggleButton);
-		renderType(renderedAttributes, toggleButton);
+		if (toggleButton.getCssClass() != null) {
+			renderCssClass(renderedAttributes, toggleButton);
+		}
+		
+		if (toggleButton.getIcon() != null) {
+			renderIcon(renderedAttributes, toggleButton);
+		}
+		
+		if (toggleButton.getIconAlign() != null) {
+			renderIconAlign(renderedAttributes, toggleButton);
+		}
+		
+		if (toggleButton.getIconElement() != null) {
+			renderIconElement(renderedAttributes, toggleButton);
+		}
+		
+		if (toggleButton.getPrimary() != null) {
+			renderPrimary(renderedAttributes, toggleButton);
+		}
+		
+		if (toggleButton.getType() != null) {
+			renderType(renderedAttributes, toggleButton);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -67,12 +85,30 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterCssClassChange(renderedAfterEvents, toggleButton);
-		renderAfterIconChange(renderedAfterEvents, toggleButton);
-		renderAfterIconAlignChange(renderedAfterEvents, toggleButton);
-		renderAfterIconElementChange(renderedAfterEvents, toggleButton);
-		renderAfterPrimaryChange(renderedAfterEvents, toggleButton);
-		renderAfterTypeChange(renderedAfterEvents, toggleButton);
+		if (toggleButton.getAfterCssClassChange() != null) {
+			renderAfterCssClassChange(renderedAfterEvents, toggleButton);
+		}
+		
+		if (toggleButton.getAfterIconChange() != null) {
+			renderAfterIconChange(renderedAfterEvents, toggleButton);
+		}
+		
+		if (toggleButton.getAfterIconAlignChange() != null) {
+			renderAfterIconAlignChange(renderedAfterEvents, toggleButton);
+		}
+		
+		if (toggleButton.getAfterIconElementChange() != null) {
+			renderAfterIconElementChange(renderedAfterEvents, toggleButton);
+		}
+		
+		if (toggleButton.getAfterPrimaryChange() != null) {
+			renderAfterPrimaryChange(renderedAfterEvents, toggleButton);
+		}
+		
+		if (toggleButton.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, toggleButton);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -93,12 +129,30 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnCssClassChange(renderedOnEvents, toggleButton);
-		renderOnIconChange(renderedOnEvents, toggleButton);
-		renderOnIconAlignChange(renderedOnEvents, toggleButton);
-		renderOnIconElementChange(renderedOnEvents, toggleButton);
-		renderOnPrimaryChange(renderedOnEvents, toggleButton);
-		renderOnTypeChange(renderedOnEvents, toggleButton);
+		if (toggleButton.getOnCssClassChange() != null) {
+			renderOnCssClassChange(renderedOnEvents, toggleButton);
+		}
+		
+		if (toggleButton.getOnIconChange() != null) {
+			renderOnIconChange(renderedOnEvents, toggleButton);
+		}
+		
+		if (toggleButton.getOnIconAlignChange() != null) {
+			renderOnIconAlignChange(renderedOnEvents, toggleButton);
+		}
+		
+		if (toggleButton.getOnIconElementChange() != null) {
+			renderOnIconElementChange(renderedOnEvents, toggleButton);
+		}
+		
+		if (toggleButton.getOnPrimaryChange() != null) {
+			renderOnPrimaryChange(renderedOnEvents, toggleButton);
+		}
+		
+		if (toggleButton.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, toggleButton);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -123,146 +177,92 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 
 	protected void renderCssClass(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String cssClass = toggleButton.getCssClass();
-
-		if (cssClass != null) {
-			renderedAttributes.add(renderString(ToggleButton.CSS_CLASS, cssClass));
-		}
+		renderedAttributes.add(renderString(ToggleButton.CSS_CLASS, cssClass));
 	}
 
 	protected void renderIcon(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String icon = toggleButton.getIcon();
-
-		if (icon != null) {
-			renderedAttributes.add(renderString(ToggleButton.ICON, icon));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ICON, icon));
 	}
 
 	protected void renderIconAlign(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String iconAlign = toggleButton.getIconAlign();
-
-		if (iconAlign != null) {
-			renderedAttributes.add(renderString(ToggleButton.ICON_ALIGN, iconAlign));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ICON_ALIGN, iconAlign));
 	}
 
 	protected void renderIconElement(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String iconElement = toggleButton.getIconElement();
-
-		if (iconElement != null) {
-			renderedAttributes.add(renderString(ToggleButton.ICON_ELEMENT, iconElement));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ICON_ELEMENT, iconElement));
 	}
 
 	protected void renderPrimary(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.Boolean primary = toggleButton.getPrimary();
-
-		if (primary != null) {
-			renderedAttributes.add(renderBoolean(ToggleButton.PRIMARY, primary));
-		}
+		renderedAttributes.add(renderBoolean(ToggleButton.PRIMARY, primary));
 	}
 
 	protected void renderType(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String type = toggleButton.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(ToggleButton.TYPE, type));
-		}
+		renderedAttributes.add(renderString(ToggleButton.TYPE, type));
 	}
 
 	protected void renderAfterCssClassChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String afterCssClassChange = toggleButton.getAfterCssClassChange();
-
-		if (afterCssClassChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
 	}
 
 	protected void renderAfterIconChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String afterIconChange = toggleButton.getAfterIconChange();
-
-		if (afterIconChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_CHANGE, afterIconChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_CHANGE, afterIconChange));
 	}
 
 	protected void renderAfterIconAlignChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String afterIconAlignChange = toggleButton.getAfterIconAlignChange();
-
-		if (afterIconAlignChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_ALIGN_CHANGE, afterIconAlignChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_ALIGN_CHANGE, afterIconAlignChange));
 	}
 
 	protected void renderAfterIconElementChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String afterIconElementChange = toggleButton.getAfterIconElementChange();
-
-		if (afterIconElementChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_ELEMENT_CHANGE, afterIconElementChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_ELEMENT_CHANGE, afterIconElementChange));
 	}
 
 	protected void renderAfterPrimaryChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String afterPrimaryChange = toggleButton.getAfterPrimaryChange();
-
-		if (afterPrimaryChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.AFTER_PRIMARY_CHANGE, afterPrimaryChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.AFTER_PRIMARY_CHANGE, afterPrimaryChange));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String afterTypeChange = toggleButton.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderOnCssClassChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String onCssClassChange = toggleButton.getOnCssClassChange();
-
-		if (onCssClassChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.ON_CSS_CLASS_CHANGE, onCssClassChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ON_CSS_CLASS_CHANGE, onCssClassChange));
 	}
 
 	protected void renderOnIconChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String onIconChange = toggleButton.getOnIconChange();
-
-		if (onIconChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.ON_ICON_CHANGE, onIconChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ON_ICON_CHANGE, onIconChange));
 	}
 
 	protected void renderOnIconAlignChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String onIconAlignChange = toggleButton.getOnIconAlignChange();
-
-		if (onIconAlignChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.ON_ICON_ALIGN_CHANGE, onIconAlignChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ON_ICON_ALIGN_CHANGE, onIconAlignChange));
 	}
 
 	protected void renderOnIconElementChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String onIconElementChange = toggleButton.getOnIconElementChange();
-
-		if (onIconElementChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.ON_ICON_ELEMENT_CHANGE, onIconElementChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ON_ICON_ELEMENT_CHANGE, onIconElementChange));
 	}
 
 	protected void renderOnPrimaryChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String onPrimaryChange = toggleButton.getOnPrimaryChange();
-
-		if (onPrimaryChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.ON_PRIMARY_CHANGE, onPrimaryChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ON_PRIMARY_CHANGE, onPrimaryChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
 		java.lang.String onTypeChange = toggleButton.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(ToggleButton.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(ToggleButton.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 }

@@ -49,30 +49,102 @@ public abstract class AceEditorRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderBoundingBox(renderedAttributes, aceEditor);
-		renderContentBox(renderedAttributes, aceEditor);
-		renderDestroyed(renderedAttributes, aceEditor);
-		renderDisabled(renderedAttributes, aceEditor);
-		renderFocused(renderedAttributes, aceEditor);
-		renderHeight(renderedAttributes, aceEditor);
-		renderHighlightActiveLine(renderedAttributes, aceEditor);
-		renderAceEditorId(renderedAttributes, aceEditor);
-		renderInitialized(renderedAttributes, aceEditor);
-		renderAceEditorLocale(renderedAttributes, aceEditor);
-		renderMode(renderedAttributes, aceEditor);
-		renderReadOnly(renderedAttributes, aceEditor);
-		renderRender(renderedAttributes, aceEditor);
-		renderRendered(renderedAttributes, aceEditor);
-		renderShowPrintMargin(renderedAttributes, aceEditor);
-		renderSrcNode(renderedAttributes, aceEditor);
-		renderStrings(renderedAttributes, aceEditor);
-		renderTabIndex(renderedAttributes, aceEditor);
-		renderTabSize(renderedAttributes, aceEditor);
-		renderUseSoftTabs(renderedAttributes, aceEditor);
-		renderUseWrapMode(renderedAttributes, aceEditor);
-		renderAceEditorValue(renderedAttributes, aceEditor);
-		renderVisible(renderedAttributes, aceEditor);
-		renderWidth(renderedAttributes, aceEditor);
+		if (aceEditor.getBoundingBox() != null) {
+			renderBoundingBox(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getContentBox() != null) {
+			renderContentBox(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getDestroyed() != null) {
+			renderDestroyed(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getDisabled() != null) {
+			renderDisabled(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getFocused() != null) {
+			renderFocused(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getHeight() != null) {
+			renderHeight(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getHighlightActiveLine() != null) {
+			renderHighlightActiveLine(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getAceEditorId() != null) {
+			renderAceEditorId(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getInitialized() != null) {
+			renderInitialized(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getAceEditorLocale() != null) {
+			renderAceEditorLocale(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getMode() != null) {
+			renderMode(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getReadOnly() != null) {
+			renderReadOnly(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getRender() != null) {
+			renderRender(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getRendered() != null) {
+			renderRendered(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getShowPrintMargin() != null) {
+			renderShowPrintMargin(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getSrcNode() != null) {
+			renderSrcNode(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getStrings() != null) {
+			renderStrings(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getTabIndex() != null) {
+			renderTabIndex(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getTabSize() != null) {
+			renderTabSize(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getUseSoftTabs() != null) {
+			renderUseSoftTabs(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getUseWrapMode() != null) {
+			renderUseWrapMode(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getAceEditorValue() != null) {
+			renderAceEditorValue(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getVisible() != null) {
+			renderVisible(renderedAttributes, aceEditor);
+		}
+		
+		if (aceEditor.getWidth() != null) {
+			renderWidth(renderedAttributes, aceEditor);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -85,30 +157,102 @@ public abstract class AceEditorRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterBoundingBoxChange(renderedAfterEvents, aceEditor);
-		renderAfterContentBoxChange(renderedAfterEvents, aceEditor);
-		renderAfterDestroyedChange(renderedAfterEvents, aceEditor);
-		renderAfterDisabledChange(renderedAfterEvents, aceEditor);
-		renderAfterFocusedChange(renderedAfterEvents, aceEditor);
-		renderAfterHeightChange(renderedAfterEvents, aceEditor);
-		renderAfterHighlightActiveLineChange(renderedAfterEvents, aceEditor);
-		renderAfterIdChange(renderedAfterEvents, aceEditor);
-		renderAfterInitializedChange(renderedAfterEvents, aceEditor);
-		renderAfterLocaleChange(renderedAfterEvents, aceEditor);
-		renderAfterModeChange(renderedAfterEvents, aceEditor);
-		renderAfterReadOnlyChange(renderedAfterEvents, aceEditor);
-		renderAfterRenderChange(renderedAfterEvents, aceEditor);
-		renderAfterRenderedChange(renderedAfterEvents, aceEditor);
-		renderAfterShowPrintMarginChange(renderedAfterEvents, aceEditor);
-		renderAfterSrcNodeChange(renderedAfterEvents, aceEditor);
-		renderAfterStringsChange(renderedAfterEvents, aceEditor);
-		renderAfterTabIndexChange(renderedAfterEvents, aceEditor);
-		renderAfterTabSizeChange(renderedAfterEvents, aceEditor);
-		renderAfterUseSoftTabsChange(renderedAfterEvents, aceEditor);
-		renderAfterUseWrapModeChange(renderedAfterEvents, aceEditor);
-		renderAfterValueChange(renderedAfterEvents, aceEditor);
-		renderAfterVisibleChange(renderedAfterEvents, aceEditor);
-		renderAfterWidthChange(renderedAfterEvents, aceEditor);
+		if (aceEditor.getAfterBoundingBoxChange() != null) {
+			renderAfterBoundingBoxChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterContentBoxChange() != null) {
+			renderAfterContentBoxChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterDestroyedChange() != null) {
+			renderAfterDestroyedChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterDisabledChange() != null) {
+			renderAfterDisabledChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterFocusedChange() != null) {
+			renderAfterFocusedChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterHeightChange() != null) {
+			renderAfterHeightChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterHighlightActiveLineChange() != null) {
+			renderAfterHighlightActiveLineChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterIdChange() != null) {
+			renderAfterIdChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterInitializedChange() != null) {
+			renderAfterInitializedChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterLocaleChange() != null) {
+			renderAfterLocaleChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterModeChange() != null) {
+			renderAfterModeChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterReadOnlyChange() != null) {
+			renderAfterReadOnlyChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterRenderChange() != null) {
+			renderAfterRenderChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterRenderedChange() != null) {
+			renderAfterRenderedChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterShowPrintMarginChange() != null) {
+			renderAfterShowPrintMarginChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterSrcNodeChange() != null) {
+			renderAfterSrcNodeChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterStringsChange() != null) {
+			renderAfterStringsChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterTabIndexChange() != null) {
+			renderAfterTabIndexChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterTabSizeChange() != null) {
+			renderAfterTabSizeChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterUseSoftTabsChange() != null) {
+			renderAfterUseSoftTabsChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterUseWrapModeChange() != null) {
+			renderAfterUseWrapModeChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterValueChange() != null) {
+			renderAfterValueChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterVisibleChange() != null) {
+			renderAfterVisibleChange(renderedAfterEvents, aceEditor);
+		}
+		
+		if (aceEditor.getAfterWidthChange() != null) {
+			renderAfterWidthChange(renderedAfterEvents, aceEditor);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -129,30 +273,102 @@ public abstract class AceEditorRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnBoundingBoxChange(renderedOnEvents, aceEditor);
-		renderOnContentBoxChange(renderedOnEvents, aceEditor);
-		renderOnDestroyedChange(renderedOnEvents, aceEditor);
-		renderOnDisabledChange(renderedOnEvents, aceEditor);
-		renderOnFocusedChange(renderedOnEvents, aceEditor);
-		renderOnHeightChange(renderedOnEvents, aceEditor);
-		renderOnHighlightActiveLineChange(renderedOnEvents, aceEditor);
-		renderOnIdChange(renderedOnEvents, aceEditor);
-		renderOnInitializedChange(renderedOnEvents, aceEditor);
-		renderOnLocaleChange(renderedOnEvents, aceEditor);
-		renderOnModeChange(renderedOnEvents, aceEditor);
-		renderOnReadOnlyChange(renderedOnEvents, aceEditor);
-		renderOnRenderChange(renderedOnEvents, aceEditor);
-		renderOnRenderedChange(renderedOnEvents, aceEditor);
-		renderOnShowPrintMarginChange(renderedOnEvents, aceEditor);
-		renderOnSrcNodeChange(renderedOnEvents, aceEditor);
-		renderOnStringsChange(renderedOnEvents, aceEditor);
-		renderOnTabIndexChange(renderedOnEvents, aceEditor);
-		renderOnTabSizeChange(renderedOnEvents, aceEditor);
-		renderOnUseSoftTabsChange(renderedOnEvents, aceEditor);
-		renderOnUseWrapModeChange(renderedOnEvents, aceEditor);
-		renderOnValueChange(renderedOnEvents, aceEditor);
-		renderOnVisibleChange(renderedOnEvents, aceEditor);
-		renderOnWidthChange(renderedOnEvents, aceEditor);
+		if (aceEditor.getOnBoundingBoxChange() != null) {
+			renderOnBoundingBoxChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnContentBoxChange() != null) {
+			renderOnContentBoxChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnDestroyedChange() != null) {
+			renderOnDestroyedChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnDisabledChange() != null) {
+			renderOnDisabledChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnFocusedChange() != null) {
+			renderOnFocusedChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnHeightChange() != null) {
+			renderOnHeightChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnHighlightActiveLineChange() != null) {
+			renderOnHighlightActiveLineChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnIdChange() != null) {
+			renderOnIdChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnInitializedChange() != null) {
+			renderOnInitializedChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnLocaleChange() != null) {
+			renderOnLocaleChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnModeChange() != null) {
+			renderOnModeChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnReadOnlyChange() != null) {
+			renderOnReadOnlyChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnRenderChange() != null) {
+			renderOnRenderChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnRenderedChange() != null) {
+			renderOnRenderedChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnShowPrintMarginChange() != null) {
+			renderOnShowPrintMarginChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnSrcNodeChange() != null) {
+			renderOnSrcNodeChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnStringsChange() != null) {
+			renderOnStringsChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnTabIndexChange() != null) {
+			renderOnTabIndexChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnTabSizeChange() != null) {
+			renderOnTabSizeChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnUseSoftTabsChange() != null) {
+			renderOnUseSoftTabsChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnUseWrapModeChange() != null) {
+			renderOnUseWrapModeChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnValueChange() != null) {
+			renderOnValueChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnVisibleChange() != null) {
+			renderOnVisibleChange(renderedOnEvents, aceEditor);
+		}
+		
+		if (aceEditor.getOnWidthChange() != null) {
+			renderOnWidthChange(renderedOnEvents, aceEditor);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -177,578 +393,362 @@ public abstract class AceEditorRendererBase extends RendererBase {
 
 	protected void renderBoundingBox(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String boundingBox = aceEditor.getBoundingBox();
-
-		if (boundingBox != null) {
-			renderedAttributes.add(renderString(AceEditor.BOUNDING_BOX, boundingBox));
-		}
+		renderedAttributes.add(renderString(AceEditor.BOUNDING_BOX, boundingBox));
 	}
 
 	protected void renderContentBox(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String contentBox = aceEditor.getContentBox();
-
-		if (contentBox != null) {
-			renderedAttributes.add(renderString(AceEditor.CONTENT_BOX, contentBox));
-		}
+		renderedAttributes.add(renderString(AceEditor.CONTENT_BOX, contentBox));
 	}
 
 	protected void renderDestroyed(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean destroyed = aceEditor.getDestroyed();
-
-		if (destroyed != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.DESTROYED, destroyed));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.DESTROYED, destroyed));
 	}
 
 	protected void renderDisabled(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean disabled = aceEditor.getDisabled();
-
-		if (disabled != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.DISABLED, disabled));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.DISABLED, disabled));
 	}
 
 	protected void renderFocused(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean focused = aceEditor.getFocused();
-
-		if (focused != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.FOCUSED, focused));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.FOCUSED, focused));
 	}
 
 	protected void renderHeight(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Object height = aceEditor.getHeight();
-
-		if (height != null) {
-			renderedAttributes.add(renderNumber(AceEditor.HEIGHT, height));
-		}
+		renderedAttributes.add(renderNumber(AceEditor.HEIGHT, height));
 	}
 
 	protected void renderHighlightActiveLine(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean highlightActiveLine = aceEditor.getHighlightActiveLine();
-
-		if (highlightActiveLine != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.HIGHLIGHT_ACTIVE_LINE, highlightActiveLine));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.HIGHLIGHT_ACTIVE_LINE, highlightActiveLine));
 	}
 
 	protected void renderAceEditorId(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String aceEditorId = aceEditor.getAceEditorId();
-
-		if (aceEditorId != null) {
-			renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_ID, aceEditorId));
-		}
+		renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_ID, aceEditorId));
 	}
 
 	protected void renderInitialized(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean initialized = aceEditor.getInitialized();
-
-		if (initialized != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.INITIALIZED, initialized));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.INITIALIZED, initialized));
 	}
 
 	protected void renderAceEditorLocale(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String aceEditorLocale = aceEditor.getAceEditorLocale();
-
-		if (aceEditorLocale != null) {
-			renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_LOCALE, aceEditorLocale));
-		}
+		renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_LOCALE, aceEditorLocale));
 	}
 
 	protected void renderMode(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String mode = aceEditor.getMode();
-
-		if (mode != null) {
-			renderedAttributes.add(renderString(AceEditor.MODE, mode));
-		}
+		renderedAttributes.add(renderString(AceEditor.MODE, mode));
 	}
 
 	protected void renderReadOnly(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean readOnly = aceEditor.getReadOnly();
-
-		if (readOnly != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.READ_ONLY, readOnly));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.READ_ONLY, readOnly));
 	}
 
 	protected void renderRender(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Object render = aceEditor.getRender();
-
-		if (render != null) {
-			renderedAttributes.add(renderString(AceEditor.RENDER, render));
-		}
+		renderedAttributes.add(renderString(AceEditor.RENDER, render));
 	}
 
 	protected void renderRendered(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean rendered = aceEditor.getRendered();
-
-		if (rendered != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.RENDERED, rendered));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.RENDERED, rendered));
 	}
 
 	protected void renderShowPrintMargin(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean showPrintMargin = aceEditor.getShowPrintMargin();
-
-		if (showPrintMargin != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.SHOW_PRINT_MARGIN, showPrintMargin));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.SHOW_PRINT_MARGIN, showPrintMargin));
 	}
 
 	protected void renderSrcNode(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String srcNode = aceEditor.getSrcNode();
-
-		if (srcNode != null) {
-			renderedAttributes.add(renderString(AceEditor.SRC_NODE, srcNode));
-		}
+		renderedAttributes.add(renderString(AceEditor.SRC_NODE, srcNode));
 	}
 
 	protected void renderStrings(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Object strings = aceEditor.getStrings();
-
-		if (strings != null) {
-			renderedAttributes.add(renderObject(AceEditor.STRINGS, strings));
-		}
+		renderedAttributes.add(renderObject(AceEditor.STRINGS, strings));
 	}
 
 	protected void renderTabIndex(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Object tabIndex = aceEditor.getTabIndex();
-
-		if (tabIndex != null) {
-			renderedAttributes.add(renderNumber(AceEditor.TAB_INDEX, tabIndex));
-		}
+		renderedAttributes.add(renderNumber(AceEditor.TAB_INDEX, tabIndex));
 	}
 
 	protected void renderTabSize(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Object tabSize = aceEditor.getTabSize();
-
-		if (tabSize != null) {
-			renderedAttributes.add(renderNumber(AceEditor.TAB_SIZE, tabSize));
-		}
+		renderedAttributes.add(renderNumber(AceEditor.TAB_SIZE, tabSize));
 	}
 
 	protected void renderUseSoftTabs(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean useSoftTabs = aceEditor.getUseSoftTabs();
-
-		if (useSoftTabs != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.USE_SOFT_TABS, useSoftTabs));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.USE_SOFT_TABS, useSoftTabs));
 	}
 
 	protected void renderUseWrapMode(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean useWrapMode = aceEditor.getUseWrapMode();
-
-		if (useWrapMode != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.USE_WRAP_MODE, useWrapMode));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.USE_WRAP_MODE, useWrapMode));
 	}
 
 	protected void renderAceEditorValue(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String aceEditorValue = aceEditor.getAceEditorValue();
-
-		if (aceEditorValue != null) {
-			renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_VALUE, aceEditorValue));
-		}
+		renderedAttributes.add(renderString(AceEditor.ACE_EDITOR_VALUE, aceEditorValue));
 	}
 
 	protected void renderVisible(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Boolean visible = aceEditor.getVisible();
-
-		if (visible != null) {
-			renderedAttributes.add(renderBoolean(AceEditor.VISIBLE, visible));
-		}
+		renderedAttributes.add(renderBoolean(AceEditor.VISIBLE, visible));
 	}
 
 	protected void renderWidth(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.Object width = aceEditor.getWidth();
-
-		if (width != null) {
-			renderedAttributes.add(renderNumber(AceEditor.WIDTH, width));
-		}
+		renderedAttributes.add(renderNumber(AceEditor.WIDTH, width));
 	}
 
 	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterBoundingBoxChange = aceEditor.getAfterBoundingBoxChange();
-
-		if (afterBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
 	}
 
 	protected void renderAfterContentBoxChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterContentBoxChange = aceEditor.getAfterContentBoxChange();
-
-		if (afterContentBoxChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
 	}
 
 	protected void renderAfterDestroyedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterDestroyedChange = aceEditor.getAfterDestroyedChange();
-
-		if (afterDestroyedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
 	}
 
 	protected void renderAfterDisabledChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterDisabledChange = aceEditor.getAfterDisabledChange();
-
-		if (afterDisabledChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_DISABLED_CHANGE, afterDisabledChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_DISABLED_CHANGE, afterDisabledChange));
 	}
 
 	protected void renderAfterFocusedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterFocusedChange = aceEditor.getAfterFocusedChange();
-
-		if (afterFocusedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_FOCUSED_CHANGE, afterFocusedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_FOCUSED_CHANGE, afterFocusedChange));
 	}
 
 	protected void renderAfterHeightChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterHeightChange = aceEditor.getAfterHeightChange();
-
-		if (afterHeightChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_HEIGHT_CHANGE, afterHeightChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_HEIGHT_CHANGE, afterHeightChange));
 	}
 
 	protected void renderAfterHighlightActiveLineChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterHighlightActiveLineChange = aceEditor.getAfterHighlightActiveLineChange();
-
-		if (afterHighlightActiveLineChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_HIGHLIGHT_ACTIVE_LINE_CHANGE, afterHighlightActiveLineChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_HIGHLIGHT_ACTIVE_LINE_CHANGE, afterHighlightActiveLineChange));
 	}
 
 	protected void renderAfterIdChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterIdChange = aceEditor.getAfterIdChange();
-
-		if (afterIdChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_ID_CHANGE, afterIdChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_ID_CHANGE, afterIdChange));
 	}
 
 	protected void renderAfterInitializedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterInitializedChange = aceEditor.getAfterInitializedChange();
-
-		if (afterInitializedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
 	}
 
 	protected void renderAfterLocaleChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterLocaleChange = aceEditor.getAfterLocaleChange();
-
-		if (afterLocaleChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_LOCALE_CHANGE, afterLocaleChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_LOCALE_CHANGE, afterLocaleChange));
 	}
 
 	protected void renderAfterModeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterModeChange = aceEditor.getAfterModeChange();
-
-		if (afterModeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_MODE_CHANGE, afterModeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_MODE_CHANGE, afterModeChange));
 	}
 
 	protected void renderAfterReadOnlyChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterReadOnlyChange = aceEditor.getAfterReadOnlyChange();
-
-		if (afterReadOnlyChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
 	}
 
 	protected void renderAfterRenderChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterRenderChange = aceEditor.getAfterRenderChange();
-
-		if (afterRenderChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_RENDER_CHANGE, afterRenderChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_RENDER_CHANGE, afterRenderChange));
 	}
 
 	protected void renderAfterRenderedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterRenderedChange = aceEditor.getAfterRenderedChange();
-
-		if (afterRenderedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_RENDERED_CHANGE, afterRenderedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_RENDERED_CHANGE, afterRenderedChange));
 	}
 
 	protected void renderAfterShowPrintMarginChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterShowPrintMarginChange = aceEditor.getAfterShowPrintMarginChange();
-
-		if (afterShowPrintMarginChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_SHOW_PRINT_MARGIN_CHANGE, afterShowPrintMarginChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_SHOW_PRINT_MARGIN_CHANGE, afterShowPrintMarginChange));
 	}
 
 	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterSrcNodeChange = aceEditor.getAfterSrcNodeChange();
-
-		if (afterSrcNodeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
 	}
 
 	protected void renderAfterStringsChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterStringsChange = aceEditor.getAfterStringsChange();
-
-		if (afterStringsChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_STRINGS_CHANGE, afterStringsChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_STRINGS_CHANGE, afterStringsChange));
 	}
 
 	protected void renderAfterTabIndexChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterTabIndexChange = aceEditor.getAfterTabIndexChange();
-
-		if (afterTabIndexChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
 	}
 
 	protected void renderAfterTabSizeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterTabSizeChange = aceEditor.getAfterTabSizeChange();
-
-		if (afterTabSizeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_TAB_SIZE_CHANGE, afterTabSizeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_TAB_SIZE_CHANGE, afterTabSizeChange));
 	}
 
 	protected void renderAfterUseSoftTabsChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterUseSoftTabsChange = aceEditor.getAfterUseSoftTabsChange();
-
-		if (afterUseSoftTabsChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_USE_SOFT_TABS_CHANGE, afterUseSoftTabsChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_USE_SOFT_TABS_CHANGE, afterUseSoftTabsChange));
 	}
 
 	protected void renderAfterUseWrapModeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterUseWrapModeChange = aceEditor.getAfterUseWrapModeChange();
-
-		if (afterUseWrapModeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_USE_WRAP_MODE_CHANGE, afterUseWrapModeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_USE_WRAP_MODE_CHANGE, afterUseWrapModeChange));
 	}
 
 	protected void renderAfterValueChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterValueChange = aceEditor.getAfterValueChange();
-
-		if (afterValueChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_VALUE_CHANGE, afterValueChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_VALUE_CHANGE, afterValueChange));
 	}
 
 	protected void renderAfterVisibleChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterVisibleChange = aceEditor.getAfterVisibleChange();
-
-		if (afterVisibleChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_VISIBLE_CHANGE, afterVisibleChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_VISIBLE_CHANGE, afterVisibleChange));
 	}
 
 	protected void renderAfterWidthChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String afterWidthChange = aceEditor.getAfterWidthChange();
-
-		if (afterWidthChange != null) {
-			renderedAttributes.add(renderString(AceEditor.AFTER_WIDTH_CHANGE, afterWidthChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.AFTER_WIDTH_CHANGE, afterWidthChange));
 	}
 
 	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onBoundingBoxChange = aceEditor.getOnBoundingBoxChange();
-
-		if (onBoundingBoxChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
 	}
 
 	protected void renderOnContentBoxChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onContentBoxChange = aceEditor.getOnContentBoxChange();
-
-		if (onContentBoxChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
 	}
 
 	protected void renderOnDestroyedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onDestroyedChange = aceEditor.getOnDestroyedChange();
-
-		if (onDestroyedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_DESTROYED_CHANGE, onDestroyedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_DESTROYED_CHANGE, onDestroyedChange));
 	}
 
 	protected void renderOnDisabledChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onDisabledChange = aceEditor.getOnDisabledChange();
-
-		if (onDisabledChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_DISABLED_CHANGE, onDisabledChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_DISABLED_CHANGE, onDisabledChange));
 	}
 
 	protected void renderOnFocusedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onFocusedChange = aceEditor.getOnFocusedChange();
-
-		if (onFocusedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_FOCUSED_CHANGE, onFocusedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_FOCUSED_CHANGE, onFocusedChange));
 	}
 
 	protected void renderOnHeightChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onHeightChange = aceEditor.getOnHeightChange();
-
-		if (onHeightChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_HEIGHT_CHANGE, onHeightChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_HEIGHT_CHANGE, onHeightChange));
 	}
 
 	protected void renderOnHighlightActiveLineChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onHighlightActiveLineChange = aceEditor.getOnHighlightActiveLineChange();
-
-		if (onHighlightActiveLineChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_HIGHLIGHT_ACTIVE_LINE_CHANGE, onHighlightActiveLineChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_HIGHLIGHT_ACTIVE_LINE_CHANGE, onHighlightActiveLineChange));
 	}
 
 	protected void renderOnIdChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onIdChange = aceEditor.getOnIdChange();
-
-		if (onIdChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_ID_CHANGE, onIdChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_ID_CHANGE, onIdChange));
 	}
 
 	protected void renderOnInitializedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onInitializedChange = aceEditor.getOnInitializedChange();
-
-		if (onInitializedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_INITIALIZED_CHANGE, onInitializedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_INITIALIZED_CHANGE, onInitializedChange));
 	}
 
 	protected void renderOnLocaleChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onLocaleChange = aceEditor.getOnLocaleChange();
-
-		if (onLocaleChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_LOCALE_CHANGE, onLocaleChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_LOCALE_CHANGE, onLocaleChange));
 	}
 
 	protected void renderOnModeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onModeChange = aceEditor.getOnModeChange();
-
-		if (onModeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_MODE_CHANGE, onModeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_MODE_CHANGE, onModeChange));
 	}
 
 	protected void renderOnReadOnlyChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onReadOnlyChange = aceEditor.getOnReadOnlyChange();
-
-		if (onReadOnlyChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_READ_ONLY_CHANGE, onReadOnlyChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_READ_ONLY_CHANGE, onReadOnlyChange));
 	}
 
 	protected void renderOnRenderChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onRenderChange = aceEditor.getOnRenderChange();
-
-		if (onRenderChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_RENDER_CHANGE, onRenderChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_RENDER_CHANGE, onRenderChange));
 	}
 
 	protected void renderOnRenderedChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onRenderedChange = aceEditor.getOnRenderedChange();
-
-		if (onRenderedChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_RENDERED_CHANGE, onRenderedChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_RENDERED_CHANGE, onRenderedChange));
 	}
 
 	protected void renderOnShowPrintMarginChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onShowPrintMarginChange = aceEditor.getOnShowPrintMarginChange();
-
-		if (onShowPrintMarginChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_SHOW_PRINT_MARGIN_CHANGE, onShowPrintMarginChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_SHOW_PRINT_MARGIN_CHANGE, onShowPrintMarginChange));
 	}
 
 	protected void renderOnSrcNodeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onSrcNodeChange = aceEditor.getOnSrcNodeChange();
-
-		if (onSrcNodeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_SRC_NODE_CHANGE, onSrcNodeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_SRC_NODE_CHANGE, onSrcNodeChange));
 	}
 
 	protected void renderOnStringsChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onStringsChange = aceEditor.getOnStringsChange();
-
-		if (onStringsChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_STRINGS_CHANGE, onStringsChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_STRINGS_CHANGE, onStringsChange));
 	}
 
 	protected void renderOnTabIndexChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onTabIndexChange = aceEditor.getOnTabIndexChange();
-
-		if (onTabIndexChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_TAB_INDEX_CHANGE, onTabIndexChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 	}
 
 	protected void renderOnTabSizeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onTabSizeChange = aceEditor.getOnTabSizeChange();
-
-		if (onTabSizeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_TAB_SIZE_CHANGE, onTabSizeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_TAB_SIZE_CHANGE, onTabSizeChange));
 	}
 
 	protected void renderOnUseSoftTabsChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onUseSoftTabsChange = aceEditor.getOnUseSoftTabsChange();
-
-		if (onUseSoftTabsChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_USE_SOFT_TABS_CHANGE, onUseSoftTabsChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_USE_SOFT_TABS_CHANGE, onUseSoftTabsChange));
 	}
 
 	protected void renderOnUseWrapModeChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onUseWrapModeChange = aceEditor.getOnUseWrapModeChange();
-
-		if (onUseWrapModeChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_USE_WRAP_MODE_CHANGE, onUseWrapModeChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_USE_WRAP_MODE_CHANGE, onUseWrapModeChange));
 	}
 
 	protected void renderOnValueChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onValueChange = aceEditor.getOnValueChange();
-
-		if (onValueChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_VALUE_CHANGE, onValueChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_VALUE_CHANGE, onValueChange));
 	}
 
 	protected void renderOnVisibleChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onVisibleChange = aceEditor.getOnVisibleChange();
-
-		if (onVisibleChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_VISIBLE_CHANGE, onVisibleChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_VISIBLE_CHANGE, onVisibleChange));
 	}
 
 	protected void renderOnWidthChange(List<String> renderedAttributes, AceEditor aceEditor) throws IOException {
 		java.lang.String onWidthChange = aceEditor.getOnWidthChange();
-
-		if (onWidthChange != null) {
-			renderedAttributes.add(renderString(AceEditor.ON_WIDTH_CHANGE, onWidthChange));
-		}
+		renderedAttributes.add(renderString(AceEditor.ON_WIDTH_CHANGE, onWidthChange));
 	}
 
 }

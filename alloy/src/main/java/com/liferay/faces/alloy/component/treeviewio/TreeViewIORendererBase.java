@@ -49,7 +49,10 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderIo(renderedAttributes, treeViewIO);
+		if (treeViewIO.getIo() != null) {
+			renderIo(renderedAttributes, treeViewIO);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterIoChange(renderedAfterEvents, treeViewIO);
+		if (treeViewIO.getAfterIoChange() != null) {
+			renderAfterIoChange(renderedAfterEvents, treeViewIO);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnIoChange(renderedOnEvents, treeViewIO);
+		if (treeViewIO.getOnIoChange() != null) {
+			renderOnIoChange(renderedOnEvents, treeViewIO);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 
 	protected void renderIo(List<String> renderedAttributes, TreeViewIO treeViewIO) throws IOException {
 		java.lang.Object io = treeViewIO.getIo();
-
-		if (io != null) {
-			renderedAttributes.add(renderObject(TreeViewIO.IO, io));
-		}
+		renderedAttributes.add(renderObject(TreeViewIO.IO, io));
 	}
 
 	protected void renderAfterIoChange(List<String> renderedAttributes, TreeViewIO treeViewIO) throws IOException {
 		java.lang.String afterIoChange = treeViewIO.getAfterIoChange();
-
-		if (afterIoChange != null) {
-			renderedAttributes.add(renderString(TreeViewIO.AFTER_IO_CHANGE, afterIoChange));
-		}
+		renderedAttributes.add(renderString(TreeViewIO.AFTER_IO_CHANGE, afterIoChange));
 	}
 
 	protected void renderOnIoChange(List<String> renderedAttributes, TreeViewIO treeViewIO) throws IOException {
 		java.lang.String onIoChange = treeViewIO.getOnIoChange();
-
-		if (onIoChange != null) {
-			renderedAttributes.add(renderString(TreeViewIO.ON_IO_CHANGE, onIoChange));
-		}
+		renderedAttributes.add(renderString(TreeViewIO.ON_IO_CHANGE, onIoChange));
 	}
 
 }

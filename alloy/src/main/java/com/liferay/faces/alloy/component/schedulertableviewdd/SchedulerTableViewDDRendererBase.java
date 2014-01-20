@@ -49,7 +49,10 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderDelegateConfig(renderedAttributes, schedulerTableViewDD);
+		if (schedulerTableViewDD.getDelegateConfig() != null) {
+			renderDelegateConfig(renderedAttributes, schedulerTableViewDD);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterDelegateConfigChange(renderedAfterEvents, schedulerTableViewDD);
+		if (schedulerTableViewDD.getAfterDelegateConfigChange() != null) {
+			renderAfterDelegateConfigChange(renderedAfterEvents, schedulerTableViewDD);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnDelegateConfigChange(renderedOnEvents, schedulerTableViewDD);
+		if (schedulerTableViewDD.getOnDelegateConfigChange() != null) {
+			renderOnDelegateConfigChange(renderedOnEvents, schedulerTableViewDD);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 	protected void renderDelegateConfig(List<String> renderedAttributes, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
 		java.lang.Object delegateConfig = schedulerTableViewDD.getDelegateConfig();
-
-		if (delegateConfig != null) {
-			renderedAttributes.add(renderObject(SchedulerTableViewDD.DELEGATE_CONFIG, delegateConfig));
-		}
+		renderedAttributes.add(renderObject(SchedulerTableViewDD.DELEGATE_CONFIG, delegateConfig));
 	}
 
 	protected void renderAfterDelegateConfigChange(List<String> renderedAttributes, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
 		java.lang.String afterDelegateConfigChange = schedulerTableViewDD.getAfterDelegateConfigChange();
-
-		if (afterDelegateConfigChange != null) {
-			renderedAttributes.add(renderString(SchedulerTableViewDD.AFTER_DELEGATE_CONFIG_CHANGE, afterDelegateConfigChange));
-		}
+		renderedAttributes.add(renderString(SchedulerTableViewDD.AFTER_DELEGATE_CONFIG_CHANGE, afterDelegateConfigChange));
 	}
 
 	protected void renderOnDelegateConfigChange(List<String> renderedAttributes, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
 		java.lang.String onDelegateConfigChange = schedulerTableViewDD.getOnDelegateConfigChange();
-
-		if (onDelegateConfigChange != null) {
-			renderedAttributes.add(renderString(SchedulerTableViewDD.ON_DELEGATE_CONFIG_CHANGE, onDelegateConfigChange));
-		}
+		renderedAttributes.add(renderString(SchedulerTableViewDD.ON_DELEGATE_CONFIG_CHANGE, onDelegateConfigChange));
 	}
 
 }

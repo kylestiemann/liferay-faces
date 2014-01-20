@@ -49,7 +49,10 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderType(renderedAttributes, buttonGroup);
+		if (buttonGroup.getType() != null) {
+			renderType(renderedAttributes, buttonGroup);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -62,7 +65,10 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterTypeChange(renderedAfterEvents, buttonGroup);
+		if (buttonGroup.getAfterTypeChange() != null) {
+			renderAfterTypeChange(renderedAfterEvents, buttonGroup);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -83,7 +89,10 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnTypeChange(renderedOnEvents, buttonGroup);
+		if (buttonGroup.getOnTypeChange() != null) {
+			renderOnTypeChange(renderedOnEvents, buttonGroup);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -108,26 +117,17 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 
 	protected void renderType(List<String> renderedAttributes, ButtonGroup buttonGroup) throws IOException {
 		java.lang.String type = buttonGroup.getType();
-
-		if (type != null) {
-			renderedAttributes.add(renderString(ButtonGroup.TYPE, type));
-		}
+		renderedAttributes.add(renderString(ButtonGroup.TYPE, type));
 	}
 
 	protected void renderAfterTypeChange(List<String> renderedAttributes, ButtonGroup buttonGroup) throws IOException {
 		java.lang.String afterTypeChange = buttonGroup.getAfterTypeChange();
-
-		if (afterTypeChange != null) {
-			renderedAttributes.add(renderString(ButtonGroup.AFTER_TYPE_CHANGE, afterTypeChange));
-		}
+		renderedAttributes.add(renderString(ButtonGroup.AFTER_TYPE_CHANGE, afterTypeChange));
 	}
 
 	protected void renderOnTypeChange(List<String> renderedAttributes, ButtonGroup buttonGroup) throws IOException {
 		java.lang.String onTypeChange = buttonGroup.getOnTypeChange();
-
-		if (onTypeChange != null) {
-			renderedAttributes.add(renderString(ButtonGroup.ON_TYPE_CHANGE, onTypeChange));
-		}
+		renderedAttributes.add(renderString(ButtonGroup.ON_TYPE_CHANGE, onTypeChange));
 	}
 
 }

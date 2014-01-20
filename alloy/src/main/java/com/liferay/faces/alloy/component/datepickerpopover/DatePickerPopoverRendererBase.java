@@ -49,9 +49,18 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 
 		List<String> renderedAttributes = new ArrayList<String>();
 
-		renderAutoHide(renderedAttributes, datePickerPopover);
-		renderPopover(renderedAttributes, datePickerPopover);
-		renderPopoverCssClass(renderedAttributes, datePickerPopover);
+		if (datePickerPopover.getAutoHide() != null) {
+			renderAutoHide(renderedAttributes, datePickerPopover);
+		}
+		
+		if (datePickerPopover.getPopover() != null) {
+			renderPopover(renderedAttributes, datePickerPopover);
+		}
+		
+		if (datePickerPopover.getPopoverCssClass() != null) {
+			renderPopoverCssClass(renderedAttributes, datePickerPopover);
+		}
+		
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -64,9 +73,18 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 
 		List<String> renderedAfterEvents = new ArrayList<String>();
 
-		renderAfterAutoHideChange(renderedAfterEvents, datePickerPopover);
-		renderAfterPopoverChange(renderedAfterEvents, datePickerPopover);
-		renderAfterPopoverCssClassChange(renderedAfterEvents, datePickerPopover);
+		if (datePickerPopover.getAfterAutoHideChange() != null) {
+			renderAfterAutoHideChange(renderedAfterEvents, datePickerPopover);
+		}
+		
+		if (datePickerPopover.getAfterPopoverChange() != null) {
+			renderAfterPopoverChange(renderedAfterEvents, datePickerPopover);
+		}
+		
+		if (datePickerPopover.getAfterPopoverCssClassChange() != null) {
+			renderAfterPopoverCssClassChange(renderedAfterEvents, datePickerPopover);
+		}
+		
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -87,9 +105,18 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 
 		List<String> renderedOnEvents = new ArrayList<String>();
 
-		renderOnAutoHideChange(renderedOnEvents, datePickerPopover);
-		renderOnPopoverChange(renderedOnEvents, datePickerPopover);
-		renderOnPopoverCssClassChange(renderedOnEvents, datePickerPopover);
+		if (datePickerPopover.getOnAutoHideChange() != null) {
+			renderOnAutoHideChange(renderedOnEvents, datePickerPopover);
+		}
+		
+		if (datePickerPopover.getOnPopoverChange() != null) {
+			renderOnPopoverChange(renderedOnEvents, datePickerPopover);
+		}
+		
+		if (datePickerPopover.getOnPopoverCssClassChange() != null) {
+			renderOnPopoverCssClassChange(renderedOnEvents, datePickerPopover);
+		}
+		
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
@@ -114,74 +141,47 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 
 	protected void renderAutoHide(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.Boolean autoHide = datePickerPopover.getAutoHide();
-
-		if (autoHide != null) {
-			renderedAttributes.add(renderBoolean(DatePickerPopover.AUTO_HIDE, autoHide));
-		}
+		renderedAttributes.add(renderBoolean(DatePickerPopover.AUTO_HIDE, autoHide));
 	}
 
 	protected void renderPopover(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String popover = datePickerPopover.getPopover();
-
-		if (popover != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.POPOVER, popover));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.POPOVER, popover));
 	}
 
 	protected void renderPopoverCssClass(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String popoverCssClass = datePickerPopover.getPopoverCssClass();
-
-		if (popoverCssClass != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.POPOVER_CSS_CLASS, popoverCssClass));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.POPOVER_CSS_CLASS, popoverCssClass));
 	}
 
 	protected void renderAfterAutoHideChange(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String afterAutoHideChange = datePickerPopover.getAfterAutoHideChange();
-
-		if (afterAutoHideChange != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.AFTER_AUTO_HIDE_CHANGE, afterAutoHideChange));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.AFTER_AUTO_HIDE_CHANGE, afterAutoHideChange));
 	}
 
 	protected void renderAfterPopoverChange(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String afterPopoverChange = datePickerPopover.getAfterPopoverChange();
-
-		if (afterPopoverChange != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.AFTER_POPOVER_CHANGE, afterPopoverChange));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.AFTER_POPOVER_CHANGE, afterPopoverChange));
 	}
 
 	protected void renderAfterPopoverCssClassChange(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String afterPopoverCssClassChange = datePickerPopover.getAfterPopoverCssClassChange();
-
-		if (afterPopoverCssClassChange != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.AFTER_POPOVER_CSS_CLASS_CHANGE, afterPopoverCssClassChange));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.AFTER_POPOVER_CSS_CLASS_CHANGE, afterPopoverCssClassChange));
 	}
 
 	protected void renderOnAutoHideChange(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String onAutoHideChange = datePickerPopover.getOnAutoHideChange();
-
-		if (onAutoHideChange != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.ON_AUTO_HIDE_CHANGE, onAutoHideChange));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.ON_AUTO_HIDE_CHANGE, onAutoHideChange));
 	}
 
 	protected void renderOnPopoverChange(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String onPopoverChange = datePickerPopover.getOnPopoverChange();
-
-		if (onPopoverChange != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.ON_POPOVER_CHANGE, onPopoverChange));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.ON_POPOVER_CHANGE, onPopoverChange));
 	}
 
 	protected void renderOnPopoverCssClassChange(List<String> renderedAttributes, DatePickerPopover datePickerPopover) throws IOException {
 		java.lang.String onPopoverCssClassChange = datePickerPopover.getOnPopoverCssClassChange();
-
-		if (onPopoverCssClassChange != null) {
-			renderedAttributes.add(renderString(DatePickerPopover.ON_POPOVER_CSS_CLASS_CHANGE, onPopoverCssClassChange));
-		}
+		renderedAttributes.add(renderString(DatePickerPopover.ON_POPOVER_CSS_CLASS_CHANGE, onPopoverCssClassChange));
 	}
 
 }
