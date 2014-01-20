@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.propertylist;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class PropertyListBase extends javax.faces.component.UIPanel {

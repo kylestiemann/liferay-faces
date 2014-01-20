@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class ToggleButtonRendererBase extends RendererBase {
 
 	// Private Constants
@@ -56,16 +56,61 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 		renderPrimary(renderedAttributes, toggleButton);
 		renderType(renderedAttributes, toggleButton);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterCssClassChange(renderedAfterEvents, toggleButton);
+		renderAfterIconChange(renderedAfterEvents, toggleButton);
+		renderAfterIconAlignChange(renderedAfterEvents, toggleButton);
+		renderAfterIconElementChange(renderedAfterEvents, toggleButton);
+		renderAfterPrimaryChange(renderedAfterEvents, toggleButton);
+		renderAfterTypeChange(renderedAfterEvents, toggleButton);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnCssClassChange(renderedOnEvents, toggleButton);
+		renderOnIconChange(renderedOnEvents, toggleButton);
+		renderOnIconAlignChange(renderedOnEvents, toggleButton);
+		renderOnIconElementChange(renderedOnEvents, toggleButton);
+		renderOnPrimaryChange(renderedOnEvents, toggleButton);
+		renderOnTypeChange(renderedOnEvents, toggleButton);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -121,6 +166,102 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 
 		if (type != null) {
 			renderedAttributes.add(renderString(ToggleButton.TYPE, type));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String afterCssClassChange = toggleButton.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterIconChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String afterIconChange = toggleButton.getAfterIconChange();
+
+		if (afterIconChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_CHANGE, afterIconChange));
+		}
+	}
+
+	protected void renderAfterIconAlignChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String afterIconAlignChange = toggleButton.getAfterIconAlignChange();
+
+		if (afterIconAlignChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_ALIGN_CHANGE, afterIconAlignChange));
+		}
+	}
+
+	protected void renderAfterIconElementChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String afterIconElementChange = toggleButton.getAfterIconElementChange();
+
+		if (afterIconElementChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.AFTER_ICON_ELEMENT_CHANGE, afterIconElementChange));
+		}
+	}
+
+	protected void renderAfterPrimaryChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String afterPrimaryChange = toggleButton.getAfterPrimaryChange();
+
+		if (afterPrimaryChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.AFTER_PRIMARY_CHANGE, afterPrimaryChange));
+		}
+	}
+
+	protected void renderAfterTypeChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String afterTypeChange = toggleButton.getAfterTypeChange();
+
+		if (afterTypeChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.AFTER_TYPE_CHANGE, afterTypeChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String onCssClassChange = toggleButton.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnIconChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String onIconChange = toggleButton.getOnIconChange();
+
+		if (onIconChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.ON_ICON_CHANGE, onIconChange));
+		}
+	}
+
+	protected void renderOnIconAlignChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String onIconAlignChange = toggleButton.getOnIconAlignChange();
+
+		if (onIconAlignChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.ON_ICON_ALIGN_CHANGE, onIconAlignChange));
+		}
+	}
+
+	protected void renderOnIconElementChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String onIconElementChange = toggleButton.getOnIconElementChange();
+
+		if (onIconElementChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.ON_ICON_ELEMENT_CHANGE, onIconElementChange));
+		}
+	}
+
+	protected void renderOnPrimaryChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String onPrimaryChange = toggleButton.getOnPrimaryChange();
+
+		if (onPrimaryChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.ON_PRIMARY_CHANGE, onPrimaryChange));
+		}
+	}
+
+	protected void renderOnTypeChange(List<String> renderedAttributes, ToggleButton toggleButton) throws IOException {
+		java.lang.String onTypeChange = toggleButton.getOnTypeChange();
+
+		if (onTypeChange != null) {
+			renderedAttributes.add(renderString(ToggleButton.ON_TYPE_CHANGE, onTypeChange));
 		}
 	}
 

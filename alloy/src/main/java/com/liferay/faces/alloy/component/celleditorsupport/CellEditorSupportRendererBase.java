@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 	// Private Constants
@@ -51,16 +51,51 @@ public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 		renderEditEvent(renderedAttributes, cellEditorSupport);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterEditEventChange(renderedAfterEvents, cellEditorSupport);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnEditEventChange(renderedOnEvents, cellEditorSupport);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -76,6 +111,22 @@ public abstract class CellEditorSupportRendererBase extends RendererBase {
 
 		if (editEvent != null) {
 			renderedAttributes.add(renderString(CellEditorSupport.EDIT_EVENT, editEvent));
+		}
+	}
+
+	protected void renderAfterEditEventChange(List<String> renderedAttributes, CellEditorSupport cellEditorSupport) throws IOException {
+		java.lang.String afterEditEventChange = cellEditorSupport.getAfterEditEventChange();
+
+		if (afterEditEventChange != null) {
+			renderedAttributes.add(renderString(CellEditorSupport.AFTER_EDIT_EVENT_CHANGE, afterEditEventChange));
+		}
+	}
+
+	protected void renderOnEditEventChange(List<String> renderedAttributes, CellEditorSupport cellEditorSupport) throws IOException {
+		java.lang.String onEditEventChange = cellEditorSupport.getOnEditEventChange();
+
+		if (onEditEventChange != null) {
+			renderedAttributes.add(renderString(CellEditorSupport.ON_EDIT_EVENT_CHANGE, onEditEventChange));
 		}
 	}
 

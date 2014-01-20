@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class VideoRendererBase extends RendererBase {
 
 	// Private Constants
@@ -75,16 +75,99 @@ public abstract class VideoRendererBase extends RendererBase {
 		renderVisible(renderedAttributes, video);
 		renderWidth(renderedAttributes, video);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterBoundingBoxChange(renderedAfterEvents, video);
+		renderAfterContentBoxChange(renderedAfterEvents, video);
+		renderAfterCssClassChange(renderedAfterEvents, video);
+		renderAfterDestroyedChange(renderedAfterEvents, video);
+		renderAfterDisabledChange(renderedAfterEvents, video);
+		renderAfterFixedAttributesChange(renderedAfterEvents, video);
+		renderAfterFlashVarsChange(renderedAfterEvents, video);
+		renderAfterFocusedChange(renderedAfterEvents, video);
+		renderAfterHeightChange(renderedAfterEvents, video);
+		renderAfterHideClassChange(renderedAfterEvents, video);
+		renderAfterIdChange(renderedAfterEvents, video);
+		renderAfterInitializedChange(renderedAfterEvents, video);
+		renderAfterLocaleChange(renderedAfterEvents, video);
+		renderAfterOgvUrlChange(renderedAfterEvents, video);
+		renderAfterPosterChange(renderedAfterEvents, video);
+		renderAfterRenderChange(renderedAfterEvents, video);
+		renderAfterRenderedChange(renderedAfterEvents, video);
+		renderAfterSrcNodeChange(renderedAfterEvents, video);
+		renderAfterStringsChange(renderedAfterEvents, video);
+		renderAfterSwfUrlChange(renderedAfterEvents, video);
+		renderAfterTabIndexChange(renderedAfterEvents, video);
+		renderAfterUrlChange(renderedAfterEvents, video);
+		renderAfterUseARIAChange(renderedAfterEvents, video);
+		renderAfterVisibleChange(renderedAfterEvents, video);
+		renderAfterWidthChange(renderedAfterEvents, video);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnBoundingBoxChange(renderedOnEvents, video);
+		renderOnContentBoxChange(renderedOnEvents, video);
+		renderOnCssClassChange(renderedOnEvents, video);
+		renderOnDestroyedChange(renderedOnEvents, video);
+		renderOnDisabledChange(renderedOnEvents, video);
+		renderOnFixedAttributesChange(renderedOnEvents, video);
+		renderOnFlashVarsChange(renderedOnEvents, video);
+		renderOnFocusedChange(renderedOnEvents, video);
+		renderOnHeightChange(renderedOnEvents, video);
+		renderOnHideClassChange(renderedOnEvents, video);
+		renderOnIdChange(renderedOnEvents, video);
+		renderOnInitializedChange(renderedOnEvents, video);
+		renderOnLocaleChange(renderedOnEvents, video);
+		renderOnOgvUrlChange(renderedOnEvents, video);
+		renderOnPosterChange(renderedOnEvents, video);
+		renderOnRenderChange(renderedOnEvents, video);
+		renderOnRenderedChange(renderedOnEvents, video);
+		renderOnSrcNodeChange(renderedOnEvents, video);
+		renderOnStringsChange(renderedOnEvents, video);
+		renderOnSwfUrlChange(renderedOnEvents, video);
+		renderOnTabIndexChange(renderedOnEvents, video);
+		renderOnUrlChange(renderedOnEvents, video);
+		renderOnUseARIAChange(renderedOnEvents, video);
+		renderOnVisibleChange(renderedOnEvents, video);
+		renderOnWidthChange(renderedOnEvents, video);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -292,6 +375,406 @@ public abstract class VideoRendererBase extends RendererBase {
 
 		if (width != null) {
 			renderedAttributes.add(renderString(Video.WIDTH, width));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterBoundingBoxChange = video.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterContentBoxChange = video.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterCssClassChange = video.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterDestroyedChange = video.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterDisabledChange = video.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterFixedAttributesChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterFixedAttributesChange = video.getAfterFixedAttributesChange();
+
+		if (afterFixedAttributesChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_FIXED_ATTRIBUTES_CHANGE, afterFixedAttributesChange));
+		}
+	}
+
+	protected void renderAfterFlashVarsChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterFlashVarsChange = video.getAfterFlashVarsChange();
+
+		if (afterFlashVarsChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_FLASH_VARS_CHANGE, afterFlashVarsChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterFocusedChange = video.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterHeightChange = video.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideClassChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterHideClassChange = video.getAfterHideClassChange();
+
+		if (afterHideClassChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterIdChange = video.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterInitializedChange = video.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterLocaleChange = video.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterOgvUrlChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterOgvUrlChange = video.getAfterOgvUrlChange();
+
+		if (afterOgvUrlChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_OGV_URL_CHANGE, afterOgvUrlChange));
+		}
+	}
+
+	protected void renderAfterPosterChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterPosterChange = video.getAfterPosterChange();
+
+		if (afterPosterChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_POSTER_CHANGE, afterPosterChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterRenderChange = video.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterRenderedChange = video.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterSrcNodeChange = video.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterStringsChange = video.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterSwfUrlChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterSwfUrlChange = video.getAfterSwfUrlChange();
+
+		if (afterSwfUrlChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_SWF_URL_CHANGE, afterSwfUrlChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterTabIndexChange = video.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterUrlChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterUrlChange = video.getAfterUrlChange();
+
+		if (afterUrlChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_URL_CHANGE, afterUrlChange));
+		}
+	}
+
+	protected void renderAfterUseARIAChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterUseARIAChange = video.getAfterUseARIAChange();
+
+		if (afterUseARIAChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_USE_ARIACHANGE, afterUseARIAChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterVisibleChange = video.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String afterWidthChange = video.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(Video.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onBoundingBoxChange = video.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Video.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onContentBoxChange = video.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(Video.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onCssClassChange = video.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(Video.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onDestroyedChange = video.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(Video.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onDisabledChange = video.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(Video.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnFixedAttributesChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onFixedAttributesChange = video.getOnFixedAttributesChange();
+
+		if (onFixedAttributesChange != null) {
+			renderedAttributes.add(renderString(Video.ON_FIXED_ATTRIBUTES_CHANGE, onFixedAttributesChange));
+		}
+	}
+
+	protected void renderOnFlashVarsChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onFlashVarsChange = video.getOnFlashVarsChange();
+
+		if (onFlashVarsChange != null) {
+			renderedAttributes.add(renderString(Video.ON_FLASH_VARS_CHANGE, onFlashVarsChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onFocusedChange = video.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(Video.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onHeightChange = video.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(Video.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideClassChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onHideClassChange = video.getOnHideClassChange();
+
+		if (onHideClassChange != null) {
+			renderedAttributes.add(renderString(Video.ON_HIDE_CLASS_CHANGE, onHideClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onIdChange = video.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(Video.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onInitializedChange = video.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(Video.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onLocaleChange = video.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(Video.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnOgvUrlChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onOgvUrlChange = video.getOnOgvUrlChange();
+
+		if (onOgvUrlChange != null) {
+			renderedAttributes.add(renderString(Video.ON_OGV_URL_CHANGE, onOgvUrlChange));
+		}
+	}
+
+	protected void renderOnPosterChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onPosterChange = video.getOnPosterChange();
+
+		if (onPosterChange != null) {
+			renderedAttributes.add(renderString(Video.ON_POSTER_CHANGE, onPosterChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onRenderChange = video.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(Video.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onRenderedChange = video.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(Video.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onSrcNodeChange = video.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Video.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onStringsChange = video.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(Video.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnSwfUrlChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onSwfUrlChange = video.getOnSwfUrlChange();
+
+		if (onSwfUrlChange != null) {
+			renderedAttributes.add(renderString(Video.ON_SWF_URL_CHANGE, onSwfUrlChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onTabIndexChange = video.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(Video.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnUrlChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onUrlChange = video.getOnUrlChange();
+
+		if (onUrlChange != null) {
+			renderedAttributes.add(renderString(Video.ON_URL_CHANGE, onUrlChange));
+		}
+	}
+
+	protected void renderOnUseARIAChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onUseARIAChange = video.getOnUseARIAChange();
+
+		if (onUseARIAChange != null) {
+			renderedAttributes.add(renderString(Video.ON_USE_ARIACHANGE, onUseARIAChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onVisibleChange = video.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(Video.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, Video video) throws IOException {
+		java.lang.String onWidthChange = video.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(Video.ON_WIDTH_CHANGE, onWidthChange));
 		}
 	}
 

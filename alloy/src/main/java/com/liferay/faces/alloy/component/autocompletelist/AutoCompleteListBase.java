@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.autocompletelist;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class AutoCompleteListBase extends javax.faces.component.UIPanel {

@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.charcounter;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class CharCounterBase extends javax.faces.component.UIPanel {

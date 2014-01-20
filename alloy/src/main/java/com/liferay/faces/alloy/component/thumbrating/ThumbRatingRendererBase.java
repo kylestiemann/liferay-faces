@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class ThumbRatingRendererBase extends RendererBase {
 
 	// Private Constants
@@ -82,16 +82,113 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		renderVisible(renderedAttributes, thumbRating);
 		renderWidth(renderedAttributes, thumbRating);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterBoundingBoxChange(renderedAfterEvents, thumbRating);
+		renderAfterCanResetChange(renderedAfterEvents, thumbRating);
+		renderAfterContentBoxChange(renderedAfterEvents, thumbRating);
+		renderAfterCssClassChange(renderedAfterEvents, thumbRating);
+		renderAfterCssClassesChange(renderedAfterEvents, thumbRating);
+		renderAfterDefaultSelectedChange(renderedAfterEvents, thumbRating);
+		renderAfterDestroyedChange(renderedAfterEvents, thumbRating);
+		renderAfterDisabledChange(renderedAfterEvents, thumbRating);
+		renderAfterElementsChange(renderedAfterEvents, thumbRating);
+		renderAfterFocusedChange(renderedAfterEvents, thumbRating);
+		renderAfterHeightChange(renderedAfterEvents, thumbRating);
+		renderAfterHiddenInputChange(renderedAfterEvents, thumbRating);
+		renderAfterHideClassChange(renderedAfterEvents, thumbRating);
+		renderAfterIdChange(renderedAfterEvents, thumbRating);
+		renderAfterInitializedChange(renderedAfterEvents, thumbRating);
+		renderAfterInputNameChange(renderedAfterEvents, thumbRating);
+		renderAfterLabelChange(renderedAfterEvents, thumbRating);
+		renderAfterLabelNodeChange(renderedAfterEvents, thumbRating);
+		renderAfterLocaleChange(renderedAfterEvents, thumbRating);
+		renderAfterRenderChange(renderedAfterEvents, thumbRating);
+		renderAfterRenderedChange(renderedAfterEvents, thumbRating);
+		renderAfterSelectedIndexChange(renderedAfterEvents, thumbRating);
+		renderAfterShowTitleChange(renderedAfterEvents, thumbRating);
+		renderAfterSizeChange(renderedAfterEvents, thumbRating);
+		renderAfterSrcNodeChange(renderedAfterEvents, thumbRating);
+		renderAfterStringsChange(renderedAfterEvents, thumbRating);
+		renderAfterTabIndexChange(renderedAfterEvents, thumbRating);
+		renderAfterTitleChange(renderedAfterEvents, thumbRating);
+		renderAfterUseARIAChange(renderedAfterEvents, thumbRating);
+		renderAfterValueChange(renderedAfterEvents, thumbRating);
+		renderAfterVisibleChange(renderedAfterEvents, thumbRating);
+		renderAfterWidthChange(renderedAfterEvents, thumbRating);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnBoundingBoxChange(renderedOnEvents, thumbRating);
+		renderOnCanResetChange(renderedOnEvents, thumbRating);
+		renderOnContentBoxChange(renderedOnEvents, thumbRating);
+		renderOnCssClassChange(renderedOnEvents, thumbRating);
+		renderOnCssClassesChange(renderedOnEvents, thumbRating);
+		renderOnDefaultSelectedChange(renderedOnEvents, thumbRating);
+		renderOnDestroyedChange(renderedOnEvents, thumbRating);
+		renderOnDisabledChange(renderedOnEvents, thumbRating);
+		renderOnElementsChange(renderedOnEvents, thumbRating);
+		renderOnFocusedChange(renderedOnEvents, thumbRating);
+		renderOnHeightChange(renderedOnEvents, thumbRating);
+		renderOnHiddenInputChange(renderedOnEvents, thumbRating);
+		renderOnHideClassChange(renderedOnEvents, thumbRating);
+		renderOnIdChange(renderedOnEvents, thumbRating);
+		renderOnInitializedChange(renderedOnEvents, thumbRating);
+		renderOnInputNameChange(renderedOnEvents, thumbRating);
+		renderOnLabelChange(renderedOnEvents, thumbRating);
+		renderOnLabelNodeChange(renderedOnEvents, thumbRating);
+		renderOnLocaleChange(renderedOnEvents, thumbRating);
+		renderOnRenderChange(renderedOnEvents, thumbRating);
+		renderOnRenderedChange(renderedOnEvents, thumbRating);
+		renderOnSelectedIndexChange(renderedOnEvents, thumbRating);
+		renderOnShowTitleChange(renderedOnEvents, thumbRating);
+		renderOnSizeChange(renderedOnEvents, thumbRating);
+		renderOnSrcNodeChange(renderedOnEvents, thumbRating);
+		renderOnStringsChange(renderedOnEvents, thumbRating);
+		renderOnTabIndexChange(renderedOnEvents, thumbRating);
+		renderOnTitleChange(renderedOnEvents, thumbRating);
+		renderOnUseARIAChange(renderedOnEvents, thumbRating);
+		renderOnValueChange(renderedOnEvents, thumbRating);
+		renderOnVisibleChange(renderedOnEvents, thumbRating);
+		renderOnWidthChange(renderedOnEvents, thumbRating);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -355,6 +452,518 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 
 		if (width != null) {
 			renderedAttributes.add(renderString(ThumbRating.WIDTH, width));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterBoundingBoxChange = thumbRating.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCanResetChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterCanResetChange = thumbRating.getAfterCanResetChange();
+
+		if (afterCanResetChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_CAN_RESET_CHANGE, afterCanResetChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterContentBoxChange = thumbRating.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterCssClassChange = thumbRating.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterCssClassesChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterCssClassesChange = thumbRating.getAfterCssClassesChange();
+
+		if (afterCssClassesChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_CSS_CLASSES_CHANGE, afterCssClassesChange));
+		}
+	}
+
+	protected void renderAfterDefaultSelectedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterDefaultSelectedChange = thumbRating.getAfterDefaultSelectedChange();
+
+		if (afterDefaultSelectedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_DEFAULT_SELECTED_CHANGE, afterDefaultSelectedChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterDestroyedChange = thumbRating.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterDisabledChange = thumbRating.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterElementsChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterElementsChange = thumbRating.getAfterElementsChange();
+
+		if (afterElementsChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_ELEMENTS_CHANGE, afterElementsChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterFocusedChange = thumbRating.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterHeightChange = thumbRating.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHiddenInputChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterHiddenInputChange = thumbRating.getAfterHiddenInputChange();
+
+		if (afterHiddenInputChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_HIDDEN_INPUT_CHANGE, afterHiddenInputChange));
+		}
+	}
+
+	protected void renderAfterHideClassChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterHideClassChange = thumbRating.getAfterHideClassChange();
+
+		if (afterHideClassChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterIdChange = thumbRating.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterInitializedChange = thumbRating.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterInputNameChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterInputNameChange = thumbRating.getAfterInputNameChange();
+
+		if (afterInputNameChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_INPUT_NAME_CHANGE, afterInputNameChange));
+		}
+	}
+
+	protected void renderAfterLabelChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterLabelChange = thumbRating.getAfterLabelChange();
+
+		if (afterLabelChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_LABEL_CHANGE, afterLabelChange));
+		}
+	}
+
+	protected void renderAfterLabelNodeChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterLabelNodeChange = thumbRating.getAfterLabelNodeChange();
+
+		if (afterLabelNodeChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterLocaleChange = thumbRating.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterRenderChange = thumbRating.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterRenderedChange = thumbRating.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterSelectedIndexChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterSelectedIndexChange = thumbRating.getAfterSelectedIndexChange();
+
+		if (afterSelectedIndexChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_SELECTED_INDEX_CHANGE, afterSelectedIndexChange));
+		}
+	}
+
+	protected void renderAfterShowTitleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterShowTitleChange = thumbRating.getAfterShowTitleChange();
+
+		if (afterShowTitleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_SHOW_TITLE_CHANGE, afterShowTitleChange));
+		}
+	}
+
+	protected void renderAfterSizeChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterSizeChange = thumbRating.getAfterSizeChange();
+
+		if (afterSizeChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_SIZE_CHANGE, afterSizeChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterSrcNodeChange = thumbRating.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterStringsChange = thumbRating.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterTabIndexChange = thumbRating.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterTitleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterTitleChange = thumbRating.getAfterTitleChange();
+
+		if (afterTitleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_TITLE_CHANGE, afterTitleChange));
+		}
+	}
+
+	protected void renderAfterUseARIAChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterUseARIAChange = thumbRating.getAfterUseARIAChange();
+
+		if (afterUseARIAChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_USE_ARIACHANGE, afterUseARIAChange));
+		}
+	}
+
+	protected void renderAfterValueChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterValueChange = thumbRating.getAfterValueChange();
+
+		if (afterValueChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_VALUE_CHANGE, afterValueChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterVisibleChange = thumbRating.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String afterWidthChange = thumbRating.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onBoundingBoxChange = thumbRating.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCanResetChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onCanResetChange = thumbRating.getOnCanResetChange();
+
+		if (onCanResetChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_CAN_RESET_CHANGE, onCanResetChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onContentBoxChange = thumbRating.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onCssClassChange = thumbRating.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnCssClassesChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onCssClassesChange = thumbRating.getOnCssClassesChange();
+
+		if (onCssClassesChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_CSS_CLASSES_CHANGE, onCssClassesChange));
+		}
+	}
+
+	protected void renderOnDefaultSelectedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onDefaultSelectedChange = thumbRating.getOnDefaultSelectedChange();
+
+		if (onDefaultSelectedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_DEFAULT_SELECTED_CHANGE, onDefaultSelectedChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onDestroyedChange = thumbRating.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onDisabledChange = thumbRating.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnElementsChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onElementsChange = thumbRating.getOnElementsChange();
+
+		if (onElementsChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_ELEMENTS_CHANGE, onElementsChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onFocusedChange = thumbRating.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onHeightChange = thumbRating.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHiddenInputChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onHiddenInputChange = thumbRating.getOnHiddenInputChange();
+
+		if (onHiddenInputChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_HIDDEN_INPUT_CHANGE, onHiddenInputChange));
+		}
+	}
+
+	protected void renderOnHideClassChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onHideClassChange = thumbRating.getOnHideClassChange();
+
+		if (onHideClassChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_HIDE_CLASS_CHANGE, onHideClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onIdChange = thumbRating.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onInitializedChange = thumbRating.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnInputNameChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onInputNameChange = thumbRating.getOnInputNameChange();
+
+		if (onInputNameChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_INPUT_NAME_CHANGE, onInputNameChange));
+		}
+	}
+
+	protected void renderOnLabelChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onLabelChange = thumbRating.getOnLabelChange();
+
+		if (onLabelChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_LABEL_CHANGE, onLabelChange));
+		}
+	}
+
+	protected void renderOnLabelNodeChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onLabelNodeChange = thumbRating.getOnLabelNodeChange();
+
+		if (onLabelNodeChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onLocaleChange = thumbRating.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onRenderChange = thumbRating.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onRenderedChange = thumbRating.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnSelectedIndexChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onSelectedIndexChange = thumbRating.getOnSelectedIndexChange();
+
+		if (onSelectedIndexChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_SELECTED_INDEX_CHANGE, onSelectedIndexChange));
+		}
+	}
+
+	protected void renderOnShowTitleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onShowTitleChange = thumbRating.getOnShowTitleChange();
+
+		if (onShowTitleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_SHOW_TITLE_CHANGE, onShowTitleChange));
+		}
+	}
+
+	protected void renderOnSizeChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onSizeChange = thumbRating.getOnSizeChange();
+
+		if (onSizeChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_SIZE_CHANGE, onSizeChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onSrcNodeChange = thumbRating.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onStringsChange = thumbRating.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onTabIndexChange = thumbRating.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnTitleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onTitleChange = thumbRating.getOnTitleChange();
+
+		if (onTitleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_TITLE_CHANGE, onTitleChange));
+		}
+	}
+
+	protected void renderOnUseARIAChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onUseARIAChange = thumbRating.getOnUseARIAChange();
+
+		if (onUseARIAChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_USE_ARIACHANGE, onUseARIAChange));
+		}
+	}
+
+	protected void renderOnValueChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onValueChange = thumbRating.getOnValueChange();
+
+		if (onValueChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_VALUE_CHANGE, onValueChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onVisibleChange = thumbRating.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, ThumbRating thumbRating) throws IOException {
+		java.lang.String onWidthChange = thumbRating.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(ThumbRating.ON_WIDTH_CHANGE, onWidthChange));
 		}
 	}
 

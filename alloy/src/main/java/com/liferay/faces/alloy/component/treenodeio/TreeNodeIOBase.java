@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.treenodeio;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class TreeNodeIOBase extends javax.faces.component.UIPanel {

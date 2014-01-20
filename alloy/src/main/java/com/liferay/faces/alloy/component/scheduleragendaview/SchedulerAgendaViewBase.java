@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.scheduleragendaview;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class SchedulerAgendaViewBase extends javax.faces.component.UIPanel {

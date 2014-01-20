@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class AvailableFieldRendererBase extends RendererBase {
 
 	// Private Constants
@@ -58,16 +58,65 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 		renderNode(renderedAttributes, availableField);
 		renderType(renderedAttributes, availableField);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterDestroyedChange(renderedAfterEvents, availableField);
+		renderAfterDraggableChange(renderedAfterEvents, availableField);
+		renderAfterIconClassChange(renderedAfterEvents, availableField);
+		renderAfterIdChange(renderedAfterEvents, availableField);
+		renderAfterInitializedChange(renderedAfterEvents, availableField);
+		renderAfterLabelChange(renderedAfterEvents, availableField);
+		renderAfterNodeChange(renderedAfterEvents, availableField);
+		renderAfterTypeChange(renderedAfterEvents, availableField);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnDestroyedChange(renderedOnEvents, availableField);
+		renderOnDraggableChange(renderedOnEvents, availableField);
+		renderOnIconClassChange(renderedOnEvents, availableField);
+		renderOnIdChange(renderedOnEvents, availableField);
+		renderOnInitializedChange(renderedOnEvents, availableField);
+		renderOnLabelChange(renderedOnEvents, availableField);
+		renderOnNodeChange(renderedOnEvents, availableField);
+		renderOnTypeChange(renderedOnEvents, availableField);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -139,6 +188,134 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 
 		if (type != null) {
 			renderedAttributes.add(renderString(AvailableField.TYPE, type));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterDestroyedChange = availableField.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDraggableChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterDraggableChange = availableField.getAfterDraggableChange();
+
+		if (afterDraggableChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_DRAGGABLE_CHANGE, afterDraggableChange));
+		}
+	}
+
+	protected void renderAfterIconClassChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterIconClassChange = availableField.getAfterIconClassChange();
+
+		if (afterIconClassChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_ICON_CLASS_CHANGE, afterIconClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterIdChange = availableField.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterInitializedChange = availableField.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLabelChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterLabelChange = availableField.getAfterLabelChange();
+
+		if (afterLabelChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_LABEL_CHANGE, afterLabelChange));
+		}
+	}
+
+	protected void renderAfterNodeChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterNodeChange = availableField.getAfterNodeChange();
+
+		if (afterNodeChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_NODE_CHANGE, afterNodeChange));
+		}
+	}
+
+	protected void renderAfterTypeChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String afterTypeChange = availableField.getAfterTypeChange();
+
+		if (afterTypeChange != null) {
+			renderedAttributes.add(renderString(AvailableField.AFTER_TYPE_CHANGE, afterTypeChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onDestroyedChange = availableField.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDraggableChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onDraggableChange = availableField.getOnDraggableChange();
+
+		if (onDraggableChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_DRAGGABLE_CHANGE, onDraggableChange));
+		}
+	}
+
+	protected void renderOnIconClassChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onIconClassChange = availableField.getOnIconClassChange();
+
+		if (onIconClassChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_ICON_CLASS_CHANGE, onIconClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onIdChange = availableField.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onInitializedChange = availableField.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLabelChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onLabelChange = availableField.getOnLabelChange();
+
+		if (onLabelChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_LABEL_CHANGE, onLabelChange));
+		}
+	}
+
+	protected void renderOnNodeChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onNodeChange = availableField.getOnNodeChange();
+
+		if (onNodeChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_NODE_CHANGE, onNodeChange));
+		}
+	}
+
+	protected void renderOnTypeChange(List<String> renderedAttributes, AvailableField availableField) throws IOException {
+		java.lang.String onTypeChange = availableField.getOnTypeChange();
+
+		if (onTypeChange != null) {
+			renderedAttributes.add(renderString(AvailableField.ON_TYPE_CHANGE, onTypeChange));
 		}
 	}
 

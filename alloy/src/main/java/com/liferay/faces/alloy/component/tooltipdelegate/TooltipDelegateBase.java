@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.tooltipdelegate;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class TooltipDelegateBase extends javax.faces.component.UIPanel {

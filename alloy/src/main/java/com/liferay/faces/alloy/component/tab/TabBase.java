@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.tab;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class TabBase extends javax.faces.component.UIPanel {

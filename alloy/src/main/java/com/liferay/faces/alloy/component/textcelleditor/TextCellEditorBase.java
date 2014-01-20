@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.textcelleditor;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class TextCellEditorBase extends javax.faces.component.UIPanel {

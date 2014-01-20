@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 
 	// Private Constants
@@ -81,16 +81,111 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		renderUnique(renderedAttributes, formBuilderRadioField);
 		renderZIndex(renderedAttributes, formBuilderRadioField);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterBuilderChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterDataTypeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterDisabledChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterIdChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterLabelChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterLabelNodeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterNameChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterOptionTemplateChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterOptionsChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterParentChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterReadOnlyChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterRequiredChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterSelectedChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterShowLabelChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterStringsChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterTabIndexChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterTemplateChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterTipChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterTypeChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterUniqueChange(renderedAfterEvents, formBuilderRadioField);
+		renderAfterZIndexChange(renderedAfterEvents, formBuilderRadioField);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAcceptChildrenChange(renderedOnEvents, formBuilderRadioField);
+		renderOnBuilderChange(renderedOnEvents, formBuilderRadioField);
+		renderOnControlsToolbarChange(renderedOnEvents, formBuilderRadioField);
+		renderOnDataTypeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnDisabledChange(renderedOnEvents, formBuilderRadioField);
+		renderOnDropZoneNodeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnHiddenAttributesChange(renderedOnEvents, formBuilderRadioField);
+		renderOnIdChange(renderedOnEvents, formBuilderRadioField);
+		renderOnLabelChange(renderedOnEvents, formBuilderRadioField);
+		renderOnLabelNodeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnLocalizationMapChange(renderedOnEvents, formBuilderRadioField);
+		renderOnNameChange(renderedOnEvents, formBuilderRadioField);
+		renderOnOptionTemplateChange(renderedOnEvents, formBuilderRadioField);
+		renderOnOptionsChange(renderedOnEvents, formBuilderRadioField);
+		renderOnParentChange(renderedOnEvents, formBuilderRadioField);
+		renderOnPredefinedValueChange(renderedOnEvents, formBuilderRadioField);
+		renderOnReadOnlyChange(renderedOnEvents, formBuilderRadioField);
+		renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderRadioField);
+		renderOnRequiredChange(renderedOnEvents, formBuilderRadioField);
+		renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnSelectedChange(renderedOnEvents, formBuilderRadioField);
+		renderOnShowLabelChange(renderedOnEvents, formBuilderRadioField);
+		renderOnStringsChange(renderedOnEvents, formBuilderRadioField);
+		renderOnTabIndexChange(renderedOnEvents, formBuilderRadioField);
+		renderOnTemplateChange(renderedOnEvents, formBuilderRadioField);
+		renderOnTemplateNodeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnTipChange(renderedOnEvents, formBuilderRadioField);
+		renderOnTipFlagNodeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnTypeChange(renderedOnEvents, formBuilderRadioField);
+		renderOnUniqueChange(renderedOnEvents, formBuilderRadioField);
+		renderOnZIndexChange(renderedOnEvents, formBuilderRadioField);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -346,6 +441,502 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 
 		if (zIndex != null) {
 			renderedAttributes.add(renderNumber(FormBuilderRadioField.Z_INDEX, zIndex));
+		}
+	}
+
+	protected void renderAfterAcceptChildrenChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterAcceptChildrenChange = formBuilderRadioField.getAfterAcceptChildrenChange();
+
+		if (afterAcceptChildrenChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange));
+		}
+	}
+
+	protected void renderAfterBuilderChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterBuilderChange = formBuilderRadioField.getAfterBuilderChange();
+
+		if (afterBuilderChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_BUILDER_CHANGE, afterBuilderChange));
+		}
+	}
+
+	protected void renderAfterControlsToolbarChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterControlsToolbarChange = formBuilderRadioField.getAfterControlsToolbarChange();
+
+		if (afterControlsToolbarChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
+		}
+	}
+
+	protected void renderAfterDataTypeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterDataTypeChange = formBuilderRadioField.getAfterDataTypeChange();
+
+		if (afterDataTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_DATA_TYPE_CHANGE, afterDataTypeChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterDisabledChange = formBuilderRadioField.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterDropZoneNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterDropZoneNodeChange = formBuilderRadioField.getAfterDropZoneNodeChange();
+
+		if (afterDropZoneNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange));
+		}
+	}
+
+	protected void renderAfterHiddenAttributesChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterHiddenAttributesChange = formBuilderRadioField.getAfterHiddenAttributesChange();
+
+		if (afterHiddenAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterIdChange = formBuilderRadioField.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterLabelChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterLabelChange = formBuilderRadioField.getAfterLabelChange();
+
+		if (afterLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_LABEL_CHANGE, afterLabelChange));
+		}
+	}
+
+	protected void renderAfterLabelNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterLabelNodeChange = formBuilderRadioField.getAfterLabelNodeChange();
+
+		if (afterLabelNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
+		}
+	}
+
+	protected void renderAfterLocalizationMapChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterLocalizationMapChange = formBuilderRadioField.getAfterLocalizationMapChange();
+
+		if (afterLocalizationMapChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange));
+		}
+	}
+
+	protected void renderAfterNameChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterNameChange = formBuilderRadioField.getAfterNameChange();
+
+		if (afterNameChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_NAME_CHANGE, afterNameChange));
+		}
+	}
+
+	protected void renderAfterOptionTemplateChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterOptionTemplateChange = formBuilderRadioField.getAfterOptionTemplateChange();
+
+		if (afterOptionTemplateChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_OPTION_TEMPLATE_CHANGE, afterOptionTemplateChange));
+		}
+	}
+
+	protected void renderAfterOptionsChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterOptionsChange = formBuilderRadioField.getAfterOptionsChange();
+
+		if (afterOptionsChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_OPTIONS_CHANGE, afterOptionsChange));
+		}
+	}
+
+	protected void renderAfterParentChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterParentChange = formBuilderRadioField.getAfterParentChange();
+
+		if (afterParentChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_PARENT_CHANGE, afterParentChange));
+		}
+	}
+
+	protected void renderAfterPredefinedValueChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterPredefinedValueChange = formBuilderRadioField.getAfterPredefinedValueChange();
+
+		if (afterPredefinedValueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange));
+		}
+	}
+
+	protected void renderAfterReadOnlyChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterReadOnlyChange = formBuilderRadioField.getAfterReadOnlyChange();
+
+		if (afterReadOnlyChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
+		}
+	}
+
+	protected void renderAfterReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterReadOnlyAttributesChange = formBuilderRadioField.getAfterReadOnlyAttributesChange();
+
+		if (afterReadOnlyAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange));
+		}
+	}
+
+	protected void renderAfterRequiredChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterRequiredChange = formBuilderRadioField.getAfterRequiredChange();
+
+		if (afterRequiredChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_REQUIRED_CHANGE, afterRequiredChange));
+		}
+	}
+
+	protected void renderAfterRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterRequiredFlagNodeChange = formBuilderRadioField.getAfterRequiredFlagNodeChange();
+
+		if (afterRequiredFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange));
+		}
+	}
+
+	protected void renderAfterSelectedChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterSelectedChange = formBuilderRadioField.getAfterSelectedChange();
+
+		if (afterSelectedChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_SELECTED_CHANGE, afterSelectedChange));
+		}
+	}
+
+	protected void renderAfterShowLabelChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterShowLabelChange = formBuilderRadioField.getAfterShowLabelChange();
+
+		if (afterShowLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterStringsChange = formBuilderRadioField.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterTabIndexChange = formBuilderRadioField.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterTemplateChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterTemplateChange = formBuilderRadioField.getAfterTemplateChange();
+
+		if (afterTemplateChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_TEMPLATE_CHANGE, afterTemplateChange));
+		}
+	}
+
+	protected void renderAfterTemplateNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterTemplateNodeChange = formBuilderRadioField.getAfterTemplateNodeChange();
+
+		if (afterTemplateNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange));
+		}
+	}
+
+	protected void renderAfterTipChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterTipChange = formBuilderRadioField.getAfterTipChange();
+
+		if (afterTipChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_TIP_CHANGE, afterTipChange));
+		}
+	}
+
+	protected void renderAfterTipFlagNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterTipFlagNodeChange = formBuilderRadioField.getAfterTipFlagNodeChange();
+
+		if (afterTipFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange));
+		}
+	}
+
+	protected void renderAfterTypeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterTypeChange = formBuilderRadioField.getAfterTypeChange();
+
+		if (afterTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_TYPE_CHANGE, afterTypeChange));
+		}
+	}
+
+	protected void renderAfterUniqueChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterUniqueChange = formBuilderRadioField.getAfterUniqueChange();
+
+		if (afterUniqueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_UNIQUE_CHANGE, afterUniqueChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String afterZIndexChange = formBuilderRadioField.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAcceptChildrenChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onAcceptChildrenChange = formBuilderRadioField.getOnAcceptChildrenChange();
+
+		if (onAcceptChildrenChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange));
+		}
+	}
+
+	protected void renderOnBuilderChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onBuilderChange = formBuilderRadioField.getOnBuilderChange();
+
+		if (onBuilderChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_BUILDER_CHANGE, onBuilderChange));
+		}
+	}
+
+	protected void renderOnControlsToolbarChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onControlsToolbarChange = formBuilderRadioField.getOnControlsToolbarChange();
+
+		if (onControlsToolbarChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
+		}
+	}
+
+	protected void renderOnDataTypeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onDataTypeChange = formBuilderRadioField.getOnDataTypeChange();
+
+		if (onDataTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_DATA_TYPE_CHANGE, onDataTypeChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onDisabledChange = formBuilderRadioField.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnDropZoneNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onDropZoneNodeChange = formBuilderRadioField.getOnDropZoneNodeChange();
+
+		if (onDropZoneNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange));
+		}
+	}
+
+	protected void renderOnHiddenAttributesChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onHiddenAttributesChange = formBuilderRadioField.getOnHiddenAttributesChange();
+
+		if (onHiddenAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onIdChange = formBuilderRadioField.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnLabelChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onLabelChange = formBuilderRadioField.getOnLabelChange();
+
+		if (onLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_LABEL_CHANGE, onLabelChange));
+		}
+	}
+
+	protected void renderOnLabelNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onLabelNodeChange = formBuilderRadioField.getOnLabelNodeChange();
+
+		if (onLabelNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
+		}
+	}
+
+	protected void renderOnLocalizationMapChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onLocalizationMapChange = formBuilderRadioField.getOnLocalizationMapChange();
+
+		if (onLocalizationMapChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange));
+		}
+	}
+
+	protected void renderOnNameChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onNameChange = formBuilderRadioField.getOnNameChange();
+
+		if (onNameChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_NAME_CHANGE, onNameChange));
+		}
+	}
+
+	protected void renderOnOptionTemplateChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onOptionTemplateChange = formBuilderRadioField.getOnOptionTemplateChange();
+
+		if (onOptionTemplateChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_OPTION_TEMPLATE_CHANGE, onOptionTemplateChange));
+		}
+	}
+
+	protected void renderOnOptionsChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onOptionsChange = formBuilderRadioField.getOnOptionsChange();
+
+		if (onOptionsChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_OPTIONS_CHANGE, onOptionsChange));
+		}
+	}
+
+	protected void renderOnParentChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onParentChange = formBuilderRadioField.getOnParentChange();
+
+		if (onParentChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_PARENT_CHANGE, onParentChange));
+		}
+	}
+
+	protected void renderOnPredefinedValueChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onPredefinedValueChange = formBuilderRadioField.getOnPredefinedValueChange();
+
+		if (onPredefinedValueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange));
+		}
+	}
+
+	protected void renderOnReadOnlyChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onReadOnlyChange = formBuilderRadioField.getOnReadOnlyChange();
+
+		if (onReadOnlyChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_READ_ONLY_CHANGE, onReadOnlyChange));
+		}
+	}
+
+	protected void renderOnReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onReadOnlyAttributesChange = formBuilderRadioField.getOnReadOnlyAttributesChange();
+
+		if (onReadOnlyAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange));
+		}
+	}
+
+	protected void renderOnRequiredChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onRequiredChange = formBuilderRadioField.getOnRequiredChange();
+
+		if (onRequiredChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_REQUIRED_CHANGE, onRequiredChange));
+		}
+	}
+
+	protected void renderOnRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onRequiredFlagNodeChange = formBuilderRadioField.getOnRequiredFlagNodeChange();
+
+		if (onRequiredFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange));
+		}
+	}
+
+	protected void renderOnSelectedChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onSelectedChange = formBuilderRadioField.getOnSelectedChange();
+
+		if (onSelectedChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_SELECTED_CHANGE, onSelectedChange));
+		}
+	}
+
+	protected void renderOnShowLabelChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onShowLabelChange = formBuilderRadioField.getOnShowLabelChange();
+
+		if (onShowLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_SHOW_LABEL_CHANGE, onShowLabelChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onStringsChange = formBuilderRadioField.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onTabIndexChange = formBuilderRadioField.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnTemplateChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onTemplateChange = formBuilderRadioField.getOnTemplateChange();
+
+		if (onTemplateChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_TEMPLATE_CHANGE, onTemplateChange));
+		}
+	}
+
+	protected void renderOnTemplateNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onTemplateNodeChange = formBuilderRadioField.getOnTemplateNodeChange();
+
+		if (onTemplateNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange));
+		}
+	}
+
+	protected void renderOnTipChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onTipChange = formBuilderRadioField.getOnTipChange();
+
+		if (onTipChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_TIP_CHANGE, onTipChange));
+		}
+	}
+
+	protected void renderOnTipFlagNodeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onTipFlagNodeChange = formBuilderRadioField.getOnTipFlagNodeChange();
+
+		if (onTipFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange));
+		}
+	}
+
+	protected void renderOnTypeChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onTypeChange = formBuilderRadioField.getOnTypeChange();
+
+		if (onTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_TYPE_CHANGE, onTypeChange));
+		}
+	}
+
+	protected void renderOnUniqueChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onUniqueChange = formBuilderRadioField.getOnUniqueChange();
+
+		if (onUniqueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_UNIQUE_CHANGE, onUniqueChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, FormBuilderRadioField formBuilderRadioField) throws IOException {
+		java.lang.String onZIndexChange = formBuilderRadioField.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderRadioField.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 
 	// Private Constants
@@ -80,16 +80,109 @@ public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 		renderUnique(renderedAttributes, formBuilderButtonField);
 		renderZIndex(renderedAttributes, formBuilderButtonField);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterBuilderChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterButtonTypeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterDataTypeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterDisabledChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterIdChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterLabelChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterLabelNodeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterNameChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterParentChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterReadOnlyChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterRequiredChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterSelectedChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterShowLabelChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterStringsChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterTabIndexChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterTemplateChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterTipChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterTypeChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterUniqueChange(renderedAfterEvents, formBuilderButtonField);
+		renderAfterZIndexChange(renderedAfterEvents, formBuilderButtonField);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAcceptChildrenChange(renderedOnEvents, formBuilderButtonField);
+		renderOnBuilderChange(renderedOnEvents, formBuilderButtonField);
+		renderOnButtonTypeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnControlsToolbarChange(renderedOnEvents, formBuilderButtonField);
+		renderOnDataTypeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnDisabledChange(renderedOnEvents, formBuilderButtonField);
+		renderOnDropZoneNodeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnHiddenAttributesChange(renderedOnEvents, formBuilderButtonField);
+		renderOnIdChange(renderedOnEvents, formBuilderButtonField);
+		renderOnLabelChange(renderedOnEvents, formBuilderButtonField);
+		renderOnLabelNodeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnLocalizationMapChange(renderedOnEvents, formBuilderButtonField);
+		renderOnNameChange(renderedOnEvents, formBuilderButtonField);
+		renderOnParentChange(renderedOnEvents, formBuilderButtonField);
+		renderOnPredefinedValueChange(renderedOnEvents, formBuilderButtonField);
+		renderOnReadOnlyChange(renderedOnEvents, formBuilderButtonField);
+		renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderButtonField);
+		renderOnRequiredChange(renderedOnEvents, formBuilderButtonField);
+		renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnSelectedChange(renderedOnEvents, formBuilderButtonField);
+		renderOnShowLabelChange(renderedOnEvents, formBuilderButtonField);
+		renderOnStringsChange(renderedOnEvents, formBuilderButtonField);
+		renderOnTabIndexChange(renderedOnEvents, formBuilderButtonField);
+		renderOnTemplateChange(renderedOnEvents, formBuilderButtonField);
+		renderOnTemplateNodeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnTipChange(renderedOnEvents, formBuilderButtonField);
+		renderOnTipFlagNodeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnTypeChange(renderedOnEvents, formBuilderButtonField);
+		renderOnUniqueChange(renderedOnEvents, formBuilderButtonField);
+		renderOnZIndexChange(renderedOnEvents, formBuilderButtonField);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -337,6 +430,486 @@ public abstract class FormBuilderButtonFieldRendererBase extends RendererBase {
 
 		if (zIndex != null) {
 			renderedAttributes.add(renderNumber(FormBuilderButtonField.Z_INDEX, zIndex));
+		}
+	}
+
+	protected void renderAfterAcceptChildrenChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterAcceptChildrenChange = formBuilderButtonField.getAfterAcceptChildrenChange();
+
+		if (afterAcceptChildrenChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_ACCEPT_CHILDREN_CHANGE, afterAcceptChildrenChange));
+		}
+	}
+
+	protected void renderAfterBuilderChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterBuilderChange = formBuilderButtonField.getAfterBuilderChange();
+
+		if (afterBuilderChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_BUILDER_CHANGE, afterBuilderChange));
+		}
+	}
+
+	protected void renderAfterButtonTypeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterButtonTypeChange = formBuilderButtonField.getAfterButtonTypeChange();
+
+		if (afterButtonTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_BUTTON_TYPE_CHANGE, afterButtonTypeChange));
+		}
+	}
+
+	protected void renderAfterControlsToolbarChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterControlsToolbarChange = formBuilderButtonField.getAfterControlsToolbarChange();
+
+		if (afterControlsToolbarChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_CONTROLS_TOOLBAR_CHANGE, afterControlsToolbarChange));
+		}
+	}
+
+	protected void renderAfterDataTypeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterDataTypeChange = formBuilderButtonField.getAfterDataTypeChange();
+
+		if (afterDataTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_DATA_TYPE_CHANGE, afterDataTypeChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterDisabledChange = formBuilderButtonField.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterDropZoneNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterDropZoneNodeChange = formBuilderButtonField.getAfterDropZoneNodeChange();
+
+		if (afterDropZoneNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_DROP_ZONE_NODE_CHANGE, afterDropZoneNodeChange));
+		}
+	}
+
+	protected void renderAfterHiddenAttributesChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterHiddenAttributesChange = formBuilderButtonField.getAfterHiddenAttributesChange();
+
+		if (afterHiddenAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_HIDDEN_ATTRIBUTES_CHANGE, afterHiddenAttributesChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterIdChange = formBuilderButtonField.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterLabelChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterLabelChange = formBuilderButtonField.getAfterLabelChange();
+
+		if (afterLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_LABEL_CHANGE, afterLabelChange));
+		}
+	}
+
+	protected void renderAfterLabelNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterLabelNodeChange = formBuilderButtonField.getAfterLabelNodeChange();
+
+		if (afterLabelNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_LABEL_NODE_CHANGE, afterLabelNodeChange));
+		}
+	}
+
+	protected void renderAfterLocalizationMapChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterLocalizationMapChange = formBuilderButtonField.getAfterLocalizationMapChange();
+
+		if (afterLocalizationMapChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_LOCALIZATION_MAP_CHANGE, afterLocalizationMapChange));
+		}
+	}
+
+	protected void renderAfterNameChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterNameChange = formBuilderButtonField.getAfterNameChange();
+
+		if (afterNameChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_NAME_CHANGE, afterNameChange));
+		}
+	}
+
+	protected void renderAfterParentChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterParentChange = formBuilderButtonField.getAfterParentChange();
+
+		if (afterParentChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_PARENT_CHANGE, afterParentChange));
+		}
+	}
+
+	protected void renderAfterPredefinedValueChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterPredefinedValueChange = formBuilderButtonField.getAfterPredefinedValueChange();
+
+		if (afterPredefinedValueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_PREDEFINED_VALUE_CHANGE, afterPredefinedValueChange));
+		}
+	}
+
+	protected void renderAfterReadOnlyChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterReadOnlyChange = formBuilderButtonField.getAfterReadOnlyChange();
+
+		if (afterReadOnlyChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_READ_ONLY_CHANGE, afterReadOnlyChange));
+		}
+	}
+
+	protected void renderAfterReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterReadOnlyAttributesChange = formBuilderButtonField.getAfterReadOnlyAttributesChange();
+
+		if (afterReadOnlyAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_READ_ONLY_ATTRIBUTES_CHANGE, afterReadOnlyAttributesChange));
+		}
+	}
+
+	protected void renderAfterRequiredChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterRequiredChange = formBuilderButtonField.getAfterRequiredChange();
+
+		if (afterRequiredChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_REQUIRED_CHANGE, afterRequiredChange));
+		}
+	}
+
+	protected void renderAfterRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterRequiredFlagNodeChange = formBuilderButtonField.getAfterRequiredFlagNodeChange();
+
+		if (afterRequiredFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_REQUIRED_FLAG_NODE_CHANGE, afterRequiredFlagNodeChange));
+		}
+	}
+
+	protected void renderAfterSelectedChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterSelectedChange = formBuilderButtonField.getAfterSelectedChange();
+
+		if (afterSelectedChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_SELECTED_CHANGE, afterSelectedChange));
+		}
+	}
+
+	protected void renderAfterShowLabelChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterShowLabelChange = formBuilderButtonField.getAfterShowLabelChange();
+
+		if (afterShowLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_SHOW_LABEL_CHANGE, afterShowLabelChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterStringsChange = formBuilderButtonField.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterTabIndexChange = formBuilderButtonField.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterTemplateChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterTemplateChange = formBuilderButtonField.getAfterTemplateChange();
+
+		if (afterTemplateChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_TEMPLATE_CHANGE, afterTemplateChange));
+		}
+	}
+
+	protected void renderAfterTemplateNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterTemplateNodeChange = formBuilderButtonField.getAfterTemplateNodeChange();
+
+		if (afterTemplateNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_TEMPLATE_NODE_CHANGE, afterTemplateNodeChange));
+		}
+	}
+
+	protected void renderAfterTipChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterTipChange = formBuilderButtonField.getAfterTipChange();
+
+		if (afterTipChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_TIP_CHANGE, afterTipChange));
+		}
+	}
+
+	protected void renderAfterTipFlagNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterTipFlagNodeChange = formBuilderButtonField.getAfterTipFlagNodeChange();
+
+		if (afterTipFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_TIP_FLAG_NODE_CHANGE, afterTipFlagNodeChange));
+		}
+	}
+
+	protected void renderAfterTypeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterTypeChange = formBuilderButtonField.getAfterTypeChange();
+
+		if (afterTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_TYPE_CHANGE, afterTypeChange));
+		}
+	}
+
+	protected void renderAfterUniqueChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterUniqueChange = formBuilderButtonField.getAfterUniqueChange();
+
+		if (afterUniqueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_UNIQUE_CHANGE, afterUniqueChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String afterZIndexChange = formBuilderButtonField.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAcceptChildrenChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onAcceptChildrenChange = formBuilderButtonField.getOnAcceptChildrenChange();
+
+		if (onAcceptChildrenChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_ACCEPT_CHILDREN_CHANGE, onAcceptChildrenChange));
+		}
+	}
+
+	protected void renderOnBuilderChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onBuilderChange = formBuilderButtonField.getOnBuilderChange();
+
+		if (onBuilderChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_BUILDER_CHANGE, onBuilderChange));
+		}
+	}
+
+	protected void renderOnButtonTypeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onButtonTypeChange = formBuilderButtonField.getOnButtonTypeChange();
+
+		if (onButtonTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_BUTTON_TYPE_CHANGE, onButtonTypeChange));
+		}
+	}
+
+	protected void renderOnControlsToolbarChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onControlsToolbarChange = formBuilderButtonField.getOnControlsToolbarChange();
+
+		if (onControlsToolbarChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_CONTROLS_TOOLBAR_CHANGE, onControlsToolbarChange));
+		}
+	}
+
+	protected void renderOnDataTypeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onDataTypeChange = formBuilderButtonField.getOnDataTypeChange();
+
+		if (onDataTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_DATA_TYPE_CHANGE, onDataTypeChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onDisabledChange = formBuilderButtonField.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnDropZoneNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onDropZoneNodeChange = formBuilderButtonField.getOnDropZoneNodeChange();
+
+		if (onDropZoneNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_DROP_ZONE_NODE_CHANGE, onDropZoneNodeChange));
+		}
+	}
+
+	protected void renderOnHiddenAttributesChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onHiddenAttributesChange = formBuilderButtonField.getOnHiddenAttributesChange();
+
+		if (onHiddenAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_HIDDEN_ATTRIBUTES_CHANGE, onHiddenAttributesChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onIdChange = formBuilderButtonField.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnLabelChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onLabelChange = formBuilderButtonField.getOnLabelChange();
+
+		if (onLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_LABEL_CHANGE, onLabelChange));
+		}
+	}
+
+	protected void renderOnLabelNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onLabelNodeChange = formBuilderButtonField.getOnLabelNodeChange();
+
+		if (onLabelNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_LABEL_NODE_CHANGE, onLabelNodeChange));
+		}
+	}
+
+	protected void renderOnLocalizationMapChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onLocalizationMapChange = formBuilderButtonField.getOnLocalizationMapChange();
+
+		if (onLocalizationMapChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_LOCALIZATION_MAP_CHANGE, onLocalizationMapChange));
+		}
+	}
+
+	protected void renderOnNameChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onNameChange = formBuilderButtonField.getOnNameChange();
+
+		if (onNameChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_NAME_CHANGE, onNameChange));
+		}
+	}
+
+	protected void renderOnParentChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onParentChange = formBuilderButtonField.getOnParentChange();
+
+		if (onParentChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_PARENT_CHANGE, onParentChange));
+		}
+	}
+
+	protected void renderOnPredefinedValueChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onPredefinedValueChange = formBuilderButtonField.getOnPredefinedValueChange();
+
+		if (onPredefinedValueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_PREDEFINED_VALUE_CHANGE, onPredefinedValueChange));
+		}
+	}
+
+	protected void renderOnReadOnlyChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onReadOnlyChange = formBuilderButtonField.getOnReadOnlyChange();
+
+		if (onReadOnlyChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_READ_ONLY_CHANGE, onReadOnlyChange));
+		}
+	}
+
+	protected void renderOnReadOnlyAttributesChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onReadOnlyAttributesChange = formBuilderButtonField.getOnReadOnlyAttributesChange();
+
+		if (onReadOnlyAttributesChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_READ_ONLY_ATTRIBUTES_CHANGE, onReadOnlyAttributesChange));
+		}
+	}
+
+	protected void renderOnRequiredChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onRequiredChange = formBuilderButtonField.getOnRequiredChange();
+
+		if (onRequiredChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_REQUIRED_CHANGE, onRequiredChange));
+		}
+	}
+
+	protected void renderOnRequiredFlagNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onRequiredFlagNodeChange = formBuilderButtonField.getOnRequiredFlagNodeChange();
+
+		if (onRequiredFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_REQUIRED_FLAG_NODE_CHANGE, onRequiredFlagNodeChange));
+		}
+	}
+
+	protected void renderOnSelectedChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onSelectedChange = formBuilderButtonField.getOnSelectedChange();
+
+		if (onSelectedChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_SELECTED_CHANGE, onSelectedChange));
+		}
+	}
+
+	protected void renderOnShowLabelChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onShowLabelChange = formBuilderButtonField.getOnShowLabelChange();
+
+		if (onShowLabelChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_SHOW_LABEL_CHANGE, onShowLabelChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onStringsChange = formBuilderButtonField.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onTabIndexChange = formBuilderButtonField.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnTemplateChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onTemplateChange = formBuilderButtonField.getOnTemplateChange();
+
+		if (onTemplateChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_TEMPLATE_CHANGE, onTemplateChange));
+		}
+	}
+
+	protected void renderOnTemplateNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onTemplateNodeChange = formBuilderButtonField.getOnTemplateNodeChange();
+
+		if (onTemplateNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_TEMPLATE_NODE_CHANGE, onTemplateNodeChange));
+		}
+	}
+
+	protected void renderOnTipChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onTipChange = formBuilderButtonField.getOnTipChange();
+
+		if (onTipChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_TIP_CHANGE, onTipChange));
+		}
+	}
+
+	protected void renderOnTipFlagNodeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onTipFlagNodeChange = formBuilderButtonField.getOnTipFlagNodeChange();
+
+		if (onTipFlagNodeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_TIP_FLAG_NODE_CHANGE, onTipFlagNodeChange));
+		}
+	}
+
+	protected void renderOnTypeChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onTypeChange = formBuilderButtonField.getOnTypeChange();
+
+		if (onTypeChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_TYPE_CHANGE, onTypeChange));
+		}
+	}
+
+	protected void renderOnUniqueChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onUniqueChange = formBuilderButtonField.getOnUniqueChange();
+
+		if (onUniqueChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_UNIQUE_CHANGE, onUniqueChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, FormBuilderButtonField formBuilderButtonField) throws IOException {
+		java.lang.String onZIndexChange = formBuilderButtonField.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(FormBuilderButtonField.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

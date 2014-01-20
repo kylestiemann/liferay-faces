@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.schedulereventsupport;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class SchedulerEventSupportBase extends javax.faces.component.UIPanel {

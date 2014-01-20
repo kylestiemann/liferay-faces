@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class PaginationRendererBase extends RendererBase {
 
 	// Private Constants
@@ -75,16 +75,99 @@ public abstract class PaginationRendererBase extends RendererBase {
 		renderVisible(renderedAttributes, pagination);
 		renderWidth(renderedAttributes, pagination);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterBoundingBoxChange(renderedAfterEvents, pagination);
+		renderAfterCircularChange(renderedAfterEvents, pagination);
+		renderAfterContentBoxChange(renderedAfterEvents, pagination);
+		renderAfterCssClassChange(renderedAfterEvents, pagination);
+		renderAfterDestroyedChange(renderedAfterEvents, pagination);
+		renderAfterDisabledChange(renderedAfterEvents, pagination);
+		renderAfterFocusedChange(renderedAfterEvents, pagination);
+		renderAfterFormatterChange(renderedAfterEvents, pagination);
+		renderAfterHeightChange(renderedAfterEvents, pagination);
+		renderAfterHideClassChange(renderedAfterEvents, pagination);
+		renderAfterIdChange(renderedAfterEvents, pagination);
+		renderAfterInitializedChange(renderedAfterEvents, pagination);
+		renderAfterItemsChange(renderedAfterEvents, pagination);
+		renderAfterLocaleChange(renderedAfterEvents, pagination);
+		renderAfterOffsetChange(renderedAfterEvents, pagination);
+		renderAfterPageChange(renderedAfterEvents, pagination);
+		renderAfterRenderChange(renderedAfterEvents, pagination);
+		renderAfterRenderedChange(renderedAfterEvents, pagination);
+		renderAfterSrcNodeChange(renderedAfterEvents, pagination);
+		renderAfterStringsChange(renderedAfterEvents, pagination);
+		renderAfterTabIndexChange(renderedAfterEvents, pagination);
+		renderAfterTotalChange(renderedAfterEvents, pagination);
+		renderAfterUseARIAChange(renderedAfterEvents, pagination);
+		renderAfterVisibleChange(renderedAfterEvents, pagination);
+		renderAfterWidthChange(renderedAfterEvents, pagination);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnBoundingBoxChange(renderedOnEvents, pagination);
+		renderOnCircularChange(renderedOnEvents, pagination);
+		renderOnContentBoxChange(renderedOnEvents, pagination);
+		renderOnCssClassChange(renderedOnEvents, pagination);
+		renderOnDestroyedChange(renderedOnEvents, pagination);
+		renderOnDisabledChange(renderedOnEvents, pagination);
+		renderOnFocusedChange(renderedOnEvents, pagination);
+		renderOnFormatterChange(renderedOnEvents, pagination);
+		renderOnHeightChange(renderedOnEvents, pagination);
+		renderOnHideClassChange(renderedOnEvents, pagination);
+		renderOnIdChange(renderedOnEvents, pagination);
+		renderOnInitializedChange(renderedOnEvents, pagination);
+		renderOnItemsChange(renderedOnEvents, pagination);
+		renderOnLocaleChange(renderedOnEvents, pagination);
+		renderOnOffsetChange(renderedOnEvents, pagination);
+		renderOnPageChange(renderedOnEvents, pagination);
+		renderOnRenderChange(renderedOnEvents, pagination);
+		renderOnRenderedChange(renderedOnEvents, pagination);
+		renderOnSrcNodeChange(renderedOnEvents, pagination);
+		renderOnStringsChange(renderedOnEvents, pagination);
+		renderOnTabIndexChange(renderedOnEvents, pagination);
+		renderOnTotalChange(renderedOnEvents, pagination);
+		renderOnUseARIAChange(renderedOnEvents, pagination);
+		renderOnVisibleChange(renderedOnEvents, pagination);
+		renderOnWidthChange(renderedOnEvents, pagination);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -292,6 +375,406 @@ public abstract class PaginationRendererBase extends RendererBase {
 
 		if (width != null) {
 			renderedAttributes.add(renderString(Pagination.WIDTH, width));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterBoundingBoxChange = pagination.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCircularChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterCircularChange = pagination.getAfterCircularChange();
+
+		if (afterCircularChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_CIRCULAR_CHANGE, afterCircularChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterContentBoxChange = pagination.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterCssClassChange = pagination.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterDestroyedChange = pagination.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterDisabledChange = pagination.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterFocusedChange = pagination.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterFormatterChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterFormatterChange = pagination.getAfterFormatterChange();
+
+		if (afterFormatterChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_FORMATTER_CHANGE, afterFormatterChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterHeightChange = pagination.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideClassChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterHideClassChange = pagination.getAfterHideClassChange();
+
+		if (afterHideClassChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterIdChange = pagination.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterInitializedChange = pagination.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterItemsChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterItemsChange = pagination.getAfterItemsChange();
+
+		if (afterItemsChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_ITEMS_CHANGE, afterItemsChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterLocaleChange = pagination.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterOffsetChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterOffsetChange = pagination.getAfterOffsetChange();
+
+		if (afterOffsetChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_OFFSET_CHANGE, afterOffsetChange));
+		}
+	}
+
+	protected void renderAfterPageChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterPageChange = pagination.getAfterPageChange();
+
+		if (afterPageChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_PAGE_CHANGE, afterPageChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterRenderChange = pagination.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterRenderedChange = pagination.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterSrcNodeChange = pagination.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterStringsChange = pagination.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterTabIndexChange = pagination.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterTotalChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterTotalChange = pagination.getAfterTotalChange();
+
+		if (afterTotalChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_TOTAL_CHANGE, afterTotalChange));
+		}
+	}
+
+	protected void renderAfterUseARIAChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterUseARIAChange = pagination.getAfterUseARIAChange();
+
+		if (afterUseARIAChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_USE_ARIACHANGE, afterUseARIAChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterVisibleChange = pagination.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String afterWidthChange = pagination.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(Pagination.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onBoundingBoxChange = pagination.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCircularChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onCircularChange = pagination.getOnCircularChange();
+
+		if (onCircularChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_CIRCULAR_CHANGE, onCircularChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onContentBoxChange = pagination.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onCssClassChange = pagination.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onDestroyedChange = pagination.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onDisabledChange = pagination.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onFocusedChange = pagination.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnFormatterChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onFormatterChange = pagination.getOnFormatterChange();
+
+		if (onFormatterChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_FORMATTER_CHANGE, onFormatterChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onHeightChange = pagination.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideClassChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onHideClassChange = pagination.getOnHideClassChange();
+
+		if (onHideClassChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_HIDE_CLASS_CHANGE, onHideClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onIdChange = pagination.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onInitializedChange = pagination.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnItemsChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onItemsChange = pagination.getOnItemsChange();
+
+		if (onItemsChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_ITEMS_CHANGE, onItemsChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onLocaleChange = pagination.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnOffsetChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onOffsetChange = pagination.getOnOffsetChange();
+
+		if (onOffsetChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_OFFSET_CHANGE, onOffsetChange));
+		}
+	}
+
+	protected void renderOnPageChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onPageChange = pagination.getOnPageChange();
+
+		if (onPageChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_PAGE_CHANGE, onPageChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onRenderChange = pagination.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onRenderedChange = pagination.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onSrcNodeChange = pagination.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onStringsChange = pagination.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onTabIndexChange = pagination.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnTotalChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onTotalChange = pagination.getOnTotalChange();
+
+		if (onTotalChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_TOTAL_CHANGE, onTotalChange));
+		}
+	}
+
+	protected void renderOnUseARIAChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onUseARIAChange = pagination.getOnUseARIAChange();
+
+		if (onUseARIAChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_USE_ARIACHANGE, onUseARIAChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onVisibleChange = pagination.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, Pagination pagination) throws IOException {
+		java.lang.String onWidthChange = pagination.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(Pagination.ON_WIDTH_CHANGE, onWidthChange));
 		}
 	}
 

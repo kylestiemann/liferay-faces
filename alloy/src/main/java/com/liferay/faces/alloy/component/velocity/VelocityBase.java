@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.velocity;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class VelocityBase extends javax.faces.component.UIPanel {

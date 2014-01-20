@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 
 	// Private Constants
@@ -98,16 +98,145 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		renderY(renderedAttributes, colorPickerPopover);
 		renderZIndex(renderedAttributes, colorPickerPopover);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAlignChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterAlignOnChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterBodyContentChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterBoundingBoxChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterCenteredChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterColorChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterColorPaletteChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterConstrainChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterContentBoxChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterCssClassChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterCurrentTriggerChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterDefaultColorChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterDestroyedChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterDisabledChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterFillHeightChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterFocusOnChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterFocusedChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterFooterContentChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterHeaderContentChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterHeightChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterHideOnChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterHsvPaletteChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterIdChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterInitializedChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterLocaleChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterMaskNodeChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterModalChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterPreventOverlapChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterRecentColorsChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterRenderChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterRenderColorPaletteChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterRenderHSVPaletteChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterRenderedChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterShimChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterSrcNodeChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterStringsChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterTabIndexChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterToolbarPositionChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterToolbarsChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterTriggerChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterTriggerEventChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterTriggerToggleEventChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterVisibleChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterWidthChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterXChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterXyChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterYChange(renderedAfterEvents, colorPickerPopover);
+		renderAfterZIndexChange(renderedAfterEvents, colorPickerPopover);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAlignChange(renderedOnEvents, colorPickerPopover);
+		renderOnAlignOnChange(renderedOnEvents, colorPickerPopover);
+		renderOnBodyContentChange(renderedOnEvents, colorPickerPopover);
+		renderOnBoundingBoxChange(renderedOnEvents, colorPickerPopover);
+		renderOnCenteredChange(renderedOnEvents, colorPickerPopover);
+		renderOnColorChange(renderedOnEvents, colorPickerPopover);
+		renderOnColorPaletteChange(renderedOnEvents, colorPickerPopover);
+		renderOnConstrainChange(renderedOnEvents, colorPickerPopover);
+		renderOnContentBoxChange(renderedOnEvents, colorPickerPopover);
+		renderOnCssClassChange(renderedOnEvents, colorPickerPopover);
+		renderOnCurrentTriggerChange(renderedOnEvents, colorPickerPopover);
+		renderOnDefaultColorChange(renderedOnEvents, colorPickerPopover);
+		renderOnDestroyedChange(renderedOnEvents, colorPickerPopover);
+		renderOnDisabledChange(renderedOnEvents, colorPickerPopover);
+		renderOnFillHeightChange(renderedOnEvents, colorPickerPopover);
+		renderOnFocusOnChange(renderedOnEvents, colorPickerPopover);
+		renderOnFocusedChange(renderedOnEvents, colorPickerPopover);
+		renderOnFooterContentChange(renderedOnEvents, colorPickerPopover);
+		renderOnHeaderContentChange(renderedOnEvents, colorPickerPopover);
+		renderOnHeightChange(renderedOnEvents, colorPickerPopover);
+		renderOnHideOnChange(renderedOnEvents, colorPickerPopover);
+		renderOnHsvPaletteChange(renderedOnEvents, colorPickerPopover);
+		renderOnIdChange(renderedOnEvents, colorPickerPopover);
+		renderOnInitializedChange(renderedOnEvents, colorPickerPopover);
+		renderOnLocaleChange(renderedOnEvents, colorPickerPopover);
+		renderOnMaskNodeChange(renderedOnEvents, colorPickerPopover);
+		renderOnModalChange(renderedOnEvents, colorPickerPopover);
+		renderOnPreventOverlapChange(renderedOnEvents, colorPickerPopover);
+		renderOnRecentColorsChange(renderedOnEvents, colorPickerPopover);
+		renderOnRenderChange(renderedOnEvents, colorPickerPopover);
+		renderOnRenderColorPaletteChange(renderedOnEvents, colorPickerPopover);
+		renderOnRenderHSVPaletteChange(renderedOnEvents, colorPickerPopover);
+		renderOnRenderedChange(renderedOnEvents, colorPickerPopover);
+		renderOnShimChange(renderedOnEvents, colorPickerPopover);
+		renderOnSrcNodeChange(renderedOnEvents, colorPickerPopover);
+		renderOnStringsChange(renderedOnEvents, colorPickerPopover);
+		renderOnTabIndexChange(renderedOnEvents, colorPickerPopover);
+		renderOnToolbarPositionChange(renderedOnEvents, colorPickerPopover);
+		renderOnToolbarsChange(renderedOnEvents, colorPickerPopover);
+		renderOnTriggerChange(renderedOnEvents, colorPickerPopover);
+		renderOnTriggerEventChange(renderedOnEvents, colorPickerPopover);
+		renderOnTriggerToggleEventChange(renderedOnEvents, colorPickerPopover);
+		renderOnVisibleChange(renderedOnEvents, colorPickerPopover);
+		renderOnWidthChange(renderedOnEvents, colorPickerPopover);
+		renderOnXChange(renderedOnEvents, colorPickerPopover);
+		renderOnXyChange(renderedOnEvents, colorPickerPopover);
+		renderOnYChange(renderedOnEvents, colorPickerPopover);
+		renderOnZIndexChange(renderedOnEvents, colorPickerPopover);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -499,6 +628,774 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 
 		if (zIndex != null) {
 			renderedAttributes.add(renderNumber(ColorPickerPopover.Z_INDEX, zIndex));
+		}
+	}
+
+	protected void renderAfterAlignChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterAlignChange = colorPickerPopover.getAfterAlignChange();
+
+		if (afterAlignChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_ALIGN_CHANGE, afterAlignChange));
+		}
+	}
+
+	protected void renderAfterAlignOnChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterAlignOnChange = colorPickerPopover.getAfterAlignOnChange();
+
+		if (afterAlignOnChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
+		}
+	}
+
+	protected void renderAfterBodyContentChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterBodyContentChange = colorPickerPopover.getAfterBodyContentChange();
+
+		if (afterBodyContentChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterBoundingBoxChange = colorPickerPopover.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCenteredChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterCenteredChange = colorPickerPopover.getAfterCenteredChange();
+
+		if (afterCenteredChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_CENTERED_CHANGE, afterCenteredChange));
+		}
+	}
+
+	protected void renderAfterColorChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterColorChange = colorPickerPopover.getAfterColorChange();
+
+		if (afterColorChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_COLOR_CHANGE, afterColorChange));
+		}
+	}
+
+	protected void renderAfterColorPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterColorPaletteChange = colorPickerPopover.getAfterColorPaletteChange();
+
+		if (afterColorPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_COLOR_PALETTE_CHANGE, afterColorPaletteChange));
+		}
+	}
+
+	protected void renderAfterConstrainChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterConstrainChange = colorPickerPopover.getAfterConstrainChange();
+
+		if (afterConstrainChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterContentBoxChange = colorPickerPopover.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterCssClassChange = colorPickerPopover.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterCurrentTriggerChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterCurrentTriggerChange = colorPickerPopover.getAfterCurrentTriggerChange();
+
+		if (afterCurrentTriggerChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_CURRENT_TRIGGER_CHANGE, afterCurrentTriggerChange));
+		}
+	}
+
+	protected void renderAfterDefaultColorChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterDefaultColorChange = colorPickerPopover.getAfterDefaultColorChange();
+
+		if (afterDefaultColorChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_DEFAULT_COLOR_CHANGE, afterDefaultColorChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterDestroyedChange = colorPickerPopover.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterDisabledChange = colorPickerPopover.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterFillHeightChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterFillHeightChange = colorPickerPopover.getAfterFillHeightChange();
+
+		if (afterFillHeightChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
+		}
+	}
+
+	protected void renderAfterFocusOnChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterFocusOnChange = colorPickerPopover.getAfterFocusOnChange();
+
+		if (afterFocusOnChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_FOCUS_ON_CHANGE, afterFocusOnChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterFocusedChange = colorPickerPopover.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterFooterContentChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterFooterContentChange = colorPickerPopover.getAfterFooterContentChange();
+
+		if (afterFooterContentChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
+		}
+	}
+
+	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterHeaderContentChange = colorPickerPopover.getAfterHeaderContentChange();
+
+		if (afterHeaderContentChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterHeightChange = colorPickerPopover.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideOnChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterHideOnChange = colorPickerPopover.getAfterHideOnChange();
+
+		if (afterHideOnChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
+		}
+	}
+
+	protected void renderAfterHsvPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterHsvPaletteChange = colorPickerPopover.getAfterHsvPaletteChange();
+
+		if (afterHsvPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_HSV_PALETTE_CHANGE, afterHsvPaletteChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterIdChange = colorPickerPopover.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterInitializedChange = colorPickerPopover.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterLocaleChange = colorPickerPopover.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterMaskNodeChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterMaskNodeChange = colorPickerPopover.getAfterMaskNodeChange();
+
+		if (afterMaskNodeChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_MASK_NODE_CHANGE, afterMaskNodeChange));
+		}
+	}
+
+	protected void renderAfterModalChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterModalChange = colorPickerPopover.getAfterModalChange();
+
+		if (afterModalChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_MODAL_CHANGE, afterModalChange));
+		}
+	}
+
+	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterPreventOverlapChange = colorPickerPopover.getAfterPreventOverlapChange();
+
+		if (afterPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
+		}
+	}
+
+	protected void renderAfterRecentColorsChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterRecentColorsChange = colorPickerPopover.getAfterRecentColorsChange();
+
+		if (afterRecentColorsChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_RECENT_COLORS_CHANGE, afterRecentColorsChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterRenderChange = colorPickerPopover.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderColorPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterRenderColorPaletteChange = colorPickerPopover.getAfterRenderColorPaletteChange();
+
+		if (afterRenderColorPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_RENDER_COLOR_PALETTE_CHANGE, afterRenderColorPaletteChange));
+		}
+	}
+
+	protected void renderAfterRenderHSVPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterRenderHSVPaletteChange = colorPickerPopover.getAfterRenderHSVPaletteChange();
+
+		if (afterRenderHSVPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_RENDER_HSVPALETTE_CHANGE, afterRenderHSVPaletteChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterRenderedChange = colorPickerPopover.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterShimChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterShimChange = colorPickerPopover.getAfterShimChange();
+
+		if (afterShimChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_SHIM_CHANGE, afterShimChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterSrcNodeChange = colorPickerPopover.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterStringsChange = colorPickerPopover.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterTabIndexChange = colorPickerPopover.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterToolbarPositionChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterToolbarPositionChange = colorPickerPopover.getAfterToolbarPositionChange();
+
+		if (afterToolbarPositionChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_TOOLBAR_POSITION_CHANGE, afterToolbarPositionChange));
+		}
+	}
+
+	protected void renderAfterToolbarsChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterToolbarsChange = colorPickerPopover.getAfterToolbarsChange();
+
+		if (afterToolbarsChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_TOOLBARS_CHANGE, afterToolbarsChange));
+		}
+	}
+
+	protected void renderAfterTriggerChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterTriggerChange = colorPickerPopover.getAfterTriggerChange();
+
+		if (afterTriggerChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_TRIGGER_CHANGE, afterTriggerChange));
+		}
+	}
+
+	protected void renderAfterTriggerEventChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterTriggerEventChange = colorPickerPopover.getAfterTriggerEventChange();
+
+		if (afterTriggerEventChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_TRIGGER_EVENT_CHANGE, afterTriggerEventChange));
+		}
+	}
+
+	protected void renderAfterTriggerToggleEventChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterTriggerToggleEventChange = colorPickerPopover.getAfterTriggerToggleEventChange();
+
+		if (afterTriggerToggleEventChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_TRIGGER_TOGGLE_EVENT_CHANGE, afterTriggerToggleEventChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterVisibleChange = colorPickerPopover.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterWidthChange = colorPickerPopover.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderAfterXChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterXChange = colorPickerPopover.getAfterXChange();
+
+		if (afterXChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_XCHANGE, afterXChange));
+		}
+	}
+
+	protected void renderAfterXyChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterXyChange = colorPickerPopover.getAfterXyChange();
+
+		if (afterXyChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_XY_CHANGE, afterXyChange));
+		}
+	}
+
+	protected void renderAfterYChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterYChange = colorPickerPopover.getAfterYChange();
+
+		if (afterYChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_YCHANGE, afterYChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String afterZIndexChange = colorPickerPopover.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAlignChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onAlignChange = colorPickerPopover.getOnAlignChange();
+
+		if (onAlignChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_ALIGN_CHANGE, onAlignChange));
+		}
+	}
+
+	protected void renderOnAlignOnChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onAlignOnChange = colorPickerPopover.getOnAlignOnChange();
+
+		if (onAlignOnChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_ALIGN_ON_CHANGE, onAlignOnChange));
+		}
+	}
+
+	protected void renderOnBodyContentChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onBodyContentChange = colorPickerPopover.getOnBodyContentChange();
+
+		if (onBodyContentChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onBoundingBoxChange = colorPickerPopover.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCenteredChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onCenteredChange = colorPickerPopover.getOnCenteredChange();
+
+		if (onCenteredChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_CENTERED_CHANGE, onCenteredChange));
+		}
+	}
+
+	protected void renderOnColorChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onColorChange = colorPickerPopover.getOnColorChange();
+
+		if (onColorChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_COLOR_CHANGE, onColorChange));
+		}
+	}
+
+	protected void renderOnColorPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onColorPaletteChange = colorPickerPopover.getOnColorPaletteChange();
+
+		if (onColorPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_COLOR_PALETTE_CHANGE, onColorPaletteChange));
+		}
+	}
+
+	protected void renderOnConstrainChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onConstrainChange = colorPickerPopover.getOnConstrainChange();
+
+		if (onConstrainChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_CONSTRAIN_CHANGE, onConstrainChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onContentBoxChange = colorPickerPopover.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onCssClassChange = colorPickerPopover.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnCurrentTriggerChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onCurrentTriggerChange = colorPickerPopover.getOnCurrentTriggerChange();
+
+		if (onCurrentTriggerChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_CURRENT_TRIGGER_CHANGE, onCurrentTriggerChange));
+		}
+	}
+
+	protected void renderOnDefaultColorChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onDefaultColorChange = colorPickerPopover.getOnDefaultColorChange();
+
+		if (onDefaultColorChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_DEFAULT_COLOR_CHANGE, onDefaultColorChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onDestroyedChange = colorPickerPopover.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onDisabledChange = colorPickerPopover.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnFillHeightChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onFillHeightChange = colorPickerPopover.getOnFillHeightChange();
+
+		if (onFillHeightChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
+		}
+	}
+
+	protected void renderOnFocusOnChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onFocusOnChange = colorPickerPopover.getOnFocusOnChange();
+
+		if (onFocusOnChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_FOCUS_ON_CHANGE, onFocusOnChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onFocusedChange = colorPickerPopover.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnFooterContentChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onFooterContentChange = colorPickerPopover.getOnFooterContentChange();
+
+		if (onFooterContentChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
+		}
+	}
+
+	protected void renderOnHeaderContentChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onHeaderContentChange = colorPickerPopover.getOnHeaderContentChange();
+
+		if (onHeaderContentChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onHeightChange = colorPickerPopover.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideOnChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onHideOnChange = colorPickerPopover.getOnHideOnChange();
+
+		if (onHideOnChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_HIDE_ON_CHANGE, onHideOnChange));
+		}
+	}
+
+	protected void renderOnHsvPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onHsvPaletteChange = colorPickerPopover.getOnHsvPaletteChange();
+
+		if (onHsvPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_HSV_PALETTE_CHANGE, onHsvPaletteChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onIdChange = colorPickerPopover.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onInitializedChange = colorPickerPopover.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onLocaleChange = colorPickerPopover.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnMaskNodeChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onMaskNodeChange = colorPickerPopover.getOnMaskNodeChange();
+
+		if (onMaskNodeChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_MASK_NODE_CHANGE, onMaskNodeChange));
+		}
+	}
+
+	protected void renderOnModalChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onModalChange = colorPickerPopover.getOnModalChange();
+
+		if (onModalChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_MODAL_CHANGE, onModalChange));
+		}
+	}
+
+	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onPreventOverlapChange = colorPickerPopover.getOnPreventOverlapChange();
+
+		if (onPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
+		}
+	}
+
+	protected void renderOnRecentColorsChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onRecentColorsChange = colorPickerPopover.getOnRecentColorsChange();
+
+		if (onRecentColorsChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_RECENT_COLORS_CHANGE, onRecentColorsChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onRenderChange = colorPickerPopover.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderColorPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onRenderColorPaletteChange = colorPickerPopover.getOnRenderColorPaletteChange();
+
+		if (onRenderColorPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_RENDER_COLOR_PALETTE_CHANGE, onRenderColorPaletteChange));
+		}
+	}
+
+	protected void renderOnRenderHSVPaletteChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onRenderHSVPaletteChange = colorPickerPopover.getOnRenderHSVPaletteChange();
+
+		if (onRenderHSVPaletteChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_RENDER_HSVPALETTE_CHANGE, onRenderHSVPaletteChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onRenderedChange = colorPickerPopover.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnShimChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onShimChange = colorPickerPopover.getOnShimChange();
+
+		if (onShimChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_SHIM_CHANGE, onShimChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onSrcNodeChange = colorPickerPopover.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onStringsChange = colorPickerPopover.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onTabIndexChange = colorPickerPopover.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnToolbarPositionChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onToolbarPositionChange = colorPickerPopover.getOnToolbarPositionChange();
+
+		if (onToolbarPositionChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_TOOLBAR_POSITION_CHANGE, onToolbarPositionChange));
+		}
+	}
+
+	protected void renderOnToolbarsChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onToolbarsChange = colorPickerPopover.getOnToolbarsChange();
+
+		if (onToolbarsChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_TOOLBARS_CHANGE, onToolbarsChange));
+		}
+	}
+
+	protected void renderOnTriggerChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onTriggerChange = colorPickerPopover.getOnTriggerChange();
+
+		if (onTriggerChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_TRIGGER_CHANGE, onTriggerChange));
+		}
+	}
+
+	protected void renderOnTriggerEventChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onTriggerEventChange = colorPickerPopover.getOnTriggerEventChange();
+
+		if (onTriggerEventChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_TRIGGER_EVENT_CHANGE, onTriggerEventChange));
+		}
+	}
+
+	protected void renderOnTriggerToggleEventChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onTriggerToggleEventChange = colorPickerPopover.getOnTriggerToggleEventChange();
+
+		if (onTriggerToggleEventChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_TRIGGER_TOGGLE_EVENT_CHANGE, onTriggerToggleEventChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onVisibleChange = colorPickerPopover.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onWidthChange = colorPickerPopover.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_WIDTH_CHANGE, onWidthChange));
+		}
+	}
+
+	protected void renderOnXChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onXChange = colorPickerPopover.getOnXChange();
+
+		if (onXChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_XCHANGE, onXChange));
+		}
+	}
+
+	protected void renderOnXyChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onXyChange = colorPickerPopover.getOnXyChange();
+
+		if (onXyChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_XY_CHANGE, onXyChange));
+		}
+	}
+
+	protected void renderOnYChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onYChange = colorPickerPopover.getOnYChange();
+
+		if (onYChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_YCHANGE, onYChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, ColorPickerPopover colorPickerPopover) throws IOException {
+		java.lang.String onZIndexChange = colorPickerPopover.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(ColorPickerPopover.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

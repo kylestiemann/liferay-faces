@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.ternarysearchnode;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class TernarySearchNodeBase extends javax.faces.component.UIPanel {

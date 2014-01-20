@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.progressbar;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class ProgressBarBase extends javax.faces.component.UIPanel {

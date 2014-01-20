@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class TernarySearchTreeRendererBase extends RendererBase {
 
 	// Private Constants
@@ -52,16 +52,53 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 		renderDestroyed(renderedAttributes, ternarySearchTree);
 		renderInitialized(renderedAttributes, ternarySearchTree);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterDestroyedChange(renderedAfterEvents, ternarySearchTree);
+		renderAfterInitializedChange(renderedAfterEvents, ternarySearchTree);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnDestroyedChange(renderedOnEvents, ternarySearchTree);
+		renderOnInitializedChange(renderedOnEvents, ternarySearchTree);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -85,6 +122,38 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 
 		if (initialized != null) {
 			renderedAttributes.add(renderBoolean(TernarySearchTree.INITIALIZED, initialized));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
+		java.lang.String afterDestroyedChange = ternarySearchTree.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(TernarySearchTree.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
+		java.lang.String afterInitializedChange = ternarySearchTree.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(TernarySearchTree.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
+		java.lang.String onDestroyedChange = ternarySearchTree.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(TernarySearchTree.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, TernarySearchTree ternarySearchTree) throws IOException {
+		java.lang.String onInitializedChange = ternarySearchTree.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(TernarySearchTree.ON_INITIALIZED_CHANGE, onInitializedChange));
 		}
 	}
 

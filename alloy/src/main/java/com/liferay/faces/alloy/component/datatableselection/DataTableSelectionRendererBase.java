@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class DataTableSelectionRendererBase extends RendererBase {
 
 	// Private Constants
@@ -55,16 +55,59 @@ public abstract class DataTableSelectionRendererBase extends RendererBase {
 		renderSelection(renderedAttributes, dataTableSelection);
 		renderTabIndex(renderedAttributes, dataTableSelection);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterActiveCellChange(renderedAfterEvents, dataTableSelection);
+		renderAfterActiveCoordChange(renderedAfterEvents, dataTableSelection);
+		renderAfterActiveRowChange(renderedAfterEvents, dataTableSelection);
+		renderAfterSelectionChange(renderedAfterEvents, dataTableSelection);
+		renderAfterTabIndexChange(renderedAfterEvents, dataTableSelection);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnActiveCellChange(renderedOnEvents, dataTableSelection);
+		renderOnActiveCoordChange(renderedOnEvents, dataTableSelection);
+		renderOnActiveRowChange(renderedOnEvents, dataTableSelection);
+		renderOnSelectionChange(renderedOnEvents, dataTableSelection);
+		renderOnTabIndexChange(renderedOnEvents, dataTableSelection);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -112,6 +155,86 @@ public abstract class DataTableSelectionRendererBase extends RendererBase {
 
 		if (tabIndex != null) {
 			renderedAttributes.add(renderNumber(DataTableSelection.TAB_INDEX, tabIndex));
+		}
+	}
+
+	protected void renderAfterActiveCellChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String afterActiveCellChange = dataTableSelection.getAfterActiveCellChange();
+
+		if (afterActiveCellChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.AFTER_ACTIVE_CELL_CHANGE, afterActiveCellChange));
+		}
+	}
+
+	protected void renderAfterActiveCoordChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String afterActiveCoordChange = dataTableSelection.getAfterActiveCoordChange();
+
+		if (afterActiveCoordChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.AFTER_ACTIVE_COORD_CHANGE, afterActiveCoordChange));
+		}
+	}
+
+	protected void renderAfterActiveRowChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String afterActiveRowChange = dataTableSelection.getAfterActiveRowChange();
+
+		if (afterActiveRowChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.AFTER_ACTIVE_ROW_CHANGE, afterActiveRowChange));
+		}
+	}
+
+	protected void renderAfterSelectionChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String afterSelectionChange = dataTableSelection.getAfterSelectionChange();
+
+		if (afterSelectionChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.AFTER_SELECTION_CHANGE, afterSelectionChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String afterTabIndexChange = dataTableSelection.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderOnActiveCellChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String onActiveCellChange = dataTableSelection.getOnActiveCellChange();
+
+		if (onActiveCellChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ON_ACTIVE_CELL_CHANGE, onActiveCellChange));
+		}
+	}
+
+	protected void renderOnActiveCoordChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String onActiveCoordChange = dataTableSelection.getOnActiveCoordChange();
+
+		if (onActiveCoordChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ON_ACTIVE_COORD_CHANGE, onActiveCoordChange));
+		}
+	}
+
+	protected void renderOnActiveRowChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String onActiveRowChange = dataTableSelection.getOnActiveRowChange();
+
+		if (onActiveRowChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ON_ACTIVE_ROW_CHANGE, onActiveRowChange));
+		}
+	}
+
+	protected void renderOnSelectionChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String onSelectionChange = dataTableSelection.getOnSelectionChange();
+
+		if (onSelectionChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ON_SELECTION_CHANGE, onSelectionChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, DataTableSelection dataTableSelection) throws IOException {
+		java.lang.String onTabIndexChange = dataTableSelection.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(DataTableSelection.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 		}
 	}
 

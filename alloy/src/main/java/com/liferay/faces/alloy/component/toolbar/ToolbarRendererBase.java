@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class ToolbarRendererBase extends RendererBase {
 
 	// Private Constants
@@ -71,16 +71,91 @@ public abstract class ToolbarRendererBase extends RendererBase {
 		renderVisible(renderedAttributes, toolbar);
 		renderWidth(renderedAttributes, toolbar);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterBoundingBoxChange(renderedAfterEvents, toolbar);
+		renderAfterChildrenChange(renderedAfterEvents, toolbar);
+		renderAfterContentBoxChange(renderedAfterEvents, toolbar);
+		renderAfterCssClassChange(renderedAfterEvents, toolbar);
+		renderAfterDestroyedChange(renderedAfterEvents, toolbar);
+		renderAfterDisabledChange(renderedAfterEvents, toolbar);
+		renderAfterFocusedChange(renderedAfterEvents, toolbar);
+		renderAfterHeightChange(renderedAfterEvents, toolbar);
+		renderAfterHideClassChange(renderedAfterEvents, toolbar);
+		renderAfterIdChange(renderedAfterEvents, toolbar);
+		renderAfterInitializedChange(renderedAfterEvents, toolbar);
+		renderAfterLocaleChange(renderedAfterEvents, toolbar);
+		renderAfterRenderChange(renderedAfterEvents, toolbar);
+		renderAfterRenderedChange(renderedAfterEvents, toolbar);
+		renderAfterSrcNodeChange(renderedAfterEvents, toolbar);
+		renderAfterStringsChange(renderedAfterEvents, toolbar);
+		renderAfterTabIndexChange(renderedAfterEvents, toolbar);
+		renderAfterToolbarRendererChange(renderedAfterEvents, toolbar);
+		renderAfterUseARIAChange(renderedAfterEvents, toolbar);
+		renderAfterVisibleChange(renderedAfterEvents, toolbar);
+		renderAfterWidthChange(renderedAfterEvents, toolbar);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnBoundingBoxChange(renderedOnEvents, toolbar);
+		renderOnChildrenChange(renderedOnEvents, toolbar);
+		renderOnContentBoxChange(renderedOnEvents, toolbar);
+		renderOnCssClassChange(renderedOnEvents, toolbar);
+		renderOnDestroyedChange(renderedOnEvents, toolbar);
+		renderOnDisabledChange(renderedOnEvents, toolbar);
+		renderOnFocusedChange(renderedOnEvents, toolbar);
+		renderOnHeightChange(renderedOnEvents, toolbar);
+		renderOnHideClassChange(renderedOnEvents, toolbar);
+		renderOnIdChange(renderedOnEvents, toolbar);
+		renderOnInitializedChange(renderedOnEvents, toolbar);
+		renderOnLocaleChange(renderedOnEvents, toolbar);
+		renderOnRenderChange(renderedOnEvents, toolbar);
+		renderOnRenderedChange(renderedOnEvents, toolbar);
+		renderOnSrcNodeChange(renderedOnEvents, toolbar);
+		renderOnStringsChange(renderedOnEvents, toolbar);
+		renderOnTabIndexChange(renderedOnEvents, toolbar);
+		renderOnToolbarRendererChange(renderedOnEvents, toolbar);
+		renderOnUseARIAChange(renderedOnEvents, toolbar);
+		renderOnVisibleChange(renderedOnEvents, toolbar);
+		renderOnWidthChange(renderedOnEvents, toolbar);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -256,6 +331,342 @@ public abstract class ToolbarRendererBase extends RendererBase {
 
 		if (width != null) {
 			renderedAttributes.add(renderString(Toolbar.WIDTH, width));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterBoundingBoxChange = toolbar.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterChildrenChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterChildrenChange = toolbar.getAfterChildrenChange();
+
+		if (afterChildrenChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_CHILDREN_CHANGE, afterChildrenChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterContentBoxChange = toolbar.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterCssClassChange = toolbar.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterDestroyedChange = toolbar.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterDisabledChange = toolbar.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterFocusedChange = toolbar.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterHeightChange = toolbar.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideClassChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterHideClassChange = toolbar.getAfterHideClassChange();
+
+		if (afterHideClassChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterIdChange = toolbar.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterInitializedChange = toolbar.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterLocaleChange = toolbar.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterRenderChange = toolbar.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterRenderedChange = toolbar.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterSrcNodeChange = toolbar.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterStringsChange = toolbar.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterTabIndexChange = toolbar.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterToolbarRendererChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterToolbarRendererChange = toolbar.getAfterToolbarRendererChange();
+
+		if (afterToolbarRendererChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_TOOLBAR_RENDERER_CHANGE, afterToolbarRendererChange));
+		}
+	}
+
+	protected void renderAfterUseARIAChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterUseARIAChange = toolbar.getAfterUseARIAChange();
+
+		if (afterUseARIAChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_USE_ARIACHANGE, afterUseARIAChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterVisibleChange = toolbar.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String afterWidthChange = toolbar.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(Toolbar.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onBoundingBoxChange = toolbar.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnChildrenChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onChildrenChange = toolbar.getOnChildrenChange();
+
+		if (onChildrenChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_CHILDREN_CHANGE, onChildrenChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onContentBoxChange = toolbar.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onCssClassChange = toolbar.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onDestroyedChange = toolbar.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onDisabledChange = toolbar.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onFocusedChange = toolbar.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onHeightChange = toolbar.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideClassChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onHideClassChange = toolbar.getOnHideClassChange();
+
+		if (onHideClassChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_HIDE_CLASS_CHANGE, onHideClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onIdChange = toolbar.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onInitializedChange = toolbar.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onLocaleChange = toolbar.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onRenderChange = toolbar.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onRenderedChange = toolbar.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onSrcNodeChange = toolbar.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onStringsChange = toolbar.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onTabIndexChange = toolbar.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnToolbarRendererChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onToolbarRendererChange = toolbar.getOnToolbarRendererChange();
+
+		if (onToolbarRendererChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_TOOLBAR_RENDERER_CHANGE, onToolbarRendererChange));
+		}
+	}
+
+	protected void renderOnUseARIAChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onUseARIAChange = toolbar.getOnUseARIAChange();
+
+		if (onUseARIAChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_USE_ARIACHANGE, onUseARIAChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onVisibleChange = toolbar.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, Toolbar toolbar) throws IOException {
+		java.lang.String onWidthChange = toolbar.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(Toolbar.ON_WIDTH_CHANGE, onWidthChange));
 		}
 	}
 

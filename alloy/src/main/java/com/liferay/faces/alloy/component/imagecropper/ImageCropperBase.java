@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.imagecropper;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class ImageCropperBase extends javax.faces.component.UIPanel {

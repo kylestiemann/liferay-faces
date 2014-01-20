@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class DateCellEditorRendererBase extends RendererBase {
 
 	// Private Constants
@@ -55,16 +55,59 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 		renderInputFormatter(renderedAttributes, dateCellEditor);
 		renderOutputFormatter(renderedAttributes, dateCellEditor);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterBodyContentChange(renderedAfterEvents, dateCellEditor);
+		renderAfterCalendarChange(renderedAfterEvents, dateCellEditor);
+		renderAfterDateFormatChange(renderedAfterEvents, dateCellEditor);
+		renderAfterInputFormatterChange(renderedAfterEvents, dateCellEditor);
+		renderAfterOutputFormatterChange(renderedAfterEvents, dateCellEditor);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnBodyContentChange(renderedOnEvents, dateCellEditor);
+		renderOnCalendarChange(renderedOnEvents, dateCellEditor);
+		renderOnDateFormatChange(renderedOnEvents, dateCellEditor);
+		renderOnInputFormatterChange(renderedOnEvents, dateCellEditor);
+		renderOnOutputFormatterChange(renderedOnEvents, dateCellEditor);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -112,6 +155,86 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 
 		if (outputFormatter != null) {
 			renderedAttributes.add(renderString(DateCellEditor.OUTPUT_FORMATTER, outputFormatter));
+		}
+	}
+
+	protected void renderAfterBodyContentChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String afterBodyContentChange = dateCellEditor.getAfterBodyContentChange();
+
+		if (afterBodyContentChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
+		}
+	}
+
+	protected void renderAfterCalendarChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String afterCalendarChange = dateCellEditor.getAfterCalendarChange();
+
+		if (afterCalendarChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.AFTER_CALENDAR_CHANGE, afterCalendarChange));
+		}
+	}
+
+	protected void renderAfterDateFormatChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String afterDateFormatChange = dateCellEditor.getAfterDateFormatChange();
+
+		if (afterDateFormatChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.AFTER_DATE_FORMAT_CHANGE, afterDateFormatChange));
+		}
+	}
+
+	protected void renderAfterInputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String afterInputFormatterChange = dateCellEditor.getAfterInputFormatterChange();
+
+		if (afterInputFormatterChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.AFTER_INPUT_FORMATTER_CHANGE, afterInputFormatterChange));
+		}
+	}
+
+	protected void renderAfterOutputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String afterOutputFormatterChange = dateCellEditor.getAfterOutputFormatterChange();
+
+		if (afterOutputFormatterChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.AFTER_OUTPUT_FORMATTER_CHANGE, afterOutputFormatterChange));
+		}
+	}
+
+	protected void renderOnBodyContentChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String onBodyContentChange = dateCellEditor.getOnBodyContentChange();
+
+		if (onBodyContentChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
+		}
+	}
+
+	protected void renderOnCalendarChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String onCalendarChange = dateCellEditor.getOnCalendarChange();
+
+		if (onCalendarChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.ON_CALENDAR_CHANGE, onCalendarChange));
+		}
+	}
+
+	protected void renderOnDateFormatChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String onDateFormatChange = dateCellEditor.getOnDateFormatChange();
+
+		if (onDateFormatChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.ON_DATE_FORMAT_CHANGE, onDateFormatChange));
+		}
+	}
+
+	protected void renderOnInputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String onInputFormatterChange = dateCellEditor.getOnInputFormatterChange();
+
+		if (onInputFormatterChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.ON_INPUT_FORMATTER_CHANGE, onInputFormatterChange));
+		}
+	}
+
+	protected void renderOnOutputFormatterChange(List<String> renderedAttributes, DateCellEditor dateCellEditor) throws IOException {
+		java.lang.String onOutputFormatterChange = dateCellEditor.getOnOutputFormatterChange();
+
+		if (onOutputFormatterChange != null) {
+			renderedAttributes.add(renderString(DateCellEditor.ON_OUTPUT_FORMATTER_CHANGE, onOutputFormatterChange));
 		}
 	}
 

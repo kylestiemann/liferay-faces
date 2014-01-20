@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class PopoverRendererBase extends RendererBase {
 
 	// Private Constants
@@ -88,16 +88,123 @@ public abstract class PopoverRendererBase extends RendererBase {
 		renderZIndex(renderedAttributes, popover);
 		renderFor(renderedAttributes, popover);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAlignChange(renderedAfterEvents, popover);
+		renderAfterAlignOnChange(renderedAfterEvents, popover);
+		renderAfterBodyContentChange(renderedAfterEvents, popover);
+		renderAfterBoundingBoxChange(renderedAfterEvents, popover);
+		renderAfterCenteredChange(renderedAfterEvents, popover);
+		renderAfterConstrainChange(renderedAfterEvents, popover);
+		renderAfterContentBoxChange(renderedAfterEvents, popover);
+		renderAfterDestroyedChange(renderedAfterEvents, popover);
+		renderAfterDisabledChange(renderedAfterEvents, popover);
+		renderAfterFillHeightChange(renderedAfterEvents, popover);
+		renderAfterFocusOnChange(renderedAfterEvents, popover);
+		renderAfterFocusedChange(renderedAfterEvents, popover);
+		renderAfterFooterContentChange(renderedAfterEvents, popover);
+		renderAfterHeaderContentChange(renderedAfterEvents, popover);
+		renderAfterHeightChange(renderedAfterEvents, popover);
+		renderAfterHideOnChange(renderedAfterEvents, popover);
+		renderAfterIdChange(renderedAfterEvents, popover);
+		renderAfterInitializedChange(renderedAfterEvents, popover);
+		renderAfterLocaleChange(renderedAfterEvents, popover);
+		renderAfterMaskNodeChange(renderedAfterEvents, popover);
+		renderAfterModalChange(renderedAfterEvents, popover);
+		renderAfterPreventOverlapChange(renderedAfterEvents, popover);
+		renderAfterRenderChange(renderedAfterEvents, popover);
+		renderAfterRenderedChange(renderedAfterEvents, popover);
+		renderAfterShimChange(renderedAfterEvents, popover);
+		renderAfterSrcNodeChange(renderedAfterEvents, popover);
+		renderAfterStringsChange(renderedAfterEvents, popover);
+		renderAfterTabIndexChange(renderedAfterEvents, popover);
+		renderAfterToolbarPositionChange(renderedAfterEvents, popover);
+		renderAfterToolbarsChange(renderedAfterEvents, popover);
+		renderAfterTriggerToggleEventChange(renderedAfterEvents, popover);
+		renderAfterVisibleChange(renderedAfterEvents, popover);
+		renderAfterWidthChange(renderedAfterEvents, popover);
+		renderAfterXChange(renderedAfterEvents, popover);
+		renderAfterXyChange(renderedAfterEvents, popover);
+		renderAfterYChange(renderedAfterEvents, popover);
+		renderAfterZIndexChange(renderedAfterEvents, popover);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAlignChange(renderedOnEvents, popover);
+		renderOnAlignOnChange(renderedOnEvents, popover);
+		renderOnBodyContentChange(renderedOnEvents, popover);
+		renderOnBoundingBoxChange(renderedOnEvents, popover);
+		renderOnCenteredChange(renderedOnEvents, popover);
+		renderOnConstrainChange(renderedOnEvents, popover);
+		renderOnContentBoxChange(renderedOnEvents, popover);
+		renderOnDestroyedChange(renderedOnEvents, popover);
+		renderOnDisabledChange(renderedOnEvents, popover);
+		renderOnFillHeightChange(renderedOnEvents, popover);
+		renderOnFocusOnChange(renderedOnEvents, popover);
+		renderOnFocusedChange(renderedOnEvents, popover);
+		renderOnFooterContentChange(renderedOnEvents, popover);
+		renderOnHeaderContentChange(renderedOnEvents, popover);
+		renderOnHeightChange(renderedOnEvents, popover);
+		renderOnHideOnChange(renderedOnEvents, popover);
+		renderOnIdChange(renderedOnEvents, popover);
+		renderOnInitializedChange(renderedOnEvents, popover);
+		renderOnLocaleChange(renderedOnEvents, popover);
+		renderOnMaskNodeChange(renderedOnEvents, popover);
+		renderOnModalChange(renderedOnEvents, popover);
+		renderOnPreventOverlapChange(renderedOnEvents, popover);
+		renderOnRenderChange(renderedOnEvents, popover);
+		renderOnRenderedChange(renderedOnEvents, popover);
+		renderOnShimChange(renderedOnEvents, popover);
+		renderOnSrcNodeChange(renderedOnEvents, popover);
+		renderOnStringsChange(renderedOnEvents, popover);
+		renderOnTabIndexChange(renderedOnEvents, popover);
+		renderOnToolbarPositionChange(renderedOnEvents, popover);
+		renderOnToolbarsChange(renderedOnEvents, popover);
+		renderOnTriggerToggleEventChange(renderedOnEvents, popover);
+		renderOnVisibleChange(renderedOnEvents, popover);
+		renderOnWidthChange(renderedOnEvents, popover);
+		renderOnXChange(renderedOnEvents, popover);
+		renderOnXyChange(renderedOnEvents, popover);
+		renderOnYChange(renderedOnEvents, popover);
+		renderOnZIndexChange(renderedOnEvents, popover);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -409,6 +516,598 @@ public abstract class PopoverRendererBase extends RendererBase {
 
 		if (for_ != null) {
 			renderedAttributes.add(renderString(Popover.FOR, for_));
+		}
+	}
+
+	protected void renderAfterAlignChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterAlignChange = popover.getAfterAlignChange();
+
+		if (afterAlignChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_ALIGN_CHANGE, afterAlignChange));
+		}
+	}
+
+	protected void renderAfterAlignOnChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterAlignOnChange = popover.getAfterAlignOnChange();
+
+		if (afterAlignOnChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
+		}
+	}
+
+	protected void renderAfterBodyContentChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterBodyContentChange = popover.getAfterBodyContentChange();
+
+		if (afterBodyContentChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterBoundingBoxChange = popover.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCenteredChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterCenteredChange = popover.getAfterCenteredChange();
+
+		if (afterCenteredChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_CENTERED_CHANGE, afterCenteredChange));
+		}
+	}
+
+	protected void renderAfterConstrainChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterConstrainChange = popover.getAfterConstrainChange();
+
+		if (afterConstrainChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterContentBoxChange = popover.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterDestroyedChange = popover.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterDisabledChange = popover.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterFillHeightChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterFillHeightChange = popover.getAfterFillHeightChange();
+
+		if (afterFillHeightChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
+		}
+	}
+
+	protected void renderAfterFocusOnChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterFocusOnChange = popover.getAfterFocusOnChange();
+
+		if (afterFocusOnChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_FOCUS_ON_CHANGE, afterFocusOnChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterFocusedChange = popover.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterFooterContentChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterFooterContentChange = popover.getAfterFooterContentChange();
+
+		if (afterFooterContentChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
+		}
+	}
+
+	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterHeaderContentChange = popover.getAfterHeaderContentChange();
+
+		if (afterHeaderContentChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterHeightChange = popover.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideOnChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterHideOnChange = popover.getAfterHideOnChange();
+
+		if (afterHideOnChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterIdChange = popover.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterInitializedChange = popover.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterLocaleChange = popover.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterMaskNodeChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterMaskNodeChange = popover.getAfterMaskNodeChange();
+
+		if (afterMaskNodeChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_MASK_NODE_CHANGE, afterMaskNodeChange));
+		}
+	}
+
+	protected void renderAfterModalChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterModalChange = popover.getAfterModalChange();
+
+		if (afterModalChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_MODAL_CHANGE, afterModalChange));
+		}
+	}
+
+	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterPreventOverlapChange = popover.getAfterPreventOverlapChange();
+
+		if (afterPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterRenderChange = popover.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterRenderedChange = popover.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterShimChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterShimChange = popover.getAfterShimChange();
+
+		if (afterShimChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_SHIM_CHANGE, afterShimChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterSrcNodeChange = popover.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterStringsChange = popover.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterTabIndexChange = popover.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterToolbarPositionChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterToolbarPositionChange = popover.getAfterToolbarPositionChange();
+
+		if (afterToolbarPositionChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_TOOLBAR_POSITION_CHANGE, afterToolbarPositionChange));
+		}
+	}
+
+	protected void renderAfterToolbarsChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterToolbarsChange = popover.getAfterToolbarsChange();
+
+		if (afterToolbarsChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_TOOLBARS_CHANGE, afterToolbarsChange));
+		}
+	}
+
+	protected void renderAfterTriggerToggleEventChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterTriggerToggleEventChange = popover.getAfterTriggerToggleEventChange();
+
+		if (afterTriggerToggleEventChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_TRIGGER_TOGGLE_EVENT_CHANGE, afterTriggerToggleEventChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterVisibleChange = popover.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterWidthChange = popover.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderAfterXChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterXChange = popover.getAfterXChange();
+
+		if (afterXChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_XCHANGE, afterXChange));
+		}
+	}
+
+	protected void renderAfterXyChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterXyChange = popover.getAfterXyChange();
+
+		if (afterXyChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_XY_CHANGE, afterXyChange));
+		}
+	}
+
+	protected void renderAfterYChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterYChange = popover.getAfterYChange();
+
+		if (afterYChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_YCHANGE, afterYChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String afterZIndexChange = popover.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(Popover.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAlignChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onAlignChange = popover.getOnAlignChange();
+
+		if (onAlignChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_ALIGN_CHANGE, onAlignChange));
+		}
+	}
+
+	protected void renderOnAlignOnChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onAlignOnChange = popover.getOnAlignOnChange();
+
+		if (onAlignOnChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_ALIGN_ON_CHANGE, onAlignOnChange));
+		}
+	}
+
+	protected void renderOnBodyContentChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onBodyContentChange = popover.getOnBodyContentChange();
+
+		if (onBodyContentChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onBoundingBoxChange = popover.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCenteredChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onCenteredChange = popover.getOnCenteredChange();
+
+		if (onCenteredChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_CENTERED_CHANGE, onCenteredChange));
+		}
+	}
+
+	protected void renderOnConstrainChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onConstrainChange = popover.getOnConstrainChange();
+
+		if (onConstrainChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_CONSTRAIN_CHANGE, onConstrainChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onContentBoxChange = popover.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onDestroyedChange = popover.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onDisabledChange = popover.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnFillHeightChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onFillHeightChange = popover.getOnFillHeightChange();
+
+		if (onFillHeightChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
+		}
+	}
+
+	protected void renderOnFocusOnChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onFocusOnChange = popover.getOnFocusOnChange();
+
+		if (onFocusOnChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_FOCUS_ON_CHANGE, onFocusOnChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onFocusedChange = popover.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnFooterContentChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onFooterContentChange = popover.getOnFooterContentChange();
+
+		if (onFooterContentChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
+		}
+	}
+
+	protected void renderOnHeaderContentChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onHeaderContentChange = popover.getOnHeaderContentChange();
+
+		if (onHeaderContentChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onHeightChange = popover.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideOnChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onHideOnChange = popover.getOnHideOnChange();
+
+		if (onHideOnChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_HIDE_ON_CHANGE, onHideOnChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onIdChange = popover.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onInitializedChange = popover.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onLocaleChange = popover.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnMaskNodeChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onMaskNodeChange = popover.getOnMaskNodeChange();
+
+		if (onMaskNodeChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_MASK_NODE_CHANGE, onMaskNodeChange));
+		}
+	}
+
+	protected void renderOnModalChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onModalChange = popover.getOnModalChange();
+
+		if (onModalChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_MODAL_CHANGE, onModalChange));
+		}
+	}
+
+	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onPreventOverlapChange = popover.getOnPreventOverlapChange();
+
+		if (onPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onRenderChange = popover.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onRenderedChange = popover.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnShimChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onShimChange = popover.getOnShimChange();
+
+		if (onShimChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_SHIM_CHANGE, onShimChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onSrcNodeChange = popover.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onStringsChange = popover.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onTabIndexChange = popover.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnToolbarPositionChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onToolbarPositionChange = popover.getOnToolbarPositionChange();
+
+		if (onToolbarPositionChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_TOOLBAR_POSITION_CHANGE, onToolbarPositionChange));
+		}
+	}
+
+	protected void renderOnToolbarsChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onToolbarsChange = popover.getOnToolbarsChange();
+
+		if (onToolbarsChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_TOOLBARS_CHANGE, onToolbarsChange));
+		}
+	}
+
+	protected void renderOnTriggerToggleEventChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onTriggerToggleEventChange = popover.getOnTriggerToggleEventChange();
+
+		if (onTriggerToggleEventChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_TRIGGER_TOGGLE_EVENT_CHANGE, onTriggerToggleEventChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onVisibleChange = popover.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onWidthChange = popover.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_WIDTH_CHANGE, onWidthChange));
+		}
+	}
+
+	protected void renderOnXChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onXChange = popover.getOnXChange();
+
+		if (onXChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_XCHANGE, onXChange));
+		}
+	}
+
+	protected void renderOnXyChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onXyChange = popover.getOnXyChange();
+
+		if (onXyChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_XY_CHANGE, onXyChange));
+		}
+	}
+
+	protected void renderOnYChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onYChange = popover.getOnYChange();
+
+		if (onYChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_YCHANGE, onYChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, Popover popover) throws IOException {
+		java.lang.String onZIndexChange = popover.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(Popover.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

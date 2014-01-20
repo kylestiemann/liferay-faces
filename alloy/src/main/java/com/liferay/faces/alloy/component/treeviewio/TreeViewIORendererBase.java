@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class TreeViewIORendererBase extends RendererBase {
 
 	// Private Constants
@@ -51,16 +51,51 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 
 		renderIo(renderedAttributes, treeViewIO);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterIoChange(renderedAfterEvents, treeViewIO);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnIoChange(renderedOnEvents, treeViewIO);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -76,6 +111,22 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 
 		if (io != null) {
 			renderedAttributes.add(renderObject(TreeViewIO.IO, io));
+		}
+	}
+
+	protected void renderAfterIoChange(List<String> renderedAttributes, TreeViewIO treeViewIO) throws IOException {
+		java.lang.String afterIoChange = treeViewIO.getAfterIoChange();
+
+		if (afterIoChange != null) {
+			renderedAttributes.add(renderString(TreeViewIO.AFTER_IO_CHANGE, afterIoChange));
+		}
+	}
+
+	protected void renderOnIoChange(List<String> renderedAttributes, TreeViewIO treeViewIO) throws IOException {
+		java.lang.String onIoChange = treeViewIO.getOnIoChange();
+
+		if (onIoChange != null) {
+			renderedAttributes.add(renderString(TreeViewIO.ON_IO_CHANGE, onIoChange));
 		}
 	}
 

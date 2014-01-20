@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class TogglerRendererBase extends RendererBase {
 
 	// Private Constants
@@ -59,16 +59,67 @@ public abstract class TogglerRendererBase extends RendererBase {
 		renderInitialized(renderedAttributes, toggler);
 		renderTransition(renderedAttributes, toggler);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAnimatedChange(renderedAfterEvents, toggler);
+		renderAfterAnimatingChange(renderedAfterEvents, toggler);
+		renderAfterBindDOMEventsChange(renderedAfterEvents, toggler);
+		renderAfterContentChange(renderedAfterEvents, toggler);
+		renderAfterDestroyedChange(renderedAfterEvents, toggler);
+		renderAfterExpandedChange(renderedAfterEvents, toggler);
+		renderAfterHeaderChange(renderedAfterEvents, toggler);
+		renderAfterInitializedChange(renderedAfterEvents, toggler);
+		renderAfterTransitionChange(renderedAfterEvents, toggler);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAnimatedChange(renderedOnEvents, toggler);
+		renderOnAnimatingChange(renderedOnEvents, toggler);
+		renderOnBindDOMEventsChange(renderedOnEvents, toggler);
+		renderOnContentChange(renderedOnEvents, toggler);
+		renderOnDestroyedChange(renderedOnEvents, toggler);
+		renderOnExpandedChange(renderedOnEvents, toggler);
+		renderOnHeaderChange(renderedOnEvents, toggler);
+		renderOnInitializedChange(renderedOnEvents, toggler);
+		renderOnTransitionChange(renderedOnEvents, toggler);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -148,6 +199,150 @@ public abstract class TogglerRendererBase extends RendererBase {
 
 		if (transition != null) {
 			renderedAttributes.add(renderObject(Toggler.TRANSITION, transition));
+		}
+	}
+
+	protected void renderAfterAnimatedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterAnimatedChange = toggler.getAfterAnimatedChange();
+
+		if (afterAnimatedChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_ANIMATED_CHANGE, afterAnimatedChange));
+		}
+	}
+
+	protected void renderAfterAnimatingChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterAnimatingChange = toggler.getAfterAnimatingChange();
+
+		if (afterAnimatingChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_ANIMATING_CHANGE, afterAnimatingChange));
+		}
+	}
+
+	protected void renderAfterBindDOMEventsChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterBindDOMEventsChange = toggler.getAfterBindDOMEventsChange();
+
+		if (afterBindDOMEventsChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_BIND_DOMEVENTS_CHANGE, afterBindDOMEventsChange));
+		}
+	}
+
+	protected void renderAfterContentChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterContentChange = toggler.getAfterContentChange();
+
+		if (afterContentChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_CONTENT_CHANGE, afterContentChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterDestroyedChange = toggler.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterExpandedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterExpandedChange = toggler.getAfterExpandedChange();
+
+		if (afterExpandedChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_EXPANDED_CHANGE, afterExpandedChange));
+		}
+	}
+
+	protected void renderAfterHeaderChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterHeaderChange = toggler.getAfterHeaderChange();
+
+		if (afterHeaderChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_HEADER_CHANGE, afterHeaderChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterInitializedChange = toggler.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterTransitionChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String afterTransitionChange = toggler.getAfterTransitionChange();
+
+		if (afterTransitionChange != null) {
+			renderedAttributes.add(renderString(Toggler.AFTER_TRANSITION_CHANGE, afterTransitionChange));
+		}
+	}
+
+	protected void renderOnAnimatedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onAnimatedChange = toggler.getOnAnimatedChange();
+
+		if (onAnimatedChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_ANIMATED_CHANGE, onAnimatedChange));
+		}
+	}
+
+	protected void renderOnAnimatingChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onAnimatingChange = toggler.getOnAnimatingChange();
+
+		if (onAnimatingChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_ANIMATING_CHANGE, onAnimatingChange));
+		}
+	}
+
+	protected void renderOnBindDOMEventsChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onBindDOMEventsChange = toggler.getOnBindDOMEventsChange();
+
+		if (onBindDOMEventsChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_BIND_DOMEVENTS_CHANGE, onBindDOMEventsChange));
+		}
+	}
+
+	protected void renderOnContentChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onContentChange = toggler.getOnContentChange();
+
+		if (onContentChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_CONTENT_CHANGE, onContentChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onDestroyedChange = toggler.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnExpandedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onExpandedChange = toggler.getOnExpandedChange();
+
+		if (onExpandedChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_EXPANDED_CHANGE, onExpandedChange));
+		}
+	}
+
+	protected void renderOnHeaderChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onHeaderChange = toggler.getOnHeaderChange();
+
+		if (onHeaderChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_HEADER_CHANGE, onHeaderChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onInitializedChange = toggler.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnTransitionChange(List<String> renderedAttributes, Toggler toggler) throws IOException {
+		java.lang.String onTransitionChange = toggler.getOnTransitionChange();
+
+		if (onTransitionChange != null) {
+			renderedAttributes.add(renderString(Toggler.ON_TRANSITION_CHANGE, onTransitionChange));
 		}
 	}
 

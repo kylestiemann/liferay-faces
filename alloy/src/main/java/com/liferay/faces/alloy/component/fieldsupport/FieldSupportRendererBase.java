@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class FieldSupportRendererBase extends RendererBase {
 
 	// Private Constants
@@ -52,16 +52,53 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 		renderFields(renderedAttributes, fieldSupport);
 		renderMaxFields(renderedAttributes, fieldSupport);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterFieldsChange(renderedAfterEvents, fieldSupport);
+		renderAfterMaxFieldsChange(renderedAfterEvents, fieldSupport);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnFieldsChange(renderedOnEvents, fieldSupport);
+		renderOnMaxFieldsChange(renderedOnEvents, fieldSupport);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -85,6 +122,38 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 
 		if (maxFields != null) {
 			renderedAttributes.add(renderNumber(FieldSupport.MAX_FIELDS, maxFields));
+		}
+	}
+
+	protected void renderAfterFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
+		java.lang.String afterFieldsChange = fieldSupport.getAfterFieldsChange();
+
+		if (afterFieldsChange != null) {
+			renderedAttributes.add(renderString(FieldSupport.AFTER_FIELDS_CHANGE, afterFieldsChange));
+		}
+	}
+
+	protected void renderAfterMaxFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
+		java.lang.String afterMaxFieldsChange = fieldSupport.getAfterMaxFieldsChange();
+
+		if (afterMaxFieldsChange != null) {
+			renderedAttributes.add(renderString(FieldSupport.AFTER_MAX_FIELDS_CHANGE, afterMaxFieldsChange));
+		}
+	}
+
+	protected void renderOnFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
+		java.lang.String onFieldsChange = fieldSupport.getOnFieldsChange();
+
+		if (onFieldsChange != null) {
+			renderedAttributes.add(renderString(FieldSupport.ON_FIELDS_CHANGE, onFieldsChange));
+		}
+	}
+
+	protected void renderOnMaxFieldsChange(List<String> renderedAttributes, FieldSupport fieldSupport) throws IOException {
+		java.lang.String onMaxFieldsChange = fieldSupport.getOnMaxFieldsChange();
+
+		if (onMaxFieldsChange != null) {
+			renderedAttributes.add(renderString(FieldSupport.ON_MAX_FIELDS_CHANGE, onMaxFieldsChange));
 		}
 	}
 

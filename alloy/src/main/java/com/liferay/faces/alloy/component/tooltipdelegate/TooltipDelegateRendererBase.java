@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 	// Private Constants
@@ -59,16 +59,67 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 		renderTriggerShowEvent(renderedAttributes, tooltipDelegate);
 		renderZIndex(renderedAttributes, tooltipDelegate);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAlignChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterContainerChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterDestroyedChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterDurationChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterInitializedChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterOpacityChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterTriggerHideEventChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterTriggerShowEventChange(renderedAfterEvents, tooltipDelegate);
+		renderAfterZIndexChange(renderedAfterEvents, tooltipDelegate);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAlignChange(renderedOnEvents, tooltipDelegate);
+		renderOnContainerChange(renderedOnEvents, tooltipDelegate);
+		renderOnDestroyedChange(renderedOnEvents, tooltipDelegate);
+		renderOnDurationChange(renderedOnEvents, tooltipDelegate);
+		renderOnInitializedChange(renderedOnEvents, tooltipDelegate);
+		renderOnOpacityChange(renderedOnEvents, tooltipDelegate);
+		renderOnTriggerHideEventChange(renderedOnEvents, tooltipDelegate);
+		renderOnTriggerShowEventChange(renderedOnEvents, tooltipDelegate);
+		renderOnZIndexChange(renderedOnEvents, tooltipDelegate);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -148,6 +199,150 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 
 		if (zIndex != null) {
 			renderedAttributes.add(renderString(TooltipDelegate.Z_INDEX, zIndex));
+		}
+	}
+
+	protected void renderAfterAlignChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterAlignChange = tooltipDelegate.getAfterAlignChange();
+
+		if (afterAlignChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_ALIGN_CHANGE, afterAlignChange));
+		}
+	}
+
+	protected void renderAfterContainerChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterContainerChange = tooltipDelegate.getAfterContainerChange();
+
+		if (afterContainerChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_CONTAINER_CHANGE, afterContainerChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterDestroyedChange = tooltipDelegate.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDurationChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterDurationChange = tooltipDelegate.getAfterDurationChange();
+
+		if (afterDurationChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_DURATION_CHANGE, afterDurationChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterInitializedChange = tooltipDelegate.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterOpacityChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterOpacityChange = tooltipDelegate.getAfterOpacityChange();
+
+		if (afterOpacityChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_OPACITY_CHANGE, afterOpacityChange));
+		}
+	}
+
+	protected void renderAfterTriggerHideEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterTriggerHideEventChange = tooltipDelegate.getAfterTriggerHideEventChange();
+
+		if (afterTriggerHideEventChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_TRIGGER_HIDE_EVENT_CHANGE, afterTriggerHideEventChange));
+		}
+	}
+
+	protected void renderAfterTriggerShowEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterTriggerShowEventChange = tooltipDelegate.getAfterTriggerShowEventChange();
+
+		if (afterTriggerShowEventChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_TRIGGER_SHOW_EVENT_CHANGE, afterTriggerShowEventChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String afterZIndexChange = tooltipDelegate.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAlignChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onAlignChange = tooltipDelegate.getOnAlignChange();
+
+		if (onAlignChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_ALIGN_CHANGE, onAlignChange));
+		}
+	}
+
+	protected void renderOnContainerChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onContainerChange = tooltipDelegate.getOnContainerChange();
+
+		if (onContainerChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_CONTAINER_CHANGE, onContainerChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onDestroyedChange = tooltipDelegate.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDurationChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onDurationChange = tooltipDelegate.getOnDurationChange();
+
+		if (onDurationChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_DURATION_CHANGE, onDurationChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onInitializedChange = tooltipDelegate.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnOpacityChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onOpacityChange = tooltipDelegate.getOnOpacityChange();
+
+		if (onOpacityChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_OPACITY_CHANGE, onOpacityChange));
+		}
+	}
+
+	protected void renderOnTriggerHideEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onTriggerHideEventChange = tooltipDelegate.getOnTriggerHideEventChange();
+
+		if (onTriggerHideEventChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_TRIGGER_HIDE_EVENT_CHANGE, onTriggerHideEventChange));
+		}
+	}
+
+	protected void renderOnTriggerShowEventChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onTriggerShowEventChange = tooltipDelegate.getOnTriggerShowEventChange();
+
+		if (onTriggerShowEventChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_TRIGGER_SHOW_EVENT_CHANGE, onTriggerShowEventChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, TooltipDelegate tooltipDelegate) throws IOException {
+		java.lang.String onZIndexChange = tooltipDelegate.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(TooltipDelegate.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

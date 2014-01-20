@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class SchedulerViewRendererBase extends RendererBase {
 
 	// Private Constants
@@ -79,16 +79,107 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		renderVisible(renderedAttributes, schedulerView);
 		renderWidth(renderedAttributes, schedulerView);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterBodyContentChange(renderedAfterEvents, schedulerView);
+		renderAfterBoundingBoxChange(renderedAfterEvents, schedulerView);
+		renderAfterContentBoxChange(renderedAfterEvents, schedulerView);
+		renderAfterCssClassChange(renderedAfterEvents, schedulerView);
+		renderAfterDestroyedChange(renderedAfterEvents, schedulerView);
+		renderAfterDisabledChange(renderedAfterEvents, schedulerView);
+		renderAfterFilterFnChange(renderedAfterEvents, schedulerView);
+		renderAfterFocusedChange(renderedAfterEvents, schedulerView);
+		renderAfterHeightChange(renderedAfterEvents, schedulerView);
+		renderAfterHideClassChange(renderedAfterEvents, schedulerView);
+		renderAfterIdChange(renderedAfterEvents, schedulerView);
+		renderAfterInitializedChange(renderedAfterEvents, schedulerView);
+		renderAfterIsoTimeChange(renderedAfterEvents, schedulerView);
+		renderAfterLocaleChange(renderedAfterEvents, schedulerView);
+		renderAfterNameChange(renderedAfterEvents, schedulerView);
+		renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerView);
+		renderAfterNextDateChange(renderedAfterEvents, schedulerView);
+		renderAfterPrevDateChange(renderedAfterEvents, schedulerView);
+		renderAfterRenderChange(renderedAfterEvents, schedulerView);
+		renderAfterRenderedChange(renderedAfterEvents, schedulerView);
+		renderAfterSchedulerChange(renderedAfterEvents, schedulerView);
+		renderAfterScrollableChange(renderedAfterEvents, schedulerView);
+		renderAfterSrcNodeChange(renderedAfterEvents, schedulerView);
+		renderAfterStringsChange(renderedAfterEvents, schedulerView);
+		renderAfterTabIndexChange(renderedAfterEvents, schedulerView);
+		renderAfterTriggerNodeChange(renderedAfterEvents, schedulerView);
+		renderAfterUseARIAChange(renderedAfterEvents, schedulerView);
+		renderAfterVisibleChange(renderedAfterEvents, schedulerView);
+		renderAfterWidthChange(renderedAfterEvents, schedulerView);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnBodyContentChange(renderedOnEvents, schedulerView);
+		renderOnBoundingBoxChange(renderedOnEvents, schedulerView);
+		renderOnContentBoxChange(renderedOnEvents, schedulerView);
+		renderOnCssClassChange(renderedOnEvents, schedulerView);
+		renderOnDestroyedChange(renderedOnEvents, schedulerView);
+		renderOnDisabledChange(renderedOnEvents, schedulerView);
+		renderOnFilterFnChange(renderedOnEvents, schedulerView);
+		renderOnFocusedChange(renderedOnEvents, schedulerView);
+		renderOnHeightChange(renderedOnEvents, schedulerView);
+		renderOnHideClassChange(renderedOnEvents, schedulerView);
+		renderOnIdChange(renderedOnEvents, schedulerView);
+		renderOnInitializedChange(renderedOnEvents, schedulerView);
+		renderOnIsoTimeChange(renderedOnEvents, schedulerView);
+		renderOnLocaleChange(renderedOnEvents, schedulerView);
+		renderOnNameChange(renderedOnEvents, schedulerView);
+		renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerView);
+		renderOnNextDateChange(renderedOnEvents, schedulerView);
+		renderOnPrevDateChange(renderedOnEvents, schedulerView);
+		renderOnRenderChange(renderedOnEvents, schedulerView);
+		renderOnRenderedChange(renderedOnEvents, schedulerView);
+		renderOnSchedulerChange(renderedOnEvents, schedulerView);
+		renderOnScrollableChange(renderedOnEvents, schedulerView);
+		renderOnSrcNodeChange(renderedOnEvents, schedulerView);
+		renderOnStringsChange(renderedOnEvents, schedulerView);
+		renderOnTabIndexChange(renderedOnEvents, schedulerView);
+		renderOnTriggerNodeChange(renderedOnEvents, schedulerView);
+		renderOnUseARIAChange(renderedOnEvents, schedulerView);
+		renderOnVisibleChange(renderedOnEvents, schedulerView);
+		renderOnWidthChange(renderedOnEvents, schedulerView);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -328,6 +419,470 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 
 		if (width != null) {
 			renderedAttributes.add(renderString(SchedulerView.WIDTH, width));
+		}
+	}
+
+	protected void renderAfterBodyContentChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterBodyContentChange = schedulerView.getAfterBodyContentChange();
+
+		if (afterBodyContentChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterBoundingBoxChange = schedulerView.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterContentBoxChange = schedulerView.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterCssClassChange = schedulerView.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterDestroyedChange = schedulerView.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterDisabledChange = schedulerView.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterFilterFnChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterFilterFnChange = schedulerView.getAfterFilterFnChange();
+
+		if (afterFilterFnChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_FILTER_FN_CHANGE, afterFilterFnChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterFocusedChange = schedulerView.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterHeightChange = schedulerView.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideClassChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterHideClassChange = schedulerView.getAfterHideClassChange();
+
+		if (afterHideClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterIdChange = schedulerView.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterInitializedChange = schedulerView.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterIsoTimeChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterIsoTimeChange = schedulerView.getAfterIsoTimeChange();
+
+		if (afterIsoTimeChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_ISO_TIME_CHANGE, afterIsoTimeChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterLocaleChange = schedulerView.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterNameChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterNameChange = schedulerView.getAfterNameChange();
+
+		if (afterNameChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_NAME_CHANGE, afterNameChange));
+		}
+	}
+
+	protected void renderAfterNavigationDateFormatterChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterNavigationDateFormatterChange = schedulerView.getAfterNavigationDateFormatterChange();
+
+		if (afterNavigationDateFormatterChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_NAVIGATION_DATE_FORMATTER_CHANGE, afterNavigationDateFormatterChange));
+		}
+	}
+
+	protected void renderAfterNextDateChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterNextDateChange = schedulerView.getAfterNextDateChange();
+
+		if (afterNextDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_NEXT_DATE_CHANGE, afterNextDateChange));
+		}
+	}
+
+	protected void renderAfterPrevDateChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterPrevDateChange = schedulerView.getAfterPrevDateChange();
+
+		if (afterPrevDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_PREV_DATE_CHANGE, afterPrevDateChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterRenderChange = schedulerView.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterRenderedChange = schedulerView.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterSchedulerChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterSchedulerChange = schedulerView.getAfterSchedulerChange();
+
+		if (afterSchedulerChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_SCHEDULER_CHANGE, afterSchedulerChange));
+		}
+	}
+
+	protected void renderAfterScrollableChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterScrollableChange = schedulerView.getAfterScrollableChange();
+
+		if (afterScrollableChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_SCROLLABLE_CHANGE, afterScrollableChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterSrcNodeChange = schedulerView.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterStringsChange = schedulerView.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterTabIndexChange = schedulerView.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterTriggerNodeChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterTriggerNodeChange = schedulerView.getAfterTriggerNodeChange();
+
+		if (afterTriggerNodeChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_TRIGGER_NODE_CHANGE, afterTriggerNodeChange));
+		}
+	}
+
+	protected void renderAfterUseARIAChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterUseARIAChange = schedulerView.getAfterUseARIAChange();
+
+		if (afterUseARIAChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_USE_ARIACHANGE, afterUseARIAChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterVisibleChange = schedulerView.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String afterWidthChange = schedulerView.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderOnBodyContentChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onBodyContentChange = schedulerView.getOnBodyContentChange();
+
+		if (onBodyContentChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onBoundingBoxChange = schedulerView.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onContentBoxChange = schedulerView.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onCssClassChange = schedulerView.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onDestroyedChange = schedulerView.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onDisabledChange = schedulerView.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnFilterFnChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onFilterFnChange = schedulerView.getOnFilterFnChange();
+
+		if (onFilterFnChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_FILTER_FN_CHANGE, onFilterFnChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onFocusedChange = schedulerView.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onHeightChange = schedulerView.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideClassChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onHideClassChange = schedulerView.getOnHideClassChange();
+
+		if (onHideClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_HIDE_CLASS_CHANGE, onHideClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onIdChange = schedulerView.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onInitializedChange = schedulerView.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnIsoTimeChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onIsoTimeChange = schedulerView.getOnIsoTimeChange();
+
+		if (onIsoTimeChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_ISO_TIME_CHANGE, onIsoTimeChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onLocaleChange = schedulerView.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnNameChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onNameChange = schedulerView.getOnNameChange();
+
+		if (onNameChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_NAME_CHANGE, onNameChange));
+		}
+	}
+
+	protected void renderOnNavigationDateFormatterChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onNavigationDateFormatterChange = schedulerView.getOnNavigationDateFormatterChange();
+
+		if (onNavigationDateFormatterChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_NAVIGATION_DATE_FORMATTER_CHANGE, onNavigationDateFormatterChange));
+		}
+	}
+
+	protected void renderOnNextDateChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onNextDateChange = schedulerView.getOnNextDateChange();
+
+		if (onNextDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_NEXT_DATE_CHANGE, onNextDateChange));
+		}
+	}
+
+	protected void renderOnPrevDateChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onPrevDateChange = schedulerView.getOnPrevDateChange();
+
+		if (onPrevDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_PREV_DATE_CHANGE, onPrevDateChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onRenderChange = schedulerView.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onRenderedChange = schedulerView.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnSchedulerChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onSchedulerChange = schedulerView.getOnSchedulerChange();
+
+		if (onSchedulerChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_SCHEDULER_CHANGE, onSchedulerChange));
+		}
+	}
+
+	protected void renderOnScrollableChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onScrollableChange = schedulerView.getOnScrollableChange();
+
+		if (onScrollableChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_SCROLLABLE_CHANGE, onScrollableChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onSrcNodeChange = schedulerView.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onStringsChange = schedulerView.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onTabIndexChange = schedulerView.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnTriggerNodeChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onTriggerNodeChange = schedulerView.getOnTriggerNodeChange();
+
+		if (onTriggerNodeChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_TRIGGER_NODE_CHANGE, onTriggerNodeChange));
+		}
+	}
+
+	protected void renderOnUseARIAChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onUseARIAChange = schedulerView.getOnUseARIAChange();
+
+		if (onUseARIAChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_USE_ARIACHANGE, onUseARIAChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onVisibleChange = schedulerView.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, SchedulerView schedulerView) throws IOException {
+		java.lang.String onWidthChange = schedulerView.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(SchedulerView.ON_WIDTH_CHANGE, onWidthChange));
 		}
 	}
 

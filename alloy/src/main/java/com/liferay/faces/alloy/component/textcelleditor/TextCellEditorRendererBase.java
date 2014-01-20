@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class TextCellEditorRendererBase extends RendererBase {
 
 	// Private Constants
@@ -90,16 +90,129 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 		renderY(renderedAttributes, textCellEditor);
 		renderZIndex(renderedAttributes, textCellEditor);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAlignChange(renderedAfterEvents, textCellEditor);
+		renderAfterAlignOnChange(renderedAfterEvents, textCellEditor);
+		renderAfterBodyContentChange(renderedAfterEvents, textCellEditor);
+		renderAfterBoundingBoxChange(renderedAfterEvents, textCellEditor);
+		renderAfterCenteredChange(renderedAfterEvents, textCellEditor);
+		renderAfterConstrainChange(renderedAfterEvents, textCellEditor);
+		renderAfterContentBoxChange(renderedAfterEvents, textCellEditor);
+		renderAfterDestroyedChange(renderedAfterEvents, textCellEditor);
+		renderAfterDisabledChange(renderedAfterEvents, textCellEditor);
+		renderAfterEditableChange(renderedAfterEvents, textCellEditor);
+		renderAfterElementNameChange(renderedAfterEvents, textCellEditor);
+		renderAfterFillHeightChange(renderedAfterEvents, textCellEditor);
+		renderAfterFocusedChange(renderedAfterEvents, textCellEditor);
+		renderAfterFooterContentChange(renderedAfterEvents, textCellEditor);
+		renderAfterHeaderContentChange(renderedAfterEvents, textCellEditor);
+		renderAfterHeightChange(renderedAfterEvents, textCellEditor);
+		renderAfterHideOnSaveChange(renderedAfterEvents, textCellEditor);
+		renderAfterIdChange(renderedAfterEvents, textCellEditor);
+		renderAfterInitializedChange(renderedAfterEvents, textCellEditor);
+		renderAfterInputFormatterChange(renderedAfterEvents, textCellEditor);
+		renderAfterLocaleChange(renderedAfterEvents, textCellEditor);
+		renderAfterOutputFormatterChange(renderedAfterEvents, textCellEditor);
+		renderAfterPreventOverlapChange(renderedAfterEvents, textCellEditor);
+		renderAfterRenderChange(renderedAfterEvents, textCellEditor);
+		renderAfterRenderedChange(renderedAfterEvents, textCellEditor);
+		renderAfterShimChange(renderedAfterEvents, textCellEditor);
+		renderAfterShowToolbarChange(renderedAfterEvents, textCellEditor);
+		renderAfterSrcNodeChange(renderedAfterEvents, textCellEditor);
+		renderAfterStringsChange(renderedAfterEvents, textCellEditor);
+		renderAfterTabIndexChange(renderedAfterEvents, textCellEditor);
+		renderAfterToolbarChange(renderedAfterEvents, textCellEditor);
+		renderAfterUnescapeValueChange(renderedAfterEvents, textCellEditor);
+		renderAfterValidatorChange(renderedAfterEvents, textCellEditor);
+		renderAfterValueChange(renderedAfterEvents, textCellEditor);
+		renderAfterVisibleChange(renderedAfterEvents, textCellEditor);
+		renderAfterWidthChange(renderedAfterEvents, textCellEditor);
+		renderAfterXChange(renderedAfterEvents, textCellEditor);
+		renderAfterXyChange(renderedAfterEvents, textCellEditor);
+		renderAfterYChange(renderedAfterEvents, textCellEditor);
+		renderAfterZIndexChange(renderedAfterEvents, textCellEditor);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAlignChange(renderedOnEvents, textCellEditor);
+		renderOnAlignOnChange(renderedOnEvents, textCellEditor);
+		renderOnBodyContentChange(renderedOnEvents, textCellEditor);
+		renderOnBoundingBoxChange(renderedOnEvents, textCellEditor);
+		renderOnCenteredChange(renderedOnEvents, textCellEditor);
+		renderOnConstrainChange(renderedOnEvents, textCellEditor);
+		renderOnContentBoxChange(renderedOnEvents, textCellEditor);
+		renderOnDestroyedChange(renderedOnEvents, textCellEditor);
+		renderOnDisabledChange(renderedOnEvents, textCellEditor);
+		renderOnEditableChange(renderedOnEvents, textCellEditor);
+		renderOnElementNameChange(renderedOnEvents, textCellEditor);
+		renderOnFillHeightChange(renderedOnEvents, textCellEditor);
+		renderOnFocusedChange(renderedOnEvents, textCellEditor);
+		renderOnFooterContentChange(renderedOnEvents, textCellEditor);
+		renderOnHeaderContentChange(renderedOnEvents, textCellEditor);
+		renderOnHeightChange(renderedOnEvents, textCellEditor);
+		renderOnHideOnSaveChange(renderedOnEvents, textCellEditor);
+		renderOnIdChange(renderedOnEvents, textCellEditor);
+		renderOnInitializedChange(renderedOnEvents, textCellEditor);
+		renderOnInputFormatterChange(renderedOnEvents, textCellEditor);
+		renderOnLocaleChange(renderedOnEvents, textCellEditor);
+		renderOnOutputFormatterChange(renderedOnEvents, textCellEditor);
+		renderOnPreventOverlapChange(renderedOnEvents, textCellEditor);
+		renderOnRenderChange(renderedOnEvents, textCellEditor);
+		renderOnRenderedChange(renderedOnEvents, textCellEditor);
+		renderOnShimChange(renderedOnEvents, textCellEditor);
+		renderOnShowToolbarChange(renderedOnEvents, textCellEditor);
+		renderOnSrcNodeChange(renderedOnEvents, textCellEditor);
+		renderOnStringsChange(renderedOnEvents, textCellEditor);
+		renderOnTabIndexChange(renderedOnEvents, textCellEditor);
+		renderOnToolbarChange(renderedOnEvents, textCellEditor);
+		renderOnUnescapeValueChange(renderedOnEvents, textCellEditor);
+		renderOnValidatorChange(renderedOnEvents, textCellEditor);
+		renderOnValueChange(renderedOnEvents, textCellEditor);
+		renderOnVisibleChange(renderedOnEvents, textCellEditor);
+		renderOnWidthChange(renderedOnEvents, textCellEditor);
+		renderOnXChange(renderedOnEvents, textCellEditor);
+		renderOnXyChange(renderedOnEvents, textCellEditor);
+		renderOnYChange(renderedOnEvents, textCellEditor);
+		renderOnZIndexChange(renderedOnEvents, textCellEditor);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -427,6 +540,646 @@ public abstract class TextCellEditorRendererBase extends RendererBase {
 
 		if (zIndex != null) {
 			renderedAttributes.add(renderNumber(TextCellEditor.Z_INDEX, zIndex));
+		}
+	}
+
+	protected void renderAfterAlignChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterAlignChange = textCellEditor.getAfterAlignChange();
+
+		if (afterAlignChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_ALIGN_CHANGE, afterAlignChange));
+		}
+	}
+
+	protected void renderAfterAlignOnChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterAlignOnChange = textCellEditor.getAfterAlignOnChange();
+
+		if (afterAlignOnChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
+		}
+	}
+
+	protected void renderAfterBodyContentChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterBodyContentChange = textCellEditor.getAfterBodyContentChange();
+
+		if (afterBodyContentChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterBoundingBoxChange = textCellEditor.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCenteredChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterCenteredChange = textCellEditor.getAfterCenteredChange();
+
+		if (afterCenteredChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_CENTERED_CHANGE, afterCenteredChange));
+		}
+	}
+
+	protected void renderAfterConstrainChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterConstrainChange = textCellEditor.getAfterConstrainChange();
+
+		if (afterConstrainChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterContentBoxChange = textCellEditor.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterDestroyedChange = textCellEditor.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterDisabledChange = textCellEditor.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterEditableChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterEditableChange = textCellEditor.getAfterEditableChange();
+
+		if (afterEditableChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_EDITABLE_CHANGE, afterEditableChange));
+		}
+	}
+
+	protected void renderAfterElementNameChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterElementNameChange = textCellEditor.getAfterElementNameChange();
+
+		if (afterElementNameChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_ELEMENT_NAME_CHANGE, afterElementNameChange));
+		}
+	}
+
+	protected void renderAfterFillHeightChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterFillHeightChange = textCellEditor.getAfterFillHeightChange();
+
+		if (afterFillHeightChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterFocusedChange = textCellEditor.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterFooterContentChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterFooterContentChange = textCellEditor.getAfterFooterContentChange();
+
+		if (afterFooterContentChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
+		}
+	}
+
+	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterHeaderContentChange = textCellEditor.getAfterHeaderContentChange();
+
+		if (afterHeaderContentChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterHeightChange = textCellEditor.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideOnSaveChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterHideOnSaveChange = textCellEditor.getAfterHideOnSaveChange();
+
+		if (afterHideOnSaveChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_HIDE_ON_SAVE_CHANGE, afterHideOnSaveChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterIdChange = textCellEditor.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterInitializedChange = textCellEditor.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterInputFormatterChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterInputFormatterChange = textCellEditor.getAfterInputFormatterChange();
+
+		if (afterInputFormatterChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_INPUT_FORMATTER_CHANGE, afterInputFormatterChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterLocaleChange = textCellEditor.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterOutputFormatterChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterOutputFormatterChange = textCellEditor.getAfterOutputFormatterChange();
+
+		if (afterOutputFormatterChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_OUTPUT_FORMATTER_CHANGE, afterOutputFormatterChange));
+		}
+	}
+
+	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterPreventOverlapChange = textCellEditor.getAfterPreventOverlapChange();
+
+		if (afterPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterRenderChange = textCellEditor.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterRenderedChange = textCellEditor.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterShimChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterShimChange = textCellEditor.getAfterShimChange();
+
+		if (afterShimChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_SHIM_CHANGE, afterShimChange));
+		}
+	}
+
+	protected void renderAfterShowToolbarChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterShowToolbarChange = textCellEditor.getAfterShowToolbarChange();
+
+		if (afterShowToolbarChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_SHOW_TOOLBAR_CHANGE, afterShowToolbarChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterSrcNodeChange = textCellEditor.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterStringsChange = textCellEditor.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterTabIndexChange = textCellEditor.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterToolbarChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterToolbarChange = textCellEditor.getAfterToolbarChange();
+
+		if (afterToolbarChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_TOOLBAR_CHANGE, afterToolbarChange));
+		}
+	}
+
+	protected void renderAfterUnescapeValueChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterUnescapeValueChange = textCellEditor.getAfterUnescapeValueChange();
+
+		if (afterUnescapeValueChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_UNESCAPE_VALUE_CHANGE, afterUnescapeValueChange));
+		}
+	}
+
+	protected void renderAfterValidatorChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterValidatorChange = textCellEditor.getAfterValidatorChange();
+
+		if (afterValidatorChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_VALIDATOR_CHANGE, afterValidatorChange));
+		}
+	}
+
+	protected void renderAfterValueChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterValueChange = textCellEditor.getAfterValueChange();
+
+		if (afterValueChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_VALUE_CHANGE, afterValueChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterVisibleChange = textCellEditor.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterWidthChange = textCellEditor.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderAfterXChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterXChange = textCellEditor.getAfterXChange();
+
+		if (afterXChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_XCHANGE, afterXChange));
+		}
+	}
+
+	protected void renderAfterXyChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterXyChange = textCellEditor.getAfterXyChange();
+
+		if (afterXyChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_XY_CHANGE, afterXyChange));
+		}
+	}
+
+	protected void renderAfterYChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterYChange = textCellEditor.getAfterYChange();
+
+		if (afterYChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_YCHANGE, afterYChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String afterZIndexChange = textCellEditor.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAlignChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onAlignChange = textCellEditor.getOnAlignChange();
+
+		if (onAlignChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_ALIGN_CHANGE, onAlignChange));
+		}
+	}
+
+	protected void renderOnAlignOnChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onAlignOnChange = textCellEditor.getOnAlignOnChange();
+
+		if (onAlignOnChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_ALIGN_ON_CHANGE, onAlignOnChange));
+		}
+	}
+
+	protected void renderOnBodyContentChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onBodyContentChange = textCellEditor.getOnBodyContentChange();
+
+		if (onBodyContentChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onBoundingBoxChange = textCellEditor.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCenteredChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onCenteredChange = textCellEditor.getOnCenteredChange();
+
+		if (onCenteredChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_CENTERED_CHANGE, onCenteredChange));
+		}
+	}
+
+	protected void renderOnConstrainChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onConstrainChange = textCellEditor.getOnConstrainChange();
+
+		if (onConstrainChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_CONSTRAIN_CHANGE, onConstrainChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onContentBoxChange = textCellEditor.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onDestroyedChange = textCellEditor.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onDisabledChange = textCellEditor.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnEditableChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onEditableChange = textCellEditor.getOnEditableChange();
+
+		if (onEditableChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_EDITABLE_CHANGE, onEditableChange));
+		}
+	}
+
+	protected void renderOnElementNameChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onElementNameChange = textCellEditor.getOnElementNameChange();
+
+		if (onElementNameChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_ELEMENT_NAME_CHANGE, onElementNameChange));
+		}
+	}
+
+	protected void renderOnFillHeightChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onFillHeightChange = textCellEditor.getOnFillHeightChange();
+
+		if (onFillHeightChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onFocusedChange = textCellEditor.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnFooterContentChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onFooterContentChange = textCellEditor.getOnFooterContentChange();
+
+		if (onFooterContentChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
+		}
+	}
+
+	protected void renderOnHeaderContentChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onHeaderContentChange = textCellEditor.getOnHeaderContentChange();
+
+		if (onHeaderContentChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onHeightChange = textCellEditor.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideOnSaveChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onHideOnSaveChange = textCellEditor.getOnHideOnSaveChange();
+
+		if (onHideOnSaveChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_HIDE_ON_SAVE_CHANGE, onHideOnSaveChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onIdChange = textCellEditor.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onInitializedChange = textCellEditor.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnInputFormatterChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onInputFormatterChange = textCellEditor.getOnInputFormatterChange();
+
+		if (onInputFormatterChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_INPUT_FORMATTER_CHANGE, onInputFormatterChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onLocaleChange = textCellEditor.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnOutputFormatterChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onOutputFormatterChange = textCellEditor.getOnOutputFormatterChange();
+
+		if (onOutputFormatterChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_OUTPUT_FORMATTER_CHANGE, onOutputFormatterChange));
+		}
+	}
+
+	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onPreventOverlapChange = textCellEditor.getOnPreventOverlapChange();
+
+		if (onPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onRenderChange = textCellEditor.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onRenderedChange = textCellEditor.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnShimChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onShimChange = textCellEditor.getOnShimChange();
+
+		if (onShimChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_SHIM_CHANGE, onShimChange));
+		}
+	}
+
+	protected void renderOnShowToolbarChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onShowToolbarChange = textCellEditor.getOnShowToolbarChange();
+
+		if (onShowToolbarChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_SHOW_TOOLBAR_CHANGE, onShowToolbarChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onSrcNodeChange = textCellEditor.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onStringsChange = textCellEditor.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onTabIndexChange = textCellEditor.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnToolbarChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onToolbarChange = textCellEditor.getOnToolbarChange();
+
+		if (onToolbarChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_TOOLBAR_CHANGE, onToolbarChange));
+		}
+	}
+
+	protected void renderOnUnescapeValueChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onUnescapeValueChange = textCellEditor.getOnUnescapeValueChange();
+
+		if (onUnescapeValueChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_UNESCAPE_VALUE_CHANGE, onUnescapeValueChange));
+		}
+	}
+
+	protected void renderOnValidatorChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onValidatorChange = textCellEditor.getOnValidatorChange();
+
+		if (onValidatorChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_VALIDATOR_CHANGE, onValidatorChange));
+		}
+	}
+
+	protected void renderOnValueChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onValueChange = textCellEditor.getOnValueChange();
+
+		if (onValueChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_VALUE_CHANGE, onValueChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onVisibleChange = textCellEditor.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onWidthChange = textCellEditor.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_WIDTH_CHANGE, onWidthChange));
+		}
+	}
+
+	protected void renderOnXChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onXChange = textCellEditor.getOnXChange();
+
+		if (onXChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_XCHANGE, onXChange));
+		}
+	}
+
+	protected void renderOnXyChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onXyChange = textCellEditor.getOnXyChange();
+
+		if (onXyChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_XY_CHANGE, onXyChange));
+		}
+	}
+
+	protected void renderOnYChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onYChange = textCellEditor.getOnYChange();
+
+		if (onYChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_YCHANGE, onYChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, TextCellEditor textCellEditor) throws IOException {
+		java.lang.String onZIndexChange = textCellEditor.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(TextCellEditor.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

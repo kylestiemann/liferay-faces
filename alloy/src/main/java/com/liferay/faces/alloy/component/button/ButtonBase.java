@@ -14,9 +14,8 @@
 package com.liferay.faces.alloy.component.button;
 
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
 public abstract class ButtonBase extends javax.faces.component.UIPanel {

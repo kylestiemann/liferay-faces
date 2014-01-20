@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class MediaViewerPluginRendererBase extends RendererBase {
 
 	// Private Constants
@@ -54,16 +54,57 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 		renderInitialized(renderedAttributes, mediaViewerPlugin);
 		renderProviders(renderedAttributes, mediaViewerPlugin);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterDestroyedChange(renderedAfterEvents, mediaViewerPlugin);
+		renderAfterHostChange(renderedAfterEvents, mediaViewerPlugin);
+		renderAfterInitializedChange(renderedAfterEvents, mediaViewerPlugin);
+		renderAfterProvidersChange(renderedAfterEvents, mediaViewerPlugin);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnDestroyedChange(renderedOnEvents, mediaViewerPlugin);
+		renderOnHostChange(renderedOnEvents, mediaViewerPlugin);
+		renderOnInitializedChange(renderedOnEvents, mediaViewerPlugin);
+		renderOnProvidersChange(renderedOnEvents, mediaViewerPlugin);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -103,6 +144,70 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 
 		if (providers != null) {
 			renderedAttributes.add(renderObject(MediaViewerPlugin.PROVIDERS, providers));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String afterDestroyedChange = mediaViewerPlugin.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterHostChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String afterHostChange = mediaViewerPlugin.getAfterHostChange();
+
+		if (afterHostChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_HOST_CHANGE, afterHostChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String afterInitializedChange = mediaViewerPlugin.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterProvidersChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String afterProvidersChange = mediaViewerPlugin.getAfterProvidersChange();
+
+		if (afterProvidersChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.AFTER_PROVIDERS_CHANGE, afterProvidersChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String onDestroyedChange = mediaViewerPlugin.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnHostChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String onHostChange = mediaViewerPlugin.getOnHostChange();
+
+		if (onHostChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.ON_HOST_CHANGE, onHostChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String onInitializedChange = mediaViewerPlugin.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnProvidersChange(List<String> renderedAttributes, MediaViewerPlugin mediaViewerPlugin) throws IOException {
+		java.lang.String onProvidersChange = mediaViewerPlugin.getOnProvidersChange();
+
+		if (onProvidersChange != null) {
+			renderedAttributes.add(renderString(MediaViewerPlugin.ON_PROVIDERS_CHANGE, onProvidersChange));
 		}
 	}
 

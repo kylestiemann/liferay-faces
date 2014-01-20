@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class ModalRendererBase extends RendererBase {
 
 	// Private Constants
@@ -89,16 +89,127 @@ public abstract class ModalRendererBase extends RendererBase {
 		renderY(renderedAttributes, modal);
 		renderZIndex(renderedAttributes, modal);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAlignChange(renderedAfterEvents, modal);
+		renderAfterAlignOnChange(renderedAfterEvents, modal);
+		renderAfterBodyContentChange(renderedAfterEvents, modal);
+		renderAfterBoundingBoxChange(renderedAfterEvents, modal);
+		renderAfterCenteredChange(renderedAfterEvents, modal);
+		renderAfterConstrainChange(renderedAfterEvents, modal);
+		renderAfterContentBoxChange(renderedAfterEvents, modal);
+		renderAfterDestroyOnHideChange(renderedAfterEvents, modal);
+		renderAfterDestroyedChange(renderedAfterEvents, modal);
+		renderAfterDisabledChange(renderedAfterEvents, modal);
+		renderAfterDraggableChange(renderedAfterEvents, modal);
+		renderAfterFillHeightChange(renderedAfterEvents, modal);
+		renderAfterFocusOnChange(renderedAfterEvents, modal);
+		renderAfterFocusedChange(renderedAfterEvents, modal);
+		renderAfterFooterContentChange(renderedAfterEvents, modal);
+		renderAfterHeaderContentChange(renderedAfterEvents, modal);
+		renderAfterHeightChange(renderedAfterEvents, modal);
+		renderAfterHideOnChange(renderedAfterEvents, modal);
+		renderAfterIdChange(renderedAfterEvents, modal);
+		renderAfterInitializedChange(renderedAfterEvents, modal);
+		renderAfterLocaleChange(renderedAfterEvents, modal);
+		renderAfterMaskNodeChange(renderedAfterEvents, modal);
+		renderAfterModalChange(renderedAfterEvents, modal);
+		renderAfterPreventOverlapChange(renderedAfterEvents, modal);
+		renderAfterRenderChange(renderedAfterEvents, modal);
+		renderAfterRenderedChange(renderedAfterEvents, modal);
+		renderAfterResizableChange(renderedAfterEvents, modal);
+		renderAfterShimChange(renderedAfterEvents, modal);
+		renderAfterSrcNodeChange(renderedAfterEvents, modal);
+		renderAfterStringsChange(renderedAfterEvents, modal);
+		renderAfterTabIndexChange(renderedAfterEvents, modal);
+		renderAfterToolbarPositionChange(renderedAfterEvents, modal);
+		renderAfterToolbarsChange(renderedAfterEvents, modal);
+		renderAfterVisibleChange(renderedAfterEvents, modal);
+		renderAfterWidthChange(renderedAfterEvents, modal);
+		renderAfterXChange(renderedAfterEvents, modal);
+		renderAfterXyChange(renderedAfterEvents, modal);
+		renderAfterYChange(renderedAfterEvents, modal);
+		renderAfterZIndexChange(renderedAfterEvents, modal);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAlignChange(renderedOnEvents, modal);
+		renderOnAlignOnChange(renderedOnEvents, modal);
+		renderOnBodyContentChange(renderedOnEvents, modal);
+		renderOnBoundingBoxChange(renderedOnEvents, modal);
+		renderOnCenteredChange(renderedOnEvents, modal);
+		renderOnConstrainChange(renderedOnEvents, modal);
+		renderOnContentBoxChange(renderedOnEvents, modal);
+		renderOnDestroyOnHideChange(renderedOnEvents, modal);
+		renderOnDestroyedChange(renderedOnEvents, modal);
+		renderOnDisabledChange(renderedOnEvents, modal);
+		renderOnDraggableChange(renderedOnEvents, modal);
+		renderOnFillHeightChange(renderedOnEvents, modal);
+		renderOnFocusOnChange(renderedOnEvents, modal);
+		renderOnFocusedChange(renderedOnEvents, modal);
+		renderOnFooterContentChange(renderedOnEvents, modal);
+		renderOnHeaderContentChange(renderedOnEvents, modal);
+		renderOnHeightChange(renderedOnEvents, modal);
+		renderOnHideOnChange(renderedOnEvents, modal);
+		renderOnIdChange(renderedOnEvents, modal);
+		renderOnInitializedChange(renderedOnEvents, modal);
+		renderOnLocaleChange(renderedOnEvents, modal);
+		renderOnMaskNodeChange(renderedOnEvents, modal);
+		renderOnModalChange(renderedOnEvents, modal);
+		renderOnPreventOverlapChange(renderedOnEvents, modal);
+		renderOnRenderChange(renderedOnEvents, modal);
+		renderOnRenderedChange(renderedOnEvents, modal);
+		renderOnResizableChange(renderedOnEvents, modal);
+		renderOnShimChange(renderedOnEvents, modal);
+		renderOnSrcNodeChange(renderedOnEvents, modal);
+		renderOnStringsChange(renderedOnEvents, modal);
+		renderOnTabIndexChange(renderedOnEvents, modal);
+		renderOnToolbarPositionChange(renderedOnEvents, modal);
+		renderOnToolbarsChange(renderedOnEvents, modal);
+		renderOnVisibleChange(renderedOnEvents, modal);
+		renderOnWidthChange(renderedOnEvents, modal);
+		renderOnXChange(renderedOnEvents, modal);
+		renderOnXyChange(renderedOnEvents, modal);
+		renderOnYChange(renderedOnEvents, modal);
+		renderOnZIndexChange(renderedOnEvents, modal);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -418,6 +529,630 @@ public abstract class ModalRendererBase extends RendererBase {
 
 		if (zIndex != null) {
 			renderedAttributes.add(renderNumber(Modal.Z_INDEX, zIndex));
+		}
+	}
+
+	protected void renderAfterAlignChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterAlignChange = modal.getAfterAlignChange();
+
+		if (afterAlignChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_ALIGN_CHANGE, afterAlignChange));
+		}
+	}
+
+	protected void renderAfterAlignOnChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterAlignOnChange = modal.getAfterAlignOnChange();
+
+		if (afterAlignOnChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_ALIGN_ON_CHANGE, afterAlignOnChange));
+		}
+	}
+
+	protected void renderAfterBodyContentChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterBodyContentChange = modal.getAfterBodyContentChange();
+
+		if (afterBodyContentChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_BODY_CONTENT_CHANGE, afterBodyContentChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterBoundingBoxChange = modal.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCenteredChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterCenteredChange = modal.getAfterCenteredChange();
+
+		if (afterCenteredChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_CENTERED_CHANGE, afterCenteredChange));
+		}
+	}
+
+	protected void renderAfterConstrainChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterConstrainChange = modal.getAfterConstrainChange();
+
+		if (afterConstrainChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_CONSTRAIN_CHANGE, afterConstrainChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterContentBoxChange = modal.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterDestroyOnHideChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterDestroyOnHideChange = modal.getAfterDestroyOnHideChange();
+
+		if (afterDestroyOnHideChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_DESTROY_ON_HIDE_CHANGE, afterDestroyOnHideChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterDestroyedChange = modal.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterDisabledChange = modal.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterDraggableChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterDraggableChange = modal.getAfterDraggableChange();
+
+		if (afterDraggableChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_DRAGGABLE_CHANGE, afterDraggableChange));
+		}
+	}
+
+	protected void renderAfterFillHeightChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterFillHeightChange = modal.getAfterFillHeightChange();
+
+		if (afterFillHeightChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_FILL_HEIGHT_CHANGE, afterFillHeightChange));
+		}
+	}
+
+	protected void renderAfterFocusOnChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterFocusOnChange = modal.getAfterFocusOnChange();
+
+		if (afterFocusOnChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_FOCUS_ON_CHANGE, afterFocusOnChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterFocusedChange = modal.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterFooterContentChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterFooterContentChange = modal.getAfterFooterContentChange();
+
+		if (afterFooterContentChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_FOOTER_CONTENT_CHANGE, afterFooterContentChange));
+		}
+	}
+
+	protected void renderAfterHeaderContentChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterHeaderContentChange = modal.getAfterHeaderContentChange();
+
+		if (afterHeaderContentChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_HEADER_CONTENT_CHANGE, afterHeaderContentChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterHeightChange = modal.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideOnChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterHideOnChange = modal.getAfterHideOnChange();
+
+		if (afterHideOnChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_HIDE_ON_CHANGE, afterHideOnChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterIdChange = modal.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterInitializedChange = modal.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterLocaleChange = modal.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterMaskNodeChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterMaskNodeChange = modal.getAfterMaskNodeChange();
+
+		if (afterMaskNodeChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_MASK_NODE_CHANGE, afterMaskNodeChange));
+		}
+	}
+
+	protected void renderAfterModalChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterModalChange = modal.getAfterModalChange();
+
+		if (afterModalChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_MODAL_CHANGE, afterModalChange));
+		}
+	}
+
+	protected void renderAfterPreventOverlapChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterPreventOverlapChange = modal.getAfterPreventOverlapChange();
+
+		if (afterPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_PREVENT_OVERLAP_CHANGE, afterPreventOverlapChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterRenderChange = modal.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterRenderedChange = modal.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterResizableChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterResizableChange = modal.getAfterResizableChange();
+
+		if (afterResizableChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_RESIZABLE_CHANGE, afterResizableChange));
+		}
+	}
+
+	protected void renderAfterShimChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterShimChange = modal.getAfterShimChange();
+
+		if (afterShimChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_SHIM_CHANGE, afterShimChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterSrcNodeChange = modal.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterStringsChange = modal.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterTabIndexChange = modal.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterToolbarPositionChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterToolbarPositionChange = modal.getAfterToolbarPositionChange();
+
+		if (afterToolbarPositionChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_TOOLBAR_POSITION_CHANGE, afterToolbarPositionChange));
+		}
+	}
+
+	protected void renderAfterToolbarsChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterToolbarsChange = modal.getAfterToolbarsChange();
+
+		if (afterToolbarsChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_TOOLBARS_CHANGE, afterToolbarsChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterVisibleChange = modal.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterWidthChange = modal.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderAfterXChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterXChange = modal.getAfterXChange();
+
+		if (afterXChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_XCHANGE, afterXChange));
+		}
+	}
+
+	protected void renderAfterXyChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterXyChange = modal.getAfterXyChange();
+
+		if (afterXyChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_XY_CHANGE, afterXyChange));
+		}
+	}
+
+	protected void renderAfterYChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterYChange = modal.getAfterYChange();
+
+		if (afterYChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_YCHANGE, afterYChange));
+		}
+	}
+
+	protected void renderAfterZIndexChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String afterZIndexChange = modal.getAfterZIndexChange();
+
+		if (afterZIndexChange != null) {
+			renderedAttributes.add(renderString(Modal.AFTER_ZINDEX_CHANGE, afterZIndexChange));
+		}
+	}
+
+	protected void renderOnAlignChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onAlignChange = modal.getOnAlignChange();
+
+		if (onAlignChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_ALIGN_CHANGE, onAlignChange));
+		}
+	}
+
+	protected void renderOnAlignOnChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onAlignOnChange = modal.getOnAlignOnChange();
+
+		if (onAlignOnChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_ALIGN_ON_CHANGE, onAlignOnChange));
+		}
+	}
+
+	protected void renderOnBodyContentChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onBodyContentChange = modal.getOnBodyContentChange();
+
+		if (onBodyContentChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_BODY_CONTENT_CHANGE, onBodyContentChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onBoundingBoxChange = modal.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCenteredChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onCenteredChange = modal.getOnCenteredChange();
+
+		if (onCenteredChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_CENTERED_CHANGE, onCenteredChange));
+		}
+	}
+
+	protected void renderOnConstrainChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onConstrainChange = modal.getOnConstrainChange();
+
+		if (onConstrainChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_CONSTRAIN_CHANGE, onConstrainChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onContentBoxChange = modal.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnDestroyOnHideChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onDestroyOnHideChange = modal.getOnDestroyOnHideChange();
+
+		if (onDestroyOnHideChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_DESTROY_ON_HIDE_CHANGE, onDestroyOnHideChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onDestroyedChange = modal.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onDisabledChange = modal.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnDraggableChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onDraggableChange = modal.getOnDraggableChange();
+
+		if (onDraggableChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_DRAGGABLE_CHANGE, onDraggableChange));
+		}
+	}
+
+	protected void renderOnFillHeightChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onFillHeightChange = modal.getOnFillHeightChange();
+
+		if (onFillHeightChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_FILL_HEIGHT_CHANGE, onFillHeightChange));
+		}
+	}
+
+	protected void renderOnFocusOnChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onFocusOnChange = modal.getOnFocusOnChange();
+
+		if (onFocusOnChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_FOCUS_ON_CHANGE, onFocusOnChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onFocusedChange = modal.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnFooterContentChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onFooterContentChange = modal.getOnFooterContentChange();
+
+		if (onFooterContentChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_FOOTER_CONTENT_CHANGE, onFooterContentChange));
+		}
+	}
+
+	protected void renderOnHeaderContentChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onHeaderContentChange = modal.getOnHeaderContentChange();
+
+		if (onHeaderContentChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_HEADER_CONTENT_CHANGE, onHeaderContentChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onHeightChange = modal.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideOnChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onHideOnChange = modal.getOnHideOnChange();
+
+		if (onHideOnChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_HIDE_ON_CHANGE, onHideOnChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onIdChange = modal.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onInitializedChange = modal.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onLocaleChange = modal.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnMaskNodeChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onMaskNodeChange = modal.getOnMaskNodeChange();
+
+		if (onMaskNodeChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_MASK_NODE_CHANGE, onMaskNodeChange));
+		}
+	}
+
+	protected void renderOnModalChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onModalChange = modal.getOnModalChange();
+
+		if (onModalChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_MODAL_CHANGE, onModalChange));
+		}
+	}
+
+	protected void renderOnPreventOverlapChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onPreventOverlapChange = modal.getOnPreventOverlapChange();
+
+		if (onPreventOverlapChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_PREVENT_OVERLAP_CHANGE, onPreventOverlapChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onRenderChange = modal.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onRenderedChange = modal.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnResizableChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onResizableChange = modal.getOnResizableChange();
+
+		if (onResizableChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_RESIZABLE_CHANGE, onResizableChange));
+		}
+	}
+
+	protected void renderOnShimChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onShimChange = modal.getOnShimChange();
+
+		if (onShimChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_SHIM_CHANGE, onShimChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onSrcNodeChange = modal.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onStringsChange = modal.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onTabIndexChange = modal.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnToolbarPositionChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onToolbarPositionChange = modal.getOnToolbarPositionChange();
+
+		if (onToolbarPositionChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_TOOLBAR_POSITION_CHANGE, onToolbarPositionChange));
+		}
+	}
+
+	protected void renderOnToolbarsChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onToolbarsChange = modal.getOnToolbarsChange();
+
+		if (onToolbarsChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_TOOLBARS_CHANGE, onToolbarsChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onVisibleChange = modal.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onWidthChange = modal.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_WIDTH_CHANGE, onWidthChange));
+		}
+	}
+
+	protected void renderOnXChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onXChange = modal.getOnXChange();
+
+		if (onXChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_XCHANGE, onXChange));
+		}
+	}
+
+	protected void renderOnXyChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onXyChange = modal.getOnXyChange();
+
+		if (onXyChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_XY_CHANGE, onXyChange));
+		}
+	}
+
+	protected void renderOnYChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onYChange = modal.getOnYChange();
+
+		if (onYChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_YCHANGE, onYChange));
+		}
+	}
+
+	protected void renderOnZIndexChange(List<String> renderedAttributes, Modal modal) throws IOException {
+		java.lang.String onZIndexChange = modal.getOnZIndexChange();
+
+		if (onZIndexChange != null) {
+			renderedAttributes.add(renderString(Modal.ON_ZINDEX_CHANGE, onZIndexChange));
 		}
 	}
 

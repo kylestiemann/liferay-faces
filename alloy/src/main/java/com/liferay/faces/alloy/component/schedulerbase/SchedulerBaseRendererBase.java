@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class SchedulerBaseRendererBase extends RendererBase {
 
 	// Private Constants
@@ -77,16 +77,103 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		renderVisible(renderedAttributes, schedulerBase);
 		renderWidth(renderedAttributes, schedulerBase);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterActiveViewChange(renderedAfterEvents, schedulerBase);
+		renderAfterBoundingBoxChange(renderedAfterEvents, schedulerBase);
+		renderAfterContentBoxChange(renderedAfterEvents, schedulerBase);
+		renderAfterCssClassChange(renderedAfterEvents, schedulerBase);
+		renderAfterDateChange(renderedAfterEvents, schedulerBase);
+		renderAfterDestroyedChange(renderedAfterEvents, schedulerBase);
+		renderAfterDisabledChange(renderedAfterEvents, schedulerBase);
+		renderAfterEventRecorderChange(renderedAfterEvents, schedulerBase);
+		renderAfterFirstDayOfWeekChange(renderedAfterEvents, schedulerBase);
+		renderAfterFocusedChange(renderedAfterEvents, schedulerBase);
+		renderAfterHeightChange(renderedAfterEvents, schedulerBase);
+		renderAfterHideClassChange(renderedAfterEvents, schedulerBase);
+		renderAfterIdChange(renderedAfterEvents, schedulerBase);
+		renderAfterInitializedChange(renderedAfterEvents, schedulerBase);
+		renderAfterLocaleChange(renderedAfterEvents, schedulerBase);
+		renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerBase);
+		renderAfterRenderChange(renderedAfterEvents, schedulerBase);
+		renderAfterRenderedChange(renderedAfterEvents, schedulerBase);
+		renderAfterSrcNodeChange(renderedAfterEvents, schedulerBase);
+		renderAfterStringsChange(renderedAfterEvents, schedulerBase);
+		renderAfterTabIndexChange(renderedAfterEvents, schedulerBase);
+		renderAfterTodayDateChange(renderedAfterEvents, schedulerBase);
+		renderAfterUseARIAChange(renderedAfterEvents, schedulerBase);
+		renderAfterViewDateChange(renderedAfterEvents, schedulerBase);
+		renderAfterViewsChange(renderedAfterEvents, schedulerBase);
+		renderAfterVisibleChange(renderedAfterEvents, schedulerBase);
+		renderAfterWidthChange(renderedAfterEvents, schedulerBase);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnActiveViewChange(renderedOnEvents, schedulerBase);
+		renderOnBoundingBoxChange(renderedOnEvents, schedulerBase);
+		renderOnContentBoxChange(renderedOnEvents, schedulerBase);
+		renderOnCssClassChange(renderedOnEvents, schedulerBase);
+		renderOnDateChange(renderedOnEvents, schedulerBase);
+		renderOnDestroyedChange(renderedOnEvents, schedulerBase);
+		renderOnDisabledChange(renderedOnEvents, schedulerBase);
+		renderOnEventRecorderChange(renderedOnEvents, schedulerBase);
+		renderOnFirstDayOfWeekChange(renderedOnEvents, schedulerBase);
+		renderOnFocusedChange(renderedOnEvents, schedulerBase);
+		renderOnHeightChange(renderedOnEvents, schedulerBase);
+		renderOnHideClassChange(renderedOnEvents, schedulerBase);
+		renderOnIdChange(renderedOnEvents, schedulerBase);
+		renderOnInitializedChange(renderedOnEvents, schedulerBase);
+		renderOnLocaleChange(renderedOnEvents, schedulerBase);
+		renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerBase);
+		renderOnRenderChange(renderedOnEvents, schedulerBase);
+		renderOnRenderedChange(renderedOnEvents, schedulerBase);
+		renderOnSrcNodeChange(renderedOnEvents, schedulerBase);
+		renderOnStringsChange(renderedOnEvents, schedulerBase);
+		renderOnTabIndexChange(renderedOnEvents, schedulerBase);
+		renderOnTodayDateChange(renderedOnEvents, schedulerBase);
+		renderOnUseARIAChange(renderedOnEvents, schedulerBase);
+		renderOnViewDateChange(renderedOnEvents, schedulerBase);
+		renderOnViewsChange(renderedOnEvents, schedulerBase);
+		renderOnVisibleChange(renderedOnEvents, schedulerBase);
+		renderOnWidthChange(renderedOnEvents, schedulerBase);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -310,6 +397,438 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 
 		if (width != null) {
 			renderedAttributes.add(renderString(SchedulerBase.WIDTH, width));
+		}
+	}
+
+	protected void renderAfterActiveViewChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterActiveViewChange = schedulerBase.getAfterActiveViewChange();
+
+		if (afterActiveViewChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_ACTIVE_VIEW_CHANGE, afterActiveViewChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterBoundingBoxChange = schedulerBase.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterContentBoxChange = schedulerBase.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterCssClassChange = schedulerBase.getAfterCssClassChange();
+
+		if (afterCssClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_CSS_CLASS_CHANGE, afterCssClassChange));
+		}
+	}
+
+	protected void renderAfterDateChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterDateChange = schedulerBase.getAfterDateChange();
+
+		if (afterDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_DATE_CHANGE, afterDateChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterDestroyedChange = schedulerBase.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDisabledChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterDisabledChange = schedulerBase.getAfterDisabledChange();
+
+		if (afterDisabledChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_DISABLED_CHANGE, afterDisabledChange));
+		}
+	}
+
+	protected void renderAfterEventRecorderChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterEventRecorderChange = schedulerBase.getAfterEventRecorderChange();
+
+		if (afterEventRecorderChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_EVENT_RECORDER_CHANGE, afterEventRecorderChange));
+		}
+	}
+
+	protected void renderAfterFirstDayOfWeekChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterFirstDayOfWeekChange = schedulerBase.getAfterFirstDayOfWeekChange();
+
+		if (afterFirstDayOfWeekChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_FIRST_DAY_OF_WEEK_CHANGE, afterFirstDayOfWeekChange));
+		}
+	}
+
+	protected void renderAfterFocusedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterFocusedChange = schedulerBase.getAfterFocusedChange();
+
+		if (afterFocusedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_FOCUSED_CHANGE, afterFocusedChange));
+		}
+	}
+
+	protected void renderAfterHeightChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterHeightChange = schedulerBase.getAfterHeightChange();
+
+		if (afterHeightChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_HEIGHT_CHANGE, afterHeightChange));
+		}
+	}
+
+	protected void renderAfterHideClassChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterHideClassChange = schedulerBase.getAfterHideClassChange();
+
+		if (afterHideClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_HIDE_CLASS_CHANGE, afterHideClassChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterIdChange = schedulerBase.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterInitializedChange = schedulerBase.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterLocaleChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterLocaleChange = schedulerBase.getAfterLocaleChange();
+
+		if (afterLocaleChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_LOCALE_CHANGE, afterLocaleChange));
+		}
+	}
+
+	protected void renderAfterNavigationDateFormatterChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterNavigationDateFormatterChange = schedulerBase.getAfterNavigationDateFormatterChange();
+
+		if (afterNavigationDateFormatterChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_NAVIGATION_DATE_FORMATTER_CHANGE, afterNavigationDateFormatterChange));
+		}
+	}
+
+	protected void renderAfterRenderChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterRenderChange = schedulerBase.getAfterRenderChange();
+
+		if (afterRenderChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_RENDER_CHANGE, afterRenderChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterRenderedChange = schedulerBase.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterSrcNodeChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterSrcNodeChange = schedulerBase.getAfterSrcNodeChange();
+
+		if (afterSrcNodeChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_SRC_NODE_CHANGE, afterSrcNodeChange));
+		}
+	}
+
+	protected void renderAfterStringsChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterStringsChange = schedulerBase.getAfterStringsChange();
+
+		if (afterStringsChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_STRINGS_CHANGE, afterStringsChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterTabIndexChange = schedulerBase.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderAfterTodayDateChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterTodayDateChange = schedulerBase.getAfterTodayDateChange();
+
+		if (afterTodayDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_TODAY_DATE_CHANGE, afterTodayDateChange));
+		}
+	}
+
+	protected void renderAfterUseARIAChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterUseARIAChange = schedulerBase.getAfterUseARIAChange();
+
+		if (afterUseARIAChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_USE_ARIACHANGE, afterUseARIAChange));
+		}
+	}
+
+	protected void renderAfterViewDateChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterViewDateChange = schedulerBase.getAfterViewDateChange();
+
+		if (afterViewDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_VIEW_DATE_CHANGE, afterViewDateChange));
+		}
+	}
+
+	protected void renderAfterViewsChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterViewsChange = schedulerBase.getAfterViewsChange();
+
+		if (afterViewsChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_VIEWS_CHANGE, afterViewsChange));
+		}
+	}
+
+	protected void renderAfterVisibleChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterVisibleChange = schedulerBase.getAfterVisibleChange();
+
+		if (afterVisibleChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_VISIBLE_CHANGE, afterVisibleChange));
+		}
+	}
+
+	protected void renderAfterWidthChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String afterWidthChange = schedulerBase.getAfterWidthChange();
+
+		if (afterWidthChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.AFTER_WIDTH_CHANGE, afterWidthChange));
+		}
+	}
+
+	protected void renderOnActiveViewChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onActiveViewChange = schedulerBase.getOnActiveViewChange();
+
+		if (onActiveViewChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_ACTIVE_VIEW_CHANGE, onActiveViewChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onBoundingBoxChange = schedulerBase.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onContentBoxChange = schedulerBase.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onCssClassChange = schedulerBase.getOnCssClassChange();
+
+		if (onCssClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_CSS_CLASS_CHANGE, onCssClassChange));
+		}
+	}
+
+	protected void renderOnDateChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onDateChange = schedulerBase.getOnDateChange();
+
+		if (onDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_DATE_CHANGE, onDateChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onDestroyedChange = schedulerBase.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDisabledChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onDisabledChange = schedulerBase.getOnDisabledChange();
+
+		if (onDisabledChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_DISABLED_CHANGE, onDisabledChange));
+		}
+	}
+
+	protected void renderOnEventRecorderChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onEventRecorderChange = schedulerBase.getOnEventRecorderChange();
+
+		if (onEventRecorderChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_EVENT_RECORDER_CHANGE, onEventRecorderChange));
+		}
+	}
+
+	protected void renderOnFirstDayOfWeekChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onFirstDayOfWeekChange = schedulerBase.getOnFirstDayOfWeekChange();
+
+		if (onFirstDayOfWeekChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_FIRST_DAY_OF_WEEK_CHANGE, onFirstDayOfWeekChange));
+		}
+	}
+
+	protected void renderOnFocusedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onFocusedChange = schedulerBase.getOnFocusedChange();
+
+		if (onFocusedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_FOCUSED_CHANGE, onFocusedChange));
+		}
+	}
+
+	protected void renderOnHeightChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onHeightChange = schedulerBase.getOnHeightChange();
+
+		if (onHeightChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_HEIGHT_CHANGE, onHeightChange));
+		}
+	}
+
+	protected void renderOnHideClassChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onHideClassChange = schedulerBase.getOnHideClassChange();
+
+		if (onHideClassChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_HIDE_CLASS_CHANGE, onHideClassChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onIdChange = schedulerBase.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onInitializedChange = schedulerBase.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnLocaleChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onLocaleChange = schedulerBase.getOnLocaleChange();
+
+		if (onLocaleChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_LOCALE_CHANGE, onLocaleChange));
+		}
+	}
+
+	protected void renderOnNavigationDateFormatterChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onNavigationDateFormatterChange = schedulerBase.getOnNavigationDateFormatterChange();
+
+		if (onNavigationDateFormatterChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_NAVIGATION_DATE_FORMATTER_CHANGE, onNavigationDateFormatterChange));
+		}
+	}
+
+	protected void renderOnRenderChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onRenderChange = schedulerBase.getOnRenderChange();
+
+		if (onRenderChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_RENDER_CHANGE, onRenderChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onRenderedChange = schedulerBase.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnSrcNodeChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onSrcNodeChange = schedulerBase.getOnSrcNodeChange();
+
+		if (onSrcNodeChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_SRC_NODE_CHANGE, onSrcNodeChange));
+		}
+	}
+
+	protected void renderOnStringsChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onStringsChange = schedulerBase.getOnStringsChange();
+
+		if (onStringsChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_STRINGS_CHANGE, onStringsChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onTabIndexChange = schedulerBase.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_TAB_INDEX_CHANGE, onTabIndexChange));
+		}
+	}
+
+	protected void renderOnTodayDateChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onTodayDateChange = schedulerBase.getOnTodayDateChange();
+
+		if (onTodayDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_TODAY_DATE_CHANGE, onTodayDateChange));
+		}
+	}
+
+	protected void renderOnUseARIAChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onUseARIAChange = schedulerBase.getOnUseARIAChange();
+
+		if (onUseARIAChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_USE_ARIACHANGE, onUseARIAChange));
+		}
+	}
+
+	protected void renderOnViewDateChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onViewDateChange = schedulerBase.getOnViewDateChange();
+
+		if (onViewDateChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_VIEW_DATE_CHANGE, onViewDateChange));
+		}
+	}
+
+	protected void renderOnViewsChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onViewsChange = schedulerBase.getOnViewsChange();
+
+		if (onViewsChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_VIEWS_CHANGE, onViewsChange));
+		}
+	}
+
+	protected void renderOnVisibleChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onVisibleChange = schedulerBase.getOnVisibleChange();
+
+		if (onVisibleChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_VISIBLE_CHANGE, onVisibleChange));
+		}
+	}
+
+	protected void renderOnWidthChange(List<String> renderedAttributes, SchedulerBase schedulerBase) throws IOException {
+		java.lang.String onWidthChange = schedulerBase.getOnWidthChange();
+
+		if (onWidthChange != null) {
+			renderedAttributes.add(renderString(SchedulerBase.ON_WIDTH_CHANGE, onWidthChange));
 		}
 	}
 

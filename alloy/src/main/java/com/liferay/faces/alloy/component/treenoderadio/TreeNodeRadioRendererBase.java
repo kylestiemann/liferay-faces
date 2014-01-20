@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class TreeNodeRadioRendererBase extends RendererBase {
 
 	// Private Constants
@@ -82,16 +82,113 @@ public abstract class TreeNodeRadioRendererBase extends RendererBase {
 		renderRendered(renderedAttributes, treeNodeRadio);
 		renderTabIndex(renderedAttributes, treeNodeRadio);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterAlwaysShowHitAreaChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterBoundingBoxChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterCacheChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterCheckContainerElChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterCheckElChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterCheckNameChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterCheckedChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterChildrenChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterContainerChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterContentBoxChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterCssClassesChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterDestroyedChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterDraggableChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterExpandedChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterHitAreaElChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterIconElChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterIdChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterIndexChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterInitializedChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterIoChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterLabelChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterLabelElChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterLeafChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterLoadedChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterLoadingChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterNextSiblingChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterOwnerTreeChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterPaginatorChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterParentNodeChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterPrevSiblingChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterRenderedChange(renderedAfterEvents, treeNodeRadio);
+		renderAfterTabIndexChange(renderedAfterEvents, treeNodeRadio);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnAlwaysShowHitAreaChange(renderedOnEvents, treeNodeRadio);
+		renderOnBoundingBoxChange(renderedOnEvents, treeNodeRadio);
+		renderOnCacheChange(renderedOnEvents, treeNodeRadio);
+		renderOnCheckContainerElChange(renderedOnEvents, treeNodeRadio);
+		renderOnCheckElChange(renderedOnEvents, treeNodeRadio);
+		renderOnCheckNameChange(renderedOnEvents, treeNodeRadio);
+		renderOnCheckedChange(renderedOnEvents, treeNodeRadio);
+		renderOnChildrenChange(renderedOnEvents, treeNodeRadio);
+		renderOnContainerChange(renderedOnEvents, treeNodeRadio);
+		renderOnContentBoxChange(renderedOnEvents, treeNodeRadio);
+		renderOnCssClassesChange(renderedOnEvents, treeNodeRadio);
+		renderOnDestroyedChange(renderedOnEvents, treeNodeRadio);
+		renderOnDraggableChange(renderedOnEvents, treeNodeRadio);
+		renderOnExpandedChange(renderedOnEvents, treeNodeRadio);
+		renderOnHitAreaElChange(renderedOnEvents, treeNodeRadio);
+		renderOnIconElChange(renderedOnEvents, treeNodeRadio);
+		renderOnIdChange(renderedOnEvents, treeNodeRadio);
+		renderOnIndexChange(renderedOnEvents, treeNodeRadio);
+		renderOnInitializedChange(renderedOnEvents, treeNodeRadio);
+		renderOnIoChange(renderedOnEvents, treeNodeRadio);
+		renderOnLabelChange(renderedOnEvents, treeNodeRadio);
+		renderOnLabelElChange(renderedOnEvents, treeNodeRadio);
+		renderOnLeafChange(renderedOnEvents, treeNodeRadio);
+		renderOnLoadedChange(renderedOnEvents, treeNodeRadio);
+		renderOnLoadingChange(renderedOnEvents, treeNodeRadio);
+		renderOnNextSiblingChange(renderedOnEvents, treeNodeRadio);
+		renderOnOwnerTreeChange(renderedOnEvents, treeNodeRadio);
+		renderOnPaginatorChange(renderedOnEvents, treeNodeRadio);
+		renderOnParentNodeChange(renderedOnEvents, treeNodeRadio);
+		renderOnPrevSiblingChange(renderedOnEvents, treeNodeRadio);
+		renderOnRenderedChange(renderedOnEvents, treeNodeRadio);
+		renderOnTabIndexChange(renderedOnEvents, treeNodeRadio);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -355,6 +452,518 @@ public abstract class TreeNodeRadioRendererBase extends RendererBase {
 
 		if (tabIndex != null) {
 			renderedAttributes.add(renderString(TreeNodeRadio.TAB_INDEX, tabIndex));
+		}
+	}
+
+	protected void renderAfterAlwaysShowHitAreaChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterAlwaysShowHitAreaChange = treeNodeRadio.getAfterAlwaysShowHitAreaChange();
+
+		if (afterAlwaysShowHitAreaChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_ALWAYS_SHOW_HIT_AREA_CHANGE, afterAlwaysShowHitAreaChange));
+		}
+	}
+
+	protected void renderAfterBoundingBoxChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterBoundingBoxChange = treeNodeRadio.getAfterBoundingBoxChange();
+
+		if (afterBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_BOUNDING_BOX_CHANGE, afterBoundingBoxChange));
+		}
+	}
+
+	protected void renderAfterCacheChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterCacheChange = treeNodeRadio.getAfterCacheChange();
+
+		if (afterCacheChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CACHE_CHANGE, afterCacheChange));
+		}
+	}
+
+	protected void renderAfterCheckContainerElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterCheckContainerElChange = treeNodeRadio.getAfterCheckContainerElChange();
+
+		if (afterCheckContainerElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CHECK_CONTAINER_EL_CHANGE, afterCheckContainerElChange));
+		}
+	}
+
+	protected void renderAfterCheckElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterCheckElChange = treeNodeRadio.getAfterCheckElChange();
+
+		if (afterCheckElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CHECK_EL_CHANGE, afterCheckElChange));
+		}
+	}
+
+	protected void renderAfterCheckNameChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterCheckNameChange = treeNodeRadio.getAfterCheckNameChange();
+
+		if (afterCheckNameChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CHECK_NAME_CHANGE, afterCheckNameChange));
+		}
+	}
+
+	protected void renderAfterCheckedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterCheckedChange = treeNodeRadio.getAfterCheckedChange();
+
+		if (afterCheckedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CHECKED_CHANGE, afterCheckedChange));
+		}
+	}
+
+	protected void renderAfterChildrenChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterChildrenChange = treeNodeRadio.getAfterChildrenChange();
+
+		if (afterChildrenChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CHILDREN_CHANGE, afterChildrenChange));
+		}
+	}
+
+	protected void renderAfterContainerChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterContainerChange = treeNodeRadio.getAfterContainerChange();
+
+		if (afterContainerChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CONTAINER_CHANGE, afterContainerChange));
+		}
+	}
+
+	protected void renderAfterContentBoxChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterContentBoxChange = treeNodeRadio.getAfterContentBoxChange();
+
+		if (afterContentBoxChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CONTENT_BOX_CHANGE, afterContentBoxChange));
+		}
+	}
+
+	protected void renderAfterCssClassesChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterCssClassesChange = treeNodeRadio.getAfterCssClassesChange();
+
+		if (afterCssClassesChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_CSS_CLASSES_CHANGE, afterCssClassesChange));
+		}
+	}
+
+	protected void renderAfterDestroyedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterDestroyedChange = treeNodeRadio.getAfterDestroyedChange();
+
+		if (afterDestroyedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_DESTROYED_CHANGE, afterDestroyedChange));
+		}
+	}
+
+	protected void renderAfterDraggableChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterDraggableChange = treeNodeRadio.getAfterDraggableChange();
+
+		if (afterDraggableChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_DRAGGABLE_CHANGE, afterDraggableChange));
+		}
+	}
+
+	protected void renderAfterExpandedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterExpandedChange = treeNodeRadio.getAfterExpandedChange();
+
+		if (afterExpandedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_EXPANDED_CHANGE, afterExpandedChange));
+		}
+	}
+
+	protected void renderAfterHitAreaElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterHitAreaElChange = treeNodeRadio.getAfterHitAreaElChange();
+
+		if (afterHitAreaElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_HIT_AREA_EL_CHANGE, afterHitAreaElChange));
+		}
+	}
+
+	protected void renderAfterIconElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterIconElChange = treeNodeRadio.getAfterIconElChange();
+
+		if (afterIconElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_ICON_EL_CHANGE, afterIconElChange));
+		}
+	}
+
+	protected void renderAfterIdChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterIdChange = treeNodeRadio.getAfterIdChange();
+
+		if (afterIdChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_ID_CHANGE, afterIdChange));
+		}
+	}
+
+	protected void renderAfterIndexChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterIndexChange = treeNodeRadio.getAfterIndexChange();
+
+		if (afterIndexChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_INDEX_CHANGE, afterIndexChange));
+		}
+	}
+
+	protected void renderAfterInitializedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterInitializedChange = treeNodeRadio.getAfterInitializedChange();
+
+		if (afterInitializedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_INITIALIZED_CHANGE, afterInitializedChange));
+		}
+	}
+
+	protected void renderAfterIoChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterIoChange = treeNodeRadio.getAfterIoChange();
+
+		if (afterIoChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_IO_CHANGE, afterIoChange));
+		}
+	}
+
+	protected void renderAfterLabelChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterLabelChange = treeNodeRadio.getAfterLabelChange();
+
+		if (afterLabelChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_LABEL_CHANGE, afterLabelChange));
+		}
+	}
+
+	protected void renderAfterLabelElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterLabelElChange = treeNodeRadio.getAfterLabelElChange();
+
+		if (afterLabelElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_LABEL_EL_CHANGE, afterLabelElChange));
+		}
+	}
+
+	protected void renderAfterLeafChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterLeafChange = treeNodeRadio.getAfterLeafChange();
+
+		if (afterLeafChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_LEAF_CHANGE, afterLeafChange));
+		}
+	}
+
+	protected void renderAfterLoadedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterLoadedChange = treeNodeRadio.getAfterLoadedChange();
+
+		if (afterLoadedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_LOADED_CHANGE, afterLoadedChange));
+		}
+	}
+
+	protected void renderAfterLoadingChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterLoadingChange = treeNodeRadio.getAfterLoadingChange();
+
+		if (afterLoadingChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_LOADING_CHANGE, afterLoadingChange));
+		}
+	}
+
+	protected void renderAfterNextSiblingChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterNextSiblingChange = treeNodeRadio.getAfterNextSiblingChange();
+
+		if (afterNextSiblingChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_NEXT_SIBLING_CHANGE, afterNextSiblingChange));
+		}
+	}
+
+	protected void renderAfterOwnerTreeChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterOwnerTreeChange = treeNodeRadio.getAfterOwnerTreeChange();
+
+		if (afterOwnerTreeChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_OWNER_TREE_CHANGE, afterOwnerTreeChange));
+		}
+	}
+
+	protected void renderAfterPaginatorChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterPaginatorChange = treeNodeRadio.getAfterPaginatorChange();
+
+		if (afterPaginatorChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_PAGINATOR_CHANGE, afterPaginatorChange));
+		}
+	}
+
+	protected void renderAfterParentNodeChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterParentNodeChange = treeNodeRadio.getAfterParentNodeChange();
+
+		if (afterParentNodeChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_PARENT_NODE_CHANGE, afterParentNodeChange));
+		}
+	}
+
+	protected void renderAfterPrevSiblingChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterPrevSiblingChange = treeNodeRadio.getAfterPrevSiblingChange();
+
+		if (afterPrevSiblingChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_PREV_SIBLING_CHANGE, afterPrevSiblingChange));
+		}
+	}
+
+	protected void renderAfterRenderedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterRenderedChange = treeNodeRadio.getAfterRenderedChange();
+
+		if (afterRenderedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_RENDERED_CHANGE, afterRenderedChange));
+		}
+	}
+
+	protected void renderAfterTabIndexChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String afterTabIndexChange = treeNodeRadio.getAfterTabIndexChange();
+
+		if (afterTabIndexChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.AFTER_TAB_INDEX_CHANGE, afterTabIndexChange));
+		}
+	}
+
+	protected void renderOnAlwaysShowHitAreaChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onAlwaysShowHitAreaChange = treeNodeRadio.getOnAlwaysShowHitAreaChange();
+
+		if (onAlwaysShowHitAreaChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_ALWAYS_SHOW_HIT_AREA_CHANGE, onAlwaysShowHitAreaChange));
+		}
+	}
+
+	protected void renderOnBoundingBoxChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onBoundingBoxChange = treeNodeRadio.getOnBoundingBoxChange();
+
+		if (onBoundingBoxChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_BOUNDING_BOX_CHANGE, onBoundingBoxChange));
+		}
+	}
+
+	protected void renderOnCacheChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onCacheChange = treeNodeRadio.getOnCacheChange();
+
+		if (onCacheChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CACHE_CHANGE, onCacheChange));
+		}
+	}
+
+	protected void renderOnCheckContainerElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onCheckContainerElChange = treeNodeRadio.getOnCheckContainerElChange();
+
+		if (onCheckContainerElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CHECK_CONTAINER_EL_CHANGE, onCheckContainerElChange));
+		}
+	}
+
+	protected void renderOnCheckElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onCheckElChange = treeNodeRadio.getOnCheckElChange();
+
+		if (onCheckElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CHECK_EL_CHANGE, onCheckElChange));
+		}
+	}
+
+	protected void renderOnCheckNameChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onCheckNameChange = treeNodeRadio.getOnCheckNameChange();
+
+		if (onCheckNameChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CHECK_NAME_CHANGE, onCheckNameChange));
+		}
+	}
+
+	protected void renderOnCheckedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onCheckedChange = treeNodeRadio.getOnCheckedChange();
+
+		if (onCheckedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CHECKED_CHANGE, onCheckedChange));
+		}
+	}
+
+	protected void renderOnChildrenChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onChildrenChange = treeNodeRadio.getOnChildrenChange();
+
+		if (onChildrenChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CHILDREN_CHANGE, onChildrenChange));
+		}
+	}
+
+	protected void renderOnContainerChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onContainerChange = treeNodeRadio.getOnContainerChange();
+
+		if (onContainerChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CONTAINER_CHANGE, onContainerChange));
+		}
+	}
+
+	protected void renderOnContentBoxChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onContentBoxChange = treeNodeRadio.getOnContentBoxChange();
+
+		if (onContentBoxChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CONTENT_BOX_CHANGE, onContentBoxChange));
+		}
+	}
+
+	protected void renderOnCssClassesChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onCssClassesChange = treeNodeRadio.getOnCssClassesChange();
+
+		if (onCssClassesChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_CSS_CLASSES_CHANGE, onCssClassesChange));
+		}
+	}
+
+	protected void renderOnDestroyedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onDestroyedChange = treeNodeRadio.getOnDestroyedChange();
+
+		if (onDestroyedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_DESTROYED_CHANGE, onDestroyedChange));
+		}
+	}
+
+	protected void renderOnDraggableChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onDraggableChange = treeNodeRadio.getOnDraggableChange();
+
+		if (onDraggableChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_DRAGGABLE_CHANGE, onDraggableChange));
+		}
+	}
+
+	protected void renderOnExpandedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onExpandedChange = treeNodeRadio.getOnExpandedChange();
+
+		if (onExpandedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_EXPANDED_CHANGE, onExpandedChange));
+		}
+	}
+
+	protected void renderOnHitAreaElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onHitAreaElChange = treeNodeRadio.getOnHitAreaElChange();
+
+		if (onHitAreaElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_HIT_AREA_EL_CHANGE, onHitAreaElChange));
+		}
+	}
+
+	protected void renderOnIconElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onIconElChange = treeNodeRadio.getOnIconElChange();
+
+		if (onIconElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_ICON_EL_CHANGE, onIconElChange));
+		}
+	}
+
+	protected void renderOnIdChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onIdChange = treeNodeRadio.getOnIdChange();
+
+		if (onIdChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_ID_CHANGE, onIdChange));
+		}
+	}
+
+	protected void renderOnIndexChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onIndexChange = treeNodeRadio.getOnIndexChange();
+
+		if (onIndexChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_INDEX_CHANGE, onIndexChange));
+		}
+	}
+
+	protected void renderOnInitializedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onInitializedChange = treeNodeRadio.getOnInitializedChange();
+
+		if (onInitializedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_INITIALIZED_CHANGE, onInitializedChange));
+		}
+	}
+
+	protected void renderOnIoChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onIoChange = treeNodeRadio.getOnIoChange();
+
+		if (onIoChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_IO_CHANGE, onIoChange));
+		}
+	}
+
+	protected void renderOnLabelChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onLabelChange = treeNodeRadio.getOnLabelChange();
+
+		if (onLabelChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_LABEL_CHANGE, onLabelChange));
+		}
+	}
+
+	protected void renderOnLabelElChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onLabelElChange = treeNodeRadio.getOnLabelElChange();
+
+		if (onLabelElChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_LABEL_EL_CHANGE, onLabelElChange));
+		}
+	}
+
+	protected void renderOnLeafChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onLeafChange = treeNodeRadio.getOnLeafChange();
+
+		if (onLeafChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_LEAF_CHANGE, onLeafChange));
+		}
+	}
+
+	protected void renderOnLoadedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onLoadedChange = treeNodeRadio.getOnLoadedChange();
+
+		if (onLoadedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_LOADED_CHANGE, onLoadedChange));
+		}
+	}
+
+	protected void renderOnLoadingChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onLoadingChange = treeNodeRadio.getOnLoadingChange();
+
+		if (onLoadingChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_LOADING_CHANGE, onLoadingChange));
+		}
+	}
+
+	protected void renderOnNextSiblingChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onNextSiblingChange = treeNodeRadio.getOnNextSiblingChange();
+
+		if (onNextSiblingChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_NEXT_SIBLING_CHANGE, onNextSiblingChange));
+		}
+	}
+
+	protected void renderOnOwnerTreeChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onOwnerTreeChange = treeNodeRadio.getOnOwnerTreeChange();
+
+		if (onOwnerTreeChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_OWNER_TREE_CHANGE, onOwnerTreeChange));
+		}
+	}
+
+	protected void renderOnPaginatorChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onPaginatorChange = treeNodeRadio.getOnPaginatorChange();
+
+		if (onPaginatorChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_PAGINATOR_CHANGE, onPaginatorChange));
+		}
+	}
+
+	protected void renderOnParentNodeChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onParentNodeChange = treeNodeRadio.getOnParentNodeChange();
+
+		if (onParentNodeChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_PARENT_NODE_CHANGE, onParentNodeChange));
+		}
+	}
+
+	protected void renderOnPrevSiblingChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onPrevSiblingChange = treeNodeRadio.getOnPrevSiblingChange();
+
+		if (onPrevSiblingChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_PREV_SIBLING_CHANGE, onPrevSiblingChange));
+		}
+	}
+
+	protected void renderOnRenderedChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onRenderedChange = treeNodeRadio.getOnRenderedChange();
+
+		if (onRenderedChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_RENDERED_CHANGE, onRenderedChange));
+		}
+	}
+
+	protected void renderOnTabIndexChange(List<String> renderedAttributes, TreeNodeRadio treeNodeRadio) throws IOException {
+		java.lang.String onTabIndexChange = treeNodeRadio.getOnTabIndexChange();
+
+		if (onTabIndexChange != null) {
+			renderedAttributes.add(renderString(TreeNodeRadio.ON_TAB_INDEX_CHANGE, onTabIndexChange));
 		}
 	}
 

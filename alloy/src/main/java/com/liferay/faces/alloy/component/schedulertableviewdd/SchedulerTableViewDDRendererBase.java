@@ -18,6 +18,7 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.faces.application.ResourceDependency;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.context.ResponseWriter;
@@ -25,13 +26,12 @@ import javax.faces.context.ResponseWriter;
 import com.liferay.faces.alloy.component.base.RendererBase;
 import com.liferay.faces.util.lang.StringPool;
 
-
 /**
- * @author Eduardo Lundgren
  * @author Bruno Basto
- * @author Nathan Cavanaugh
+ * @author Kyle Stiemann
  * @generated
  */
+@ResourceDependency(library = "aui", name = "aui.js")
 public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 	// Private Constants
@@ -51,16 +51,51 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 		renderDelegateConfig(renderedAttributes, schedulerTableViewDD);
 
-		Iterator<String> it = renderedAttributes.iterator();
+		for (String renderedAttribute : renderedAttributes) {
+			responseWriter.write(renderedAttribute);
+			responseWriter.write(StringPool.COMMA);
+		}
 
-		while (it.hasNext()) {
-			responseWriter.write(it.next());
+		responseWriter.write("after");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
 
-			if (it.hasNext()) {
+		List<String> renderedAfterEvents = new ArrayList<String>();
+
+		renderAfterDelegateConfigChange(renderedAfterEvents, schedulerTableViewDD);
+
+		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
+
+		while (afterEventsIterator.hasNext()) {
+			responseWriter.write(afterEventsIterator.next());
+
+			if (afterEventsIterator.hasNext()) {
 				responseWriter.write(StringPool.COMMA);
 			}
 		}
 
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
+		responseWriter.write(StringPool.COMMA);
+
+		responseWriter.write("on");
+		responseWriter.write(StringPool.COLON);
+		responseWriter.write(StringPool.OPEN_CURLY_BRACE);
+
+		List<String> renderedOnEvents = new ArrayList<String>();
+
+		renderOnDelegateConfigChange(renderedOnEvents, schedulerTableViewDD);
+
+		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
+
+		while (onEventsIterator.hasNext()) {
+			responseWriter.write(onEventsIterator.next());
+
+			if (onEventsIterator.hasNext()) {
+				responseWriter.write(StringPool.COMMA);
+			}
+		}
+
+		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_CURLY_BRACE);
 		responseWriter.write(StringPool.CLOSE_PARENTHESIS);
 		responseWriter.write(".render()");
@@ -76,6 +111,22 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 
 		if (delegateConfig != null) {
 			renderedAttributes.add(renderObject(SchedulerTableViewDD.DELEGATE_CONFIG, delegateConfig));
+		}
+	}
+
+	protected void renderAfterDelegateConfigChange(List<String> renderedAttributes, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
+		java.lang.String afterDelegateConfigChange = schedulerTableViewDD.getAfterDelegateConfigChange();
+
+		if (afterDelegateConfigChange != null) {
+			renderedAttributes.add(renderString(SchedulerTableViewDD.AFTER_DELEGATE_CONFIG_CHANGE, afterDelegateConfigChange));
+		}
+	}
+
+	protected void renderOnDelegateConfigChange(List<String> renderedAttributes, SchedulerTableViewDD schedulerTableViewDD) throws IOException {
+		java.lang.String onDelegateConfigChange = schedulerTableViewDD.getOnDelegateConfigChange();
+
+		if (onDelegateConfigChange != null) {
+			renderedAttributes.add(renderString(SchedulerTableViewDD.ON_DELEGATE_CONFIG_CHANGE, onDelegateConfigChange));
 		}
 	}
 
