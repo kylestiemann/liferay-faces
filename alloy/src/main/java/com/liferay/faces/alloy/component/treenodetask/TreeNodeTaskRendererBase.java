@@ -52,131 +52,131 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		if (treeNodeTask.getAlwaysShowHitArea() != null) {
 			renderAlwaysShowHitArea(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getCache() != null) {
 			renderCache(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getCheckContainerEl() != null) {
 			renderCheckContainerEl(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getCheckEl() != null) {
 			renderCheckEl(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getCheckName() != null) {
 			renderCheckName(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getChecked() != null) {
 			renderChecked(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getTreeNodeTaskChildren() != null) {
 			renderTreeNodeTaskChildren(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getContainer() != null) {
 			renderContainer(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getContentBox() != null) {
 			renderContentBox(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getCssClasses() != null) {
 			renderCssClasses(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getDraggable() != null) {
 			renderDraggable(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getExpanded() != null) {
 			renderExpanded(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getHitAreaEl() != null) {
 			renderHitAreaEl(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getIconEl() != null) {
 			renderIconEl(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getTreeNodeTaskId() != null) {
 			renderTreeNodeTaskId(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getIndex() != null) {
 			renderIndex(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getInitialized() != null) {
 			renderInitialized(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getIo() != null) {
 			renderIo(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getLabel() != null) {
 			renderLabel(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getLabelEl() != null) {
 			renderLabelEl(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getLeaf() != null) {
 			renderLeaf(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getLoaded() != null) {
 			renderLoaded(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getLoading() != null) {
 			renderLoading(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getNextSibling() != null) {
 			renderNextSibling(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOwnerTree() != null) {
 			renderOwnerTree(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getPaginator() != null) {
 			renderPaginator(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getParentNode() != null) {
 			renderParentNode(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getPrevSibling() != null) {
 			renderPrevSibling(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getRendered() != null) {
 			renderRendered(renderedAttributes, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, treeNodeTask);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -192,131 +192,131 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		if (treeNodeTask.getAfterAlwaysShowHitAreaChange() != null) {
 			renderAfterAlwaysShowHitAreaChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterCacheChange() != null) {
 			renderAfterCacheChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterCheckContainerElChange() != null) {
 			renderAfterCheckContainerElChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterCheckElChange() != null) {
 			renderAfterCheckElChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterCheckNameChange() != null) {
 			renderAfterCheckNameChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterCheckedChange() != null) {
 			renderAfterCheckedChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterChildrenChange() != null) {
 			renderAfterChildrenChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterCssClassesChange() != null) {
 			renderAfterCssClassesChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterDraggableChange() != null) {
 			renderAfterDraggableChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterExpandedChange() != null) {
 			renderAfterExpandedChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterHitAreaElChange() != null) {
 			renderAfterHitAreaElChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterIconElChange() != null) {
 			renderAfterIconElChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterIndexChange() != null) {
 			renderAfterIndexChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterIoChange() != null) {
 			renderAfterIoChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterLabelElChange() != null) {
 			renderAfterLabelElChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterLeafChange() != null) {
 			renderAfterLeafChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterLoadedChange() != null) {
 			renderAfterLoadedChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterLoadingChange() != null) {
 			renderAfterLoadingChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterNextSiblingChange() != null) {
 			renderAfterNextSiblingChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterOwnerTreeChange() != null) {
 			renderAfterOwnerTreeChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterPaginatorChange() != null) {
 			renderAfterPaginatorChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterParentNodeChange() != null) {
 			renderAfterParentNodeChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterPrevSiblingChange() != null) {
 			renderAfterPrevSiblingChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, treeNodeTask);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -340,131 +340,131 @@ public abstract class TreeNodeTaskRendererBase extends RendererBase {
 		if (treeNodeTask.getOnAlwaysShowHitAreaChange() != null) {
 			renderOnAlwaysShowHitAreaChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnCacheChange() != null) {
 			renderOnCacheChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnCheckContainerElChange() != null) {
 			renderOnCheckContainerElChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnCheckElChange() != null) {
 			renderOnCheckElChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnCheckNameChange() != null) {
 			renderOnCheckNameChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnCheckedChange() != null) {
 			renderOnCheckedChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnChildrenChange() != null) {
 			renderOnChildrenChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnCssClassesChange() != null) {
 			renderOnCssClassesChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnDraggableChange() != null) {
 			renderOnDraggableChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnExpandedChange() != null) {
 			renderOnExpandedChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnHitAreaElChange() != null) {
 			renderOnHitAreaElChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnIconElChange() != null) {
 			renderOnIconElChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnIndexChange() != null) {
 			renderOnIndexChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnIoChange() != null) {
 			renderOnIoChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnLabelElChange() != null) {
 			renderOnLabelElChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnLeafChange() != null) {
 			renderOnLeafChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnLoadedChange() != null) {
 			renderOnLoadedChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnLoadingChange() != null) {
 			renderOnLoadingChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnNextSiblingChange() != null) {
 			renderOnNextSiblingChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnOwnerTreeChange() != null) {
 			renderOnOwnerTreeChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnPaginatorChange() != null) {
 			renderOnPaginatorChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnParentNodeChange() != null) {
 			renderOnParentNodeChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnPrevSiblingChange() != null) {
 			renderOnPrevSiblingChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 		if (treeNodeTask.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, treeNodeTask);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

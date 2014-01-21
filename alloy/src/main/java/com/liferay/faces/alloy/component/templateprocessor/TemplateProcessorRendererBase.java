@@ -52,23 +52,23 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 		if (templateProcessor.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getDirectives() != null) {
 			renderDirectives(renderedAttributes, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getHost() != null) {
 			renderHost(renderedAttributes, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getInitialized() != null) {
 			renderInitialized(renderedAttributes, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getVariables() != null) {
 			renderVariables(renderedAttributes, templateProcessor);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 		if (templateProcessor.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getAfterDirectivesChange() != null) {
 			renderAfterDirectivesChange(renderedAfterEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getAfterVariablesChange() != null) {
 			renderAfterVariablesChange(renderedAfterEvents, templateProcessor);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class TemplateProcessorRendererBase extends RendererBase {
 		if (templateProcessor.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getOnDirectivesChange() != null) {
 			renderOnDirectivesChange(renderedOnEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, templateProcessor);
 		}
-		
+
 		if (templateProcessor.getOnVariablesChange() != null) {
 			renderOnVariablesChange(renderedOnEvents, templateProcessor);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

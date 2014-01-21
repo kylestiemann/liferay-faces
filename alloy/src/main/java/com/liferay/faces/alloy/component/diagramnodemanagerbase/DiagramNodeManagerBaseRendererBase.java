@@ -52,11 +52,11 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 		if (diagramNodeManagerBase.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, diagramNodeManagerBase);
 		}
-		
+
 		if (diagramNodeManagerBase.getInitialized() != null) {
 			renderInitialized(renderedAttributes, diagramNodeManagerBase);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -72,11 +72,11 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 		if (diagramNodeManagerBase.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, diagramNodeManagerBase);
 		}
-		
+
 		if (diagramNodeManagerBase.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, diagramNodeManagerBase);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -100,11 +100,11 @@ public abstract class DiagramNodeManagerBaseRendererBase extends RendererBase {
 		if (diagramNodeManagerBase.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, diagramNodeManagerBase);
 		}
-		
+
 		if (diagramNodeManagerBase.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, diagramNodeManagerBase);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

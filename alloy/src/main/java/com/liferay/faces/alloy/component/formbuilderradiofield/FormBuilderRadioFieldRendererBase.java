@@ -52,127 +52,127 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		if (formBuilderRadioField.getAcceptChildren() != null) {
 			renderAcceptChildren(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getBuilder() != null) {
 			renderBuilder(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getControlsToolbar() != null) {
 			renderControlsToolbar(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getDataType() != null) {
 			renderDataType(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getDisabled() != null) {
 			renderDisabled(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getDropZoneNode() != null) {
 			renderDropZoneNode(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getHiddenAttributes() != null) {
 			renderHiddenAttributes(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getFormBuilderRadioFieldId() != null) {
 			renderFormBuilderRadioFieldId(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getLabel() != null) {
 			renderLabel(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getLabelNode() != null) {
 			renderLabelNode(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getLocalizationMap() != null) {
 			renderLocalizationMap(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getName() != null) {
 			renderName(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOptionTemplate() != null) {
 			renderOptionTemplate(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOptions() != null) {
 			renderOptions(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getFormBuilderRadioFieldParent() != null) {
 			renderFormBuilderRadioFieldParent(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getPredefinedValue() != null) {
 			renderPredefinedValue(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getReadOnly() != null) {
 			renderReadOnly(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getReadOnlyAttributes() != null) {
 			renderReadOnlyAttributes(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getRequired() != null) {
 			renderRequired(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getRequiredFlagNode() != null) {
 			renderRequiredFlagNode(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getSelected() != null) {
 			renderSelected(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getShowLabel() != null) {
 			renderShowLabel(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getStrings() != null) {
 			renderStrings(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getTemplate() != null) {
 			renderTemplate(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getTemplateNode() != null) {
 			renderTemplateNode(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getTip() != null) {
 			renderTip(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getTipFlagNode() != null) {
 			renderTipFlagNode(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getType() != null) {
 			renderType(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getUnique() != null) {
 			renderUnique(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getZIndex() != null) {
 			renderZIndex(renderedAttributes, formBuilderRadioField);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -188,127 +188,127 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		if (formBuilderRadioField.getAfterAcceptChildrenChange() != null) {
 			renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterBuilderChange() != null) {
 			renderAfterBuilderChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterControlsToolbarChange() != null) {
 			renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterDataTypeChange() != null) {
 			renderAfterDataTypeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterDropZoneNodeChange() != null) {
 			renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterHiddenAttributesChange() != null) {
 			renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterLabelNodeChange() != null) {
 			renderAfterLabelNodeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterLocalizationMapChange() != null) {
 			renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterOptionTemplateChange() != null) {
 			renderAfterOptionTemplateChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterOptionsChange() != null) {
 			renderAfterOptionsChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterParentChange() != null) {
 			renderAfterParentChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterPredefinedValueChange() != null) {
 			renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterReadOnlyChange() != null) {
 			renderAfterReadOnlyChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterReadOnlyAttributesChange() != null) {
 			renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterRequiredChange() != null) {
 			renderAfterRequiredChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterRequiredFlagNodeChange() != null) {
 			renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterShowLabelChange() != null) {
 			renderAfterShowLabelChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterTemplateChange() != null) {
 			renderAfterTemplateChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterTemplateNodeChange() != null) {
 			renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterTipChange() != null) {
 			renderAfterTipChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterTipFlagNodeChange() != null) {
 			renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterUniqueChange() != null) {
 			renderAfterUniqueChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, formBuilderRadioField);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -332,127 +332,127 @@ public abstract class FormBuilderRadioFieldRendererBase extends RendererBase {
 		if (formBuilderRadioField.getOnAcceptChildrenChange() != null) {
 			renderOnAcceptChildrenChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnBuilderChange() != null) {
 			renderOnBuilderChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnControlsToolbarChange() != null) {
 			renderOnControlsToolbarChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnDataTypeChange() != null) {
 			renderOnDataTypeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnDropZoneNodeChange() != null) {
 			renderOnDropZoneNodeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnHiddenAttributesChange() != null) {
 			renderOnHiddenAttributesChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnLabelNodeChange() != null) {
 			renderOnLabelNodeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnLocalizationMapChange() != null) {
 			renderOnLocalizationMapChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnOptionTemplateChange() != null) {
 			renderOnOptionTemplateChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnOptionsChange() != null) {
 			renderOnOptionsChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnParentChange() != null) {
 			renderOnParentChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnPredefinedValueChange() != null) {
 			renderOnPredefinedValueChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnReadOnlyChange() != null) {
 			renderOnReadOnlyChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnReadOnlyAttributesChange() != null) {
 			renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnRequiredChange() != null) {
 			renderOnRequiredChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnRequiredFlagNodeChange() != null) {
 			renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnShowLabelChange() != null) {
 			renderOnShowLabelChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnTemplateChange() != null) {
 			renderOnTemplateChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnTemplateNodeChange() != null) {
 			renderOnTemplateNodeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnTipChange() != null) {
 			renderOnTipChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnTipFlagNodeChange() != null) {
 			renderOnTipFlagNodeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnUniqueChange() != null) {
 			renderOnUniqueChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 		if (formBuilderRadioField.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, formBuilderRadioField);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,111 +52,111 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		if (schedulerBase.getActiveView() != null) {
 			renderActiveView(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getDate() != null) {
 			renderDate(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getEventRecorder() != null) {
 			renderEventRecorder(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getFirstDayOfWeek() != null) {
 			renderFirstDayOfWeek(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getSchedulerBaseId() != null) {
 			renderSchedulerBaseId(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getSchedulerBaseLocale() != null) {
 			renderSchedulerBaseLocale(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getRender() != null) {
 			renderRender(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getTodayDate() != null) {
 			renderTodayDate(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getViewDate() != null) {
 			renderViewDate(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getViews() != null) {
 			renderViews(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerBase);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -172,111 +172,111 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		if (schedulerBase.getAfterActiveViewChange() != null) {
 			renderAfterActiveViewChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterDateChange() != null) {
 			renderAfterDateChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterEventRecorderChange() != null) {
 			renderAfterEventRecorderChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterFirstDayOfWeekChange() != null) {
 			renderAfterFirstDayOfWeekChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterTodayDateChange() != null) {
 			renderAfterTodayDateChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterViewDateChange() != null) {
 			renderAfterViewDateChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterViewsChange() != null) {
 			renderAfterViewsChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerBase);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -300,111 +300,111 @@ public abstract class SchedulerBaseRendererBase extends RendererBase {
 		if (schedulerBase.getOnActiveViewChange() != null) {
 			renderOnActiveViewChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnDateChange() != null) {
 			renderOnDateChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnEventRecorderChange() != null) {
 			renderOnEventRecorderChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnFirstDayOfWeekChange() != null) {
 			renderOnFirstDayOfWeekChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnTodayDateChange() != null) {
 			renderOnTodayDateChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnViewDateChange() != null) {
 			renderOnViewDateChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnViewsChange() != null) {
 			renderOnViewsChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 		if (schedulerBase.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerBase);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,127 +52,127 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends Rendere
 		if (formBuilderMultipleChoiceField.getAcceptChildren() != null) {
 			renderAcceptChildren(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getBuilder() != null) {
 			renderBuilder(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getControlsToolbar() != null) {
 			renderControlsToolbar(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getDataType() != null) {
 			renderDataType(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getDisabled() != null) {
 			renderDisabled(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getDropZoneNode() != null) {
 			renderDropZoneNode(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getHiddenAttributes() != null) {
 			renderHiddenAttributes(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getFormBuilderMultipleChoiceFieldId() != null) {
 			renderFormBuilderMultipleChoiceFieldId(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getLabel() != null) {
 			renderLabel(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getLabelNode() != null) {
 			renderLabelNode(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getLocalizationMap() != null) {
 			renderLocalizationMap(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getName() != null) {
 			renderName(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOptionTemplate() != null) {
 			renderOptionTemplate(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOptions() != null) {
 			renderOptions(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getFormBuilderMultipleChoiceFieldParent() != null) {
 			renderFormBuilderMultipleChoiceFieldParent(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getPredefinedValue() != null) {
 			renderPredefinedValue(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getReadOnly() != null) {
 			renderReadOnly(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getReadOnlyAttributes() != null) {
 			renderReadOnlyAttributes(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getRequired() != null) {
 			renderRequired(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getRequiredFlagNode() != null) {
 			renderRequiredFlagNode(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getSelected() != null) {
 			renderSelected(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getShowLabel() != null) {
 			renderShowLabel(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getStrings() != null) {
 			renderStrings(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getTemplate() != null) {
 			renderTemplate(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getTemplateNode() != null) {
 			renderTemplateNode(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getTip() != null) {
 			renderTip(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getTipFlagNode() != null) {
 			renderTipFlagNode(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getType() != null) {
 			renderType(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getUnique() != null) {
 			renderUnique(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getZIndex() != null) {
 			renderZIndex(renderedAttributes, formBuilderMultipleChoiceField);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -188,127 +188,127 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends Rendere
 		if (formBuilderMultipleChoiceField.getAfterAcceptChildrenChange() != null) {
 			renderAfterAcceptChildrenChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterBuilderChange() != null) {
 			renderAfterBuilderChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterControlsToolbarChange() != null) {
 			renderAfterControlsToolbarChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterDataTypeChange() != null) {
 			renderAfterDataTypeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterDropZoneNodeChange() != null) {
 			renderAfterDropZoneNodeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterHiddenAttributesChange() != null) {
 			renderAfterHiddenAttributesChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterLabelNodeChange() != null) {
 			renderAfterLabelNodeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterLocalizationMapChange() != null) {
 			renderAfterLocalizationMapChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterOptionTemplateChange() != null) {
 			renderAfterOptionTemplateChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterOptionsChange() != null) {
 			renderAfterOptionsChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterParentChange() != null) {
 			renderAfterParentChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterPredefinedValueChange() != null) {
 			renderAfterPredefinedValueChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterReadOnlyChange() != null) {
 			renderAfterReadOnlyChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterReadOnlyAttributesChange() != null) {
 			renderAfterReadOnlyAttributesChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterRequiredChange() != null) {
 			renderAfterRequiredChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterRequiredFlagNodeChange() != null) {
 			renderAfterRequiredFlagNodeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterShowLabelChange() != null) {
 			renderAfterShowLabelChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterTemplateChange() != null) {
 			renderAfterTemplateChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterTemplateNodeChange() != null) {
 			renderAfterTemplateNodeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterTipChange() != null) {
 			renderAfterTipChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterTipFlagNodeChange() != null) {
 			renderAfterTipFlagNodeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterUniqueChange() != null) {
 			renderAfterUniqueChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -332,127 +332,127 @@ public abstract class FormBuilderMultipleChoiceFieldRendererBase extends Rendere
 		if (formBuilderMultipleChoiceField.getOnAcceptChildrenChange() != null) {
 			renderOnAcceptChildrenChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnBuilderChange() != null) {
 			renderOnBuilderChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnControlsToolbarChange() != null) {
 			renderOnControlsToolbarChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnDataTypeChange() != null) {
 			renderOnDataTypeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnDropZoneNodeChange() != null) {
 			renderOnDropZoneNodeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnHiddenAttributesChange() != null) {
 			renderOnHiddenAttributesChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnLabelNodeChange() != null) {
 			renderOnLabelNodeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnLocalizationMapChange() != null) {
 			renderOnLocalizationMapChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnOptionTemplateChange() != null) {
 			renderOnOptionTemplateChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnOptionsChange() != null) {
 			renderOnOptionsChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnParentChange() != null) {
 			renderOnParentChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnPredefinedValueChange() != null) {
 			renderOnPredefinedValueChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnReadOnlyChange() != null) {
 			renderOnReadOnlyChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnReadOnlyAttributesChange() != null) {
 			renderOnReadOnlyAttributesChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnRequiredChange() != null) {
 			renderOnRequiredChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnRequiredFlagNodeChange() != null) {
 			renderOnRequiredFlagNodeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnShowLabelChange() != null) {
 			renderOnShowLabelChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnTemplateChange() != null) {
 			renderOnTemplateChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnTemplateNodeChange() != null) {
 			renderOnTemplateNodeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnTipChange() != null) {
 			renderOnTipChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnTipFlagNodeChange() != null) {
 			renderOnTipFlagNodeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnUniqueChange() != null) {
 			renderOnUniqueChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 		if (formBuilderMultipleChoiceField.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, formBuilderMultipleChoiceField);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

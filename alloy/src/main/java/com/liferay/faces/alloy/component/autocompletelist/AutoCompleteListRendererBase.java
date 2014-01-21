@@ -52,175 +52,175 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		if (autoCompleteList.getActivateFirstItem() != null) {
 			renderActivateFirstItem(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getActiveItem() != null) {
 			renderActiveItem(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAlign() != null) {
 			renderAlign(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAlignOn() != null) {
 			renderAlignOn(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAlwaysShowList() != null) {
 			renderAlwaysShowList(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAutoCompleteListBodyContent() != null) {
 			renderAutoCompleteListBodyContent(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getCentered() != null) {
 			renderCentered(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getCircular() != null) {
 			renderCircular(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getConstrain() != null) {
 			renderConstrain(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getContentBox() != null) {
 			renderContentBox(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getDisabled() != null) {
 			renderDisabled(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getFillHeight() != null) {
 			renderFillHeight(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getFocused() != null) {
 			renderFocused(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getFooterContent() != null) {
 			renderFooterContent(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getHeaderContent() != null) {
 			renderHeaderContent(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getHeight() != null) {
 			renderHeight(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getHideOn() != null) {
 			renderHideOn(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getHost() != null) {
 			renderHost(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getHoveredItem() != null) {
 			renderHoveredItem(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAutoCompleteListId() != null) {
 			renderAutoCompleteListId(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getInitialized() != null) {
 			renderInitialized(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getListNode() != null) {
 			renderListNode(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getLoadingMessage() != null) {
 			renderLoadingMessage(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAutoCompleteListLocale() != null) {
 			renderAutoCompleteListLocale(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getPreventOverlap() != null) {
 			renderPreventOverlap(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getRender() != null) {
 			renderRender(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getRendered() != null) {
 			renderRendered(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getResults() != null) {
 			renderResults(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getScrollIntoView() != null) {
 			renderScrollIntoView(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getSelectedEntry() != null) {
 			renderSelectedEntry(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getShim() != null) {
 			renderShim(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getStrings() != null) {
 			renderStrings(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getTabSelect() != null) {
 			renderTabSelect(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getVisible() != null) {
 			renderVisible(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getWidth() != null) {
 			renderWidth(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getX() != null) {
 			renderX(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getXy() != null) {
 			renderXy(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getY() != null) {
 			renderY(renderedAttributes, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getZIndex() != null) {
 			renderZIndex(renderedAttributes, autoCompleteList);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -236,175 +236,175 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		if (autoCompleteList.getAfterActivateFirstItemChange() != null) {
 			renderAfterActivateFirstItemChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterActiveItemChange() != null) {
 			renderAfterActiveItemChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterAlignOnChange() != null) {
 			renderAfterAlignOnChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterAlwaysShowListChange() != null) {
 			renderAfterAlwaysShowListChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterCenteredChange() != null) {
 			renderAfterCenteredChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterCircularChange() != null) {
 			renderAfterCircularChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterConstrainChange() != null) {
 			renderAfterConstrainChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterFillHeightChange() != null) {
 			renderAfterFillHeightChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterFooterContentChange() != null) {
 			renderAfterFooterContentChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterHeaderContentChange() != null) {
 			renderAfterHeaderContentChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterHideOnChange() != null) {
 			renderAfterHideOnChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterHoveredItemChange() != null) {
 			renderAfterHoveredItemChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterListNodeChange() != null) {
 			renderAfterListNodeChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterLoadingMessageChange() != null) {
 			renderAfterLoadingMessageChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterPreventOverlapChange() != null) {
 			renderAfterPreventOverlapChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterResultsChange() != null) {
 			renderAfterResultsChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterScrollIntoViewChange() != null) {
 			renderAfterScrollIntoViewChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterSelectedEntryChange() != null) {
 			renderAfterSelectedEntryChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterShimChange() != null) {
 			renderAfterShimChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterTabSelectChange() != null) {
 			renderAfterTabSelectChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterXyChange() != null) {
 			renderAfterXyChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, autoCompleteList);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -428,175 +428,175 @@ public abstract class AutoCompleteListRendererBase extends RendererBase {
 		if (autoCompleteList.getOnActivateFirstItemChange() != null) {
 			renderOnActivateFirstItemChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnActiveItemChange() != null) {
 			renderOnActiveItemChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnAlignOnChange() != null) {
 			renderOnAlignOnChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnAlwaysShowListChange() != null) {
 			renderOnAlwaysShowListChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnCenteredChange() != null) {
 			renderOnCenteredChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnCircularChange() != null) {
 			renderOnCircularChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnConstrainChange() != null) {
 			renderOnConstrainChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnFillHeightChange() != null) {
 			renderOnFillHeightChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnFooterContentChange() != null) {
 			renderOnFooterContentChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnHeaderContentChange() != null) {
 			renderOnHeaderContentChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnHideOnChange() != null) {
 			renderOnHideOnChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnHoveredItemChange() != null) {
 			renderOnHoveredItemChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnListNodeChange() != null) {
 			renderOnListNodeChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnLoadingMessageChange() != null) {
 			renderOnLoadingMessageChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnPreventOverlapChange() != null) {
 			renderOnPreventOverlapChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnResultsChange() != null) {
 			renderOnResultsChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnScrollIntoViewChange() != null) {
 			renderOnScrollIntoViewChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnSelectedEntryChange() != null) {
 			renderOnSelectedEntryChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnShimChange() != null) {
 			renderOnShimChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnTabSelectChange() != null) {
 			renderOnTabSelectChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnXyChange() != null) {
 			renderOnXyChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 		if (autoCompleteList.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, autoCompleteList);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

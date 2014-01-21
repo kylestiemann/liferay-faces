@@ -52,31 +52,31 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 		if (ternarySearchNode.getCharacter() != null) {
 			renderCharacter(renderedAttributes, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getChild() != null) {
 			renderChild(renderedAttributes, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getInitialized() != null) {
 			renderInitialized(renderedAttributes, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getLargerNode() != null) {
 			renderLargerNode(renderedAttributes, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getSmallerNode() != null) {
 			renderSmallerNode(renderedAttributes, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getWord() != null) {
 			renderWord(renderedAttributes, ternarySearchNode);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -92,31 +92,31 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 		if (ternarySearchNode.getAfterCharacterChange() != null) {
 			renderAfterCharacterChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getAfterChildChange() != null) {
 			renderAfterChildChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getAfterLargerNodeChange() != null) {
 			renderAfterLargerNodeChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getAfterSmallerNodeChange() != null) {
 			renderAfterSmallerNodeChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getAfterWordChange() != null) {
 			renderAfterWordChange(renderedAfterEvents, ternarySearchNode);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -140,31 +140,31 @@ public abstract class TernarySearchNodeRendererBase extends RendererBase {
 		if (ternarySearchNode.getOnCharacterChange() != null) {
 			renderOnCharacterChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getOnChildChange() != null) {
 			renderOnChildChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getOnLargerNodeChange() != null) {
 			renderOnLargerNodeChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getOnSmallerNodeChange() != null) {
 			renderOnSmallerNodeChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 		if (ternarySearchNode.getOnWordChange() != null) {
 			renderOnWordChange(renderedOnEvents, ternarySearchNode);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

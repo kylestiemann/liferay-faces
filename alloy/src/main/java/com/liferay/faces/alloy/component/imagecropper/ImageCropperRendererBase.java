@@ -52,119 +52,119 @@ public abstract class ImageCropperRendererBase extends RendererBase {
 		if (imageCropper.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getContentBox() != null) {
 			renderContentBox(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getCropHeight() != null) {
 			renderCropHeight(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getCropWidth() != null) {
 			renderCropWidth(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getCssClass() != null) {
 			renderCssClass(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getDisabled() != null) {
 			renderDisabled(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getFocused() != null) {
 			renderFocused(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getHeight() != null) {
 			renderHeight(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getHideClass() != null) {
 			renderHideClass(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getImageCropperId() != null) {
 			renderImageCropperId(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getInitialized() != null) {
 			renderInitialized(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getImageCropperLocale() != null) {
 			renderImageCropperLocale(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getMinHeight() != null) {
 			renderMinHeight(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getMinWidth() != null) {
 			renderMinWidth(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getMovable() != null) {
 			renderMovable(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getPreserveRatio() != null) {
 			renderPreserveRatio(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getRegion() != null) {
 			renderRegion(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getRender() != null) {
 			renderRender(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getRendered() != null) {
 			renderRendered(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getResizable() != null) {
 			renderResizable(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getStrings() != null) {
 			renderStrings(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getVisible() != null) {
 			renderVisible(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getWidth() != null) {
 			renderWidth(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getX() != null) {
 			renderX(renderedAttributes, imageCropper);
 		}
-		
+
 		if (imageCropper.getY() != null) {
 			renderY(renderedAttributes, imageCropper);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -180,119 +180,119 @@ public abstract class ImageCropperRendererBase extends RendererBase {
 		if (imageCropper.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterCropHeightChange() != null) {
 			renderAfterCropHeightChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterCropWidthChange() != null) {
 			renderAfterCropWidthChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterMinHeightChange() != null) {
 			renderAfterMinHeightChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterMinWidthChange() != null) {
 			renderAfterMinWidthChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterMovableChange() != null) {
 			renderAfterMovableChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterPreserveRatioChange() != null) {
 			renderAfterPreserveRatioChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterRegionChange() != null) {
 			renderAfterRegionChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterResizableChange() != null) {
 			renderAfterResizableChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, imageCropper);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -316,119 +316,119 @@ public abstract class ImageCropperRendererBase extends RendererBase {
 		if (imageCropper.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnCropHeightChange() != null) {
 			renderOnCropHeightChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnCropWidthChange() != null) {
 			renderOnCropWidthChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnMinHeightChange() != null) {
 			renderOnMinHeightChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnMinWidthChange() != null) {
 			renderOnMinWidthChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnMovableChange() != null) {
 			renderOnMovableChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnPreserveRatioChange() != null) {
 			renderOnPreserveRatioChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnRegionChange() != null) {
 			renderOnRegionChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnResizableChange() != null) {
 			renderOnResizableChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, imageCropper);
 		}
-		
+
 		if (imageCropper.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, imageCropper);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

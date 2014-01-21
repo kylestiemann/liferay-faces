@@ -52,119 +52,119 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		if (schedulerView.getSchedulerViewBodyContent() != null) {
 			renderSchedulerViewBodyContent(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getFilterFn() != null) {
 			renderFilterFn(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getSchedulerViewId() != null) {
 			renderSchedulerViewId(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getIsoTime() != null) {
 			renderIsoTime(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getSchedulerViewLocale() != null) {
 			renderSchedulerViewLocale(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getName() != null) {
 			renderName(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getNextDate() != null) {
 			renderNextDate(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getPrevDate() != null) {
 			renderPrevDate(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getRender() != null) {
 			renderRender(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getScrollable() != null) {
 			renderScrollable(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getTriggerNode() != null) {
 			renderTriggerNode(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerView);
 		}
-		
+
 		if (schedulerView.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -180,119 +180,119 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		if (schedulerView.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterFilterFnChange() != null) {
 			renderAfterFilterFnChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterIsoTimeChange() != null) {
 			renderAfterIsoTimeChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterNextDateChange() != null) {
 			renderAfterNextDateChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterPrevDateChange() != null) {
 			renderAfterPrevDateChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterScrollableChange() != null) {
 			renderAfterScrollableChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterTriggerNodeChange() != null) {
 			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -316,119 +316,119 @@ public abstract class SchedulerViewRendererBase extends RendererBase {
 		if (schedulerView.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnFilterFnChange() != null) {
 			renderOnFilterFnChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnIsoTimeChange() != null) {
 			renderOnIsoTimeChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnNextDateChange() != null) {
 			renderOnNextDateChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnPrevDateChange() != null) {
 			renderOnPrevDateChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnScrollableChange() != null) {
 			renderOnScrollableChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnTriggerNodeChange() != null) {
 			renderOnTriggerNodeChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerView);
 		}
-		
+
 		if (schedulerView.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

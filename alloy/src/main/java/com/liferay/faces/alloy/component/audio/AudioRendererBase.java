@@ -52,111 +52,111 @@ public abstract class AudioRendererBase extends RendererBase {
 		if (audio.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getContentBox() != null) {
 			renderContentBox(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getCssClass() != null) {
 			renderCssClass(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getDisabled() != null) {
 			renderDisabled(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getFixedAttributes() != null) {
 			renderFixedAttributes(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getFlashVars() != null) {
 			renderFlashVars(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getFocused() != null) {
 			renderFocused(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getHeight() != null) {
 			renderHeight(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getHideClass() != null) {
 			renderHideClass(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getAudioId() != null) {
 			renderAudioId(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getInitialized() != null) {
 			renderInitialized(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getAudioLocale() != null) {
 			renderAudioLocale(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getOggUrl() != null) {
 			renderOggUrl(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getRender() != null) {
 			renderRender(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getRendered() != null) {
 			renderRendered(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getStrings() != null) {
 			renderStrings(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getSwfHeight() != null) {
 			renderSwfHeight(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getSwfUrl() != null) {
 			renderSwfUrl(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getSwfWidth() != null) {
 			renderSwfWidth(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getType() != null) {
 			renderType(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getUrl() != null) {
 			renderUrl(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getVisible() != null) {
 			renderVisible(renderedAttributes, audio);
 		}
-		
+
 		if (audio.getWidth() != null) {
 			renderWidth(renderedAttributes, audio);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -172,111 +172,111 @@ public abstract class AudioRendererBase extends RendererBase {
 		if (audio.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterFixedAttributesChange() != null) {
 			renderAfterFixedAttributesChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterFlashVarsChange() != null) {
 			renderAfterFlashVarsChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterOggUrlChange() != null) {
 			renderAfterOggUrlChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterSwfHeightChange() != null) {
 			renderAfterSwfHeightChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterSwfUrlChange() != null) {
 			renderAfterSwfUrlChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterSwfWidthChange() != null) {
 			renderAfterSwfWidthChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterUrlChange() != null) {
 			renderAfterUrlChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, audio);
 		}
-		
+
 		if (audio.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, audio);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -300,111 +300,111 @@ public abstract class AudioRendererBase extends RendererBase {
 		if (audio.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnFixedAttributesChange() != null) {
 			renderOnFixedAttributesChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnFlashVarsChange() != null) {
 			renderOnFlashVarsChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnOggUrlChange() != null) {
 			renderOnOggUrlChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnSwfHeightChange() != null) {
 			renderOnSwfHeightChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnSwfUrlChange() != null) {
 			renderOnSwfUrlChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnSwfWidthChange() != null) {
 			renderOnSwfWidthChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnUrlChange() != null) {
 			renderOnUrlChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, audio);
 		}
-		
+
 		if (audio.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, audio);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

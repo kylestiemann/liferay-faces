@@ -52,23 +52,23 @@ public abstract class VelocityRendererBase extends RendererBase {
 		if (velocity.getDirectives() != null) {
 			renderDirectives(renderedAttributes, velocity);
 		}
-		
+
 		if (velocity.getDirectivesMatcher() != null) {
 			renderDirectivesMatcher(renderedAttributes, velocity);
 		}
-		
+
 		if (velocity.getHost() != null) {
 			renderHost(renderedAttributes, velocity);
 		}
-		
+
 		if (velocity.getVariables() != null) {
 			renderVariables(renderedAttributes, velocity);
 		}
-		
+
 		if (velocity.getVariablesMatcher() != null) {
 			renderVariablesMatcher(renderedAttributes, velocity);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class VelocityRendererBase extends RendererBase {
 		if (velocity.getAfterDirectivesChange() != null) {
 			renderAfterDirectivesChange(renderedAfterEvents, velocity);
 		}
-		
+
 		if (velocity.getAfterDirectivesMatcherChange() != null) {
 			renderAfterDirectivesMatcherChange(renderedAfterEvents, velocity);
 		}
-		
+
 		if (velocity.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, velocity);
 		}
-		
+
 		if (velocity.getAfterVariablesChange() != null) {
 			renderAfterVariablesChange(renderedAfterEvents, velocity);
 		}
-		
+
 		if (velocity.getAfterVariablesMatcherChange() != null) {
 			renderAfterVariablesMatcherChange(renderedAfterEvents, velocity);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class VelocityRendererBase extends RendererBase {
 		if (velocity.getOnDirectivesChange() != null) {
 			renderOnDirectivesChange(renderedOnEvents, velocity);
 		}
-		
+
 		if (velocity.getOnDirectivesMatcherChange() != null) {
 			renderOnDirectivesMatcherChange(renderedOnEvents, velocity);
 		}
-		
+
 		if (velocity.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, velocity);
 		}
-		
+
 		if (velocity.getOnVariablesChange() != null) {
 			renderOnVariablesChange(renderedOnEvents, velocity);
 		}
-		
+
 		if (velocity.getOnVariablesMatcherChange() != null) {
 			renderOnVariablesMatcherChange(renderedOnEvents, velocity);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

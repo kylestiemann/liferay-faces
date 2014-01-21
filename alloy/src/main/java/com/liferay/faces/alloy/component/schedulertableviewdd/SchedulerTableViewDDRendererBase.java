@@ -52,7 +52,7 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 		if (schedulerTableViewDD.getDelegateConfig() != null) {
 			renderDelegateConfig(renderedAttributes, schedulerTableViewDD);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,7 +68,7 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 		if (schedulerTableViewDD.getAfterDelegateConfigChange() != null) {
 			renderAfterDelegateConfigChange(renderedAfterEvents, schedulerTableViewDD);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -92,7 +92,7 @@ public abstract class SchedulerTableViewDDRendererBase extends RendererBase {
 		if (schedulerTableViewDD.getOnDelegateConfigChange() != null) {
 			renderOnDelegateConfigChange(renderedOnEvents, schedulerTableViewDD);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

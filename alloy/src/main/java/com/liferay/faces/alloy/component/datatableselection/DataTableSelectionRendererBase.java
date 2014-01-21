@@ -52,23 +52,23 @@ public abstract class DataTableSelectionRendererBase extends RendererBase {
 		if (dataTableSelection.getActiveCell() != null) {
 			renderActiveCell(renderedAttributes, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getActiveCoord() != null) {
 			renderActiveCoord(renderedAttributes, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getActiveRow() != null) {
 			renderActiveRow(renderedAttributes, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getSelection() != null) {
 			renderSelection(renderedAttributes, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, dataTableSelection);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class DataTableSelectionRendererBase extends RendererBase {
 		if (dataTableSelection.getAfterActiveCellChange() != null) {
 			renderAfterActiveCellChange(renderedAfterEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getAfterActiveCoordChange() != null) {
 			renderAfterActiveCoordChange(renderedAfterEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getAfterActiveRowChange() != null) {
 			renderAfterActiveRowChange(renderedAfterEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getAfterSelectionChange() != null) {
 			renderAfterSelectionChange(renderedAfterEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, dataTableSelection);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class DataTableSelectionRendererBase extends RendererBase {
 		if (dataTableSelection.getOnActiveCellChange() != null) {
 			renderOnActiveCellChange(renderedOnEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getOnActiveCoordChange() != null) {
 			renderOnActiveCoordChange(renderedOnEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getOnActiveRowChange() != null) {
 			renderOnActiveRowChange(renderedOnEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getOnSelectionChange() != null) {
 			renderOnSelectionChange(renderedOnEvents, dataTableSelection);
 		}
-		
+
 		if (dataTableSelection.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, dataTableSelection);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,39 +52,39 @@ public abstract class AriaRendererBase extends RendererBase {
 		if (aria.getAttributeNode() != null) {
 			renderAttributeNode(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getAttributeValueFormat() != null) {
 			renderAttributeValueFormat(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getAriaAttributes() != null) {
 			renderAriaAttributes(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getHost() != null) {
 			renderHost(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getInitialized() != null) {
 			renderInitialized(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getRoleName() != null) {
 			renderRoleName(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getRoleNode() != null) {
 			renderRoleNode(renderedAttributes, aria);
 		}
-		
+
 		if (aria.getValidateW3C() != null) {
 			renderValidateW3C(renderedAttributes, aria);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -100,39 +100,39 @@ public abstract class AriaRendererBase extends RendererBase {
 		if (aria.getAfterAttributeNodeChange() != null) {
 			renderAfterAttributeNodeChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterAttributeValueFormatChange() != null) {
 			renderAfterAttributeValueFormatChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterAttributesChange() != null) {
 			renderAfterAttributesChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterRoleNameChange() != null) {
 			renderAfterRoleNameChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterRoleNodeChange() != null) {
 			renderAfterRoleNodeChange(renderedAfterEvents, aria);
 		}
-		
+
 		if (aria.getAfterValidateW3CChange() != null) {
 			renderAfterValidateW3CChange(renderedAfterEvents, aria);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -156,39 +156,39 @@ public abstract class AriaRendererBase extends RendererBase {
 		if (aria.getOnAttributeNodeChange() != null) {
 			renderOnAttributeNodeChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnAttributeValueFormatChange() != null) {
 			renderOnAttributeValueFormatChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnAttributesChange() != null) {
 			renderOnAttributesChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnRoleNameChange() != null) {
 			renderOnRoleNameChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnRoleNodeChange() != null) {
 			renderOnRoleNodeChange(renderedOnEvents, aria);
 		}
-		
+
 		if (aria.getOnValidateW3CChange() != null) {
 			renderOnValidateW3CChange(renderedOnEvents, aria);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

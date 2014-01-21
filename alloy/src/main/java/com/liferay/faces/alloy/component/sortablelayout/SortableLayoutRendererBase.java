@@ -52,47 +52,47 @@ public abstract class SortableLayoutRendererBase extends RendererBase {
 		if (sortableLayout.getDelegateConfig() != null) {
 			renderDelegateConfig(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getDragNodes() != null) {
 			renderDragNodes(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getDropContainer() != null) {
 			renderDropContainer(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getDropNodes() != null) {
 			renderDropNodes(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getGroups() != null) {
 			renderGroups(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getInitialized() != null) {
 			renderInitialized(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getLazyStart() != null) {
 			renderLazyStart(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getPlaceholder() != null) {
 			renderPlaceholder(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getProxy() != null) {
 			renderProxy(renderedAttributes, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getProxyNode() != null) {
 			renderProxyNode(renderedAttributes, sortableLayout);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -108,47 +108,47 @@ public abstract class SortableLayoutRendererBase extends RendererBase {
 		if (sortableLayout.getAfterDelegateConfigChange() != null) {
 			renderAfterDelegateConfigChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterDragNodesChange() != null) {
 			renderAfterDragNodesChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterDropContainerChange() != null) {
 			renderAfterDropContainerChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterDropNodesChange() != null) {
 			renderAfterDropNodesChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterGroupsChange() != null) {
 			renderAfterGroupsChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterLazyStartChange() != null) {
 			renderAfterLazyStartChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterPlaceholderChange() != null) {
 			renderAfterPlaceholderChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterProxyChange() != null) {
 			renderAfterProxyChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getAfterProxyNodeChange() != null) {
 			renderAfterProxyNodeChange(renderedAfterEvents, sortableLayout);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -172,47 +172,47 @@ public abstract class SortableLayoutRendererBase extends RendererBase {
 		if (sortableLayout.getOnDelegateConfigChange() != null) {
 			renderOnDelegateConfigChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnDragNodesChange() != null) {
 			renderOnDragNodesChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnDropContainerChange() != null) {
 			renderOnDropContainerChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnDropNodesChange() != null) {
 			renderOnDropNodesChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnGroupsChange() != null) {
 			renderOnGroupsChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnLazyStartChange() != null) {
 			renderOnLazyStartChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnPlaceholderChange() != null) {
 			renderOnPlaceholderChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnProxyChange() != null) {
 			renderOnProxyChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 		if (sortableLayout.getOnProxyNodeChange() != null) {
 			renderOnProxyNodeChange(renderedOnEvents, sortableLayout);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

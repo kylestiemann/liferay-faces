@@ -52,11 +52,11 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 		if (schedulerEvents.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerEvents);
 		}
-		
+
 		if (schedulerEvents.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerEvents);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -72,11 +72,11 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 		if (schedulerEvents.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerEvents);
 		}
-		
+
 		if (schedulerEvents.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerEvents);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -100,11 +100,11 @@ public abstract class SchedulerEventsRendererBase extends RendererBase {
 		if (schedulerEvents.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerEvents);
 		}
-		
+
 		if (schedulerEvents.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerEvents);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

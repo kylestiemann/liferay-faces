@@ -52,91 +52,91 @@ public abstract class PaletteRendererBase extends RendererBase {
 		if (palette.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getColumns() != null) {
 			renderColumns(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getContainerNode() != null) {
 			renderContainerNode(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getContentBox() != null) {
 			renderContentBox(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getDisabled() != null) {
 			renderDisabled(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getFocused() != null) {
 			renderFocused(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getFormatter() != null) {
 			renderFormatter(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getHeight() != null) {
 			renderHeight(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getPaletteId() != null) {
 			renderPaletteId(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getInitialized() != null) {
 			renderInitialized(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getItems() != null) {
 			renderItems(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getPaletteLocale() != null) {
 			renderPaletteLocale(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getRender() != null) {
 			renderRender(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getRendered() != null) {
 			renderRendered(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getSelected() != null) {
 			renderSelected(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getStrings() != null) {
 			renderStrings(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getToggleSelection() != null) {
 			renderToggleSelection(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getVisible() != null) {
 			renderVisible(renderedAttributes, palette);
 		}
-		
+
 		if (palette.getWidth() != null) {
 			renderWidth(renderedAttributes, palette);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -152,91 +152,91 @@ public abstract class PaletteRendererBase extends RendererBase {
 		if (palette.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterColumnsChange() != null) {
 			renderAfterColumnsChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterContainerNodeChange() != null) {
 			renderAfterContainerNodeChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterFormatterChange() != null) {
 			renderAfterFormatterChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterItemsChange() != null) {
 			renderAfterItemsChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterToggleSelectionChange() != null) {
 			renderAfterToggleSelectionChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, palette);
 		}
-		
+
 		if (palette.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, palette);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -260,91 +260,91 @@ public abstract class PaletteRendererBase extends RendererBase {
 		if (palette.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnColumnsChange() != null) {
 			renderOnColumnsChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnContainerNodeChange() != null) {
 			renderOnContainerNodeChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnFormatterChange() != null) {
 			renderOnFormatterChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnItemsChange() != null) {
 			renderOnItemsChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnToggleSelectionChange() != null) {
 			renderOnToggleSelectionChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, palette);
 		}
-		
+
 		if (palette.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, palette);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

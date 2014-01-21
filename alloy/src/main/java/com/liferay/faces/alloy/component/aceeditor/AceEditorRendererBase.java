@@ -52,99 +52,99 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		if (aceEditor.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getContentBox() != null) {
 			renderContentBox(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getDisabled() != null) {
 			renderDisabled(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getFocused() != null) {
 			renderFocused(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getHeight() != null) {
 			renderHeight(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getHighlightActiveLine() != null) {
 			renderHighlightActiveLine(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getAceEditorId() != null) {
 			renderAceEditorId(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getInitialized() != null) {
 			renderInitialized(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getAceEditorLocale() != null) {
 			renderAceEditorLocale(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getMode() != null) {
 			renderMode(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getReadOnly() != null) {
 			renderReadOnly(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getRender() != null) {
 			renderRender(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getRendered() != null) {
 			renderRendered(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getShowPrintMargin() != null) {
 			renderShowPrintMargin(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getStrings() != null) {
 			renderStrings(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getTabSize() != null) {
 			renderTabSize(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getUseSoftTabs() != null) {
 			renderUseSoftTabs(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getUseWrapMode() != null) {
 			renderUseWrapMode(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getAceEditorValue() != null) {
 			renderAceEditorValue(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getVisible() != null) {
 			renderVisible(renderedAttributes, aceEditor);
 		}
-		
+
 		if (aceEditor.getWidth() != null) {
 			renderWidth(renderedAttributes, aceEditor);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -160,99 +160,99 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		if (aceEditor.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterHighlightActiveLineChange() != null) {
 			renderAfterHighlightActiveLineChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterModeChange() != null) {
 			renderAfterModeChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterReadOnlyChange() != null) {
 			renderAfterReadOnlyChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterShowPrintMarginChange() != null) {
 			renderAfterShowPrintMarginChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterTabSizeChange() != null) {
 			renderAfterTabSizeChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterUseSoftTabsChange() != null) {
 			renderAfterUseSoftTabsChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterUseWrapModeChange() != null) {
 			renderAfterUseWrapModeChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterValueChange() != null) {
 			renderAfterValueChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, aceEditor);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -276,99 +276,99 @@ public abstract class AceEditorRendererBase extends RendererBase {
 		if (aceEditor.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnHighlightActiveLineChange() != null) {
 			renderOnHighlightActiveLineChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnModeChange() != null) {
 			renderOnModeChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnReadOnlyChange() != null) {
 			renderOnReadOnlyChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnShowPrintMarginChange() != null) {
 			renderOnShowPrintMarginChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnTabSizeChange() != null) {
 			renderOnTabSizeChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnUseSoftTabsChange() != null) {
 			renderOnUseSoftTabsChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnUseWrapModeChange() != null) {
 			renderOnUseWrapModeChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnValueChange() != null) {
 			renderOnValueChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, aceEditor);
 		}
-		
+
 		if (aceEditor.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, aceEditor);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

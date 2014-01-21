@@ -52,11 +52,11 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 		if (fieldSupport.getFields() != null) {
 			renderFields(renderedAttributes, fieldSupport);
 		}
-		
+
 		if (fieldSupport.getMaxFields() != null) {
 			renderMaxFields(renderedAttributes, fieldSupport);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -72,11 +72,11 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 		if (fieldSupport.getAfterFieldsChange() != null) {
 			renderAfterFieldsChange(renderedAfterEvents, fieldSupport);
 		}
-		
+
 		if (fieldSupport.getAfterMaxFieldsChange() != null) {
 			renderAfterMaxFieldsChange(renderedAfterEvents, fieldSupport);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -100,11 +100,11 @@ public abstract class FieldSupportRendererBase extends RendererBase {
 		if (fieldSupport.getOnFieldsChange() != null) {
 			renderOnFieldsChange(renderedOnEvents, fieldSupport);
 		}
-		
+
 		if (fieldSupport.getOnMaxFieldsChange() != null) {
 			renderOnMaxFieldsChange(renderedOnEvents, fieldSupport);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

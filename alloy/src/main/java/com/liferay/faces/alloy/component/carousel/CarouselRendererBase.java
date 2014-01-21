@@ -52,43 +52,43 @@ public abstract class CarouselRendererBase extends RendererBase {
 		if (carousel.getActiveIndex() != null) {
 			renderActiveIndex(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getAnimationTime() != null) {
 			renderAnimationTime(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getHideClass() != null) {
 			renderHideClass(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getIntervalTime() != null) {
 			renderIntervalTime(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getItemSelector() != null) {
 			renderItemSelector(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getNodeMenu() != null) {
 			renderNodeMenu(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getNodeMenuItemSelector() != null) {
 			renderNodeMenuItemSelector(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getPlaying() != null) {
 			renderPlaying(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getRender() != null) {
 			renderRender(renderedAttributes, carousel);
 		}
-		
+
 		if (carousel.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, carousel);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -104,43 +104,43 @@ public abstract class CarouselRendererBase extends RendererBase {
 		if (carousel.getAfterActiveIndexChange() != null) {
 			renderAfterActiveIndexChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterAnimationTimeChange() != null) {
 			renderAfterAnimationTimeChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterIntervalTimeChange() != null) {
 			renderAfterIntervalTimeChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterItemSelectorChange() != null) {
 			renderAfterItemSelectorChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterNodeMenuChange() != null) {
 			renderAfterNodeMenuChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterNodeMenuItemSelectorChange() != null) {
 			renderAfterNodeMenuItemSelectorChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterPlayingChange() != null) {
 			renderAfterPlayingChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, carousel);
 		}
-		
+
 		if (carousel.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, carousel);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -164,43 +164,43 @@ public abstract class CarouselRendererBase extends RendererBase {
 		if (carousel.getOnActiveIndexChange() != null) {
 			renderOnActiveIndexChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnAnimationTimeChange() != null) {
 			renderOnAnimationTimeChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnIntervalTimeChange() != null) {
 			renderOnIntervalTimeChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnItemSelectorChange() != null) {
 			renderOnItemSelectorChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnNodeMenuChange() != null) {
 			renderOnNodeMenuChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnNodeMenuItemSelectorChange() != null) {
 			renderOnNodeMenuItemSelectorChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnPlayingChange() != null) {
 			renderOnPlayingChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, carousel);
 		}
-		
+
 		if (carousel.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, carousel);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

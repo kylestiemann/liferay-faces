@@ -52,27 +52,27 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 		if (toggleButton.getCssClass() != null) {
 			renderCssClass(renderedAttributes, toggleButton);
 		}
-		
+
 		if (toggleButton.getIcon() != null) {
 			renderIcon(renderedAttributes, toggleButton);
 		}
-		
+
 		if (toggleButton.getIconAlign() != null) {
 			renderIconAlign(renderedAttributes, toggleButton);
 		}
-		
+
 		if (toggleButton.getIconElement() != null) {
 			renderIconElement(renderedAttributes, toggleButton);
 		}
-		
+
 		if (toggleButton.getPrimary() != null) {
 			renderPrimary(renderedAttributes, toggleButton);
 		}
-		
+
 		if (toggleButton.getType() != null) {
 			renderType(renderedAttributes, toggleButton);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -88,27 +88,27 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 		if (toggleButton.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getAfterIconChange() != null) {
 			renderAfterIconChange(renderedAfterEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getAfterIconAlignChange() != null) {
 			renderAfterIconAlignChange(renderedAfterEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getAfterIconElementChange() != null) {
 			renderAfterIconElementChange(renderedAfterEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getAfterPrimaryChange() != null) {
 			renderAfterPrimaryChange(renderedAfterEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, toggleButton);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -132,27 +132,27 @@ public abstract class ToggleButtonRendererBase extends RendererBase {
 		if (toggleButton.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getOnIconChange() != null) {
 			renderOnIconChange(renderedOnEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getOnIconAlignChange() != null) {
 			renderOnIconAlignChange(renderedOnEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getOnIconElementChange() != null) {
 			renderOnIconElementChange(renderedOnEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getOnPrimaryChange() != null) {
 			renderOnPrimaryChange(renderedOnEvents, toggleButton);
 		}
-		
+
 		if (toggleButton.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, toggleButton);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

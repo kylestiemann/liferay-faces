@@ -52,23 +52,23 @@ public abstract class TabRendererBase extends RendererBase {
 		if (tab.getContent() != null) {
 			renderContent(renderedAttributes, tab);
 		}
-		
+
 		if (tab.getDisabled() != null) {
 			renderDisabled(renderedAttributes, tab);
 		}
-		
+
 		if (tab.getLabel() != null) {
 			renderLabel(renderedAttributes, tab);
 		}
-		
+
 		if (tab.getPanelNode() != null) {
 			renderPanelNode(renderedAttributes, tab);
 		}
-		
+
 		if (tab.getTriggerEvent() != null) {
 			renderTriggerEvent(renderedAttributes, tab);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class TabRendererBase extends RendererBase {
 		if (tab.getAfterContentChange() != null) {
 			renderAfterContentChange(renderedAfterEvents, tab);
 		}
-		
+
 		if (tab.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, tab);
 		}
-		
+
 		if (tab.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, tab);
 		}
-		
+
 		if (tab.getAfterPanelNodeChange() != null) {
 			renderAfterPanelNodeChange(renderedAfterEvents, tab);
 		}
-		
+
 		if (tab.getAfterTriggerEventChange() != null) {
 			renderAfterTriggerEventChange(renderedAfterEvents, tab);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class TabRendererBase extends RendererBase {
 		if (tab.getOnContentChange() != null) {
 			renderOnContentChange(renderedOnEvents, tab);
 		}
-		
+
 		if (tab.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, tab);
 		}
-		
+
 		if (tab.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, tab);
 		}
-		
+
 		if (tab.getOnPanelNodeChange() != null) {
 			renderOnPanelNodeChange(renderedOnEvents, tab);
 		}
-		
+
 		if (tab.getOnTriggerEventChange() != null) {
 			renderOnTriggerEventChange(renderedOnEvents, tab);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,7 +52,7 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 		if (optionsEditor.getEditable() != null) {
 			renderEditable(renderedAttributes, optionsEditor);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,7 +68,7 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 		if (optionsEditor.getAfterEditableChange() != null) {
 			renderAfterEditableChange(renderedAfterEvents, optionsEditor);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -92,7 +92,7 @@ public abstract class OptionsEditorRendererBase extends RendererBase {
 		if (optionsEditor.getOnEditableChange() != null) {
 			renderOnEditableChange(renderedOnEvents, optionsEditor);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

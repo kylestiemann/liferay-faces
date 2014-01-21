@@ -52,91 +52,91 @@ public abstract class ConnectorRendererBase extends RendererBase {
 		if (connector.getArrowPoints() != null) {
 			renderArrowPoints(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getBuilder() != null) {
 			renderBuilder(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getColor() != null) {
 			renderColor(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getCoord() != null) {
 			renderCoord(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getGraphic() != null) {
 			renderGraphic(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getInitialized() != null) {
 			renderInitialized(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getLazyDraw() != null) {
 			renderLazyDraw(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getName() != null) {
 			renderName(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getNodeName() != null) {
 			renderNodeName(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getP1() != null) {
 			renderP1(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getP2() != null) {
 			renderP2(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getSelected() != null) {
 			renderSelected(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShape() != null) {
 			renderShape(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShapeArrow() != null) {
 			renderShapeArrow(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShapeArrowHover() != null) {
 			renderShapeArrowHover(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShapeArrowSelected() != null) {
 			renderShapeArrowSelected(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShapeHover() != null) {
 			renderShapeHover(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShapeSelected() != null) {
 			renderShapeSelected(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getShowName() != null) {
 			renderShowName(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getTransition() != null) {
 			renderTransition(renderedAttributes, connector);
 		}
-		
+
 		if (connector.getVisible() != null) {
 			renderVisible(renderedAttributes, connector);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -152,91 +152,91 @@ public abstract class ConnectorRendererBase extends RendererBase {
 		if (connector.getAfterArrowPointsChange() != null) {
 			renderAfterArrowPointsChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterBuilderChange() != null) {
 			renderAfterBuilderChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterColorChange() != null) {
 			renderAfterColorChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterCoordChange() != null) {
 			renderAfterCoordChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterGraphicChange() != null) {
 			renderAfterGraphicChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterLazyDrawChange() != null) {
 			renderAfterLazyDrawChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterNodeNameChange() != null) {
 			renderAfterNodeNameChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterP1Change() != null) {
 			renderAfterP1Change(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterP2Change() != null) {
 			renderAfterP2Change(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShapeChange() != null) {
 			renderAfterShapeChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShapeArrowChange() != null) {
 			renderAfterShapeArrowChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShapeArrowHoverChange() != null) {
 			renderAfterShapeArrowHoverChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShapeArrowSelectedChange() != null) {
 			renderAfterShapeArrowSelectedChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShapeHoverChange() != null) {
 			renderAfterShapeHoverChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShapeSelectedChange() != null) {
 			renderAfterShapeSelectedChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterShowNameChange() != null) {
 			renderAfterShowNameChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterTransitionChange() != null) {
 			renderAfterTransitionChange(renderedAfterEvents, connector);
 		}
-		
+
 		if (connector.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, connector);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -260,91 +260,91 @@ public abstract class ConnectorRendererBase extends RendererBase {
 		if (connector.getOnArrowPointsChange() != null) {
 			renderOnArrowPointsChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnBuilderChange() != null) {
 			renderOnBuilderChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnColorChange() != null) {
 			renderOnColorChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnCoordChange() != null) {
 			renderOnCoordChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnGraphicChange() != null) {
 			renderOnGraphicChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnLazyDrawChange() != null) {
 			renderOnLazyDrawChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnNodeNameChange() != null) {
 			renderOnNodeNameChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnP1Change() != null) {
 			renderOnP1Change(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnP2Change() != null) {
 			renderOnP2Change(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShapeChange() != null) {
 			renderOnShapeChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShapeArrowChange() != null) {
 			renderOnShapeArrowChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShapeArrowHoverChange() != null) {
 			renderOnShapeArrowHoverChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShapeArrowSelectedChange() != null) {
 			renderOnShapeArrowSelectedChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShapeHoverChange() != null) {
 			renderOnShapeHoverChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShapeSelectedChange() != null) {
 			renderOnShapeSelectedChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnShowNameChange() != null) {
 			renderOnShowNameChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnTransitionChange() != null) {
 			renderOnTransitionChange(renderedOnEvents, connector);
 		}
-		
+
 		if (connector.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, connector);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

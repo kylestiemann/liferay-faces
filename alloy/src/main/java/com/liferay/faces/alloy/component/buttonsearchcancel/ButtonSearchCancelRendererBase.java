@@ -52,31 +52,31 @@ public abstract class ButtonSearchCancelRendererBase extends RendererBase {
 		if (buttonSearchCancel.getContainer() != null) {
 			renderContainer(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getGutter() != null) {
 			renderGutter(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getIconClass() != null) {
 			renderIconClass(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getInitialized() != null) {
 			renderInitialized(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getTrigger() != null) {
 			renderTrigger(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getZIndex() != null) {
 			renderZIndex(renderedAttributes, buttonSearchCancel);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -92,31 +92,31 @@ public abstract class ButtonSearchCancelRendererBase extends RendererBase {
 		if (buttonSearchCancel.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getAfterGutterChange() != null) {
 			renderAfterGutterChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getAfterIconClassChange() != null) {
 			renderAfterIconClassChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getAfterTriggerChange() != null) {
 			renderAfterTriggerChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, buttonSearchCancel);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -140,31 +140,31 @@ public abstract class ButtonSearchCancelRendererBase extends RendererBase {
 		if (buttonSearchCancel.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getOnGutterChange() != null) {
 			renderOnGutterChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getOnIconClassChange() != null) {
 			renderOnIconClassChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getOnTriggerChange() != null) {
 			renderOnTriggerChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 		if (buttonSearchCancel.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, buttonSearchCancel);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

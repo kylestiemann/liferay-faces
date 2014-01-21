@@ -52,155 +52,155 @@ public abstract class DiagramBuilderRendererBase extends RendererBase {
 		if (diagramBuilder.getAvailableFields() != null) {
 			renderAvailableFields(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAvailableFieldsDragConfig() != null) {
 			renderAvailableFieldsDragConfig(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getCanvas() != null) {
 			renderCanvas(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getConnector() != null) {
 			renderConnector(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getContentBox() != null) {
 			renderContentBox(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getContentContainer() != null) {
 			renderContentContainer(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getCssClass() != null) {
 			renderCssClass(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getDisabled() != null) {
 			renderDisabled(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getDropConfig() != null) {
 			renderDropConfig(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getDropContainer() != null) {
 			renderDropContainer(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getFields() != null) {
 			renderFields(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getFieldsContainer() != null) {
 			renderFieldsContainer(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getFieldsDragConfig() != null) {
 			renderFieldsDragConfig(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getFocused() != null) {
 			renderFocused(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getGraphic() != null) {
 			renderGraphic(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getHeight() != null) {
 			renderHeight(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getHideClass() != null) {
 			renderHideClass(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getHighlightDropZones() != null) {
 			renderHighlightDropZones(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getDiagramBuilderId() != null) {
 			renderDiagramBuilderId(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getInitialized() != null) {
 			renderInitialized(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getDiagramBuilderLocale() != null) {
 			renderDiagramBuilderLocale(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getMaxFields() != null) {
 			renderMaxFields(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getPropertyList() != null) {
 			renderPropertyList(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getRender() != null) {
 			renderRender(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getRendered() != null) {
 			renderRendered(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getShowSuggestConnector() != null) {
 			renderShowSuggestConnector(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getStrings() != null) {
 			renderStrings(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getSuggestConnectorOverlay() != null) {
 			renderSuggestConnectorOverlay(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getTabView() != null) {
 			renderTabView(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getToolbar() != null) {
 			renderToolbar(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getToolbarContainer() != null) {
 			renderToolbarContainer(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getVisible() != null) {
 			renderVisible(renderedAttributes, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getWidth() != null) {
 			renderWidth(renderedAttributes, diagramBuilder);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -216,155 +216,155 @@ public abstract class DiagramBuilderRendererBase extends RendererBase {
 		if (diagramBuilder.getAfterAvailableFieldsChange() != null) {
 			renderAfterAvailableFieldsChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterAvailableFieldsDragConfigChange() != null) {
 			renderAfterAvailableFieldsDragConfigChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterCanvasChange() != null) {
 			renderAfterCanvasChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterConnectorChange() != null) {
 			renderAfterConnectorChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterContentContainerChange() != null) {
 			renderAfterContentContainerChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterDropConfigChange() != null) {
 			renderAfterDropConfigChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterDropContainerChange() != null) {
 			renderAfterDropContainerChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterFieldsChange() != null) {
 			renderAfterFieldsChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterFieldsContainerChange() != null) {
 			renderAfterFieldsContainerChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterFieldsDragConfigChange() != null) {
 			renderAfterFieldsDragConfigChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterGraphicChange() != null) {
 			renderAfterGraphicChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterHighlightDropZonesChange() != null) {
 			renderAfterHighlightDropZonesChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterMaxFieldsChange() != null) {
 			renderAfterMaxFieldsChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterPropertyListChange() != null) {
 			renderAfterPropertyListChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterShowSuggestConnectorChange() != null) {
 			renderAfterShowSuggestConnectorChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterSuggestConnectorOverlayChange() != null) {
 			renderAfterSuggestConnectorOverlayChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterTabViewChange() != null) {
 			renderAfterTabViewChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterToolbarChange() != null) {
 			renderAfterToolbarChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterToolbarContainerChange() != null) {
 			renderAfterToolbarContainerChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, diagramBuilder);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -388,155 +388,155 @@ public abstract class DiagramBuilderRendererBase extends RendererBase {
 		if (diagramBuilder.getOnAvailableFieldsChange() != null) {
 			renderOnAvailableFieldsChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnAvailableFieldsDragConfigChange() != null) {
 			renderOnAvailableFieldsDragConfigChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnCanvasChange() != null) {
 			renderOnCanvasChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnConnectorChange() != null) {
 			renderOnConnectorChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnContentContainerChange() != null) {
 			renderOnContentContainerChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnDropConfigChange() != null) {
 			renderOnDropConfigChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnDropContainerChange() != null) {
 			renderOnDropContainerChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnFieldsChange() != null) {
 			renderOnFieldsChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnFieldsContainerChange() != null) {
 			renderOnFieldsContainerChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnFieldsDragConfigChange() != null) {
 			renderOnFieldsDragConfigChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnGraphicChange() != null) {
 			renderOnGraphicChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnHighlightDropZonesChange() != null) {
 			renderOnHighlightDropZonesChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnMaxFieldsChange() != null) {
 			renderOnMaxFieldsChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnPropertyListChange() != null) {
 			renderOnPropertyListChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnShowSuggestConnectorChange() != null) {
 			renderOnShowSuggestConnectorChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnSuggestConnectorOverlayChange() != null) {
 			renderOnSuggestConnectorOverlayChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnTabViewChange() != null) {
 			renderOnTabViewChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnToolbarChange() != null) {
 			renderOnToolbarChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnToolbarContainerChange() != null) {
 			renderOnToolbarContainerChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 		if (diagramBuilder.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, diagramBuilder);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

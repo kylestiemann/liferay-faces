@@ -52,7 +52,7 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 		if (checkboxCellEditor.getSelectedAttrName() != null) {
 			renderSelectedAttrName(renderedAttributes, checkboxCellEditor);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,7 +68,7 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 		if (checkboxCellEditor.getAfterSelectedAttrNameChange() != null) {
 			renderAfterSelectedAttrNameChange(renderedAfterEvents, checkboxCellEditor);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -92,7 +92,7 @@ public abstract class CheckboxCellEditorRendererBase extends RendererBase {
 		if (checkboxCellEditor.getOnSelectedAttrNameChange() != null) {
 			renderOnSelectedAttrNameChange(renderedOnEvents, checkboxCellEditor);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

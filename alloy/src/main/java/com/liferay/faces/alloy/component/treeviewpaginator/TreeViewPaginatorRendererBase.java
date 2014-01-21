@@ -52,7 +52,7 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 		if (treeViewPaginator.getPaginator() != null) {
 			renderPaginator(renderedAttributes, treeViewPaginator);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,7 +68,7 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 		if (treeViewPaginator.getAfterPaginatorChange() != null) {
 			renderAfterPaginatorChange(renderedAfterEvents, treeViewPaginator);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -92,7 +92,7 @@ public abstract class TreeViewPaginatorRendererBase extends RendererBase {
 		if (treeViewPaginator.getOnPaginatorChange() != null) {
 			renderOnPaginatorChange(renderedOnEvents, treeViewPaginator);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

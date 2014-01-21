@@ -52,39 +52,39 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 		if (dataTableHighlight.getActiveBorderWidth() != null) {
 			renderActiveBorderWidth(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getHighlightRange() != null) {
 			renderHighlightRange(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getHost() != null) {
 			renderHost(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getInitialized() != null) {
 			renderInitialized(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOverlayActiveNode() != null) {
 			renderOverlayActiveNode(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOverlayNode() != null) {
 			renderOverlayNode(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getRangeBorderWidth() != null) {
 			renderRangeBorderWidth(renderedAttributes, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getType() != null) {
 			renderType(renderedAttributes, dataTableHighlight);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -100,39 +100,39 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 		if (dataTableHighlight.getAfterActiveBorderWidthChange() != null) {
 			renderAfterActiveBorderWidthChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterHighlightRangeChange() != null) {
 			renderAfterHighlightRangeChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterOverlayActiveNodeChange() != null) {
 			renderAfterOverlayActiveNodeChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterOverlayNodeChange() != null) {
 			renderAfterOverlayNodeChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterRangeBorderWidthChange() != null) {
 			renderAfterRangeBorderWidthChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, dataTableHighlight);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -156,39 +156,39 @@ public abstract class DataTableHighlightRendererBase extends RendererBase {
 		if (dataTableHighlight.getOnActiveBorderWidthChange() != null) {
 			renderOnActiveBorderWidthChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnHighlightRangeChange() != null) {
 			renderOnHighlightRangeChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnOverlayActiveNodeChange() != null) {
 			renderOnOverlayActiveNodeChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnOverlayNodeChange() != null) {
 			renderOnOverlayNodeChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnRangeBorderWidthChange() != null) {
 			renderOnRangeBorderWidthChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 		if (dataTableHighlight.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, dataTableHighlight);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,103 +52,103 @@ public abstract class VideoRendererBase extends RendererBase {
 		if (video.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, video);
 		}
-		
+
 		if (video.getContentBox() != null) {
 			renderContentBox(renderedAttributes, video);
 		}
-		
+
 		if (video.getCssClass() != null) {
 			renderCssClass(renderedAttributes, video);
 		}
-		
+
 		if (video.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, video);
 		}
-		
+
 		if (video.getDisabled() != null) {
 			renderDisabled(renderedAttributes, video);
 		}
-		
+
 		if (video.getFixedAttributes() != null) {
 			renderFixedAttributes(renderedAttributes, video);
 		}
-		
+
 		if (video.getFlashVars() != null) {
 			renderFlashVars(renderedAttributes, video);
 		}
-		
+
 		if (video.getFocused() != null) {
 			renderFocused(renderedAttributes, video);
 		}
-		
+
 		if (video.getHeight() != null) {
 			renderHeight(renderedAttributes, video);
 		}
-		
+
 		if (video.getHideClass() != null) {
 			renderHideClass(renderedAttributes, video);
 		}
-		
+
 		if (video.getVideoId() != null) {
 			renderVideoId(renderedAttributes, video);
 		}
-		
+
 		if (video.getInitialized() != null) {
 			renderInitialized(renderedAttributes, video);
 		}
-		
+
 		if (video.getVideoLocale() != null) {
 			renderVideoLocale(renderedAttributes, video);
 		}
-		
+
 		if (video.getOgvUrl() != null) {
 			renderOgvUrl(renderedAttributes, video);
 		}
-		
+
 		if (video.getPoster() != null) {
 			renderPoster(renderedAttributes, video);
 		}
-		
+
 		if (video.getRender() != null) {
 			renderRender(renderedAttributes, video);
 		}
-		
+
 		if (video.getRendered() != null) {
 			renderRendered(renderedAttributes, video);
 		}
-		
+
 		if (video.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, video);
 		}
-		
+
 		if (video.getStrings() != null) {
 			renderStrings(renderedAttributes, video);
 		}
-		
+
 		if (video.getSwfUrl() != null) {
 			renderSwfUrl(renderedAttributes, video);
 		}
-		
+
 		if (video.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, video);
 		}
-		
+
 		if (video.getUrl() != null) {
 			renderUrl(renderedAttributes, video);
 		}
-		
+
 		if (video.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, video);
 		}
-		
+
 		if (video.getVisible() != null) {
 			renderVisible(renderedAttributes, video);
 		}
-		
+
 		if (video.getWidth() != null) {
 			renderWidth(renderedAttributes, video);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -164,103 +164,103 @@ public abstract class VideoRendererBase extends RendererBase {
 		if (video.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterFixedAttributesChange() != null) {
 			renderAfterFixedAttributesChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterFlashVarsChange() != null) {
 			renderAfterFlashVarsChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterOgvUrlChange() != null) {
 			renderAfterOgvUrlChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterPosterChange() != null) {
 			renderAfterPosterChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterSwfUrlChange() != null) {
 			renderAfterSwfUrlChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterUrlChange() != null) {
 			renderAfterUrlChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, video);
 		}
-		
+
 		if (video.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, video);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -284,103 +284,103 @@ public abstract class VideoRendererBase extends RendererBase {
 		if (video.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnFixedAttributesChange() != null) {
 			renderOnFixedAttributesChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnFlashVarsChange() != null) {
 			renderOnFlashVarsChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnOgvUrlChange() != null) {
 			renderOnOgvUrlChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnPosterChange() != null) {
 			renderOnPosterChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnSwfUrlChange() != null) {
 			renderOnSwfUrlChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnUrlChange() != null) {
 			renderOnUrlChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, video);
 		}
-		
+
 		if (video.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, video);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
