@@ -52,111 +52,111 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		if (progressBar.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getContentBox() != null) {
 			renderContentBox(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getCssClass() != null) {
 			renderCssClass(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getDisabled() != null) {
 			renderDisabled(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getFocused() != null) {
 			renderFocused(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getHeight() != null) {
 			renderHeight(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getHideClass() != null) {
 			renderHideClass(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getProgressBarId() != null) {
 			renderProgressBarId(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getInitialized() != null) {
 			renderInitialized(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getLabel() != null) {
 			renderLabel(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getProgressBarLocale() != null) {
 			renderProgressBarLocale(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getMax() != null) {
 			renderMax(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getMin() != null) {
 			renderMin(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getOrientation() != null) {
 			renderOrientation(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getRatio() != null) {
 			renderRatio(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getRender() != null) {
 			renderRender(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getRendered() != null) {
 			renderRendered(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getStep() != null) {
 			renderStep(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getStrings() != null) {
 			renderStrings(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getTextNode() != null) {
 			renderTextNode(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getProgressBarValue() != null) {
 			renderProgressBarValue(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getVisible() != null) {
 			renderVisible(renderedAttributes, progressBar);
 		}
-		
+
 		if (progressBar.getWidth() != null) {
 			renderWidth(renderedAttributes, progressBar);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -172,111 +172,111 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		if (progressBar.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterMaxChange() != null) {
 			renderAfterMaxChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterMinChange() != null) {
 			renderAfterMinChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterOrientationChange() != null) {
 			renderAfterOrientationChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterRatioChange() != null) {
 			renderAfterRatioChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterStepChange() != null) {
 			renderAfterStepChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterTextNodeChange() != null) {
 			renderAfterTextNodeChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterValueChange() != null) {
 			renderAfterValueChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, progressBar);
 		}
-		
+
 		if (progressBar.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, progressBar);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -300,111 +300,111 @@ public abstract class ProgressBarRendererBase extends RendererBase {
 		if (progressBar.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnMaxChange() != null) {
 			renderOnMaxChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnMinChange() != null) {
 			renderOnMinChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnOrientationChange() != null) {
 			renderOnOrientationChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnRatioChange() != null) {
 			renderOnRatioChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnStepChange() != null) {
 			renderOnStepChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnTextNodeChange() != null) {
 			renderOnTextNodeChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnValueChange() != null) {
 			renderOnValueChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, progressBar);
 		}
-		
+
 		if (progressBar.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, progressBar);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

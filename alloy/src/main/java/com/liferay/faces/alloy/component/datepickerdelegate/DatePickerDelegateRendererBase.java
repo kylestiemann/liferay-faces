@@ -52,31 +52,31 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 		if (datePickerDelegate.getActiveInput() != null) {
 			renderActiveInput(renderedAttributes, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getContainer() != null) {
 			renderContainer(renderedAttributes, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getContent() != null) {
 			renderContent(renderedAttributes, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getDateSeparator() != null) {
 			renderDateSeparator(renderedAttributes, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getMask() != null) {
 			renderMask(renderedAttributes, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getValueExtractor() != null) {
 			renderValueExtractor(renderedAttributes, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getValueFormatter() != null) {
 			renderValueFormatter(renderedAttributes, datePickerDelegate);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -92,31 +92,31 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 		if (datePickerDelegate.getAfterActiveInputChange() != null) {
 			renderAfterActiveInputChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getAfterContentChange() != null) {
 			renderAfterContentChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getAfterDateSeparatorChange() != null) {
 			renderAfterDateSeparatorChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getAfterMaskChange() != null) {
 			renderAfterMaskChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getAfterValueExtractorChange() != null) {
 			renderAfterValueExtractorChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getAfterValueFormatterChange() != null) {
 			renderAfterValueFormatterChange(renderedAfterEvents, datePickerDelegate);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -140,31 +140,31 @@ public abstract class DatePickerDelegateRendererBase extends RendererBase {
 		if (datePickerDelegate.getOnActiveInputChange() != null) {
 			renderOnActiveInputChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getOnContentChange() != null) {
 			renderOnContentChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getOnDateSeparatorChange() != null) {
 			renderOnDateSeparatorChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getOnMaskChange() != null) {
 			renderOnMaskChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getOnValueExtractorChange() != null) {
 			renderOnValueExtractorChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 		if (datePickerDelegate.getOnValueFormatterChange() != null) {
 			renderOnValueFormatterChange(renderedOnEvents, datePickerDelegate);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

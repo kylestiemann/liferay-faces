@@ -52,19 +52,19 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 		if (mediaViewerPlugin.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getHost() != null) {
 			renderHost(renderedAttributes, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getInitialized() != null) {
 			renderInitialized(renderedAttributes, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getProviders() != null) {
 			renderProviders(renderedAttributes, mediaViewerPlugin);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -80,19 +80,19 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 		if (mediaViewerPlugin.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getAfterProvidersChange() != null) {
 			renderAfterProvidersChange(renderedAfterEvents, mediaViewerPlugin);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -116,19 +116,19 @@ public abstract class MediaViewerPluginRendererBase extends RendererBase {
 		if (mediaViewerPlugin.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, mediaViewerPlugin);
 		}
-		
+
 		if (mediaViewerPlugin.getOnProvidersChange() != null) {
 			renderOnProvidersChange(renderedOnEvents, mediaViewerPlugin);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

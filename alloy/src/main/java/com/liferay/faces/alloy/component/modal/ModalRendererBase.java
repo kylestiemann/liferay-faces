@@ -52,159 +52,159 @@ public abstract class ModalRendererBase extends RendererBase {
 		if (modal.getAlign() != null) {
 			renderAlign(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getAlignOn() != null) {
 			renderAlignOn(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getModalBodyContent() != null) {
 			renderModalBodyContent(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getCentered() != null) {
 			renderCentered(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getConstrain() != null) {
 			renderConstrain(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getContentBox() != null) {
 			renderContentBox(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getDestroyOnHide() != null) {
 			renderDestroyOnHide(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getDisabled() != null) {
 			renderDisabled(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getDraggable() != null) {
 			renderDraggable(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getFillHeight() != null) {
 			renderFillHeight(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getFocusOn() != null) {
 			renderFocusOn(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getFocused() != null) {
 			renderFocused(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getFooterContent() != null) {
 			renderFooterContent(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getHeaderContent() != null) {
 			renderHeaderContent(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getHeight() != null) {
 			renderHeight(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getHideOn() != null) {
 			renderHideOn(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getModalId() != null) {
 			renderModalId(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getInitialized() != null) {
 			renderInitialized(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getModalLocale() != null) {
 			renderModalLocale(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getMaskNode() != null) {
 			renderMaskNode(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getModal() != null) {
 			renderModal(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getPreventOverlap() != null) {
 			renderPreventOverlap(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getRender() != null) {
 			renderRender(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getRendered() != null) {
 			renderRendered(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getResizable() != null) {
 			renderResizable(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getShim() != null) {
 			renderShim(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getStrings() != null) {
 			renderStrings(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getToolbarPosition() != null) {
 			renderToolbarPosition(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getToolbars() != null) {
 			renderToolbars(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getVisible() != null) {
 			renderVisible(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getWidth() != null) {
 			renderWidth(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getX() != null) {
 			renderX(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getXy() != null) {
 			renderXy(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getY() != null) {
 			renderY(renderedAttributes, modal);
 		}
-		
+
 		if (modal.getZIndex() != null) {
 			renderZIndex(renderedAttributes, modal);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -220,159 +220,159 @@ public abstract class ModalRendererBase extends RendererBase {
 		if (modal.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterAlignOnChange() != null) {
 			renderAfterAlignOnChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterCenteredChange() != null) {
 			renderAfterCenteredChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterConstrainChange() != null) {
 			renderAfterConstrainChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterDestroyOnHideChange() != null) {
 			renderAfterDestroyOnHideChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterDraggableChange() != null) {
 			renderAfterDraggableChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterFillHeightChange() != null) {
 			renderAfterFillHeightChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterFocusOnChange() != null) {
 			renderAfterFocusOnChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterFooterContentChange() != null) {
 			renderAfterFooterContentChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterHeaderContentChange() != null) {
 			renderAfterHeaderContentChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterHideOnChange() != null) {
 			renderAfterHideOnChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterMaskNodeChange() != null) {
 			renderAfterMaskNodeChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterModalChange() != null) {
 			renderAfterModalChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterPreventOverlapChange() != null) {
 			renderAfterPreventOverlapChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterResizableChange() != null) {
 			renderAfterResizableChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterShimChange() != null) {
 			renderAfterShimChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterToolbarPositionChange() != null) {
 			renderAfterToolbarPositionChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterToolbarsChange() != null) {
 			renderAfterToolbarsChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterXyChange() != null) {
 			renderAfterXyChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, modal);
 		}
-		
+
 		if (modal.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, modal);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -396,159 +396,159 @@ public abstract class ModalRendererBase extends RendererBase {
 		if (modal.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnAlignOnChange() != null) {
 			renderOnAlignOnChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnCenteredChange() != null) {
 			renderOnCenteredChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnConstrainChange() != null) {
 			renderOnConstrainChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnDestroyOnHideChange() != null) {
 			renderOnDestroyOnHideChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnDraggableChange() != null) {
 			renderOnDraggableChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnFillHeightChange() != null) {
 			renderOnFillHeightChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnFocusOnChange() != null) {
 			renderOnFocusOnChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnFooterContentChange() != null) {
 			renderOnFooterContentChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnHeaderContentChange() != null) {
 			renderOnHeaderContentChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnHideOnChange() != null) {
 			renderOnHideOnChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnMaskNodeChange() != null) {
 			renderOnMaskNodeChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnModalChange() != null) {
 			renderOnModalChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnPreventOverlapChange() != null) {
 			renderOnPreventOverlapChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnResizableChange() != null) {
 			renderOnResizableChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnShimChange() != null) {
 			renderOnShimChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnToolbarPositionChange() != null) {
 			renderOnToolbarPositionChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnToolbarsChange() != null) {
 			renderOnToolbarsChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnXyChange() != null) {
 			renderOnXyChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, modal);
 		}
-		
+
 		if (modal.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, modal);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

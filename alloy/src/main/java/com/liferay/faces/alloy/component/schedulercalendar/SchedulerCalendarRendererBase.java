@@ -52,35 +52,35 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 		if (schedulerCalendar.getColor() != null) {
 			renderColor(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getName() != null) {
 			renderName(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getPalette() != null) {
 			renderPalette(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerCalendar);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -96,35 +96,35 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 		if (schedulerCalendar.getAfterColorChange() != null) {
 			renderAfterColorChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterPaletteChange() != null) {
 			renderAfterPaletteChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerCalendar);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -148,35 +148,35 @@ public abstract class SchedulerCalendarRendererBase extends RendererBase {
 		if (schedulerCalendar.getOnColorChange() != null) {
 			renderOnColorChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnPaletteChange() != null) {
 			renderOnPaletteChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 		if (schedulerCalendar.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerCalendar);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

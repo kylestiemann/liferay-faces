@@ -52,15 +52,15 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 		if (datePickerPopover.getAutoHide() != null) {
 			renderAutoHide(renderedAttributes, datePickerPopover);
 		}
-		
+
 		if (datePickerPopover.getPopover() != null) {
 			renderPopover(renderedAttributes, datePickerPopover);
 		}
-		
+
 		if (datePickerPopover.getPopoverCssClass() != null) {
 			renderPopoverCssClass(renderedAttributes, datePickerPopover);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -76,15 +76,15 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 		if (datePickerPopover.getAfterAutoHideChange() != null) {
 			renderAfterAutoHideChange(renderedAfterEvents, datePickerPopover);
 		}
-		
+
 		if (datePickerPopover.getAfterPopoverChange() != null) {
 			renderAfterPopoverChange(renderedAfterEvents, datePickerPopover);
 		}
-		
+
 		if (datePickerPopover.getAfterPopoverCssClassChange() != null) {
 			renderAfterPopoverCssClassChange(renderedAfterEvents, datePickerPopover);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -108,15 +108,15 @@ public abstract class DatePickerPopoverRendererBase extends RendererBase {
 		if (datePickerPopover.getOnAutoHideChange() != null) {
 			renderOnAutoHideChange(renderedOnEvents, datePickerPopover);
 		}
-		
+
 		if (datePickerPopover.getOnPopoverChange() != null) {
 			renderOnPopoverChange(renderedOnEvents, datePickerPopover);
 		}
-		
+
 		if (datePickerPopover.getOnPopoverCssClassChange() != null) {
 			renderOnPopoverCssClassChange(renderedOnEvents, datePickerPopover);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

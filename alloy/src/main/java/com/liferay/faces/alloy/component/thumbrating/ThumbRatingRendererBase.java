@@ -52,131 +52,131 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		if (thumbRating.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getCanReset() != null) {
 			renderCanReset(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getContentBox() != null) {
 			renderContentBox(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getCssClass() != null) {
 			renderCssClass(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getCssClasses() != null) {
 			renderCssClasses(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getDefaultSelected() != null) {
 			renderDefaultSelected(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getDisabled() != null) {
 			renderDisabled(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getElements() != null) {
 			renderElements(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getFocused() != null) {
 			renderFocused(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getHeight() != null) {
 			renderHeight(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getHiddenInput() != null) {
 			renderHiddenInput(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getHideClass() != null) {
 			renderHideClass(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getThumbRatingId() != null) {
 			renderThumbRatingId(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getInitialized() != null) {
 			renderInitialized(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getInputName() != null) {
 			renderInputName(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getLabel() != null) {
 			renderLabel(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getLabelNode() != null) {
 			renderLabelNode(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getThumbRatingLocale() != null) {
 			renderThumbRatingLocale(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getRender() != null) {
 			renderRender(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getRendered() != null) {
 			renderRendered(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getSelectedIndex() != null) {
 			renderSelectedIndex(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getShowTitle() != null) {
 			renderShowTitle(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getSize() != null) {
 			renderSize(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getStrings() != null) {
 			renderStrings(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getTitle() != null) {
 			renderTitle(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getThumbRatingValue() != null) {
 			renderThumbRatingValue(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getVisible() != null) {
 			renderVisible(renderedAttributes, thumbRating);
 		}
-		
+
 		if (thumbRating.getWidth() != null) {
 			renderWidth(renderedAttributes, thumbRating);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -192,131 +192,131 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		if (thumbRating.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterCanResetChange() != null) {
 			renderAfterCanResetChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterCssClassesChange() != null) {
 			renderAfterCssClassesChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterDefaultSelectedChange() != null) {
 			renderAfterDefaultSelectedChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterElementsChange() != null) {
 			renderAfterElementsChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterHiddenInputChange() != null) {
 			renderAfterHiddenInputChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterInputNameChange() != null) {
 			renderAfterInputNameChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterLabelNodeChange() != null) {
 			renderAfterLabelNodeChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterSelectedIndexChange() != null) {
 			renderAfterSelectedIndexChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterShowTitleChange() != null) {
 			renderAfterShowTitleChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterSizeChange() != null) {
 			renderAfterSizeChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterTitleChange() != null) {
 			renderAfterTitleChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterValueChange() != null) {
 			renderAfterValueChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, thumbRating);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -340,131 +340,131 @@ public abstract class ThumbRatingRendererBase extends RendererBase {
 		if (thumbRating.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnCanResetChange() != null) {
 			renderOnCanResetChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnCssClassesChange() != null) {
 			renderOnCssClassesChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnDefaultSelectedChange() != null) {
 			renderOnDefaultSelectedChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnElementsChange() != null) {
 			renderOnElementsChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnHiddenInputChange() != null) {
 			renderOnHiddenInputChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnInputNameChange() != null) {
 			renderOnInputNameChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnLabelNodeChange() != null) {
 			renderOnLabelNodeChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnSelectedIndexChange() != null) {
 			renderOnSelectedIndexChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnShowTitleChange() != null) {
 			renderOnShowTitleChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnSizeChange() != null) {
 			renderOnSizeChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnTitleChange() != null) {
 			renderOnTitleChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnValueChange() != null) {
 			renderOnValueChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, thumbRating);
 		}
-		
+
 		if (thumbRating.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, thumbRating);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

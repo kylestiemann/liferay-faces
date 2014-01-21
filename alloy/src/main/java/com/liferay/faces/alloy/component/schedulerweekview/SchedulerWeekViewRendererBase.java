@@ -52,179 +52,179 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		if (schedulerWeekView.getSchedulerWeekViewBodyContent() != null) {
 			renderSchedulerWeekViewBodyContent(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getColDaysNode() != null) {
 			renderColDaysNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getColHeaderDaysNode() != null) {
 			renderColHeaderDaysNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getDays() != null) {
 			renderDays(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getDelegateConfig() != null) {
 			renderDelegateConfig(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getEventWidth() != null) {
 			renderEventWidth(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getFilterFn() != null) {
 			renderFilterFn(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHeaderDateFormatter() != null) {
 			renderHeaderDateFormatter(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHeaderTableNode() != null) {
 			renderHeaderTableNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHeaderView() != null) {
 			renderHeaderView(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHeaderViewConfig() != null) {
 			renderHeaderViewConfig(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHeaderViewLabelNode() != null) {
 			renderHeaderViewLabelNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getHourHeight() != null) {
 			renderHourHeight(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getSchedulerWeekViewId() != null) {
 			renderSchedulerWeekViewId(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getIsoTime() != null) {
 			renderIsoTime(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getSchedulerWeekViewLocale() != null) {
 			renderSchedulerWeekViewLocale(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getMarkercellsNode() != null) {
 			renderMarkercellsNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getName() != null) {
 			renderName(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getNextDate() != null) {
 			renderNextDate(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getPrevDate() != null) {
 			renderPrevDate(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getRender() != null) {
 			renderRender(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getResizerNode() != null) {
 			renderResizerNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getScrollable() != null) {
 			renderScrollable(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getTableNode() != null) {
 			renderTableNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getTimesNode() != null) {
 			renderTimesNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getTriggerNode() != null) {
 			renderTriggerNode(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerWeekView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -240,179 +240,179 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		if (schedulerWeekView.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterColDaysNodeChange() != null) {
 			renderAfterColDaysNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterColHeaderDaysNodeChange() != null) {
 			renderAfterColHeaderDaysNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterDaysChange() != null) {
 			renderAfterDaysChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterDelegateConfigChange() != null) {
 			renderAfterDelegateConfigChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterEventWidthChange() != null) {
 			renderAfterEventWidthChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterFilterFnChange() != null) {
 			renderAfterFilterFnChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHeaderDateFormatterChange() != null) {
 			renderAfterHeaderDateFormatterChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHeaderTableNodeChange() != null) {
 			renderAfterHeaderTableNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHeaderViewChange() != null) {
 			renderAfterHeaderViewChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHeaderViewConfigChange() != null) {
 			renderAfterHeaderViewConfigChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHeaderViewLabelNodeChange() != null) {
 			renderAfterHeaderViewLabelNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterHourHeightChange() != null) {
 			renderAfterHourHeightChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterIsoTimeChange() != null) {
 			renderAfterIsoTimeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterMarkercellsNodeChange() != null) {
 			renderAfterMarkercellsNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterNextDateChange() != null) {
 			renderAfterNextDateChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterPrevDateChange() != null) {
 			renderAfterPrevDateChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterResizerNodeChange() != null) {
 			renderAfterResizerNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterScrollableChange() != null) {
 			renderAfterScrollableChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterTableNodeChange() != null) {
 			renderAfterTableNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterTimesNodeChange() != null) {
 			renderAfterTimesNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterTriggerNodeChange() != null) {
 			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerWeekView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -436,179 +436,179 @@ public abstract class SchedulerWeekViewRendererBase extends RendererBase {
 		if (schedulerWeekView.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnColDaysNodeChange() != null) {
 			renderOnColDaysNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnColHeaderDaysNodeChange() != null) {
 			renderOnColHeaderDaysNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnDaysChange() != null) {
 			renderOnDaysChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnDelegateConfigChange() != null) {
 			renderOnDelegateConfigChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnEventWidthChange() != null) {
 			renderOnEventWidthChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnFilterFnChange() != null) {
 			renderOnFilterFnChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHeaderDateFormatterChange() != null) {
 			renderOnHeaderDateFormatterChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHeaderTableNodeChange() != null) {
 			renderOnHeaderTableNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHeaderViewChange() != null) {
 			renderOnHeaderViewChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHeaderViewConfigChange() != null) {
 			renderOnHeaderViewConfigChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHeaderViewLabelNodeChange() != null) {
 			renderOnHeaderViewLabelNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnHourHeightChange() != null) {
 			renderOnHourHeightChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnIsoTimeChange() != null) {
 			renderOnIsoTimeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnMarkercellsNodeChange() != null) {
 			renderOnMarkercellsNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnNextDateChange() != null) {
 			renderOnNextDateChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnPrevDateChange() != null) {
 			renderOnPrevDateChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnResizerNodeChange() != null) {
 			renderOnResizerNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnScrollableChange() != null) {
 			renderOnScrollableChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnTableNodeChange() != null) {
 			renderOnTableNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnTimesNodeChange() != null) {
 			renderOnTimesNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnTriggerNodeChange() != null) {
 			renderOnTriggerNodeChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 		if (schedulerWeekView.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerWeekView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

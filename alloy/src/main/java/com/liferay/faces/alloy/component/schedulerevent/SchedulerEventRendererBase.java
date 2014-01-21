@@ -52,79 +52,79 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		if (schedulerEvent.getAllDay() != null) {
 			renderAllDay(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getSchedulerEventClientId() != null) {
 			renderSchedulerEventClientId(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getColor() != null) {
 			renderColor(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getColorBrightnessFactor() != null) {
 			renderColorBrightnessFactor(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getColorSaturationFactor() != null) {
 			renderColorSaturationFactor(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getContent() != null) {
 			renderContent(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getEndDate() != null) {
 			renderEndDate(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getSchedulerEventId() != null) {
 			renderSchedulerEventId(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getMeeting() != null) {
 			renderMeeting(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getNode() != null) {
 			renderNode(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getReminder() != null) {
 			renderReminder(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getRepeated() != null) {
 			renderRepeated(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getStartDate() != null) {
 			renderStartDate(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getTitleDateFormat() != null) {
 			renderTitleDateFormat(renderedAttributes, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerEvent);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -140,79 +140,79 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		if (schedulerEvent.getAfterAllDayChange() != null) {
 			renderAfterAllDayChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterClientIdChange() != null) {
 			renderAfterClientIdChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterColorChange() != null) {
 			renderAfterColorChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterColorBrightnessFactorChange() != null) {
 			renderAfterColorBrightnessFactorChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterColorSaturationFactorChange() != null) {
 			renderAfterColorSaturationFactorChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterContentChange() != null) {
 			renderAfterContentChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterEndDateChange() != null) {
 			renderAfterEndDateChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterMeetingChange() != null) {
 			renderAfterMeetingChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterNodeChange() != null) {
 			renderAfterNodeChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterReminderChange() != null) {
 			renderAfterReminderChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterRepeatedChange() != null) {
 			renderAfterRepeatedChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterStartDateChange() != null) {
 			renderAfterStartDateChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterTitleDateFormatChange() != null) {
 			renderAfterTitleDateFormatChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerEvent);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -236,79 +236,79 @@ public abstract class SchedulerEventRendererBase extends RendererBase {
 		if (schedulerEvent.getOnAllDayChange() != null) {
 			renderOnAllDayChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnClientIdChange() != null) {
 			renderOnClientIdChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnColorChange() != null) {
 			renderOnColorChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnColorBrightnessFactorChange() != null) {
 			renderOnColorBrightnessFactorChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnColorSaturationFactorChange() != null) {
 			renderOnColorSaturationFactorChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnContentChange() != null) {
 			renderOnContentChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnEndDateChange() != null) {
 			renderOnEndDateChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnMeetingChange() != null) {
 			renderOnMeetingChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnNodeChange() != null) {
 			renderOnNodeChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnReminderChange() != null) {
 			renderOnReminderChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnRepeatedChange() != null) {
 			renderOnRepeatedChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnStartDateChange() != null) {
 			renderOnStartDateChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnTitleDateFormatChange() != null) {
 			renderOnTitleDateFormatChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 		if (schedulerEvent.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerEvent);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

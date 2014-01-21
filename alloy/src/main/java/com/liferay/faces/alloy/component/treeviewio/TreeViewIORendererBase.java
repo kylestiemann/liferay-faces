@@ -52,7 +52,7 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 		if (treeViewIO.getIo() != null) {
 			renderIo(renderedAttributes, treeViewIO);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,7 +68,7 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 		if (treeViewIO.getAfterIoChange() != null) {
 			renderAfterIoChange(renderedAfterEvents, treeViewIO);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -92,7 +92,7 @@ public abstract class TreeViewIORendererBase extends RendererBase {
 		if (treeViewIO.getOnIoChange() != null) {
 			renderOnIoChange(renderedOnEvents, treeViewIO);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,23 +52,23 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 		if (freemarker.getDirectives() != null) {
 			renderDirectives(renderedAttributes, freemarker);
 		}
-		
+
 		if (freemarker.getDirectivesMatcher() != null) {
 			renderDirectivesMatcher(renderedAttributes, freemarker);
 		}
-		
+
 		if (freemarker.getHost() != null) {
 			renderHost(renderedAttributes, freemarker);
 		}
-		
+
 		if (freemarker.getVariables() != null) {
 			renderVariables(renderedAttributes, freemarker);
 		}
-		
+
 		if (freemarker.getVariablesMatcher() != null) {
 			renderVariablesMatcher(renderedAttributes, freemarker);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 		if (freemarker.getAfterDirectivesChange() != null) {
 			renderAfterDirectivesChange(renderedAfterEvents, freemarker);
 		}
-		
+
 		if (freemarker.getAfterDirectivesMatcherChange() != null) {
 			renderAfterDirectivesMatcherChange(renderedAfterEvents, freemarker);
 		}
-		
+
 		if (freemarker.getAfterHostChange() != null) {
 			renderAfterHostChange(renderedAfterEvents, freemarker);
 		}
-		
+
 		if (freemarker.getAfterVariablesChange() != null) {
 			renderAfterVariablesChange(renderedAfterEvents, freemarker);
 		}
-		
+
 		if (freemarker.getAfterVariablesMatcherChange() != null) {
 			renderAfterVariablesMatcherChange(renderedAfterEvents, freemarker);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class FreemarkerRendererBase extends RendererBase {
 		if (freemarker.getOnDirectivesChange() != null) {
 			renderOnDirectivesChange(renderedOnEvents, freemarker);
 		}
-		
+
 		if (freemarker.getOnDirectivesMatcherChange() != null) {
 			renderOnDirectivesMatcherChange(renderedOnEvents, freemarker);
 		}
-		
+
 		if (freemarker.getOnHostChange() != null) {
 			renderOnHostChange(renderedOnEvents, freemarker);
 		}
-		
+
 		if (freemarker.getOnVariablesChange() != null) {
 			renderOnVariablesChange(renderedOnEvents, freemarker);
 		}
-		
+
 		if (freemarker.getOnVariablesMatcherChange() != null) {
 			renderOnVariablesMatcherChange(renderedOnEvents, freemarker);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

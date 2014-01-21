@@ -52,23 +52,23 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 		if (dateCellEditor.getDateCellEditorBodyContent() != null) {
 			renderDateCellEditorBodyContent(renderedAttributes, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getCalendar() != null) {
 			renderCalendar(renderedAttributes, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getDateFormat() != null) {
 			renderDateFormat(renderedAttributes, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getInputFormatter() != null) {
 			renderInputFormatter(renderedAttributes, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getOutputFormatter() != null) {
 			renderOutputFormatter(renderedAttributes, dateCellEditor);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 		if (dateCellEditor.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getAfterCalendarChange() != null) {
 			renderAfterCalendarChange(renderedAfterEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getAfterDateFormatChange() != null) {
 			renderAfterDateFormatChange(renderedAfterEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getAfterInputFormatterChange() != null) {
 			renderAfterInputFormatterChange(renderedAfterEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getAfterOutputFormatterChange() != null) {
 			renderAfterOutputFormatterChange(renderedAfterEvents, dateCellEditor);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class DateCellEditorRendererBase extends RendererBase {
 		if (dateCellEditor.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getOnCalendarChange() != null) {
 			renderOnCalendarChange(renderedOnEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getOnDateFormatChange() != null) {
 			renderOnDateFormatChange(renderedOnEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getOnInputFormatterChange() != null) {
 			renderOnInputFormatterChange(renderedOnEvents, dateCellEditor);
 		}
-		
+
 		if (dateCellEditor.getOnOutputFormatterChange() != null) {
 			renderOnOutputFormatterChange(renderedOnEvents, dateCellEditor);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

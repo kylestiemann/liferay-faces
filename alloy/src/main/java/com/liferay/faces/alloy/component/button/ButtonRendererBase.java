@@ -52,91 +52,91 @@ public abstract class ButtonRendererBase extends RendererBase {
 		if (button.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, button);
 		}
-		
+
 		if (button.getContentBox() != null) {
 			renderContentBox(renderedAttributes, button);
 		}
-		
+
 		if (button.getCssClass() != null) {
 			renderCssClass(renderedAttributes, button);
 		}
-		
+
 		if (button.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, button);
 		}
-		
+
 		if (button.getDisabled() != null) {
 			renderDisabled(renderedAttributes, button);
 		}
-		
+
 		if (button.getFocused() != null) {
 			renderFocused(renderedAttributes, button);
 		}
-		
+
 		if (button.getHeight() != null) {
 			renderHeight(renderedAttributes, button);
 		}
-		
+
 		if (button.getIcon() != null) {
 			renderIcon(renderedAttributes, button);
 		}
-		
+
 		if (button.getIconAlign() != null) {
 			renderIconAlign(renderedAttributes, button);
 		}
-		
+
 		if (button.getIconElement() != null) {
 			renderIconElement(renderedAttributes, button);
 		}
-		
+
 		if (button.getButtonId() != null) {
 			renderButtonId(renderedAttributes, button);
 		}
-		
+
 		if (button.getInitialized() != null) {
 			renderInitialized(renderedAttributes, button);
 		}
-		
+
 		if (button.getLabel() != null) {
 			renderLabel(renderedAttributes, button);
 		}
-		
+
 		if (button.getButtonLocale() != null) {
 			renderButtonLocale(renderedAttributes, button);
 		}
-		
+
 		if (button.getPrimary() != null) {
 			renderPrimary(renderedAttributes, button);
 		}
-		
+
 		if (button.getRender() != null) {
 			renderRender(renderedAttributes, button);
 		}
-		
+
 		if (button.getRendered() != null) {
 			renderRendered(renderedAttributes, button);
 		}
-		
+
 		if (button.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, button);
 		}
-		
+
 		if (button.getStrings() != null) {
 			renderStrings(renderedAttributes, button);
 		}
-		
+
 		if (button.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, button);
 		}
-		
+
 		if (button.getVisible() != null) {
 			renderVisible(renderedAttributes, button);
 		}
-		
+
 		if (button.getWidth() != null) {
 			renderWidth(renderedAttributes, button);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -152,91 +152,91 @@ public abstract class ButtonRendererBase extends RendererBase {
 		if (button.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterIconChange() != null) {
 			renderAfterIconChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterIconAlignChange() != null) {
 			renderAfterIconAlignChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterIconElementChange() != null) {
 			renderAfterIconElementChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterPrimaryChange() != null) {
 			renderAfterPrimaryChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, button);
 		}
-		
+
 		if (button.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, button);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -260,91 +260,91 @@ public abstract class ButtonRendererBase extends RendererBase {
 		if (button.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnIconChange() != null) {
 			renderOnIconChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnIconAlignChange() != null) {
 			renderOnIconAlignChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnIconElementChange() != null) {
 			renderOnIconElementChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnPrimaryChange() != null) {
 			renderOnPrimaryChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, button);
 		}
-		
+
 		if (button.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, button);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

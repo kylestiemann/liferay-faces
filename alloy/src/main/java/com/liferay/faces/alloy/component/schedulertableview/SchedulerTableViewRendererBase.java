@@ -52,151 +52,151 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		if (schedulerTableView.getSchedulerTableViewBodyContent() != null) {
 			renderSchedulerTableViewBodyContent(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getColHeaderDaysNode() != null) {
 			renderColHeaderDaysNode(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getDisplayDaysInterval() != null) {
 			renderDisplayDaysInterval(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getDisplayRows() != null) {
 			renderDisplayRows(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getFilterFn() != null) {
 			renderFilterFn(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getFixedHeight() != null) {
 			renderFixedHeight(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getHeaderDateFormatter() != null) {
 			renderHeaderDateFormatter(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getHeaderTableNode() != null) {
 			renderHeaderTableNode(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getSchedulerTableViewId() != null) {
 			renderSchedulerTableViewId(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getIsoTime() != null) {
 			renderIsoTime(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getSchedulerTableViewLocale() != null) {
 			renderSchedulerTableViewLocale(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getName() != null) {
 			renderName(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getNextDate() != null) {
 			renderNextDate(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getPrevDate() != null) {
 			renderPrevDate(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getRender() != null) {
 			renderRender(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getRowsContainerNode() != null) {
 			renderRowsContainerNode(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getScrollable() != null) {
 			renderScrollable(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getTableGridNode() != null) {
 			renderTableGridNode(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getTriggerNode() != null) {
 			renderTriggerNode(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerTableView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -212,151 +212,151 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		if (schedulerTableView.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterColHeaderDaysNodeChange() != null) {
 			renderAfterColHeaderDaysNodeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterDisplayDaysIntervalChange() != null) {
 			renderAfterDisplayDaysIntervalChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterDisplayRowsChange() != null) {
 			renderAfterDisplayRowsChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterFilterFnChange() != null) {
 			renderAfterFilterFnChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterFixedHeightChange() != null) {
 			renderAfterFixedHeightChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterHeaderDateFormatterChange() != null) {
 			renderAfterHeaderDateFormatterChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterHeaderTableNodeChange() != null) {
 			renderAfterHeaderTableNodeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterIsoTimeChange() != null) {
 			renderAfterIsoTimeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterNextDateChange() != null) {
 			renderAfterNextDateChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterPrevDateChange() != null) {
 			renderAfterPrevDateChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterRowsContainerNodeChange() != null) {
 			renderAfterRowsContainerNodeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterScrollableChange() != null) {
 			renderAfterScrollableChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterTableGridNodeChange() != null) {
 			renderAfterTableGridNodeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterTriggerNodeChange() != null) {
 			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerTableView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -380,151 +380,151 @@ public abstract class SchedulerTableViewRendererBase extends RendererBase {
 		if (schedulerTableView.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnColHeaderDaysNodeChange() != null) {
 			renderOnColHeaderDaysNodeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnDisplayDaysIntervalChange() != null) {
 			renderOnDisplayDaysIntervalChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnDisplayRowsChange() != null) {
 			renderOnDisplayRowsChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnFilterFnChange() != null) {
 			renderOnFilterFnChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnFixedHeightChange() != null) {
 			renderOnFixedHeightChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnHeaderDateFormatterChange() != null) {
 			renderOnHeaderDateFormatterChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnHeaderTableNodeChange() != null) {
 			renderOnHeaderTableNodeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnIsoTimeChange() != null) {
 			renderOnIsoTimeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnNextDateChange() != null) {
 			renderOnNextDateChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnPrevDateChange() != null) {
 			renderOnPrevDateChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnRowsContainerNodeChange() != null) {
 			renderOnRowsContainerNodeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnScrollableChange() != null) {
 			renderOnScrollableChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnTableGridNodeChange() != null) {
 			renderOnTableGridNodeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnTriggerNodeChange() != null) {
 			renderOnTriggerNodeChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 		if (schedulerTableView.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerTableView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

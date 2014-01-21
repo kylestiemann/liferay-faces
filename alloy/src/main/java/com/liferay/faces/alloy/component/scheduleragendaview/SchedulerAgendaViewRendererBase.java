@@ -52,143 +52,143 @@ public abstract class SchedulerAgendaViewRendererBase extends RendererBase {
 		if (schedulerAgendaView.getSchedulerAgendaViewBodyContent() != null) {
 			renderSchedulerAgendaViewBodyContent(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getEventsDateFormatter() != null) {
 			renderEventsDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getFilterFn() != null) {
 			renderFilterFn(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getHeaderDayDateFormatter() != null) {
 			renderHeaderDayDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getHeaderExtraDateFormatter() != null) {
 			renderHeaderExtraDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getSchedulerAgendaViewId() != null) {
 			renderSchedulerAgendaViewId(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getInfoDayDateFormatter() != null) {
 			renderInfoDayDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getInfoLabelBigDateFormatter() != null) {
 			renderInfoLabelBigDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getInfoLabelSmallDateFormatter() != null) {
 			renderInfoLabelSmallDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getIsoTime() != null) {
 			renderIsoTime(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getSchedulerAgendaViewLocale() != null) {
 			renderSchedulerAgendaViewLocale(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getName() != null) {
 			renderName(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getNextDate() != null) {
 			renderNextDate(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getPrevDate() != null) {
 			renderPrevDate(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getRender() != null) {
 			renderRender(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getScrollable() != null) {
 			renderScrollable(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getTriggerNode() != null) {
 			renderTriggerNode(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerAgendaView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -204,143 +204,143 @@ public abstract class SchedulerAgendaViewRendererBase extends RendererBase {
 		if (schedulerAgendaView.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterEventsDateFormatterChange() != null) {
 			renderAfterEventsDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterFilterFnChange() != null) {
 			renderAfterFilterFnChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterHeaderDayDateFormatterChange() != null) {
 			renderAfterHeaderDayDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterHeaderExtraDateFormatterChange() != null) {
 			renderAfterHeaderExtraDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterInfoDayDateFormatterChange() != null) {
 			renderAfterInfoDayDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterInfoLabelBigDateFormatterChange() != null) {
 			renderAfterInfoLabelBigDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterInfoLabelSmallDateFormatterChange() != null) {
 			renderAfterInfoLabelSmallDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterIsoTimeChange() != null) {
 			renderAfterIsoTimeChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterNextDateChange() != null) {
 			renderAfterNextDateChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterPrevDateChange() != null) {
 			renderAfterPrevDateChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterScrollableChange() != null) {
 			renderAfterScrollableChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterTriggerNodeChange() != null) {
 			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerAgendaView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -364,143 +364,143 @@ public abstract class SchedulerAgendaViewRendererBase extends RendererBase {
 		if (schedulerAgendaView.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnEventsDateFormatterChange() != null) {
 			renderOnEventsDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnFilterFnChange() != null) {
 			renderOnFilterFnChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnHeaderDayDateFormatterChange() != null) {
 			renderOnHeaderDayDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnHeaderExtraDateFormatterChange() != null) {
 			renderOnHeaderExtraDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnInfoDayDateFormatterChange() != null) {
 			renderOnInfoDayDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnInfoLabelBigDateFormatterChange() != null) {
 			renderOnInfoLabelBigDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnInfoLabelSmallDateFormatterChange() != null) {
 			renderOnInfoLabelSmallDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnIsoTimeChange() != null) {
 			renderOnIsoTimeChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnNextDateChange() != null) {
 			renderOnNextDateChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnPrevDateChange() != null) {
 			renderOnPrevDateChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnScrollableChange() != null) {
 			renderOnScrollableChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnTriggerNodeChange() != null) {
 			renderOnTriggerNodeChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 		if (schedulerAgendaView.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerAgendaView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

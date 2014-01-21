@@ -52,195 +52,195 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		if (colorPickerPopover.getAlign() != null) {
 			renderAlign(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAlignOn() != null) {
 			renderAlignOn(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getColorPickerPopoverBodyContent() != null) {
 			renderColorPickerPopoverBodyContent(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getCentered() != null) {
 			renderCentered(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getColor() != null) {
 			renderColor(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getColorPalette() != null) {
 			renderColorPalette(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getConstrain() != null) {
 			renderConstrain(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getContentBox() != null) {
 			renderContentBox(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getCssClass() != null) {
 			renderCssClass(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getCurrentTrigger() != null) {
 			renderCurrentTrigger(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getDefaultColor() != null) {
 			renderDefaultColor(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getDisabled() != null) {
 			renderDisabled(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getFillHeight() != null) {
 			renderFillHeight(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getFocusOn() != null) {
 			renderFocusOn(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getFocused() != null) {
 			renderFocused(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getFooterContent() != null) {
 			renderFooterContent(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getHeaderContent() != null) {
 			renderHeaderContent(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getHeight() != null) {
 			renderHeight(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getHideOn() != null) {
 			renderHideOn(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getHsvPalette() != null) {
 			renderHsvPalette(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getColorPickerPopoverId() != null) {
 			renderColorPickerPopoverId(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getInitialized() != null) {
 			renderInitialized(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getColorPickerPopoverLocale() != null) {
 			renderColorPickerPopoverLocale(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getMaskNode() != null) {
 			renderMaskNode(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getModal() != null) {
 			renderModal(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getPreventOverlap() != null) {
 			renderPreventOverlap(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getRecentColors() != null) {
 			renderRecentColors(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getRender() != null) {
 			renderRender(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getRenderColorPalette() != null) {
 			renderRenderColorPalette(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getRenderHSVPalette() != null) {
 			renderRenderHSVPalette(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getRendered() != null) {
 			renderRendered(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getShim() != null) {
 			renderShim(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getStrings() != null) {
 			renderStrings(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getToolbarPosition() != null) {
 			renderToolbarPosition(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getToolbars() != null) {
 			renderToolbars(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getTrigger() != null) {
 			renderTrigger(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getTriggerEvent() != null) {
 			renderTriggerEvent(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getTriggerToggleEvent() != null) {
 			renderTriggerToggleEvent(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getVisible() != null) {
 			renderVisible(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getWidth() != null) {
 			renderWidth(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getX() != null) {
 			renderX(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getXy() != null) {
 			renderXy(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getY() != null) {
 			renderY(renderedAttributes, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getZIndex() != null) {
 			renderZIndex(renderedAttributes, colorPickerPopover);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -256,195 +256,195 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		if (colorPickerPopover.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterAlignOnChange() != null) {
 			renderAfterAlignOnChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterCenteredChange() != null) {
 			renderAfterCenteredChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterColorChange() != null) {
 			renderAfterColorChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterColorPaletteChange() != null) {
 			renderAfterColorPaletteChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterConstrainChange() != null) {
 			renderAfterConstrainChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterCurrentTriggerChange() != null) {
 			renderAfterCurrentTriggerChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterDefaultColorChange() != null) {
 			renderAfterDefaultColorChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterFillHeightChange() != null) {
 			renderAfterFillHeightChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterFocusOnChange() != null) {
 			renderAfterFocusOnChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterFooterContentChange() != null) {
 			renderAfterFooterContentChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterHeaderContentChange() != null) {
 			renderAfterHeaderContentChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterHideOnChange() != null) {
 			renderAfterHideOnChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterHsvPaletteChange() != null) {
 			renderAfterHsvPaletteChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterMaskNodeChange() != null) {
 			renderAfterMaskNodeChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterModalChange() != null) {
 			renderAfterModalChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterPreventOverlapChange() != null) {
 			renderAfterPreventOverlapChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterRecentColorsChange() != null) {
 			renderAfterRecentColorsChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterRenderColorPaletteChange() != null) {
 			renderAfterRenderColorPaletteChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterRenderHSVPaletteChange() != null) {
 			renderAfterRenderHSVPaletteChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterShimChange() != null) {
 			renderAfterShimChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterToolbarPositionChange() != null) {
 			renderAfterToolbarPositionChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterToolbarsChange() != null) {
 			renderAfterToolbarsChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterTriggerChange() != null) {
 			renderAfterTriggerChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterTriggerEventChange() != null) {
 			renderAfterTriggerEventChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterTriggerToggleEventChange() != null) {
 			renderAfterTriggerToggleEventChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterXyChange() != null) {
 			renderAfterXyChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, colorPickerPopover);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -468,195 +468,195 @@ public abstract class ColorPickerPopoverRendererBase extends RendererBase {
 		if (colorPickerPopover.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnAlignOnChange() != null) {
 			renderOnAlignOnChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnCenteredChange() != null) {
 			renderOnCenteredChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnColorChange() != null) {
 			renderOnColorChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnColorPaletteChange() != null) {
 			renderOnColorPaletteChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnConstrainChange() != null) {
 			renderOnConstrainChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnCurrentTriggerChange() != null) {
 			renderOnCurrentTriggerChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnDefaultColorChange() != null) {
 			renderOnDefaultColorChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnFillHeightChange() != null) {
 			renderOnFillHeightChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnFocusOnChange() != null) {
 			renderOnFocusOnChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnFooterContentChange() != null) {
 			renderOnFooterContentChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnHeaderContentChange() != null) {
 			renderOnHeaderContentChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnHideOnChange() != null) {
 			renderOnHideOnChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnHsvPaletteChange() != null) {
 			renderOnHsvPaletteChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnMaskNodeChange() != null) {
 			renderOnMaskNodeChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnModalChange() != null) {
 			renderOnModalChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnPreventOverlapChange() != null) {
 			renderOnPreventOverlapChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnRecentColorsChange() != null) {
 			renderOnRecentColorsChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnRenderColorPaletteChange() != null) {
 			renderOnRenderColorPaletteChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnRenderHSVPaletteChange() != null) {
 			renderOnRenderHSVPaletteChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnShimChange() != null) {
 			renderOnShimChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnToolbarPositionChange() != null) {
 			renderOnToolbarPositionChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnToolbarsChange() != null) {
 			renderOnToolbarsChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnTriggerChange() != null) {
 			renderOnTriggerChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnTriggerEventChange() != null) {
 			renderOnTriggerEventChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnTriggerToggleEventChange() != null) {
 			renderOnTriggerToggleEventChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnXyChange() != null) {
 			renderOnXyChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 		if (colorPickerPopover.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, colorPickerPopover);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

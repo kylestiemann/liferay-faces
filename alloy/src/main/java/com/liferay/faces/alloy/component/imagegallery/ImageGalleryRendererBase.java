@@ -52,275 +52,275 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		if (imageGallery.getAlign() != null) {
 			renderAlign(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getAlignOn() != null) {
 			renderAlignOn(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getAnim() != null) {
 			renderAnim(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getAutoPlay() != null) {
 			renderAutoPlay(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getImageGalleryBodyContent() != null) {
 			renderImageGalleryBodyContent(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getCaption() != null) {
 			renderCaption(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getCaptionEl() != null) {
 			renderCaptionEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getCaptionFromTitle() != null) {
 			renderCaptionFromTitle(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getCentered() != null) {
 			renderCentered(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getCloseEl() != null) {
 			renderCloseEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getConstrain() != null) {
 			renderConstrain(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getContentBox() != null) {
 			renderContentBox(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getControlLeftEl() != null) {
 			renderControlLeftEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getControlRightEl() != null) {
 			renderControlRightEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getCurrentIndex() != null) {
 			renderCurrentIndex(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getDelay() != null) {
 			renderDelay(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getDisabled() != null) {
 			renderDisabled(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getFillHeight() != null) {
 			renderFillHeight(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getFocusOn() != null) {
 			renderFocusOn(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getFocused() != null) {
 			renderFocused(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getFooterContent() != null) {
 			renderFooterContent(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getHeaderContent() != null) {
 			renderHeaderContent(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getHeight() != null) {
 			renderHeight(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getImageGalleryId() != null) {
 			renderImageGalleryId(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getImage() != null) {
 			renderImage(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getImageAnim() != null) {
 			renderImageAnim(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getInfoEl() != null) {
 			renderInfoEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getInfoTemplate() != null) {
 			renderInfoTemplate(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getInitialized() != null) {
 			renderInitialized(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getLinks() != null) {
 			renderLinks(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getLoader() != null) {
 			renderLoader(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getLoading() != null) {
 			renderLoading(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getLoadingEl() != null) {
 			renderLoadingEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getImageGalleryLocale() != null) {
 			renderImageGalleryLocale(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getMaskNode() != null) {
 			renderMaskNode(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getMaxHeight() != null) {
 			renderMaxHeight(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getMaxWidth() != null) {
 			renderMaxWidth(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getModal() != null) {
 			renderModal(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPagination() != null) {
 			renderPagination(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPaginationEl() != null) {
 			renderPaginationEl(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPaginationInstance() != null) {
 			renderPaginationInstance(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPaused() != null) {
 			renderPaused(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPausedLabel() != null) {
 			renderPausedLabel(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPlaying() != null) {
 			renderPlaying(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPlayingLabel() != null) {
 			renderPlayingLabel(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPreloadAllImages() != null) {
 			renderPreloadAllImages(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getPreventOverlap() != null) {
 			renderPreventOverlap(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getRender() != null) {
 			renderRender(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getRendered() != null) {
 			renderRendered(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getRepeat() != null) {
 			renderRepeat(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getShim() != null) {
 			renderShim(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getShowClose() != null) {
 			renderShowClose(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getShowControls() != null) {
 			renderShowControls(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getShowPlayer() != null) {
 			renderShowPlayer(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getStrings() != null) {
 			renderStrings(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getToolbar() != null) {
 			renderToolbar(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getTotalLinks() != null) {
 			renderTotalLinks(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getUseOriginalImage() != null) {
 			renderUseOriginalImage(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getVisible() != null) {
 			renderVisible(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getWidth() != null) {
 			renderWidth(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getX() != null) {
 			renderX(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getXy() != null) {
 			renderXy(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getY() != null) {
 			renderY(renderedAttributes, imageGallery);
 		}
-		
+
 		if (imageGallery.getZIndex() != null) {
 			renderZIndex(renderedAttributes, imageGallery);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -336,275 +336,275 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		if (imageGallery.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterAlignOnChange() != null) {
 			renderAfterAlignOnChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterAnimChange() != null) {
 			renderAfterAnimChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterAutoPlayChange() != null) {
 			renderAfterAutoPlayChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterCaptionChange() != null) {
 			renderAfterCaptionChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterCaptionElChange() != null) {
 			renderAfterCaptionElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterCaptionFromTitleChange() != null) {
 			renderAfterCaptionFromTitleChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterCenteredChange() != null) {
 			renderAfterCenteredChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterCloseElChange() != null) {
 			renderAfterCloseElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterConstrainChange() != null) {
 			renderAfterConstrainChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterControlLeftElChange() != null) {
 			renderAfterControlLeftElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterControlRightElChange() != null) {
 			renderAfterControlRightElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterCurrentIndexChange() != null) {
 			renderAfterCurrentIndexChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterDelayChange() != null) {
 			renderAfterDelayChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterFillHeightChange() != null) {
 			renderAfterFillHeightChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterFocusOnChange() != null) {
 			renderAfterFocusOnChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterFooterContentChange() != null) {
 			renderAfterFooterContentChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterHeaderContentChange() != null) {
 			renderAfterHeaderContentChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterImageChange() != null) {
 			renderAfterImageChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterImageAnimChange() != null) {
 			renderAfterImageAnimChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterInfoElChange() != null) {
 			renderAfterInfoElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterInfoTemplateChange() != null) {
 			renderAfterInfoTemplateChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterLinksChange() != null) {
 			renderAfterLinksChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterLoaderChange() != null) {
 			renderAfterLoaderChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterLoadingChange() != null) {
 			renderAfterLoadingChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterLoadingElChange() != null) {
 			renderAfterLoadingElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterMaskNodeChange() != null) {
 			renderAfterMaskNodeChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterMaxHeightChange() != null) {
 			renderAfterMaxHeightChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterMaxWidthChange() != null) {
 			renderAfterMaxWidthChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterModalChange() != null) {
 			renderAfterModalChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPaginationChange() != null) {
 			renderAfterPaginationChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPaginationElChange() != null) {
 			renderAfterPaginationElChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPaginationInstanceChange() != null) {
 			renderAfterPaginationInstanceChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPausedChange() != null) {
 			renderAfterPausedChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPausedLabelChange() != null) {
 			renderAfterPausedLabelChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPlayingChange() != null) {
 			renderAfterPlayingChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPlayingLabelChange() != null) {
 			renderAfterPlayingLabelChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPreloadAllImagesChange() != null) {
 			renderAfterPreloadAllImagesChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterPreventOverlapChange() != null) {
 			renderAfterPreventOverlapChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterRepeatChange() != null) {
 			renderAfterRepeatChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterShimChange() != null) {
 			renderAfterShimChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterShowCloseChange() != null) {
 			renderAfterShowCloseChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterShowControlsChange() != null) {
 			renderAfterShowControlsChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterShowPlayerChange() != null) {
 			renderAfterShowPlayerChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterToolbarChange() != null) {
 			renderAfterToolbarChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterTotalLinksChange() != null) {
 			renderAfterTotalLinksChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterUseOriginalImageChange() != null) {
 			renderAfterUseOriginalImageChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterXyChange() != null) {
 			renderAfterXyChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, imageGallery);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -628,275 +628,275 @@ public abstract class ImageGalleryRendererBase extends RendererBase {
 		if (imageGallery.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnAlignOnChange() != null) {
 			renderOnAlignOnChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnAnimChange() != null) {
 			renderOnAnimChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnAutoPlayChange() != null) {
 			renderOnAutoPlayChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnCaptionChange() != null) {
 			renderOnCaptionChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnCaptionElChange() != null) {
 			renderOnCaptionElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnCaptionFromTitleChange() != null) {
 			renderOnCaptionFromTitleChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnCenteredChange() != null) {
 			renderOnCenteredChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnCloseElChange() != null) {
 			renderOnCloseElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnConstrainChange() != null) {
 			renderOnConstrainChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnControlLeftElChange() != null) {
 			renderOnControlLeftElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnControlRightElChange() != null) {
 			renderOnControlRightElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnCurrentIndexChange() != null) {
 			renderOnCurrentIndexChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnDelayChange() != null) {
 			renderOnDelayChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnFillHeightChange() != null) {
 			renderOnFillHeightChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnFocusOnChange() != null) {
 			renderOnFocusOnChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnFooterContentChange() != null) {
 			renderOnFooterContentChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnHeaderContentChange() != null) {
 			renderOnHeaderContentChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnImageChange() != null) {
 			renderOnImageChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnImageAnimChange() != null) {
 			renderOnImageAnimChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnInfoElChange() != null) {
 			renderOnInfoElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnInfoTemplateChange() != null) {
 			renderOnInfoTemplateChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnLinksChange() != null) {
 			renderOnLinksChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnLoaderChange() != null) {
 			renderOnLoaderChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnLoadingChange() != null) {
 			renderOnLoadingChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnLoadingElChange() != null) {
 			renderOnLoadingElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnMaskNodeChange() != null) {
 			renderOnMaskNodeChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnMaxHeightChange() != null) {
 			renderOnMaxHeightChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnMaxWidthChange() != null) {
 			renderOnMaxWidthChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnModalChange() != null) {
 			renderOnModalChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPaginationChange() != null) {
 			renderOnPaginationChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPaginationElChange() != null) {
 			renderOnPaginationElChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPaginationInstanceChange() != null) {
 			renderOnPaginationInstanceChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPausedChange() != null) {
 			renderOnPausedChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPausedLabelChange() != null) {
 			renderOnPausedLabelChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPlayingChange() != null) {
 			renderOnPlayingChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPlayingLabelChange() != null) {
 			renderOnPlayingLabelChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPreloadAllImagesChange() != null) {
 			renderOnPreloadAllImagesChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnPreventOverlapChange() != null) {
 			renderOnPreventOverlapChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnRepeatChange() != null) {
 			renderOnRepeatChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnShimChange() != null) {
 			renderOnShimChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnShowCloseChange() != null) {
 			renderOnShowCloseChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnShowControlsChange() != null) {
 			renderOnShowControlsChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnShowPlayerChange() != null) {
 			renderOnShowPlayerChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnToolbarChange() != null) {
 			renderOnToolbarChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnTotalLinksChange() != null) {
 			renderOnTotalLinksChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnUseOriginalImageChange() != null) {
 			renderOnUseOriginalImageChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnXyChange() != null) {
 			renderOnXyChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, imageGallery);
 		}
-		
+
 		if (imageGallery.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, imageGallery);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

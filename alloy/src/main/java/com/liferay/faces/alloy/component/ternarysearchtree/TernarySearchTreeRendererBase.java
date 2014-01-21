@@ -52,11 +52,11 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 		if (ternarySearchTree.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, ternarySearchTree);
 		}
-		
+
 		if (ternarySearchTree.getInitialized() != null) {
 			renderInitialized(renderedAttributes, ternarySearchTree);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -72,11 +72,11 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 		if (ternarySearchTree.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, ternarySearchTree);
 		}
-		
+
 		if (ternarySearchTree.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, ternarySearchTree);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -100,11 +100,11 @@ public abstract class TernarySearchTreeRendererBase extends RendererBase {
 		if (ternarySearchTree.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, ternarySearchTree);
 		}
-		
+
 		if (ternarySearchTree.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, ternarySearchTree);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

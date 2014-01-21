@@ -52,39 +52,39 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 		if (tooltipDelegate.getAlign() != null) {
 			renderAlign(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getContainer() != null) {
 			renderContainer(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getDuration() != null) {
 			renderDuration(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getInitialized() != null) {
 			renderInitialized(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOpacity() != null) {
 			renderOpacity(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getTriggerHideEvent() != null) {
 			renderTriggerHideEvent(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getTriggerShowEvent() != null) {
 			renderTriggerShowEvent(renderedAttributes, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getZIndex() != null) {
 			renderZIndex(renderedAttributes, tooltipDelegate);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -100,39 +100,39 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 		if (tooltipDelegate.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterDurationChange() != null) {
 			renderAfterDurationChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterOpacityChange() != null) {
 			renderAfterOpacityChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterTriggerHideEventChange() != null) {
 			renderAfterTriggerHideEventChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterTriggerShowEventChange() != null) {
 			renderAfterTriggerShowEventChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, tooltipDelegate);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -156,39 +156,39 @@ public abstract class TooltipDelegateRendererBase extends RendererBase {
 		if (tooltipDelegate.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnDurationChange() != null) {
 			renderOnDurationChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnOpacityChange() != null) {
 			renderOnOpacityChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnTriggerHideEventChange() != null) {
 			renderOnTriggerHideEventChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnTriggerShowEventChange() != null) {
 			renderOnTriggerShowEventChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 		if (tooltipDelegate.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, tooltipDelegate);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

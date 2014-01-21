@@ -52,79 +52,79 @@ public abstract class HSVAPaletteRendererBase extends RendererBase {
 		if (hSVAPalette.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getContentBox() != null) {
 			renderContentBox(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getControls() != null) {
 			renderControls(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getDisabled() != null) {
 			renderDisabled(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getFieldValidator() != null) {
 			renderFieldValidator(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getFocused() != null) {
 			renderFocused(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getHeight() != null) {
 			renderHeight(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getHSVAPaletteId() != null) {
 			renderHSVAPaletteId(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getInitialized() != null) {
 			renderInitialized(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getHSVAPaletteLocale() != null) {
 			renderHSVAPaletteLocale(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getRender() != null) {
 			renderRender(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getRendered() != null) {
 			renderRendered(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getSelected() != null) {
 			renderSelected(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getStrings() != null) {
 			renderStrings(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getVisible() != null) {
 			renderVisible(renderedAttributes, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getWidth() != null) {
 			renderWidth(renderedAttributes, hSVAPalette);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -140,79 +140,79 @@ public abstract class HSVAPaletteRendererBase extends RendererBase {
 		if (hSVAPalette.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterControlsChange() != null) {
 			renderAfterControlsChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterFieldValidatorChange() != null) {
 			renderAfterFieldValidatorChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, hSVAPalette);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -236,79 +236,79 @@ public abstract class HSVAPaletteRendererBase extends RendererBase {
 		if (hSVAPalette.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnControlsChange() != null) {
 			renderOnControlsChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnFieldValidatorChange() != null) {
 			renderOnFieldValidatorChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 		if (hSVAPalette.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, hSVAPalette);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

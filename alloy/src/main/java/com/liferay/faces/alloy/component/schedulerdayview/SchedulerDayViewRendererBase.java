@@ -52,179 +52,179 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		if (schedulerDayView.getSchedulerDayViewBodyContent() != null) {
 			renderSchedulerDayViewBodyContent(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getColDaysNode() != null) {
 			renderColDaysNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getColHeaderDaysNode() != null) {
 			renderColHeaderDaysNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getDays() != null) {
 			renderDays(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getDelegateConfig() != null) {
 			renderDelegateConfig(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getEventWidth() != null) {
 			renderEventWidth(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getFilterFn() != null) {
 			renderFilterFn(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHeaderDateFormatter() != null) {
 			renderHeaderDateFormatter(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHeaderTableNode() != null) {
 			renderHeaderTableNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHeaderView() != null) {
 			renderHeaderView(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHeaderViewConfig() != null) {
 			renderHeaderViewConfig(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHeaderViewLabelNode() != null) {
 			renderHeaderViewLabelNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getHourHeight() != null) {
 			renderHourHeight(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getSchedulerDayViewId() != null) {
 			renderSchedulerDayViewId(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getIsoTime() != null) {
 			renderIsoTime(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getSchedulerDayViewLocale() != null) {
 			renderSchedulerDayViewLocale(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getMarkercellsNode() != null) {
 			renderMarkercellsNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getName() != null) {
 			renderName(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getNextDate() != null) {
 			renderNextDate(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getPrevDate() != null) {
 			renderPrevDate(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getRender() != null) {
 			renderRender(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getResizerNode() != null) {
 			renderResizerNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getScrollable() != null) {
 			renderScrollable(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getTableNode() != null) {
 			renderTableNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getTimesNode() != null) {
 			renderTimesNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getTriggerNode() != null) {
 			renderTriggerNode(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerDayView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -240,179 +240,179 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		if (schedulerDayView.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterColDaysNodeChange() != null) {
 			renderAfterColDaysNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterColHeaderDaysNodeChange() != null) {
 			renderAfterColHeaderDaysNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterDaysChange() != null) {
 			renderAfterDaysChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterDelegateConfigChange() != null) {
 			renderAfterDelegateConfigChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterEventWidthChange() != null) {
 			renderAfterEventWidthChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterFilterFnChange() != null) {
 			renderAfterFilterFnChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHeaderDateFormatterChange() != null) {
 			renderAfterHeaderDateFormatterChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHeaderTableNodeChange() != null) {
 			renderAfterHeaderTableNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHeaderViewChange() != null) {
 			renderAfterHeaderViewChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHeaderViewConfigChange() != null) {
 			renderAfterHeaderViewConfigChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHeaderViewLabelNodeChange() != null) {
 			renderAfterHeaderViewLabelNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterHourHeightChange() != null) {
 			renderAfterHourHeightChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterIsoTimeChange() != null) {
 			renderAfterIsoTimeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterMarkercellsNodeChange() != null) {
 			renderAfterMarkercellsNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterNextDateChange() != null) {
 			renderAfterNextDateChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterPrevDateChange() != null) {
 			renderAfterPrevDateChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterResizerNodeChange() != null) {
 			renderAfterResizerNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterScrollableChange() != null) {
 			renderAfterScrollableChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterTableNodeChange() != null) {
 			renderAfterTableNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterTimesNodeChange() != null) {
 			renderAfterTimesNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterTriggerNodeChange() != null) {
 			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerDayView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -436,179 +436,179 @@ public abstract class SchedulerDayViewRendererBase extends RendererBase {
 		if (schedulerDayView.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnColDaysNodeChange() != null) {
 			renderOnColDaysNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnColHeaderDaysNodeChange() != null) {
 			renderOnColHeaderDaysNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnDaysChange() != null) {
 			renderOnDaysChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnDelegateConfigChange() != null) {
 			renderOnDelegateConfigChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnEventWidthChange() != null) {
 			renderOnEventWidthChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnFilterFnChange() != null) {
 			renderOnFilterFnChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHeaderDateFormatterChange() != null) {
 			renderOnHeaderDateFormatterChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHeaderTableNodeChange() != null) {
 			renderOnHeaderTableNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHeaderViewChange() != null) {
 			renderOnHeaderViewChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHeaderViewConfigChange() != null) {
 			renderOnHeaderViewConfigChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHeaderViewLabelNodeChange() != null) {
 			renderOnHeaderViewLabelNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnHourHeightChange() != null) {
 			renderOnHourHeightChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnIsoTimeChange() != null) {
 			renderOnIsoTimeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnMarkercellsNodeChange() != null) {
 			renderOnMarkercellsNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnNextDateChange() != null) {
 			renderOnNextDateChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnPrevDateChange() != null) {
 			renderOnPrevDateChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnResizerNodeChange() != null) {
 			renderOnResizerNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnScrollableChange() != null) {
 			renderOnScrollableChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnTableNodeChange() != null) {
 			renderOnTableNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnTimesNodeChange() != null) {
 			renderOnTimesNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnTriggerNodeChange() != null) {
 			renderOnTriggerNodeChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 		if (schedulerDayView.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerDayView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

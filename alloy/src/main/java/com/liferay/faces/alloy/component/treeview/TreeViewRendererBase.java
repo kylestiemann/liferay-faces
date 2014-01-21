@@ -52,39 +52,39 @@ public abstract class TreeViewRendererBase extends RendererBase {
 		if (treeView.getTreeViewChildren() != null) {
 			renderTreeViewChildren(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getContainer() != null) {
 			renderContainer(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getIndex() != null) {
 			renderIndex(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getLastSelected() != null) {
 			renderLastSelected(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getLazyLoad() != null) {
 			renderLazyLoad(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getSelectOnToggle() != null) {
 			renderSelectOnToggle(renderedAttributes, treeView);
 		}
-		
+
 		if (treeView.getType() != null) {
 			renderType(renderedAttributes, treeView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -100,39 +100,39 @@ public abstract class TreeViewRendererBase extends RendererBase {
 		if (treeView.getAfterChildrenChange() != null) {
 			renderAfterChildrenChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterIndexChange() != null) {
 			renderAfterIndexChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterLastSelectedChange() != null) {
 			renderAfterLastSelectedChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterLazyLoadChange() != null) {
 			renderAfterLazyLoadChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterSelectOnToggleChange() != null) {
 			renderAfterSelectOnToggleChange(renderedAfterEvents, treeView);
 		}
-		
+
 		if (treeView.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, treeView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -156,39 +156,39 @@ public abstract class TreeViewRendererBase extends RendererBase {
 		if (treeView.getOnChildrenChange() != null) {
 			renderOnChildrenChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnIndexChange() != null) {
 			renderOnIndexChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnLastSelectedChange() != null) {
 			renderOnLastSelectedChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnLazyLoadChange() != null) {
 			renderOnLazyLoadChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnSelectOnToggleChange() != null) {
 			renderOnSelectOnToggleChange(renderedOnEvents, treeView);
 		}
-		
+
 		if (treeView.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, treeView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

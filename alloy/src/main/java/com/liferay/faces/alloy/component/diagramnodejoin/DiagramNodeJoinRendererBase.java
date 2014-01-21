@@ -52,179 +52,179 @@ public abstract class DiagramNodeJoinRendererBase extends RendererBase {
 		if (diagramNodeJoin.getAlign() != null) {
 			renderAlign(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAlignOn() != null) {
 			renderAlignOn(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getDiagramNodeJoinBodyContent() != null) {
 			renderDiagramNodeJoinBodyContent(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getBuilder() != null) {
 			renderBuilder(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getCentered() != null) {
 			renderCentered(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getConnectors() != null) {
 			renderConnectors(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getConstrain() != null) {
 			renderConstrain(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getContentBox() != null) {
 			renderContentBox(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getControlsToolbar() != null) {
 			renderControlsToolbar(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getDescription() != null) {
 			renderDescription(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getDisabled() != null) {
 			renderDisabled(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getFillHeight() != null) {
 			renderFillHeight(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getFocused() != null) {
 			renderFocused(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getFooterContent() != null) {
 			renderFooterContent(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getGraphic() != null) {
 			renderGraphic(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getHeaderContent() != null) {
 			renderHeaderContent(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getHeight() != null) {
 			renderHeight(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getHighlightBoundaryStroke() != null) {
 			renderHighlightBoundaryStroke(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getHighlighted() != null) {
 			renderHighlighted(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getDiagramNodeJoinId() != null) {
 			renderDiagramNodeJoinId(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getInitialized() != null) {
 			renderInitialized(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getDiagramNodeJoinLocale() != null) {
 			renderDiagramNodeJoinLocale(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getName() != null) {
 			renderName(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getPreventOverlap() != null) {
 			renderPreventOverlap(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getRender() != null) {
 			renderRender(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getRendered() != null) {
 			renderRendered(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getRequired() != null) {
 			renderRequired(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getSelected() != null) {
 			renderSelected(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getShapeBoundary() != null) {
 			renderShapeBoundary(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getShapeInvite() != null) {
 			renderShapeInvite(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getShim() != null) {
 			renderShim(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getStrings() != null) {
 			renderStrings(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getTransitions() != null) {
 			renderTransitions(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getType() != null) {
 			renderType(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getVisible() != null) {
 			renderVisible(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getWidth() != null) {
 			renderWidth(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getX() != null) {
 			renderX(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getXy() != null) {
 			renderXy(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getY() != null) {
 			renderY(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getZIndex() != null) {
 			renderZIndex(renderedAttributes, diagramNodeJoin);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -240,179 +240,179 @@ public abstract class DiagramNodeJoinRendererBase extends RendererBase {
 		if (diagramNodeJoin.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterAlignOnChange() != null) {
 			renderAfterAlignOnChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterBuilderChange() != null) {
 			renderAfterBuilderChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterCenteredChange() != null) {
 			renderAfterCenteredChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterConnectorsChange() != null) {
 			renderAfterConnectorsChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterConstrainChange() != null) {
 			renderAfterConstrainChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterControlsToolbarChange() != null) {
 			renderAfterControlsToolbarChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterDescriptionChange() != null) {
 			renderAfterDescriptionChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterFillHeightChange() != null) {
 			renderAfterFillHeightChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterFooterContentChange() != null) {
 			renderAfterFooterContentChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterGraphicChange() != null) {
 			renderAfterGraphicChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterHeaderContentChange() != null) {
 			renderAfterHeaderContentChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterHighlightBoundaryStrokeChange() != null) {
 			renderAfterHighlightBoundaryStrokeChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterHighlightedChange() != null) {
 			renderAfterHighlightedChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterPreventOverlapChange() != null) {
 			renderAfterPreventOverlapChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterRequiredChange() != null) {
 			renderAfterRequiredChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterShapeBoundaryChange() != null) {
 			renderAfterShapeBoundaryChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterShapeInviteChange() != null) {
 			renderAfterShapeInviteChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterShimChange() != null) {
 			renderAfterShimChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterTransitionsChange() != null) {
 			renderAfterTransitionsChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterXyChange() != null) {
 			renderAfterXyChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, diagramNodeJoin);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -436,179 +436,179 @@ public abstract class DiagramNodeJoinRendererBase extends RendererBase {
 		if (diagramNodeJoin.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnAlignOnChange() != null) {
 			renderOnAlignOnChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnBuilderChange() != null) {
 			renderOnBuilderChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnCenteredChange() != null) {
 			renderOnCenteredChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnConnectorsChange() != null) {
 			renderOnConnectorsChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnConstrainChange() != null) {
 			renderOnConstrainChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnControlsToolbarChange() != null) {
 			renderOnControlsToolbarChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnDescriptionChange() != null) {
 			renderOnDescriptionChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnFillHeightChange() != null) {
 			renderOnFillHeightChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnFooterContentChange() != null) {
 			renderOnFooterContentChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnGraphicChange() != null) {
 			renderOnGraphicChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnHeaderContentChange() != null) {
 			renderOnHeaderContentChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnHighlightBoundaryStrokeChange() != null) {
 			renderOnHighlightBoundaryStrokeChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnHighlightedChange() != null) {
 			renderOnHighlightedChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnPreventOverlapChange() != null) {
 			renderOnPreventOverlapChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnRequiredChange() != null) {
 			renderOnRequiredChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnShapeBoundaryChange() != null) {
 			renderOnShapeBoundaryChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnShapeInviteChange() != null) {
 			renderOnShapeInviteChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnShimChange() != null) {
 			renderOnShimChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnTransitionsChange() != null) {
 			renderOnTransitionsChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnXyChange() != null) {
 			renderOnXyChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 		if (diagramNodeJoin.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, diagramNodeJoin);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,87 +52,87 @@ public abstract class ToolbarRendererBase extends RendererBase {
 		if (toolbar.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getToolbarChildren() != null) {
 			renderToolbarChildren(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getContentBox() != null) {
 			renderContentBox(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getCssClass() != null) {
 			renderCssClass(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getDisabled() != null) {
 			renderDisabled(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getFocused() != null) {
 			renderFocused(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getHeight() != null) {
 			renderHeight(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getHideClass() != null) {
 			renderHideClass(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getToolbarId() != null) {
 			renderToolbarId(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getInitialized() != null) {
 			renderInitialized(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getToolbarLocale() != null) {
 			renderToolbarLocale(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getRender() != null) {
 			renderRender(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getRendered() != null) {
 			renderRendered(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getStrings() != null) {
 			renderStrings(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getToolbarRenderer() != null) {
 			renderToolbarRenderer(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getVisible() != null) {
 			renderVisible(renderedAttributes, toolbar);
 		}
-		
+
 		if (toolbar.getWidth() != null) {
 			renderWidth(renderedAttributes, toolbar);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -148,87 +148,87 @@ public abstract class ToolbarRendererBase extends RendererBase {
 		if (toolbar.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterChildrenChange() != null) {
 			renderAfterChildrenChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterToolbarRendererChange() != null) {
 			renderAfterToolbarRendererChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, toolbar);
 		}
-		
+
 		if (toolbar.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, toolbar);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -252,87 +252,87 @@ public abstract class ToolbarRendererBase extends RendererBase {
 		if (toolbar.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnChildrenChange() != null) {
 			renderOnChildrenChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnToolbarRendererChange() != null) {
 			renderOnToolbarRendererChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, toolbar);
 		}
-		
+
 		if (toolbar.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, toolbar);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

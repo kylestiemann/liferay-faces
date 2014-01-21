@@ -52,167 +52,167 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		if (hSVAPaletteModal.getAlign() != null) {
 			renderAlign(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAlignOn() != null) {
 			renderAlignOn(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHSVAPaletteModalBodyContent() != null) {
 			renderHSVAPaletteModalBodyContent(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getCentered() != null) {
 			renderCentered(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getConstrain() != null) {
 			renderConstrain(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getContentBox() != null) {
 			renderContentBox(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getDestroyOnHide() != null) {
 			renderDestroyOnHide(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getDisabled() != null) {
 			renderDisabled(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getDraggable() != null) {
 			renderDraggable(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getFillHeight() != null) {
 			renderFillHeight(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getFocusOn() != null) {
 			renderFocusOn(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getFocused() != null) {
 			renderFocused(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getFooterContent() != null) {
 			renderFooterContent(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHeaderContent() != null) {
 			renderHeaderContent(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHeight() != null) {
 			renderHeight(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHideOn() != null) {
 			renderHideOn(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHsv() != null) {
 			renderHsv(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHSVAPaletteModalId() != null) {
 			renderHSVAPaletteModalId(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getInitialized() != null) {
 			renderInitialized(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getHSVAPaletteModalLocale() != null) {
 			renderHSVAPaletteModalLocale(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getMaskNode() != null) {
 			renderMaskNode(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getModal() != null) {
 			renderModal(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getPreventOverlap() != null) {
 			renderPreventOverlap(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getRender() != null) {
 			renderRender(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getRendered() != null) {
 			renderRendered(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getResizable() != null) {
 			renderResizable(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getSelected() != null) {
 			renderSelected(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getShim() != null) {
 			renderShim(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getStrings() != null) {
 			renderStrings(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getToolbarPosition() != null) {
 			renderToolbarPosition(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getToolbars() != null) {
 			renderToolbars(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getVisible() != null) {
 			renderVisible(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getWidth() != null) {
 			renderWidth(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getX() != null) {
 			renderX(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getXy() != null) {
 			renderXy(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getY() != null) {
 			renderY(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getZIndex() != null) {
 			renderZIndex(renderedAttributes, hSVAPaletteModal);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -228,167 +228,167 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		if (hSVAPaletteModal.getAfterAlignChange() != null) {
 			renderAfterAlignChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterAlignOnChange() != null) {
 			renderAfterAlignOnChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterCenteredChange() != null) {
 			renderAfterCenteredChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterConstrainChange() != null) {
 			renderAfterConstrainChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterDestroyOnHideChange() != null) {
 			renderAfterDestroyOnHideChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterDraggableChange() != null) {
 			renderAfterDraggableChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterFillHeightChange() != null) {
 			renderAfterFillHeightChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterFocusOnChange() != null) {
 			renderAfterFocusOnChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterFooterContentChange() != null) {
 			renderAfterFooterContentChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterHeaderContentChange() != null) {
 			renderAfterHeaderContentChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterHideOnChange() != null) {
 			renderAfterHideOnChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterHsvChange() != null) {
 			renderAfterHsvChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterMaskNodeChange() != null) {
 			renderAfterMaskNodeChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterModalChange() != null) {
 			renderAfterModalChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterPreventOverlapChange() != null) {
 			renderAfterPreventOverlapChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterResizableChange() != null) {
 			renderAfterResizableChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterShimChange() != null) {
 			renderAfterShimChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterToolbarPositionChange() != null) {
 			renderAfterToolbarPositionChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterToolbarsChange() != null) {
 			renderAfterToolbarsChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterXChange() != null) {
 			renderAfterXChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterXyChange() != null) {
 			renderAfterXyChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterYChange() != null) {
 			renderAfterYChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getAfterZIndexChange() != null) {
 			renderAfterZIndexChange(renderedAfterEvents, hSVAPaletteModal);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -412,167 +412,167 @@ public abstract class HSVAPaletteModalRendererBase extends RendererBase {
 		if (hSVAPaletteModal.getOnAlignChange() != null) {
 			renderOnAlignChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnAlignOnChange() != null) {
 			renderOnAlignOnChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnCenteredChange() != null) {
 			renderOnCenteredChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnConstrainChange() != null) {
 			renderOnConstrainChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnDestroyOnHideChange() != null) {
 			renderOnDestroyOnHideChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnDraggableChange() != null) {
 			renderOnDraggableChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnFillHeightChange() != null) {
 			renderOnFillHeightChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnFocusOnChange() != null) {
 			renderOnFocusOnChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnFooterContentChange() != null) {
 			renderOnFooterContentChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnHeaderContentChange() != null) {
 			renderOnHeaderContentChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnHideOnChange() != null) {
 			renderOnHideOnChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnHsvChange() != null) {
 			renderOnHsvChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnMaskNodeChange() != null) {
 			renderOnMaskNodeChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnModalChange() != null) {
 			renderOnModalChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnPreventOverlapChange() != null) {
 			renderOnPreventOverlapChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnResizableChange() != null) {
 			renderOnResizableChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnShimChange() != null) {
 			renderOnShimChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnToolbarPositionChange() != null) {
 			renderOnToolbarPositionChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnToolbarsChange() != null) {
 			renderOnToolbarsChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnXChange() != null) {
 			renderOnXChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnXyChange() != null) {
 			renderOnXyChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnYChange() != null) {
 			renderOnYChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 		if (hSVAPaletteModal.getOnZIndexChange() != null) {
 			renderOnZIndexChange(renderedOnEvents, hSVAPaletteModal);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

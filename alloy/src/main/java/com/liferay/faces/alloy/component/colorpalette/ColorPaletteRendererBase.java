@@ -52,91 +52,91 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 		if (colorPalette.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getColumns() != null) {
 			renderColumns(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getContainerNode() != null) {
 			renderContainerNode(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getContentBox() != null) {
 			renderContentBox(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getDisabled() != null) {
 			renderDisabled(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getFocused() != null) {
 			renderFocused(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getFormatter() != null) {
 			renderFormatter(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getHeight() != null) {
 			renderHeight(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getColorPaletteId() != null) {
 			renderColorPaletteId(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getInitialized() != null) {
 			renderInitialized(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getItems() != null) {
 			renderItems(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getColorPaletteLocale() != null) {
 			renderColorPaletteLocale(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getRender() != null) {
 			renderRender(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getRendered() != null) {
 			renderRendered(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getSelected() != null) {
 			renderSelected(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getStrings() != null) {
 			renderStrings(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getToggleSelection() != null) {
 			renderToggleSelection(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getVisible() != null) {
 			renderVisible(renderedAttributes, colorPalette);
 		}
-		
+
 		if (colorPalette.getWidth() != null) {
 			renderWidth(renderedAttributes, colorPalette);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -152,91 +152,91 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 		if (colorPalette.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterColumnsChange() != null) {
 			renderAfterColumnsChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterContainerNodeChange() != null) {
 			renderAfterContainerNodeChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterFormatterChange() != null) {
 			renderAfterFormatterChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterItemsChange() != null) {
 			renderAfterItemsChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterSelectedChange() != null) {
 			renderAfterSelectedChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterToggleSelectionChange() != null) {
 			renderAfterToggleSelectionChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, colorPalette);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -260,91 +260,91 @@ public abstract class ColorPaletteRendererBase extends RendererBase {
 		if (colorPalette.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnColumnsChange() != null) {
 			renderOnColumnsChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnContainerNodeChange() != null) {
 			renderOnContainerNodeChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnFormatterChange() != null) {
 			renderOnFormatterChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnItemsChange() != null) {
 			renderOnItemsChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnSelectedChange() != null) {
 			renderOnSelectedChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnToggleSelectionChange() != null) {
 			renderOnToggleSelectionChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, colorPalette);
 		}
-		
+
 		if (colorPalette.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, colorPalette);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

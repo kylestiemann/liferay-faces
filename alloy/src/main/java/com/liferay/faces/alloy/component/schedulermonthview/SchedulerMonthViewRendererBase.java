@@ -52,151 +52,151 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		if (schedulerMonthView.getSchedulerMonthViewBodyContent() != null) {
 			renderSchedulerMonthViewBodyContent(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getColHeaderDaysNode() != null) {
 			renderColHeaderDaysNode(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getContentBox() != null) {
 			renderContentBox(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getCssClass() != null) {
 			renderCssClass(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getDisabled() != null) {
 			renderDisabled(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getDisplayDaysInterval() != null) {
 			renderDisplayDaysInterval(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getDisplayRows() != null) {
 			renderDisplayRows(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getFilterFn() != null) {
 			renderFilterFn(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getFixedHeight() != null) {
 			renderFixedHeight(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getFocused() != null) {
 			renderFocused(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getHeaderDateFormatter() != null) {
 			renderHeaderDateFormatter(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getHeaderTableNode() != null) {
 			renderHeaderTableNode(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getHeight() != null) {
 			renderHeight(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getHideClass() != null) {
 			renderHideClass(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getSchedulerMonthViewId() != null) {
 			renderSchedulerMonthViewId(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getInitialized() != null) {
 			renderInitialized(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getIsoTime() != null) {
 			renderIsoTime(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getSchedulerMonthViewLocale() != null) {
 			renderSchedulerMonthViewLocale(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getName() != null) {
 			renderName(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getNavigationDateFormatter() != null) {
 			renderNavigationDateFormatter(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getNextDate() != null) {
 			renderNextDate(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getPrevDate() != null) {
 			renderPrevDate(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getRender() != null) {
 			renderRender(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getRendered() != null) {
 			renderRendered(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getRowsContainerNode() != null) {
 			renderRowsContainerNode(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getScheduler() != null) {
 			renderScheduler(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getScrollable() != null) {
 			renderScrollable(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getStrings() != null) {
 			renderStrings(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getTableGridNode() != null) {
 			renderTableGridNode(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getTriggerNode() != null) {
 			renderTriggerNode(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getVisible() != null) {
 			renderVisible(renderedAttributes, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getWidth() != null) {
 			renderWidth(renderedAttributes, schedulerMonthView);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -212,151 +212,151 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		if (schedulerMonthView.getAfterBodyContentChange() != null) {
 			renderAfterBodyContentChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterColHeaderDaysNodeChange() != null) {
 			renderAfterColHeaderDaysNodeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterDisplayDaysIntervalChange() != null) {
 			renderAfterDisplayDaysIntervalChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterDisplayRowsChange() != null) {
 			renderAfterDisplayRowsChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterFilterFnChange() != null) {
 			renderAfterFilterFnChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterFixedHeightChange() != null) {
 			renderAfterFixedHeightChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterHeaderDateFormatterChange() != null) {
 			renderAfterHeaderDateFormatterChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterHeaderTableNodeChange() != null) {
 			renderAfterHeaderTableNodeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterIsoTimeChange() != null) {
 			renderAfterIsoTimeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterNameChange() != null) {
 			renderAfterNameChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterNavigationDateFormatterChange() != null) {
 			renderAfterNavigationDateFormatterChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterNextDateChange() != null) {
 			renderAfterNextDateChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterPrevDateChange() != null) {
 			renderAfterPrevDateChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterRowsContainerNodeChange() != null) {
 			renderAfterRowsContainerNodeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterSchedulerChange() != null) {
 			renderAfterSchedulerChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterScrollableChange() != null) {
 			renderAfterScrollableChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterTableGridNodeChange() != null) {
 			renderAfterTableGridNodeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterTriggerNodeChange() != null) {
 			renderAfterTriggerNodeChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, schedulerMonthView);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -380,151 +380,151 @@ public abstract class SchedulerMonthViewRendererBase extends RendererBase {
 		if (schedulerMonthView.getOnBodyContentChange() != null) {
 			renderOnBodyContentChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnColHeaderDaysNodeChange() != null) {
 			renderOnColHeaderDaysNodeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnDisplayDaysIntervalChange() != null) {
 			renderOnDisplayDaysIntervalChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnDisplayRowsChange() != null) {
 			renderOnDisplayRowsChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnFilterFnChange() != null) {
 			renderOnFilterFnChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnFixedHeightChange() != null) {
 			renderOnFixedHeightChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnHeaderDateFormatterChange() != null) {
 			renderOnHeaderDateFormatterChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnHeaderTableNodeChange() != null) {
 			renderOnHeaderTableNodeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnIsoTimeChange() != null) {
 			renderOnIsoTimeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnNameChange() != null) {
 			renderOnNameChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnNavigationDateFormatterChange() != null) {
 			renderOnNavigationDateFormatterChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnNextDateChange() != null) {
 			renderOnNextDateChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnPrevDateChange() != null) {
 			renderOnPrevDateChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnRowsContainerNodeChange() != null) {
 			renderOnRowsContainerNodeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnSchedulerChange() != null) {
 			renderOnSchedulerChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnScrollableChange() != null) {
 			renderOnScrollableChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnTableGridNodeChange() != null) {
 			renderOnTableGridNodeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnTriggerNodeChange() != null) {
 			renderOnTriggerNodeChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 		if (schedulerMonthView.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, schedulerMonthView);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

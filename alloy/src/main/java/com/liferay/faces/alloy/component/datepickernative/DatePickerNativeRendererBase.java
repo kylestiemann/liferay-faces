@@ -52,47 +52,47 @@ public abstract class DatePickerNativeRendererBase extends RendererBase {
 		if (datePickerNative.getActiveInput() != null) {
 			renderActiveInput(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getContainer() != null) {
 			renderContainer(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getContent() != null) {
 			renderContent(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getDateSeparator() != null) {
 			renderDateSeparator(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getInitialized() != null) {
 			renderInitialized(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getMask() != null) {
 			renderMask(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getNativeMask() != null) {
 			renderNativeMask(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getNativeType() != null) {
 			renderNativeType(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getValueExtractor() != null) {
 			renderValueExtractor(renderedAttributes, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getValueFormatter() != null) {
 			renderValueFormatter(renderedAttributes, datePickerNative);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -108,47 +108,47 @@ public abstract class DatePickerNativeRendererBase extends RendererBase {
 		if (datePickerNative.getAfterActiveInputChange() != null) {
 			renderAfterActiveInputChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterContentChange() != null) {
 			renderAfterContentChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterDateSeparatorChange() != null) {
 			renderAfterDateSeparatorChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterMaskChange() != null) {
 			renderAfterMaskChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterNativeMaskChange() != null) {
 			renderAfterNativeMaskChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterNativeTypeChange() != null) {
 			renderAfterNativeTypeChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterValueExtractorChange() != null) {
 			renderAfterValueExtractorChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getAfterValueFormatterChange() != null) {
 			renderAfterValueFormatterChange(renderedAfterEvents, datePickerNative);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -172,47 +172,47 @@ public abstract class DatePickerNativeRendererBase extends RendererBase {
 		if (datePickerNative.getOnActiveInputChange() != null) {
 			renderOnActiveInputChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnContentChange() != null) {
 			renderOnContentChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnDateSeparatorChange() != null) {
 			renderOnDateSeparatorChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnMaskChange() != null) {
 			renderOnMaskChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnNativeMaskChange() != null) {
 			renderOnNativeMaskChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnNativeTypeChange() != null) {
 			renderOnNativeTypeChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnValueExtractorChange() != null) {
 			renderOnValueExtractorChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 		if (datePickerNative.getOnValueFormatterChange() != null) {
 			renderOnValueFormatterChange(renderedOnEvents, datePickerNative);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,23 +52,23 @@ public abstract class CharCounterRendererBase extends RendererBase {
 		if (charCounter.getCounter() != null) {
 			renderCounter(renderedAttributes, charCounter);
 		}
-		
+
 		if (charCounter.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, charCounter);
 		}
-		
+
 		if (charCounter.getInitialized() != null) {
 			renderInitialized(renderedAttributes, charCounter);
 		}
-		
+
 		if (charCounter.getInput() != null) {
 			renderInput(renderedAttributes, charCounter);
 		}
-		
+
 		if (charCounter.getMaxLength() != null) {
 			renderMaxLength(renderedAttributes, charCounter);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class CharCounterRendererBase extends RendererBase {
 		if (charCounter.getAfterCounterChange() != null) {
 			renderAfterCounterChange(renderedAfterEvents, charCounter);
 		}
-		
+
 		if (charCounter.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, charCounter);
 		}
-		
+
 		if (charCounter.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, charCounter);
 		}
-		
+
 		if (charCounter.getAfterInputChange() != null) {
 			renderAfterInputChange(renderedAfterEvents, charCounter);
 		}
-		
+
 		if (charCounter.getAfterMaxLengthChange() != null) {
 			renderAfterMaxLengthChange(renderedAfterEvents, charCounter);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class CharCounterRendererBase extends RendererBase {
 		if (charCounter.getOnCounterChange() != null) {
 			renderOnCounterChange(renderedOnEvents, charCounter);
 		}
-		
+
 		if (charCounter.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, charCounter);
 		}
-		
+
 		if (charCounter.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, charCounter);
 		}
-		
+
 		if (charCounter.getOnInputChange() != null) {
 			renderOnInputChange(renderedOnEvents, charCounter);
 		}
-		
+
 		if (charCounter.getOnMaxLengthChange() != null) {
 			renderOnMaxLengthChange(renderedOnEvents, charCounter);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,35 +52,35 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 		if (availableField.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getDraggable() != null) {
 			renderDraggable(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getIconClass() != null) {
 			renderIconClass(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getAvailableFieldId() != null) {
 			renderAvailableFieldId(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getInitialized() != null) {
 			renderInitialized(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getLabel() != null) {
 			renderLabel(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getNode() != null) {
 			renderNode(renderedAttributes, availableField);
 		}
-		
+
 		if (availableField.getType() != null) {
 			renderType(renderedAttributes, availableField);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -96,35 +96,35 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 		if (availableField.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterDraggableChange() != null) {
 			renderAfterDraggableChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterIconClassChange() != null) {
 			renderAfterIconClassChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterNodeChange() != null) {
 			renderAfterNodeChange(renderedAfterEvents, availableField);
 		}
-		
+
 		if (availableField.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, availableField);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -148,35 +148,35 @@ public abstract class AvailableFieldRendererBase extends RendererBase {
 		if (availableField.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnDraggableChange() != null) {
 			renderOnDraggableChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnIconClassChange() != null) {
 			renderOnIconClassChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnNodeChange() != null) {
 			renderOnNodeChange(renderedOnEvents, availableField);
 		}
-		
+
 		if (availableField.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, availableField);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

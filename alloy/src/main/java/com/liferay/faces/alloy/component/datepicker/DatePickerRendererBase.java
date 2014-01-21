@@ -52,59 +52,59 @@ public abstract class DatePickerRendererBase extends RendererBase {
 		if (datePicker.getActiveInput() != null) {
 			renderActiveInput(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getAutoHide() != null) {
 			renderAutoHide(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getCalendar() != null) {
 			renderCalendar(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getContainer() != null) {
 			renderContainer(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getContent() != null) {
 			renderContent(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getDateSeparator() != null) {
 			renderDateSeparator(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getInitialized() != null) {
 			renderInitialized(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getMask() != null) {
 			renderMask(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getPanes() != null) {
 			renderPanes(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getPopover() != null) {
 			renderPopover(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getPopoverCssClass() != null) {
 			renderPopoverCssClass(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getValueExtractor() != null) {
 			renderValueExtractor(renderedAttributes, datePicker);
 		}
-		
+
 		if (datePicker.getValueFormatter() != null) {
 			renderValueFormatter(renderedAttributes, datePicker);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -120,59 +120,59 @@ public abstract class DatePickerRendererBase extends RendererBase {
 		if (datePicker.getAfterActiveInputChange() != null) {
 			renderAfterActiveInputChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterAutoHideChange() != null) {
 			renderAfterAutoHideChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterCalendarChange() != null) {
 			renderAfterCalendarChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterContentChange() != null) {
 			renderAfterContentChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterDateSeparatorChange() != null) {
 			renderAfterDateSeparatorChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterMaskChange() != null) {
 			renderAfterMaskChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterPanesChange() != null) {
 			renderAfterPanesChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterPopoverChange() != null) {
 			renderAfterPopoverChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterPopoverCssClassChange() != null) {
 			renderAfterPopoverCssClassChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterValueExtractorChange() != null) {
 			renderAfterValueExtractorChange(renderedAfterEvents, datePicker);
 		}
-		
+
 		if (datePicker.getAfterValueFormatterChange() != null) {
 			renderAfterValueFormatterChange(renderedAfterEvents, datePicker);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -196,59 +196,59 @@ public abstract class DatePickerRendererBase extends RendererBase {
 		if (datePicker.getOnActiveInputChange() != null) {
 			renderOnActiveInputChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnAutoHideChange() != null) {
 			renderOnAutoHideChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnCalendarChange() != null) {
 			renderOnCalendarChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnContentChange() != null) {
 			renderOnContentChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnDateSeparatorChange() != null) {
 			renderOnDateSeparatorChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnMaskChange() != null) {
 			renderOnMaskChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnPanesChange() != null) {
 			renderOnPanesChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnPopoverChange() != null) {
 			renderOnPopoverChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnPopoverCssClassChange() != null) {
 			renderOnPopoverCssClassChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnValueExtractorChange() != null) {
 			renderOnValueExtractorChange(renderedOnEvents, datePicker);
 		}
-		
+
 		if (datePicker.getOnValueFormatterChange() != null) {
 			renderOnValueFormatterChange(renderedOnEvents, datePicker);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

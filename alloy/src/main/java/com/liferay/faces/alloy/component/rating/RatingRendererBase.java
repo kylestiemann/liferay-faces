@@ -52,131 +52,131 @@ public abstract class RatingRendererBase extends RendererBase {
 		if (rating.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getCanReset() != null) {
 			renderCanReset(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getContentBox() != null) {
 			renderContentBox(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getCssClass() != null) {
 			renderCssClass(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getCssClasses() != null) {
 			renderCssClasses(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getDefaultSelected() != null) {
 			renderDefaultSelected(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getDisabled() != null) {
 			renderDisabled(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getElements() != null) {
 			renderElements(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getFocused() != null) {
 			renderFocused(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getHeight() != null) {
 			renderHeight(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getHiddenInput() != null) {
 			renderHiddenInput(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getHideClass() != null) {
 			renderHideClass(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getRatingId() != null) {
 			renderRatingId(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getInitialized() != null) {
 			renderInitialized(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getInputName() != null) {
 			renderInputName(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getLabel() != null) {
 			renderLabel(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getLabelNode() != null) {
 			renderLabelNode(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getRatingLocale() != null) {
 			renderRatingLocale(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getRender() != null) {
 			renderRender(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getRendered() != null) {
 			renderRendered(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getSelectedIndex() != null) {
 			renderSelectedIndex(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getShowTitle() != null) {
 			renderShowTitle(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getSize() != null) {
 			renderSize(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getStrings() != null) {
 			renderStrings(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getTitle() != null) {
 			renderTitle(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getRatingValue() != null) {
 			renderRatingValue(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getVisible() != null) {
 			renderVisible(renderedAttributes, rating);
 		}
-		
+
 		if (rating.getWidth() != null) {
 			renderWidth(renderedAttributes, rating);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -192,131 +192,131 @@ public abstract class RatingRendererBase extends RendererBase {
 		if (rating.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterCanResetChange() != null) {
 			renderAfterCanResetChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterCssClassesChange() != null) {
 			renderAfterCssClassesChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterDefaultSelectedChange() != null) {
 			renderAfterDefaultSelectedChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterElementsChange() != null) {
 			renderAfterElementsChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterHiddenInputChange() != null) {
 			renderAfterHiddenInputChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterInputNameChange() != null) {
 			renderAfterInputNameChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterLabelChange() != null) {
 			renderAfterLabelChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterLabelNodeChange() != null) {
 			renderAfterLabelNodeChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterSelectedIndexChange() != null) {
 			renderAfterSelectedIndexChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterShowTitleChange() != null) {
 			renderAfterShowTitleChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterSizeChange() != null) {
 			renderAfterSizeChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterTitleChange() != null) {
 			renderAfterTitleChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterValueChange() != null) {
 			renderAfterValueChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, rating);
 		}
-		
+
 		if (rating.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, rating);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -340,131 +340,131 @@ public abstract class RatingRendererBase extends RendererBase {
 		if (rating.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnCanResetChange() != null) {
 			renderOnCanResetChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnCssClassesChange() != null) {
 			renderOnCssClassesChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnDefaultSelectedChange() != null) {
 			renderOnDefaultSelectedChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnElementsChange() != null) {
 			renderOnElementsChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnHiddenInputChange() != null) {
 			renderOnHiddenInputChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnInputNameChange() != null) {
 			renderOnInputNameChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnLabelChange() != null) {
 			renderOnLabelChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnLabelNodeChange() != null) {
 			renderOnLabelNodeChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnSelectedIndexChange() != null) {
 			renderOnSelectedIndexChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnShowTitleChange() != null) {
 			renderOnShowTitleChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnSizeChange() != null) {
 			renderOnSizeChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnTitleChange() != null) {
 			renderOnTitleChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnValueChange() != null) {
 			renderOnValueChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, rating);
 		}
-		
+
 		if (rating.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, rating);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

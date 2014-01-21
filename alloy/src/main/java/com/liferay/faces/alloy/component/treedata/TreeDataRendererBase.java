@@ -52,23 +52,23 @@ public abstract class TreeDataRendererBase extends RendererBase {
 		if (treeData.getTreeDataChildren() != null) {
 			renderTreeDataChildren(renderedAttributes, treeData);
 		}
-		
+
 		if (treeData.getContainer() != null) {
 			renderContainer(renderedAttributes, treeData);
 		}
-		
+
 		if (treeData.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, treeData);
 		}
-		
+
 		if (treeData.getIndex() != null) {
 			renderIndex(renderedAttributes, treeData);
 		}
-		
+
 		if (treeData.getInitialized() != null) {
 			renderInitialized(renderedAttributes, treeData);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -84,23 +84,23 @@ public abstract class TreeDataRendererBase extends RendererBase {
 		if (treeData.getAfterChildrenChange() != null) {
 			renderAfterChildrenChange(renderedAfterEvents, treeData);
 		}
-		
+
 		if (treeData.getAfterContainerChange() != null) {
 			renderAfterContainerChange(renderedAfterEvents, treeData);
 		}
-		
+
 		if (treeData.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, treeData);
 		}
-		
+
 		if (treeData.getAfterIndexChange() != null) {
 			renderAfterIndexChange(renderedAfterEvents, treeData);
 		}
-		
+
 		if (treeData.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, treeData);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -124,23 +124,23 @@ public abstract class TreeDataRendererBase extends RendererBase {
 		if (treeData.getOnChildrenChange() != null) {
 			renderOnChildrenChange(renderedOnEvents, treeData);
 		}
-		
+
 		if (treeData.getOnContainerChange() != null) {
 			renderOnContainerChange(renderedOnEvents, treeData);
 		}
-		
+
 		if (treeData.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, treeData);
 		}
-		
+
 		if (treeData.getOnIndexChange() != null) {
 			renderOnIndexChange(renderedOnEvents, treeData);
 		}
-		
+
 		if (treeData.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, treeData);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

@@ -52,47 +52,47 @@ public abstract class SortableListRendererBase extends RendererBase {
 		if (sortableList.getDd() != null) {
 			renderDd(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getDropCondition() != null) {
 			renderDropCondition(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getDropContainer() != null) {
 			renderDropContainer(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getDropOn() != null) {
 			renderDropOn(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getHelper() != null) {
 			renderHelper(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getInitialized() != null) {
 			renderInitialized(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getNodes() != null) {
 			renderNodes(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getPlaceholder() != null) {
 			renderPlaceholder(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getProxy() != null) {
 			renderProxy(renderedAttributes, sortableList);
 		}
-		
+
 		if (sortableList.getSortCondition() != null) {
 			renderSortCondition(renderedAttributes, sortableList);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -108,47 +108,47 @@ public abstract class SortableListRendererBase extends RendererBase {
 		if (sortableList.getAfterDdChange() != null) {
 			renderAfterDdChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterDropConditionChange() != null) {
 			renderAfterDropConditionChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterDropContainerChange() != null) {
 			renderAfterDropContainerChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterDropOnChange() != null) {
 			renderAfterDropOnChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterHelperChange() != null) {
 			renderAfterHelperChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterNodesChange() != null) {
 			renderAfterNodesChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterPlaceholderChange() != null) {
 			renderAfterPlaceholderChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterProxyChange() != null) {
 			renderAfterProxyChange(renderedAfterEvents, sortableList);
 		}
-		
+
 		if (sortableList.getAfterSortConditionChange() != null) {
 			renderAfterSortConditionChange(renderedAfterEvents, sortableList);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -172,47 +172,47 @@ public abstract class SortableListRendererBase extends RendererBase {
 		if (sortableList.getOnDdChange() != null) {
 			renderOnDdChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnDropConditionChange() != null) {
 			renderOnDropConditionChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnDropContainerChange() != null) {
 			renderOnDropContainerChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnDropOnChange() != null) {
 			renderOnDropOnChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnHelperChange() != null) {
 			renderOnHelperChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnNodesChange() != null) {
 			renderOnNodesChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnPlaceholderChange() != null) {
 			renderOnPlaceholderChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnProxyChange() != null) {
 			renderOnProxyChange(renderedOnEvents, sortableList);
 		}
-		
+
 		if (sortableList.getOnSortConditionChange() != null) {
 			renderOnSortConditionChange(renderedOnEvents, sortableList);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

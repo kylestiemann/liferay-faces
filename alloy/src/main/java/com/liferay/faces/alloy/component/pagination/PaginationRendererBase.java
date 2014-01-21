@@ -52,103 +52,103 @@ public abstract class PaginationRendererBase extends RendererBase {
 		if (pagination.getBoundingBox() != null) {
 			renderBoundingBox(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getCircular() != null) {
 			renderCircular(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getContentBox() != null) {
 			renderContentBox(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getCssClass() != null) {
 			renderCssClass(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getDestroyed() != null) {
 			renderDestroyed(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getDisabled() != null) {
 			renderDisabled(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getFocused() != null) {
 			renderFocused(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getFormatter() != null) {
 			renderFormatter(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getHeight() != null) {
 			renderHeight(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getHideClass() != null) {
 			renderHideClass(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getPaginationId() != null) {
 			renderPaginationId(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getInitialized() != null) {
 			renderInitialized(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getItems() != null) {
 			renderItems(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getPaginationLocale() != null) {
 			renderPaginationLocale(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getOffset() != null) {
 			renderOffset(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getPaginationPage() != null) {
 			renderPaginationPage(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getRender() != null) {
 			renderRender(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getRendered() != null) {
 			renderRendered(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getSrcNode() != null) {
 			renderSrcNode(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getStrings() != null) {
 			renderStrings(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getTabIndex() != null) {
 			renderTabIndex(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getTotal() != null) {
 			renderTotal(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getUseARIA() != null) {
 			renderUseARIA(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getVisible() != null) {
 			renderVisible(renderedAttributes, pagination);
 		}
-		
+
 		if (pagination.getWidth() != null) {
 			renderWidth(renderedAttributes, pagination);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -164,103 +164,103 @@ public abstract class PaginationRendererBase extends RendererBase {
 		if (pagination.getAfterBoundingBoxChange() != null) {
 			renderAfterBoundingBoxChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterCircularChange() != null) {
 			renderAfterCircularChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterContentBoxChange() != null) {
 			renderAfterContentBoxChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterCssClassChange() != null) {
 			renderAfterCssClassChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterDestroyedChange() != null) {
 			renderAfterDestroyedChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterDisabledChange() != null) {
 			renderAfterDisabledChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterFocusedChange() != null) {
 			renderAfterFocusedChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterFormatterChange() != null) {
 			renderAfterFormatterChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterHeightChange() != null) {
 			renderAfterHeightChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterHideClassChange() != null) {
 			renderAfterHideClassChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterIdChange() != null) {
 			renderAfterIdChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterInitializedChange() != null) {
 			renderAfterInitializedChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterItemsChange() != null) {
 			renderAfterItemsChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterLocaleChange() != null) {
 			renderAfterLocaleChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterOffsetChange() != null) {
 			renderAfterOffsetChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterPageChange() != null) {
 			renderAfterPageChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterRenderChange() != null) {
 			renderAfterRenderChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterRenderedChange() != null) {
 			renderAfterRenderedChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterSrcNodeChange() != null) {
 			renderAfterSrcNodeChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterStringsChange() != null) {
 			renderAfterStringsChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterTabIndexChange() != null) {
 			renderAfterTabIndexChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterTotalChange() != null) {
 			renderAfterTotalChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterUseARIAChange() != null) {
 			renderAfterUseARIAChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterVisibleChange() != null) {
 			renderAfterVisibleChange(renderedAfterEvents, pagination);
 		}
-		
+
 		if (pagination.getAfterWidthChange() != null) {
 			renderAfterWidthChange(renderedAfterEvents, pagination);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -284,103 +284,103 @@ public abstract class PaginationRendererBase extends RendererBase {
 		if (pagination.getOnBoundingBoxChange() != null) {
 			renderOnBoundingBoxChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnCircularChange() != null) {
 			renderOnCircularChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnContentBoxChange() != null) {
 			renderOnContentBoxChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnCssClassChange() != null) {
 			renderOnCssClassChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnDestroyedChange() != null) {
 			renderOnDestroyedChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnDisabledChange() != null) {
 			renderOnDisabledChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnFocusedChange() != null) {
 			renderOnFocusedChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnFormatterChange() != null) {
 			renderOnFormatterChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnHeightChange() != null) {
 			renderOnHeightChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnHideClassChange() != null) {
 			renderOnHideClassChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnIdChange() != null) {
 			renderOnIdChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnInitializedChange() != null) {
 			renderOnInitializedChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnItemsChange() != null) {
 			renderOnItemsChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnLocaleChange() != null) {
 			renderOnLocaleChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnOffsetChange() != null) {
 			renderOnOffsetChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnPageChange() != null) {
 			renderOnPageChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnRenderChange() != null) {
 			renderOnRenderChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnRenderedChange() != null) {
 			renderOnRenderedChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnSrcNodeChange() != null) {
 			renderOnSrcNodeChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnStringsChange() != null) {
 			renderOnStringsChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnTabIndexChange() != null) {
 			renderOnTabIndexChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnTotalChange() != null) {
 			renderOnTotalChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnUseARIAChange() != null) {
 			renderOnUseARIAChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnVisibleChange() != null) {
 			renderOnVisibleChange(renderedOnEvents, pagination);
 		}
-		
+
 		if (pagination.getOnWidthChange() != null) {
 			renderOnWidthChange(renderedOnEvents, pagination);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 

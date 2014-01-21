@@ -52,7 +52,7 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 		if (buttonGroup.getType() != null) {
 			renderType(renderedAttributes, buttonGroup);
 		}
-		
+
 
 		for (String renderedAttribute : renderedAttributes) {
 			responseWriter.write(renderedAttribute);
@@ -68,7 +68,7 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 		if (buttonGroup.getAfterTypeChange() != null) {
 			renderAfterTypeChange(renderedAfterEvents, buttonGroup);
 		}
-		
+
 
 		Iterator<String> afterEventsIterator = renderedAfterEvents.iterator();
 
@@ -92,7 +92,7 @@ public abstract class ButtonGroupRendererBase extends RendererBase {
 		if (buttonGroup.getOnTypeChange() != null) {
 			renderOnTypeChange(renderedOnEvents, buttonGroup);
 		}
-		
+
 
 		Iterator<String> onEventsIterator = renderedOnEvents.iterator();
 
