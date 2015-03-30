@@ -19,6 +19,8 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.faces.FacesException;
+
 import org.primefaces.component.datatable.DataTable;
 
 import org.primefaces.model.LazyDataModel;
@@ -197,5 +199,21 @@ public class UserLazyDataModel extends LazyDataModel<User> implements Serializab
 		}
 
 		return expression;
+	}
+
+	@Override
+	public User getRowData(String rowKey) {
+
+		try {
+			return UserLocalServiceUtil.getUser(Long.parseLong(rowKey));
+		}
+		catch (Exception e) {
+			throw new FacesException(e);
+		}
+	}
+
+	@Override
+	public Object getRowKey(User user) {
+		return user.getUserId();
 	}
 }
