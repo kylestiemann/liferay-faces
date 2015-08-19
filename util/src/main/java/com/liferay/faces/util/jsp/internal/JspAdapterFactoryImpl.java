@@ -24,7 +24,7 @@ import com.liferay.faces.util.jsp.JspAdapterFactory;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class JspAdapterFactoryImpl extends JspAdapterFactory {
 

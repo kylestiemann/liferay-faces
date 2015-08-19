@@ -46,7 +46,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(eager = true)
 @ApplicationScoped
@@ -56,15 +56,14 @@ public class ListModelBean {
 	private static final Logger logger = LoggerFactory.getLogger(ListModelBean.class);
 
 	// Private Constants
-	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance().get(
-			ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
-	private static final String[] PACKAGE_NAMES = new String[] {
-			"com.liferay.faces.demos.bean", "com.liferay.faces.demos.constants", "com.liferay.faces.demos.dto",
-			"com.liferay.faces.demos.converter", "com.liferay.faces.demos.model", "com.liferay.faces.demos.portlet",
-			"com.liferay.faces.demos.validator", "com.liferay.faces.demos.service"
-		};
+	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
+	private static final String[] PACKAGE_NAMES = new String[] { "com.liferay.faces.demos.bean",
+		"com.liferay.faces.demos.constants", "com.liferay.faces.demos.dto", "com.liferay.faces.demos.converter",
+		"com.liferay.faces.demos.model", "com.liferay.faces.demos.portlet", "com.liferay.faces.demos.validator",
+		"com.liferay.faces.demos.service" };
 
 	// Private Data Members
 	private List<String> showcaseCategoryList;
@@ -180,22 +179,25 @@ public class ListModelBean {
 
 								if (sourceFileName.endsWith(".css")) {
 
-									String sourcePath = File.separator + "WEB-INF" + File.separator + "resources" +
-										File.separator + "css" + File.separator + sourceFileName;
+									String sourcePath =
+										File.separator + "WEB-INF" + File.separator + "resources" + File.separator
+											+ "css" + File.separator + sourceFileName;
 
 									sourceFileURL = startupExternalContext.getResource(sourcePath);
 								}
 								else if (sourceFileName.endsWith(".js")) {
 
-									String sourcePath = File.separator + "WEB-INF" + File.separator + "resources" +
-										File.separator + "js" + File.separator + sourceFileName;
+									String sourcePath =
+										File.separator + "WEB-INF" + File.separator + "resources" + File.separator
+											+ "js" + File.separator + sourceFileName;
 
 									sourceFileURL = startupExternalContext.getResource(sourcePath);
 								}
 								else if (sourceFileName.endsWith(".xhtml")) {
 
-									String sourcePath = File.separator + "WEB-INF" + File.separator + "component" +
-										File.separator + prefix + File.separator + lowerCaseName + File.separator;
+									String sourcePath =
+										File.separator + "WEB-INF" + File.separator + "component" + File.separator
+											+ prefix + File.separator + lowerCaseName + File.separator;
 
 									if (!sourceFileName.toLowerCase().contains("common")) {
 										sourcePath = sourcePath + useCaseName + File.separator;
@@ -233,8 +235,8 @@ public class ListModelBean {
 
 									startupFacesContext.getApplication().getProjectStage();
 
-									CodeExample codeExample = CodeExampleUtil.read(sourceFileURL, sourceFileName,
-											productionMode);
+									CodeExample codeExample =
+										CodeExampleUtil.read(sourceFileURL, sourceFileName, productionMode);
 									codeExamples.add(codeExample);
 
 									logger.debug("Loaded source file=[{0}]", sourceFileName);
@@ -249,8 +251,8 @@ public class ListModelBean {
 						}
 
 						int categoryIndex = showcaseCategoryList.indexOf(category);
-						ShowcaseComponent showcaseComponent = new ShowcaseComponentImpl(categoryIndex, prefix,
-								camelCaseName, lowerCaseName, useCases);
+						ShowcaseComponent showcaseComponent =
+							new ShowcaseComponentImpl(categoryIndex, prefix, camelCaseName, lowerCaseName, useCases);
 						String lookupKey = prefix + "_" + lowerCaseName;
 						this.showcaseComponentMap.put(lookupKey, showcaseComponent);
 						this.showcaseComponents.add(showcaseComponent);

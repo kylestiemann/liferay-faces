@@ -37,7 +37,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HtmlInputFileRenderer extends DelegatingRendererBase {
 
@@ -106,8 +106,8 @@ public class HtmlInputFileRenderer extends DelegatingRendererBase {
 
 	protected Map<String, List<UploadedFile>> getUploadedFileMap(FacesContext facesContext) {
 
-		ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-				ContextMapFactory.class);
+		ContextMapFactory contextMapFactory =
+			(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 		BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 
 		return contextMapFactory.getUploadedFileMap(bridgeContext);

@@ -21,7 +21,7 @@ import javax.portlet.ResourceResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgePortletResponseFactory implements FacesWrapper<BridgePortletResponseFactory> {
 

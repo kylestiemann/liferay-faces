@@ -26,7 +26,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesRenderer(componentFamily = Fieldset.COMPONENT_FAMILY, rendererType = Fieldset.RENDERER_TYPE)
 @ResourceDependency(library = "liferay-faces-reslib", name = "build/aui-css/css/bootstrap.min.css")

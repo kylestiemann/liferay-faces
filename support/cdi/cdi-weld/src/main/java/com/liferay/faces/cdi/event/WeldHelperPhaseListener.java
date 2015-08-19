@@ -35,14 +35,15 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * Portlet containers like Apache Pluto implement the post-redirect-get pattern for portlet actions. This means that the
  * ACTION_PHASE executes within an HTTP POST and returns a 302 redirect, and the RENDER_PHASE executes within a
- * subsequent HTTP GET. This design causes JBoss Weld to throw an {@link IllegalStateException} because the {@link
- * org.jboss.weld.jsf.WeldPhaseListener} class is not aware that in a portlet environment, {@link
- * Lifecycle#execute(FacesContext)} executes in the HTTP POST request whereas {@link Lifecycle#render(FacesContext)}
- * executes in the HTTP GET request. This class serves as a workaround for that problem and will be automatically
- * registered via the META-INF/faces-config.xml descriptor contained in the liferay-faces-cdi-weld.jar artifact. For
- * more information, see <a href="https://issues.liferay.com/browse/FACES-1719">FACES-1719</a>.
+ * subsequent HTTP GET. This design causes JBoss Weld to throw an {@link IllegalStateException} because the
+ * {@link org.jboss.weld.jsf.WeldPhaseListener} class is not aware that in a portlet environment,
+ * {@link Lifecycle#execute(FacesContext)} executes in the HTTP POST request whereas
+ * {@link Lifecycle#render(FacesContext)} executes in the HTTP GET request. This class serves as a workaround for that
+ * problem and will be automatically registered via the META-INF/faces-config.xml descriptor contained in the
+ * liferay-faces-cdi-weld.jar artifact. For more information, see <a
+ * href="https://issues.liferay.com/browse/FACES-1719">FACES-1719</a>.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class WeldHelperPhaseListener implements PhaseListener {
 
@@ -120,13 +121,13 @@ public class WeldHelperPhaseListener implements PhaseListener {
 						// set, so that the request will be re-associated properly.
 						else {
 							Lifecycle weldHelperLifecycle = new WeldHelperLifecycle();
-							PhaseEvent restoreViewPhaseEvent = new PhaseEvent(facesContext, PhaseId.RESTORE_VIEW,
-									weldHelperLifecycle);
+							PhaseEvent restoreViewPhaseEvent =
+								new PhaseEvent(facesContext, PhaseId.RESTORE_VIEW, weldHelperLifecycle);
 							RenderRequest renderRequest = (RenderRequest) request;
-							HttpServletRequestAdapter httpServletRequestAdapter = new HttpServletRequestAdapterImpl(
-									renderRequest);
-							WeldHelperRenderRequest weldHelperRenderRequest = new WeldHelperRenderRequest(renderRequest,
-									httpServletRequestAdapter);
+							HttpServletRequestAdapter httpServletRequestAdapter =
+								new HttpServletRequestAdapterImpl(renderRequest);
+							WeldHelperRenderRequest weldHelperRenderRequest =
+								new WeldHelperRenderRequest(renderRequest, httpServletRequestAdapter);
 							externalContext.setRequest(weldHelperRenderRequest);
 							weldPhaseListener.beforePhase(restoreViewPhaseEvent);
 							externalContext.setRequest(request);
@@ -147,8 +148,7 @@ public class WeldHelperPhaseListener implements PhaseListener {
 
 	public class WeldHelperRenderRequest extends CDIRenderRequestImpl {
 
-		public WeldHelperRenderRequest(RenderRequest renderRequest,
-			HttpServletRequestAdapter httpServletRequestAdapter) {
+		public WeldHelperRenderRequest(RenderRequest renderRequest, HttpServletRequestAdapter httpServletRequestAdapter) {
 			super(renderRequest, httpServletRequestAdapter);
 		}
 

@@ -22,7 +22,7 @@ import com.liferay.portal.model.User;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortraitURLMap extends HashMap<Object, String> {
 

@@ -19,7 +19,7 @@ import java.util.Locale;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 class AutoCompleteFilterPhraseMatchImpl implements AutoCompleteFilter {
 

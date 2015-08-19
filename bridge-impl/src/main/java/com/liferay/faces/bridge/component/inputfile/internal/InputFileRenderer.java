@@ -34,7 +34,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = InputFile.COMPONENT_FAMILY, rendererType = InputFile.RENDERER_TYPE)
@@ -59,8 +59,8 @@ public class InputFileRenderer extends InputFileRendererCompat {
 					new ArrayList<com.liferay.faces.bridge.model.UploadedFile>(uploadedFiles.size());
 
 				for (UploadedFile uploadedFile : uploadedFiles) {
-					com.liferay.faces.bridge.model.UploadedFile bridgeUploadedFile = new UploadedFileBridgeImpl(
-							uploadedFile);
+					com.liferay.faces.bridge.model.UploadedFile bridgeUploadedFile =
+						new UploadedFileBridgeImpl(uploadedFile);
 					bridgeUploadedFiles.add(bridgeUploadedFile);
 				}
 
@@ -70,8 +70,8 @@ public class InputFileRenderer extends InputFileRendererCompat {
 				// ActionListener.
 				for (UploadedFile uploadedFile : uploadedFiles) {
 
-					com.liferay.faces.bridge.model.UploadedFile bridgeUploadedFile = new UploadedFileBridgeImpl(
-							uploadedFile);
+					com.liferay.faces.bridge.model.UploadedFile bridgeUploadedFile =
+						new UploadedFileBridgeImpl(uploadedFile);
 					FileUploadEvent fileUploadEvent = new FileUploadEvent(uiComponent, bridgeUploadedFile);
 					uiComponent.queueEvent(fileUploadEvent);
 				}
@@ -89,8 +89,8 @@ public class InputFileRenderer extends InputFileRendererCompat {
 
 	protected Map<String, List<UploadedFile>> getUploadedFileMap(FacesContext facesContext) {
 
-		ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-				ContextMapFactory.class);
+		ContextMapFactory contextMapFactory =
+			(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 		BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 
 		return contextMapFactory.getUploadedFileMap(bridgeContext);

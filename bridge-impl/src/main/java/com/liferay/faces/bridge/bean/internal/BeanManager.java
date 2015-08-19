@@ -16,7 +16,7 @@ package com.liferay.faces.bridge.bean.internal;
 /**
  * This interface defines a contract for utility methods for beans that are managed by the JSF managed-bean facility.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BeanManager {
 

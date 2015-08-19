@@ -25,7 +25,7 @@ import com.liferay.faces.util.product.ProductMap;
  * In order to minimize dependencies, this class provides as a layer of abstraction over different logging mechanisms
  * including Log4J and standard Java SE logging.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LoggerFactory {
 
@@ -54,8 +54,8 @@ public class LoggerFactory {
 					System.out.println(className + " (INFO): Add WEB-INF/log4j.jar to activate Log4J logging");
 				}
 				else {
-					System.err.println(className +
-						" (WARN): Possibly an incompatible version of log4j.jar in the classpath: " + e.getMessage());
+					System.err.println(className
+						+ " (WARN): Possibly an incompatible version of log4j.jar in the classpath: " + e.getMessage());
 				}
 
 				LOG4J_AVAILABLE = false;
@@ -71,9 +71,8 @@ public class LoggerFactory {
 	 * logging mechanism. NOTE: In the future, support should be added for detection of Apache Commons-Logging and
 	 * SLF4J.
 	 *
-	 * @param   name  The name associated with the logger.
-	 *
-	 * @return  The logger associated with the specified name.
+	 * @param name The name associated with the logger.
+	 * @return The logger associated with the specified name.
 	 */
 	public static final Logger getLogger(String name) {
 
@@ -101,9 +100,8 @@ public class LoggerFactory {
 	 * logging mechanism. NOTE: In the future, support should be added for detection of Apache Commons-Logging and
 	 * SLF4J.
 	 *
-	 * @param   clazz  The class associated with the logger.
-	 *
-	 * @return  The logger associated with the specified class.
+	 * @param clazz The class associated with the logger.
+	 * @return The logger associated with the specified class.
 	 */
 	public static final Logger getLogger(Class<?> clazz) {
 		return getLogger(clazz.getName());

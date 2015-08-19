@@ -29,10 +29,10 @@ import org.w3c.dom.Element;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public class BridgeAfterViewContentResponseResourceImpl extends BridgeAfterViewContentResponse
-	implements ResourceResponse {
+public class BridgeAfterViewContentResponseResourceImpl extends BridgeAfterViewContentResponse implements
+	ResourceResponse {
 
 	// Private Data Members
 	private ResourceResponse wrappedResourceResponse;

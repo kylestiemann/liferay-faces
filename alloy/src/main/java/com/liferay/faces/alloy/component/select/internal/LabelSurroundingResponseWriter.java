@@ -24,12 +24,12 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * This class is designed to move &lt;input&gt;s rendered by {@link
- * com.liferay.faces.alloy.component.selectmanycheckbox.internal.SelectManyCheckboxRenderer} and {@link
- * com.liferay.faces.alloy.component.selectoneradio.internal.SelectOneRadioRenderer} inside their &lt;label&gt; tags.
- * This is done in order to be more consistent with Liferay Portal's (and AlloyUI's) style.
+ * This class is designed to move &lt;input&gt;s rendered by
+ * {@link com.liferay.faces.alloy.component.selectmanycheckbox.internal.SelectManyCheckboxRenderer} and
+ * {@link com.liferay.faces.alloy.component.selectoneradio.internal.SelectOneRadioRenderer} inside their &lt;label&gt;
+ * tags. This is done in order to be more consistent with Liferay Portal's (and AlloyUI's) style.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class LabelSurroundingResponseWriter extends DelegationResponseWriterBase {
 

@@ -29,7 +29,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
  * This is an abstract class that implements the {@link DelegatingRenderer} interface in order to provide base
  * functionality for delegating the responsibility of rendering a {@link UIComponent} to a different renderer.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class DelegatingRendererBase extends Renderer implements DelegatingRenderer {
 

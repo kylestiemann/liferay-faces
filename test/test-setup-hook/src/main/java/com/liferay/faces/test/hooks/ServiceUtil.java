@@ -33,7 +33,7 @@ import com.liferay.portal.service.UserLocalServiceUtil;
  * This class provides access to Liferay Portal Service Layer methods in order to isolate API method signature
  * differences between version 5.2, 6.0, and 6.1.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ServiceUtil {
 
@@ -51,8 +51,8 @@ public class ServiceUtil {
 		int membershipRestriction = GroupConstants.DEFAULT_MEMBERSHIP_RESTRICTION;
 
 		return GroupLocalServiceUtil.addGroup(userId, GroupConstants.DEFAULT_PARENT_GROUP_ID, (String) null, 0L,
-				GroupConstants.DEFAULT_LIVE_GROUP_ID, name, description, type, manualMembership, membershipRestriction,
-				friendlyURL, siteFlag, active, new ServiceContext());
+			GroupConstants.DEFAULT_LIVE_GROUP_ID, name, description, type, manualMembership, membershipRestriction,
+			friendlyURL, siteFlag, active, new ServiceContext());
 	}
 
 	public static Layout addLayout(long userId, long groupId, boolean privateLayout, long parentLayoutId, String name,
@@ -62,7 +62,7 @@ public class ServiceUtil {
 		serviceContext.setScopeGroupId(groupId);
 
 		return LayoutLocalServiceUtil.addLayout(userId, groupId, privateLayout, parentLayoutId, name, title,
-				description, type, hidden, friendlyURL, serviceContext);
+			description, type, hidden, friendlyURL, serviceContext);
 	}
 
 	public static User addUser(long creatorUserId, long companyId, String firstName, String lastName) throws Exception {
@@ -97,7 +97,8 @@ public class ServiceUtil {
 			user = UserLocalServiceUtil.getUserByScreenName(companyId, screenName);
 		}
 		catch (NoSuchUserException e) {
-			user = UserLocalServiceUtil.addUser(creatorUserId, companyId, autoPassword, password1, password2,
+			user =
+				UserLocalServiceUtil.addUser(creatorUserId, companyId, autoPassword, password1, password2,
 					autoScreenName, screenName, emailAddress, facebookId, openId, locale, firstName, middleName,
 					lastName, prefixId, suffixId, male, birthdayMonth, birthdayDay, birthdayYear, jobTitle, groupIds,
 					organizationIds, roleIds, userGroupIds, sendEmail, serviceContext);

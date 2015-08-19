@@ -39,7 +39,7 @@ import com.liferay.faces.bridge.preference.internal.MutablePreferenceMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ELResolverImpl extends ELResolverCompatImpl {
 
@@ -244,8 +244,8 @@ public class ELResolverImpl extends ELResolverCompatImpl {
 
 				// Determines whether or not methods annotated with the &#064;PreDestroy annotation are preferably
 				// invoked over the &#064;BridgePreDestroy annotation.
-				ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-						ContextMapFactory.class);
+				ContextMapFactory contextMapFactory =
+					(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 				BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 				value = contextMapFactory.getSessionScopeMap(bridgeContext, PortletSession.APPLICATION_SCOPE);
 			}

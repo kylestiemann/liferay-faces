@@ -17,8 +17,8 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Bruno Basto
- * @author  Kyle Stiemann
+ * @author Bruno Basto
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Audio.COMPONENT_TYPE)
 public class Audio extends AudioBase {

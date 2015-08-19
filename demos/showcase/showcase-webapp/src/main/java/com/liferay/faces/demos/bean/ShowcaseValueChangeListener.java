@@ -21,7 +21,7 @@ import javax.faces.event.ValueChangeListener;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 public class ShowcaseValueChangeListener implements ValueChangeListener {
 
@@ -30,8 +30,8 @@ public class ShowcaseValueChangeListener implements ValueChangeListener {
 
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 
-		FacesMessage facesMessage = new FacesMessage("The valueChangeListener was called." + "The new value is " +
-				event.getNewValue());
+		FacesMessage facesMessage =
+			new FacesMessage("The valueChangeListener was called." + "The new value is " + event.getNewValue());
 		facesContext.addMessage(null, facesMessage);
 	}
 

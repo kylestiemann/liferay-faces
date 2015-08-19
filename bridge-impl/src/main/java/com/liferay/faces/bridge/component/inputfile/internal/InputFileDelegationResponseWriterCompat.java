@@ -21,7 +21,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 /**
  * This class provides a compatibility layer that isolates differences between 2.2 and older versions of JSF.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class InputFileDelegationResponseWriterCompat extends DelegationResponseWriterBase {
 

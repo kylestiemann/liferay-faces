@@ -19,7 +19,7 @@ import java.util.List;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class Customer implements Serializable {
 

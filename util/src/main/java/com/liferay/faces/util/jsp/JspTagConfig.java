@@ -22,7 +22,7 @@ import javax.faces.view.facelets.TagConfig;
  * This is a dummy class that exists in order to prevent an exception from being thrown during startup on JBoss AS. For
  * more information, see <a href="http://issues.liferay.com/browse/FACES-1576">FACES-1576</a>.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class JspTagConfig implements TagConfig {
 

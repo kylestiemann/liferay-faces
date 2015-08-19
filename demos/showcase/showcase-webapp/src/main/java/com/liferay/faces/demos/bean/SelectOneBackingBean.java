@@ -32,7 +32,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped
@@ -62,8 +62,8 @@ public class SelectOneBackingBean {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		FacesMessage facesMessage;
 
-		if ((selectedDate != null) && (calendar.get(Calendar.MONTH) == 6) && (calendar.get(Calendar.DATE) == 4) &&
-				(calendar.get(Calendar.YEAR) == 1776)) {
+		if ((selectedDate != null) && (calendar.get(Calendar.MONTH) == 6) && (calendar.get(Calendar.DATE) == 4)
+			&& (calendar.get(Calendar.YEAR) == 1776)) {
 			facesMessage = new FacesMessage("Correct!");
 			facesMessage.setSeverity(FacesMessage.SEVERITY_INFO);
 		}
@@ -82,8 +82,9 @@ public class SelectOneBackingBean {
 		logger.debug("valueChangeListener: phaseId=[{0}]", phaseId.toString());
 
 		String phaseName = phaseId.getName();
-		FacesMessage facesMessage = new FacesMessage("The valueChangeListener method was called during the " +
-				phaseName + " phase of the JSF lifecycle.");
+		FacesMessage facesMessage =
+			new FacesMessage("The valueChangeListener method was called during the " + phaseName
+				+ " phase of the JSF lifecycle.");
 		facesContext.addMessage(null, facesMessage);
 	}
 

@@ -42,7 +42,7 @@ import com.liferay.faces.util.product.ProductMap;
 /**
  * This class provides a compatibility layer that isolates differences between JSF 1.2 and JSF 2.0.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextCompat_2_0_FlashImpl {
 
@@ -71,8 +71,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#addResponseCookie(String, String, Map)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#addResponseCookie(String, String, Map)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void addResponseCookie(String name, String value, Map<String, Object> properties) {
@@ -82,8 +82,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#addResponseHeader(String, String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#addResponseHeader(String, String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void addResponseHeader(String name, String value) {
@@ -99,8 +99,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#encodeBookmarkableURL(String, Map)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#encodeBookmarkableURL(String, Map)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodeBookmarkableURL(String baseUrl, Map<String, List<String>> parameters) {
@@ -108,8 +108,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#encodePartialActionURL(String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#encodePartialActionURL(String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodePartialActionURL(String url) {
@@ -117,8 +117,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#encodeRedirectURL(String, Map)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#encodeRedirectURL(String, Map)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodeRedirectURL(String baseUrl, Map<String, List<String>> parameters) {
@@ -126,8 +126,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#invalidateSession()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#invalidateSession()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void invalidateSession() {
@@ -135,8 +135,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#responseFlushBuffer()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#responseFlushBuffer()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void responseFlushBuffer() throws IOException {
@@ -166,8 +166,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#responseReset()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#responseReset()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void responseReset() {
@@ -188,13 +188,14 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * The Portlet API does not have an equivalent to {@link javax.servlet.http.HttpServletResponse#sendError(int,
-	 * String)}. Since the Mojarra JSF implementation basically only calls this when a Facelet is not found, better in a
-	 * portlet environment to simply log an error and throw an IOException up the call stack so that the portlet will
-	 * give the portlet container a chance to render an error message.
+	 * The Portlet API does not have an equivalent to
+	 * {@link javax.servlet.http.HttpServletResponse#sendError(int, String)}. Since the Mojarra JSF implementation
+	 * basically only calls this when a Facelet is not found, better in a portlet environment to simply log an error and
+	 * throw an IOException up the call stack so that the portlet will give the portlet container a chance to render an
+	 * error message.
 	 *
-	 * @see    {@link ExternalContext#responseSendError(int, String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#responseSendError(int, String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void responseSendError(int statusCode, String message) throws IOException {
@@ -249,8 +250,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getContextName()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getContextName()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getContextName() {
@@ -263,8 +264,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#isResponseCommitted()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#isResponseCommitted()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public boolean isResponseCommitted() {
@@ -302,9 +303,9 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 
 				Product iceFaces = ProductMap.getInstance().get(ProductConstants.ICEFACES);
 
-				if (iceFaces.isDetected() &&
-						((iceFaces.getMajorVersion() == 2) ||
-							((iceFaces.getMajorVersion() == 3) && (iceFaces.getMinorVersion() == 0)))) {
+				if (iceFaces.isDetected()
+					&& ((iceFaces.getMajorVersion() == 2) || ((iceFaces.getMajorVersion() == 3) && (iceFaces
+						.getMinorVersion() == 0)))) {
 
 					iceFacesLegacyMode = Boolean.TRUE;
 				}
@@ -315,8 +316,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getMimeType(String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getMimeType(String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getMimeType(String fileName) {
@@ -330,8 +331,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getRealPath(String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getRealPath(String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getRealPath(String path) {
@@ -339,8 +340,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getRequestContentLength()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getRequestContentLength()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getRequestContentLength() {
@@ -369,8 +370,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getRequestScheme()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getRequestScheme()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getRequestScheme() {
@@ -378,8 +379,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getRequestServerName()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getRequestServerName()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getRequestServerName() {
@@ -387,8 +388,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getRequestServerPort()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getRequestServerPort()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getRequestServerPort() {
@@ -396,8 +397,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getResponseBufferSize()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getResponseBufferSize()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getResponseBufferSize() {
@@ -424,8 +425,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#setResponseBufferSize(int)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#setResponseBufferSize(int)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseBufferSize(int size) {
@@ -433,8 +434,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 		if (portletResponse instanceof ResourceResponse) {
 
 			PortalContext portalContext = portletRequest.getPortalContext();
-			String setResponseBufferSizeSupport = portalContext.getProperty(
-					BridgePortalContext.SET_RESOURCE_RESPONSE_BUFFER_SIZE_SUPPORT);
+			String setResponseBufferSizeSupport =
+				portalContext.getProperty(BridgePortalContext.SET_RESOURCE_RESPONSE_BUFFER_SIZE_SUPPORT);
 
 			if (setResponseBufferSizeSupport != null) {
 				ResourceResponse resourceResponse = (ResourceResponse) portletResponse;
@@ -453,8 +454,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#setResponseContentLength(int)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#setResponseContentLength(int)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseContentLength(int length) {
@@ -475,8 +476,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#setResponseContentType(String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#setResponseContentType(String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseContentType(String contentType) {
@@ -497,8 +498,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#setResponseHeader(String, String)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#setResponseHeader(String, String)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseHeader(String name, String value) {
@@ -506,8 +507,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getResponseOutputStream()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getResponseOutputStream()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public OutputStream getResponseOutputStream() throws IOException {
@@ -538,8 +539,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getResponseOutputWriter()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getResponseOutputWriter()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public Writer getResponseOutputWriter() throws IOException {
@@ -573,8 +574,8 @@ public abstract class ExternalContextCompat_2_0_Impl extends ExternalContextComp
 	 * portlet request of type PortletResponse because that is the only type of portlet response that is delivered
 	 * directly back to the client (without additional markup added by the portlet container).
 	 *
-	 * @see    {@link ExternalContext#setResponseStatus(int)}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#setResponseStatus(int)}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseStatus(int statusCode) {

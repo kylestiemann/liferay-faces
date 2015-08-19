@@ -19,7 +19,7 @@ import java.util.Locale;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LocaleIterator implements Iterator<Locale> {
 

@@ -28,7 +28,7 @@ import com.liferay.portlet.PortletURLFactoryUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortalHookImpl extends PortalWrapper {
 
@@ -59,8 +59,8 @@ public class PortalHookImpl extends PortalWrapper {
 	protected String getCreateAccountURL(HttpServletRequest request, ThemeDisplay themeDisplay) throws Exception {
 
 		String portletName = "1_WAR_jsf2registrationportlet";
-		PortletURL urlCreateAccount = PortletURLFactoryUtil.create(request, portletName, themeDisplay.getPlid(),
-				PortletRequest.ACTION_PHASE);
+		PortletURL urlCreateAccount =
+			PortletURLFactoryUtil.create(request, portletName, themeDisplay.getPlid(), PortletRequest.ACTION_PHASE);
 
 		urlCreateAccount.setWindowState(WindowState.MAXIMIZED);
 		urlCreateAccount.setPortletMode(PortletMode.VIEW);

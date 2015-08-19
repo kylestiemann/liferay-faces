@@ -33,7 +33,7 @@ import com.liferay.taglib.ui.CaptchaTag;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 //J-
 @FacesRenderer(componentFamily = Captcha.COMPONENT_FAMILY, rendererType = Captcha.RENDERER_TYPE)
@@ -78,8 +78,9 @@ public class CaptchaRenderer extends DelayedPortalTagRenderer<Captcha, CaptchaTa
 			url = captcha.getUrl();
 		}
 		else {
-			Resource captchaResource = facesContext.getApplication().getResourceHandler().createResource(
-					CaptchaResource.RESOURCE_NAME, LiferayFacesResourceHandler.LIBRARY_NAME);
+			Resource captchaResource =
+				facesContext.getApplication().getResourceHandler()
+					.createResource(CaptchaResource.RESOURCE_NAME, LiferayFacesResourceHandler.LIBRARY_NAME);
 			ExternalContext externalContext = facesContext.getExternalContext();
 			url = externalContext.encodeResourceURL(captchaResource.getRequestPath());
 		}

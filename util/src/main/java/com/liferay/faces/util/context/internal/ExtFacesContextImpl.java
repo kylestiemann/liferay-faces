@@ -43,7 +43,7 @@ import com.liferay.faces.util.context.FacesContextHelper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "extFacesContext", eager = true)
 @ApplicationScoped
@@ -57,70 +57,70 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#addComponentErrorMessage(String, String)
+	 * @see FacesContextHelper#addComponentErrorMessage(String, String)
 	 */
 	public void addComponentErrorMessage(String clientId, String messageId) {
 		facesContextHelper.addComponentErrorMessage(clientId, messageId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addComponentErrorMessage(String, String, Object)
+	 * @see FacesContextHelper#addComponentErrorMessage(String, String, Object)
 	 */
 	public void addComponentErrorMessage(String clientId, String messageId, Object argument) {
 		facesContextHelper.addComponentErrorMessage(clientId, messageId, argument);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addComponentErrorMessage(String, String, Object...)
+	 * @see FacesContextHelper#addComponentErrorMessage(String, String, Object...)
 	 */
 	public void addComponentErrorMessage(String clientId, String messageId, Object... arguments) {
 		facesContextHelper.addComponentErrorMessage(clientId, messageId, arguments);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addComponentInfoMessage(String, String)
+	 * @see FacesContextHelper#addComponentInfoMessage(String, String)
 	 */
 	public void addComponentInfoMessage(String clientId, String messageId) {
 		facesContextHelper.addComponentInfoMessage(clientId, messageId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addComponentInfoMessage(String, String, Object)
+	 * @see FacesContextHelper#addComponentInfoMessage(String, String, Object)
 	 */
 	public void addComponentInfoMessage(String clientId, String messageId, Object argument) {
 		facesContextHelper.addComponentInfoMessage(clientId, messageId, argument);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addComponentInfoMessage(String, String, Object...)
+	 * @see FacesContextHelper#addComponentInfoMessage(String, String, Object...)
 	 */
 	public void addComponentInfoMessage(String clientId, String messageId, Object... arguments) {
 		facesContextHelper.addComponentInfoMessage(clientId, messageId, arguments);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalErrorMessage(String)
+	 * @see FacesContextHelper#addGlobalErrorMessage(String)
 	 */
 	public void addGlobalErrorMessage(String messageId) {
 		facesContextHelper.addGlobalErrorMessage(messageId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalErrorMessage(String, Object)
+	 * @see FacesContextHelper#addGlobalErrorMessage(String, Object)
 	 */
 	public void addGlobalErrorMessage(String messageId, Object argument) {
 		facesContextHelper.addGlobalErrorMessage(messageId, argument);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalErrorMessage(String, Object...)
+	 * @see FacesContextHelper#addGlobalErrorMessage(String, Object...)
 	 */
 	public void addGlobalErrorMessage(String messageId, Object... arguments) {
 		facesContextHelper.addGlobalErrorMessage(messageId, arguments);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalInfoMessage(String)
+	 * @see FacesContextHelper#addGlobalInfoMessage(String)
 	 */
 	public void addGlobalInfoMessage(String messageId) {
 		facesContextHelper.addGlobalInfoMessage(messageId);
@@ -128,14 +128,14 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalInfoMessage(String, Object)
+	 * @see FacesContextHelper#addGlobalInfoMessage(String, Object)
 	 */
 	public void addGlobalInfoMessage(String messageId, Object argument) {
 		facesContextHelper.addGlobalInfoMessage(messageId, argument);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalInfoMessage(String, Object...)
+	 * @see FacesContextHelper#addGlobalInfoMessage(String, Object...)
 	 */
 	public void addGlobalInfoMessage(String messageId, Object... arguments) {
 		facesContextHelper.addGlobalInfoMessage(messageId, arguments);
@@ -143,21 +143,21 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalSuccessInfoMessage()
+	 * @see FacesContextHelper#addGlobalSuccessInfoMessage()
 	 */
 	public void addGlobalSuccessInfoMessage() {
 		facesContextHelper.addGlobalSuccessInfoMessage();
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalUnexpectedErrorMessage()
+	 * @see FacesContextHelper#addGlobalUnexpectedErrorMessage()
 	 */
 	public void addGlobalUnexpectedErrorMessage() {
 		facesContextHelper.addGlobalUnexpectedErrorMessage();
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void addMessage(String clientId, FacesMessage facesMessage) {
@@ -165,7 +165,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#addMessage(String, Severity, String)
+	 * @see FacesContextHelper#addMessage(String, Severity, String)
 	 */
 	public void addMessage(String clientId, Severity severity, String messageId) {
 		facesContextHelper.addMessage(clientId, severity, messageId);
@@ -173,7 +173,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#addMessage(String, Severity, String, Object)
+	 * @see FacesContextHelper#addMessage(String, Severity, String, Object)
 	 */
 	public void addMessage(String clientId, Severity severity, String messageId, Object argument) {
 		facesContextHelper.addMessage(clientId, severity, messageId, argument);
@@ -181,14 +181,14 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#addMessage(String, Severity, String, Object...)
+	 * @see FacesContextHelper#addMessage(String, Severity, String, Object...)
 	 */
 	public void addMessage(String clientId, Severity severity, String messageId, Object... arguments) {
 		facesContextHelper.addMessage(clientId, severity, messageId, arguments);
 	}
 
 	/**
-	 * @see  FacesContextHelper#matchComponentInHierarchy(UIComponent, String)
+	 * @see FacesContextHelper#matchComponentInHierarchy(UIComponent, String)
 	 */
 	public UIComponent matchComponentInHierarchy(UIComponent parent, String partialClientId) {
 
@@ -196,42 +196,42 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#matchComponentInViewRoot(String)
+	 * @see FacesContextHelper#matchComponentInViewRoot(String)
 	 */
 	public UIComponent matchComponentInViewRoot(String partialClientId) {
 		return facesContextHelper.matchComponentInViewRoot(partialClientId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#navigate(String, String)
+	 * @see FacesContextHelper#navigate(String, String)
 	 */
 	public void navigate(String fromAction, String outcome) {
 		facesContextHelper.navigate(fromAction, outcome);
 	}
 
 	/**
-	 * @see  FacesContextHelper#navigateTo(String)
+	 * @see FacesContextHelper#navigateTo(String)
 	 */
 	public void navigateTo(String outcome) {
 		facesContextHelper.navigateTo(outcome);
 	}
 
 	/**
-	 * @see  FacesContextHelper#recreateComponentTree()
+	 * @see FacesContextHelper#recreateComponentTree()
 	 */
 	public void recreateComponentTree() {
 		facesContextHelper.recreateComponentTree();
 	}
 
 	/**
-	 * @see  FacesContextHelper#registerPhaseListener(PhaseListener)
+	 * @see FacesContextHelper#registerPhaseListener(PhaseListener)
 	 */
 	public void registerPhaseListener(PhaseListener phaseListener) {
 		facesContextHelper.registerPhaseListener(phaseListener);
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void release() {
@@ -239,42 +239,42 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#removeChildrenFromComponentTree(String)
+	 * @see FacesContextHelper#removeChildrenFromComponentTree(String)
 	 */
 	public void removeChildrenFromComponentTree(String clientId) {
 		facesContextHelper.removeChildrenFromComponentTree(clientId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#removeMessages(String)
+	 * @see FacesContextHelper#removeMessages(String)
 	 */
 	public void removeMessages(String clientId) {
 		facesContextHelper.removeMessages(clientId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#removeMessagesForImmediateComponents()
+	 * @see FacesContextHelper#removeMessagesForImmediateComponents()
 	 */
 	public void removeMessagesForImmediateComponents() {
 		facesContextHelper.removeMessagesForImmediateComponents();
 	}
 
 	/**
-	 * @see  FacesContextHelper#removeMessagesForImmediateComponents(UIComponent)
+	 * @see FacesContextHelper#removeMessagesForImmediateComponents(UIComponent)
 	 */
 	public void removeMessagesForImmediateComponents(UIComponent uiComponent) {
 		facesContextHelper.removeMessagesForImmediateComponents(uiComponent);
 	}
 
 	/**
-	 * @see  FacesContextHelper#removeParentFormFromComponentTree(UIComponent)
+	 * @see FacesContextHelper#removeParentFormFromComponentTree(UIComponent)
 	 */
 	public void removeParentFormFromComponentTree(UIComponent uiComponent) {
 		facesContextHelper.removeParentFormFromComponentTree(uiComponent);
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void renderResponse() {
@@ -282,28 +282,28 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#resetView()
+	 * @see FacesContextHelper#resetView()
 	 */
 	public void resetView() {
 		facesContextHelper.resetView();
 	}
 
 	/**
-	 * @see  FacesContextHelper#resetView(boolean)
+	 * @see FacesContextHelper#resetView(boolean)
 	 */
 	public void resetView(boolean renderResponse) {
 		facesContextHelper.resetView();
 	}
 
 	/**
-	 * @see  FacesContextHelper#resolveExpression(String)
+	 * @see FacesContextHelper#resolveExpression(String)
 	 */
 	public Object resolveExpression(String elExpression) {
 		return facesContextHelper.resolveExpression(elExpression);
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void responseComplete() {
@@ -311,7 +311,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void validationFailed() {
@@ -319,7 +319,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public Application getApplication() {
@@ -327,7 +327,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public Map<Object, Object> getAttributes() {
@@ -335,7 +335,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public Iterator<String> getClientIdsWithMessages() {
@@ -343,7 +343,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public PhaseId getCurrentPhaseId() {
@@ -351,7 +351,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setCurrentPhaseId(PhaseId currentPhaseId) {
@@ -359,7 +359,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public boolean isValidationFailed() {
@@ -367,7 +367,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public boolean isProjectStage(ProjectStage stage) {
@@ -375,7 +375,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.2
+	 * @since JSF 1.2
 	 */
 	@Override
 	public ELContext getELContext() {
@@ -383,7 +383,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public ExceptionHandler getExceptionHandler() {
@@ -391,7 +391,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setExceptionHandler(ExceptionHandler exceptionHandler) {
@@ -399,7 +399,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public ExternalContext getExternalContext() {
@@ -407,14 +407,14 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getFacesContext()
+	 * @see FacesContextHelper#getFacesContext()
 	 */
 	public FacesContext getFacesContext() {
 		return FacesContext.getCurrentInstance();
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public boolean isPostback() {
@@ -422,7 +422,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getLocale()
+	 * @see FacesContextHelper#getLocale()
 	 */
 	public Locale getLocale() {
 
@@ -442,7 +442,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public Severity getMaximumSeverity() {
@@ -450,35 +450,35 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getMessage(String)
+	 * @see FacesContextHelper#getMessage(String)
 	 */
 	public String getMessage(String messageId) {
 		return facesContextHelper.getMessage(messageId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#getMessage(String, Object...)
+	 * @see FacesContextHelper#getMessage(String, Object...)
 	 */
 	public String getMessage(String messageId, Object... arguments) {
 		return facesContextHelper.getMessage(messageId, arguments);
 	}
 
 	/**
-	 * @see  FacesContextHelper#getMessage(Locale, String)
+	 * @see FacesContextHelper#getMessage(Locale, String)
 	 */
 	public String getMessage(Locale locale, String messageId) {
 		return facesContextHelper.getMessage(locale, messageId);
 	}
 
 	/**
-	 * @see  FacesContextHelper#getMessage(Locale, String, Object...)
+	 * @see FacesContextHelper#getMessage(Locale, String, Object...)
 	 */
 	public String getMessage(Locale locale, String messageId, Object... arguments) {
 		return facesContextHelper.getMessage(locale, messageId, arguments);
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public List<FacesMessage> getMessageList() {
@@ -486,7 +486,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public List<FacesMessage> getMessageList(String clientId) {
@@ -494,7 +494,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public Iterator<FacesMessage> getMessages() {
@@ -502,7 +502,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public Iterator<FacesMessage> getMessages(String clientId) {
@@ -510,14 +510,14 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getPortletNamespace()
+	 * @see FacesContextHelper#getPortletNamespace()
 	 */
 	public String getNamespace() {
 		return facesContextHelper.getNamespace();
 	}
 
 	/**
-	 * @see  FacesContextHelper#getParentForm(UIComponent)
+	 * @see FacesContextHelper#getParentForm(UIComponent)
 	 */
 	public UIForm getParentForm(UIComponent uiComponent) {
 
@@ -525,7 +525,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public PartialViewContext getPartialViewContext() {
@@ -533,7 +533,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setProcessingEvents(boolean processingEvents) {
@@ -541,7 +541,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public RenderKit getRenderKit() {
@@ -549,7 +549,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public boolean getRenderResponse() {
@@ -557,7 +557,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestAttribute(String)
+	 * @see FacesContextHelper#getRequestAttribute(String)
 	 */
 	public Object getRequestAttribute(String name) {
 
@@ -565,7 +565,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#setRequestAttribute(String, Object)
+	 * @see FacesContextHelper#setRequestAttribute(String, Object)
 	 */
 	public void setRequestAttribute(String name, Object value) {
 		facesContextHelper.setRequestAttribute(name, value);
@@ -573,7 +573,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestContextPath()
+	 * @see FacesContextHelper#getRequestContextPath()
 	 */
 	public String getRequestContextPath() {
 
@@ -581,7 +581,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestParameter(String)
+	 * @see FacesContextHelper#getRequestParameter(String)
 	 */
 	public String getRequestParameter(String name) {
 
@@ -589,7 +589,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestParameterAsBool(String, boolean)
+	 * @see FacesContextHelper#getRequestParameterAsBool(String, boolean)
 	 */
 	public boolean getRequestParameterAsBool(String name, boolean defaultValue) {
 
@@ -597,7 +597,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestParameterAsInt(String, int)
+	 * @see FacesContextHelper#getRequestParameterAsInt(String, int)
 	 */
 	public int getRequestParameterAsInt(String name, int defaultValue) {
 
@@ -605,7 +605,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestParameterAsLong(String, long)
+	 * @see FacesContextHelper#getRequestParameterAsLong(String, long)
 	 */
 	public long getRequestParameterAsLong(String name, long defaultValue) {
 
@@ -613,7 +613,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestParameterFromMap(String)
+	 * @see FacesContextHelper#getRequestParameterFromMap(String)
 	 */
 	public String getRequestParameterFromMap(String name) {
 
@@ -621,14 +621,14 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestParameterMap()
+	 * @see FacesContextHelper#getRequestParameterMap()
 	 */
 	public Map<String, String> getRequestParameterMap() {
 		return facesContextHelper.getRequestParameterMap();
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestQueryString()
+	 * @see FacesContextHelper#getRequestQueryString()
 	 */
 	public String getRequestQueryString() {
 
@@ -636,7 +636,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getRequestQueryStringParameter(String)
+	 * @see FacesContextHelper#getRequestQueryStringParameter(String)
 	 */
 	public String getRequestQueryStringParameter(String name) {
 
@@ -644,7 +644,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public boolean getResponseComplete() {
@@ -652,7 +652,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public ResponseStream getResponseStream() {
@@ -660,7 +660,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void setResponseStream(ResponseStream responseStream) {
@@ -668,7 +668,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public ResponseWriter getResponseWriter() {
@@ -676,7 +676,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void setResponseWriter(ResponseWriter responseWriter) {
@@ -684,7 +684,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public boolean isProcessingEvents() {
@@ -692,7 +692,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getSession(boolean)
+	 * @see FacesContextHelper#getSession(boolean)
 	 */
 	public Object getSession(boolean create) {
 
@@ -700,7 +700,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#getSessionAttribute(String)
+	 * @see FacesContextHelper#getSessionAttribute(String)
 	 */
 	public Object getSessionAttribute(String name) {
 
@@ -708,7 +708,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @see  FacesContextHelper#setSessionAttribute(String, Object)
+	 * @see FacesContextHelper#setSessionAttribute(String, Object)
 	 */
 	public void setSessionAttribute(String name, Object value) {
 
@@ -716,7 +716,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public UIViewRoot getViewRoot() {
@@ -724,7 +724,7 @@ public class ExtFacesContextImpl extends ExtFacesContext {
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public void setViewRoot(UIViewRoot viewRoot) {

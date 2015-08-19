@@ -19,9 +19,10 @@ import com.liferay.faces.util.map.AbstractPropertyMapEntry;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ServletContextAttributeMapEntry extends AbstractPropertyMapEntry<Object> {
+
 	private ServletContext servletContext;
 
 	public ServletContextAttributeMapEntry(ServletContext servletContext, String key) {

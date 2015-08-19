@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = CommandLink.COMPONENT_TYPE)
 public class CommandLink extends CommandLinkBase {

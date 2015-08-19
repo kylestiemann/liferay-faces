@@ -21,7 +21,7 @@ import javax.servlet.jsp.JspWriter;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class JspWriterWrapper extends JspWriter implements FacesWrapper<JspWriter> {
 

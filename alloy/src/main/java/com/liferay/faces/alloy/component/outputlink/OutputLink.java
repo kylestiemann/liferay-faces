@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = OutputLink.COMPONENT_TYPE)
 public class OutputLink extends OutputLinkBase {

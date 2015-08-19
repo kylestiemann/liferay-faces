@@ -14,12 +14,12 @@
 package com.liferay.faces.util.text;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface RichText {
 
 	/**
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	public enum Type {
 		HTML, BBCODE, CREOLE

@@ -34,12 +34,12 @@ import javax.portlet.faces.Bridge;
  * created for the RENDER_PHASE are two different objects, and so the BridgeRequestScope exists to maintain request
  * attribute values between the two phases.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeRequestScope {
 
 	/**
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	public static enum Transport {
 
@@ -58,10 +58,10 @@ public interface BridgeRequestScope {
 
 	/**
 	 * This method removes the excluded request attributes. It is designed to be called at the beginning of the
-	 * RENDER_PHASE of the portlet lifecycle. However, it is only necessary to call this method if {@link
-	 * com.liferay.faces.bridge.context.BridgePortalContext#POST_REDIRECT_GET_SUPPORT} evaluates to <code>false</code>.
-	 * This is because portlet containers that do indeed implement the POST-REDIRECT-GET design pattern would not have
-	 * any excluded request attributes carry-over from the ActionRequest to the RenderRequest.
+	 * RENDER_PHASE of the portlet lifecycle. However, it is only necessary to call this method if
+	 * {@link com.liferay.faces.bridge.context.BridgePortalContext#POST_REDIRECT_GET_SUPPORT} evaluates to
+	 * <code>false</code>. This is because portlet containers that do indeed implement the POST-REDIRECT-GET design
+	 * pattern would not have any excluded request attributes carry-over from the ActionRequest to the RenderRequest.
 	 */
 	void removeExcludedAttributes(RenderRequest renderRequest);
 
@@ -70,7 +70,7 @@ public interface BridgeRequestScope {
 	 * required by section 5.1.2 of the Bridge Spec. This method is designed to be called during the EVENT_PHASE and
 	 * RENDER_PHASE of the portlet lifecycle.
 	 *
-	 * @param  facesContext  The current {@link FacesContext}.
+	 * @param facesContext The current {@link FacesContext}.
 	 */
 	void restoreState(FacesContext facesContext);
 
@@ -79,7 +79,7 @@ public interface BridgeRequestScope {
 	 * during the {@link javax.portlet.PortletRequest#ACTION_PHASE} and {@link javax.portlet.PortletRequest#EVENT_PHASE}
 	 * of the portlet lifecycle.
 	 *
-	 * @param  facesContext  The current {@link FacesContext}.
+	 * @param facesContext The current {@link FacesContext}.
 	 */
 	void saveState(FacesContext facesContext);
 
@@ -87,36 +87,36 @@ public interface BridgeRequestScope {
 	 * Determines the {@link javax.portlet.faces.Bridge.PortletPhase} in which the bridge request scope instance was
 	 * created.
 	 *
-	 * @return  The {@link javax.portlet.faces.Bridge.PortletPhase} in which the bridge request scope instance was
-	 *          created.
+	 * @return The {@link javax.portlet.faces.Bridge.PortletPhase} in which the bridge request scope instance was
+	 *         created.
 	 */
 	public Bridge.PortletPhase getBeganInPhase();
 
 	/**
 	 * Returns the flag indicating whether or not the Faces Lifecycle was executed.
 	 *
-	 * @return  <code>true</code> if the Faces Lifecycle was executed, otherwise <code>false</code>.
+	 * @return <code>true</code> if the Faces Lifecycle was executed, otherwise <code>false</code>.
 	 */
 	boolean isFacesLifecycleExecuted();
 
 	/**
 	 * Returns the flag indicating whether or not a navigation-rule fired.
 	 *
-	 * @return  <code>true</code> indicates that a navigation-rule fired, otherwise <code>false</code>.
+	 * @return <code>true</code> indicates that a navigation-rule fired, otherwise <code>false</code>.
 	 */
 	boolean isNavigationOccurred();
 
 	/**
 	 * Returns a flag indicating whether or not the PortletMode has changed.
 	 *
-	 * @return  <code>true</code> if the portlet mode has changed, otherwise <code>false</code>
+	 * @return <code>true</code> if the portlet mode has changed, otherwise <code>false</code>
 	 */
 	boolean isPortletModeChanged();
 
 	/**
 	 * Returns a flag indicating whether or not a <redirect/> was encountered in a navigation-rule.
 	 *
-	 * @return  <code>true</code> indicates that <redirect/> was encountered in a navigation-rule, otherwise <code>
+	 * @return <code>true</code> indicates that <redirect/> was encountered in a navigation-rule, otherwise <code>
 	 *          false</code>.
 	 */
 	boolean isRedirectOccurred();
@@ -129,8 +129,8 @@ public interface BridgeRequestScope {
 	/**
 	 * Sets the flag indicating whether or not the Faces lifecycle was executed.
 	 *
-	 * @param  facesLifecycleExecuted  <code>true</code> indicates that the Faces lifecycle was executed, otherwise
-	 *                                 <code>false</code>.
+	 * @param facesLifecycleExecuted <code>true</code> indicates that the Faces lifecycle was executed, otherwise
+	 *            <code>false</code>.
 	 */
 	void setFacesLifecycleExecuted(boolean facesLifecycleExecuted);
 
@@ -147,7 +147,7 @@ public interface BridgeRequestScope {
 	/**
 	 * Sets the flag indicating whether or not a navigation-rule fired.
 	 *
-	 * @param  navigationOccurred  <code>true</code> indicates that a navigation-rule fired, otherwise <code>
+	 * @param navigationOccurred <code>true</code> indicates that a navigation-rule fired, otherwise <code>
 	 *                             false</code>.
 	 */
 	void setNavigationOccurred(boolean navigationOccurred);
@@ -171,17 +171,17 @@ public interface BridgeRequestScope {
 	/**
 	 * Sets a flag indicating whether or not a <redirect/> was encountered in a navigation-rule.
 	 *
-	 * @param  redirectOccurred  <code>true</code> indicates that a <redirect/> was encountered in a navigation-rule,
-	 *                           otherwise <code>false</code>.
+	 * @param redirectOccurred <code>true</code> indicates that a <redirect/> was encountered in a navigation-rule,
+	 *            otherwise <code>false</code>.
 	 */
 	void setRedirectOccurred(boolean redirectOccurred);
 
 	/**
-	 * This method returns a mutable set of attribute names that correspond to those that were removed by the {@link
-	 * #removeExcludedAttributes(RenderRequest)} method. Since the return value is mutable, callers of this method have
-	 * an opportunity to add names to the set when necessary.
+	 * This method returns a mutable set of attribute names that correspond to those that were removed by the
+	 * {@link #removeExcludedAttributes(RenderRequest)} method. Since the return value is mutable, callers of this
+	 * method have an opportunity to add names to the set when necessary.
 	 *
-	 * @return  The set of removed attribute names.
+	 * @return The set of removed attribute names.
 	 */
 	Set<String> getRemovedAttributeNames();
 }

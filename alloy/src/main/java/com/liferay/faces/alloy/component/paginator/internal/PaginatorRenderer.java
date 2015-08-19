@@ -53,7 +53,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = Paginator.COMPONENT_FAMILY, rendererType = Paginator.RENDERER_TYPE)
@@ -167,8 +167,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 			}
 		}
 		else {
-			logger.error(
-				"The alloy:paginator must have it's for attribute set or it must be inside of an f:facet of an alloy:dataTable or alloy:dataList");
+			logger
+				.error("The alloy:paginator must have it's for attribute set or it must be inside of an f:facet of an alloy:dataTable or alloy:dataList");
 		}
 	}
 
@@ -197,8 +197,7 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 		String summaryPosition = paginator.getSummaryPosition();
 
 		if ("top".equals(summaryPosition)) {
-			encodeSummary(responseWriter, paginator, summaryPosition, locale, first, curPage, rows, rowCount,
-				pageCount);
+			encodeSummary(responseWriter, paginator, summaryPosition, locale, first, curPage, rows, rowCount, pageCount);
 		}
 
 		// If any of the pagination controls are the be encoded, then
@@ -208,8 +207,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 		boolean showNextPageControl = paginator.isShowNextPageControl();
 		boolean showPreviousPageControl = paginator.isShowPreviousPageControl();
 
-		if (showPageNumberControls || showFirstPageControl || showLastPageControl || showNextPageControl ||
-				showPreviousPageControl) {
+		if (showPageNumberControls || showFirstPageControl || showLastPageControl || showNextPageControl
+			|| showPreviousPageControl) {
 
 			// Encode the starting <div> element that represents the Bootstrap pagination component.
 			responseWriter.startElement("div", uiComponent);
@@ -298,8 +297,7 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 
 		// If the summary is to be positioned beneath the pagination controls, then encode the summary.
 		if ("bottom".equals(summaryPosition)) {
-			encodeSummary(responseWriter, paginator, summaryPosition, locale, first, curPage, rows, rowCount,
-				pageCount);
+			encodeSummary(responseWriter, paginator, summaryPosition, locale, first, curPage, rows, rowCount, pageCount);
 		}
 	}
 
@@ -317,8 +315,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 		Paginator paginator = (Paginator) componentSystemEvent.getComponent();
 
 		if (paginator.isAjax()) {
-			AlloyRendererUtil.addDefaultAjaxBehavior(paginator, paginator.getExecute(), paginator.getProcess(), "@this",
-				paginator.getRender(), paginator.getUpdate(), "@this @for");
+			AlloyRendererUtil.addDefaultAjaxBehavior(paginator, paginator.getExecute(), paginator.getProcess(),
+				"@this", paginator.getRender(), paginator.getUpdate(), "@this @for");
 		}
 	}
 
@@ -332,8 +330,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 			firstPageLabel, enabled, false);
 	}
 
-	protected void encodeLastPageListItem(FacesContext facesContext, ResponseWriter responseWriter, Paginator paginator,
-		UIData uiData, String clientId, String namingContainerId) throws IOException {
+	protected void encodeLastPageListItem(FacesContext facesContext, ResponseWriter responseWriter,
+		Paginator paginator, UIData uiData, String clientId, String namingContainerId) throws IOException {
 
 		boolean enabled = ((uiData.getFirst() + uiData.getRows()) < uiData.getRowCount());
 		String lastPageLabel = paginator.getLastPageLabel();
@@ -341,8 +339,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 			lastPageLabel, enabled, false);
 	}
 
-	protected void encodeNextPageListItem(FacesContext facesContext, ResponseWriter responseWriter, Paginator paginator,
-		UIData uiData, String clientId, String namingContainerId) throws IOException {
+	protected void encodeNextPageListItem(FacesContext facesContext, ResponseWriter responseWriter,
+		Paginator paginator, UIData uiData, String clientId, String namingContainerId) throws IOException {
 
 		boolean enabled = ((uiData.getFirst() + uiData.getRows()) < uiData.getRowCount());
 		String nextPageLabel = paginator.getNextPageLabel();
@@ -371,8 +369,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 			pageNumberLabel, enabled, current);
 	}
 
-	protected void encodePrevPageListItem(FacesContext facesContext, ResponseWriter responseWriter, Paginator paginator,
-		String clientId, String namingContainerId, int first) throws IOException {
+	protected void encodePrevPageListItem(FacesContext facesContext, ResponseWriter responseWriter,
+		Paginator paginator, String clientId, String namingContainerId, int first) throws IOException {
 
 		boolean enabled = (first > 0);
 		String previousPageLabel = paginator.getPreviousPageLabel();
@@ -399,11 +397,12 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 		int paginatorLast = Math.min(first + rows, rowCount);
 
 		// Get an internationalized message that contains the pagination summary.
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 		MessageContext messageContext = messageContextFactory.getMessageContext();
-		String message = messageContext.getMessage(locale, "results-x-x-of-x-page-x-of-x", paginatorFirst,
-				paginatorLast, rowCount, curPageNumber, pageCount);
+		String message =
+			messageContext.getMessage(locale, "results-x-x-of-x-page-x-of-x", paginatorFirst, paginatorLast, rowCount,
+				curPageNumber, pageCount);
 
 		// Encode a list item inside the Bootstrap pagination component that contains the pagination summary message.
 		responseWriter.startElement("li", paginator);
@@ -444,8 +443,8 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 
 			// If the alloy:paginator has a nested f:ajax tag, then encode a hyperlink that contains the client
 			// behavior script in the onclick attribute.
-			String clientBehaviorScript = getClientBehaviorScript(facesContext, paginator, clientId, namingContainerId,
-					paginatorAction);
+			String clientBehaviorScript =
+				getClientBehaviorScript(facesContext, paginator, clientId, namingContainerId, paginatorAction);
 
 			if (clientBehaviorScript != null) {
 				responseWriter.startElement("a", paginator);
@@ -459,12 +458,14 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 			else {
 
 				Application application = facesContext.getApplication();
-				CommandLink commandLink = (CommandLink) application.createComponent(facesContext,
-						CommandLink.COMPONENT_TYPE, CommandLink.RENDERER_TYPE);
+				CommandLink commandLink =
+					(CommandLink) application.createComponent(facesContext, CommandLink.COMPONENT_TYPE,
+						CommandLink.RENDERER_TYPE);
 				commandLink.setAjax(paginator.isAjax());
 
-				OutputText outputText = (OutputText) application.createComponent(facesContext,
-						OutputText.COMPONENT_TYPE, OutputText.RENDERER_TYPE);
+				OutputText outputText =
+					(OutputText) application.createComponent(facesContext, OutputText.COMPONENT_TYPE,
+						OutputText.RENDERER_TYPE);
 
 				List<UIComponent> paginatorChildren = paginator.getChildren();
 				paginatorChildren.add(commandLink);
@@ -517,11 +518,12 @@ public class PaginatorRenderer extends PaginatorRendererBase implements Componen
 
 				if (namingContainerId != null) {
 					parameters.add(new ClientBehaviorContext.Parameter("'com.sun.faces.namingContainerId'",
-							namingContainerId));
+						namingContainerId));
 				}
 
-				ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-						facesContext, paginator, defaultEventName, clientId, parameters);
+				ClientBehaviorContext clientBehaviorContext =
+					ClientBehaviorContext.createClientBehaviorContext(facesContext, paginator, defaultEventName,
+						clientId, parameters);
 				clientBehaviorScript = clientBehavior.getScript(clientBehaviorContext);
 			}
 		}

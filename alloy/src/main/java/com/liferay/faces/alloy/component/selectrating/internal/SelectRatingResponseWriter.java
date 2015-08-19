@@ -39,7 +39,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 //J+
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class SelectRatingResponseWriter extends DelegationResponseWriterBase {
 

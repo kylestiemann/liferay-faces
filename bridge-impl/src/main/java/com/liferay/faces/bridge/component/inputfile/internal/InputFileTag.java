@@ -19,7 +19,7 @@ import com.liferay.faces.bridge.component.inputfile.InputFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class InputFileTag extends UIComponentELTag {
 

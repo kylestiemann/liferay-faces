@@ -20,14 +20,14 @@ import javax.faces.event.PhaseId;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ProgressCompleteEvent extends AjaxBehaviorEvent {
 
 	// Public Constants
 	public static final String PROGRESS_COMPLETE = "progressComplete";
 
-	/// serialVersionUID
+	// / serialVersionUID
 	private static final long serialVersionUID = 7578789532730213902L;
 
 	public ProgressCompleteEvent(UIComponent component, Behavior behavior) {

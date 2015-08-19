@@ -19,9 +19,10 @@ import com.liferay.faces.demos.dto.Booking;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BookingService {
+
 	public List<Booking> getAllBookings();
 
 	public List<Booking> getBookingsByCustomerId(long customerId);

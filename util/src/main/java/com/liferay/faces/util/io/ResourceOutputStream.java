@@ -21,7 +21,7 @@ import javax.faces.application.Resource;
 /**
  * This class represents a buffered output stream that is associated with a {@link Resource}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceOutputStream extends ByteArrayOutputStream {
 

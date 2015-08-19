@@ -17,7 +17,7 @@ import java.io.StringWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class DelayedResponseOutputWriter extends StringWriter {
 

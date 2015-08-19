@@ -14,7 +14,7 @@
 package com.liferay.faces.util.product;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ProductConstants {
 

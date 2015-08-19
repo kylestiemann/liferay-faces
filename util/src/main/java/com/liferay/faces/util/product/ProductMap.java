@@ -31,7 +31,7 @@ import com.liferay.faces.util.product.internal.ProductWildFlyImpl;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ProductMap extends HashMap<String, Product> {
 

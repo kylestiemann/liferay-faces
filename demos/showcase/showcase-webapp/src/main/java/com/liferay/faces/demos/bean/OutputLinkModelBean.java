@@ -23,7 +23,7 @@ import com.liferay.faces.demos.service.CountryService;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped

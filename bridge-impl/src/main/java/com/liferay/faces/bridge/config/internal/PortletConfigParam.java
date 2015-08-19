@@ -23,7 +23,7 @@ import com.liferay.faces.util.helper.BooleanHelper;
  * This enumeration contains constant names for various implementation-specific contex-param entries that portlet
  * developers can use in the WEB-INF/web.xml descriptor.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public enum PortletConfigParam implements ConfigParam<PortletConfig> {
 
@@ -48,8 +48,8 @@ public enum PortletConfigParam implements ConfigParam<PortletConfig> {
 		"org.portletfaces.bridge.containerAbleToSetHttpStatusCode", false),
 
 	/**
-	 * Flag indicating whether or not JSF {@link javax.faces.bean.ManagedBean} classes annotated with {@link
-	 * javax.faces.bean.RequestScoped} should be distinct for each portlet. Default value is false.
+	 * Flag indicating whether or not JSF {@link javax.faces.bean.ManagedBean} classes annotated with
+	 * {@link javax.faces.bean.RequestScoped} should be distinct for each portlet. Default value is false.
 	 */
 	DistinctRequestScopedManagedBeans("com.liferay.faces.bridge.distinctRequestScopedManagedBeans", false),
 
@@ -80,8 +80,8 @@ public enum PortletConfigParam implements ConfigParam<PortletConfig> {
 	 * Absolute path to a directory (folder) in which the uploaded file data should be written to. Default value is the
 	 * value of the system property "java.io.tmpdir".
 	 */
-	UploadedFilesDir("com.liferay.faces.bridge.uploadedFilesDir", "javax.faces.UPLOADED_FILES_DIR",
-		System.getProperty("java.io.tmpdir")),
+	UploadedFilesDir("com.liferay.faces.bridge.uploadedFilesDir", "javax.faces.UPLOADED_FILES_DIR", System
+		.getProperty("java.io.tmpdir")),
 
 	/** Maximum file size for an uploaded file. Default is 104857600 bytes (100MB) */
 	UploadedFileMaxSize("com.liferay.faces.bridge.uploadedFileMaxSize", "javax.faces.UPLOADED_FILE_MAX_SIZE",

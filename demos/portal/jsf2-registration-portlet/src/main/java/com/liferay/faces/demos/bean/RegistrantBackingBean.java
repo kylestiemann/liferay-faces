@@ -41,7 +41,7 @@ import com.liferay.portal.service.CompanyLocalServiceUtil;
 /**
  * This is a JSF backing managed-bean for the registrant.xhtml composition.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "registrantBackingBean")
 @ViewScoped
@@ -63,11 +63,10 @@ public class RegistrantBackingBean implements Serializable {
 	public void submit(ActionEvent actionEvent) {
 
 		Registrant submittedRegistrant = registrantModelBean.getRegistrant();
-		logger.debug("Adding user firstName=[{0}], lastName=[{1}], emailAddress=[{2}], captchaText=[{3}]",
-			new Object[] {
-				submittedRegistrant.getFirstName(), submittedRegistrant.getLastName(),
-				submittedRegistrant.getEmailAddress(), submittedRegistrant.getCaptchaText()
-			});
+		logger.debug(
+			"Adding user firstName=[{0}], lastName=[{1}], emailAddress=[{2}], captchaText=[{3}]",
+			new Object[] { submittedRegistrant.getFirstName(), submittedRegistrant.getLastName(),
+				submittedRegistrant.getEmailAddress(), submittedRegistrant.getCaptchaText() });
 
 		LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
 		long creatorUserId = liferayFacesContext.getUser().getUserId();
@@ -96,22 +95,22 @@ public class RegistrantBackingBean implements Serializable {
 			switch (e.getType()) {
 
 			case UserPasswordException.PASSWORD_ALREADY_USED: {
-				liferayFacesContext.addGlobalErrorMessage(
-					"that-password-has-already-been-used-please-enter-in-a-different-password");
+				liferayFacesContext
+					.addGlobalErrorMessage("that-password-has-already-been-used-please-enter-in-a-different-password");
 
 				break;
 			}
 
 			case UserPasswordException.PASSWORD_CONTAINS_TRIVIAL_WORDS: {
-				liferayFacesContext.addGlobalErrorMessage(
-					"that-password-uses-common-words-please-enter-in-a-password-that-is-harder-to-guess-i-e-contains-a-mix-of-numbers-and-letters");
+				liferayFacesContext
+					.addGlobalErrorMessage("that-password-uses-common-words-please-enter-in-a-password-that-is-harder-to-guess-i-e-contains-a-mix-of-numbers-and-letters");
 
 				break;
 			}
 
 			case UserPasswordException.PASSWORD_INVALID: {
-				liferayFacesContext.addGlobalErrorMessage(
-					"that-password-is-invalid-please-enter-in-a-different-password");
+				liferayFacesContext
+					.addGlobalErrorMessage("that-password-is-invalid-please-enter-in-a-different-password");
 
 				break;
 			}
@@ -121,9 +120,10 @@ public class RegistrantBackingBean implements Serializable {
 				try {
 					Company company = CompanyLocalServiceUtil.getCompany(companyId);
 					PasswordPolicy passwordPolicy = company.getDefaultUser().getPasswordPolicy();
-					liferayFacesContext.addGlobalErrorMessage(
-						"that-password-is-too-short-or-too-long-please-make-sure-your-password-is-between-x-and-512-characters",
-						new Object[] { String.valueOf(passwordPolicy.getMinLength()) });
+					liferayFacesContext
+						.addGlobalErrorMessage(
+							"that-password-is-too-short-or-too-long-please-make-sure-your-password-is-between-x-and-512-characters",
+							new Object[] { String.valueOf(passwordPolicy.getMinLength()) });
 
 				}
 				catch (Exception e1) {
@@ -141,8 +141,8 @@ public class RegistrantBackingBean implements Serializable {
 			}
 
 			case UserPasswordException.PASSWORD_SAME_AS_CURRENT: {
-				liferayFacesContext.addGlobalErrorMessage(
-					"your-new-password-cannot-be-the-same-as-your-old-password-please-enter-in-a-different-password");
+				liferayFacesContext
+					.addGlobalErrorMessage("your-new-password-cannot-be-the-same-as-your-old-password-please-enter-in-a-different-password");
 
 				break;
 			}
@@ -158,9 +158,10 @@ public class RegistrantBackingBean implements Serializable {
 				try {
 					Company company = CompanyLocalServiceUtil.getCompany(companyId);
 					PasswordPolicy passwordPolicy = company.getDefaultUser().getPasswordPolicy();
-					liferayFacesContext.addGlobalErrorMessage(
-						"you-cannot-change-your-password-yet-please-wait-at-least-x-before-changing-your-password-again",
-						new Object[] { String.valueOf(passwordPolicy.getMinAge() * 1000) });
+					liferayFacesContext
+						.addGlobalErrorMessage(
+							"you-cannot-change-your-password-yet-please-wait-at-least-x-before-changing-your-password-again",
+							new Object[] { String.valueOf(passwordPolicy.getMinAge() * 1000) });
 
 				}
 				catch (Exception e1) {
@@ -172,8 +173,8 @@ public class RegistrantBackingBean implements Serializable {
 			}
 
 			case UserPasswordException.PASSWORDS_DO_NOT_MATCH: {
-				liferayFacesContext.addGlobalErrorMessage(
-					"the-passwords-you-entered-do-not-match-each-other-please-re-enter-your-password");
+				liferayFacesContext
+					.addGlobalErrorMessage("the-passwords-you-entered-do-not-match-each-other-please-re-enter-your-password");
 
 				break;
 			}
@@ -192,8 +193,8 @@ public class RegistrantBackingBean implements Serializable {
 	public boolean isCaptchaRendered() {
 
 		if (captchaRendered == null) {
-			captchaRendered = Boolean.valueOf(GetterUtil.getBoolean(
-						PropsUtil.get(PropsKeys.CAPTCHA_CHECK_PORTAL_CREATE_ACCOUNT)));
+			captchaRendered =
+				Boolean.valueOf(GetterUtil.getBoolean(PropsUtil.get(PropsKeys.CAPTCHA_CHECK_PORTAL_CREATE_ACCOUNT)));
 		}
 
 		return captchaRendered.booleanValue();

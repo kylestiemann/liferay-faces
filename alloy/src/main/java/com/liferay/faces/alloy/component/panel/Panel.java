@@ -17,8 +17,8 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Bruno Basto
- * @author  Kyle Stiemann
+ * @author Bruno Basto
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Panel.COMPONENT_TYPE)
 public class Panel extends PanelBase {

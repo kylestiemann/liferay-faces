@@ -30,7 +30,7 @@ import com.liferay.taglib.security.PermissionsURLTag;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 
 //J-

@@ -25,7 +25,7 @@ import com.liferay.faces.bridge.scope.BridgeRequestScope;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ActionResponseBridgeImpl extends ActionResponseBridgeCompatImpl {
 

@@ -18,10 +18,10 @@ import javax.faces.context.ResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class HeadResponseWriterFactory implements FacesWrapper<HeadResponseWriterFactory> {
 
-	public abstract HeadResponseWriter getHeadResponseWriter(BridgeContext bridgeContext,
-		ResponseWriter responseWriter);
+	public abstract HeadResponseWriter
+		getHeadResponseWriter(BridgeContext bridgeContext, ResponseWriter responseWriter);
 }

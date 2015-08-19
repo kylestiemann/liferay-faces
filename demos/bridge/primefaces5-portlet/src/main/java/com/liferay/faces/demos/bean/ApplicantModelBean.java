@@ -29,7 +29,7 @@ import com.liferay.faces.util.model.UploadedFile;
 /**
  * This is a model managed bean that represents an applicant that is applying for a job.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "applicantModelBean")
 @ViewScoped

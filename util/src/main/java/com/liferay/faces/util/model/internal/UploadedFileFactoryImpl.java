@@ -26,7 +26,7 @@ import com.liferay.faces.util.model.UploadedFileFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class UploadedFileFactoryImpl extends UploadedFileFactory {
 
@@ -51,11 +51,13 @@ public class UploadedFileFactoryImpl extends UploadedFileFactory {
 		if (fileUploadException != null) {
 
 			if (fileUploadException instanceof SizeLimitExceededException) {
-				uploadedFile = new UploadedFileErrorImpl(fileUploadException.getMessage(),
+				uploadedFile =
+					new UploadedFileErrorImpl(fileUploadException.getMessage(),
 						UploadedFile.Status.REQUEST_SIZE_LIMIT_EXCEEDED);
 			}
 			else if (fileUploadException instanceof FileSizeLimitExceededException) {
-				uploadedFile = new UploadedFileErrorImpl(fileUploadException.getMessage(),
+				uploadedFile =
+					new UploadedFileErrorImpl(fileUploadException.getMessage(),
 						UploadedFile.Status.FILE_SIZE_LIMIT_EXCEEDED);
 			}
 			else {
@@ -77,8 +79,9 @@ public class UploadedFileFactoryImpl extends UploadedFileFactory {
 		UploadedFile uploadedFile = null;
 
 		if (uploadedFile == null) {
-			uploadedFile = new UploadedFileImpl(absolutePath, attributes, charSet, contentType, headers, id, message,
-					name, size, status);
+			uploadedFile =
+				new UploadedFileImpl(absolutePath, attributes, charSet, contentType, headers, id, message, name, size,
+					status);
 		}
 
 		return uploadedFile;

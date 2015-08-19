@@ -22,10 +22,10 @@ import javax.faces.context.FacesContext;
 
 /**
  * This class represents a JSF 2 component with a resource dependency. For example, if the <code>resourceName</code>
- * ends with CSS, then this component would be rendered with the Mojarra {@link
- * com.sun.faces.renderkit.html_basic.StyleSheetRenderer} class.
+ * ends with CSS, then this component would be rendered with the Mojarra
+ * {@link com.sun.faces.renderkit.html_basic.StyleSheetRenderer} class.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceComponent extends UIOutput {
 

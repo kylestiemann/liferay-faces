@@ -32,7 +32,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = CommandLink.COMPONENT_FAMILY, rendererType = CommandLink.RENDERER_TYPE)
 @ListenerFor(systemEventClass = PostAddToViewEvent.class, sourceClass = CommandLink.class)
@@ -43,8 +43,8 @@ public class CommandLinkRenderer extends CommandLinkRendererBase implements Comp
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
 		ResponseWriter responseWriter = facesContext.getResponseWriter();
-		DelegationResponseWriter delegationResponseWriter = new CommandLinkResponseWriter(responseWriter,
-				(uiComponent.getChildCount() > 0));
+		DelegationResponseWriter delegationResponseWriter =
+			new CommandLinkResponseWriter(responseWriter, (uiComponent.getChildCount() > 0));
 		super.encodeBegin(facesContext, uiComponent, delegationResponseWriter);
 	}
 

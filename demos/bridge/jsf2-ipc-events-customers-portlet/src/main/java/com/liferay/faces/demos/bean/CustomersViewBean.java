@@ -35,7 +35,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @ViewScoped
@@ -48,8 +48,8 @@ public class CustomersViewBean implements Serializable {
 	private static final Logger logger = LoggerFactory.getLogger(CustomersViewBean.class);
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
 	// Private Data Members
 	private boolean sendRedirect = false;
@@ -72,8 +72,8 @@ public class CustomersViewBean implements Serializable {
 
 			try {
 				FacesContext facesContext = FacesContext.getCurrentInstance();
-				ThemeDisplay themeDisplay = (ThemeDisplay) facesContext.getExternalContext().getRequestMap().get(
-						WebKeys.THEME_DISPLAY);
+				ThemeDisplay themeDisplay =
+					(ThemeDisplay) facesContext.getExternalContext().getRequestMap().get(WebKeys.THEME_DISPLAY);
 				long groupId = themeDisplay.getScopeGroupId();
 				boolean publicLayout = themeDisplay.getLayout().isPublicLayout();
 				Locale locale = themeDisplay.getLocale();

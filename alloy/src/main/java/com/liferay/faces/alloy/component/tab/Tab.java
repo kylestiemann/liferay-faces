@@ -28,21 +28,21 @@ import com.liferay.faces.alloy.component.tabview.TabView;
  * developer to specify alloy:tab as a child element of alloy:tabView. For example:
  *
  * <pre>
-    {@code
-    <alloy:tabView value="#{modelBean.items}" var="item">
-        <alloy:tab label="#{item.label}" />
-    </alloy:tabView>
-    }
+ *     {@code
+ *     <alloy:tabView value="#{modelBean.items}" var="item">
+ *         <alloy:tab label="#{item.label}" />
+ *     </alloy:tabView>
+ *     }
  * </pre>
  *
- * Note that this class ultimately extends {@link UIColumn} because the {@link TabView} class ultimately extends {@link
- * UIData} (which handles children of type {@link UIColumn} in a special manner). In fact, the JavaDoc description for
- * the {@link UIData} class states that _ONLY_ children of type {@link UIColumn} should be processed by associated
- * {@link Renderer} classes. One of the most important benefits of extending {@link UIColumn} is that the {@link
- * UIData#getClientId()} method will append the rowIndex during iteration over a {@link DataModel}, ensuring that each
- * rendered {@link Tab} will have a unique clientId.
+ * Note that this class ultimately extends {@link UIColumn} because the {@link TabView} class ultimately extends
+ * {@link UIData} (which handles children of type {@link UIColumn} in a special manner). In fact, the JavaDoc
+ * description for the {@link UIData} class states that _ONLY_ children of type {@link UIColumn} should be processed by
+ * associated {@link Renderer} classes. One of the most important benefits of extending {@link UIColumn} is that the
+ * {@link UIData#getClientId()} method will append the rowIndex during iteration over a {@link DataModel}, ensuring that
+ * each rendered {@link Tab} will have a unique clientId.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = Tab.COMPONENT_TYPE)
 public class Tab extends TabBase {

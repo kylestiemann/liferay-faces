@@ -21,7 +21,7 @@ import java.lang.annotation.Target;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Documented
 @Retention(RetentionPolicy.RUNTIME)

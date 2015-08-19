@@ -24,7 +24,7 @@ import javax.faces.FacesException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeFactoryFinder {
 

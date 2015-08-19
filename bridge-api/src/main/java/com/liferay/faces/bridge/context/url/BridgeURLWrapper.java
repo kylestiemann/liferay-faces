@@ -14,7 +14,7 @@
 package com.liferay.faces.bridge.context.url;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeURLWrapper implements BridgeURL {
 

@@ -18,7 +18,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class EncodedURLHiddenField extends HtmlInputHidden {
 

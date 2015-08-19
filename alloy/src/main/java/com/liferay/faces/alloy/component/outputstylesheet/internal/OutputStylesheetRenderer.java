@@ -21,7 +21,7 @@ import com.liferay.faces.alloy.component.outputstylesheet.OutputStylesheet;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = OutputStylesheet.COMPONENT_FAMILY, rendererType = OutputStylesheet.RENDERER_TYPE)

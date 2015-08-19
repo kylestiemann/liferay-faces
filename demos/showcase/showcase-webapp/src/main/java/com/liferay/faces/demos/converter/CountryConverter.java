@@ -27,8 +27,8 @@ import com.liferay.faces.demos.service.CountryService;
 
 
 /**
- * @author  Neil Griffin
- * @author  Juan Gonzalez
+ * @author Neil Griffin
+ * @author Juan Gonzalez
  */
 @FacesConverter(value = "convertCountry")
 public class CountryConverter implements Converter {

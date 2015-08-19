@@ -45,11 +45,11 @@ import com.liferay.portal.util.PortalUtil;
 
 
 /**
- * This class is a wrapper around the {@link PartialViewContext}. Its purpose is to wrap the {@link
- * PartialResponseWriter} with one that writes {@link Script}s from {@link FacesRequestContext} to the &lt;eval&gt;
- * section of the partial response.
+ * This class is a wrapper around the {@link PartialViewContext}. Its purpose is to wrap the
+ * {@link PartialResponseWriter} with one that writes {@link Script}s from {@link FacesRequestContext} to the
+ * &lt;eval&gt; section of the partial response.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PartialViewContextLiferayImpl extends PartialViewContextWrapper {
 
@@ -75,8 +75,8 @@ public class PartialViewContextLiferayImpl extends PartialViewContextWrapper {
 	public PartialResponseWriter getPartialResponseWriter() {
 
 		if (partialResponseWriter == null) {
-			partialResponseWriter = new PartialResponseWriterLiferayImpl(super.getPartialResponseWriter(),
-					facesContext);
+			partialResponseWriter =
+				new PartialResponseWriterLiferayImpl(super.getPartialResponseWriter(), facesContext);
 		}
 
 		return partialResponseWriter;
@@ -91,7 +91,7 @@ public class PartialViewContextLiferayImpl extends PartialViewContextWrapper {
 	 * This class serves as a wrapper around the {@link PartialResponseWriter} that will encode JavaScript within an
 	 * <eval>...</eval> section just before the end of the partial-response document.
 	 *
-	 * @author  Kyle Stiemann
+	 * @author Kyle Stiemann
 	 */
 	protected class PartialResponseWriterLiferayImpl extends PartialResponseWriterWrapper {
 
@@ -99,8 +99,7 @@ public class PartialViewContextLiferayImpl extends PartialViewContextWrapper {
 		private FacesContext facesContext;
 		private boolean wroteEval;
 
-		public PartialResponseWriterLiferayImpl(PartialResponseWriter partialResponseWriter,
-			FacesContext facesContext) {
+		public PartialResponseWriterLiferayImpl(PartialResponseWriter partialResponseWriter, FacesContext facesContext) {
 			super(partialResponseWriter);
 			this.facesContext = facesContext;
 		}
@@ -154,12 +153,13 @@ public class PartialViewContextLiferayImpl extends PartialViewContextWrapper {
 			PortletResponse portletResponse = (PortletResponse) externalContext.getResponse();
 			HttpServletResponse httpServletResponse = PortalUtil.getHttpServletResponse(portletResponse);
 			ELContext elContext = facesContext.getELContext();
-			JspAdapterFactory jspAdapterFactory = (JspAdapterFactory) FactoryExtensionFinder.getFactory(
-					JspAdapterFactory.class);
+			JspAdapterFactory jspAdapterFactory =
+				(JspAdapterFactory) FactoryExtensionFinder.getFactory(JspAdapterFactory.class);
 			JspWriter stringJspWriter = jspAdapterFactory.getStringJspWriter();
 			ScriptDataWriter scriptDataWriter = new ScriptDataWriter(stringJspWriter);
-			PageContext stringPageContext = jspAdapterFactory.getStringPageContext(httpServletRequest,
-					httpServletResponse, elContext, scriptDataWriter);
+			PageContext stringPageContext =
+				jspAdapterFactory.getStringPageContext(httpServletRequest, httpServletResponse, elContext,
+					scriptDataWriter);
 			ScriptTagUtil.flushScriptData(stringPageContext);
 			requestMap.put(WebKeys.AUI_SCRIPT_DATA, savedScriptData);
 			responseWriter.write(scriptDataWriter.toString());

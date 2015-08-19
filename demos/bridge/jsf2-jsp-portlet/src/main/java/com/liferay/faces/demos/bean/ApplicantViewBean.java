@@ -23,7 +23,7 @@ import javax.faces.event.ActionEvent;
 /**
  * This is a JSF view managed-bean for the applicant.xhtml composition.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @ManagedBean(name = "applicantViewBean")
 @ViewScoped

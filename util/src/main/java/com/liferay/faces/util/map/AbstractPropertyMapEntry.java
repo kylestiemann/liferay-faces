@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class AbstractPropertyMapEntry<V> implements Map.Entry<String, V> {
 

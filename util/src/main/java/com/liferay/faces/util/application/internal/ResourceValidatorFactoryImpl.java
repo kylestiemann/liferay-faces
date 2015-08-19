@@ -28,7 +28,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceValidatorFactoryImpl extends ResourceValidatorFactory {
 

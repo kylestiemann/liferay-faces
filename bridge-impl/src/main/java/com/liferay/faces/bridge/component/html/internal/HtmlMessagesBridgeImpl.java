@@ -19,7 +19,7 @@ import javax.faces.component.html.HtmlMessages;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HtmlMessagesBridgeImpl extends HtmlMessages {
 

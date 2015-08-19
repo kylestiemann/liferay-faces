@@ -25,7 +25,7 @@ import com.liferay.taglib.aui.NavBarSearchTag;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 //J-
 @FacesRenderer(componentFamily = NavBarSearch.COMPONENT_FAMILY, rendererType = NavBarSearch.RENDERER_TYPE)

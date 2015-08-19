@@ -24,7 +24,7 @@ import com.liferay.faces.bridge.filter.liferay.LiferayResourceURL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class LiferayResourceURLWrapper implements LiferayResourceURL, FacesWrapper<LiferayResourceURL> {
 

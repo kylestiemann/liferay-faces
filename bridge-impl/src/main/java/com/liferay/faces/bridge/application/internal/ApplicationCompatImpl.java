@@ -33,7 +33,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ApplicationCompatImpl extends ApplicationWrapper {
 
@@ -48,9 +48,9 @@ public abstract class ApplicationCompatImpl extends ApplicationWrapper {
 	}
 
 	/**
-	 * @deprecated  The JSF API JavaDoc indicates that this method has been deprecated in favor of {@link
-	 *              #createComponent(ValueExpression, FacesContext, String)}. However, Mojarra and MyFaces both end up
-	 *              calling through to this method, which is why it must be implemented here in the bridge.
+	 * @deprecated The JSF API JavaDoc indicates that this method has been deprecated in favor of
+	 *             {@link #createComponent(ValueExpression, FacesContext, String)}. However, Mojarra and MyFaces both
+	 *             end up calling through to this method, which is why it must be implemented here in the bridge.
 	 */
 	@Deprecated
 	@Override
@@ -81,11 +81,12 @@ public abstract class ApplicationCompatImpl extends ApplicationWrapper {
 
 		try {
 			@SuppressWarnings("unchecked")
-			Class<? extends SystemEvent> systemEventClass = (Class<? extends SystemEvent>) Class.forName(
-					configuredSystemEventListener.getSystemEventClass());
+			Class<? extends SystemEvent> systemEventClass =
+				(Class<? extends SystemEvent>) Class.forName(configuredSystemEventListener.getSystemEventClass());
 			@SuppressWarnings("unchecked")
-			Class<? extends SystemEventListener> systemEventListenerClass = (Class<? extends SystemEventListener>) Class
-				.forName(configuredSystemEventListener.getSystemEventListenerClass());
+			Class<? extends SystemEventListener> systemEventListenerClass =
+				(Class<? extends SystemEventListener>) Class.forName(configuredSystemEventListener
+					.getSystemEventListenerClass());
 			SystemEventListener systemEventListener = systemEventListenerClass.newInstance();
 
 			logger.debug("Subscribing UIViewRootBridgeImpl for systemEventClass=[{0}] systemEventListener=[{1}]",
@@ -98,8 +99,8 @@ public abstract class ApplicationCompatImpl extends ApplicationWrapper {
 	}
 
 	/**
-	 * @see    {@link Application#getResourceHandler()}
-	 * @since  JSF 2.0
+	 * @see {@link Application#getResourceHandler()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public ResourceHandler getResourceHandler() {
@@ -114,7 +115,7 @@ public abstract class ApplicationCompatImpl extends ApplicationWrapper {
 	}
 
 	/**
-	 * @see  ApplicationWrapper#getWrapped()
+	 * @see ApplicationWrapper#getWrapped()
 	 */
 	@Override
 	public Application getWrapped() {

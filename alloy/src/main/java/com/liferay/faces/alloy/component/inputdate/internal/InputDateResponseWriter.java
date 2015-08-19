@@ -21,7 +21,7 @@ import com.liferay.faces.alloy.component.inputdatetime.internal.InputDateTimeRes
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class InputDateResponseWriter extends InputDateTimeResponseWriter {
 

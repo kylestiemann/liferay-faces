@@ -23,7 +23,7 @@ import com.liferay.faces.util.map.AbstractPropertyMapEntry;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RequestParameterMap extends AbstractPropertyMap<String> implements Map<String, String> {
 

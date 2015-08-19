@@ -26,7 +26,7 @@ import com.liferay.faces.alloy.component.selectbooleancheckbox.SelectBooleanChec
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesRenderer(componentFamily = Field.COMPONENT_FAMILY, rendererType = Field.RENDERER_TYPE)
 public class FieldRenderer extends FieldRendererBase {

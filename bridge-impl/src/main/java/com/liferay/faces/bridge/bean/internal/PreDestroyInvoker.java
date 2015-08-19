@@ -14,7 +14,7 @@
 package com.liferay.faces.bridge.bean.internal;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface PreDestroyInvoker {
 
@@ -24,11 +24,10 @@ public interface PreDestroyInvoker {
 	 * annotation. The JavaDocs state that if an exception is thrown by any of the pre-destroy annotated methods, they
 	 * are required to be caught and NOT re-thrown. Instead, exceptions are logged.
 	 *
-	 * @param  managedBean       The managed-bean that is to have its {@link javax.annotation.PreDestroy} or {@link
-	 *                           javax.portlet.faces.annotation.BridgePreDestroy} annotated method(s) invoked, if any.
-	 * @param  preferPreDestroy  Flag indicating that methods annotated with {@link javax.annotation.PreDestroy} should
-	 *                           be preferably invoked over those annotated with {@link
-	 *                           javax.portlet.faces.annotation.BridgePreDestroy}.
+	 * @param managedBean The managed-bean that is to have its {@link javax.annotation.PreDestroy} or
+	 *            {@link javax.portlet.faces.annotation.BridgePreDestroy} annotated method(s) invoked, if any.
+	 * @param preferPreDestroy Flag indicating that methods annotated with {@link javax.annotation.PreDestroy} should be
+	 *            preferably invoked over those annotated with {@link javax.portlet.faces.annotation.BridgePreDestroy}.
 	 */
 	public void invokeAnnotatedMethods(Object managedBean, boolean preferPreDestroy);
 }

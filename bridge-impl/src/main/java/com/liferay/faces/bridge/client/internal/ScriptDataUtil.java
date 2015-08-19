@@ -25,7 +25,7 @@ import com.liferay.portal.model.Portlet;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ScriptDataUtil extends ScriptDataUtilCompat {
 

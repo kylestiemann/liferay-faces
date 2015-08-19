@@ -34,21 +34,24 @@ import com.liferay.faces.util.config.ApplicationConfig;
 
 
 /**
- * <p>According to the JSF 2.0 JavaDocs for {@link ExternalContext#getApplicationMap}, before a managed-bean is removed
+ * <p>
+ * According to the JSF 2.0 JavaDocs for {@link ExternalContext#getApplicationMap}, before a managed-bean is removed
  * from the map, any public no-argument void return methods annotated with javax.annotation.PreDestroy must be called
  * first. This would be equally true of any custom JSF 2.0 scope, such as the bridgeRequestScope. This class is a JSF
  * PhaseListener that listens after the RENDER_RESPONSE phase completes. Its purpose is to force the managed-beans in
  * bridgeRequestScope and requestScope to go out-of-scope which will in turn cause any annotated PreDestroy methods to
- * be called.</p>
+ * be called.
+ * </p>
+ * <p>
+ * Note that this functionality is implemented as a PhaseListener because I couldn't get it to work after the lifecycle
+ * terminated. My suspicion is that Mojarra has some servlet dependency stuff going on. Specifically, Mojarra's
+ * WebappLifecycleListener might be getting invoked or something. The strange thing is that it appears that Mojarra
+ * makes managed-beans go away, but not by calling the map.clear() or map.remove() methods. Mojarra apparently handles
+ * things with a listener that captures ServletContext attribute events, which may also be playing a role. Anyway, doing
+ * this with a PhaseListener seems to work.
+ * </p>
  *
- * <p>Note that this functionality is implemented as a PhaseListener because I couldn't get it to work after the
- * lifecycle terminated. My suspicion is that Mojarra has some servlet dependency stuff going on. Specifically,
- * Mojarra's WebappLifecycleListener might be getting invoked or something. The strange thing is that it appears that
- * Mojarra makes managed-beans go away, but not by calling the map.clear() or map.remove() methods. Mojarra apparently
- * handles things with a listener that captures ServletContext attribute events, which may also be playing a role.
- * Anyway, doing this with a PhaseListener seems to work.</p>
- *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ManagedBeanScopePhaseListener implements PhaseListener {
 
@@ -62,8 +65,8 @@ public class ManagedBeanScopePhaseListener implements PhaseListener {
 			BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 			PortletPhase portletRequestPhase = bridgeContext.getPortletRequestPhase();
 
-			if ((portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE) ||
-					(portletRequestPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
+			if ((portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE)
+				|| (portletRequestPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
 
 				// Remove any managed-beans in request scope. According to the JSF 2.0 JavaDocs for {@link
 				// ExternalContext.getRequestMap}, before a managed-bean is removed from the map, any public no-argument
@@ -82,8 +85,8 @@ public class ManagedBeanScopePhaseListener implements PhaseListener {
 					String appConfigAttrName = ApplicationConfig.class.getName();
 					Map<String, Object> applicationMap = externalContext.getApplicationMap();
 					ApplicationConfig applicationConfig = (ApplicationConfig) applicationMap.get(appConfigAttrName);
-					BeanManagerFactory beanManagerFactory = (BeanManagerFactory) BridgeFactoryFinder.getFactory(
-							BeanManagerFactory.class);
+					BeanManagerFactory beanManagerFactory =
+						(BeanManagerFactory) BridgeFactoryFinder.getFactory(BeanManagerFactory.class);
 					BeanManager beanManager = beanManagerFactory.getBeanManager(applicationConfig.getFacesConfig());
 
 					for (Map.Entry<String, Object> mapEntry : mapEntries) {

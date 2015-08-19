@@ -38,7 +38,7 @@ import com.liferay.faces.bridge.scope.BridgeRequestScope;
  * This is an abstract class modeled after the JSF {@link FacesContext} in that it encapsulates a {@link ThreadLocal}
  * singleton instance. The instance contains contextual information related to the bridge.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeContext {
 
@@ -60,20 +60,19 @@ public abstract class BridgeContext {
 	}
 
 	/**
-	 * Encodes a bridge "action" URL, meaning a URL that conforms to the deviation requirements of {@link
-	 * javax.faces.context.ExternalContext#encodeActionURL(String)} listed in Section 6.1.3.1 of the Bridge Spec.
+	 * Encodes a bridge "action" URL, meaning a URL that conforms to the deviation requirements of
+	 * {@link javax.faces.context.ExternalContext#encodeActionURL(String)} listed in Section 6.1.3.1 of the Bridge Spec.
 	 *
-	 * @param   url  The URL to be encoded.
-	 *
-	 * @return  A new instance of {@link BridgeURL} that conforms to the proper encoding.
+	 * @param url The URL to be encoded.
+	 * @return A new instance of {@link BridgeURL} that conforms to the proper encoding.
 	 */
 	public abstract BridgeURL encodeActionURL(String url);
 
 	/**
 	 * Encodes a bridge "bookmarkable" URL, meaning a URL that can be bookmarked.
 	 *
-	 * @param  baseURL     The URL to be encoded.
-	 * @param  parameters  The URL parameters that are to be included as part of the encoding.
+	 * @param baseURL The URL to be encoded.
+	 * @param parameters The URL parameters that are to be included as part of the encoding.
 	 */
 	public abstract BridgeURL encodeBookmarkableURL(String baseURL, Map<String, List<String>> parameters);
 
@@ -82,30 +81,28 @@ public abstract class BridgeContext {
 	 * processing. Note that {@link javax.faces.context.ExternalContext#encodePartialActionURL(String)} was added in JSF
 	 * 2.0 which means there are no Bridge Spec deviation requirements yet.
 	 *
-	 * @param   url  The URL to be encoded.
-	 *
-	 * @return  A new instance of {@link BridgeURL} that conforms to the proper encoding.
+	 * @param url The URL to be encoded.
+	 * @return A new instance of {@link BridgeURL} that conforms to the proper encoding.
 	 */
 	public abstract BridgeURL encodePartialActionURL(String url);
 
 	/**
-	 * Encodes a bridge "redirect" URL, meaning a URL that conforms to the deviation requirements of {@link
-	 * javax.faces.context.ExternalContext#redirect(String)} listed in Section 6.1.3.1 of the Bridge Spec.
+	 * Encodes a bridge "redirect" URL, meaning a URL that conforms to the deviation requirements of
+	 * {@link javax.faces.context.ExternalContext#redirect(String)} listed in Section 6.1.3.1 of the Bridge Spec.
 	 *
-	 * @param   baseURL     The URL to be encoded.
-	 * @param   parameters  The URL parameters that are to be included as part of the encoding.
-	 *
-	 * @return  A new instance of {@link BridgeURL} that conforms to the proper encoding.
+	 * @param baseURL The URL to be encoded.
+	 * @param parameters The URL parameters that are to be included as part of the encoding.
+	 * @return A new instance of {@link BridgeURL} that conforms to the proper encoding.
 	 */
 	public abstract BridgeURL encodeRedirectURL(String baseURL, Map<String, List<String>> parameters);
 
 	/**
-	 * Encodes a bridge "resource" URL, meaning a URL that conforms to the deviation requirements of {@link
-	 * javax.faces.context.ExternalContext#encodeResourceURL(String)} listed in Section 6.1.3.1 of the Bridge Spec.
+	 * Encodes a bridge "resource" URL, meaning a URL that conforms to the deviation requirements of
+	 * {@link javax.faces.context.ExternalContext#encodeResourceURL(String)} listed in Section 6.1.3.1 of the Bridge
+	 * Spec.
 	 *
-	 * @param   url  The URL to be encoded.
-	 *
-	 * @return  A new instance of {@link BridgeResourceURL} that conforms to the proper encoding.
+	 * @param url The URL to be encoded.
+	 * @return A new instance of {@link BridgeResourceURL} that conforms to the proper encoding.
 	 */
 	public abstract BridgeResourceURL encodeResourceURL(String url);
 
@@ -143,8 +140,10 @@ public abstract class BridgeContext {
 	public abstract String getDefaultRenderKitId();
 
 	/**
-	 * <p>Returns an immutable {@link Map} whose keys are determined by {@link PortletMode#toString()} and whose values
-	 * are retrieved from the following sections of the WEB-INF/portlet.xml descriptor.</p>
+	 * <p>
+	 * Returns an immutable {@link Map} whose keys are determined by {@link PortletMode#toString()} and whose values are
+	 * retrieved from the following sections of the WEB-INF/portlet.xml descriptor.
+	 * </p>
 	 * <code>
 	 * <pre>
 	  &lt;init-param&gt;
@@ -168,10 +167,10 @@ public abstract class BridgeContext {
 	 * Returns the target view (and optional query string) as described in section 5.2.3 of the Bridge Spec titled
 	 * "Determining the Target View".
 	 *
-	 * @throws  {@link BridgeDefaultViewNotSpecifiedException} when the default view is not specified in the
-	 *            WEB-INF/portlet.xml descriptor.
-	 * @throws  {@link BridgeInvalidViewPathException} when the {@link Bridge#VIEW_PATH} request attribute contains an
-	 *            invalid path such that the target view cannot be determined.
+	 * @throws {@link BridgeDefaultViewNotSpecifiedException} when the default view is not specified in the
+	 *         WEB-INF/portlet.xml descriptor.
+	 * @throws {@link BridgeInvalidViewPathException} when the {@link Bridge#VIEW_PATH} request attribute contains an
+	 *         invalid path such that the target view cannot be determined.
 	 */
 	public abstract String getFacesViewId() throws BridgeDefaultViewNotSpecifiedException,
 		BridgeInvalidViewPathException;
@@ -180,10 +179,9 @@ public abstract class BridgeContext {
 	 * Returns the viewId associated with the specified <code>viewPath</code> by examining the servlet-mapping entries
 	 * from the WEB-INF/web.xml descriptor.
 	 *
-	 * @param   viewPath  The path to the view.
-	 *
-	 * @return  The viewId associated with the specified <code>viewPath</code> (providing that the view physically
-	 *          exists). Otherwise returns null.
+	 * @param viewPath The path to the view.
+	 * @return The viewId associated with the specified <code>viewPath</code> (providing that the view physically
+	 *         exists). Otherwise returns null.
 	 */
 	public abstract String getFacesViewIdFromPath(String viewPath);
 
@@ -191,11 +189,10 @@ public abstract class BridgeContext {
 	 * Returns the viewId associated with the specified <code>viewPath</code> by examining the servlet-mapping entries
 	 * from the WEB-INF/web.xml descriptor.
 	 *
-	 * @param   viewPath   The path to the view.
-	 * @param   mustExist  Flag indicating whether or not the view must physically exist in order for the viewId to be
-	 *                     returned.
-	 *
-	 * @return  The viewId associated with the specified <code>viewPath</code>. Otherwise returns null.
+	 * @param viewPath The path to the view.
+	 * @param mustExist Flag indicating whether or not the view must physically exist in order for the viewId to be
+	 *            returned.
+	 * @return The viewId associated with the specified <code>viewPath</code>. Otherwise returns null.
 	 */
 	public abstract String getFacesViewIdFromPath(String viewPath, boolean mustExist);
 
@@ -208,7 +205,7 @@ public abstract class BridgeContext {
 	/**
 	 * Returns a flag indicating whether or not a render-redirect has occurred after dispatching to a JSP.
 	 *
-	 * @return  <code>true</code> if a render-redirect has occurred after dispatching to a JSP, otherwise <code>
+	 * @return <code>true</code> if a render-redirect has occurred after dispatching to a JSP, otherwise <code>
 	 *          false</code>.
 	 */
 	public abstract boolean isRenderRedirectAfterDispatch();
@@ -217,8 +214,8 @@ public abstract class BridgeContext {
 
 	/**
 	 * NOTE: PROPOSE-FOR-BRIDGE3-API Returns the value of the specified initialization parameter. If found, return the
-	 * value of the {@link PortletConfig#getInitParameter(String)} method. Otherwise, return the value of the {@link
-	 * PortletContext#getInitParameter(String)} method. This provides a way for init-param values found in the
+	 * value of the {@link PortletConfig#getInitParameter(String)} method. Otherwise, return the value of the
+	 * {@link PortletContext#getInitParameter(String)} method. This provides a way for init-param values found in the
 	 * WEB-INF/portlet.xml descriptor to override context-param values found in the WEB-INF/web.xml descriptor.
 	 */
 	public abstract String getInitParameter(String name);
@@ -271,7 +268,7 @@ public abstract class BridgeContext {
 	/**
 	 * Sets the flag indicating whether or not the bridge is processing {@link Bridge#AFTER_VIEW_CONTENT}.
 	 *
-	 * @param  processingAfterViewContent  <code>true</code> if processing, otherwise <code>false</code>.
+	 * @param processingAfterViewContent <code>true</code> if processing, otherwise <code>false</code>.
 	 */
 	public abstract void setProcessingAfterViewContent(boolean processingAfterViewContent);
 
@@ -309,10 +306,10 @@ public abstract class BridgeContext {
 	public abstract String getRequestServletPath();
 
 	/**
-	 * Returns a {@link Writer} that is meant to be used as a return value for {@link
-	 * javax.faces.context.ExternalContext#getResponseOutputWriter()}.
+	 * Returns a {@link Writer} that is meant to be used as a return value for
+	 * {@link javax.faces.context.ExternalContext#getResponseOutputWriter()}.
 	 *
-	 * @throws  IOException
+	 * @throws IOException
 	 */
 	public abstract Writer getResponseOutputWriter() throws IOException;
 
@@ -320,8 +317,8 @@ public abstract class BridgeContext {
 	 * Determines whether or not the "javax.portlet.faces.preserveActionParams" init-param has been configured in the
 	 * WEB-INF/portlet.xml descriptor.
 	 *
-	 * @return  <code>true</code> if the "javax.portlet.faces.preserveActionParams" init-param has a value of true,
-	 *          otherwise <code>false</code>.
+	 * @return <code>true</code> if the "javax.portlet.faces.preserveActionParams" init-param has a value of true,
+	 *         otherwise <code>false</code>.
 	 */
 	public abstract boolean isPreserveActionParams();
 
@@ -333,14 +330,14 @@ public abstract class BridgeContext {
 	/**
 	 * Preserves the saved view state.
 	 *
-	 * @param  savedViewState  The saved view state.
+	 * @param savedViewState The saved view state.
 	 */
 	public abstract void setSavedViewState(String savedViewState);
 
 	/**
 	 * Flag indicating whether or not the bridge is processing {@link Bridge#AFTER_VIEW_CONTENT}.
 	 *
-	 * @return  <code>true</code> if processing, otherwise <code>false</code>
+	 * @return <code>true</code> if processing, otherwise <code>false</code>
 	 */
 	public abstract boolean isProcessingAfterViewContent();
 

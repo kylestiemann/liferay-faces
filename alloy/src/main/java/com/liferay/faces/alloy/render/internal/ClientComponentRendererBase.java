@@ -32,7 +32,7 @@ import com.liferay.faces.util.render.internal.BufferedScriptResponseWriter;
  * as {@link #encodeMarkupBegin(FacesContext, UIComponent)} and {@link #encodeMarkupEnd(FacesContext, UIComponent)} that
  * provide a more fine-grained rendering sequence.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ClientComponentRendererBase extends Renderer implements ClientComponentRenderer {
 

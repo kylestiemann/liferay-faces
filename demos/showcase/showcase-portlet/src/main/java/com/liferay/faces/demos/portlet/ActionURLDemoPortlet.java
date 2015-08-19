@@ -27,7 +27,7 @@ import javax.portlet.faces.GenericFacesPortlet;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ActionURLDemoPortlet extends GenericFacesPortlet {
 

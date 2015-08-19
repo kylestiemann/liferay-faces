@@ -27,7 +27,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeURIImpl implements BridgeURI {
 
@@ -144,8 +144,8 @@ public class BridgeURIImpl implements BridgeURI {
 
 			String path = getPath();
 
-			if ((path != null) && (path.length() > 0) &&
-					(!path.startsWith("/") || path.startsWith(RELATIVE_PATH_PREFIX))) {
+			if ((path != null) && (path.length() > 0)
+				&& (!path.startsWith("/") || path.startsWith(RELATIVE_PATH_PREFIX))) {
 				pathRelative = Boolean.TRUE;
 			}
 

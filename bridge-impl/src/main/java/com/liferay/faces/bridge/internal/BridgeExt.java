@@ -14,8 +14,9 @@
 package com.liferay.faces.bridge.internal;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeExt {
+
 	public static final String FACES_AJAX_PARAMETER = "_jsfBridgeAjax";
 }

@@ -20,12 +20,12 @@ import java.util.ListIterator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ObservableList<E> implements List<E>, Observable {
 
 	/**
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	public static enum Action {
 		ADD, ADD_ALL, CLEAR, REMOVE, REMOVE_ALL, RETAIN_ALL, SET

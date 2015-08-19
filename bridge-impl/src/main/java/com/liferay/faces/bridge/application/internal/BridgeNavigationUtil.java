@@ -28,15 +28,15 @@ import com.liferay.faces.bridge.scope.BridgeRequestScope;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeNavigationUtil {
 
 	/**
-	 * Convenience method that applies the parameters found in the specified URL to the specified {@link
-	 * StateAwareResponse} by calling methods such as {@link
-	 * StateAwareResponse#setPortletMode(javax.portlet.PortletMode)} and {@link
-	 * StateAwareResponse#setWindowState(javax.portlet.WindowState)}, etc.
+	 * Convenience method that applies the parameters found in the specified URL to the specified
+	 * {@link StateAwareResponse} by calling methods such as
+	 * {@link StateAwareResponse#setPortletMode(javax.portlet.PortletMode)} and
+	 * {@link StateAwareResponse#setWindowState(javax.portlet.WindowState)}, etc.
 	 */
 	public static void navigate(PortletRequest portletRequest, StateAwareResponse stateAwareResponse,
 		BridgeRequestScope bridgeRequestScope, BridgeURL bridgeURL) throws PortletModeException, WindowStateException {
@@ -55,8 +55,8 @@ public class BridgeNavigationUtil {
 
 				if (bridgeRequestScope != null) {
 
-					if (!portletRequest.getPortletMode().equals(portletMode) &&
-							portletRequest.isPortletModeAllowed(portletMode)) {
+					if (!portletRequest.getPortletMode().equals(portletMode)
+						&& portletRequest.isPortletModeAllowed(portletMode)) {
 						stateAwareResponse.setPortletMode(portletMode);
 						bridgeRequestScope.setPortletModeChanged(true);
 					}

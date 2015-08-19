@@ -14,7 +14,7 @@
 package com.liferay.faces.issues;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class Item {
 

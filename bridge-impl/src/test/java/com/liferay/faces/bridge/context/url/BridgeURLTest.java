@@ -30,7 +30,7 @@ import junit.framework.Assert;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeURLTest {
 

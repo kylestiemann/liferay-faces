@@ -17,7 +17,7 @@ import java.util.List;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface SelectedComponent extends ShowcaseComponent {
 

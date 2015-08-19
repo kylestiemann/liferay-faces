@@ -17,7 +17,7 @@ import javax.portlet.ActionResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ActionResponseBridgeLiferayImpl extends ActionResponseBridgeImpl {
 

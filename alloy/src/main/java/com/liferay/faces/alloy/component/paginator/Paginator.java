@@ -24,7 +24,7 @@ import javax.faces.component.behavior.ClientBehaviorHolder;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = Paginator.COMPONENT_TYPE)
 public class Paginator extends PaginatorBase implements ClientBehaviorHolder {

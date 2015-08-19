@@ -34,7 +34,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesConfigScannerImpl implements FacesConfigScanner {
 
@@ -117,8 +117,8 @@ public class FacesConfigScannerImpl implements FacesConfigScanner {
 
 			for (ConfiguredServletMapping explicitFacesServletMapping : facesServletMappings) {
 
-				if (explicitFacesServletMapping.isExtensionMapped() &&
-						explicitFacesServletMapping.getExtension().equals(configuredSuffix)) {
+				if (explicitFacesServletMapping.isExtensionMapped()
+					&& explicitFacesServletMapping.getExtension().equals(configuredSuffix)) {
 					found = true;
 
 					break;
@@ -127,8 +127,8 @@ public class FacesConfigScannerImpl implements FacesConfigScanner {
 
 			if (!found) {
 				String urlPattern = "*" + configuredSuffix;
-				ConfiguredServletMapping implicitFacesServletMapping = new ConfiguredServletMappingImpl(FACES_SERVLET,
-						urlPattern, true);
+				ConfiguredServletMapping implicitFacesServletMapping =
+					new ConfiguredServletMappingImpl(FACES_SERVLET, urlPattern, true);
 				facesServletMappings.add(implicitFacesServletMapping);
 				logger.debug("Added implicit extension-mapped servlet-mapping for urlPattern=[{0}]", urlPattern);
 			}
@@ -195,8 +195,8 @@ public class FacesConfigScannerImpl implements FacesConfigScanner {
 					logger.debug("Pre-processing faces-config: [{0}]", facesConfigURL);
 					inputStream = facesConfigURL.openStream();
 
-					FacesConfigDescriptor facesConfigDescriptor = facesConfigDescriptorParser.parse(inputStream,
-							facesConfigURL);
+					FacesConfigDescriptor facesConfigDescriptor =
+						facesConfigDescriptorParser.parse(inputStream, facesConfigURL);
 
 					facesConfigDescriptors.add(facesConfigDescriptor);
 
@@ -205,8 +205,8 @@ public class FacesConfigScannerImpl implements FacesConfigScanner {
 
 				// Sort the faces configuration files in accord with
 				// javax.faces-api-2.2-FINAL_JSF_20130320_11.4.8_Ordering_of_Artifacts
-				List<FacesConfigDescriptor> orderedConfigs = getOrderedConfigs(facesConfigDescriptors,
-						webInfFacesConfigDescriptor);
+				List<FacesConfigDescriptor> orderedConfigs =
+					getOrderedConfigs(facesConfigDescriptors, webInfFacesConfigDescriptor);
 
 				for (FacesConfigDescriptor config : orderedConfigs) {
 

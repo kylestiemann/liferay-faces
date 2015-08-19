@@ -29,7 +29,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "customersBackingBean")
 @RequestScoped
@@ -56,8 +56,8 @@ public class CustomersBackingBean implements Serializable {
 	}
 
 	/**
-	 * This method is a JSF action listener that is called when the user clicks on a customer. By calling {@link
-	 * CustomersModelBean#setSelectedCustomerId(String)} it may seem that we are simply recording the selected
+	 * This method is a JSF action listener that is called when the user clicks on a customer. By calling
+	 * {@link CustomersModelBean#setSelectedCustomerId(String)} it may seem that we are simply recording the selected
 	 * customerId in the model. However, there is more than meets the eye. I the WEB-INF/faces-config.xml descriptor
 	 * there is an EL expression of #{customersPortlet:customersModelBean.selectedCustomerId} which means that the
 	 * bridge will be monitoring the status of that model bean property. If the value changes in the model bean, then

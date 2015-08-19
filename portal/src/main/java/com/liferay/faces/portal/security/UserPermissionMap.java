@@ -22,7 +22,7 @@ import com.liferay.faces.portal.context.LiferayFacesContext;
  * The <code>UserPermissionMap</code> is an API that provides a way to lookup user permissions with a simply <code>
  * java.util.Map</code> interface.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class UserPermissionMap extends HashMap<String, Boolean> {
 

@@ -31,7 +31,7 @@ import com.liferay.portal.service.UserLocalServiceUtil;
  * This class provides a compatibility layer that isolates differences between different versions of Liferay Portal. The
  * purpose of this class is to minimize source code differences between different branches.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class TestSetupCompatAction extends SimpleAction {
 
@@ -66,8 +66,8 @@ public abstract class TestSetupCompatAction extends SimpleAction {
 	/**
 	 * This method sets up the {@link PermissionChecker} {@link ThreadLocal} prior to performing additional test setup.
 	 *
-	 * @throws  SystemException
-	 * @throws  PortalException
+	 * @throws SystemException
+	 * @throws PortalException
 	 */
 	protected void setupPermissionChecker(long companyId) throws PortalException, SystemException {
 		PermissionChecker permissionChecker = PermissionThreadLocal.getPermissionChecker();

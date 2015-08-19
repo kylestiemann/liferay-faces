@@ -26,7 +26,7 @@ import com.liferay.faces.demos.dto.CodeExample;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CodeExampleUtil {
 
@@ -43,8 +43,7 @@ public class CodeExampleUtil {
 	private static final String RENDERED = "rendered=\"#{showcaseModelBean.selectedComponent.rendered}\"";
 	private static final String XML = "xml";
 
-	public static CodeExample read(URL sourceFileURL, String sourceFileName, boolean productionMode)
-		throws IOException {
+	public static CodeExample read(URL sourceFileURL, String sourceFileName, boolean productionMode) throws IOException {
 
 		URLConnection urlConnection = sourceFileURL.openConnection();
 		InputStream resourceAsStream = urlConnection.getInputStream();
@@ -128,22 +127,25 @@ public class CodeExampleUtil {
 							int pos = line.indexOf(OUTPUTMODEL_MODELVALUE);
 
 							if (pos > 0) {
-								line = line.substring(0, pos) + ":modelValue" +
-									line.substring(pos + OUTPUTMODEL_MODELVALUE.length());
+								line =
+									line.substring(0, pos) + ":modelValue"
+										+ line.substring(pos + OUTPUTMODEL_MODELVALUE.length());
 							}
 
 							pos = line.indexOf(RENDER_EXAMPLE_FORM);
 
 							if (pos > 0) {
-								line = line.substring(0, pos) + "render=\"" +
-									line.substring(pos + RENDER_EXAMPLE_FORM.length());
+								line =
+									line.substring(0, pos) + "render=\""
+										+ line.substring(pos + RENDER_EXAMPLE_FORM.length());
 							}
 
 							pos = line.indexOf(RENDER_FORM_EXAMPLE);
 
 							if (pos > 0) {
-								line = line.substring(0, pos) + "render=\":exampleForm" +
-									line.substring(pos + RENDER_FORM_EXAMPLE.length());
+								line =
+									line.substring(0, pos) + "render=\":exampleForm"
+										+ line.substring(pos + RENDER_FORM_EXAMPLE.length());
 							}
 
 							if (productionMode) {
@@ -171,7 +173,7 @@ public class CodeExampleUtil {
 			sourceCodeText = sourceCodeText.trim();
 
 			return new CodeExample(sourceFileName, fileExtension, sourceFileURL, urlConnection.getLastModified(),
-					sourceCodeText);
+				sourceCodeText);
 		}
 		else {
 			throw new IOException("Unable to locate " + sourceFileURL);

@@ -31,11 +31,11 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * This class is a wrapper around the {@link PartialViewContext}. Its purpose is to wrap the {@link
- * PartialResponseWriter} with a {@link PartialResponseWriterAlloyImpl} which writes {@link Script}s from {@link
- * FacesRequestContext} to the &lt;eval&gt; section of the partial response.
+ * This class is a wrapper around the {@link PartialViewContext}. Its purpose is to wrap the
+ * {@link PartialResponseWriter} with a {@link PartialResponseWriterAlloyImpl} which writes {@link Script}s from
+ * {@link FacesRequestContext} to the &lt;eval&gt; section of the partial response.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PartialViewContextAlloyImpl extends PartialViewContextWrapper {
 
@@ -60,12 +60,12 @@ public class PartialViewContextAlloyImpl extends PartialViewContextWrapper {
 
 		if (partialResponseWriter == null) {
 
-			BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-					BrowserSnifferFactory.class);
+			BrowserSnifferFactory browserSnifferFactory =
+				(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
-			partialResponseWriter = new PartialResponseWriterAlloyImpl(super.getPartialResponseWriter(),
-					browserSniffer);
+			partialResponseWriter =
+				new PartialResponseWriterAlloyImpl(super.getPartialResponseWriter(), browserSniffer);
 		}
 
 		return partialResponseWriter;
@@ -80,7 +80,7 @@ public class PartialViewContextAlloyImpl extends PartialViewContextWrapper {
 	 * This class serves as a wrapper around the {@link PartialResponseWriter} that will encode JavaScript within an
 	 * <eval>...</eval> section just before the end of the partial-response document.
 	 *
-	 * @author  Kyle Stiemann
+	 * @author Kyle Stiemann
 	 */
 	protected class PartialResponseWriterAlloyImpl extends PartialResponseWriterWrapper {
 
@@ -88,8 +88,7 @@ public class PartialViewContextAlloyImpl extends PartialViewContextWrapper {
 		private BrowserSniffer browserSniffer;
 		private boolean wroteEval;
 
-		public PartialResponseWriterAlloyImpl(PartialResponseWriter partialResponseWriter,
-			BrowserSniffer browserSniffer) {
+		public PartialResponseWriterAlloyImpl(PartialResponseWriter partialResponseWriter, BrowserSniffer browserSniffer) {
 			super(partialResponseWriter);
 			this.browserSniffer = browserSniffer;
 		}

@@ -23,20 +23,21 @@ import javax.portlet.PortletResponse;
 /**
  * This class represents a simple "encoded" {@link BaseURL}, meaning an implementation that encodes a String based URL
  * that is "external" to the application. Since this class doesn't override any methods in the superclass it is
- * essentially a marker-class for code readability. The only methods that are meant to be called is {@link
- * BaseURLEncodedExternalStringImpl#toString()} and {@link BaseURLEncodedExternalStringImpl#write(Writer, boolean)}. All
- * other methods throw an {@link UnsupportedOperationException}.
+ * essentially a marker-class for code readability. The only methods that are meant to be called is
+ * {@link BaseURLEncodedExternalStringImpl#toString()} and
+ * {@link BaseURLEncodedExternalStringImpl#write(Writer, boolean)}. All other methods throw an
+ * {@link UnsupportedOperationException}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BaseURLEncodedExternalStringImpl extends BaseURLEncodedStringImpl {
 
 	/**
 	 * Constructs a new instance of this class.
 	 *
-	 * @param  externalURL      This is a URL "external" to this application, like http://www.foo.bar/foo.png
-	 * @param  parameterMap     The current map of URL parameters.
-	 * @param  portletResponse  The current {@link PortletResponse}.
+	 * @param externalURL This is a URL "external" to this application, like http://www.foo.bar/foo.png
+	 * @param parameterMap The current map of URL parameters.
+	 * @param portletResponse The current {@link PortletResponse}.
 	 */
 	public BaseURLEncodedExternalStringImpl(String externalURL, Map<String, String[]> parameterMap,
 		PortletResponse portletResponse) {

@@ -37,8 +37,8 @@ import com.liferay.portal.util.PortalUtil;
 
 
 /**
- * @author  Neil Griffin
- * @author  Joe Ssemwogerere
+ * @author Neil Griffin
+ * @author Joe Ssemwogerere
  */
 public class CaptchaResource extends Resource {
 
@@ -85,8 +85,8 @@ public class CaptchaResource extends Resource {
 			String captchaText = (String) httpServletRequest.getSession().getAttribute(CAPTCHA_TEXT);
 			portletSession.setAttribute(CAPTCHA_TEXT, captchaText);
 
-			CaptchaServletOutputStream captchaServletOutputStream = (CaptchaServletOutputStream)
-				captchaHttpServletResponse.getOutputStream();
+			CaptchaServletOutputStream captchaServletOutputStream =
+				(CaptchaServletOutputStream) captchaHttpServletResponse.getOutputStream();
 			byteArrayInputStream = new ByteArrayInputStream(captchaServletOutputStream.toByteArray());
 		}
 		catch (Exception e) {

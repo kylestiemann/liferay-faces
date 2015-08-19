@@ -22,7 +22,7 @@ import javax.portlet.filter.ActionResponseWrapper;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ActionResponseBridgeCompatImpl extends ActionResponseWrapper {
 

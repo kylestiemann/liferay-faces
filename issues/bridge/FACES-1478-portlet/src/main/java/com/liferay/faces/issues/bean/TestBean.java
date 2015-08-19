@@ -24,7 +24,7 @@ import javax.portlet.PortletURL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @RequestScoped

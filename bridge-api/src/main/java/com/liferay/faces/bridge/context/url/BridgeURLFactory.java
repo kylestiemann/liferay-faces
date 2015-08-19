@@ -22,7 +22,7 @@ import com.liferay.faces.bridge.context.BridgeContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeURLFactory implements FacesWrapper<BridgeURLFactory> {
 
@@ -31,8 +31,8 @@ public abstract class BridgeURLFactory implements FacesWrapper<BridgeURLFactory>
 	public abstract BridgeURL getBridgeBookmarkableURL(BridgeContext bridgeContext, BridgeURI bridgeURI,
 		Map<String, List<String>> parameters, String viewId);
 
-	public abstract BridgeURL getBridgePartialActionURL(BridgeContext bridgeContext, BridgeURI bridgeURI,
-		String viewId);
+	public abstract BridgeURL
+		getBridgePartialActionURL(BridgeContext bridgeContext, BridgeURI bridgeURI, String viewId);
 
 	public abstract BridgeURL getBridgeRedirectURL(BridgeContext bridgeContext, BridgeURI bridgeURI,
 		Map<String, List<String>> parameters, String redirectViewId);

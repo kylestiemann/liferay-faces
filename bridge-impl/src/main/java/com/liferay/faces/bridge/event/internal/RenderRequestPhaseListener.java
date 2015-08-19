@@ -25,7 +25,7 @@ import com.liferay.faces.bridge.context.BridgeContext;
  * Section 5.2.6 of the Spec indicates that the bridge must proactively ensure that only the RESTORE_VIEW phase
  * executes, and Section 6.4 indicates that a PhaseListener must be used.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderRequestPhaseListener extends RenderRequestPhaseListenerCompat implements PhaseListener {
 

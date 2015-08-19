@@ -21,7 +21,7 @@ import com.liferay.faces.bridge.config.BridgeConfigFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeConfigFactoryImpl extends BridgeConfigFactory {
 

@@ -35,7 +35,7 @@ import javax.servlet.http.HttpSession;
  * This class provides an {@link HttpServletRequest} adapter/wrapper around the current {@link PortletRequest}. Typical
  * usage is to hack-around Servlet-API dependencies in JSF implementations.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 
 public class HttpServletRequestAdapter extends HttpServletRequest_3_0_Adapter {

@@ -22,7 +22,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferyPageTopPhaseListener implements PhaseListener {
 
@@ -30,8 +30,8 @@ public class LiferyPageTopPhaseListener implements PhaseListener {
 	private static final long serialVersionUID = 802045175543260096L;
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
 	// Private Data Members
 	private PhaseListener delegatePhaseListener;

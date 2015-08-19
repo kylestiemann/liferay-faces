@@ -28,10 +28,10 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class provides a {@link java.util.Map} style interface for managing cache of {@link BridgeRequestScope}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public class BridgeRequestScopeCacheImpl extends ConcurrentHashMap<String, BridgeRequestScope>
-	implements BridgeRequestScopeCache {
+public class BridgeRequestScopeCacheImpl extends ConcurrentHashMap<String, BridgeRequestScope> implements
+	BridgeRequestScopeCache {
 
 	// serialVersionUID
 	private static final long serialVersionUID = 4546189667853367660L;

@@ -25,7 +25,7 @@ import javax.faces.render.Renderer;
  * This interface defines a contract for a contract for a {@link Renderer} that manifests a "client component", meaning
  * a component that has markup as well as some type of client-side API that is referenced by JavaScript.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface ClientComponentRenderer {
 

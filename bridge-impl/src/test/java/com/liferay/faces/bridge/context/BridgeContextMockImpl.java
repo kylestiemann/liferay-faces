@@ -45,7 +45,7 @@ import com.liferay.faces.bridge.scope.BridgeRequestScope;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeContextMockImpl extends BridgeContext {
 

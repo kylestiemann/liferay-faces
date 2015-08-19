@@ -38,7 +38,7 @@ import com.liferay.faces.util.model.UploadedFile;
 /**
  * This is a JSF backing managed-bean for the applicant.xhtml composition.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "applicantBackingBean")
 @RequestScoped
@@ -93,8 +93,8 @@ public class ApplicantBackingBean implements Serializable {
 		PortletSession portletSession = (PortletSession) externalContext.getSession(false);
 		String uniqueFolderName = portletSession.getId();
 		org.primefaces.model.UploadedFile uploadedFile = event.getFile();
-		UploadedFileWrapper uploadedFileWrapper = new UploadedFileWrapper(uploadedFile, UploadedFile.Status.FILE_SAVED,
-				uniqueFolderName);
+		UploadedFileWrapper uploadedFileWrapper =
+			new UploadedFileWrapper(uploadedFile, UploadedFile.Status.FILE_SAVED, uniqueFolderName);
 		uploadedFiles.add(uploadedFileWrapper);
 		logger.debug("Received fileName=[{0}] absolutePath=[{1}]", uploadedFileWrapper.getName(),
 			uploadedFileWrapper.getAbsolutePath());

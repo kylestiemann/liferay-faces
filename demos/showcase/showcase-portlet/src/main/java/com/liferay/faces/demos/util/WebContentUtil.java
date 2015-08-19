@@ -30,7 +30,7 @@ import com.liferay.portlet.journal.service.JournalArticleLocalServiceUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class WebContentUtil {
 
@@ -65,11 +65,13 @@ public class WebContentUtil {
 				serviceContext.setAddGuestPermissions(true);
 
 				String defaultLanguageId = "";
-				content = LocalizationUtil.updateLocalization("", "static-content", content, defaultLanguageId,
+				content =
+					LocalizationUtil.updateLocalization("", "static-content", content, defaultLanguageId,
 						defaultLanguageId, true, false);
 
-				journalArticle = JournalArticleLocalServiceUtil.addArticle(userId, groupId, folderId, titleMap,
-						descriptionMap, content, ddmStructureKey, ddmTemplateKey, serviceContext);
+				journalArticle =
+					JournalArticleLocalServiceUtil.addArticle(userId, groupId, folderId, titleMap, descriptionMap,
+						content, ddmStructureKey, ddmTemplateKey, serviceContext);
 			}
 		}
 		catch (Exception e) {

@@ -21,7 +21,7 @@ import com.liferay.faces.bridge.filter.internal.ResourceURLWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceURLBridgePlutoImpl extends ResourceURLWrapper {
 
@@ -58,8 +58,9 @@ public class ResourceURLBridgePlutoImpl extends ResourceURLWrapper {
 				int pos = toStringValue.indexOf(PLUTO_CACHE_LEVEL_PAGE_TOKEN);
 
 				if (pos > 0) {
-					toStringValue = toStringValue.substring(0, pos) +
-						toStringValue.substring(pos + PLUTO_CACHE_LEVEL_PAGE_TOKEN.length());
+					toStringValue =
+						toStringValue.substring(0, pos)
+							+ toStringValue.substring(pos + PLUTO_CACHE_LEVEL_PAGE_TOKEN.length());
 				}
 			}
 		}

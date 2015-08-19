@@ -19,7 +19,7 @@ import com.liferay.faces.util.config.FacesConfig;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface FacesConfigScanner {
 

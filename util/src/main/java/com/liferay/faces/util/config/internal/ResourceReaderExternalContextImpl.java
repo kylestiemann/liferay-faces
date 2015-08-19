@@ -19,7 +19,7 @@ import javax.faces.context.ExternalContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceReaderExternalContextImpl implements ResourceReader {
 

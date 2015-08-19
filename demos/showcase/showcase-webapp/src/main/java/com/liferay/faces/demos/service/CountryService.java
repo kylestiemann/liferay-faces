@@ -20,7 +20,7 @@ import com.liferay.faces.demos.dto.Country;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface CountryService {
 

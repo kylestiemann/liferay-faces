@@ -17,7 +17,7 @@ import java.io.InputStream;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface ResourceReader {
 

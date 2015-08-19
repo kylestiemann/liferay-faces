@@ -19,7 +19,7 @@ import com.liferay.faces.util.map.AbstractPropertyMapEntry;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SessionScopeMapEntry extends AbstractPropertyMapEntry<Object> {
 
@@ -29,10 +29,10 @@ public class SessionScopeMapEntry extends AbstractPropertyMapEntry<Object> {
 	/**
 	 * Constructs a new SessionMapEntry object instance.
 	 *
-	 * @param  portletSession  The portlet session.
-	 * @param  key             The session map key name.
-	 * @param  scope           The scope of the session map, which can be PortletSession.PORTLET_SCOPE or
-	 *                         PortletSession.APPLICATION_SCOPE
+	 * @param portletSession The portlet session.
+	 * @param key The session map key name.
+	 * @param scope The scope of the session map, which can be PortletSession.PORTLET_SCOPE or
+	 *            PortletSession.APPLICATION_SCOPE
 	 */
 	public SessionScopeMapEntry(PortletSession portletSession, String key, int scope) {
 		super(key);

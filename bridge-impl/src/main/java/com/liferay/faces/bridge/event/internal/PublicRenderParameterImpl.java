@@ -23,7 +23,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PublicRenderParameterImpl extends PublicRenderParameterCompatImpl {
 
@@ -70,8 +70,9 @@ public class PublicRenderParameterImpl extends PublicRenderParameterCompatImpl {
 			try {
 
 				ELContext elContext = facesContext.getELContext();
-				ValueExpression valueExpression = facesContext.getApplication().getExpressionFactory()
-					.createValueExpression(elContext, modelEL, String.class);
+				ValueExpression valueExpression =
+					facesContext.getApplication().getExpressionFactory()
+						.createValueExpression(elContext, modelEL, String.class);
 				modelValue = (String) valueExpression.getValue(elContext);
 			}
 			catch (PropertyNotFoundException e) {

@@ -44,7 +44,7 @@ import com.liferay.portal.util.PortalUtil;
  * This abstract class serves as a generic JSF {@link Renderer} that invokes the JSP tag lifecycle of a Liferay Portal
  * JSP tag and encodes the output.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PortalTagRenderer<U extends UIComponent, T extends Tag> extends Renderer {
 
@@ -175,11 +175,11 @@ public abstract class PortalTagRenderer<U extends UIComponent, T extends Tag> ex
 		PortletResponse portletResponse = (PortletResponse) externalContext.getResponse();
 		HttpServletResponse httpServletResponse = getHttpServletResponse(portletResponse);
 		ELContext elContext = facesContext.getELContext();
-		JspAdapterFactory jspAdapterFactory = (JspAdapterFactory) FactoryExtensionFinder.getFactory(
-				JspAdapterFactory.class);
+		JspAdapterFactory jspAdapterFactory =
+			(JspAdapterFactory) FactoryExtensionFinder.getFactory(JspAdapterFactory.class);
 		JspWriter stringJspWriter = jspAdapterFactory.getStringJspWriter();
-		PageContext stringPageContext = jspAdapterFactory.getStringPageContext(httpServletRequest, httpServletResponse,
-				elContext, stringJspWriter);
+		PageContext stringPageContext =
+			jspAdapterFactory.getStringPageContext(httpServletRequest, httpServletResponse, elContext, stringJspWriter);
 
 		// Invoke the JSP tag lifecycle directly (rather than using the tag from a JSP).
 		tag.setPageContext(stringPageContext);

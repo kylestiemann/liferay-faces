@@ -20,7 +20,7 @@ import java.util.Map;
 /**
  * This class contains static helper/convenience methods for {@link java.io.File} objects and {@link String} filenames.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FileNameUtil {
 

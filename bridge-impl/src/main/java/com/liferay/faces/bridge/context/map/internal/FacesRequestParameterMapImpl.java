@@ -32,7 +32,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesRequestParameterMapImpl implements FacesRequestParameterMap {
 
@@ -352,9 +352,9 @@ public class FacesRequestParameterMapImpl implements FacesRequestParameterMap {
 				specialParameterValue = bridgeRequestScope.getPreservedViewStateParam();
 			}
 		}
-		else if (parameterName.startsWith(COM_LIFERAY_FACES_BRIDGE) ||
-				BridgeExt.FACES_AJAX_PARAMETER.equals(parameterName) ||
-				PRIMEFACES_DYNAMIC_CONTENT_PARAM.equals(parameterName)) {
+		else if (parameterName.startsWith(COM_LIFERAY_FACES_BRIDGE)
+			|| BridgeExt.FACES_AJAX_PARAMETER.equals(parameterName)
+			|| PRIMEFACES_DYNAMIC_CONTENT_PARAM.equals(parameterName)) {
 
 			// For the sake of performance, this case is a no-op. If the value wasn't found in the PortletRequest, then
 			// it won't be found in the preserved action parameter map or the faces view parameter map.

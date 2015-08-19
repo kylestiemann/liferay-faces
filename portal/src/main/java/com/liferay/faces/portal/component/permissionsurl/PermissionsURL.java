@@ -19,7 +19,7 @@ import com.liferay.faces.portal.context.LiferayFacesContext;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = PermissionsURL.COMPONENT_TYPE)
 public class PermissionsURL extends PermissionsURLBase {

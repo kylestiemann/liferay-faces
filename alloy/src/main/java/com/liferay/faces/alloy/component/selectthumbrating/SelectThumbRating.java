@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = SelectThumbRating.COMPONENT_TYPE)
 public final class SelectThumbRating extends SelectThumbRatingBase {

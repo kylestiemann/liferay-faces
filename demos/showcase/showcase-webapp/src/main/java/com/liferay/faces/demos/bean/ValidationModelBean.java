@@ -22,7 +22,7 @@ import javax.validation.constraints.Size;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

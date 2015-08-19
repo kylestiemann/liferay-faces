@@ -43,7 +43,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(componentFamily = Accordion.COMPONENT_FAMILY, rendererType = Accordion.RENDERER_TYPE)
@@ -215,8 +215,8 @@ public class AccordionRenderer extends AccordionRendererBase {
 
 		behaviorCallback.append("var eventTabIndex=0,togglers=");
 		behaviorCallback.append(clientVarName);
-		behaviorCallback.append(
-			".items,total=togglers.length,i=0;for(i=0;i<total;i++){if(togglers[i]==event.target){eventTabIndex=i;}};");
+		behaviorCallback
+			.append(".items,total=togglers.length,i=0;for(i=0;i<total;i++){if(togglers[i]==event.target){eventTabIndex=i;}};");
 
 		// var hidden = document.getElementById('clientId:selectedIndex');
 		String hiddenFieldId = clientId + "selectedIndex";
@@ -236,8 +236,8 @@ public class AccordionRenderer extends AccordionRendererBase {
 		//	   }
 		// }
 		//J+
-		behaviorCallback.append(
-			"if(event.newVal){hidden.value=eventTabIndex;}else if (prevTabIndex==eventTabIndex){hidden.value='';};");
+		behaviorCallback
+			.append("if(event.newVal){hidden.value=eventTabIndex;}else if (prevTabIndex==eventTabIndex){hidden.value='';};");
 
 		Map<String, List<ClientBehavior>> clientBehaviorMap = accordion.getClientBehaviors();
 		Collection<String> eventNames = accordion.getEventNames();
@@ -257,11 +257,12 @@ public class AccordionRenderer extends AccordionRendererBase {
 						String namingContainerId = viewRoot.getContainerClientId(facesContext);
 						parameters = new ArrayList<ClientBehaviorContext.Parameter>();
 						parameters.add(new ClientBehaviorContext.Parameter("'com.sun.faces.namingContainerId'",
-								namingContainerId));
+							namingContainerId));
 					}
 
-					ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-							facesContext, accordion, eventName, clientId, parameters);
+					ClientBehaviorContext clientBehaviorContext =
+						ClientBehaviorContext.createClientBehaviorContext(facesContext, accordion, eventName, clientId,
+							parameters);
 					String clientBehaviorScript = clientBehavior.getScript(clientBehaviorContext);
 
 					// If <f:ajax event="tabExpanded" /> is specified in the view, then render a script that submits
@@ -390,8 +391,8 @@ public class AccordionRenderer extends AccordionRendererBase {
 	}
 
 	@Override
-	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter, Accordion accordion,
-		boolean first) throws IOException {
+	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter,
+		Accordion accordion, boolean first) throws IOException {
 
 		// render: true
 		encodeWidgetRender(responseWriter, first);

@@ -24,13 +24,14 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * <p>This class is a JSF {@link ViewScoped} {@link ManagedBean} that maintains a list of JavaScript and/or CSS
- * resources that have been added to the &lt;head&gt; section of the portal page. Along with {@link HeadPhaseListener}
- * and {@link HeadRendererBridgeImpl}, this class helps provides a solution to an issue regarding Ajax-initiated
- * execution of navigation-rules in a portlet. See the class-level comments in the {@link HeadPhaseListener} for more
- * details.</p>
+ * <p>
+ * This class is a JSF {@link ViewScoped} {@link ManagedBean} that maintains a list of JavaScript and/or CSS resources
+ * that have been added to the &lt;head&gt; section of the portal page. Along with {@link HeadPhaseListener} and
+ * {@link HeadRendererBridgeImpl}, this class helps provides a solution to an issue regarding Ajax-initiated execution
+ * of navigation-rules in a portlet. See the class-level comments in the {@link HeadPhaseListener} for more details.
+ * </p>
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @ViewScoped

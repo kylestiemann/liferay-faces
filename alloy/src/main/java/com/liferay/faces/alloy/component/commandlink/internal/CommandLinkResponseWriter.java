@@ -27,7 +27,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
  * text of the hyperlink) if the {@link CommandLink} has children, so that the rendered children will determine the text
  * of the hyperlink.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CommandLinkResponseWriter extends DelegationResponseWriterBase {
 

@@ -22,39 +22,39 @@ import org.apache.maven.project.MavenProject;
 /**
  * Deploys (copies) a Plugin to the $LIFERAY_HOME/deploy folder.
  *
- * @author  Mika Koivisto
- * @author  Thiago Moreira
- * @goal    deploy
+ * @author Mika Koivisto
+ * @author Thiago Moreira
+ * @goal deploy
  */
 
 public class PluginDeployerMojo extends AbstractLiferayMojo {
 
 	/**
-	 * @parameter  expression="${liferayVersion}"
+	 * @parameter expression="${liferayVersion}"
 	 */
 	protected String liferayVersion;
 
 	/**
-	 * @parameter  expression="${project}"
+	 * @parameter expression="${project}"
 	 * @required
 	 * @readonly
 	 */
 	protected MavenProject project;
 
 	/**
-	 * @parameter  expression="${autoDeployDir}"
+	 * @parameter expression="${autoDeployDir}"
 	 * @required
 	 */
 	private File autoDeployDir;
 
 	/**
-	 * @parameter  default-value="${project.build.directory}/${project.build.finalName}.war" expression="${warFile}"
+	 * @parameter default-value="${project.build.directory}/${project.build.finalName}.war" expression="${warFile}"
 	 * @required
 	 */
 	private File warFile;
 
 	/**
-	 * @parameter  default-value="${project.build.finalName}.war" expression="${warFileName}"
+	 * @parameter default-value="${project.build.finalName}.war" expression="${warFileName}"
 	 * @required
 	 */
 	private String warFileName;

@@ -14,7 +14,7 @@
 package com.liferay.faces.util.helper;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class StringHelper {
 

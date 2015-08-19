@@ -35,7 +35,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This is a JSF backing managed-bean for the applicant.xhtml composition.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "applicantBackingBean")
 @RequestScoped

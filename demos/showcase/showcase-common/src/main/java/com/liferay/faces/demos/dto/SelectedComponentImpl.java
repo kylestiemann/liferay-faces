@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SelectedComponentImpl extends ShowcaseComponentWrapper implements SelectedComponent, Serializable {
 

@@ -36,7 +36,7 @@ import com.liferay.faces.bridge.internal.BridgeExt;
 /**
  * This class provides a workarounds for FACES-1194 and FACES-1513.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FormRendererPrimeFacesImpl extends RendererWrapper {
 
@@ -102,8 +102,8 @@ public class FormRendererPrimeFacesImpl extends RendererWrapper {
 
 			String nonAjaxPartialActionURL = partialActionURL.toString();
 			ResponseWriter responseWriter = facesContext.getResponseWriter();
-			ResponseWriter primeFacesResponseWriter = new ResponseWriterPrimeFacesBodyImpl(responseWriter,
-					nonAjaxPartialActionURL);
+			ResponseWriter primeFacesResponseWriter =
+				new ResponseWriterPrimeFacesBodyImpl(responseWriter, nonAjaxPartialActionURL);
 			facesContext.setResponseWriter(primeFacesResponseWriter);
 			super.encodeBegin(facesContext, uiComponent);
 			facesContext.setResponseWriter(responseWriter);
@@ -137,9 +137,9 @@ public class FormRendererPrimeFacesImpl extends RendererWrapper {
 
 							String actionListenerFQCN = actionListener.getClass().getName();
 
-							if (P_DATA_EXPORTER_FQCN.equals(actionListenerFQCN) ||
-									P_FILE_DOWNLOAD_FQCN.equals(actionListenerFQCN) ||
-									PE_EXPORTER_FQCN.equals(actionListenerFQCN)) {
+							if (P_DATA_EXPORTER_FQCN.equals(actionListenerFQCN)
+								|| P_FILE_DOWNLOAD_FQCN.equals(actionListenerFQCN)
+								|| PE_EXPORTER_FQCN.equals(actionListenerFQCN)) {
 								nonAjaxActionListener = true;
 
 								break;

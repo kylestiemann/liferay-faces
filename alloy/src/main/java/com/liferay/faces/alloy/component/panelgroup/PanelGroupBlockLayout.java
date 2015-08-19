@@ -14,7 +14,7 @@
 package com.liferay.faces.alloy.component.panelgroup;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PanelGroupBlockLayout extends PanelGroupBase {
 

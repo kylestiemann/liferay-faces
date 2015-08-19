@@ -23,7 +23,7 @@ import com.liferay.faces.alloy.component.datatable.DataTable;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class DataTableInfo {
 

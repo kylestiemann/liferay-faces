@@ -20,7 +20,7 @@ import javax.portlet.WindowState;
 /**
  * See class-level JavaDoc for {@link LiferayURLGeneratorBaseImpl}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayURLGeneratorRenderImpl extends LiferayURLGeneratorBaseImpl {
 

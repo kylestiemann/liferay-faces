@@ -34,15 +34,15 @@ import com.liferay.faces.util.helper.IntegerHelper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = DataTable.COMPONENT_TYPE)
 public class DataTable extends DataTableBase implements ClientBehaviorHolder {
 
 	// Private Constants
 	private static final Collection<String> EVENT_NAMES = Collections.unmodifiableCollection(Arrays.asList(
-				RowSelectEvent.ROW_SELECT, RowSelectRangeEvent.ROW_SELECT_RANGE, RowDeselectEvent.ROW_DESELECT,
-				RowDeselectRangeEvent.ROW_DESELECT_RANGE));
+		RowSelectEvent.ROW_SELECT, RowSelectRangeEvent.ROW_SELECT_RANGE, RowDeselectEvent.ROW_DESELECT,
+		RowDeselectRangeEvent.ROW_DESELECT_RANGE));
 
 	@Override
 	public void queueEvent(FacesEvent facesEvent) {
@@ -80,8 +80,8 @@ public class DataTable extends DataTableBase implements ClientBehaviorHolder {
 			}
 
 			// If the AjaxBehaviorEvent indicates a row range being selected/deselected, then
-			else if (RowSelectRangeEvent.ROW_SELECT_RANGE.equals(eventName) ||
-					RowDeselectRangeEvent.ROW_DESELECT_RANGE.equals(eventName)) {
+			else if (RowSelectRangeEvent.ROW_SELECT_RANGE.equals(eventName)
+				|| RowDeselectRangeEvent.ROW_DESELECT_RANGE.equals(eventName)) {
 
 				// Queue a row range selection/deselection event rather than the specified faces event.
 				AjaxBehaviorEvent behaviorEvent = (AjaxBehaviorEvent) facesEvent;
@@ -94,8 +94,8 @@ public class DataTable extends DataTableBase implements ClientBehaviorHolder {
 					facesEvent = new RowSelectRangeEvent(this, behavior, rowIndexArray, getRowDataList(rowIndexArray));
 				}
 				else {
-					facesEvent = new RowDeselectRangeEvent(this, behavior, rowIndexArray,
-							getRowDataList(rowIndexArray));
+					facesEvent =
+						new RowDeselectRangeEvent(this, behavior, rowIndexArray, getRowDataList(rowIndexArray));
 				}
 			}
 		}

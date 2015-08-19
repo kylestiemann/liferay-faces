@@ -25,8 +25,8 @@ import com.liferay.faces.demos.service.CustomerService;
 
 
 /**
- * @author  Vernon Singleton
- * @author  Kyle Stiemann
+ * @author Vernon Singleton
+ * @author Kyle Stiemann
  */
 @ManagedBean
 @ViewScoped

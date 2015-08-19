@@ -51,7 +51,7 @@ import com.liferay.portlet.PortletPreferencesFactoryUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class TestSetupAction extends TestSetupCompatAction {
 
@@ -145,23 +145,18 @@ public class TestSetupAction extends TestSetupCompatAction {
 			setupPrivatePage(companyId, userId, groupId, portalPage);
 		}
 
-		setupPrivatePage(companyId, userId, groupId,
-			new PortalPage("Lifecycle Set", "chapter3TestslifecycleTestportlet_WAR_bridgetcklifecyclesetportlet"));
-		setupPrivatePage(companyId, userId, groupId,
-			new PortalPage("Render Policy Always Delegate",
-				"chapter3TestsrenderPolicyTestportlet_WAR_bridgetckrenderpolicy1portlet"));
-		setupPrivatePage(companyId, userId, groupId,
-			new PortalPage("Render Policy Default",
-				"chapter3TestsrenderPolicyTestportlet_WAR_bridgetckrenderpolicy2portlet"));
-		setupPrivatePage(companyId, userId, groupId,
-			new PortalPage("Render Policy Never Delegate",
-				"chapter3TestsrenderPolicyTestportlet_WAR_bridgetckrenderpolicy3portlet"));
-		setupPrivatePage(companyId, userId, groupId,
-			new PortalPage("Render Response Wrapper",
-				"chapter6_2_1TestsusesConfiguredRenderResponseWrapperTestportlet_WAR_bridgetckresponsewrapperportlet"));
-		setupPrivatePage(companyId, userId, groupId,
-			new PortalPage("Resource Response Wrapper",
-				"chapter6_2_1TestsusesConfiguredResourceResponseWrapperTestportlet_WAR_bridgetckresponsewrapperportlet"));
+		setupPrivatePage(companyId, userId, groupId, new PortalPage("Lifecycle Set",
+			"chapter3TestslifecycleTestportlet_WAR_bridgetcklifecyclesetportlet"));
+		setupPrivatePage(companyId, userId, groupId, new PortalPage("Render Policy Always Delegate",
+			"chapter3TestsrenderPolicyTestportlet_WAR_bridgetckrenderpolicy1portlet"));
+		setupPrivatePage(companyId, userId, groupId, new PortalPage("Render Policy Default",
+			"chapter3TestsrenderPolicyTestportlet_WAR_bridgetckrenderpolicy2portlet"));
+		setupPrivatePage(companyId, userId, groupId, new PortalPage("Render Policy Never Delegate",
+			"chapter3TestsrenderPolicyTestportlet_WAR_bridgetckrenderpolicy3portlet"));
+		setupPrivatePage(companyId, userId, groupId, new PortalPage("Render Response Wrapper",
+			"chapter6_2_1TestsusesConfiguredRenderResponseWrapperTestportlet_WAR_bridgetckresponsewrapperportlet"));
+		setupPrivatePage(companyId, userId, groupId, new PortalPage("Resource Response Wrapper",
+			"chapter6_2_1TestsusesConfiguredResourceResponseWrapperTestportlet_WAR_bridgetckresponsewrapperportlet"));
 	}
 
 	protected void setupGuestSite(long companyId, long userId) throws Exception {
@@ -204,8 +199,8 @@ public class TestSetupAction extends TestSetupCompatAction {
 			addPortlet(layoutTypePortlet, userId, columnNumber, portletId);
 
 			// Store the preferences for the portlet, if any
-			PortletPreferences portletPreferences = PortletPreferencesFactoryUtil.getLayoutPortletSetup(
-					portalPageLayout, portletId);
+			PortletPreferences portletPreferences =
+				PortletPreferencesFactoryUtil.getLayoutPortletSetup(portalPageLayout, portletId);
 			Portlet portlet = PortletLocalServiceUtil.getPortletById(companyId, portletId);
 			PortletBag portletBag = PortletBagPool.get(portlet.getRootPortletId());
 
@@ -303,8 +298,9 @@ public class TestSetupAction extends TestSetupCompatAction {
 			String type = LayoutConstants.TYPE_PORTLET;
 			boolean hidden = false;
 			String friendlyURL = "/" + portalPageName.toLowerCase();
-			portalPageLayout = ServiceUtil.addLayout(userId, groupId, privateLayout, parentLayoutId, portalPageName,
-					portalPageName, portalPageName, type, hidden, friendlyURL);
+			portalPageLayout =
+				ServiceUtil.addLayout(userId, groupId, privateLayout, parentLayoutId, portalPageName, portalPageName,
+					portalPageName, type, hidden, friendlyURL);
 		}
 
 		return portalPageLayout;

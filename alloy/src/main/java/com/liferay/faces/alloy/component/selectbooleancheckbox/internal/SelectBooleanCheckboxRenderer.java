@@ -35,11 +35,10 @@ import com.liferay.faces.util.render.internal.IdDelegationResponseWriter;
  * href="http://balusc.blogspot.com/2008/09/validate-required-checkbox.html">this blog post</a> in which the "required"
  * attribute of {@link HtmlSelectBooleanCheckbox} is effectively disabled.
  *
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
-@FacesRenderer(
-	componentFamily = SelectBooleanCheckbox.COMPONENT_FAMILY, rendererType = SelectBooleanCheckbox.RENDERER_TYPE
-)
+@FacesRenderer(componentFamily = SelectBooleanCheckbox.COMPONENT_FAMILY,
+	rendererType = SelectBooleanCheckbox.RENDERER_TYPE)
 @ResourceDependency(library = "liferay-faces-alloy", name = "alloy.css")
 public class SelectBooleanCheckboxRenderer extends SelectBooleanCheckboxRendererBase {
 
@@ -52,8 +51,8 @@ public class SelectBooleanCheckboxRenderer extends SelectBooleanCheckboxRenderer
 
 		Object submittedValue = selectBooleanCheckbox.getSubmittedValue();
 
-		if (selectBooleanCheckbox.isRequired() && submittedValue.getClass().equals(Boolean.class) &&
-				Boolean.FALSE.equals(submittedValue)) {
+		if (selectBooleanCheckbox.isRequired() && submittedValue.getClass().equals(Boolean.class)
+			&& Boolean.FALSE.equals(submittedValue)) {
 			selectBooleanCheckbox.setSubmittedValue("");
 		}
 	}
@@ -68,8 +67,8 @@ public class SelectBooleanCheckboxRenderer extends SelectBooleanCheckboxRenderer
 			// Force the JSF runtime to output the "id" attribute so that the FieldRenderer can encode a label
 			// element with a "for" attribute that associates the label with this checkbox.
 			ResponseWriter responseWriter = facesContext.getResponseWriter();
-			IdDelegationResponseWriter idDelegationResponseWriter = new IdDelegationResponseWriter(responseWriter,
-					"input", uiComponent.getClientId(facesContext));
+			IdDelegationResponseWriter idDelegationResponseWriter =
+				new IdDelegationResponseWriter(responseWriter, "input", uiComponent.getClientId(facesContext));
 			super.encodeEnd(facesContext, uiComponent, idDelegationResponseWriter);
 		}
 		else {

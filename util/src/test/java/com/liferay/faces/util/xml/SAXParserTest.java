@@ -32,7 +32,7 @@ import com.liferay.faces.util.xml.internal.SAXParserImpl;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SAXParserTest {
 
@@ -162,8 +162,7 @@ public class SAXParserTest {
 		}
 
 		@Override
-		public void startElement(String uri, String localName, String qName, Attributes attributes)
-			throws SAXException {
+		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
 			testURI(uri, localName);
 
@@ -185,8 +184,8 @@ public class SAXParserTest {
 			int totalAttributes = attributes.getLength();
 
 			for (int i = 0; i < totalAttributes; i++) {
-				logger.debug("   attribute uri=" + attributes.getURI(i) + " qName=" + attributes.getQName(i) +
-					" localName=" + attributes.getLocalName(i) + " value=" + attributes.getValue(i));
+				logger.debug("   attribute uri=" + attributes.getURI(i) + " qName=" + attributes.getQName(i)
+					+ " localName=" + attributes.getLocalName(i) + " value=" + attributes.getValue(i));
 			}
 		}
 

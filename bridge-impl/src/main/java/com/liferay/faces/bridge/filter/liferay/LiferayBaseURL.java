@@ -20,7 +20,7 @@ import javax.portlet.BaseURL;
  * This is a marker interface that extends the {@link BaseURL} interface in order to provide more readable names for
  * implementing classes.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface LiferayBaseURL extends BaseURL {
 

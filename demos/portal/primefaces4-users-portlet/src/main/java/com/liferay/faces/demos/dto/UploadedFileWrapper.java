@@ -37,11 +37,10 @@ import com.liferay.faces.util.model.UploadedFile;
  * This class provides a convenient mechanism for converting a PrimeFaces {@link org.primefaces.model.UploadedFile}
  * object to an instance of the {@link UploadedFile} interface provided by the Liferay Faces Bridge implementation.
  *
- * @author  Neil Griffin
- * @author  Kyle Stiemann
+ * @author Neil Griffin
+ * @author Kyle Stiemann
  */
-public class UploadedFileWrapper implements Serializable, UploadedFile,
-	FacesWrapper<org.primefaces.model.UploadedFile> {
+public class UploadedFileWrapper implements Serializable, UploadedFile, FacesWrapper<org.primefaces.model.UploadedFile> {
 
 	// serialVersionUID
 	private static final long serialVersionUID = 1078847948835811331L;
@@ -127,8 +126,9 @@ public class UploadedFileWrapper implements Serializable, UploadedFile,
 	 * Since the PrimeFaces UploadedFile interface does not provide a method for deleting the file, Liferay Faces Bridge
 	 * automatically deletes it when the wrappedUploadedFile.getContents() method is called. For more information, see
 	 * {@link com.liferay.faces.bridge.renderkit.primefaces.FileUploadRendererPrimeFacesImpl.PrimeFacesFileItem#get()}
-	 * and {@link
-	 * com.liferay.faces.bridge.renderkit.primefaces.FileUploadRendererPrimeFacesImpl.UploadedFileInputStream#close()}.
+	 * and
+	 * {@link com.liferay.faces.bridge.renderkit.primefaces.FileUploadRendererPrimeFacesImpl.UploadedFileInputStream#close()}
+	 * .
 	 */
 	protected File getFile(String uniqueFolderName) {
 

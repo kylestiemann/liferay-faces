@@ -20,7 +20,7 @@ import java.io.Serializable;
  * This is a simple marker class that wraps a String. It marks the fact that the wrapped string is a fragment of
  * JavaScript code.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public final class JavaScriptFragment implements Serializable {
 

@@ -18,7 +18,7 @@ import com.liferay.faces.bridge.filter.liferay.LiferayURLGenerator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayActionURLImpl extends LiferayPortletURLImpl implements LiferayActionURL {
 

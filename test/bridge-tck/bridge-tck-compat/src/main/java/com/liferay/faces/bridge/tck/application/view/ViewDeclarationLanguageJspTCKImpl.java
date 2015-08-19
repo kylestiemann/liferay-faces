@@ -27,7 +27,7 @@ import javax.faces.view.ViewDeclarationLanguageWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewDeclarationLanguageJspTCKImpl extends ViewDeclarationLanguageWrapper {
 

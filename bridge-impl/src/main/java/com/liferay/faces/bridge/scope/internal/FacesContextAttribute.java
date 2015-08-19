@@ -17,9 +17,10 @@ import com.liferay.faces.util.lang.NameValuePair;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextAttribute extends NameValuePair<Object, Object> {
+
 	public FacesContextAttribute(Object name, Object value) {
 		super(name, value);
 	}

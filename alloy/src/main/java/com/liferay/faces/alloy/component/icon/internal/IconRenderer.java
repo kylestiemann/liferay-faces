@@ -25,7 +25,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesRenderer(componentFamily = Icon.COMPONENT_FAMILY, rendererType = Icon.RENDERER_TYPE)
 public class IconRenderer extends IconRendererBase {

@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.outputlabel.OutputLabel;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = OutputLabel.COMPONENT_FAMILY, rendererType = OutputLabel.RENDERER_TYPE)
 public class OutputLabelRenderer extends OutputLabelRendererBase {

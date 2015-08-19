@@ -40,7 +40,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class AlloyRendererUtil {
 
@@ -48,13 +48,13 @@ public class AlloyRendererUtil {
 	private static final Logger logger = LoggerFactory.getLogger(AlloyRendererUtil.class);
 
 	// Private Constants
-	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance().get(
-			ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
-	public static void addDefaultAjaxBehavior(ClientBehaviorHolder clientBehaviorHolder, String execute, String process,
-		String defaultExecute, String render, String update, String defaultRender) {
+	public static void addDefaultAjaxBehavior(ClientBehaviorHolder clientBehaviorHolder, String execute,
+		String process, String defaultExecute, String render, String update, String defaultRender) {
 
 		Map<String, List<ClientBehavior>> clientBehaviorMap = clientBehaviorHolder.getClientBehaviors();
 		String defaultEventName = clientBehaviorHolder.getDefaultEventName();
@@ -189,8 +189,8 @@ public class AlloyRendererUtil {
 			// Otherwise, if both the execute and process attributes were specified with different values, then log a
 			// warning indicating that the value of the execute attribute takes precedence.
 			else if (!process.equals(defaultValue)) {
-				logger.warn(
-					"Different values were specified for the execute=[{0}] and process=[{0}]. The value for execute takes precedence.");
+				logger
+					.warn("Different values were specified for the execute=[{0}] and process=[{0}]. The value for execute takes precedence.");
 			}
 		}
 
@@ -211,8 +211,8 @@ public class AlloyRendererUtil {
 			// Otherwise, if both the render and update attributes were specified with different values, then log a
 			// warning indicating that the value of the render attribute takes precedence.
 			else if (!update.equals(defaultValue)) {
-				logger.warn(
-					"Different values were specified for the render=[{0}] and update=[{0}]. The value for render takes precedence.");
+				logger
+					.warn("Different values were specified for the render=[{0}] and update=[{0}]. The value for render takes precedence.");
 			}
 		}
 

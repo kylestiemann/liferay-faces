@@ -43,7 +43,7 @@ import com.liferay.portal.util.PortalUtil;
  * Custom {@link ResponseWriter} that has the ability to write to the <head>...</head> section of the portal page via
  * the Liferay vendor-specific mechanism.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadResponseWriterLiferayImpl extends HeadResponseWriterBase {
 
@@ -72,14 +72,14 @@ public class HeadResponseWriterLiferayImpl extends HeadResponseWriterBase {
 		ELContext elContext = facesContext.getELContext();
 
 		// Invoke the Liferay HtmlTopTag class directly (rather than using liferay-util:html-top from a JSP).
-		JspAdapterFactory jspAdapterFactory = (JspAdapterFactory) FactoryExtensionFinder.getFactory(
-				JspAdapterFactory.class);
+		JspAdapterFactory jspAdapterFactory =
+			(JspAdapterFactory) FactoryExtensionFinder.getFactory(JspAdapterFactory.class);
 		JspWriter stringJspWriter = jspAdapterFactory.getStringJspWriter();
 		BodyContent stringBodyContent = jspAdapterFactory.getStringBodyContent(stringJspWriter);
 		String elementAsString = element.toString();
 		HtmlTopTag htmlTopTag = new HtmlTopTag();
-		PageContext stringPageContext = jspAdapterFactory.getStringPageContext(httpServletRequest, httpServletResponse,
-				elContext, stringJspWriter);
+		PageContext stringPageContext =
+			jspAdapterFactory.getStringPageContext(httpServletRequest, httpServletResponse, elContext, stringJspWriter);
 		htmlTopTag.setPageContext(stringPageContext);
 		htmlTopTag.doStartTag();
 		stringBodyContent.print(elementAsString);

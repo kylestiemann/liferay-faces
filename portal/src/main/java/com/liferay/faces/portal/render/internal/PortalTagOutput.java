@@ -14,7 +14,7 @@
 package com.liferay.faces.portal.render.internal;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface PortalTagOutput {
 

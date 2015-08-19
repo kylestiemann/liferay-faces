@@ -34,7 +34,7 @@ import com.liferay.faces.bridge.scope.BridgeRequestScope;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeContextWrapper extends BridgeContext implements FacesWrapper<BridgeContext> {
 

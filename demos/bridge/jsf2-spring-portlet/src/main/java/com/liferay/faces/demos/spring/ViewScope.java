@@ -23,10 +23,10 @@ import org.springframework.beans.factory.config.Scope;
 
 
 /**
- * This class serves as a custom Spring scope that decorates the map of view-scoped managed-beans behind the JSF2 {@link
- * ViewScoped} annotation.
+ * This class serves as a custom Spring scope that decorates the map of view-scoped managed-beans behind the JSF2
+ * {@link ViewScoped} annotation.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewScope implements Scope {
 

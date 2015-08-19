@@ -24,7 +24,7 @@ import javax.faces.render.ClientBehaviorRenderer;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ProgressBarAjaxBehavior extends AjaxBehaviorWrapper {
 
@@ -34,12 +34,11 @@ public class ProgressBarAjaxBehavior extends AjaxBehaviorWrapper {
 	private String pollingOnerrorExecutableCallback;
 
 	/**
-	 * @param  ajaxBehavior              The wrapped AjaxBehavior.
-	 * @param  pollingOnsuccessCallback  The name of the callback which should be executed after a successful Ajax call.
-	 *                                   This argument is used to facilitate a recursive call to the polling function of
-	 *                                   the progressBar.
-	 * @param  pollingOnerrorCallback    The name of the callback which should be executed after an error within an Ajax
-	 *                                   call. This argument is used to stop polling the server when an error occurs.
+	 * @param ajaxBehavior The wrapped AjaxBehavior.
+	 * @param pollingOnsuccessCallback The name of the callback which should be executed after a successful Ajax call.
+	 *            This argument is used to facilitate a recursive call to the polling function of the progressBar.
+	 * @param pollingOnerrorCallback The name of the callback which should be executed after an error within an Ajax
+	 *            call. This argument is used to stop polling the server when an error occurs.
 	 */
 	public ProgressBarAjaxBehavior(AjaxBehavior ajaxBehavior, String pollingOnsuccessCallback,
 		String pollingOnerrorCallback) {
@@ -104,13 +103,11 @@ public class ProgressBarAjaxBehavior extends AjaxBehaviorWrapper {
 	/**
 	 * The intention of the JSF API for this method is to return the name of the JavaScript function that will be called
 	 * in one of three circumstances:
-	 *
 	 * <ol>
-	 *   <li>Before the Ajax request is dispatched (data.status==="begin")</li>
-	 *   <li>After the Ajax response is received (data.status==="complete")</li>
-	 *   <li>After the partial response has been parsed and the DOM has been updated (data.status==="success")</li>
+	 * <li>Before the Ajax request is dispatched (data.status==="begin")</li>
+	 * <li>After the Ajax response is received (data.status==="complete")</li>
+	 * <li>After the partial response has been parsed and the DOM has been updated (data.status==="success")</li>
 	 * </ol>
-	 *
 	 * In the case of progressBar, rather than returning a function name, this method needs to return an anonymous
 	 * function that recursively calls the polling function when data.status==="success".
 	 */

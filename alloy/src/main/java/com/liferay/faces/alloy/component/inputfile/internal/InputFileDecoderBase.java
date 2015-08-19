@@ -30,7 +30,7 @@ import com.liferay.faces.util.model.UploadedFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class InputFileDecoderBase implements InputFileDecoder {
 

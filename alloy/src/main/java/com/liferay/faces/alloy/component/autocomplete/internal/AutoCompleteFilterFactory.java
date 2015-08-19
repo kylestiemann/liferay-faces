@@ -14,7 +14,7 @@
 package com.liferay.faces.alloy.component.autocomplete.internal;
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public interface AutoCompleteFilterFactory {
 

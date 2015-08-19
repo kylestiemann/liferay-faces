@@ -25,7 +25,7 @@ import com.liferay.faces.bridge.filter.liferay.internal.LiferayPortalUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceResponseBridgeLiferayImpl extends ResourceResponseBridgeImpl {
 
@@ -53,7 +53,7 @@ public class ResourceResponseBridgeLiferayImpl extends ResourceResponseBridgeImp
 		BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 
 		return liferayURLFactory.getLiferayRenderURL(bridgeContext, getResponse(), getNamespace(),
-				isFriendlyURLMapperEnabled(bridgeContext));
+			isFriendlyURLMapperEnabled(bridgeContext));
 	}
 
 	@Override

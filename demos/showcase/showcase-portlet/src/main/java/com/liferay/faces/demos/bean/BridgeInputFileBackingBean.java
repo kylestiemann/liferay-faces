@@ -30,7 +30,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @RequestScoped
 @ManagedBean
@@ -80,8 +80,9 @@ public class BridgeInputFileBackingBean {
 		if (uploadedFile.getStatus() == UploadedFile.Status.FILE_SAVED) {
 
 			FacesContext facesContext = FacesContext.getCurrentInstance();
-			FacesMessage facesMessage = new FacesMessage("Received fileUploadEvent for file named '" +
-					uploadedFile.getName() + "' in the " + fileUploadEvent.getPhaseId().getName() + " phase.");
+			FacesMessage facesMessage =
+				new FacesMessage("Received fileUploadEvent for file named '" + uploadedFile.getName() + "' in the "
+					+ fileUploadEvent.getPhaseId().getName() + " phase.");
 			facesContext.addMessage(null, facesMessage);
 			uploadedFiles.add(uploadedFile);
 			logger.debug("Received fileName=[{0}] absolutePath=[{1}]", uploadedFile.getName(),

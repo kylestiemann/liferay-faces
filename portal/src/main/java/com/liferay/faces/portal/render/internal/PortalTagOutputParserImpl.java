@@ -19,7 +19,7 @@ import com.liferay.faces.util.ContentTypes;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortalTagOutputParserImpl implements PortalTagOutputParser {
 

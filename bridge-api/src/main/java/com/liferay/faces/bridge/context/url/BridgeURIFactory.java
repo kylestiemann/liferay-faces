@@ -19,7 +19,7 @@ import javax.faces.FacesWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeURIFactory implements FacesWrapper<BridgeURIFactory> {
 

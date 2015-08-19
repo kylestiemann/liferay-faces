@@ -16,7 +16,7 @@ package com.liferay.faces.util.config;
 /**
  * This interface provides a representation of a servlet entry from a web-app descriptor.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface ConfiguredServlet {
 

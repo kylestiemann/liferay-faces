@@ -29,7 +29,7 @@ import com.liferay.faces.util.model.UploadedFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PrimeFacesFileItem implements FileItem {
 

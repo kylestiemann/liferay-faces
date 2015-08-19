@@ -18,7 +18,7 @@ import javax.faces.component.ValueHolder;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ComponentResourceUtil {
 

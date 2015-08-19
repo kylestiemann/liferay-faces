@@ -33,7 +33,7 @@ import com.liferay.faces.bridge.context.map.internal.ContextMapFactory;
 /**
  * This class is an implementation of {@link ExternalContext} that can be used during session expiration.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExternalContextExpirationImpl extends ExternalContext {
 
@@ -46,8 +46,8 @@ public class ExternalContextExpirationImpl extends ExternalContext {
 		this.servletContext = servletContext;
 
 		// Initialize the application map.
-		ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-				ContextMapFactory.class);
+		ContextMapFactory contextMapFactory =
+			(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 		this.applicationMap = contextMapFactory.getServletContextAttributeMap(servletContext);
 
 	}

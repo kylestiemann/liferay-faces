@@ -18,7 +18,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeFactoryFinderImpl extends BridgeFactoryFinder {
 

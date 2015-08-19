@@ -31,7 +31,7 @@ import com.liferay.faces.alloy.component.inputdate.InputDate;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesValidator("com.liferay.faces.demos.validator.WeekdayValidator")
 public class WeekdayValidator implements Validator {

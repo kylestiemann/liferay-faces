@@ -19,7 +19,7 @@ import javax.portlet.faces.Bridge;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeURI {
 
@@ -37,8 +37,8 @@ public interface BridgeURI {
 	/**
 	 * Determines whether or not the URI is escaped.
 	 *
-	 * @return  <code>true</code> if all occurrences of the ampersand character appear as &amp; otherwise, returns
-	 *          <code>false</code>.
+	 * @return <code>true</code> if all occurrences of the ampersand character appear as &amp; otherwise, returns
+	 *         <code>false</code>.
 	 */
 	public boolean isEscaped();
 
@@ -46,7 +46,7 @@ public interface BridgeURI {
 	 * Determines whether or not the URI is absolute, meaning it contains a scheme component. Note that according to the
 	 * class-level documentation of {@link java.net.URI} an absolute URI is non-relative.
 	 *
-	 * @return  Returns true if the URI is absolute, otherwise returns false.
+	 * @return Returns true if the URI is absolute, otherwise returns false.
 	 */
 	public boolean isAbsolute();
 
@@ -54,7 +54,7 @@ public interface BridgeURI {
 	 * Determines whether or not the URL is opaque, meaning it is absolute and its scheme component does not begin with
 	 * a forward-slash character. For more information see {@link java.net.URI#isOpaque()}.
 	 *
-	 * @return  <code>true</code> if the URL is opaque, otherwise <code>false</code>.
+	 * @return <code>true</code> if the URL is opaque, otherwise <code>false</code>.
 	 */
 	public boolean isOpaque();
 
@@ -62,14 +62,14 @@ public interface BridgeURI {
 	 * Determines whether or not the path component of the URL is relative, meaning it does not begin with a
 	 * forward-slash character.
 	 *
-	 * @return  <code>true</code> if the path is relative, otherwise <code>false</code>.
+	 * @return <code>true</code> if the path is relative, otherwise <code>false</code>.
 	 */
 	public boolean isPathRelative();
 
 	/**
 	 * Determines whether or not the URL begins with the "portlet:" scheme.
 	 *
-	 * @return  <code>true</code> if the URL begins with the "portlet:" scheme, otherwise <code>false</code>.
+	 * @return <code>true</code> if the URL begins with the "portlet:" scheme, otherwise <code>false</code>.
 	 */
 	public boolean isPortletScheme();
 
@@ -77,14 +77,14 @@ public interface BridgeURI {
 	 * Determines whether or not the URI is relative, meaning it does not have a scheme component. Note that according
 	 * to the class-level documentation of {@link java.net.URI} a relative URI is non-absolute.
 	 *
-	 * @return  Returns true if the URI is relative, otherwise returns false.
+	 * @return Returns true if the URI is relative, otherwise returns false.
 	 */
 	public boolean isRelative();
 
 	/**
 	 * Determines whether or not the URL is external.
 	 *
-	 * @return  <code>true</code> if external, otherwise <code>false</code>.
+	 * @return <code>true</code> if external, otherwise <code>false</code>.
 	 */
 	public boolean isExternal();
 
@@ -92,7 +92,7 @@ public interface BridgeURI {
 	 * Determines whether or not the URL is hierarchical, meaning it is either 1) absolute and the scheme-specific part
 	 * begins with a forward-slash character, or 2) is relative.
 	 *
-	 * @return  <code>true</code> if the URL is hierarchical, otherwise <code>false</code>.
+	 * @return <code>true</code> if the URL is hierarchical, otherwise <code>false</code>.
 	 */
 	public boolean isHierarchical();
 

@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class StringIterator implements Iterator<String> {
 

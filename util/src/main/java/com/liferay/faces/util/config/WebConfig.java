@@ -18,7 +18,7 @@ import java.util.Map;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface WebConfig {
 

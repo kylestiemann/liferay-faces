@@ -24,16 +24,15 @@ import com.liferay.portal.kernel.util.PortalClassInvoker;
 /**
  * This class provides a compatibility layer that isolates differences between different versions of Liferay Portal.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LoginUtilCompat {
 
 	// Private Constants
 	private static final String LOGIN_UTIL_FQCN = "com.liferay.portlet.login.util.LoginUtil";
 	private static final String LOGIN_METHOD = "login";
-	private static final Class<?>[] LOGIN_PARAM_TYPES = new Class<?>[] {
-			HttpServletRequest.class, HttpServletResponse.class, String.class, String.class, boolean.class, String.class
-		};
+	private static final Class<?>[] LOGIN_PARAM_TYPES = new Class<?>[] { HttpServletRequest.class,
+		HttpServletResponse.class, String.class, String.class, boolean.class, String.class };
 
 	public static Object invokeLogin(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse,
 		String handle, String password, boolean rememberMe, String authType) throws Exception {
@@ -42,6 +41,6 @@ public class LoginUtilCompat {
 		MethodKey methodKey = new MethodKey(loginUtilClass, LOGIN_METHOD, LOGIN_PARAM_TYPES);
 
 		return PortalClassInvoker.invoke(false, methodKey, httpServletRequest, httpServletResponse, handle, password,
-				rememberMe, authType);
+			rememberMe, authType);
 	}
 }

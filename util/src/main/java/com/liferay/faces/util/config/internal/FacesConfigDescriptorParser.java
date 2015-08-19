@@ -19,7 +19,7 @@ import java.net.URL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface FacesConfigDescriptorParser {
 

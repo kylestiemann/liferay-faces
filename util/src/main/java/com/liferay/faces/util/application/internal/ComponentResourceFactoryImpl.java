@@ -23,7 +23,7 @@ import com.liferay.faces.util.application.ComponentResourceUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ComponentResourceFactoryImpl extends ComponentResourceFactory {
 

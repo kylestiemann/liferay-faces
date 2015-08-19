@@ -27,7 +27,7 @@ import com.liferay.taglib.aui.NavBarTag;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = NavBar.COMPONENT_FAMILY, rendererType = NavBar.RENDERER_TYPE)

@@ -40,7 +40,7 @@ import com.liferay.faces.util.model.UploadedFile;
  * This class is a runtime wrapper around the PrimeFaces FileUploadRenderer class that makes the p:fileUpload component
  * compatible with a portlet environment.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FileUploadRendererPrimeFacesImpl extends RendererWrapper {
 
@@ -76,8 +76,8 @@ public class FileUploadRendererPrimeFacesImpl extends RendererWrapper {
 			if (submittedValue != null) {
 
 				// Get the UploadedFile from the request attribute map.
-				ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-						ContextMapFactory.class);
+				ContextMapFactory contextMapFactory =
+					(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 				BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 				Map<String, List<UploadedFile>> uploadedFileMap = contextMapFactory.getUploadedFileMap(bridgeContext);
 
@@ -113,8 +113,8 @@ public class FileUploadRendererPrimeFacesImpl extends RendererWrapper {
 							Class<?> fileUploadEventClass = Class.forName(FQCN_FILE_UPLOAD_EVENT);
 							constructor = fileUploadEventClass.getConstructor(UIComponent.class, uploadedFileClass);
 
-							FacesEvent fileUploadEvent = (FacesEvent) constructor.newInstance(uiComponent,
-									defaultUploadedFile);
+							FacesEvent fileUploadEvent =
+								(FacesEvent) constructor.newInstance(uiComponent, defaultUploadedFile);
 
 							// Queue the event.
 							primeFacesFileUpload.queueEvent(fileUploadEvent);

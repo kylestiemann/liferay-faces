@@ -25,7 +25,7 @@ import com.liferay.faces.bridge.util.internal.URLUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeNavigationCaseImpl extends NavigationCaseWrapper implements BridgeNavigationCase {
 

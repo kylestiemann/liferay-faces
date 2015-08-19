@@ -26,10 +26,10 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public abstract class DelegatingClientComponentRendererBase extends ClientComponentRendererBase
-	implements DelegatingClientComponentRenderer {
+public abstract class DelegatingClientComponentRendererBase extends ClientComponentRendererBase implements
+	DelegatingClientComponentRenderer {
 
 	@Override
 	public abstract void encodeJavaScriptBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException;

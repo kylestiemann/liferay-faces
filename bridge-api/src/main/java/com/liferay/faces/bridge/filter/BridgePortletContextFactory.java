@@ -18,7 +18,7 @@ import javax.portlet.PortletContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgePortletContextFactory implements FacesWrapper<BridgePortletContextFactory> {
 

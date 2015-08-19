@@ -18,7 +18,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeResourceURLWrapper extends BridgeURLWrapper implements BridgeResourceURL,
 	FacesWrapper<BridgeResourceURL> {

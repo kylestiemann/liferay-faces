@@ -22,10 +22,10 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 /**
  * Mojarra has a vendor-specific Service Provider Interface (SPI) for dependency injection called the InjectionProvider.
- * This class provides the ability to leverage the InjectionProvider instance for invoking methods annotated with {@link
- * javax.annotation.PreDestroy}.
+ * This class provides the ability to leverage the InjectionProvider instance for invoking methods annotated with
+ * {@link javax.annotation.PreDestroy}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PreDestroyInvokerMojarraImpl extends PreDestroyInvokerImpl {
 
@@ -44,8 +44,8 @@ public class PreDestroyInvokerMojarraImpl extends PreDestroyInvokerImpl {
 		this.mojarraInjectionProvider = getInjectionProvider(applicationMap);
 
 		try {
-			this.invokePreDestroyMethod = mojarraInjectionProvider.getClass().getMethod(INVOKE_PRE_DESTROY,
-					new Class[] { Object.class });
+			this.invokePreDestroyMethod =
+				mojarraInjectionProvider.getClass().getMethod(INVOKE_PRE_DESTROY, new Class[] { Object.class });
 		}
 		catch (Exception e) {
 			logger.error(e);
@@ -60,9 +60,10 @@ public class PreDestroyInvokerMojarraImpl extends PreDestroyInvokerImpl {
 			if (invokePreDestroyMethod != null) {
 
 				try {
-					logger.debug(
-						"Invoking methods annotated with @PreDestroy: mojarraInjectionProvider=[{0}] managedBean=[{1}]",
-						mojarraInjectionProvider, managedBean);
+					logger
+						.debug(
+							"Invoking methods annotated with @PreDestroy: mojarraInjectionProvider=[{0}] managedBean=[{1}]",
+							mojarraInjectionProvider, managedBean);
 					invokePreDestroyMethod.invoke(mojarraInjectionProvider, managedBean);
 				}
 				catch (Exception e) {
@@ -95,10 +96,10 @@ public class PreDestroyInvokerMojarraImpl extends PreDestroyInvokerImpl {
 				// Note that the ApplicationAssociate instance will be available during startup if the Mojarra
 				// ConfigureListener executes prior to the BridgeSessionListener. It will also be available during
 				// execution of the JSF lifecycle.
-				Method getInjectionProviderMethod = applicationAssociate.getClass().getMethod("getInjectionProvider",
-						new Class[] {});
-				Object mojarraInjectionProvider = getInjectionProviderMethod.invoke(applicationAssociate,
-						new Object[] {});
+				Method getInjectionProviderMethod =
+					applicationAssociate.getClass().getMethod("getInjectionProvider", new Class[] {});
+				Object mojarraInjectionProvider =
+					getInjectionProviderMethod.invoke(applicationAssociate, new Object[] {});
 
 				logger.debug("mojarraInjectionProvider=[{0}]", mojarraInjectionProvider);
 

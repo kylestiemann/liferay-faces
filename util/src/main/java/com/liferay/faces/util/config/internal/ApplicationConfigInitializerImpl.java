@@ -29,7 +29,7 @@ import com.liferay.faces.util.xml.ConcurrentSAXParserFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ApplicationConfigInitializerImpl implements ApplicationConfigInitializer {
 
@@ -64,13 +64,13 @@ public class ApplicationConfigInitializerImpl implements ApplicationConfigInitia
 			SAXParser saxParser = saxParserFactory.newSAXParser();
 
 			// Scan all the web.xml and web-fragment.xml descriptors in the classpath.
-			WebConfigScanner webConfigScanner = newWebConfigScanner(classLoader, resourceReader, saxParser,
-					resolveEntities);
+			WebConfigScanner webConfigScanner =
+				newWebConfigScanner(classLoader, resourceReader, saxParser, resolveEntities);
 			WebConfig webConfig = webConfigScanner.scan();
 
 			// Scan all the faces-config.xml descriptors in the classpath.
-			FacesConfigScanner facesConfigScanner = newFacesConfigScanner(classLoader, resourceReader, saxParser,
-					resolveEntities, webConfig);
+			FacesConfigScanner facesConfigScanner =
+				newFacesConfigScanner(classLoader, resourceReader, saxParser, resolveEntities, webConfig);
 			FacesConfig facesConfig = facesConfigScanner.scan();
 
 			return new ApplicationConfigImpl(contextPath, facesConfig, webConfig);

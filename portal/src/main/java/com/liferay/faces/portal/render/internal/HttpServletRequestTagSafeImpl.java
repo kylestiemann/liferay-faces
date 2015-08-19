@@ -25,12 +25,13 @@ import com.liferay.taglib.ui.InputEditorTag;
 
 
 /**
- * This class wraps the Liferay {@link NamespaceServletRequest} class, so that calls to {@link #setAttribute(String,
- * Object)} do not cause attribute names to be prefixed with the response namespace. This is necessary so that Liferay
- * Portal JSP tag classes will be able to set request attributes that can be picked up by JSPs. For example, the {@link
- * InputEditorTag} sets attributes that are picked up by the portal-web/docroot/html/js/editor/ckeditor.jsp page.
+ * This class wraps the Liferay {@link NamespaceServletRequest} class, so that calls to
+ * {@link #setAttribute(String, Object)} do not cause attribute names to be prefixed with the response namespace. This
+ * is necessary so that Liferay Portal JSP tag classes will be able to set request attributes that can be picked up by
+ * JSPs. For example, the {@link InputEditorTag} sets attributes that are picked up by the
+ * portal-web/docroot/html/js/editor/ckeditor.jsp page.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HttpServletRequestTagSafeImpl extends HttpServletRequestWrapper {
 
@@ -72,8 +73,8 @@ public class HttpServletRequestTagSafeImpl extends HttpServletRequestWrapper {
 				// NameSpaceServletRequest.setAttribute(String, Object) will prevent the attribute name from getting
 				// prefixed with the response namespace. The method must be called reflectively since the
 				// NameSpaceServletRequest is packaged in portal-impl.jar and is not available at compile-time.
-				Method method = wrappedRequest.getClass().getMethod("setAttribute", String.class, Object.class,
-						boolean.class);
+				Method method =
+					wrappedRequest.getClass().getMethod("setAttribute", String.class, Object.class, boolean.class);
 				method.invoke(wrappedRequest, name, value, false);
 			}
 			catch (Exception e) {

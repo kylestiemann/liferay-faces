@@ -19,7 +19,7 @@ package com.liferay.faces.alloy.component.datatable.internal;
  * pointing to the next item is incremented. When the end of the list is reached, the {@link #getNextItem()} method
  * resets the index back to the beginning and returns the first item.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ItemCycler {
 

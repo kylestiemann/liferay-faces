@@ -18,7 +18,7 @@ import javax.faces.context.ExternalContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BrowserSnifferFactory implements FacesWrapper<BrowserSnifferFactory> {
 

@@ -30,7 +30,7 @@ import com.liferay.faces.util.render.internal.HiddenTextResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = InputSourceCode.COMPONENT_FAMILY, rendererType = InputSourceCode.RENDERER_TYPE)

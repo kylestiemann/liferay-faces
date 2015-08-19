@@ -31,7 +31,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class is here to help log error messages regarding missing resources.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 public class MissingResourceImpl extends Resource {
 

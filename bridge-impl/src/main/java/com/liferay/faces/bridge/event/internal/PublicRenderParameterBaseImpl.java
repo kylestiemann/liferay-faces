@@ -14,7 +14,7 @@
 package com.liferay.faces.bridge.event.internal;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PublicRenderParameterBaseImpl implements PublicRenderParameter {
 

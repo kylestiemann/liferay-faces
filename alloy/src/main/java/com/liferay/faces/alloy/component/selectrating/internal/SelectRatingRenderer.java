@@ -27,7 +27,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class SelectRatingRenderer extends SelectRatingRendererBase {
 
@@ -120,7 +120,7 @@ public class SelectRatingRenderer extends SelectRatingRendererBase {
 		// render of the page, and no valid default value was set.
 		if (selectedIndex.intValue() == SelectRatingResponseWriter.NO_SELECTION_INDEX) {
 
-			// This is case 1.  the user selected to clear the value.
+			// This is case 1. the user selected to clear the value.
 			if (facesContext.isPostback()) {
 				responseWriter.write(clientVarName);
 				responseWriter.write(".clearSelection();");

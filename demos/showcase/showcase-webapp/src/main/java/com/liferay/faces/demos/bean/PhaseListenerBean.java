@@ -22,31 +22,31 @@ import javax.faces.event.PhaseListener;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 public class PhaseListenerBean implements PhaseListener {
 
 	@Override
 	public void afterPhase(PhaseEvent event) {
 		InputTextModelBean inputTextModelBean = getInputTextModelBean(event.getFacesContext());
-		inputTextModelBean.setText(inputTextModelBean.getText() + "<br/>PhaseListenerBean in afterPhase of " +
-			event.getPhaseId());
+		inputTextModelBean.setText(inputTextModelBean.getText() + "<br/>PhaseListenerBean in afterPhase of "
+			+ event.getPhaseId());
 
 	}
 
 	@Override
 	public void beforePhase(PhaseEvent event) {
 		InputTextModelBean inputTextModelBean = getInputTextModelBean(event.getFacesContext());
-		inputTextModelBean.setText(inputTextModelBean.getText() + "<br/>PhaseListenerBean in beforePhase of " +
-			event.getPhaseId());
+		inputTextModelBean.setText(inputTextModelBean.getText() + "<br/>PhaseListenerBean in beforePhase of "
+			+ event.getPhaseId());
 
 	}
 
 	public InputTextModelBean getInputTextModelBean(FacesContext facesContext) {
 		ELResolver elResolver = facesContext.getApplication().getELResolver();
 		ELContext elContext = facesContext.getELContext();
-		InputTextModelBean inputTextModelBean = (InputTextModelBean) elResolver.getValue(elContext, null,
-				"inputTextModelBean");
+		InputTextModelBean inputTextModelBean =
+			(InputTextModelBean) elResolver.getValue(elContext, null, "inputTextModelBean");
 
 		if (inputTextModelBean.getText() == null) {
 			inputTextModelBean.setText("");

@@ -19,7 +19,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @RequestScoped
@@ -62,8 +62,9 @@ public class InputSourceCodeModelBean {
 
 			if (!facesContext.isPostback()) {
 
-				sourceText = "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE xmldoc>\n<xmldoc>\n" +
-					"\t<xmlelement>This is an editable XML document.</xmlElement>\n</xmldoc>";
+				sourceText =
+					"<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<!DOCTYPE xmldoc>\n<xmldoc>\n"
+						+ "\t<xmlelement>This is an editable XML document.</xmlElement>\n</xmldoc>";
 			}
 		}
 

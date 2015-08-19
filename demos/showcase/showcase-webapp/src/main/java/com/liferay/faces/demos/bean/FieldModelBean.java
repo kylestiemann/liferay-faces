@@ -18,7 +18,7 @@ import javax.faces.bean.RequestScoped;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @RequestScoped
 @ManagedBean

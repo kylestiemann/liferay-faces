@@ -20,7 +20,7 @@ import javax.inject.Named;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named
 @SessionScoped

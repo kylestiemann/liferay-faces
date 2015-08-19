@@ -21,10 +21,9 @@ import javax.portlet.ResourceRequest;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public class BridgeAfterViewContentRequestResourceImpl extends BridgeAfterViewContentRequest
-	implements ResourceRequest {
+public class BridgeAfterViewContentRequestResourceImpl extends BridgeAfterViewContentRequest implements ResourceRequest {
 
 	// Private Data Members
 	private ResourceRequest wrappedResourceRequest;

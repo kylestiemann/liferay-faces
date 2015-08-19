@@ -33,7 +33,7 @@ import com.liferay.faces.util.product.ProductMap;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ViewHandlerCompatImpl extends ViewHandlerWrapper {
 
@@ -56,11 +56,10 @@ public abstract class ViewHandlerCompatImpl extends ViewHandlerWrapper {
 	 * EL-expressions. This method compensates for that shortcoming by evaluating the EL-expression that may be present
 	 * in the specified viewId.
 	 *
-	 * @param   facesContext  The current FacesContext.
-	 * @param   viewId        The viewId that may contain an EL expression.
-	 *
-	 * @return  If an EL-expression was present in the specified viewId, then returns the evaluated expression.
-	 *          Otherwise, returns the specified viewId unchanged.
+	 * @param facesContext The current FacesContext.
+	 * @param viewId The viewId that may contain an EL expression.
+	 * @return If an EL-expression was present in the specified viewId, then returns the evaluated expression. Otherwise,
+	 *         returns the specified viewId unchanged.
 	 */
 	protected String evaluateExpressionJSF1(FacesContext facesContext, String viewId) {
 
@@ -76,9 +75,9 @@ public abstract class ViewHandlerCompatImpl extends ViewHandlerWrapper {
 		PortletPhase portletRequestPhase = BridgeUtil.getPortletRequestPhase();
 
 		// Determine whether or not it is necessary to work-around the patch applied to Mojarra in JAVASERVERFACES-3023
-		boolean workaroundMojarra = (MOJARRA_DETECTED) &&
-			((portletRequestPhase == Bridge.PortletPhase.ACTION_PHASE) ||
-				(portletRequestPhase == Bridge.PortletPhase.EVENT_PHASE));
+		boolean workaroundMojarra =
+			(MOJARRA_DETECTED)
+				&& ((portletRequestPhase == Bridge.PortletPhase.ACTION_PHASE) || (portletRequestPhase == Bridge.PortletPhase.EVENT_PHASE));
 
 		if (workaroundMojarra) {
 			bridgeContext.getAttributes().put(RESPONSE_CHARACTER_ENCODING, "UTF-8");

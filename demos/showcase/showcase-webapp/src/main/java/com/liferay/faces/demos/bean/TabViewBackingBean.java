@@ -26,7 +26,7 @@ import com.liferay.faces.alloy.component.tabview.TabView;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @RequestScoped
 @ManagedBean
@@ -40,8 +40,8 @@ public class TabViewBackingBean {
 		String componentUseCase = requestParameterMap.get("componentUseCase");
 
 		if ("selected-tab".equals(componentUseCase)) {
-			FacesMessage facesMessage = new FacesMessage("The default value of selectedIndex=" +
-					getDefaultSelectedIndex());
+			FacesMessage facesMessage =
+				new FacesMessage("The default value of selectedIndex=" + getDefaultSelectedIndex());
 			facesContext.addMessage(null, facesMessage);
 		}
 	}
@@ -64,9 +64,10 @@ public class TabViewBackingBean {
 		// When using JSF 2.2, this cast is unnecessary, and the method can take the TabSelectEvent directly.
 		TabSelectEvent tabSelectEvent = (TabSelectEvent) ajaxBehaviorEvent;
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		FacesMessage facesMessage = new FacesMessage("Received 'tabSelectEvent' for tab with header '" +
-				tabSelectEvent.getTab().getHeaderText() + "' in the " + tabSelectEvent.getPhaseId().getName() +
-				" phase.");
+		FacesMessage facesMessage =
+			new FacesMessage("Received 'tabSelectEvent' for tab with header '"
+				+ tabSelectEvent.getTab().getHeaderText() + "' in the " + tabSelectEvent.getPhaseId().getName()
+				+ " phase.");
 		facesContext.addMessage(null, facesMessage);
 	}
 

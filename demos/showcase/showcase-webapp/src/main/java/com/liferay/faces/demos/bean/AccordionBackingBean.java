@@ -27,7 +27,7 @@ import com.liferay.faces.alloy.component.tab.TabExpandEvent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @RequestScoped
 @ManagedBean
@@ -41,8 +41,8 @@ public class AccordionBackingBean {
 		String componentUseCase = requestParameterMap.get("componentUseCase");
 
 		if ("selected-tab".equals(componentUseCase)) {
-			FacesMessage facesMessage = new FacesMessage("The default value of selectedIndex=" +
-					getDefaultSelectedIndex());
+			FacesMessage facesMessage =
+				new FacesMessage("The default value of selectedIndex=" + getDefaultSelectedIndex());
 			facesContext.addMessage(null, facesMessage);
 		}
 	}
@@ -65,9 +65,10 @@ public class AccordionBackingBean {
 		// When using JSF 2.2, this cast is unnecessary, and the method can take the TabCollapseEvent directly.
 		TabCollapseEvent tabCollapseEvent = (TabCollapseEvent) ajaxBehaviorEvent;
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		FacesMessage facesMessage = new FacesMessage("Received 'tabCollapseEvent' for tab with header '" +
-				tabCollapseEvent.getTab().getHeaderText() + "' in the " + tabCollapseEvent.getPhaseId().getName() +
-				" phase.");
+		FacesMessage facesMessage =
+			new FacesMessage("Received 'tabCollapseEvent' for tab with header '"
+				+ tabCollapseEvent.getTab().getHeaderText() + "' in the " + tabCollapseEvent.getPhaseId().getName()
+				+ " phase.");
 		facesContext.addMessage(null, facesMessage);
 	}
 
@@ -76,9 +77,10 @@ public class AccordionBackingBean {
 		// When using JSF 2.2, this cast is unnecessary, and the method can take the TabExpandEvent directly.
 		TabExpandEvent tabExpandEvent = (TabExpandEvent) ajaxBehaviorEvent;
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		FacesMessage facesMessage = new FacesMessage("Received 'tabExpandEvent' for tab with header '" +
-				tabExpandEvent.getTab().getHeaderText() + "' in the " + tabExpandEvent.getPhaseId().getName() +
-				" phase.");
+		FacesMessage facesMessage =
+			new FacesMessage("Received 'tabExpandEvent' for tab with header '"
+				+ tabExpandEvent.getTab().getHeaderText() + "' in the " + tabExpandEvent.getPhaseId().getName()
+				+ " phase.");
 		facesContext.addMessage(null, facesMessage);
 	}
 

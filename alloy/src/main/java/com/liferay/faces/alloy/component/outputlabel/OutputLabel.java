@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = OutputLabel.COMPONENT_TYPE)
 public class OutputLabel extends OutputLabelBase {

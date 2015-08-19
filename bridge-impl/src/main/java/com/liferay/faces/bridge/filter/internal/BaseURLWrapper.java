@@ -22,7 +22,7 @@ import javax.portlet.PortletSecurityException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BaseURLWrapper implements BaseURL {
 

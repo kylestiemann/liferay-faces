@@ -23,10 +23,10 @@ import com.liferay.faces.util.render.DelegatingRendererBase;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
-public abstract class OutputScriptStylesheetRendererBase extends DelegatingRendererBase
-	implements ComponentSystemEventListener {
+public abstract class OutputScriptStylesheetRendererBase extends DelegatingRendererBase implements
+	ComponentSystemEventListener {
 
 	@Override
 	public void processEvent(ComponentSystemEvent componentSystemEvent) throws AbortProcessingException {
@@ -35,8 +35,8 @@ public abstract class OutputScriptStylesheetRendererBase extends DelegatingRende
 		Renderer delegateRenderer = getDelegateRenderer(facesContext);
 
 		if (delegateRenderer instanceof ComponentSystemEventListener) {
-			ComponentSystemEventListener delegateComponentSystemEventListener = (ComponentSystemEventListener)
-				delegateRenderer;
+			ComponentSystemEventListener delegateComponentSystemEventListener =
+				(ComponentSystemEventListener) delegateRenderer;
 			delegateComponentSystemEventListener.processEvent(componentSystemEvent);
 		}
 	}

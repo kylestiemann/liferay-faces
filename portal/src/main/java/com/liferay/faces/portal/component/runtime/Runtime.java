@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @FacesComponent(value = Runtime.COMPONENT_TYPE)
 public class Runtime extends RuntimeBase {

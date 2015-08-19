@@ -20,7 +20,7 @@ import com.liferay.faces.bridge.context.BridgeContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderRequestPhaseListenerCompat {
 

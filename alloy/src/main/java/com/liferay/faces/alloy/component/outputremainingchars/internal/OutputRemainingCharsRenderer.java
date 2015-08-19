@@ -28,7 +28,7 @@ import com.liferay.faces.alloy.component.outputremainingchars.OutputRemainingCha
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(

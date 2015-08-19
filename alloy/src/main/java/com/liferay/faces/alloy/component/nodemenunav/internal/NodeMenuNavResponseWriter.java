@@ -22,7 +22,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class NodeMenuNavResponseWriter extends DelegationResponseWriterBase {
 
@@ -31,8 +31,7 @@ public class NodeMenuNavResponseWriter extends DelegationResponseWriterBase {
 	private String clientId;
 	private String styleClass;
 
-	public NodeMenuNavResponseWriter(ResponseWriter responseWriter, boolean disabled, String clientId,
-		String styleClass) {
+	public NodeMenuNavResponseWriter(ResponseWriter responseWriter, boolean disabled, String clientId, String styleClass) {
 		super(responseWriter);
 		this.clientId = clientId;
 		this.disabled = disabled;

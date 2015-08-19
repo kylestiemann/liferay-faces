@@ -22,7 +22,7 @@ import javax.el.ELResolver;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ELResolverBase extends ELResolver {
 

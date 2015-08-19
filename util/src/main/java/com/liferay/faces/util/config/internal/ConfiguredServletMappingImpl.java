@@ -21,7 +21,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class represents a servlet-mapping found in the WEB-INF/web.xml descriptor.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ConfiguredServletMappingImpl implements ConfiguredServletMapping {
 
@@ -74,8 +74,8 @@ public class ConfiguredServletMappingImpl implements ConfiguredServletMapping {
 
 	@Override
 	public String toString() {
-		return "extension=" + extension + " extensionMapped=" + extensionMapped + " path=" + path + " pathMapped=" +
-			pathMapped + " servletName=" + servletName + " urlPattern=" + urlPattern;
+		return "extension=" + extension + " extensionMapped=" + extensionMapped + " path=" + path + " pathMapped="
+			+ pathMapped + " servletName=" + servletName + " urlPattern=" + urlPattern;
 	}
 
 	public boolean isExtensionMapped() {

@@ -15,6 +15,7 @@ package com.liferay.faces.util.client.internal;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 //J-
 /**
  * This class was copied from Liferay Portal in order to utilize the features of the Portal's BrowserSniffer without

@@ -27,7 +27,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @ViewScoped
@@ -37,8 +37,8 @@ public class ShowcaseModelBean implements Serializable {
 	private static final long serialVersionUID = 3339667513222866249L;
 
 	// Private Constants
-	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance().get(
-			ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
+	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
 
 	// Injections
 	@ManagedProperty(name = "listModelBean", value = "#{listModelBean}")
@@ -76,8 +76,9 @@ public class ShowcaseModelBean implements Serializable {
 
 			if (viewParameters.isValid()) {
 
-				ShowcaseComponent showcaseComponent = listModelBean.findShowcaseComponent(
-						viewParameters.getComponentPrefix(), viewParameters.getComponentName());
+				ShowcaseComponent showcaseComponent =
+					listModelBean.findShowcaseComponent(viewParameters.getComponentPrefix(),
+						viewParameters.getComponentName());
 
 				selectedComponent = new SelectedComponentImpl(showcaseComponent, viewParameters.getComponentUseCase());
 			}

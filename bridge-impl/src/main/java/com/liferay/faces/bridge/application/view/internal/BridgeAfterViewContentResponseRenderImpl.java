@@ -30,7 +30,7 @@ import org.w3c.dom.Element;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeAfterViewContentResponseRenderImpl extends BridgeAfterViewContentResponse implements RenderResponse {
 

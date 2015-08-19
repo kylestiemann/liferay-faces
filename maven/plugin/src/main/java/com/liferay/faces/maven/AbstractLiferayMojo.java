@@ -18,17 +18,17 @@ import org.apache.maven.project.MavenProject;
 
 
 /**
- * @author  Gregory Amerson
+ * @author Gregory Amerson
  */
 public abstract class AbstractLiferayMojo extends AbstractMojo {
 
 	/**
-	 * @parameter  expression="${liferayVersion}"
+	 * @parameter expression="${liferayVersion}"
 	 */
 	protected String liferayVersion;
 
 	/**
-	 * @parameter  expression="${project}"
+	 * @parameter expression="${project}"
 	 * @required
 	 * @readonly
 	 */

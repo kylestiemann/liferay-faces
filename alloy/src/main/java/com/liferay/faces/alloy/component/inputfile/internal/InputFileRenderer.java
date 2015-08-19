@@ -47,7 +47,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = InputFile.COMPONENT_FAMILY, rendererType = InputFile.RENDERER_TYPE)
@@ -64,8 +64,8 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 public class InputFileRenderer extends InputFileRendererBase {
 
 	// Private Constants
-	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance().get(
-			ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
+	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
 
 	// Protected Constants
 	protected static final String[] MODULES = { "uploader", "aui-datatable", "datatype-xml" };
@@ -226,15 +226,15 @@ public class InputFileRenderer extends InputFileRendererBase {
 		// Otherwise, delegate writing of the entire <input type="file"...> ... </input> element to the delegate
 		// renderer.
 		else {
-			DelegationResponseWriter delegationResponseWriter = new InputFileDelegationResponseWriter(responseWriter,
-					inputFile.isAuto());
+			DelegationResponseWriter delegationResponseWriter =
+				new InputFileDelegationResponseWriter(responseWriter, inputFile.isAuto());
 			super.encodeMarkupEnd(facesContext, uiComponent, delegationResponseWriter);
 		}
 	}
 
 	@Override
-	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter, InputFile inputFile,
-		boolean first) throws IOException {
+	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter,
+		InputFile inputFile, boolean first) throws IOException {
 
 		// fileFieldName
 		encodeString(responseWriter, "fileFieldName", inputFile.getClientId(), first);
@@ -249,8 +249,8 @@ public class InputFileRenderer extends InputFileRendererBase {
 		Locale locale = facesContext.getViewRoot().getLocale();
 		String chooseFiles = getMessageContext().getMessage(locale, "choose-files");
 		StringBuilder selectFilesButtonScript = new StringBuilder();
-		selectFilesButtonScript.append(
-			"A.Node.create(\"<button type='button' class='alloy-button' role='button' aria-label='");
+		selectFilesButtonScript
+			.append("A.Node.create(\"<button type='button' class='alloy-button' role='button' aria-label='");
 		selectFilesButtonScript.append(chooseFiles);
 		selectFilesButtonScript.append("' tabindex='{tabIndex}'>");
 		selectFilesButtonScript.append(chooseFiles);
@@ -262,8 +262,8 @@ public class InputFileRenderer extends InputFileRendererBase {
 		throws IOException {
 
 		// Delegate writing of the entire <input type="file"...> ... </input> element to the delegate renderer.
-		DelegationResponseWriter delegationResponseWriter = new InputFileDelegationResponseWriter(responseWriter,
-				inputFile.isAuto());
+		DelegationResponseWriter delegationResponseWriter =
+			new InputFileDelegationResponseWriter(responseWriter, inputFile.isAuto());
 		super.encodeMarkupEnd(facesContext, inputFile, delegationResponseWriter);
 
 		// Format the preview-table.html template and write it to the response.
@@ -278,8 +278,8 @@ public class InputFileRenderer extends InputFileRendererBase {
 		responseWriter.startElement("tr", inputFile);
 		responseWriter.startElement("th", inputFile);
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 		MessageContext messageContext = messageContextFactory.getMessageContext();
 		String i18nFileName = messageContext.getMessage(locale, "file-name");
 		responseWriter.writeText(i18nFileName, null);
@@ -329,8 +329,8 @@ public class InputFileRenderer extends InputFileRendererBase {
 		responseWriter.writeAttribute("id", clientId + "_uploadFilesButton", null);
 		responseWriter.writeAttribute("class", "alloy-button", null);
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 		MessageContext messageContext = messageContextFactory.getMessageContext();
 		String i18nUploadFiles = messageContext.getMessage(locale, "upload-files");
 		responseWriter.writeText(i18nUploadFiles, null);
@@ -414,8 +414,8 @@ public class InputFileRenderer extends InputFileRendererBase {
 
 	protected MessageContext getMessageContext() {
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 
 		return messageContextFactory.getMessageContext();
 	}
@@ -448,8 +448,8 @@ public class InputFileRenderer extends InputFileRendererBase {
 
 		if (LIFERAY_FACES_BRIDGE_DETECTED) {
 			Map<String, Object> requestAttributeMap = facesContext.getExternalContext().getRequestMap();
-			MultiPartFormData multiPartFormData = (MultiPartFormData) requestAttributeMap.get(MultiPartFormData.class
-					.getName());
+			MultiPartFormData multiPartFormData =
+				(MultiPartFormData) requestAttributeMap.get(MultiPartFormData.class.getName());
 
 			if (multiPartFormData != null) {
 				uploadedFileMap = multiPartFormData.getUploadedFileMap();

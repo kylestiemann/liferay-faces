@@ -22,7 +22,7 @@ import com.liferay.faces.bridge.filter.BridgePortletResponseFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePortletResponseFactoryTCKImpl extends BridgePortletResponseFactory {
 

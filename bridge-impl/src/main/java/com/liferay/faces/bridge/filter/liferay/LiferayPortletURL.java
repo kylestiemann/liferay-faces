@@ -20,7 +20,7 @@ import javax.portlet.PortletURL;
  * This is a marker interface that extends the {@link PortletURL} interface in order to provide more readable names for
  * implementing classes.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface LiferayPortletURL extends PortletURL {
 

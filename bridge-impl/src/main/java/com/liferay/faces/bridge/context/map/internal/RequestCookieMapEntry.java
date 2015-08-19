@@ -17,7 +17,7 @@ import java.util.Map;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RequestCookieMapEntry implements Map.Entry<String, Object> {
 

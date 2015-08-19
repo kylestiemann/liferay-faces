@@ -22,7 +22,7 @@ import javax.portlet.faces.Bridge;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ShowcasePortlet extends ActionURLDemoPortlet {
 

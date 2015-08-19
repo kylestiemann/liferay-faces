@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Video.COMPONENT_TYPE)
 public class Video extends VideoBase {

@@ -22,7 +22,7 @@ import com.liferay.portal.kernel.language.LanguageUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MessageContextPortalImpl extends MessageContextWrapper {
 

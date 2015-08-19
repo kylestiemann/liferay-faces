@@ -29,7 +29,7 @@ import com.liferay.faces.util.view.facelets.MethodMetadata;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class InputFileHandler extends ComponentHandler {
 

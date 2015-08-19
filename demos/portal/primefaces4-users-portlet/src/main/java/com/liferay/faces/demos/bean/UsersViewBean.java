@@ -23,7 +23,7 @@ import javax.faces.bean.ViewScoped;
  * This class serves as a bean that remembers the rendered/non-rendered state of the list and form in the users.xhtml
  * Facelet view.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "usersViewBean")
 @ViewScoped

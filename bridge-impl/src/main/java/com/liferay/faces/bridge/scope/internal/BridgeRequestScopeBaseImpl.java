@@ -20,7 +20,7 @@ import com.liferay.faces.bridge.scope.BridgeRequestScope;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRequestScopeBaseImpl implements BridgeRequestScope {
 

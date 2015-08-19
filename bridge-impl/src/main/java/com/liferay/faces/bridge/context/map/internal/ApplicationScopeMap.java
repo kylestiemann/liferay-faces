@@ -34,7 +34,7 @@ import com.liferay.faces.util.map.AbstractPropertyMapEntry;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ApplicationScopeMap extends AbstractPropertyMap<Object> {
 
@@ -46,8 +46,8 @@ public class ApplicationScopeMap extends AbstractPropertyMap<Object> {
 
 	public ApplicationScopeMap(BridgeContext bridgeContext) {
 
-		BeanManagerFactory beanManagerFactory = (BeanManagerFactory) BridgeFactoryFinder.getFactory(
-				BeanManagerFactory.class);
+		BeanManagerFactory beanManagerFactory =
+			(BeanManagerFactory) BridgeFactoryFinder.getFactory(BeanManagerFactory.class);
 		this.portletContext = bridgeContext.getPortletContext();
 
 		String appConfigAttrName = ApplicationConfig.class.getName();
@@ -59,8 +59,8 @@ public class ApplicationScopeMap extends AbstractPropertyMap<Object> {
 		PortletConfig portletConfig = bridgeContext.getPortletConfig();
 		this.preferPreDestroy = PortletConfigParam.PreferPreDestroy.getBooleanValue(portletConfig);
 
-		PreDestroyInvokerFactory preDestroyInvokerFactory = (PreDestroyInvokerFactory) BridgeFactoryFinder.getFactory(
-				PreDestroyInvokerFactory.class);
+		PreDestroyInvokerFactory preDestroyInvokerFactory =
+			(PreDestroyInvokerFactory) BridgeFactoryFinder.getFactory(PreDestroyInvokerFactory.class);
 		this.preDestroyInvoker = preDestroyInvokerFactory.getPreDestroyInvoker(this);
 	}
 

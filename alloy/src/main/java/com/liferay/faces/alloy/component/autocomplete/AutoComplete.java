@@ -41,7 +41,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = AutoComplete.COMPONENT_TYPE)
 public class AutoComplete extends AutoCompleteBase implements ClientBehaviorHolder {
@@ -67,8 +67,8 @@ public class AutoComplete extends AutoCompleteBase implements ClientBehaviorHold
 					facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, validatorMessage, validatorMessage);
 				}
 				else {
-					MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder
-						.getFactory(MessageContextFactory.class);
+					MessageContextFactory messageContextFactory =
+						(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 					MessageContext messageContext = messageContextFactory.getMessageContext();
 					UIViewRoot viewRoot = facesContext.getViewRoot();
 					Locale locale = viewRoot.getLocale();

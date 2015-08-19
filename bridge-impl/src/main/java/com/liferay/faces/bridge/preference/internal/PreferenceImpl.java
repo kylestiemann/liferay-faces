@@ -21,7 +21,7 @@ import javax.portlet.faces.preference.Preference;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PreferenceImpl implements Preference {
 

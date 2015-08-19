@@ -23,7 +23,7 @@ import com.liferay.faces.bridge.event.FileUploadEvent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = InputFile.COMPONENT_TYPE)
 public class InputFile extends InputFileBase {

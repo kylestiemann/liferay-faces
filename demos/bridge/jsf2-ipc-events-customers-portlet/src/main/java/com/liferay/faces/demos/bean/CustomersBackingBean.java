@@ -40,7 +40,7 @@ import com.liferay.portal.util.PortalUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "customersBackingBean")
 @RequestScoped
@@ -76,7 +76,7 @@ public class CustomersBackingBean implements Serializable {
 
 		Serializable eventPayload = customer;
 
-		// FACES-1465: If the user requested a redirect (Liferay Only), then  and redirect to the selected portal page.
+		// FACES-1465: If the user requested a redirect (Liferay Only), then and redirect to the selected portal page.
 		if (customersViewBean.isSendRedirect()) {
 
 			// Wrap the event payload with an EventPayloadWrapper and specify that a redirect taking place. Liferay

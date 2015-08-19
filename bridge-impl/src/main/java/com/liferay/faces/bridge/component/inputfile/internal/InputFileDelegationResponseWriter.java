@@ -25,7 +25,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 /**
  * This class is a {@link DelegationResponseWriter} that encodes HTML5 attributes for file upload components.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class InputFileDelegationResponseWriter extends InputFileDelegationResponseWriterCompat {
 

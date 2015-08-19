@@ -21,7 +21,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * Since the Liferay CDI Portlet Bridge has a dependency on the Liferay Portal logging API, this class is necessary to
  * provide a compatibility layer with the Liferay Faces logging API.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LogImpl implements Log {
 

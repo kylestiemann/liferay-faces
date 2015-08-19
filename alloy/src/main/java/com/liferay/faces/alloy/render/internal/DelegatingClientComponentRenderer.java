@@ -23,7 +23,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface DelegatingClientComponentRenderer extends DelegatingRenderer {
 

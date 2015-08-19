@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = OutputText.COMPONENT_TYPE)
 public class OutputText extends OutputTextBase {

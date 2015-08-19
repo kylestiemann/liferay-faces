@@ -21,7 +21,7 @@ import javax.faces.context.ResponseWriterWrapper;
  * This is a marker class that marks a type of {@link ResponseWriter} that is intended to be used by {@link Renderer}
  * classes that implement {@link RendererDelegator}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class DelegationResponseWriter extends ResponseWriterWrapper {
 

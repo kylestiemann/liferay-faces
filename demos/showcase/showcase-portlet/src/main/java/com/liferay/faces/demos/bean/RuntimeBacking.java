@@ -33,7 +33,7 @@ import com.liferay.portlet.journal.model.JournalArticle;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @ApplicationScoped
@@ -61,16 +61,16 @@ public class RuntimeBacking {
 			long folderId = DLFolderConstants.DEFAULT_PARENT_FOLDER_ID;
 			Locale locale = themeDisplay.getLocale();
 
-			JournalArticle article1 = WebContentUtil.getArticle(companyId, userId, groupId, folderId, locale,
-					"Liferay Portal",
-					"Liferay Portal is an enterprise web platform for building business solutions that deliver " +
-					"immediate results and long-term value.");
+			JournalArticle article1 =
+				WebContentUtil.getArticle(companyId, userId, groupId, folderId, locale, "Liferay Portal",
+					"Liferay Portal is an enterprise web platform for building business solutions that deliver "
+						+ "immediate results and long-term value.");
 			this.preferencesArticle1 = getPreferences(article1.getGroupId(), article1.getArticleId());
 
-			JournalArticle article2 = WebContentUtil.getArticle(companyId, userId, groupId, folderId, locale,
-					"Liferay Faces",
-					"Liferay Faces is an umbrella project that provides support for the JavaServer™ Faces (JSF) " +
-					"standard within Liferay Portal.");
+			JournalArticle article2 =
+				WebContentUtil.getArticle(companyId, userId, groupId, folderId, locale, "Liferay Faces",
+					"Liferay Faces is an umbrella project that provides support for the JavaServer™ Faces (JSF) "
+						+ "standard within Liferay Portal.");
 			this.preferencesArticle2 = getPreferences(article2.getGroupId(), article2.getArticleId());
 		}
 		catch (Exception e) {

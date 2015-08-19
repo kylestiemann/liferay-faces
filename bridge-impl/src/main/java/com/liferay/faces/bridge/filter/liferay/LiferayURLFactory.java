@@ -20,7 +20,7 @@ import com.liferay.faces.bridge.context.BridgeContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class LiferayURLFactory implements FacesWrapper<LiferayURLFactory> {
 

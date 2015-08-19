@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.selectmanylistbox.SelectManyListbox;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = SelectManyListbox.COMPONENT_FAMILY, rendererType = SelectManyListbox.RENDERER_TYPE)
 public class SelectManyListboxRenderer extends SelectManyListboxRendererBase {

@@ -36,7 +36,7 @@ import com.liferay.portal.kernel.captcha.CaptchaUtil;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @FacesComponent(value = Captcha.COMPONENT_TYPE)
 public class Captcha extends CaptchaBase {
@@ -57,8 +57,8 @@ public class Captcha extends CaptchaBase {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			UIViewRoot viewRoot = facesContext.getViewRoot();
 			Locale locale = viewRoot.getLocale();
-			MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-					MessageContextFactory.class);
+			MessageContextFactory messageContextFactory =
+				(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 			MessageContext messageContext = messageContextFactory.getMessageContext();
 
 			try {
@@ -68,8 +68,8 @@ public class Captcha extends CaptchaBase {
 				String userCaptchaTextValue = value.toString();
 				String correctCaptchaTextValue = (String) sessionMap.get(WEB_KEYS_CAPTCHA_TEXT);
 
-				CaptchaPortletRequest captchaPortletRequest = new CaptchaPortletRequest(portletRequest,
-						userCaptchaTextValue);
+				CaptchaPortletRequest captchaPortletRequest =
+					new CaptchaPortletRequest(portletRequest, userCaptchaTextValue);
 
 				// The CaptchaUtil.check(PortletRequest) method will ultimately call
 				// portletRequest.getParameter("captchaText") and so we have to pass a CaptchaPortletRequest to handle

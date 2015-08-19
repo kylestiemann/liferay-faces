@@ -31,7 +31,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CustomerExportResource extends Resource {
 
@@ -73,8 +73,9 @@ public class CustomerExportResource extends Resource {
 			FacesContext facesContext = FacesContext.getCurrentInstance();
 			String customerId = facesContext.getExternalContext().getRequestParameterMap().get(PARAM_NAME_CUSTOMER_ID);
 			String elExpression = "customerService";
-			CustomerService customerService = (CustomerService) facesContext.getApplication().getELResolver().getValue(
-					facesContext.getELContext(), null, elExpression);
+			CustomerService customerService =
+				(CustomerService) facesContext.getApplication().getELResolver()
+					.getValue(facesContext.getELContext(), null, elExpression);
 
 			try {
 				customer = customerService.getCustomer(Long.parseLong(customerId));

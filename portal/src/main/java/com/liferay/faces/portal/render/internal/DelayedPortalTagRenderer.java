@@ -35,7 +35,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * JSP tag and encodes the output. Unlike its parent {@link PortalTagRenderer}, encoding of the JSP tag output is
  * delayed so that child JSP tags have an opportunity to influence rendering of their parent JSP tag.
  *
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 public abstract class DelayedPortalTagRenderer<U extends UIComponent, T extends Tag> extends PortalTagRenderer<U, T> {
 
@@ -58,8 +58,8 @@ public abstract class DelayedPortalTagRenderer<U extends UIComponent, T extends 
 		ResponseWriter originalResponseWriter = facesContext.getResponseWriter();
 		RenderKit renderKit = facesContext.getRenderKit();
 		StringWriter bufferedChildrenMarkupWriter = new StringWriter();
-		ResponseWriter stringResponseWriter = renderKit.createResponseWriter(bufferedChildrenMarkupWriter, null,
-				"UTF-8");
+		ResponseWriter stringResponseWriter =
+			renderKit.createResponseWriter(bufferedChildrenMarkupWriter, null, "UTF-8");
 		facesContext.setResponseWriter(stringResponseWriter);
 
 		List<UIComponent> children = uiComponent.getChildren();

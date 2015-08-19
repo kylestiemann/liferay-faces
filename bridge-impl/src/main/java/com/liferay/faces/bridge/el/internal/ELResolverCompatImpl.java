@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ELResolverCompatImpl extends ELResolver {
 

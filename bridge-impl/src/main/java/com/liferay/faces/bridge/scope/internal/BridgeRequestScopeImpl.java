@@ -60,7 +60,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl implements Serializable {
 
@@ -109,8 +109,7 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 	private boolean redirect;
 	private Set<String> removedAttributeNames;
 
-	public BridgeRequestScopeImpl(PortletRequest portletRequest, PortletConfig portletConfig,
-		BridgeConfig bridgeConfig) {
+	public BridgeRequestScopeImpl(PortletRequest portletRequest, PortletConfig portletConfig, BridgeConfig bridgeConfig) {
 
 		Calendar calendar = new GregorianCalendar();
 		this.dateCreated = calendar.getTimeInMillis();
@@ -127,8 +126,9 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 		// Get the list of excluded BridgeRequestScope attributes from the WEB-INF/portlet.xml descriptor.
 		PortletContext portletContext = portletConfig.getPortletContext();
 		@SuppressWarnings("unchecked")
-		List<String> portletContextExcludedAttributeNames = (List<String>) portletContext.getAttribute(
-				Bridge.BRIDGE_PACKAGE_PREFIX + portletName + "." + Bridge.EXCLUDED_REQUEST_ATTRIBUTES);
+		List<String> portletContextExcludedAttributeNames =
+			(List<String>) portletContext.getAttribute(Bridge.BRIDGE_PACKAGE_PREFIX + portletName + "."
+				+ Bridge.EXCLUDED_REQUEST_ATTRIBUTES);
 
 		// Combine the two lists into a single list of excluded BridgeRequestScope attributes.
 		Set<String> facesConfigExcludedAttributeNames = bridgeConfig.getExcludedRequestAttributes();
@@ -170,8 +170,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 			// TCK TestPage062: eventScopeNotRestoredRedirectTest
 			// TCK TestPage063: eventScopeNotRestoredModeChangedTest
 			@SuppressWarnings("unchecked")
-			List<String> nonExcludedAttributeNames = (List<String>) getAttribute(
-					BRIDGE_REQ_SCOPE_NON_EXCLUDED_ATTR_NAMES);
+			List<String> nonExcludedAttributeNames =
+				(List<String>) getAttribute(BRIDGE_REQ_SCOPE_NON_EXCLUDED_ATTR_NAMES);
 
 			if (nonExcludedAttributeNames != null) {
 
@@ -184,14 +184,16 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 					if (logger.isTraceEnabled()) {
 
 						if (isRedirectOccurred()) {
-							logger.trace(
-								"Due to redirect, removed request attribute name=[{0}] that had been preserved in the ACTION_PHASE or EVENT_PHASE",
-								attributeName);
+							logger
+								.trace(
+									"Due to redirect, removed request attribute name=[{0}] that had been preserved in the ACTION_PHASE or EVENT_PHASE",
+									attributeName);
 						}
 						else {
-							logger.trace(
-								"Due to PortletMode change, removed request attribute name=[{0}] that had been preserved in the ACTION_PHASE or EVENT_PHASE",
-								attributeName);
+							logger
+								.trace(
+									"Due to PortletMode change, removed request attribute name=[{0}] that had been preserved in the ACTION_PHASE or EVENT_PHASE",
+									attributeName);
 						}
 					}
 				}
@@ -225,16 +227,17 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 			}
 			else {
 
-				if (isExcludedRequestAttributeByConfig(attributeName, attributeValue) ||
-						isExcludedRequestAttributeByAnnotation(attributeValue) ||
-						isExcludedRequestAttributeByInstance(attributeName, attributeValue) ||
-						isExcludedRequestAttributeByNamespace(attributeName)) {
+				if (isExcludedRequestAttributeByConfig(attributeName, attributeValue)
+					|| isExcludedRequestAttributeByAnnotation(attributeValue)
+					|| isExcludedRequestAttributeByInstance(attributeName, attributeValue)
+					|| isExcludedRequestAttributeByNamespace(attributeName)) {
 
 					renderRequest.removeAttribute(attributeName);
 
-					logger.debug(
-						"Removed request attribute name=[{0}] that had been preserved in the ACTION_PHASE or EVENT_PHASE",
-						attributeName);
+					logger
+						.debug(
+							"Removed request attribute name=[{0}] that had been preserved in the ACTION_PHASE or EVENT_PHASE",
+							attributeName);
 				}
 			}
 		}
@@ -245,9 +248,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 
 		logger.debug("restoreState(facesContext)");
 
-		boolean restoreNonExcludedRequestAttributes = ((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) ||
-				(beganInPhase == Bridge.PortletPhase.EVENT_PHASE) ||
-				(beganInPhase == Bridge.PortletPhase.RESOURCE_PHASE));
+		boolean restoreNonExcludedRequestAttributes =
+			((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE) || (beganInPhase == Bridge.PortletPhase.RESOURCE_PHASE));
 
 		BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 
@@ -261,8 +263,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 			}
 		}
 
-		if ((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE) ||
-				(beganInPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
+		if ((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE)
+			|| (beganInPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
 
 			// Restore the view root that may have been saved during the action/event/render phase of the portlet
 			// lifecycle.
@@ -278,8 +280,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 
 			// Restore the faces messages that may have been saved during the action/event/render phase of the portlet
 			// lifecycle.
-			List<FacesMessageWrapper> facesMessages = (List<FacesMessageWrapper>) getAttribute(
-					BRIDGE_REQ_SCOPE_ATTR_FACES_MESSAGES);
+			List<FacesMessageWrapper> facesMessages =
+				(List<FacesMessageWrapper>) getAttribute(BRIDGE_REQ_SCOPE_ATTR_FACES_MESSAGES);
 
 			boolean restoredFacesMessages = false;
 
@@ -309,8 +311,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 		if (restoreNonExcludedRequestAttributes) {
 
 			// Restore the non-excluded request attributes.
-			List<RequestAttribute> savedRequestAttributes = (List<RequestAttribute>) getAttribute(
-					BRIDGE_REQ_SCOPE_ATTR_REQUEST_ATTRIBUTES);
+			List<RequestAttribute> savedRequestAttributes =
+				(List<RequestAttribute>) getAttribute(BRIDGE_REQ_SCOPE_ATTR_REQUEST_ATTRIBUTES);
 
 			boolean restoredNonExcludedRequestAttributes = false;
 
@@ -352,11 +354,11 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 		}
 
 		// If running in the RENDER_PHASE, then the incongruity context must be restored.
-		if (((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE)) &&
-				(portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE)) {
+		if (((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE))
+			&& (portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE)) {
 
-			List<IncongruityAttribute> savedIncongruityAttributes = (List<IncongruityAttribute>) getAttribute(
-					BRIDGE_REQ_SCOPE_ATTR_INCONGRUITY_CONTEXT_ATTRIBUTES);
+			List<IncongruityAttribute> savedIncongruityAttributes =
+				(List<IncongruityAttribute>) getAttribute(BRIDGE_REQ_SCOPE_ATTR_INCONGRUITY_CONTEXT_ATTRIBUTES);
 
 			if (savedIncongruityAttributes != null) {
 
@@ -376,7 +378,7 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 	 * Saves the state of the FacesContext as required by section 5.1.2 of the JSR 329 spec. This method is designed to
 	 * be called during the ACTION_PHASE of the portlet lifecycle.
 	 *
-	 * @param  facesContext  The current faces context.
+	 * @param facesContext The current faces context.
 	 */
 	public void saveState(FacesContext facesContext) {
 
@@ -387,8 +389,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 		ExternalContext externalContext = facesContext.getExternalContext();
 		PortletResponse portletResponse = (PortletResponse) facesContext.getExternalContext().getResponse();
 
-		if ((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE) ||
-				(beganInPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
+		if ((beganInPhase == Bridge.PortletPhase.ACTION_PHASE) || (beganInPhase == Bridge.PortletPhase.EVENT_PHASE)
+			|| (beganInPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
 
 			// Save the view root.
 			setAttribute(BRIDGE_REQ_SCOPE_ATTR_FACES_VIEW_ROOT, facesContext.getViewRoot());
@@ -397,8 +399,9 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 			if (!isPortletModeChanged()) {
 
 				if (portletResponse instanceof ActionResponse) {
-					String viewState = facesContext.getExternalContext().getRequestParameterMap().get(
-							ResponseStateManager.VIEW_STATE_PARAM);
+					String viewState =
+						facesContext.getExternalContext().getRequestParameterMap()
+							.get(ResponseStateManager.VIEW_STATE_PARAM);
 
 					if (viewState != null) {
 
@@ -412,8 +415,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 
 			// If specified in the WEB-INF/portlet.xml descriptor, then preserve the action parameters.
 			if (bridgeContext.isPreserveActionParams()) {
-				Map<String, String> actionRequestParameterMap = new HashMap<String, String>(
-						externalContext.getRequestParameterMap());
+				Map<String, String> actionRequestParameterMap =
+					new HashMap<String, String>(externalContext.getRequestParameterMap());
 				actionRequestParameterMap.remove(ResponseStateManager.VIEW_STATE_PARAM);
 				actionRequestParameterMap.remove(JAVAX_FACES_ENCODED_URL_PARAM);
 				setAttribute(BRIDGE_REQ_SCOPE_ATTR_ACTION_PARAMS, actionRequestParameterMap);
@@ -480,11 +483,11 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 						String attributeName = mapEntry.getKey();
 						Object attributeValue = mapEntry.getValue();
 
-						if (isExcludedRequestAttributeByConfig(attributeName, attributeValue) ||
-								isExcludedRequestAttributeByAnnotation(attributeValue) ||
-								isExcludedRequestAttributeByNamespace(attributeName) ||
-								isExcludedRequestAttributeByInstance(attributeName, attributeValue) ||
-								isExcludedRequestAttributeByPreExisting(attributeName)) {
+						if (isExcludedRequestAttributeByConfig(attributeName, attributeValue)
+							|| isExcludedRequestAttributeByAnnotation(attributeValue)
+							|| isExcludedRequestAttributeByNamespace(attributeName)
+							|| isExcludedRequestAttributeByInstance(attributeName, attributeValue)
+							|| isExcludedRequestAttributeByPreExisting(attributeName)) {
 
 							logger.trace("NOT saving EXCLUDED attribute name=[{0}]", attributeName);
 						}
@@ -519,8 +522,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 		// restored.
 		Bridge.PortletPhase portletRequestPhase = bridgeContext.getPortletRequestPhase();
 
-		if ((portletRequestPhase == Bridge.PortletPhase.ACTION_PHASE) ||
-				(portletRequestPhase == Bridge.PortletPhase.EVENT_PHASE)) {
+		if ((portletRequestPhase == Bridge.PortletPhase.ACTION_PHASE)
+			|| (portletRequestPhase == Bridge.PortletPhase.EVENT_PHASE)) {
 
 			// PROPOSED-FOR-JSR344-API: http://java.net/jira/browse/JAVASERVERFACES_SPEC_PUBLIC-1070
 			// PROPOSED-FOR-BRIDGE3-API: https://issues.apache.org/jira/browse/PORTLETBRIDGE-201
@@ -532,8 +535,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 
 		// If running in the ACTION_PHASE or EVENT_PHASE, then the incongruity context must be saved as well so that it
 		// can be restored.
-		if ((portletRequestPhase == Bridge.PortletPhase.ACTION_PHASE) ||
-				(portletRequestPhase == Bridge.PortletPhase.EVENT_PHASE)) {
+		if ((portletRequestPhase == Bridge.PortletPhase.ACTION_PHASE)
+			|| (portletRequestPhase == Bridge.PortletPhase.EVENT_PHASE)) {
 
 			IncongruityContext incongruityContext = bridgeContext.getIncongruityContext();
 			Map<String, Object> incongruityAttributeMap = incongruityContext.getAttributes();
@@ -594,23 +597,22 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 	protected boolean isExcludedRequestAttributeByInstance(String attributeName, Object attributeValue) {
 
 		// EXCLUDED attributes listed in Section 5.1.2 of the JSR 329 Spec
-		return ((attributeValue != null) &&
-				((attributeValue instanceof ExternalContext) || (attributeValue instanceof FacesContext) ||
-					(attributeValue instanceof HttpSession) || (attributeValue instanceof PortalContext) ||
-					(attributeValue instanceof PortletConfig) || (attributeValue instanceof PortletContext) ||
-					(attributeValue instanceof PortletPreferences) || (attributeValue instanceof PortletRequest) ||
-					(attributeValue instanceof PortletResponse) || (attributeValue instanceof PortletSession) ||
-					(attributeValue instanceof ServletConfig) || (attributeValue instanceof ServletContext) ||
-					(attributeValue instanceof ServletRequest) || (attributeValue instanceof ServletResponse)));
+		return ((attributeValue != null) && ((attributeValue instanceof ExternalContext)
+			|| (attributeValue instanceof FacesContext) || (attributeValue instanceof HttpSession)
+			|| (attributeValue instanceof PortalContext) || (attributeValue instanceof PortletConfig)
+			|| (attributeValue instanceof PortletContext) || (attributeValue instanceof PortletPreferences)
+			|| (attributeValue instanceof PortletRequest) || (attributeValue instanceof PortletResponse)
+			|| (attributeValue instanceof PortletSession) || (attributeValue instanceof ServletConfig)
+			|| (attributeValue instanceof ServletContext) || (attributeValue instanceof ServletRequest) || (attributeValue instanceof ServletResponse)));
 	}
 
 	protected boolean isExcludedRequestAttributeByNamespace(String attributeName) {
 
-		if (isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_FACES) ||
-				isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_PORTLET) ||
-				isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_PORTLET_FACES) ||
-				isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET) ||
-				isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET_INCLUDE)) {
+		if (isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_FACES)
+			|| isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_PORTLET)
+			|| isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_PORTLET_FACES)
+			|| isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET)
+			|| isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET_INCLUDE)) {
 			return true;
 		}
 		else {
@@ -699,8 +701,8 @@ public class BridgeRequestScopeImpl extends BridgeRequestScopeCompat_2_2_Impl im
 
 		boolean excluded = false;
 
-		if ((attributeValue != null) &&
-				(attributeValue.getClass().getAnnotation(ExcludeFromManagedRequestScope.class) != null)) {
+		if ((attributeValue != null)
+			&& (attributeValue.getClass().getAnnotation(ExcludeFromManagedRequestScope.class) != null)) {
 			excluded = true;
 		}
 

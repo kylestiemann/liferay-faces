@@ -18,7 +18,7 @@ import com.liferay.faces.util.text.RichTextFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RichTextFactoryImpl extends RichTextFactory {
 

@@ -25,7 +25,7 @@ import com.liferay.faces.demos.service.LiferayBenefitService;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped

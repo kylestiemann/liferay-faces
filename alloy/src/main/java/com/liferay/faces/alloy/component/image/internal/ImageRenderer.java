@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.image.Image;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = Image.COMPONENT_FAMILY, rendererType = Image.RENDERER_TYPE)
 public class ImageRenderer extends ImageRendererBase {

@@ -25,7 +25,7 @@ import com.liferay.faces.portlet.component.namespace.Namespace;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = Namespace.COMPONENT_FAMILY, rendererType = Namespace.RENDERER_TYPE)

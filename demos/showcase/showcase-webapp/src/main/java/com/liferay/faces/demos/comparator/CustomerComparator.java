@@ -28,7 +28,7 @@ import com.liferay.faces.util.model.SortCriterion;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CustomerComparator implements Comparator<Customer> {
 
@@ -71,8 +71,8 @@ public class CustomerComparator implements Comparator<Customer> {
 								customer2Value = tempValue;
 							}
 
-							if ((customer1Value != null) && (customer1Value instanceof Comparable) &&
-									(customer2Value != null) && (customer2Value instanceof Comparable)) {
+							if ((customer1Value != null) && (customer1Value instanceof Comparable)
+								&& (customer2Value != null) && (customer2Value instanceof Comparable)) {
 
 								if (customer1Value instanceof String) {
 									String s1 = (String) customer1Value;

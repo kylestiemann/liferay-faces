@@ -23,7 +23,7 @@ import com.liferay.portal.service.permission.PortletPermissionUtil;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @RequestScoped
 @ManagedBean

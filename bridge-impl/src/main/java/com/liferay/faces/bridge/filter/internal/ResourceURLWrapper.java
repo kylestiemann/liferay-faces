@@ -18,7 +18,7 @@ import javax.portlet.ResourceURL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ResourceURLWrapper extends BaseURLWrapper implements ResourceURL, FacesWrapper<ResourceURL> {
 

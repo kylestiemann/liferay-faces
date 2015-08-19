@@ -17,7 +17,7 @@ package com.liferay.faces.util.config;
  * This interface defines the properties for a configured system-event-listener that is discovered in
  * META-INF/faces-config.xml or WEB-INF/faces-config.xml descriptors.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface ConfiguredSystemEventListener {
 

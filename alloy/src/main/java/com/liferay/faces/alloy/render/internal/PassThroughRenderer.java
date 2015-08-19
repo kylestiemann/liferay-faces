@@ -22,14 +22,13 @@ import javax.faces.render.Renderer;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class PassThroughRenderer extends Renderer {
 
 	// Protected Constants
-	protected static final String[] MOUSE_DOM_EVENTS = {
-			"onclick", "ondblclick", "onmousedown", "onmousemove", "onmouseout", "onmouseover", "onmouseup"
-		};
+	protected static final String[] MOUSE_DOM_EVENTS = { "onclick", "ondblclick", "onmousedown", "onmousemove",
+		"onmouseout", "onmouseover", "onmouseup" };
 	protected static final String[] KEYBOARD_DOM_EVENTS = { "onkeydown", "onkeypress", "onkeyup" };
 
 	/**
@@ -46,8 +45,8 @@ public class PassThroughRenderer extends Renderer {
 			Object passThroughAttributeValue = attributes.get(PASS_THROUGH_ATTRIBUTE);
 
 			if (passThroughAttributeValue != null) {
-				responseWriter.writeAttribute(PASS_THROUGH_ATTRIBUTE, passThroughAttributeValue,
-					PASS_THROUGH_ATTRIBUTE);
+				responseWriter
+					.writeAttribute(PASS_THROUGH_ATTRIBUTE, passThroughAttributeValue, PASS_THROUGH_ATTRIBUTE);
 			}
 		}
 	}

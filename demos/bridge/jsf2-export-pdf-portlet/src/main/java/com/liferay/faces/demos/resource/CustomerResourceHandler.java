@@ -19,7 +19,7 @@ import javax.faces.application.ResourceHandlerWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CustomerResourceHandler extends ResourceHandlerWrapper {
 

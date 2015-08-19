@@ -31,7 +31,7 @@ import com.liferay.faces.util.view.facelets.MethodMetadata;
 /**
  * Class for managing the MethodExpression attributes
  *
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 public class InputSearchHandler extends ComponentHandler {
 

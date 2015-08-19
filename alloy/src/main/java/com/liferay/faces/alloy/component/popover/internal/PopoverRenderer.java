@@ -31,7 +31,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(componentFamily = Popover.COMPONENT_FAMILY, rendererType = Popover.RENDERER_TYPE)
@@ -74,8 +74,8 @@ public class PopoverRenderer extends PopoverRendererBase {
 			responseWriter.write(LIFERAY_COMPONENT);
 			responseWriter.write("('");
 			responseWriter.write(clientKey);
-			responseWriter.write(
-				"').addToolbar([{cssClass:'close',label:'\u00D7',on:{click:function(event){Liferay.component('");
+			responseWriter
+				.write("').addToolbar([{cssClass:'close',label:'\u00D7',on:{click:function(event){Liferay.component('");
 			responseWriter.write(clientKey);
 			responseWriter.write("').hide();}},render:true}],'header');");
 		}
@@ -122,9 +122,10 @@ public class PopoverRenderer extends PopoverRendererBase {
 				Button button = (Button) forComponent;
 
 				if ((button.getOnclick() == null) && (button.getOnmouseover() == null)) {
-					logger.warn(
-						"Popover [{0}] is *for* button [{1}] but the button does not have an onclick or onmouseover attribute.",
-						popover.getClientKey(), for_);
+					logger
+						.warn(
+							"Popover [{0}] is *for* button [{1}] but the button does not have an onclick or onmouseover attribute.",
+							popover.getClientKey(), for_);
 				}
 			}
 

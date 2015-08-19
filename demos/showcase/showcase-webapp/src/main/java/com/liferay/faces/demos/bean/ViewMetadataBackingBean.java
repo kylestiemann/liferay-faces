@@ -22,7 +22,7 @@ import com.liferay.faces.demos.dto.Country;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

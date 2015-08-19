@@ -27,7 +27,7 @@ import javax.portlet.faces.component.PortletNamingContainerUIViewRoot;
  * This annotation is applied to the Bridge API {@link PortletNamingContainerUIViewRoot} and can be applied to others if
  * necessary. It simply marks a class as satisfying the namespacing requirements of Section 6.6 of the specification.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Documented
 @Inherited

@@ -25,7 +25,7 @@ import com.liferay.faces.demos.service.BookingTypeService;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named
 @RequestScoped

@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.panelgroup.PanelGroup;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesRenderer(componentFamily = PanelGroup.COMPONENT_FAMILY, rendererType = PanelGroup.RENDERER_TYPE)
 public class PanelGroupRenderer extends PanelGroupRendererBase {

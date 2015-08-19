@@ -17,7 +17,7 @@ import javax.portlet.EventResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class EventResponseBridgeLiferayImpl extends EventResponseBridgeImpl {
 

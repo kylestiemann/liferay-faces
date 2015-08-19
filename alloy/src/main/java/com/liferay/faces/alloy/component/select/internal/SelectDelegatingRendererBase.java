@@ -25,12 +25,12 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 /**
  * In order to render alloy:selectManyCheckbox and alloy:selectOneRadio using CSS classes and elements consistent with
- * Liferay Portal's (and AlloyUI's) style, SelectDelegatingRendererBase replaces the default ResponseWriter with {@link
- * TableSuppressingResponseWriter} and {@link LabelSurroundingResponseWriter}. This class is designed to be extended by
- * {@link com.liferay.faces.alloy.component.selectmanycheckbox.internal.SelectManyCheckboxRenderer} and {@link
- * com.liferay.faces.alloy.component.selectoneradio.internal.SelectOneRadioRenderer}.
+ * Liferay Portal's (and AlloyUI's) style, SelectDelegatingRendererBase replaces the default ResponseWriter with
+ * {@link TableSuppressingResponseWriter} and {@link LabelSurroundingResponseWriter}. This class is designed to be
+ * extended by {@link com.liferay.faces.alloy.component.selectmanycheckbox.internal.SelectManyCheckboxRenderer} and
+ * {@link com.liferay.faces.alloy.component.selectoneradio.internal.SelectOneRadioRenderer}.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class SelectDelegatingRendererBase extends DelegatingRendererBase {
 

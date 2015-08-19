@@ -19,7 +19,7 @@ import javax.portlet.PortletURL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortletURLNonFacesTargetRenderImpl extends PortletURLNonFacesTarget {
 

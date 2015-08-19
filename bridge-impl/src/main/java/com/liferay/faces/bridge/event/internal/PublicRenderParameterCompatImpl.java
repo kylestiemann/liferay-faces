@@ -25,7 +25,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PublicRenderParameterCompatImpl extends PublicRenderParameterBaseImpl {
 
@@ -42,8 +42,9 @@ public abstract class PublicRenderParameterCompatImpl extends PublicRenderParame
 		try {
 
 			ELContext elContext = facesContext.getELContext();
-			ValueExpression valueExpression = facesContext.getApplication().getExpressionFactory()
-				.createValueExpression(elContext, modelEL, String.class);
+			ValueExpression valueExpression =
+				facesContext.getApplication().getExpressionFactory()
+					.createValueExpression(elContext, modelEL, String.class);
 			valueExpression.setValue(elContext, originalRequestValue);
 
 			return true;

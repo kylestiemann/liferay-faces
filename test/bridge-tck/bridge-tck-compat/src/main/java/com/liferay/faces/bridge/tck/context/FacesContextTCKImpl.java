@@ -23,7 +23,7 @@ import javax.faces.context.FacesContextWrapper;
  * For JSF 2.x, it is possible to have a portlet bridge that does not wrap the FacesContext, so this test should not be
  * necessary for JSF 2.x versions of the TCK.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextTCKImpl extends FacesContextWrapper {
 

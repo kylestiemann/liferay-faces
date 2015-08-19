@@ -26,7 +26,7 @@ import com.liferay.faces.demos.service.CustomerService;
 /**
  * This is a model managed bean that manages customer data.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "customersModelBean")
 @ViewScoped

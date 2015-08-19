@@ -21,10 +21,10 @@ import javax.servlet.ServletResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public class BridgeWriteBehindResponseResourceImpl extends BridgeWriteBehindResponseMimeImpl
-	implements ResourceResponse {
+public class BridgeWriteBehindResponseResourceImpl extends BridgeWriteBehindResponseMimeImpl implements
+	ResourceResponse {
 
 	public BridgeWriteBehindResponseResourceImpl(ResourceResponse resourceResponse, ServletResponse servletResponse) {
 		super((MimeResponse) resourceResponse, servletResponse);

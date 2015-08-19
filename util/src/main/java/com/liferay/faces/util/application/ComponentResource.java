@@ -14,10 +14,10 @@
 package com.liferay.faces.util.application;
 
 /**
- * This interface defines a contract for getting information about a {@link javax.faces.component.UIComponent}} resource
+ * This interface defines a contract for getting information about a {@link javax.faces.component.UIComponent} resource
  * such as its name, library, and whether or not it should be rendered.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface ComponentResource {
 

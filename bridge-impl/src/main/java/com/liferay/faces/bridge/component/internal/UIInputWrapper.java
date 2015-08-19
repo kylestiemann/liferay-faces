@@ -32,7 +32,7 @@ import javax.faces.validator.Validator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class UIInputWrapper extends UIInput implements FacesWrapper<UIInput> {
 

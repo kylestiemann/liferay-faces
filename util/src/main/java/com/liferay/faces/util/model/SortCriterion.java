@@ -14,12 +14,12 @@
 package com.liferay.faces.util.model;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SortCriterion {
 
 	/**
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	public enum Order {
 		ASCENDING, DESCENDING, NONE

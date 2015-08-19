@@ -17,7 +17,7 @@ import com.liferay.faces.util.application.ResourceValidator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceValidatorLiferayImpl extends ResourceValidatorBaseImpl {
 

@@ -25,7 +25,7 @@ import javax.portlet.PortletRequestDispatcher;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PortletContextWrapper implements PortletContext, FacesWrapper<PortletContext> {
 

@@ -25,7 +25,7 @@ import com.liferay.faces.portal.context.LiferayFacesContext;
 /**
  * This is a model managed bean that represents a user that is registering for an account.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "registrantModelBean")
 @ViewScoped

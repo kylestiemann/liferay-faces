@@ -26,7 +26,7 @@ import com.liferay.faces.alloy.render.internal.AlloyRendererUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesRenderer(componentFamily = CommandButton.COMPONENT_FAMILY, rendererType = CommandButton.RENDERER_TYPE)
 @ListenerFor(systemEventClass = PostAddToViewEvent.class, sourceClass = CommandButton.class)

@@ -32,7 +32,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceValidatorImpl implements ResourceValidator {
 
@@ -41,15 +41,13 @@ public class ResourceValidatorImpl implements ResourceValidator {
 
 	// Private Constants
 	private static final Pattern BANNED_PATHS_PATTERN = Pattern.compile(".*/(?:META-INF|WEB-INF)/.*",
-			Pattern.CASE_INSENSITIVE);
-	private static final String[] BANNED_SEQUENCES = new String[] {
-			"//", "\\\\", "/\\", "\\/", "..", "./", ".\\", "%"
-		};
+		Pattern.CASE_INSENSITIVE);
+	private static final String[] BANNED_SEQUENCES =
+		new String[] { "//", "\\\\", "/\\", "\\/", "..", "./", ".\\", "%" };
 	protected static final String DEFAULT_FACELETS_SUFFIX = ViewHandler.DEFAULT_FACELETS_SUFFIX;
 	protected static final String FACELETS_SUFFIX_PARAM_NAME = ViewHandler.FACELETS_SUFFIX_PARAM_NAME;
 	protected static final String[] VIEW_MAPPINGS_PARAM_NAMES = new String[] {
-			ViewHandler.FACELETS_VIEW_MAPPINGS_PARAM_NAME, "facelets.VIEW_MAPPINGS"
-		};
+		ViewHandler.FACELETS_VIEW_MAPPINGS_PARAM_NAME, "facelets.VIEW_MAPPINGS" };
 
 	// Private Data Members
 	private List<Pattern> excludeResourcePatterns;
@@ -151,15 +149,15 @@ public class ResourceValidatorImpl implements ResourceValidator {
 	protected boolean isFaceletsVDL(String viewId) {
 
 		boolean faceletsVDL = false;
-		ViewDeclarationLanguageFactory viewDeclarationLanguageFactory = (ViewDeclarationLanguageFactory) FactoryFinder
-			.getFactory(FactoryFinder.VIEW_DECLARATION_LANGUAGE_FACTORY);
-		ViewDeclarationLanguage viewDeclarationLanguage = viewDeclarationLanguageFactory.getViewDeclarationLanguage(
-				viewId);
+		ViewDeclarationLanguageFactory viewDeclarationLanguageFactory =
+			(ViewDeclarationLanguageFactory) FactoryFinder.getFactory(FactoryFinder.VIEW_DECLARATION_LANGUAGE_FACTORY);
+		ViewDeclarationLanguage viewDeclarationLanguage =
+			viewDeclarationLanguageFactory.getViewDeclarationLanguage(viewId);
 
 		if (viewDeclarationLanguage != null) {
 
-			faceletsVDL = viewDeclarationLanguage.getId().equals(
-					ViewDeclarationLanguage.FACELETS_VIEW_DECLARATION_LANGUAGE_ID);
+			faceletsVDL =
+				viewDeclarationLanguage.getId().equals(ViewDeclarationLanguage.FACELETS_VIEW_DECLARATION_LANGUAGE_ID);
 
 			if (faceletsVDL) {
 				logger.trace("MATCHED FACELETS VDL viewId=[{0}]", viewId);

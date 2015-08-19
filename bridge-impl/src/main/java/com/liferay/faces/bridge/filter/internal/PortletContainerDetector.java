@@ -18,19 +18,18 @@ import javax.portlet.filter.PortletResponseWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortletContainerDetector {
 
 	/**
 	 * Determines whether or not the specified {@link javax.portlet.PortletResponse} is one created by Liferay Portal.
-	 * If the specified {@link javax.portlet.PortletResponse} is an instance of {@link
-	 * javax.portlet.filter.PortletResponseWrapper} then it will work with the wrapped {@link
-	 * javax.portlet.PortletResponse}.
+	 * If the specified {@link javax.portlet.PortletResponse} is an instance of
+	 * {@link javax.portlet.filter.PortletResponseWrapper} then it will work with the wrapped
+	 * {@link javax.portlet.PortletResponse}.
 	 *
-	 * @param   portletResponse  The current {@link javax.portlet.PortletResponse}.
-	 *
-	 * @return  true if the specified portletRequest was created by Liferay Portal.
+	 * @param portletResponse The current {@link javax.portlet.PortletResponse}.
+	 * @return true if the specified portletRequest was created by Liferay Portal.
 	 */
 	public static boolean isLiferayPortletResponse(PortletResponse portletResponse) {
 
@@ -50,13 +49,12 @@ public class PortletContainerDetector {
 
 	/**
 	 * Determines whether or not the specified {@link javax.portlet.PortletResponse} is one created by Liferay Portal.
-	 * If the specified {@link javax.portlet.PortletResponse} is an instance of {@link
-	 * javax.portlet.filter.PortletResponseWrapper} then it will work with the wrapped {@link
-	 * javax.portlet.PortletResponse}.
+	 * If the specified {@link javax.portlet.PortletResponse} is an instance of
+	 * {@link javax.portlet.filter.PortletResponseWrapper} then it will work with the wrapped
+	 * {@link javax.portlet.PortletResponse}.
 	 *
-	 * @param   portletResponse  The current {@link javax.portlet.PortletResponse}.
-	 *
-	 * @return  true if the specified portletResponse was created by Pluto.
+	 * @param portletResponse The current {@link javax.portlet.PortletResponse}.
+	 * @return true if the specified portletResponse was created by Pluto.
 	 */
 	public static boolean isPlutoPortletResponse(PortletResponse portletResponse) {
 

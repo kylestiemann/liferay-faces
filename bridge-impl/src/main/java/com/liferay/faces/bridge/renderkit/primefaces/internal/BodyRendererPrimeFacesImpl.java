@@ -32,7 +32,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * Note that reflection is used to access the PrimeFaces RequestContext in order to avoid a compile-time dependency on a
  * specific version of PrimeFaces.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BodyRendererPrimeFacesImpl extends BodyRendererBridgeImpl {
 

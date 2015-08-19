@@ -34,14 +34,14 @@ import com.liferay.faces.util.helper.IntegerHelper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = TabView.COMPONENT_TYPE)
 public class TabView extends TabViewBase implements ClientBehaviorHolder {
 
 	// Private Constants
-	private static final Collection<String> EVENT_NAMES = Collections.unmodifiableCollection(Arrays.asList(
-				TabSelectEvent.TAB_SELECT));
+	private static final Collection<String> EVENT_NAMES = Collections.unmodifiableCollection(Arrays
+		.asList(TabSelectEvent.TAB_SELECT));
 
 	@Override
 	public void queueEvent(FacesEvent facesEvent) {

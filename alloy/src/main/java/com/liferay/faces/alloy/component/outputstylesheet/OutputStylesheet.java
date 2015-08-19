@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = OutputStylesheet.COMPONENT_TYPE)
 public class OutputStylesheet extends OutputStylesheetBase {

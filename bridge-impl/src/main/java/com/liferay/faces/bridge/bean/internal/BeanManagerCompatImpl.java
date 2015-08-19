@@ -19,16 +19,15 @@ import javax.faces.bean.ManagedBean;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BeanManagerCompatImpl implements BeanManager {
 
 	/**
 	 * Determines whether or not the specified object is annotated as a JSF managed-bean.
 	 *
-	 * @param   obj  The object to check.
-	 *
-	 * @return  true if the specified object is annotated as a JSF managed-bean, otherwise false.
+	 * @param obj The object to check.
+	 * @return true if the specified object is annotated as a JSF managed-bean, otherwise false.
 	 */
 	protected boolean hasManagedBeanAnnotation(Object object) {
 

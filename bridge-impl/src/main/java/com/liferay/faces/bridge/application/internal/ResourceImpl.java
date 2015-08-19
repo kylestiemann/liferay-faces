@@ -43,7 +43,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class decorates the resource implementation from the JSF implementation.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceImpl extends ResourceWrapper implements Serializable {
 
@@ -159,9 +159,10 @@ public class ResourceImpl extends ResourceWrapper implements Serializable {
 						}
 					}
 					else {
-						logger.warn(
-							"Unable to determine if user agent needs update because resource URL was null for resourceName=[{0}].",
-							resourceName);
+						logger
+							.warn(
+								"Unable to determine if user agent needs update because resource URL was null for resourceName=[{0}].",
+								resourceName);
 					}
 				}
 
@@ -180,12 +181,12 @@ public class ResourceImpl extends ResourceWrapper implements Serializable {
 							// Note that SimpleDateFormat is not thread-safe so an instance variable has to be used
 							// instead of a static variable.
 							// http://www.codefutures.com/weblog/andygrove/2007/10/simpledateformat-and-thread-safety.html
-							SimpleDateFormat httpSpecDateFormat = new SimpleDateFormat(HTTP_SPEC_DATE_PATTERN,
-									Locale.US);
+							SimpleDateFormat httpSpecDateFormat =
+								new SimpleDateFormat(HTTP_SPEC_DATE_PATTERN, Locale.US);
 							httpSpecDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
 
-							long ifModifiedHeaderInMilliSeconds = httpSpecDateFormat.parse(requestHeaderValue)
-								.getTime();
+							long ifModifiedHeaderInMilliSeconds =
+								httpSpecDateFormat.parse(requestHeaderValue).getTime();
 							ifModifiedHeaderInSeconds = (ifModifiedHeaderInMilliSeconds / 1000L);
 
 							if (logger.isDebugEnabled()) {
@@ -267,8 +268,9 @@ public class ResourceImpl extends ResourceWrapper implements Serializable {
 				BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 				BridgeConfig bridgeConfig = bridgeContext.getBridgeConfig();
 
-				List<ConfiguredServletMapping> configuredFacesServletMappings = (List<ConfiguredServletMapping>)
-					bridgeConfig.getAttributes().get(BridgeConfigAttributeMap.CONFIGURED_FACES_SERVLET_MAPPINGS);
+				List<ConfiguredServletMapping> configuredFacesServletMappings =
+					(List<ConfiguredServletMapping>) bridgeConfig.getAttributes().get(
+						BridgeConfigAttributeMap.CONFIGURED_FACES_SERVLET_MAPPINGS);
 
 				if (configuredFacesServletMappings != null) {
 
@@ -287,15 +289,16 @@ public class ResourceImpl extends ResourceWrapper implements Serializable {
 							// Servlet-API dependency on the FacesServlet that has no meaning in a portlet environment.
 							if (pos > 0) {
 
-								wrappedRequestPath = wrappedRequestPath.substring(0, pos) +
-									wrappedRequestPath.substring(pos + extension.length());
+								wrappedRequestPath =
+									wrappedRequestPath.substring(0, pos)
+										+ wrappedRequestPath.substring(pos + extension.length());
 								logger.debug("Removed extension=[{0}] from requestPath=[{1}]", extension,
 									wrappedRequestPath);
 							}
 							else if (wrappedRequestPath.endsWith(extension)) {
 
-								if (extension.equals(EXTENSION_FACES) &&
-										wrappedRequestPath.endsWith(LIBRARY_NAME_JAVAX_FACES)) {
+								if (extension.equals(EXTENSION_FACES)
+									&& wrappedRequestPath.endsWith(LIBRARY_NAME_JAVAX_FACES)) {
 									// Special case: Don't remove ".faces" if request path ends with "javax.faces"
 									// http://issues.liferay.com/browse/FACES-1202
 								}
@@ -304,8 +307,8 @@ public class ResourceImpl extends ResourceWrapper implements Serializable {
 									// Sometimes resources like the ICEfaces bridge.js file don't have a library name
 									// (ln=) parameter and simply look like this:
 									// /my-portlet/javax.faces.resource/bridge.js.faces
-									wrappedRequestPath = wrappedRequestPath.substring(0,
-											wrappedRequestPath.lastIndexOf(extension));
+									wrappedRequestPath =
+										wrappedRequestPath.substring(0, wrappedRequestPath.lastIndexOf(extension));
 									logger.debug("Removed extension=[{0}] from requestPath=[{1}]", extension,
 										wrappedRequestPath);
 								}

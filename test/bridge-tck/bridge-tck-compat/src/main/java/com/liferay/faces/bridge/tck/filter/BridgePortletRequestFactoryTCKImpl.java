@@ -26,7 +26,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePortletRequestFactoryTCKImpl extends BridgePortletRequestFactory {
 
@@ -81,13 +81,12 @@ public class BridgePortletRequestFactoryTCKImpl extends BridgePortletRequestFact
 
 	/**
 	 * Determines whether or not the specified {@link javax.portlet.PortletRequest} is one created by Liferay Portal. If
-	 * the specified {@link javax.portlet.PortletRequest} is an instance of {@link
-	 * javax.portlet.filter.PortletRequestWrapper} then it will work with the wrapped {@link
-	 * javax.portlet.PortletRequest}.
+	 * the specified {@link javax.portlet.PortletRequest} is an instance of
+	 * {@link javax.portlet.filter.PortletRequestWrapper} then it will work with the wrapped
+	 * {@link javax.portlet.PortletRequest}.
 	 *
-	 * @param   portletRequest  The current {@link javax.portlet.PortletRequest}.
-	 *
-	 * @return  true if the specified portletRequest was created by Pluto.
+	 * @param portletRequest The current {@link javax.portlet.PortletRequest}.
+	 * @return true if the specified portletRequest was created by Pluto.
 	 */
 	protected boolean isPlutoPortletRequest(PortletRequest portletRequest) {
 

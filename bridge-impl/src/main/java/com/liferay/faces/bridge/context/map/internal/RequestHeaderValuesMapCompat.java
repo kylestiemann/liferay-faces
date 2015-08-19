@@ -19,7 +19,7 @@ import javax.portlet.PortletRequest;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class RequestHeaderValuesMapCompat extends CaseInsensitiveHashMap<String[]> {
 

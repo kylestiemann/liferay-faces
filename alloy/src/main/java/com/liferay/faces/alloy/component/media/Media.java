@@ -14,8 +14,8 @@
 package com.liferay.faces.alloy.component.media;
 
 /**
- * @author  Bruno Basto
- * @author  Kyle Stiemann
+ * @author Bruno Basto
+ * @author Kyle Stiemann
  */
 public abstract class Media extends MediaBase {
 

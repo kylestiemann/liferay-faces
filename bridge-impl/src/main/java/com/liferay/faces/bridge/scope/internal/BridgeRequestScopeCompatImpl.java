@@ -31,7 +31,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRequestScopeCompatImpl extends BridgeRequestScopeBaseImpl {
 
@@ -67,8 +67,8 @@ public abstract class BridgeRequestScopeCompatImpl extends BridgeRequestScopeBas
 	protected void restoreJSF2FacesContextAttributes(FacesContext facesContext) {
 
 		@SuppressWarnings("unchecked")
-		List<FacesContextAttribute> savedFacesContextAttributes = (List<FacesContextAttribute>) getAttribute(
-				BRIDGE_REQ_SCOPE_ATTR_FACES_CONTEXT_ATTRIBUTES);
+		List<FacesContextAttribute> savedFacesContextAttributes =
+			(List<FacesContextAttribute>) getAttribute(BRIDGE_REQ_SCOPE_ATTR_FACES_CONTEXT_ATTRIBUTES);
 
 		boolean restoredFacesContextAttibutes = false;
 

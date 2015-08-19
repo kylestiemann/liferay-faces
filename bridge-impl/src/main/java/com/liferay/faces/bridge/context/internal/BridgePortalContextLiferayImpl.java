@@ -23,7 +23,7 @@ import com.liferay.faces.util.product.Product;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePortalContextLiferayImpl extends BridgePortalContextLiferayCompatImpl {
 

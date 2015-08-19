@@ -56,7 +56,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePhaseRenderImpl extends BridgePhaseCompat_2_2_Impl {
 
@@ -72,12 +72,12 @@ public class BridgePhaseRenderImpl extends BridgePhaseCompat_2_2_Impl {
 
 		super(portletConfig, bridgeConfig);
 
-		BridgePortletRequestFactory bridgePortletRequestFactory = (BridgePortletRequestFactory) FactoryExtensionFinder
-			.getFactory(BridgePortletRequestFactory.class);
+		BridgePortletRequestFactory bridgePortletRequestFactory =
+			(BridgePortletRequestFactory) FactoryExtensionFinder.getFactory(BridgePortletRequestFactory.class);
 		this.renderRequest = bridgePortletRequestFactory.getRenderRequest(renderRequest);
 
-		BridgePortletResponseFactory bridgePortletResponseFactory = (BridgePortletResponseFactory) BridgeFactoryFinder
-			.getFactory(BridgePortletResponseFactory.class);
+		BridgePortletResponseFactory bridgePortletResponseFactory =
+			(BridgePortletResponseFactory) BridgeFactoryFinder.getFactory(BridgePortletResponseFactory.class);
 		this.renderResponse = bridgePortletResponseFactory.getRenderResponse(renderResponse);
 	}
 
@@ -124,8 +124,8 @@ public class BridgePhaseRenderImpl extends BridgePhaseCompat_2_2_Impl {
 
 	protected void doFacesHeaders(RenderRequest renderRequest, RenderResponse renderResponse) {
 		logger.trace(
-			"doFacesHeaders(RenderRequest, RenderResponse) this=[{0}], renderRequest=[{1}], renderResponse=[{2}]", this,
-			renderRequest, renderResponse);
+			"doFacesHeaders(RenderRequest, RenderResponse) this=[{0}], renderRequest=[{1}], renderResponse=[{2}]",
+			this, renderRequest, renderResponse);
 	}
 
 	protected void execute(BridgeURL renderRedirectURL) throws BridgeException, IOException {
@@ -149,8 +149,8 @@ public class BridgePhaseRenderImpl extends BridgePhaseCompat_2_2_Impl {
 			bridgeContext.setRenderRedirectAfterDispatch(true);
 
 			ViewHandler viewHandler = facesContext.getApplication().getViewHandler();
-			BridgeURIFactory bridgeURIFactory = (BridgeURIFactory) BridgeFactoryFinder.getFactory(
-					BridgeURIFactory.class);
+			BridgeURIFactory bridgeURIFactory =
+				(BridgeURIFactory) BridgeFactoryFinder.getFactory(BridgeURIFactory.class);
 
 			try {
 				BridgeURI bridgeURI = bridgeURIFactory.getBridgeURI(renderRedirectURL.toString());
@@ -314,8 +314,8 @@ public class BridgePhaseRenderImpl extends BridgePhaseCompat_2_2_Impl {
 		PortalContext portalContext = portletRequest.getPortalContext();
 		String postRedirectGetSupport = portalContext.getProperty(BridgePortalContext.POST_REDIRECT_GET_SUPPORT);
 
-		if ((postRedirectGetSupport == null) &&
-				(bridgeRequestScope.getBeganInPhase() == Bridge.PortletPhase.ACTION_PHASE)) {
+		if ((postRedirectGetSupport == null)
+			&& (bridgeRequestScope.getBeganInPhase() == Bridge.PortletPhase.ACTION_PHASE)) {
 			bridgeRequestScope.removeExcludedAttributes(renderRequest);
 		}
 	}
@@ -339,7 +339,7 @@ public class BridgePhaseRenderImpl extends BridgePhaseCompat_2_2_Impl {
 	 * requirements in Section 5.4.3 of the Bridge Spec. There is no corresponding getter method, because the value is
 	 * meant to be retrieved by developers via an EL expression.
 	 *
-	 * @param  viewId  The current Faces viewId.
+	 * @param viewId The current Faces viewId.
 	 */
 	protected void setViewHistory(String viewId) {
 

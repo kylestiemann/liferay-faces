@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.portlet.component.namespace.internal;
+
 //J-
 
 

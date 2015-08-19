@@ -24,7 +24,7 @@ import org.springframework.context.annotation.Scope;
 /**
  * This is a JSF view managed-bean for the applicant.xhtml composition.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @Named
 @Scope("view")

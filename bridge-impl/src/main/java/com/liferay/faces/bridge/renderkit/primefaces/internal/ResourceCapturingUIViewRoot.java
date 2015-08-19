@@ -25,18 +25,20 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * <p>This class is used by {@link HeadRendererPrimeFacesImpl} in order to workaround FACES-2061. It does this by
- * tricking the {@link org.primefaces.renderkit.HeadRenderer} class into thinking that there are no component resources
- * in the ViewRoot. This is necessary because the {@link
- * com.sun.faces.renderkit.html_basic.ScriptRenderer#encodeEnd(FacesContext,UIComponent)} and {@link
- * com.sun.faces.renderkit.html_basic.StylesheetRenderer#encodeEnd(FacesContext,UIComponent)} methods keep track of
- * resources that have been rendered in a FacesContext attribute, which prevents the bridge's head renderer from
- * subsequently being able to render the component resources.</p>
+ * <p>
+ * This class is used by {@link HeadRendererPrimeFacesImpl} in order to workaround FACES-2061. It does this by tricking
+ * the {@link org.primefaces.renderkit.HeadRenderer} class into thinking that there are no component resources in the
+ * ViewRoot. This is necessary because the
+ * {@link com.sun.faces.renderkit.html_basic.ScriptRenderer#encodeEnd(FacesContext,UIComponent)} and
+ * {@link com.sun.faces.renderkit.html_basic.StylesheetRenderer#encodeEnd(FacesContext,UIComponent)} methods keep track
+ * of resources that have been rendered in a FacesContext attribute, which prevents the bridge's head renderer from
+ * subsequently being able to render the component resources.
+ * </p>
+ * <p>
+ * In addition, this class captures (remembers) the component resources that were added by the PrimeFaces HeadRenderer.
+ * </p>
  *
- * <p>In addition, this class captures (remembers) the component resources that were added by the PrimeFaces
- * HeadRenderer.</p>
- *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceCapturingUIViewRoot extends UIViewRoot {
 

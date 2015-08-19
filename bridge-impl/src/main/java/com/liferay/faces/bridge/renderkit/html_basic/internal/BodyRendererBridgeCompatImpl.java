@@ -35,13 +35,13 @@ import com.liferay.portal.kernel.util.WebKeys;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class BodyRendererBridgeCompatImpl extends BridgeRenderer {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
 	protected void encodeScripts(FacesContext facesContext, ResponseWriter responseWriter, UIComponent uiComponent)
 		throws IOException {

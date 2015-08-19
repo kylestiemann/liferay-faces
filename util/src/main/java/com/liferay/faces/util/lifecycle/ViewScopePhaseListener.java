@@ -35,20 +35,24 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * <p>This class is a JSF {@link PhaseListener} that listens to the {@link PhaseId#RESTORE_VIEW} phase of the JSF
+ * <p>
+ * This class is a JSF {@link PhaseListener} that listens to the {@link PhaseId#RESTORE_VIEW} phase of the JSF
  * lifecycle. Its purpose is to re-inject {@link ManagedProperty} values into {@link ViewScoped} managed-bean instances
- * after postback.</p>
+ * after postback.
+ * </p>
+ * <p>
+ * When running under Mojarra, {@link ViewScoped} managed-beans are essentially stored in the underlying session. When
+ * running under MyFaces, {@link ViewScoped} managed-beans are serialized after the JSF lifecycle runs, probably so that
+ * they don't take up memory on the server. When doing a postback to a {@link ViewScoped} managed-bean, Mojarra simply
+ * pulls the live instance from the session. But with MyFaces, the managed-bean must be deserialized. The problem with
+ * this is that MyFaces does not re-inject @ManagedProperty values after deserialization. This class exists to
+ * work-around this problem.
+ * </p>
+ * <p>
+ * For more information, see: http://issues.liferay.com/browse/FACES-1400
+ * </p>
  *
- * <p>When running under Mojarra, {@link ViewScoped} managed-beans are essentially stored in the underlying session.
- * When running under MyFaces, {@link ViewScoped} managed-beans are serialized after the JSF lifecycle runs, probably so
- * that they don't take up memory on the server. When doing a postback to a {@link ViewScoped} managed-bean, Mojarra
- * simply pulls the live instance from the session. But with MyFaces, the managed-bean must be deserialized. The problem
- * with this is that MyFaces does not re-inject @ManagedProperty values after deserialization. This class exists to
- * work-around this problem.</p>
- *
- * <p>For more information, see: http://issues.liferay.com/browse/FACES-1400</p>
- *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewScopePhaseListener implements PhaseListener {
 
@@ -197,22 +201,25 @@ public class ViewScopePhaseListener implements PhaseListener {
 			String expressionWithoutSyntax = removeExpressionSyntax(elExpression);
 
 			try {
-				Object managedPropertyValue = application.getELResolver().getValue(elContext, null,
-						expressionWithoutSyntax);
-				String methodName = METHOD_PREFIX_SET + managedPropertyName.toUpperCase().substring(0, 1) +
-					managedPropertyName.substring(1);
+				Object managedPropertyValue =
+					application.getELResolver().getValue(elContext, null, expressionWithoutSyntax);
+				String methodName =
+					METHOD_PREFIX_SET + managedPropertyName.toUpperCase().substring(0, 1)
+						+ managedPropertyName.substring(1);
 				Method setterMethod = managedBean.getClass().getMethod(methodName, managedPropertyClass);
 
 				if (setterMethod != null) {
 					setterMethod.invoke(managedBean, managedPropertyValue);
-					logger.debug(
-						"Injected @ManagedProperty name=[{0}] elExpression=[{1}] value=[{2}] into @ViewScoped managedBean=[{3}]",
-						managedPropertyName, elExpression, managedPropertyValue, managedBean);
+					logger
+						.debug(
+							"Injected @ManagedProperty name=[{0}] elExpression=[{1}] value=[{2}] into @ViewScoped managedBean=[{3}]",
+							managedPropertyName, elExpression, managedPropertyValue, managedBean);
 				}
 				else {
-					logger.error(
-						"Unable to inject managed-property name=[{0}] elExpression=[{1}] using setter methodName=[{2}]",
-						managedPropertyName, elExpression, methodName);
+					logger
+						.error(
+							"Unable to inject managed-property name=[{0}] elExpression=[{1}] using setter methodName=[{2}]",
+							managedPropertyName, elExpression, methodName);
 				}
 			}
 			catch (Exception e) {
@@ -231,7 +238,8 @@ public class ViewScopePhaseListener implements PhaseListener {
 				}
 
 				if (expressionWithoutSyntax.endsWith(EXPRESSION_SUFFIX)) {
-					expressionWithoutSyntax = expressionWithoutSyntax.substring(0,
+					expressionWithoutSyntax =
+						expressionWithoutSyntax.substring(0,
 							expressionWithoutSyntax.length() - EXPRESSION_SUFFIX.length());
 				}
 			}

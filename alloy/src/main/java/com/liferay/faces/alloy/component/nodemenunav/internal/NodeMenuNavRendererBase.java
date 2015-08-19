@@ -28,7 +28,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public abstract class NodeMenuNavRendererBase extends DelegatingAlloyRendererBase {
 
@@ -42,8 +42,9 @@ public abstract class NodeMenuNavRendererBase extends DelegatingAlloyRendererBas
 
 	// Needed when yui="false"
 	@Override
-	public void encodeAlloyAttributes(FacesContext facesContext, ResponseWriter respoonseWriter,
-		UIComponent uiComponent) throws IOException {
+	public void
+		encodeAlloyAttributes(FacesContext facesContext, ResponseWriter respoonseWriter, UIComponent uiComponent)
+			throws IOException {
 		// no-op
 	}
 
@@ -101,8 +102,9 @@ public abstract class NodeMenuNavRendererBase extends DelegatingAlloyRendererBas
 		responseWriter.write("').plug(A.Plugin.NodeMenuNav,{autoSubmenuDisplay:false,mouseOutHideDelay:0});");
 	}
 
-	public void encodeLabel(UIComponent uiComponent, ResponseWriter responseWriter, FacesContext facesContext,
-		int depth) throws IOException {
+	public void
+		encodeLabel(UIComponent uiComponent, ResponseWriter responseWriter, FacesContext facesContext, int depth)
+			throws IOException {
 
 		UIComponent facet = uiComponent.getFacet("label");
 
@@ -159,8 +161,8 @@ public abstract class NodeMenuNavRendererBase extends DelegatingAlloyRendererBas
 		boolean disabled = (Boolean) attributes.get("disabled");
 		Styleable styleable = (Styleable) uiComponent;
 		String styleClass = styleable.getStyleClass();
-		DelegationResponseWriter delegationResponseWriter = new NodeMenuNavResponseWriter(responseWriter, disabled,
-				uiComponent.getClientId(facesContext), styleClass);
+		DelegationResponseWriter delegationResponseWriter =
+			new NodeMenuNavResponseWriter(responseWriter, disabled, uiComponent.getClientId(facesContext), styleClass);
 
 		//J-
 		// We have now written out something like this:
@@ -214,8 +216,7 @@ public abstract class NodeMenuNavRendererBase extends DelegatingAlloyRendererBas
 				responseWriter.endElement("span");
 
 				// Recurse over (first and only expected) menu
-				encodeMenuRecurse(child, responseWriter, disabled, styleClass, defaultOptionsDivId, depth,
-					facesContext);
+				encodeMenuRecurse(child, responseWriter, disabled, styleClass, defaultOptionsDivId, depth, facesContext);
 
 				break;
 			}
@@ -275,8 +276,8 @@ public abstract class NodeMenuNavRendererBase extends DelegatingAlloyRendererBas
 			responseWriter.writeAttribute("class", "yui3-menuitem", "class");
 
 			ResponseWriter originalResponseWriter = facesContext.getResponseWriter();
-			DelegationResponseWriter delegationResponseWriter = new NodeMenuNavMenuResponseWriter(
-					originalResponseWriter);
+			DelegationResponseWriter delegationResponseWriter =
+				new NodeMenuNavMenuResponseWriter(originalResponseWriter);
 			facesContext.setResponseWriter(delegationResponseWriter);
 			child.encodeAll(facesContext);
 			facesContext.setResponseWriter(originalResponseWriter);

@@ -47,7 +47,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * rendering the <head>...</head> section, which is what is done by the JSF implementation's version of this renderer.
  * This renderer avoids rendering the <head>...</head> section and instead delegates that responsibility to the portal.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadRendererBridgeImpl extends BridgeRenderer {
 
@@ -143,8 +143,8 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 
 		// Determine whether or not the portlet container is able to add script resources to the head.
 		PortalContext portalContext = portletRequest.getPortalContext();
-		String addScriptResourceToHeadSupport = portalContext.getProperty(
-				BridgePortalContext.ADD_SCRIPT_RESOURCE_TO_HEAD_SUPPORT);
+		String addScriptResourceToHeadSupport =
+			portalContext.getProperty(BridgePortalContext.ADD_SCRIPT_RESOURCE_TO_HEAD_SUPPORT);
 		boolean portletContainerAbleToAddScriptResourceToHead = (addScriptResourceToHeadSupport != null);
 
 		// Determine whether or not this might be a Liferay runtime portlet (which does not have the ability to add
@@ -166,8 +166,8 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 			headResourceIdsFromManagedBean = headManagedBean.getHeadResourceIds();
 		}
 
-		ComponentResourceFactory componentResourceFactory = (ComponentResourceFactory) FactoryExtensionFinder
-			.getFactory(ComponentResourceFactory.class);
+		ComponentResourceFactory componentResourceFactory =
+			(ComponentResourceFactory) FactoryExtensionFinder.getFactory(ComponentResourceFactory.class);
 
 		// For each resource in the ViewRoot: Determine if it should added to the <head> section of the portal page,
 		// or if it should be relocated to the body (which is actually not a <body> element, but a <div> element
@@ -181,10 +181,10 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 				// Note that this can happen in one of two ways: 1) If this is NON-Liferay-Runtime portlet (currently
 				// doing Ajax) but has already added the resource during initial page HTTP-GET render, or 2) By another
 				// NON-Liferay-Runtime portlet that has already added the same JavaScript resource.
-				ComponentResource componentResource = componentResourceFactory.getComponentResource(
-						uiComponentResource);
-				boolean alreadyPresentInPortalPageHead = headResourceIdsFromManagedBean.contains(
-						componentResource.getId());
+				ComponentResource componentResource =
+					componentResourceFactory.getComponentResource(uiComponentResource);
+				boolean alreadyPresentInPortalPageHead =
+					headResourceIdsFromManagedBean.contains(componentResource.getId());
 
 				// If the resource is already present in the <head> section of the portal page, then simply output a
 				// logger message to this fact.
@@ -192,28 +192,26 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 
 					if (logger.isDebugEnabled()) {
 
-						logger.debug(
-							"Resource already present in head: name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
-							new Object[] {
-								componentResource.getName(), componentResource.getLibrary(),
-								uiComponentResource.getRendererType(),
-								ComponentResourceUtil.getComponentValue(uiComponentResource),
-								uiComponentResource.getClass().getName(),
-							});
+						logger
+							.debug(
+								"Resource already present in head: name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
+								new Object[] { componentResource.getName(), componentResource.getLibrary(),
+									uiComponentResource.getRendererType(),
+									ComponentResourceUtil.getComponentValue(uiComponentResource),
+									uiComponentResource.getClass().getName(), });
 					}
 				}
 
 				// Otherwise, since it is not possible to add it to the <head> section, the resource must be relocated
 				// to the body.
 				else {
-					logger.debug(
-						"Relocating resource to body (since it was added via Ajax and is not yet present in head): name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
-						new Object[] {
-							componentResource.getName(), componentResource.getLibrary(),
-							uiComponentResource.getRendererType(),
-							ComponentResourceUtil.getComponentValue(uiComponentResource),
-							uiComponentResource.getClass().getName(),
-						});
+					logger
+						.debug(
+							"Relocating resource to body (since it was added via Ajax and is not yet present in head): name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
+							new Object[] { componentResource.getName(), componentResource.getLibrary(),
+								uiComponentResource.getRendererType(),
+								ComponentResourceUtil.getComponentValue(uiComponentResource),
+								uiComponentResource.getClass().getName(), });
 
 					resourcesForRelocatingToBody.add(uiComponentResource);
 				}
@@ -240,14 +238,14 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 
 			// Replace the ResponseWriter in the FacesContext with a HeadResponseWriter that knows how to write to
 			// the <head>...</head> section of the rendered portal page.
-			HeadResponseWriter headResponseWriter = (HeadResponseWriter) portletRequest.getAttribute(
-					HeadResponseWriter.class.getName());
+			HeadResponseWriter headResponseWriter =
+				(HeadResponseWriter) portletRequest.getAttribute(HeadResponseWriter.class.getName());
 
 			if (headResponseWriter == null) {
-				HeadResponseWriterFactory headResponseWriterFactory = (HeadResponseWriterFactory) BridgeFactoryFinder
-					.getFactory(HeadResponseWriterFactory.class);
-				headResponseWriter = headResponseWriterFactory.getHeadResponseWriter(bridgeContext,
-						responseWriterBackup);
+				HeadResponseWriterFactory headResponseWriterFactory =
+					(HeadResponseWriterFactory) BridgeFactoryFinder.getFactory(HeadResponseWriterFactory.class);
+				headResponseWriter =
+					headResponseWriterFactory.getHeadResponseWriter(bridgeContext, responseWriterBackup);
 			}
 
 			portletRequest.setAttribute(HeadResponseWriter.class.getName(), headResponseWriter);
@@ -256,8 +254,8 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 			// For each resource:
 			for (UIComponent uiComponentResource : resourcesForAddingToHead) {
 
-				ComponentResource componentResource = componentResourceFactory.getComponentResource(
-						uiComponentResource);
+				ComponentResource componentResource =
+					componentResourceFactory.getComponentResource(uiComponentResource);
 
 				// Command the resource to render itself to the HeadResponseWriter
 				if (componentResource.isRenderable()) {
@@ -275,9 +273,8 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 
 					if (logger.isDebugEnabled()) {
 
-						if (resourceId.endsWith(RICHFACES_RESLIB_SUFFIX) ||
-								RENDERER_TYPE_RICHFACES_RESOURCE_LIBRARY.equals(
-									uiComponentResource.getRendererType())) {
+						if (resourceId.endsWith(RICHFACES_RESLIB_SUFFIX)
+							|| RENDERER_TYPE_RICHFACES_RESOURCE_LIBRARY.equals(uiComponentResource.getRendererType())) {
 
 							// RichFaces has resources like "org.richfaces:base-component.reslib",
 							// "org.richfaces:message.reslib", and "org.richfaces:ajax.reslib" that represent a
@@ -309,17 +306,16 @@ public class HeadRendererBridgeImpl extends BridgeRenderer {
 			uiViewRoot.addComponentResource(facesContext, uiComponentResource, "body");
 
 			if (logger.isDebugEnabled()) {
-				ComponentResource componentResource = componentResourceFactory.getComponentResource(
-						uiComponentResource);
+				ComponentResource componentResource =
+					componentResourceFactory.getComponentResource(uiComponentResource);
 
-				logger.debug(
-					"Relocating resource to body: name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
-					new Object[] {
-						componentResource.getName(), componentResource.getLibrary(),
-						uiComponentResource.getRendererType(),
-						ComponentResourceUtil.getComponentValue(uiComponentResource),
-						uiComponentResource.getClass().getName(),
-					});
+				logger
+					.debug(
+						"Relocating resource to body: name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
+						new Object[] { componentResource.getName(), componentResource.getLibrary(),
+							uiComponentResource.getRendererType(),
+							ComponentResourceUtil.getComponentValue(uiComponentResource),
+							uiComponentResource.getClass().getName(), });
 			}
 		}
 

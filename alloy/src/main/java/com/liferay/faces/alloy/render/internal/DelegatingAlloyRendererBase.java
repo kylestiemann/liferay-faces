@@ -24,10 +24,10 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public abstract class DelegatingAlloyRendererBase extends DelegatingClientComponentRendererBase
-	implements AlloyRenderer {
+public abstract class DelegatingAlloyRendererBase extends DelegatingClientComponentRendererBase implements
+	AlloyRenderer {
 
 	@Override
 	public void decode(FacesContext facesContext, UIComponent uiComponent) {
@@ -40,8 +40,9 @@ public abstract class DelegatingAlloyRendererBase extends DelegatingClientCompon
 	}
 
 	@Override
-	public void encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue,
-		boolean first) throws IOException {
+	public void
+		encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue, boolean first)
+			throws IOException {
 		AlloyRendererCommon.encodeBoolean(responseWriter, attributeName, attributeValue, first);
 	}
 
@@ -70,8 +71,9 @@ public abstract class DelegatingAlloyRendererBase extends DelegatingClientCompon
 	}
 
 	@Override
-	public void encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue,
-		boolean first) throws IOException {
+	public void
+		encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue, boolean first)
+			throws IOException {
 		AlloyRendererCommon.encodeInteger(responseWriter, attributeName, attributeValue, first);
 	}
 

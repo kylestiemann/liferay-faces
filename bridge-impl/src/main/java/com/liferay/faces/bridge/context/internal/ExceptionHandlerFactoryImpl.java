@@ -19,7 +19,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExceptionHandlerFactoryImpl extends ExceptionHandlerFactory {
 

@@ -19,7 +19,7 @@ import java.util.Date;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class Booking implements Serializable {
 

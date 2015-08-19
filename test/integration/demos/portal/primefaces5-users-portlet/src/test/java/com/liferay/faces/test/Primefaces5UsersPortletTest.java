@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.test;
+
 //J-
 
 import static org.junit.Assert.assertFalse;

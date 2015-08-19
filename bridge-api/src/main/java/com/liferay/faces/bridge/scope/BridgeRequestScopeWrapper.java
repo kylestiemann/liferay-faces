@@ -24,7 +24,7 @@ import javax.portlet.faces.Bridge.PortletPhase;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRequestScopeWrapper implements BridgeRequestScope, FacesWrapper<BridgeRequestScope> {
 

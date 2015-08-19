@@ -26,7 +26,7 @@ import com.liferay.faces.util.config.ConfiguredElement;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class FactoryExtensionFinder {
 
@@ -92,8 +92,8 @@ public abstract class FactoryExtensionFinder {
 				}
 			}
 			else {
-				throw new FacesException("Unable to acquire ServiceLoader for " +
-					FactoryExtensionFinder.class.getName());
+				throw new FacesException("Unable to acquire ServiceLoader for "
+					+ FactoryExtensionFinder.class.getName());
 			}
 		}
 

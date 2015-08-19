@@ -35,7 +35,7 @@ import com.liferay.faces.util.model.UploadedFile;
  * This class is a runtime wrapper around the RichFaces FileUploadRenderer class that makes the rich:fileUpload
  * component compatible with a portlet environment.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FileUploadRendererRichFacesImpl extends RendererWrapper {
 
@@ -64,8 +64,8 @@ public class FileUploadRendererRichFacesImpl extends RendererWrapper {
 		try {
 
 			// Get the UploadedFile from the request attribute map.
-			ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-					ContextMapFactory.class);
+			ContextMapFactory contextMapFactory =
+				(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 			BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 			Map<String, List<UploadedFile>> uploadedFileMap = contextMapFactory.getUploadedFileMap(bridgeContext);
 
@@ -82,12 +82,14 @@ public class FileUploadRendererRichFacesImpl extends RendererWrapper {
 				if (uploadedFiles != null) {
 
 					for (UploadedFile uploadedFile : uploadedFiles) {
-						RichFacesUploadedFileHandler richFacesUploadedFileHandler = new RichFacesUploadedFileHandler(
-								uploadedFile);
-						Object richFacesUploadedFile = Proxy.newProxyInstance(classLoader,
-								new Class[] { uploadedFileInterface }, richFacesUploadedFileHandler);
-						FacesEvent fileUploadEvent = (FacesEvent) fileUploadEventClass.getConstructor(UIComponent.class,
-								uploadedFileInterface).newInstance(uiComponent, richFacesUploadedFile);
+						RichFacesUploadedFileHandler richFacesUploadedFileHandler =
+							new RichFacesUploadedFileHandler(uploadedFile);
+						Object richFacesUploadedFile =
+							Proxy.newProxyInstance(classLoader, new Class[] { uploadedFileInterface },
+								richFacesUploadedFileHandler);
+						FacesEvent fileUploadEvent =
+							(FacesEvent) fileUploadEventClass.getConstructor(UIComponent.class, uploadedFileInterface)
+								.newInstance(uiComponent, richFacesUploadedFile);
 
 						// Queue the RichFaces FileUploadEvent instance so that it can be handled with an
 						// ActionListener.

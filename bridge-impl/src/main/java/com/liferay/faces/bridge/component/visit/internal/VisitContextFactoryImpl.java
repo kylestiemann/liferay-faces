@@ -27,7 +27,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class VisitContextFactoryImpl extends VisitContextFactory {
 

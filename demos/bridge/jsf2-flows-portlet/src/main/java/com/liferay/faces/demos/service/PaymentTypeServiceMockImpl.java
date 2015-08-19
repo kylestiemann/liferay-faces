@@ -23,7 +23,7 @@ import com.liferay.faces.demos.dto.PaymentType;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named("paymentTypeService")
 @ApplicationScoped

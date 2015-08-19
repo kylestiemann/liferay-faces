@@ -38,7 +38,7 @@ import com.liferay.faces.test.util.TesterBase;
 
 
 /**
- * @author  Liferay Faces Team
+ * @author Liferay Faces Team
  */
 @RunWith(Arquillian.class)
 public class FACES1635ResourcesTest extends TesterBase {
@@ -63,12 +63,11 @@ public class FACES1635ResourcesTest extends TesterBase {
 				HeadResource resource2 = resources.get(j);
 
 				if (!resource2.isDuplicate() && resource1.equals(resource2)) {
-					logger.log(Level.INFO,
-						"checkResourcesForDuplicates: " + whichResources + " occur more than once: type = " +
-						resource1.getType() + " url = " + resource1.getURL());
+					logger.log(Level.INFO, "checkResourcesForDuplicates: " + whichResources
+						+ " occur more than once: type = " + resource1.getType() + " url = " + resource1.getURL());
 					resource2.setDuplicate(true);
-					assertTrue(whichResources + " occur more than once: type = " + resource1.getType() + " url = " +
-						resource1.getURL(), false);
+					assertTrue(whichResources + " occur more than once: type = " + resource1.getType() + " url = "
+						+ resource1.getURL(), false);
 
 					break;
 				}
@@ -99,7 +98,7 @@ public class FACES1635ResourcesTest extends TesterBase {
 						else {
 
 							if ("stylesheet".equals(rel)) {
-//                              logger.log(Level.INFO, "convertToHeadResources: url = " + url);
+								// logger.log(Level.INFO, "convertToHeadResources: url = " + url);
 								resources.add(new HeadResource(type, url));
 							}
 						}
@@ -179,8 +178,7 @@ public class FACES1635ResourcesTest extends TesterBase {
 		}
 		else {
 			logger.log(Level.SEVERE, "ERROR: Perhaps the portlets for this tester were not deployed ...");
-			assertTrue("No portlets found on the page.  Perhaps the portlets for this tester were not deployed.",
-				false);
+			assertTrue("No portlets found on the page.  Perhaps the portlets for this tester were not deployed.", false);
 		}
 	}
 }

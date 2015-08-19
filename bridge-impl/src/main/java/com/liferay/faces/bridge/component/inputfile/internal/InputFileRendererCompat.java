@@ -16,7 +16,7 @@ package com.liferay.faces.bridge.component.inputfile.internal;
 /**
  * This class provides a compatibility layer that isolates differences between 2.2 and earlier.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class InputFileRendererCompat extends InputFileRendererBase {
 }

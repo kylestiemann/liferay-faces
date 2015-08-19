@@ -17,7 +17,7 @@ import javax.portlet.RenderResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderResponseBridgePlutoImpl extends RenderResponseBridgeImpl {
 

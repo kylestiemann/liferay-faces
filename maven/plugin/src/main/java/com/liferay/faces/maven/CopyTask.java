@@ -24,7 +24,7 @@ import org.apache.tools.ant.types.FilterSet;
 
 
 /**
- * @author  Brian Wing Shun Chan
+ * @author Brian Wing Shun Chan
  */
 public class CopyTask {
 
@@ -46,8 +46,8 @@ public class CopyTask {
 		copyDirectory(new File(source), new File(destination), includes, excludes);
 	}
 
-	public static void copyDirectory(File source, File destination, String includes, String excludes, boolean overwrite,
-		boolean preserveLastModified) {
+	public static void copyDirectory(File source, File destination, String includes, String excludes,
+		boolean overwrite, boolean preserveLastModified) {
 
 		Copy copy = new Copy();
 

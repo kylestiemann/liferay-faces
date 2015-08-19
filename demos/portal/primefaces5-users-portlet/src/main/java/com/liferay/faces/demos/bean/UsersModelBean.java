@@ -42,8 +42,8 @@ import com.liferay.portal.theme.ThemeDisplay;
  * This class serves as a model bean for the users.xhtml Facelet view. The bean is kept in view scope since the model
  * data needs to be maintained as long as the end-user is interacting with the view.
  *
- * @author  Neil Griffin
- * @author  Kyle Stiemann
+ * @author Neil Griffin
+ * @author Kyle Stiemann
  */
 @ManagedBean(name = "usersModelBean")
 @ViewScoped
@@ -73,8 +73,8 @@ public class UsersModelBean implements Serializable {
 
 		if (userDataModel == null) {
 			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
-			int rowsPerPage = liferayFacesContext.getPortletPreferenceAsInt("rowsPerPage",
-					SearchContainer.DEFAULT_DELTA);
+			int rowsPerPage =
+				liferayFacesContext.getPortletPreferenceAsInt("rowsPerPage", SearchContainer.DEFAULT_DELTA);
 			userDataModel = new UserLazyDataModel(liferayFacesContext.getCompanyId(), rowsPerPage);
 		}
 
@@ -111,8 +111,8 @@ public class UsersModelBean implements Serializable {
 			ThemeDisplay themeDisplay = (ThemeDisplay) portletRequest.getAttribute(WebKeys.THEME_DISPLAY);
 			String portalURL = themeDisplay.getPortalURL();
 			String imagePath = portalURL + "/image";
-			UserPortraitResource userPortraitResource = new UserPortraitResource(imagePath, selectedUser,
-					uploadedFileId);
+			UserPortraitResource userPortraitResource =
+				new UserPortraitResource(imagePath, selectedUser, uploadedFileId);
 			String requestPath = userPortraitResource.getRequestPath();
 			Application application = facesContext.getApplication();
 			ViewHandler viewHandler = application.getViewHandler();
@@ -128,12 +128,12 @@ public class UsersModelBean implements Serializable {
 		if (statusSelectItems == null) {
 			LiferayFacesContext liferayFacesContext = LiferayFacesContext.getInstance();
 			statusSelectItems = new ArrayList<SelectItem>();
-			statusSelectItems.add(new SelectItem(WorkflowConstants.STATUS_ANY,
-					liferayFacesContext.getMessage("any-status")));
-			statusSelectItems.add(new SelectItem(WorkflowConstants.STATUS_APPROVED,
-					liferayFacesContext.getMessage("active")));
-			statusSelectItems.add(new SelectItem(WorkflowConstants.STATUS_INACTIVE,
-					liferayFacesContext.getMessage("inactive")));
+			statusSelectItems.add(new SelectItem(WorkflowConstants.STATUS_ANY, liferayFacesContext
+				.getMessage("any-status")));
+			statusSelectItems.add(new SelectItem(WorkflowConstants.STATUS_APPROVED, liferayFacesContext
+				.getMessage("active")));
+			statusSelectItems.add(new SelectItem(WorkflowConstants.STATUS_INACTIVE, liferayFacesContext
+				.getMessage("inactive")));
 		}
 
 		return statusSelectItems;

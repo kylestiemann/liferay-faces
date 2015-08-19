@@ -20,11 +20,11 @@ import javax.faces.context.ResponseWriter;
 
 
 /**
- * This class is a {@link DelegationResponseWriter} that is designed to intercept the encoding of a {@link
- * HtmlInputText} component. This class ensures that the "id" attribute is written correctly and that the "type"
+ * This class is a {@link DelegationResponseWriter} that is designed to intercept the encoding of a
+ * {@link HtmlInputText} component. This class ensures that the "id" attribute is written correctly and that the "type"
  * attribute is "hidden".
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HiddenTextResponseWriter extends DelegationResponseWriterBase {
 

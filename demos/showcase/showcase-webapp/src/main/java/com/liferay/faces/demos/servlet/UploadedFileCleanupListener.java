@@ -25,7 +25,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class provides the ability to listen for session destroyed events so that temporary files can be deleted.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class UploadedFileCleanupListener implements HttpSessionListener {
 

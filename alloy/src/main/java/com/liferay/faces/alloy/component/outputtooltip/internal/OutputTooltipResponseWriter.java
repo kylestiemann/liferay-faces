@@ -25,7 +25,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 /**
  * The purpose of this class is ignore the "span" element written by the JSF runtime's renderer.
  *
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class OutputTooltipResponseWriter extends DelegationResponseWriterBase {
 

@@ -25,7 +25,7 @@ import javax.servlet.ServletResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeWriteBehindSupportFactory implements FacesWrapper<BridgeWriteBehindSupportFactory> {
 

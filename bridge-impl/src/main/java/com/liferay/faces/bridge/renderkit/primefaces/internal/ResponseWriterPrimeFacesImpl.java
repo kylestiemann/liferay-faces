@@ -21,7 +21,7 @@ import javax.faces.context.ResponseWriterWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResponseWriterPrimeFacesImpl extends ResponseWriterWrapper {
 

@@ -26,7 +26,7 @@ import javax.portlet.faces.annotation.PortletNamingContainer;
 /**
  * This class satisfies namespacing requirements of Section 6.6 of the specification.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @PortletNamingContainer
 public class PortletNamingContainerUIViewRoot extends UIViewRoot implements NamingContainer, Serializable {

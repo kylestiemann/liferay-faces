@@ -72,7 +72,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeContextImpl extends BridgeContextCompatImpl {
 
@@ -132,10 +132,11 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 		PortletResponse portletResponse, Bridge.PortletPhase portletPhase, IncongruityContext incongruityContext) {
 
 		this.bridgeConfig = bridgeConfig;
-		this.configuredFacesServletMappings = (List<ConfiguredServletMapping>) bridgeConfig.getAttributes().get(
+		this.configuredFacesServletMappings =
+			(List<ConfiguredServletMapping>) bridgeConfig.getAttributes().get(
 				BridgeConfigAttributeMap.CONFIGURED_FACES_SERVLET_MAPPINGS);
-		this.configuredSuffixes = (List<String>) bridgeConfig.getAttributes().get(
-				BridgeConfigAttributeMap.CONFIGURED_SUFFIXES);
+		this.configuredSuffixes =
+			(List<String>) bridgeConfig.getAttributes().get(BridgeConfigAttributeMap.CONFIGURED_SUFFIXES);
 		this.bridgeRequestScope = bridgeRequestScope;
 		this.portletConfig = portletConfig;
 		this.portletContext = portletContext;
@@ -220,11 +221,11 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 					}
 				}
 
-				FacesView targetFacesView = new FacesViewImpl(contextRelativeViewPath, configuredSuffixes,
-						configuredFacesServletMappings);
+				FacesView targetFacesView =
+					new FacesViewImpl(contextRelativeViewPath, configuredSuffixes, configuredFacesServletMappings);
 
-				if (!bridgeURI.isAbsolute() && !targetFacesView.isExtensionMapped() &&
-						!targetFacesView.isPathMapped() && !url.startsWith("#")) {
+				if (!bridgeURI.isAbsolute() && !targetFacesView.isExtensionMapped() && !targetFacesView.isPathMapped()
+					&& !url.startsWith("#")) {
 					bridgeActionURL.setParameter(Bridge.NONFACES_TARGET_PATH_PARAMETER, contextRelativeViewPath);
 				}
 
@@ -274,8 +275,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 
 		try {
 			BridgeURI bridgeURI = bridgeURIFactory.getBridgeURI(url);
-			BridgeURL bridgePartialActionURL = bridgeURLFactory.getBridgePartialActionURL(bridgeContext, bridgeURI,
-					currentFacesViewId);
+			BridgeURL bridgePartialActionURL =
+				bridgeURLFactory.getBridgePartialActionURL(bridgeContext, bridgeURI, currentFacesViewId);
 			bridgePartialActionURL.setParameter(BridgeExt.FACES_AJAX_PARAMETER, Boolean.TRUE.toString());
 
 			return bridgePartialActionURL;
@@ -334,8 +335,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 
 		try {
 			BridgeURI bridgeURI = bridgeURIFactory.getBridgeURI(url);
-			BridgeResourceURL bridgeResourceURL = bridgeURLFactory.getBridgeResourceURL(bridgeContext, bridgeURI,
-					currentFacesViewId);
+			BridgeResourceURL bridgeResourceURL =
+				bridgeURLFactory.getBridgeResourceURL(bridgeContext, bridgeURI, currentFacesViewId);
 
 			// If the "javax.portlet.faces.ViewLink" parameter is found and set to "true", then
 			String viewLinkParam = bridgeResourceURL.getParameter(Bridge.VIEW_LINK);
@@ -440,9 +441,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 			logger.debug("redirect url=[{0}]", url);
 
 			// If currently executing the ACTION_PHASE, EVENT_PHASE, or RENDER_PHASE of the portlet lifecycle, then
-			if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE) ||
-					(portletPhase == Bridge.PortletPhase.EVENT_PHASE) ||
-					(portletPhase == Bridge.PortletPhase.RENDER_PHASE)) {
+			if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE) || (portletPhase == Bridge.PortletPhase.EVENT_PHASE)
+				|| (portletPhase == Bridge.PortletPhase.RENDER_PHASE)) {
 
 				// If the specified URL starts with a "#" character, is external to this application, or has a
 				// "javax.portlet.faces.DirectLink" parameter value of "true", then
@@ -451,8 +451,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 					String queryString = bridgeURI.getQuery();
 					boolean directLink = (queryString != null) && queryString.contains(DIRECT_LINK_EQUALS_TRUE);
 
-					if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE) &&
-							(url.startsWith("#") || bridgeURI.isExternal() || directLink)) {
+					if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE)
+						&& (url.startsWith("#") || bridgeURI.isExternal() || directLink)) {
 
 						bridgeRequestScope.setRedirectOccurred(true);
 
@@ -474,11 +474,12 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 						// an encoded RenderURL and issue a redirect.
 						BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 						PortalContext portalContext = bridgeContext.getPortletRequest().getPortalContext();
-						String createRenderUrlDuringActionPhaseSupport = portalContext.getProperty(
-								BridgePortalContext.CREATE_RENDER_URL_DURING_ACTION_PHASE_SUPPORT);
+						String createRenderUrlDuringActionPhaseSupport =
+							portalContext
+								.getProperty(BridgePortalContext.CREATE_RENDER_URL_DURING_ACTION_PHASE_SUPPORT);
 
-						if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE) &&
-								(createRenderUrlDuringActionPhaseSupport != null) && bridgeURI.isAbsolute()) {
+						if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE)
+							&& (createRenderUrlDuringActionPhaseSupport != null) && bridgeURI.isAbsolute()) {
 
 							// Redirect to the targeted view.
 							// bridgeRedirectURL.setParameter(Bridge.FACES_VIEW_ID_PARAMETER, newViewId);
@@ -492,8 +493,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 						// id an potentially some URL parameters that indicate the portlet mode and window state. In
 						// this case, all that can be done is to simply navigate to the target view id (not an actual
 						// redirect).
-						else if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE) ||
-								(portletPhase == Bridge.PortletPhase.EVENT_PHASE)) {
+						else if ((portletPhase == Bridge.PortletPhase.ACTION_PHASE)
+							|| (portletPhase == Bridge.PortletPhase.EVENT_PHASE)) {
 
 							// TCK NOTE: The TCK will invoke this condition during the
 							// TestPage039-requestNoScopeOnRedirectTest and TestPage176-redirectActionTest.
@@ -525,8 +526,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 							// Apply the PortletMode, WindowState, etc. that may be present in the URL to the response.
 							try {
 								StateAwareResponse stateAwareResponse = (StateAwareResponse) portletResponse;
-								BridgeURL bridgeRedirectURL = bridgeURLFactory.getBridgeRedirectURL(bridgeContext,
-										bridgeURI, null, null);
+								BridgeURL bridgeRedirectURL =
+									bridgeURLFactory.getBridgeRedirectURL(bridgeContext, bridgeURI, null, null);
 								BridgeNavigationUtil.navigate(portletRequest, stateAwareResponse, bridgeRequestScope,
 									bridgeRedirectURL);
 							}
@@ -542,8 +543,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 						else if (portletPhase == Bridge.PortletPhase.RENDER_PHASE) {
 
 							// If the specified URL is for a JSF viewId, then prepare for a render-redirect.
-							BridgeURL bridgeRedirectURL = bridgeURLFactory.getBridgeRedirectURL(bridgeContext,
-									bridgeURI, null, null);
+							BridgeURL bridgeRedirectURL =
+								bridgeURLFactory.getBridgeRedirectURL(bridgeContext, bridgeURI, null, null);
 
 							if (bridgeRedirectURL.isFacesViewTarget()) {
 								renderRedirect = true;
@@ -556,8 +557,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 								// If there is a URL parameter specifying a JSF viewId, then prepare for a
 								// render-redirect.
 								String viewIdRenderParameterName = bridgeConfig.getViewIdRenderParameterName();
-								String viewIdRenderParameterValue = bridgeRedirectURL.getParameter(
-										viewIdRenderParameterName);
+								String viewIdRenderParameterValue =
+									bridgeRedirectURL.getParameter(viewIdRenderParameterName);
 
 								if (viewIdRenderParameterValue != null) {
 
@@ -568,8 +569,9 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 									BridgeURI redirectURI = bridgeURIFactory.getBridgeURI(viewIdRenderParameterValue);
 									UIViewRoot viewRoot = facesContext.getViewRoot();
 									String currentFacesViewId = viewRoot.getViewId();
-									bridgeRedirectURL = bridgeURLFactory.getBridgeRedirectURL(bridgeContext,
-											redirectURI, null, currentFacesViewId);
+									bridgeRedirectURL =
+										bridgeURLFactory.getBridgeRedirectURL(bridgeContext, redirectURI, null,
+											currentFacesViewId);
 									renderRedirectURL = bridgeRedirectURL;
 								}
 
@@ -599,8 +601,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 
 					try {
 						BridgeURI bridgeURI = bridgeURIFactory.getBridgeURI(url);
-						BridgeURL bridgeRedirectURL = bridgeURLFactory.getBridgeRedirectURL(bridgeContext, bridgeURI,
-								null, null);
+						BridgeURL bridgeRedirectURL =
+							bridgeURLFactory.getBridgeRedirectURL(bridgeContext, bridgeURI, null, null);
 						redirectJSF2PartialResponse(facesContext, (ResourceResponse) portletResponse,
 							bridgeRedirectURL.toString());
 					}
@@ -675,8 +677,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 	public String getDefaultRenderKitId() {
 
 		if (defaultRenderKitId == null) {
-			String attributeName = Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + "." +
-				Bridge.DEFAULT_RENDERKIT_ID;
+			String attributeName =
+				Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + "." + Bridge.DEFAULT_RENDERKIT_ID;
 			defaultRenderKitId = (String) portletContext.getAttribute(attributeName);
 		}
 
@@ -689,10 +691,10 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 
 		if (defaultViewIdMap == null) {
 			String portletName = portletConfig.getPortletName();
-			String attrNameDefaultViewIdMap = Bridge.BRIDGE_PACKAGE_PREFIX + portletName + "." +
-				Bridge.DEFAULT_VIEWID_MAP;
-			defaultViewIdMap = (Map<String, String>) portletConfig.getPortletContext().getAttribute(
-					attrNameDefaultViewIdMap);
+			String attrNameDefaultViewIdMap =
+				Bridge.BRIDGE_PACKAGE_PREFIX + portletName + "." + Bridge.DEFAULT_VIEWID_MAP;
+			defaultViewIdMap =
+				(Map<String, String>) portletConfig.getPortletContext().getAttribute(attrNameDefaultViewIdMap);
 		}
 
 		return defaultViewIdMap;
@@ -702,10 +704,10 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 	 * Returns an instance of {@link FacesView} that represents the target view (and optional query string) as described
 	 * in section 5.2.3 of the Bridge Spec titled "Determining the Target View".
 	 *
-	 * @throws  {@link BridgeDefaultViewNotSpecifiedException} when the default view is not specified in the
-	 *            WEB-INF/portlet.xml descriptor.
-	 * @throws  {@link BridgeInvalidViewPathException} when the {@link Bridge#VIEW_PATH} request attribute contains an
-	 *            invalid path such that the target view cannot be determined.
+	 * @throws {@link BridgeDefaultViewNotSpecifiedException} when the default view is not specified in the
+	 *         WEB-INF/portlet.xml descriptor.
+	 * @throws {@link BridgeInvalidViewPathException} when the {@link Bridge#VIEW_PATH} request attribute contains an
+	 *         invalid path such that the target view cannot be determined.
 	 */
 	protected FacesView getFacesView() throws BridgeDefaultViewNotSpecifiedException, BridgeInvalidViewPathException {
 
@@ -726,8 +728,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 				}
 			}
 
-			facesView = new FacesViewImpl(viewId, navigationQueryString, configuredSuffixes,
-					configuredFacesServletMappings);
+			facesView =
+				new FacesViewImpl(viewId, navigationQueryString, configuredSuffixes, configuredFacesServletMappings);
 		}
 
 		return facesView;
@@ -739,30 +741,37 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 	}
 
 	/**
-	 * <p>This method returns the target view (and optional query string) as described in section 5.2.3 of the Bridge
-	 * Spec titled "Determining the Target View".</p>
-	 *
-	 * <p>Try#1: Get the viewId from the {@link Bridge#VIEW_ID} (javax.portlet.faces.viewId) request attribute. As
+	 * <p>
+	 * This method returns the target view (and optional query string) as described in section 5.2.3 of the Bridge Spec
+	 * titled "Determining the Target View".
+	 * </p>
+	 * <p>
+	 * Try#1: Get the viewId from the {@link Bridge#VIEW_ID} (javax.portlet.faces.viewId) request attribute. As
 	 * described in sections 3.4 and 4.2.5 of the bridge spec, this attribute is set by the {@link GenericFacesPortlet}
-	 * when it encounters the {@link Bridge#FACES_VIEW_ID_PARAMETER} request parameter.</p>
-	 *
-	 * <p>Try#2: Get the viewId from the {@link Bridge#VIEW_PATH} (javax.portlet.faces.viewPath) request attribute. As
+	 * when it encounters the {@link Bridge#FACES_VIEW_ID_PARAMETER} request parameter.
+	 * </p>
+	 * <p>
+	 * Try#2: Get the viewId from the {@link Bridge#VIEW_PATH} (javax.portlet.faces.viewPath) request attribute. As
 	 * described in sections 3.4 and 4.2.5 of the bridge spec, this attribute is set by the {@link GenericFacesPortlet}
 	 * when it encounters the {@link Bridge#FACES_VIEW_PATH_PARAMETER} request parameter. If the viewId cannot be
-	 * determined, then {@link BridgeInvalidViewPathException} is thrown.</p>
+	 * determined, then {@link BridgeInvalidViewPathException} is thrown.
+	 * </p>
+	 * <p>
+	 * Try#3: Get the viewId from a prior render-redirect (if one has occurred).
+	 * </p>
+	 * <p>
+	 * Try#4: Get the viewId from a request parameter, the name of which is dynamic depending on the
+	 * {@link Bridge.PortletPhase}.
+	 * </p>
+	 * <p>
+	 * Try#5:Get the viewId from the init-param value in the portlet.xml descriptor according the current
+	 * {@link PortletMode}.
+	 * </p>
 	 *
-	 * <p>Try#3: Get the viewId from a prior render-redirect (if one has occurred).</p>
-	 *
-	 * <p>Try#4: Get the viewId from a request parameter, the name of which is dynamic depending on the {@link
-	 * Bridge.PortletPhase}.</p>
-	 *
-	 * <p>Try#5:Get the viewId from the init-param value in the portlet.xml descriptor according the current {@link
-	 * PortletMode}.</p>
-	 *
-	 * @throws  {@link BridgeDefaultViewNotSpecifiedException} when the default view is not specified in the
-	 *            WEB-INF/portlet.xml descriptor.
-	 * @throws  {@link BridgeInvalidViewPathException} when the {@link Bridge#VIEW_PATH} request attribute contains an
-	 *            invalid path such that the target view cannot be determined.
+	 * @throws {@link BridgeDefaultViewNotSpecifiedException} when the default view is not specified in the
+	 *         WEB-INF/portlet.xml descriptor.
+	 * @throws {@link BridgeInvalidViewPathException} when the {@link Bridge#VIEW_PATH} request attribute contains an
+	 *         invalid path such that the target view cannot be determined.
 	 */
 	protected String getFacesViewIdAndQueryString() throws BridgeDefaultViewNotSpecifiedException,
 		BridgeInvalidViewPathException {
@@ -913,9 +922,10 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 					}
 
 					if (facesViewId == null) {
-						logger.error(
-							"Matched EXTENSION MAPPING for for urlPattern=[{0}] and viewPath=[{1}] but unable to find a facesViewId with extensions[{2}]",
-							configuredFacesServletMapping.getUrlPattern(), viewPath, configuredSuffixes);
+						logger
+							.error(
+								"Matched EXTENSION MAPPING for for urlPattern=[{0}] and viewPath=[{1}] but unable to find a facesViewId with extensions[{2}]",
+								configuredFacesServletMapping.getUrlPattern(), viewPath, configuredSuffixes);
 					}
 				}
 
@@ -1168,7 +1178,7 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 			if (requestQueryString == null) {
 
 				// Some portlet bridges wrap the portal's PortletRequest implementation instance (which prevents us from
-				// getting the query_string). As a workaround, we might still be able to get  the original
+				// getting the query_string). As a workaround, we might still be able to get the original
 				// PortletRequest instance, because the Portlet spec says it must be stored in the
 				// "javax.portlet.request" attribute.
 				Object portletRequestAsObject = portletRequest.getAttribute(REQUEST_ATTR_PORTLET_REQUEST);
@@ -1283,8 +1293,8 @@ public class BridgeContextImpl extends BridgeContextCompatImpl {
 	public boolean isPreserveActionParams() {
 
 		if (preserveActionParams == null) {
-			String initParamName = Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + "." +
-				Bridge.PRESERVE_ACTION_PARAMS;
+			String initParamName =
+				Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + "." + Bridge.PRESERVE_ACTION_PARAMS;
 			Object initParamValue = portletContext.getAttribute(initParamName);
 
 			if ((initParamValue != null) && (initParamValue instanceof Boolean)) {

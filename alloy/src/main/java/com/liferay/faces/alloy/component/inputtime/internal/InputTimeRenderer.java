@@ -43,7 +43,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = InputTime.COMPONENT_FAMILY, rendererType = InputTime.RENDERER_TYPE)
@@ -137,8 +137,8 @@ public class InputTimeRenderer extends InputTimeRendererBase {
 
 		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 
 		if (isNative(browserSniffer, inputTime)) {
@@ -287,8 +287,8 @@ public class InputTimeRenderer extends InputTimeRendererBase {
 		boolean showOnButton = "button".equals(showOn);
 		Map<String, List<ClientBehavior>> clientBehaviorMap = inputTime.getClientBehaviors();
 		List<ClientBehavior> valueChangeClientBehaviors = clientBehaviorMap.get(VALUE_CHANGE);
-		boolean valueChangeClientBehaviorsNotEmpty = (valueChangeClientBehaviors != null) &&
-			!valueChangeClientBehaviors.isEmpty();
+		boolean valueChangeClientBehaviorsNotEmpty =
+			(valueChangeClientBehaviors != null) && !valueChangeClientBehaviors.isEmpty();
 
 		if (showOnButton || valueChangeClientBehaviorsNotEmpty) {
 
@@ -319,11 +319,11 @@ public class InputTimeRenderer extends InputTimeRendererBase {
 	}
 
 	@Override
-	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter, InputTime inputTime,
-		boolean first) throws IOException {
+	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter,
+		InputTime inputTime, boolean first) throws IOException {
 
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 
 		if (!isNative(browserSniffer, inputTime)) {
@@ -348,8 +348,8 @@ public class InputTimeRenderer extends InputTimeRendererBase {
 	public String getAlloyClassName(FacesContext facesContext, UIComponent uiComponent) {
 
 		String alloyClassName = super.getAlloyClassName(facesContext, uiComponent);
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		InputTime inputTime = (InputTime) uiComponent;
 

@@ -21,7 +21,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesViewImpl implements FacesView {
 
@@ -120,7 +120,8 @@ public class FacesViewImpl implements FacesView {
 							logger.debug("Associated viewId=[{0}] as extension-mapped to urlPattern=[*.{1}]", viewId,
 								configuredSuffix);
 
-							/* TODO: At one point in development, the line below was in place to replace ".jsp" with
+							/*
+							 * TODO: At one point in development, the line below was in place to replace ".jsp" with
 							 * ".faces" but was potentially causing navigation-rules to fail because the to-view-id
 							 * might not have been matching. Need to re-enable the line below and then retest with the
 							 * TCK.

@@ -36,14 +36,14 @@ import com.liferay.portal.kernel.util.PropsUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = InputRichText.COMPONENT_TYPE)
 public class InputRichText extends InputRichTextBase implements ClientBehaviorHolder {
 
 	// Private Constants
 	private static final Collection<String> EVENT_NAMES = Collections.unmodifiableCollection(Arrays.asList("blur",
-				"change", "valueChange", "focus"));
+		"change", "valueChange", "focus"));
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(InputRichText.class);
@@ -74,8 +74,8 @@ public class InputRichText extends InputRichTextBase implements ClientBehaviorHo
 				richTextType = RichText.Type.HTML;
 			}
 
-			RichTextFactory richTextFactory = (RichTextFactory) FactoryExtensionFinder.getFactory(
-					RichTextFactory.class);
+			RichTextFactory richTextFactory =
+				(RichTextFactory) FactoryExtensionFinder.getFactory(RichTextFactory.class);
 			RichText richText = richTextFactory.getRichText(richTextType, newValue.toString());
 			int length = richText.getPlainTextLength();
 			int minimum = getMinPlainTextChars();
@@ -87,7 +87,8 @@ public class InputRichText extends InputRichTextBase implements ClientBehaviorHo
 
 				Object label = getAttributes().get("label");
 				Locale locale = facesContext.getViewRoot().getLocale();
-				FacesMessage facesMessage = getMessageContext().newFacesMessage(locale, FacesMessage.SEVERITY_ERROR,
+				FacesMessage facesMessage =
+					getMessageContext().newFacesMessage(locale, FacesMessage.SEVERITY_ERROR,
 						LengthValidator.MINIMUM_MESSAGE_ID, minimum, label);
 				facesContext.addMessage(getClientId(), facesMessage);
 				setValid(false);
@@ -97,7 +98,8 @@ public class InputRichText extends InputRichTextBase implements ClientBehaviorHo
 
 				Object label = getAttributes().get("label");
 				Locale locale = facesContext.getViewRoot().getLocale();
-				FacesMessage facesMessage = getMessageContext().newFacesMessage(locale, FacesMessage.SEVERITY_ERROR,
+				FacesMessage facesMessage =
+					getMessageContext().newFacesMessage(locale, FacesMessage.SEVERITY_ERROR,
 						LengthValidator.MAXIMUM_MESSAGE_ID, maximum, label);
 				facesContext.addMessage(getClientId(), facesMessage);
 				setValid(false);
@@ -117,8 +119,8 @@ public class InputRichText extends InputRichTextBase implements ClientBehaviorHo
 
 	private MessageContext getMessageContext() {
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 
 		return messageContextFactory.getMessageContext();
 	}

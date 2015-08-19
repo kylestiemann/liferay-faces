@@ -19,7 +19,7 @@ import com.liferay.faces.demos.dto.Airport;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface AirportService {
 

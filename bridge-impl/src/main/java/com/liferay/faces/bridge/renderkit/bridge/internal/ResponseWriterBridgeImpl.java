@@ -27,38 +27,46 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * <p>This class acts as a portlet filter (in a sense), in that it decorates/wraps the Faces implementation {@link
- * ResponseWriter} so that it can transform what is written to the response. The response needs to be filtered because
- * of three limitations in the JSF 2.0/2.1/2.2 jsf.js JavaScript code). The goal is to fix these limitations in JSF 2.3
- * so that this class will become unnecessary. For more information, see: <a
- * href="http://java.net/jira/browse/JAVASERVERFACES-2579">JAVASERVERFACES-2579</a></p>
- *
- * <p>The three limitations in the jsf.js JavaScript code are:</p>
- *
- * <p>1. The &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; and &lt;!DOCTYPE&gt; markers is assumed to
- * be valid to keep in the response because jsf.js assumes a servlet environment in which the rendered JSF view takes up
- * the entire DOM in the userAgent/browser.</p>
- *
- * <p>The workaround for #1 is to simply strip out the offending markers.</p>
- *
- * <p>2. During "partial" updates in which the javax.faces.ViewRoot is being replaced in the DOM (which is basically a
- * full update of the view -- not really partial), jsf.js attempts to replace everything inside the
+ * <p>
+ * This class acts as a portlet filter (in a sense), in that it decorates/wraps the Faces implementation
+ * {@link ResponseWriter} so that it can transform what is written to the response. The response needs to be filtered
+ * because of three limitations in the JSF 2.0/2.1/2.2 jsf.js JavaScript code). The goal is to fix these limitations in
+ * JSF 2.3 so that this class will become unnecessary. For more information, see: <a
+ * href="http://java.net/jira/browse/JAVASERVERFACES-2579">JAVASERVERFACES-2579</a>
+ * </p>
+ * <p>
+ * The three limitations in the jsf.js JavaScript code are:
+ * </p>
+ * <p>
+ * 1. The &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt; and &lt;!DOCTYPE&gt; markers is assumed to be
+ * valid to keep in the response because jsf.js assumes a servlet environment in which the rendered JSF view takes up
+ * the entire DOM in the userAgent/browser.
+ * </p>
+ * <p>
+ * The workaround for #1 is to simply strip out the offending markers.
+ * </p>
+ * <p>
+ * 2. During "partial" updates in which the javax.faces.ViewRoot is being replaced in the DOM (which is basically a full
+ * update of the view -- not really partial), jsf.js attempts to replace everything inside the
  * &lt;body&gt;...&lt;/body&gt; elements, which of course is a servlet environment assumption. Instead, it should be the
- * outermost &lt;div&gt; tag rendered by the bridge's {@link BodyRendererBridgeImpl} that should be replaced in the
- * DOM.</p>
- *
- * <p>The workaround for #2 is to substitute the id value of "javax.faces.ViewRoot" with the id of the outermost
- * &lt;div&gt; tag rendered by the bridge's {@link BodyRendererBridgeImpl}.</p>
- *
- * <p>3. Also in the the case of a "partial" update of javax.faces.ViewRoot, jsf.js attempts to dynamically create the
+ * outermost &lt;div&gt; tag rendered by the bridge's {@link BodyRendererBridgeImpl} that should be replaced in the DOM.
+ * </p>
+ * <p>
+ * The workaround for #2 is to substitute the id value of "javax.faces.ViewRoot" with the id of the outermost
+ * &lt;div&gt; tag rendered by the bridge's {@link BodyRendererBridgeImpl}.
+ * </p>
+ * <p>
+ * 3. Also in the the case of a "partial" update of javax.faces.ViewRoot, jsf.js attempts to dynamically create the
  * javax.faces.ViewState hidden input field if it is not found in the form. The JavaScript code will successfully do
  * this provided it is permitted to replace everything inside the &lt;body&gt;...&lt;/body&gt; elements, but since we
- * can't let that happen in a portlet environment, the hidden field does not get created.</p>
+ * can't let that happen in a portlet environment, the hidden field does not get created.
+ * </p>
+ * <p>
+ * The workaround for #3 is to inject the javax.faces.ViewState hidden field into the response if it is not already
+ * there.
+ * </p>
  *
- * <p>The workaround for #3 is to inject the javax.faces.ViewState hidden field into the response if it is not already
- * there.</p>
- *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResponseWriterBridgeImpl extends ResponseWriterBridgeCompat_2_2_Impl {
 
@@ -186,7 +194,7 @@ public class ResponseWriterBridgeImpl extends ResponseWriterBridgeCompat_2_2_Imp
 		}
 
 		// FACES-1424: Otherwise, if the specified element name is "form" then reset the viewStateWritten flag. This
-		// ensures that in the case of multiple forms,  that the "javax.faces.ViewState" hidden field will be present in
+		// ensures that in the case of multiple forms, that the "javax.faces.ViewState" hidden field will be present in
 		// each one.
 		else if (ELEMENT_FORM.equals(elementName)) {
 
@@ -212,9 +220,8 @@ public class ResponseWriterBridgeImpl extends ResponseWriterBridgeCompat_2_2_Imp
 				// If a PartialResponseWriter is trying to update the javax.faces.ViewRoot, then substitute the value of
 				// the outermost <div>...</div> (rendered by the bridge's BodyRenderer) for the specified value. This is
 				// a workaround for jsf.js limitation #2 as described in the class header comments.
-				if (insidePartialResponse && insideChanges && insideUpdate &&
-						ELEMENT_UPDATE.equals(currentElementName) &&
-						PartialResponseWriter.RENDER_ALL_MARKER.equals(attributeValue)) {
+				if (insidePartialResponse && insideChanges && insideUpdate && ELEMENT_UPDATE.equals(currentElementName)
+					&& PartialResponseWriter.RENDER_ALL_MARKER.equals(attributeValue)) {
 
 					FacesContext facesContext = FacesContext.getCurrentInstance();
 					attributeValue = facesContext.getViewRoot().getContainerClientId(facesContext);

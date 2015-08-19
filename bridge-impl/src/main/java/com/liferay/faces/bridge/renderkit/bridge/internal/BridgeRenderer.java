@@ -17,7 +17,7 @@ import javax.faces.render.Renderer;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRenderer extends Renderer {
 

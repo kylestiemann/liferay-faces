@@ -21,7 +21,7 @@ import java.util.Set;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class AbstractPropertyMap<V> implements Map<String, V> {
 

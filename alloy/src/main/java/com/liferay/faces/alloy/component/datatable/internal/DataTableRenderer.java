@@ -57,7 +57,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = DataTable.COMPONENT_FAMILY, rendererType = DataTable.RENDERER_TYPE)
@@ -212,33 +212,38 @@ public class DataTableRenderer extends DataTableRendererBase {
 			ResponseWriter responseWriter = facesContext.getResponseWriter();
 
 			// rowSelect
-			JavaScriptFragment rowSelectClientBehaviorScript = getRowEventClientBehaviorScript(facesContext, dataTable,
-					dataTableClientId, RowSelectEvent.ROW_SELECT, "rowIndex");
+			JavaScriptFragment rowSelectClientBehaviorScript =
+				getRowEventClientBehaviorScript(facesContext, dataTable, dataTableClientId, RowSelectEvent.ROW_SELECT,
+					"rowIndex");
 
 			// rowSelectRange
-			JavaScriptFragment rowSelectRangeClientBehaviorScript = getRowEventClientBehaviorScript(facesContext,
-					dataTable, dataTableClientId, RowSelectRangeEvent.ROW_SELECT_RANGE, "rowIndexRange");
+			JavaScriptFragment rowSelectRangeClientBehaviorScript =
+				getRowEventClientBehaviorScript(facesContext, dataTable, dataTableClientId,
+					RowSelectRangeEvent.ROW_SELECT_RANGE, "rowIndexRange");
 
 			// rowDeselect
-			JavaScriptFragment rowDeselectClientBehaviorScript = getRowEventClientBehaviorScript(facesContext,
-					dataTable, dataTableClientId, RowDeselectEvent.ROW_DESELECT, "rowIndex");
+			JavaScriptFragment rowDeselectClientBehaviorScript =
+				getRowEventClientBehaviorScript(facesContext, dataTable, dataTableClientId,
+					RowDeselectEvent.ROW_DESELECT, "rowIndex");
 
 			// rowDeSelectRange
-			JavaScriptFragment rowDeselectRangeClientBehaviorScript = getRowEventClientBehaviorScript(facesContext,
-					dataTable, dataTableClientId, RowDeselectRangeEvent.ROW_DESELECT_RANGE, "rowIndexRange");
+			JavaScriptFragment rowDeselectRangeClientBehaviorScript =
+				getRowEventClientBehaviorScript(facesContext, dataTable, dataTableClientId,
+					RowDeselectRangeEvent.ROW_DESELECT_RANGE, "rowIndexRange");
 
 			if ("checkbox".equals(selectionMode)) {
 
 				// Register the onclick event callback for the "Select All" checkbox.
 				String selectAllCheckboxClientId = dataTableClientId.concat("_selectAll");
 				String escapedSelectAllCheckboxClientId = escapeClientId(selectAllCheckboxClientId);
-				encodeFunctionCall(responseWriter, "LFAI.initDataTableSelectAllCheckbox", 'A', escapedDataTableClientId,
-					escapedSelectAllCheckboxClientId, rowSelectRangeClientBehaviorScript,
+				encodeFunctionCall(responseWriter, "LFAI.initDataTableSelectAllCheckbox", 'A',
+					escapedDataTableClientId, escapedSelectAllCheckboxClientId, rowSelectRangeClientBehaviorScript,
 					rowDeselectRangeClientBehaviorScript);
 
 				// Register the onclick event callback for each row-level checkbox.
-				encodeFunctionCall(responseWriter, "LFAI.initDataTableCheckboxSelection", 'A', escapedDataTableClientId,
-					escapedHiddenFieldClientId, rowSelectClientBehaviorScript, rowDeselectClientBehaviorScript);
+				encodeFunctionCall(responseWriter, "LFAI.initDataTableCheckboxSelection", 'A',
+					escapedDataTableClientId, escapedHiddenFieldClientId, rowSelectClientBehaviorScript,
+					rowDeselectClientBehaviorScript);
 			}
 			else if ("radio".equals(selectionMode)) {
 
@@ -705,8 +710,8 @@ public class DataTableRenderer extends DataTableRendererBase {
 			// If the alloy:column has a nested f:ajax tag, then encode a hyperlink that contains the client
 			// behavior script in the onclick attribute.
 			String dataTableClientId = dataTable.getClientId(facesContext);
-			String clientBehaviorScript = getColumnClientBehaviorScript(facesContext, dataTable, column,
-					dataTableClientId, namingContainerId);
+			String clientBehaviorScript =
+				getColumnClientBehaviorScript(facesContext, dataTable, column, dataTableClientId, namingContainerId);
 
 			if (clientBehaviorScript != null) {
 
@@ -725,16 +730,19 @@ public class DataTableRenderer extends DataTableRendererBase {
 			// Otherwise, encode an alloy:commandLink that can submit the form via full-page postback.
 			else {
 				Application application = facesContext.getApplication();
-				CommandLink commandLink = (CommandLink) application.createComponent(facesContext,
-						CommandLink.COMPONENT_TYPE, CommandLink.RENDERER_TYPE);
+				CommandLink commandLink =
+					(CommandLink) application.createComponent(facesContext, CommandLink.COMPONENT_TYPE,
+						CommandLink.RENDERER_TYPE);
 				commandLink.setAjax(column.isAjax());
 
-				OutputText outputText1 = (OutputText) application.createComponent(facesContext,
-						OutputText.COMPONENT_TYPE, OutputText.RENDERER_TYPE);
+				OutputText outputText1 =
+					(OutputText) application.createComponent(facesContext, OutputText.COMPONENT_TYPE,
+						OutputText.RENDERER_TYPE);
 				outputText1.setValue(headerText);
 
-				OutputText outputText2 = (OutputText) application.createComponent(facesContext,
-						OutputText.COMPONENT_TYPE, OutputText.RENDERER_TYPE);
+				OutputText outputText2 =
+					(OutputText) application.createComponent(facesContext, OutputText.COMPONENT_TYPE,
+						OutputText.RENDERER_TYPE);
 				outputText2.setStyleClass("table-sort-indicator");
 
 				List<UIComponent> paginatorChildren = column.getChildren();
@@ -883,7 +891,7 @@ public class DataTableRenderer extends DataTableRendererBase {
 
 				if (expressionString != null) {
 
-					// Assuming an expression like "#{customer.firstName}", remove "#{" from  the front of the
+					// Assuming an expression like "#{customer.firstName}", remove "#{" from the front of the
 					// expression and "}" from the end.
 					expressionString = expressionString.substring(2, expressionString.length() - 1);
 
@@ -918,11 +926,12 @@ public class DataTableRenderer extends DataTableRendererBase {
 
 				if (namingContainerId != null) {
 					parameters.add(new ClientBehaviorContext.Parameter("'com.sun.faces.namingContainerId'",
-							namingContainerId));
+						namingContainerId));
 				}
 
-				ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-						facesContext, dataTable, defaultEventName, clientId, parameters);
+				ClientBehaviorContext clientBehaviorContext =
+					ClientBehaviorContext.createClientBehaviorContext(facesContext, dataTable, defaultEventName,
+						clientId, parameters);
 				clientBehaviorScript = clientBehavior.getScript(clientBehaviorContext);
 			}
 		}
@@ -963,8 +972,9 @@ public class DataTableRenderer extends DataTableRendererBase {
 				String eventMetaKeyParamName = dataTableClientId.concat("_").concat(parameterName);
 				parameters.add(new ClientBehaviorContext.Parameter(eventMetaKeyParamName, parameterName));
 
-				ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-						facesContext, dataTable, eventName, dataTableClientId, parameters);
+				ClientBehaviorContext clientBehaviorContext =
+					ClientBehaviorContext.createClientBehaviorContext(facesContext, dataTable, eventName,
+						dataTableClientId, parameters);
 				String script = clientBehavior.getScript(clientBehaviorContext);
 
 				if (script != null) {

@@ -33,7 +33,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ApplicationStartupListener extends ApplicationStartupListenerCompat_2_2 {
 
@@ -52,8 +52,8 @@ public class ApplicationStartupListener extends ApplicationStartupListenerCompat
 			boolean resolveEntities = WebConfigParam.ResolveXMLEntities.getBooleanValue(externalContext);
 
 			String contextPath = getApplicationContextPath(externalContext);
-			ApplicationConfigInitializer applicationConfigInitializer = new ApplicationConfigInitializerImpl(
-					contextPath, resolveEntities);
+			ApplicationConfigInitializer applicationConfigInitializer =
+				new ApplicationConfigInitializerImpl(contextPath, resolveEntities);
 
 			try {
 				applicationConfig = applicationConfigInitializer.initialize();

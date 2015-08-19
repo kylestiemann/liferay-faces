@@ -23,7 +23,7 @@ import javax.faces.lifecycle.Lifecycle;
  * This class is necessary in order to pass the facesContextFactoryServiceProviderTest in the TCK. In addition, if the
  * TCK is detected, then it provides a special FacesContext implementation that handles special cases within the TCK.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextFactoryTCKImpl extends FacesContextFactory {
 

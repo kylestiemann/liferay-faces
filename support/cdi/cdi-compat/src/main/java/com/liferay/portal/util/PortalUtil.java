@@ -23,7 +23,7 @@ import com.liferay.cdi.portlet.bridge.filter.HttpServletRequestAdapter;
  * Since the Liferay CDI Portlet Bridge has a dependency on the {@link PortalUtil#getHttpServletRequest(PortletRequest)}
  * method, this class is necessary to provide a runtime compatibility layer.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortalUtil {
 

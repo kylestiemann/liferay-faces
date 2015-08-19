@@ -42,7 +42,7 @@ import com.liferay.taglib.ui.InputEditorTag;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = InputRichText.COMPONENT_FAMILY, rendererType = InputRichText.RENDERER_TYPE)
@@ -160,11 +160,12 @@ public class InputRichTextRenderer extends InputRichTextRendererBase {
 						String namingContainerId = viewRoot.getContainerClientId(facesContext);
 						parameters = new ArrayList<ClientBehaviorContext.Parameter>();
 						parameters.add(new ClientBehaviorContext.Parameter("'com.sun.faces.namingContainerId'",
-								namingContainerId));
+							namingContainerId));
 					}
 
-					ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-							facesContext, inputRichText, eventName, clientId, parameters);
+					ClientBehaviorContext clientBehaviorContext =
+						ClientBehaviorContext.createClientBehaviorContext(facesContext, inputRichText, eventName,
+							clientId, parameters);
 					String clientBehaviorScript = clientBehavior.getScript(clientBehaviorContext);
 
 					if (clientBehaviorScript != null) {

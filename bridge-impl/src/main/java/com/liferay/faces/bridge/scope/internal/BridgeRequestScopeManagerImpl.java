@@ -35,7 +35,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRequestScopeManagerImpl implements BridgeRequestScopeManager {
 
@@ -44,11 +44,11 @@ public class BridgeRequestScopeManagerImpl implements BridgeRequestScopeManager 
 
 	public void removeBridgeRequestScopesByPortlet(PortletConfig portletConfig) {
 		String portletNameToRemove = portletConfig.getPortletName();
-		BridgeRequestScopeCacheFactory bridgeRequestScopeCacheFactory = (BridgeRequestScopeCacheFactory)
-			BridgeFactoryFinder.getFactory(BridgeRequestScopeCacheFactory.class);
+		BridgeRequestScopeCacheFactory bridgeRequestScopeCacheFactory =
+			(BridgeRequestScopeCacheFactory) BridgeFactoryFinder.getFactory(BridgeRequestScopeCacheFactory.class);
 		PortletContext portletContext = portletConfig.getPortletContext();
-		BridgeRequestScopeCache bridgeRequestScopeCache = bridgeRequestScopeCacheFactory.getBridgeRequestScopeCache(
-				portletContext);
+		BridgeRequestScopeCache bridgeRequestScopeCache =
+			bridgeRequestScopeCacheFactory.getBridgeRequestScopeCache(portletContext);
 		Set<Map.Entry<String, BridgeRequestScope>> mapEntries = bridgeRequestScopeCache.entrySet();
 
 		if (mapEntries != null) {
@@ -72,10 +72,10 @@ public class BridgeRequestScopeManagerImpl implements BridgeRequestScopeManager 
 	}
 
 	/**
-	 * This method is designed to be invoked from a {@link javax.servlet.http.HttpSessionListener} like {@link
-	 * BridgeSessionListener} when a session timeout/expiration occurs. The logic in this method is a little awkward
-	 * because we have to try and remove BridgeRequestScope instances from {@link Map} instances in the {@link
-	 * ServletContext} rather than the {@link PortletContext} because we only have access to the Servlet-API when
+	 * This method is designed to be invoked from a {@link javax.servlet.http.HttpSessionListener} like
+	 * {@link BridgeSessionListener} when a session timeout/expiration occurs. The logic in this method is a little
+	 * awkward because we have to try and remove BridgeRequestScope instances from {@link Map} instances in the
+	 * {@link ServletContext} rather than the {@link PortletContext} because we only have access to the Servlet-API when
 	 * sessions expire.
 	 */
 	public void removeBridgeRequestScopesBySession(HttpSession httpSession) {
@@ -136,9 +136,10 @@ public class BridgeRequestScopeManagerImpl implements BridgeRequestScopeManager 
 
 							// Remove it from the map.
 							Object bridgeRequestScope = map.remove(bridgeRequestScopeId);
-							logger.debug(
-								"Removed bridgeRequestScopeId=[{0}] bridgeRequestScope=[{1}] from cache due to session timeout",
-								bridgeRequestScopeId, bridgeRequestScope);
+							logger
+								.debug(
+									"Removed bridgeRequestScopeId=[{0}] bridgeRequestScope=[{1}] from cache due to session timeout",
+									bridgeRequestScopeId, bridgeRequestScope);
 						}
 					}
 				}

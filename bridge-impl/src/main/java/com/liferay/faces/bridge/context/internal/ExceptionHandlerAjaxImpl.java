@@ -31,7 +31,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * during Ajax are logged to the console. For some reason Mojarra doesn't do that, which makes it very hard for the
  * developer to find out what went wrong.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExceptionHandlerAjaxImpl extends ExceptionHandlerWrapper {
 

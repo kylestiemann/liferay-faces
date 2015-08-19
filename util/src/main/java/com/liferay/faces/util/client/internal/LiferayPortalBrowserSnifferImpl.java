@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import com.liferay.faces.util.HttpHeaders;
 
+
 //J-
 /**
  * This class was copied from Liferay Portal in order to utilize the features of the Portal's BrowserSniffer without

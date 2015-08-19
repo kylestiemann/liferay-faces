@@ -22,7 +22,7 @@ import javax.portlet.faces.component.PortletNamingContainerUIViewRoot;
 /**
  * This class overrides the behavior of the {@link PortletNamingContainerUIViewRoot} standard class.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class UIViewRootBridgeImpl extends PortletNamingContainerUIViewRoot {
 
@@ -30,13 +30,13 @@ public class UIViewRootBridgeImpl extends PortletNamingContainerUIViewRoot {
 	private static final long serialVersionUID = 1523062041951774729L;
 
 	/**
-	 * <p>This method fixes a problem with {@link UIComponent#findComponent(String)} where sometimes it is unable to
-	 * find components due to incorrect clientId values. For more info, see the following issues:
-	 *
+	 * <p>
+	 * This method fixes a problem with {@link UIComponent#findComponent(String)} where sometimes it is unable to find
+	 * components due to incorrect clientId values. For more info, see the following issues:
 	 * <ul>
-	 *   <li>http://issues.liferay.com/browse/FACES-198</li>
-	 *   <li>http://jira.icesoft.org/browse/ICE-6659</li>
-	 *   <li>http://jira.icesoft.org/browse/ICE-6667</li>
+	 * <li>http://issues.liferay.com/browse/FACES-198</li>
+	 * <li>http://jira.icesoft.org/browse/ICE-6659</li>
+	 * <li>http://jira.icesoft.org/browse/ICE-6667</li>
 	 * </ul>
 	 * </p>
 	 */

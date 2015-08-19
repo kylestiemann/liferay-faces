@@ -20,7 +20,7 @@ import javax.faces.component.behavior.AjaxBehavior;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class AjaxBehaviorMockImpl extends AjaxBehavior {
 

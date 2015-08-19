@@ -26,14 +26,14 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 public class ValidatorHelper {
 
 	public static String getMessage(FacesContext facesContext, String messageId) {
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 		final MessageContext messageContext = messageContextFactory.getMessageContext();
 
 		return messageContext.getMessage(facesContext.getViewRoot().getLocale(), messageId);
@@ -41,8 +41,8 @@ public class ValidatorHelper {
 
 	public static String getMessage(FacesContext facesContext, InputDate inputDate, String messageId) {
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 		MessageContext messageContext = messageContextFactory.getMessageContext();
 		Object localeObject = inputDate.getLocale(facesContext);
 		Locale locale = getObjectAsLocale(localeObject);
@@ -52,8 +52,8 @@ public class ValidatorHelper {
 
 	public static String getMessage(FacesContext facesContext, InputTime inputTime, String messageId) {
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 		final MessageContext messageContext = messageContextFactory.getMessageContext();
 		final Object localeObject = inputTime.getLocale(facesContext);
 		Locale locale = getObjectAsLocale(localeObject);

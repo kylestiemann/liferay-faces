@@ -18,7 +18,7 @@ import org.apache.log4j.LogManager;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LoggerLog4JImpl extends LoggerDefaultImpl {
 
@@ -43,8 +43,8 @@ public class LoggerLog4JImpl extends LoggerDefaultImpl {
 			for (StackTraceElement stackTraceElement : stackTraceElements) {
 
 				// Note: Currently only Tomcat is being detected.
-				if (stackTraceElement.getClassName().equals("org.apache.catalina.core.StandardContext") &&
-						stackTraceElement.getMethodName().equals("stop")) {
+				if (stackTraceElement.getClassName().equals("org.apache.catalina.core.StandardContext")
+					&& stackTraceElement.getMethodName().equals("stop")) {
 					webappContextStopping = true;
 				}
 			}

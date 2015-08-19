@@ -20,7 +20,7 @@ import javax.faces.bean.SessionScoped;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "as7LeakSessionScopeBean")
 @SessionScoped

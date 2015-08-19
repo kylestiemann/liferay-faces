@@ -18,7 +18,7 @@ import com.liferay.faces.util.context.FacesRequestContextFactory;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class FacesRequestContextFactoryImpl extends FacesRequestContextFactory {
 

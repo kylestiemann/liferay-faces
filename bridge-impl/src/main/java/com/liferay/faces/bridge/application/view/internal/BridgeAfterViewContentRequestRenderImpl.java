@@ -17,7 +17,7 @@ import javax.portlet.RenderRequest;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeAfterViewContentRequestRenderImpl extends BridgeAfterViewContentRequest implements RenderRequest {
 

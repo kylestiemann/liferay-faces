@@ -27,9 +27,10 @@ import com.liferay.faces.bridge.context.BridgeContext;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeContextCompatImpl extends BridgeContext {
+
 	protected void partialViewContextRenderAll(FacesContext facesContext) {
 
 		PartialViewContext partialViewContext = facesContext.getPartialViewContext();
@@ -39,8 +40,9 @@ public abstract class BridgeContextCompatImpl extends BridgeContext {
 		}
 	}
 
-	protected void redirectJSF2PartialResponse(FacesContext facesContext, ResourceResponse resourceResponse, String url)
-		throws IOException {
+	protected void
+		redirectJSF2PartialResponse(FacesContext facesContext, ResourceResponse resourceResponse, String url)
+			throws IOException {
 		resourceResponse.setContentType("text/xml");
 		resourceResponse.setCharacterEncoding("UTF-8");
 

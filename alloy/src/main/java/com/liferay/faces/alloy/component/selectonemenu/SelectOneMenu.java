@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = SelectOneMenu.COMPONENT_TYPE)
 public class SelectOneMenu extends SelectOneMenuBase {

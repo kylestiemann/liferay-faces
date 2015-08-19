@@ -29,7 +29,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * Custom {@link ResponseWriter} that has the ability to write to the <head>...</head> section of the portal page via
  * the standard Portlet 2.0 MimeResponse.MARKUP_HEAD_ELEMENT mechanism.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadResponseWriterImpl extends HeadResponseWriterBase {
 

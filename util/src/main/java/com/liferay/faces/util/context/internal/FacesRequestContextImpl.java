@@ -24,7 +24,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class FacesRequestContextImpl extends FacesRequestContext {
 

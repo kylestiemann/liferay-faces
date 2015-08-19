@@ -32,7 +32,7 @@ import com.liferay.faces.demos.util.FacesMessageUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 
 @Named
@@ -88,8 +88,8 @@ public class PortletPreferencesBackingBean {
 		String elExpression = "mutablePortletPreferencesValues";
 		ELResolver elResolver = facesContext.getApplication().getELResolver();
 		@SuppressWarnings("unchecked")
-		Map<String, Preference> mutablePreferenceMap = (Map<String, Preference>) elResolver.getValue(
-				facesContext.getELContext(), null, elExpression);
+		Map<String, Preference> mutablePreferenceMap =
+			(Map<String, Preference>) elResolver.getValue(facesContext.getELContext(), null, elExpression);
 
 		// Get a list of portlet preference names.
 		PortletRequest portletRequest = (PortletRequest) externalContext.getRequest();

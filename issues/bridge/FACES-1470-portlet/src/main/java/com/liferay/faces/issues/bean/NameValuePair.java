@@ -14,7 +14,7 @@
 package com.liferay.faces.issues.bean;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class NameValuePair<N, V> {
 

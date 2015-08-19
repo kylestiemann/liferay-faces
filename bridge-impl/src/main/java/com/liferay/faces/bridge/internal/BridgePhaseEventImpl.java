@@ -43,7 +43,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePhaseEventImpl extends BridgePhaseCompat_2_2_Impl {
 
@@ -59,12 +59,12 @@ public class BridgePhaseEventImpl extends BridgePhaseCompat_2_2_Impl {
 
 		super(portletConfig, bridgeConfig);
 
-		BridgePortletRequestFactory bridgePortletRequestFactory = (BridgePortletRequestFactory) FactoryExtensionFinder
-			.getFactory(BridgePortletRequestFactory.class);
+		BridgePortletRequestFactory bridgePortletRequestFactory =
+			(BridgePortletRequestFactory) FactoryExtensionFinder.getFactory(BridgePortletRequestFactory.class);
 		this.eventRequest = bridgePortletRequestFactory.getEventRequest(eventRequest);
 
-		BridgePortletResponseFactory bridgePortletResponseFactory = (BridgePortletResponseFactory) BridgeFactoryFinder
-			.getFactory(BridgePortletResponseFactory.class);
+		BridgePortletResponseFactory bridgePortletResponseFactory =
+			(BridgePortletResponseFactory) BridgeFactoryFinder.getFactory(BridgePortletResponseFactory.class);
 		this.eventResponse = bridgePortletResponseFactory.getEventResponse(eventResponse);
 	}
 
@@ -76,10 +76,10 @@ public class BridgePhaseEventImpl extends BridgePhaseCompat_2_2_Impl {
 		try {
 
 			// If there is a bridgeEventHandler registered in portlet.xml, then
-			String bridgeEventHandlerAttributeName = Bridge.BRIDGE_PACKAGE_PREFIX + portletName + "." +
-				Bridge.BRIDGE_EVENT_HANDLER;
-			BridgeEventHandler bridgeEventHandler = (BridgeEventHandler) portletContext.getAttribute(
-					bridgeEventHandlerAttributeName);
+			String bridgeEventHandlerAttributeName =
+				Bridge.BRIDGE_PACKAGE_PREFIX + portletName + "." + Bridge.BRIDGE_EVENT_HANDLER;
+			BridgeEventHandler bridgeEventHandler =
+				(BridgeEventHandler) portletContext.getAttribute(bridgeEventHandlerAttributeName);
 
 			init(eventRequest, eventResponse, Bridge.PortletPhase.EVENT_PHASE);
 
@@ -211,9 +211,10 @@ public class BridgePhaseEventImpl extends BridgePhaseCompat_2_2_Impl {
 					if (logger.isTraceEnabled()) {
 						String[] existingValues = existingResponseRenderParameterMap.get(key);
 
-						logger.trace(
-							"Not maintaining public render parameter name=[{0}] values=[{1}] because it already exists",
-							key, existingValues);
+						logger
+							.trace(
+								"Not maintaining public render parameter name=[{0}] values=[{1}] because it already exists",
+								key, existingValues);
 					}
 				}
 				else {
@@ -244,9 +245,10 @@ public class BridgePhaseEventImpl extends BridgePhaseCompat_2_2_Impl {
 					if (logger.isTraceEnabled()) {
 						String[] existingValues = existingResponseRenderParameterMap.get(key);
 
-						logger.trace(
-							"Not maintaining private render parameter name=[{0}] values=[{1}] because it already exists",
-							key, existingValues);
+						logger
+							.trace(
+								"Not maintaining private render parameter name=[{0}] values=[{1}] because it already exists",
+								key, existingValues);
 					}
 				}
 				else {

@@ -26,7 +26,7 @@ import com.liferay.faces.demos.service.AirportService;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named
 @ViewScoped

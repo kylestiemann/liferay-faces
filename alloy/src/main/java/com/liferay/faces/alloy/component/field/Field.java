@@ -30,7 +30,7 @@ import com.liferay.faces.util.component.ComponentUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Field.COMPONENT_TYPE)
 public class Field extends FieldBase {
@@ -104,8 +104,8 @@ public class Field extends FieldBase {
 					FacesMessage facesMessage = messages.next();
 					FacesMessage.Severity currentSeverity = facesMessage.getSeverity();
 
-					if ((currentSeverity == FacesMessage.SEVERITY_ERROR) ||
-							(currentSeverity == FacesMessage.SEVERITY_FATAL)) {
+					if ((currentSeverity == FacesMessage.SEVERITY_ERROR)
+						|| (currentSeverity == FacesMessage.SEVERITY_FATAL)) {
 
 						severity = FacesMessage.SEVERITY_FATAL;
 

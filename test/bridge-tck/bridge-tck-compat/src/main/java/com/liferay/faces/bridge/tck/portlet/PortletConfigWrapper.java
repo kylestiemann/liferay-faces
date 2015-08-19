@@ -24,7 +24,7 @@ import javax.xml.namespace.QName;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 
 public class PortletConfigWrapper implements PortletConfig {

@@ -14,7 +14,7 @@
 package com.liferay.faces.test.hooks;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortalPage {
 

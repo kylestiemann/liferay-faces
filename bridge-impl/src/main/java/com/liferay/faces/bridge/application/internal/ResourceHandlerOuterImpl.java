@@ -22,12 +22,12 @@ import javax.faces.application.ResourceHandlerWrapper;
  * Unlike the {@link ResourceHandlerInnerImpl} class, this class is designed to be the outermost {@link ResourceHandler}
  * in the chain-of-responsibility. In order to achieve this outermost status, this class does not appear in the bridge's
  * faces-config.xml descriptor. Rather, it is created by the {@link ApplicationImpl#getResourceHandler()} method. If
- * necessary, it wraps resources with {@link ResourceHandlerWrapper} instances that override the {@link
- * Resource#getRequestPath()} method. This provides the bridge with the opportunity to have the final authority
+ * necessary, it wraps resources with {@link ResourceHandlerWrapper} instances that override the
+ * {@link Resource#getRequestPath()} method. This provides the bridge with the opportunity to have the final authority
  * regarding the format of resource URLs created by ResourceHandlers like the ones provided by ICEfaces, PrimeFaces, and
  * RichFaces.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceHandlerOuterImpl extends ResourceHandlerWrapper {
 

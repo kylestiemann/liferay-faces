@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRequestScopeManagerWrapper implements BridgeRequestScopeManager,
 	FacesWrapper<BridgeRequestScopeManager> {

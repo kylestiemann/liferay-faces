@@ -20,7 +20,7 @@ import javax.portlet.ResourceURL;
  * This is a marker interface that extends the {@link ResourceURL} interface in order to provide more readable names for
  * implementing classes.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface LiferayResourceURL extends ResourceURL {
 

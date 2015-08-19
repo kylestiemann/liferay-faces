@@ -17,7 +17,7 @@ import javax.faces.application.FacesMessage;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesMessageWrapper {
 

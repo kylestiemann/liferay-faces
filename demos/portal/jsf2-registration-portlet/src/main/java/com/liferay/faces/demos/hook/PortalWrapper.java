@@ -23,7 +23,7 @@ import com.liferay.portal.util.Portal;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PortalWrapper implements InvocationHandler, FacesWrapper<Portal> {
 

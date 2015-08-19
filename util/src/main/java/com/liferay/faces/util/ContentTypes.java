@@ -14,7 +14,7 @@
 package com.liferay.faces.util;
 
 /**
- * @author  Brian Wing Shun Chan
+ * @author Brian Wing Shun Chan
  */
 public interface ContentTypes {
 

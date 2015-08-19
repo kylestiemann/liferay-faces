@@ -21,7 +21,7 @@ import javax.faces.FacesWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRequestScopeCacheWrapper implements BridgeRequestScopeCache,
 	FacesWrapper<BridgeRequestScopeCache> {

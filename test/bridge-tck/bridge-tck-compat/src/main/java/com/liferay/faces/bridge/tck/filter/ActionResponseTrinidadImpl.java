@@ -18,7 +18,7 @@ import javax.portlet.filter.ActionResponseWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ActionResponseTrinidadImpl extends ActionResponseWrapper {
 

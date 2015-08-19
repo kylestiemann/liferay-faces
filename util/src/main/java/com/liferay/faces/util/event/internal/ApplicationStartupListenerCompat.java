@@ -29,7 +29,7 @@ import com.liferay.faces.util.event.PostConstructApplicationConfigEvent;
 /**
  * This class isolates differences between JSF1 <> JSF 2 in order to minimize diffs across branches.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ApplicationStartupListenerCompat implements SystemEventListener {
 
@@ -39,8 +39,8 @@ public abstract class ApplicationStartupListenerCompat implements SystemEventLis
 		processSystemEvent(systemEvent);
 	}
 
-	protected void publishEvent(Application application, FacesContext facesContext,
-		ApplicationConfig applicationConfig) {
+	protected void
+		publishEvent(Application application, FacesContext facesContext, ApplicationConfig applicationConfig) {
 
 		application.publishEvent(facesContext, PostConstructApplicationConfigEvent.class, ApplicationConfig.class,
 			applicationConfig);

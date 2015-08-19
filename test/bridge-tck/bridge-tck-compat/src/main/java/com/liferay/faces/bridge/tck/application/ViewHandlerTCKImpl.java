@@ -27,7 +27,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewHandlerTCKImpl extends ViewHandlerWrapper {
 
@@ -52,14 +52,15 @@ public class ViewHandlerTCKImpl extends ViewHandlerWrapper {
 			super.renderView(facesContext, viewToRender);
 		}
 		catch (FacesException e) {
-			String tckRequestAttribute = (String) facesContext.getExternalContext().getRequestMap().get(
-					"javax.portlet.faces.tck.testRenderPolicyPass");
+			String tckRequestAttribute =
+				(String) facesContext.getExternalContext().getRequestMap()
+					.get("javax.portlet.faces.tck.testRenderPolicyPass");
 
 			if (tckRequestAttribute != null) {
 				logger.info("Working around JSF 1.2 dependency in the TCK");
 
-				ViewDeclarationLanguage viewDeclarationLanguage = getViewDeclarationLanguage(facesContext,
-						viewToRender.getViewId());
+				ViewDeclarationLanguage viewDeclarationLanguage =
+					getViewDeclarationLanguage(facesContext, viewToRender.getViewId());
 				viewDeclarationLanguage.renderView(facesContext, viewToRender);
 			}
 			else {

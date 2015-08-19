@@ -30,8 +30,10 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * <p>This class is designed to support the {@link BridgeRequestScopeAttributeAdded} annotation. It has to be specified
- * as a listener in the WEB-INF/web.xml descriptor like this:</p>
+ * <p>
+ * This class is designed to support the {@link BridgeRequestScopeAttributeAdded} annotation. It has to be specified as
+ * a listener in the WEB-INF/web.xml descriptor like this:
+ * </p>
  * <code>
  * <pre>
     &lt;listener&gt;
@@ -40,8 +42,8 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * </pre>
  * </code>
  *
- * @see     http://issues.liferay.com/browse/FACES-146
- * @author  Neil Griffin
+ * @see http://issues.liferay.com/browse/FACES-146
+ * @author Neil Griffin
  */
 public class BridgeRequestAttributeListener implements ServletRequestAttributeListener {
 

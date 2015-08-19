@@ -28,7 +28,7 @@ import javax.faces.render.RenderKit;
 /**
  * This class is an implementation of {@link FacesContext} that can be used during session expiration.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextExpirationImpl extends FacesContext {
 

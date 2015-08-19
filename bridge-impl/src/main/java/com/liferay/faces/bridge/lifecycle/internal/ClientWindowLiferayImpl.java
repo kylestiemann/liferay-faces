@@ -33,7 +33,7 @@ import com.liferay.portal.theme.ThemeDisplay;
  * its own unique instance ID that is the suffix of the portlet namespace. The {@link #getId()} method ensures that the
  * client window ID takes the portlet instance into account.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ClientWindowLiferayImpl extends ClientWindowWrapper {
 

@@ -21,7 +21,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FormResponseWriter extends DelegationResponseWriterBase {
 

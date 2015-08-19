@@ -34,7 +34,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ContextMapFactoryImpl extends ContextMapFactory {
 
@@ -66,16 +66,18 @@ public class ContextMapFactoryImpl extends ContextMapFactory {
 			// Note: ICEfaces ace:fileEntry relies on its own mechanism for handling file upload.
 			if (!ICEFACES_DETECTED && (contentType != null) && contentType.toLowerCase().startsWith("multipart/")) {
 
-				MultiPartFormData multiPartFormData = (MultiPartFormData) portletRequest.getAttribute(
-						MULTIPART_FORM_DATA_FQCN);
+				MultiPartFormData multiPartFormData =
+					(MultiPartFormData) portletRequest.getAttribute(MULTIPART_FORM_DATA_FQCN);
 
 				if (multiPartFormData == null) {
-					facesRequestParameterMap = new FacesRequestParameterMapImpl(namespace, bridgeRequestScope,
-							facesViewParameterMap, defaultRenderKitId);
+					facesRequestParameterMap =
+						new FacesRequestParameterMapImpl(namespace, bridgeRequestScope, facesViewParameterMap,
+							defaultRenderKitId);
 
 					MultiPartFormDataProcessor multiPartFormDataProcessor = new MultiPartFormDataProcessorImpl();
-					Map<String, List<UploadedFile>> uploadedFileMap = multiPartFormDataProcessor.process(
-							clientDataRequest, bridgeContext.getPortletConfig(), facesRequestParameterMap);
+					Map<String, List<UploadedFile>> uploadedFileMap =
+						multiPartFormDataProcessor.process(clientDataRequest, bridgeContext.getPortletConfig(),
+							facesRequestParameterMap);
 
 					multiPartFormData = new MultiPartFormDataImpl(facesRequestParameterMap, uploadedFileMap);
 
@@ -91,8 +93,9 @@ public class ContextMapFactoryImpl extends ContextMapFactory {
 
 		if (facesRequestParameterMap == null) {
 			Map<String, String[]> parameterMap = portletRequest.getParameterMap();
-			facesRequestParameterMap = new FacesRequestParameterMapImpl(parameterMap, namespace, bridgeRequestScope,
-					facesViewParameterMap, defaultRenderKitId);
+			facesRequestParameterMap =
+				new FacesRequestParameterMapImpl(parameterMap, namespace, bridgeRequestScope, facesViewParameterMap,
+					defaultRenderKitId);
 		}
 
 		return facesRequestParameterMap;

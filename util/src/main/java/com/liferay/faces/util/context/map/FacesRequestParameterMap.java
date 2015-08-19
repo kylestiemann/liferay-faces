@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * This interface defines a mutable {@link Map} of request parameters for a Faces request.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface FacesRequestParameterMap extends Map<String, String[]> {
 

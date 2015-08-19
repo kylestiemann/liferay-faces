@@ -18,7 +18,7 @@ import javax.faces.event.PreRenderComponentEvent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface PreRenderComponentEventListener {
 

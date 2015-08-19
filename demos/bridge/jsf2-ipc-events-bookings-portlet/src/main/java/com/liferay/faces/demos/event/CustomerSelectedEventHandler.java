@@ -30,7 +30,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CustomerSelectedEventHandler implements BridgeEventHandler {
 
@@ -67,8 +67,9 @@ public class CustomerSelectedEventHandler implements BridgeEventHandler {
 	protected BookingsModelBean getBookingsModelBean(FacesContext facesContext) {
 		String elExpression = "#{bookingsModelBean}";
 		ELContext elContext = facesContext.getELContext();
-		ValueExpression valueExpression = facesContext.getApplication().getExpressionFactory().createValueExpression(
-				elContext, elExpression, BookingsModelBean.class);
+		ValueExpression valueExpression =
+			facesContext.getApplication().getExpressionFactory()
+				.createValueExpression(elContext, elExpression, BookingsModelBean.class);
 
 		return (BookingsModelBean) valueExpression.getValue(elContext);
 	}

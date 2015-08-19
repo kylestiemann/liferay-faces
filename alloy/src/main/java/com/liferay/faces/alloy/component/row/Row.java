@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Row.COMPONENT_TYPE)
 public class Row extends RowBase {

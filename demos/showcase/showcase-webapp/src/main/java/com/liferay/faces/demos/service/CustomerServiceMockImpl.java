@@ -33,7 +33,7 @@ import com.liferay.faces.demos.dto.Customer;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ApplicationScoped
 @ManagedBean(name = "customerService")

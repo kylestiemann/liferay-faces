@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class MessageContextWrapper implements MessageContext, FacesWrapper<MessageContext> {
 

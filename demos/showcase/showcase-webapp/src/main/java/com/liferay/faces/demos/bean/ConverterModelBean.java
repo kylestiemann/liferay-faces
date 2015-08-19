@@ -23,7 +23,7 @@ import com.liferay.faces.demos.service.CountryService;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

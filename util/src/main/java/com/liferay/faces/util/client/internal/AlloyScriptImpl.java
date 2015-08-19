@@ -17,7 +17,7 @@ import com.liferay.faces.util.client.AlloyScript;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class AlloyScriptImpl extends ScriptImpl implements AlloyScript {
 

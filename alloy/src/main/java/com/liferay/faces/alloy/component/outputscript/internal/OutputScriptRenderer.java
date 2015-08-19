@@ -34,7 +34,7 @@ import com.liferay.faces.util.render.internal.BufferedScriptResponseWriter;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = OutputScript.COMPONENT_FAMILY, rendererType = OutputScript.RENDERER_TYPE)
@@ -96,13 +96,13 @@ public class OutputScriptRenderer extends OutputScriptRendererBase {
 				// In order to determine the exact YUI sandbox string to write, the modules and browser information
 				// must be passed to RendererUtil.getAlloyBeginScript().
 				String[] modules = use.split(",");
-				BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-						BrowserSnifferFactory.class);
-				BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(
-						facesContext.getExternalContext());
+				BrowserSnifferFactory browserSnifferFactory =
+					(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
+				BrowserSniffer browserSniffer =
+					browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 				String alloyBeginScript = AlloyRendererUtil.getAlloyBeginScript(modules, browserSniffer);
-				OutputScriptResponseWriter outputScriptResponseWriter = new OutputScriptResponseWriter(responseWriter,
-						alloyBeginScript);
+				OutputScriptResponseWriter outputScriptResponseWriter =
+					new OutputScriptResponseWriter(responseWriter, alloyBeginScript);
 				super.encodeChildren(facesContext, uiComponent, outputScriptResponseWriter);
 			}
 

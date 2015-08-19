@@ -24,7 +24,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 abstract class AutoCompleteFilterWordMatchBaseImpl implements AutoCompleteFilter {
 
@@ -116,8 +116,8 @@ abstract class AutoCompleteFilterWordMatchBaseImpl implements AutoCompleteFilter
 					}
 
 					// WB3a
-					else if (matches(character, PATTERN_KEYS.CR) || matches(character, PATTERN_KEYS.LF) ||
-							matches(character, PATTERN_KEYS.NEWLINE)) {
+					else if (matches(character, PATTERN_KEYS.CR) || matches(character, PATTERN_KEYS.LF)
+						|| matches(character, PATTERN_KEYS.NEWLINE)) {
 
 						stringBuilder.append(character);
 						wordList.add(stringBuilder.toString());
@@ -125,8 +125,8 @@ abstract class AutoCompleteFilterWordMatchBaseImpl implements AutoCompleteFilter
 					}
 
 					// WB3b
-					else if (matches(nextCharacter, PATTERN_KEYS.CR) || matches(nextCharacter, PATTERN_KEYS.LF) ||
-							matches(nextCharacter, PATTERN_KEYS.NEWLINE)) {
+					else if (matches(nextCharacter, PATTERN_KEYS.CR) || matches(nextCharacter, PATTERN_KEYS.LF)
+						|| matches(nextCharacter, PATTERN_KEYS.NEWLINE)) {
 
 						stringBuilder.append(character);
 						wordList.add(stringBuilder.toString());
@@ -144,19 +144,18 @@ abstract class AutoCompleteFilterWordMatchBaseImpl implements AutoCompleteFilter
 					}
 
 					// WB6
-					else if (matches(character, PATTERN_KEYS.ALETTER) &&
-							(matches(nextCharacter, PATTERN_KEYS.MIDLETTER) ||
-								matches(nextCharacter, PATTERN_KEYS.MIDNUMLET) ||
-								SINGLE_QUOTE_PATTERN.matcher(nextCharacter).matches()) &&
-							((nextNextCharacter != null) && matches(nextNextCharacter, PATTERN_KEYS.ALETTER))) {
+					else if (matches(character, PATTERN_KEYS.ALETTER)
+						&& (matches(nextCharacter, PATTERN_KEYS.MIDLETTER)
+							|| matches(nextCharacter, PATTERN_KEYS.MIDNUMLET) || SINGLE_QUOTE_PATTERN.matcher(
+							nextCharacter).matches())
+						&& ((nextNextCharacter != null) && matches(nextNextCharacter, PATTERN_KEYS.ALETTER))) {
 						stringBuilder.append(character);
 					}
 
 					// WB7
-					else if (((prevCharacter != null) && matches(prevCharacter, PATTERN_KEYS.ALETTER)) &&
-							(matches(character, PATTERN_KEYS.MIDLETTER) || matches(character, PATTERN_KEYS.MIDNUMLET) ||
-								SINGLE_QUOTE_PATTERN.matcher(character).matches()) &&
-							matches(nextCharacter, PATTERN_KEYS.ALETTER)) {
+					else if (((prevCharacter != null) && matches(prevCharacter, PATTERN_KEYS.ALETTER))
+						&& (matches(character, PATTERN_KEYS.MIDLETTER) || matches(character, PATTERN_KEYS.MIDNUMLET) || SINGLE_QUOTE_PATTERN
+							.matcher(character).matches()) && matches(nextCharacter, PATTERN_KEYS.ALETTER)) {
 						stringBuilder.append(character);
 					}
 
@@ -176,42 +175,39 @@ abstract class AutoCompleteFilterWordMatchBaseImpl implements AutoCompleteFilter
 					}
 
 					// WB11
-					else if (matches(character, PATTERN_KEYS.NUMERIC) &&
-							(matches(nextCharacter, PATTERN_KEYS.MIDNUM) ||
-								matches(nextCharacter, PATTERN_KEYS.MIDNUMLET) ||
-								SINGLE_QUOTE_PATTERN.matcher(nextCharacter).matches()) &&
-							((nextNextCharacter != null) && matches(nextNextCharacter, PATTERN_KEYS.NUMERIC))) {
+					else if (matches(character, PATTERN_KEYS.NUMERIC)
+						&& (matches(nextCharacter, PATTERN_KEYS.MIDNUM)
+							|| matches(nextCharacter, PATTERN_KEYS.MIDNUMLET) || SINGLE_QUOTE_PATTERN.matcher(
+							nextCharacter).matches())
+						&& ((nextNextCharacter != null) && matches(nextNextCharacter, PATTERN_KEYS.NUMERIC))) {
 						stringBuilder.append(character);
 					}
 
 					// WB12
-					else if (((prevCharacter != null) && matches(prevCharacter, PATTERN_KEYS.NUMERIC)) &&
-							(matches(character, PATTERN_KEYS.MIDNUM) || matches(character, PATTERN_KEYS.MIDNUMLET) ||
-								SINGLE_QUOTE_PATTERN.matcher(character).matches()) &&
-							matches(nextCharacter, PATTERN_KEYS.NUMERIC)) {
+					else if (((prevCharacter != null) && matches(prevCharacter, PATTERN_KEYS.NUMERIC))
+						&& (matches(character, PATTERN_KEYS.MIDNUM) || matches(character, PATTERN_KEYS.MIDNUMLET) || SINGLE_QUOTE_PATTERN
+							.matcher(character).matches()) && matches(nextCharacter, PATTERN_KEYS.NUMERIC)) {
 						stringBuilder.append(character);
 					}
 
 					// WB13
-					else if (matches(character, PATTERN_KEYS.KATAKANA) &&
-							matches(nextCharacter, PATTERN_KEYS.KATAKANA)) {
+					else if (matches(character, PATTERN_KEYS.KATAKANA) && matches(nextCharacter, PATTERN_KEYS.KATAKANA)) {
 						stringBuilder.append(character);
 					}
 
 					// WB13a
-					else if ((matches(character, PATTERN_KEYS.ALETTER) || matches(character, PATTERN_KEYS.NUMERIC) ||
-								matches(character, PATTERN_KEYS.KATAKANA) ||
-								matches(character, PATTERN_KEYS.EXTENDEDNUMLET)) &&
-							matches(nextCharacter, PATTERN_KEYS.EXTENDEDNUMLET)) {
+					else if ((matches(character, PATTERN_KEYS.ALETTER) || matches(character, PATTERN_KEYS.NUMERIC)
+						|| matches(character, PATTERN_KEYS.KATAKANA) || matches(character, PATTERN_KEYS.EXTENDEDNUMLET))
+						&& matches(nextCharacter, PATTERN_KEYS.EXTENDEDNUMLET)) {
 						stringBuilder.append(character);
 					}
 
 					// WB13a
-					else if (matches(character, PATTERN_KEYS.EXTENDEDNUMLET) &&
-							(matches(nextCharacter, PATTERN_KEYS.ALETTER) ||
-								matches(nextCharacter, PATTERN_KEYS.NUMERIC) ||
-								matches(nextCharacter, PATTERN_KEYS.KATAKANA) ||
-								matches(nextCharacter, PATTERN_KEYS.EXTENDEDNUMLET))) {
+					else if (matches(character, PATTERN_KEYS.EXTENDEDNUMLET)
+						&& (matches(nextCharacter, PATTERN_KEYS.ALETTER)
+							|| matches(nextCharacter, PATTERN_KEYS.NUMERIC)
+							|| matches(nextCharacter, PATTERN_KEYS.KATAKANA) || matches(nextCharacter,
+								PATTERN_KEYS.EXTENDEDNUMLET))) {
 						stringBuilder.append(character);
 					}
 					else {

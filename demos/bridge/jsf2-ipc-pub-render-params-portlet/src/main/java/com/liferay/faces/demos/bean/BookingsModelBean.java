@@ -35,7 +35,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * defined in the WEB-INF/portlet.xml descriptor. Then, the Portlet 2.0 RENDER_PHASE will cause the RENDER_RESPONSE
  * phase of the JSF lifecycle to be executed.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @RequestScoped
 @ManagedBean(name = "bookingsModelBean")
@@ -88,7 +88,7 @@ public class BookingsModelBean {
 	 * because the public render parameter model-el expression #{bookingsPortlet:bookingsModelBean.selectedCustomerId}
 	 * exists in the WEB-INF/faces-config.xml descriptor.
 	 *
-	 * @param  selectedCustomerId
+	 * @param selectedCustomerId
 	 */
 	public void setSelectedCustomerId(String selectedCustomerId) {
 

@@ -28,12 +28,12 @@ import com.liferay.faces.bridge.context.url.BridgeURI;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRedirectURLImpl extends BridgeURLBase {
 
-	public BridgeRedirectURLImpl(BridgeContext bridgeContext, BridgeURI bridgeURI, Map<String, List<String>> parameters,
-		String viewId) {
+	public BridgeRedirectURLImpl(BridgeContext bridgeContext, BridgeURI bridgeURI,
+		Map<String, List<String>> parameters, String viewId) {
 
 		super(bridgeContext, bridgeURI, viewId);
 

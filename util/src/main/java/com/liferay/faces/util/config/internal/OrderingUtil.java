@@ -31,7 +31,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class OrderingUtil {
 
@@ -70,8 +70,7 @@ public class OrderingUtil {
 		return orderedNames;
 	}
 
-	private static void checkForBothBeforeAndAfter(FacesConfigDescriptor config)
-		throws OrderingBeforeAndAfterException {
+	private static void checkForBothBeforeAndAfter(FacesConfigDescriptor config) throws OrderingBeforeAndAfterException {
 
 		String configName = config.getName();
 		Ordering configOrdering = config.getOrdering();
@@ -142,10 +141,11 @@ public class OrderingUtil {
 	private static <K, V extends Comparable<? super V>> Map<K, V> descendingByValue(Map<K, V> map) {
 		List<Map.Entry<K, V>> list = new LinkedList<Map.Entry<K, V>>(map.entrySet());
 		Collections.sort(list, new Comparator<Map.Entry<K, V>>() {
-				public int compare(Map.Entry<K, V> a, Map.Entry<K, V> b) {
-					return (b.getValue()).compareTo(a.getValue());
-				}
-			});
+
+			public int compare(Map.Entry<K, V> a, Map.Entry<K, V> b) {
+				return (b.getValue()).compareTo(a.getValue());
+			}
+		});
 
 		Map<K, V> result = new LinkedHashMap<K, V>();
 
@@ -247,12 +247,14 @@ public class OrderingUtil {
 						}
 
 						if (Arrays.binarySearch(otherConfigOrderingRoutes.get(oppositePath), configName) < 0) {
-							EnumMap<Ordering.Path, String[]> routes = new EnumMap<Ordering.Path, String[]>(
-									Ordering.Path.class);
+							EnumMap<Ordering.Path, String[]> routes =
+								new EnumMap<Ordering.Path, String[]>(Ordering.Path.class);
 							routes.put(path, otherRoutePathNames);
-							routes.put(oppositePath,
-								appendAndSort(otherConfigOrderingRoutes.get(oppositePath),
-									new String[] { configName }));
+							routes
+								.put(
+									oppositePath,
+									appendAndSort(otherConfigOrderingRoutes.get(oppositePath),
+										new String[] { configName }));
 							otherConfigOrdering.setRoutes(routes);
 						}
 
@@ -260,8 +262,8 @@ public class OrderingUtil {
 						// others too. Similarly, if I am after them and they are after others, then I should be
 						// informed that I am after others too.
 						if (otherRoutePathNames.length > 0) {
-							EnumMap<Ordering.Path, String[]> routes = new EnumMap<Ordering.Path, String[]>(
-									Ordering.Path.class);
+							EnumMap<Ordering.Path, String[]> routes =
+								new EnumMap<Ordering.Path, String[]>(Ordering.Path.class);
 							routes.put(path, appendAndSort(routePathNames, otherRoutePathNames));
 							routes.put(oppositePath, configOrderingRoutes.get(oppositePath));
 							configOrdering.setRoutes(routes);
@@ -399,8 +401,7 @@ public class OrderingUtil {
 
 		if (config1Ordering.isOrdered() && !config2Ordering.isOrdered()) {
 
-			if ((config1Ordering.getRoutes().get(Ordering.Path.AFTER).length != 0) &&
-					!config1Ordering.isBeforeOthers()) {
+			if ((config1Ordering.getRoutes().get(Ordering.Path.AFTER).length != 0) && !config1Ordering.isBeforeOthers()) {
 				return true;
 			}
 		}
@@ -411,14 +412,14 @@ public class OrderingUtil {
 		}
 
 		// config1 should be after others, but it is not
-		if (config1Ordering.isAfterOthers() && !config1Ordering.isBefore(config2Name) &&
-				!(config1Ordering.isAfterOthers() && config2Ordering.isAfterOthers())) {
+		if (config1Ordering.isAfterOthers() && !config1Ordering.isBefore(config2Name)
+			&& !(config1Ordering.isAfterOthers() && config2Ordering.isAfterOthers())) {
 			return true;
 		}
 
 		// config2 should be before others, but it is not
-		return config2Ordering.isBeforeOthers() && !config2Ordering.isAfter(config1Name) &&
-			!(config1Ordering.isBeforeOthers() && config2Ordering.isBeforeOthers());
+		return config2Ordering.isBeforeOthers() && !config2Ordering.isAfter(config1Name)
+			&& !(config1Ordering.isBeforeOthers() && config2Ordering.isBeforeOthers());
 	}
 
 	/**
@@ -516,8 +517,7 @@ public class OrderingUtil {
 	 * This method returns an ordered version of the specified list of faces-config.xml descriptors, taking the
 	 * specified absolute ordering into account.
 	 */
-	public static List<FacesConfigDescriptor> getOrder(List<FacesConfigDescriptor> configs,
-		List<String> absoluteOrder) {
+	public static List<FacesConfigDescriptor> getOrder(List<FacesConfigDescriptor> configs, List<String> absoluteOrder) {
 
 		List<FacesConfigDescriptor> orderedList = new ArrayList<FacesConfigDescriptor>();
 

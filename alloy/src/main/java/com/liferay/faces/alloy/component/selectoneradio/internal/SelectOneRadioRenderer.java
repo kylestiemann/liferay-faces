@@ -20,7 +20,7 @@ import com.liferay.faces.alloy.component.selectoneradio.SelectOneRadio;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = SelectOneRadio.COMPONENT_FAMILY, rendererType = SelectOneRadio.RENDERER_TYPE)
 @ResourceDependency(library = "liferay-faces-alloy", name = "alloy.css")

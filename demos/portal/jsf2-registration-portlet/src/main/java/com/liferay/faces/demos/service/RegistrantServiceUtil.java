@@ -48,7 +48,7 @@ import com.liferay.portlet.usersadmin.util.UsersAdminUtil;
 /**
  * Service API for adding/updating registrants.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RegistrantServiceUtil {
 
@@ -92,10 +92,11 @@ public class RegistrantServiceUtil {
 		ServiceContext serviceContext = new ServiceContext();
 
 		// Add the user to the Liferay database (create an account).
-		User user = UserLocalServiceUtil.addUser(creatorUserId, companyId, autoPassword, password1, password2,
-				autoScreenName, screenName, emailAddress, facebookId, openId, locale, firstName, middleName, lastName,
-				prefixId, suffixId, male, birthdayMonth, birthdayDay, birthdayYear, jobTitle, groupIds, organizationIds,
-				roleIds, userGroupIds, sendEmail, serviceContext);
+		User user =
+			UserLocalServiceUtil.addUser(creatorUserId, companyId, autoPassword, password1, password2, autoScreenName,
+				screenName, emailAddress, facebookId, openId, locale, firstName, middleName, lastName, prefixId,
+				suffixId, male, birthdayMonth, birthdayDay, birthdayYear, jobTitle, groupIds, organizationIds, roleIds,
+				userGroupIds, sendEmail, serviceContext);
 
 		registrant.setUserId(user.getUserId());
 		registrant.setContactId(user.getContactId());
@@ -176,8 +177,8 @@ public class RegistrantServiceUtil {
 			User administratorUser = administratorUsers.get(0);
 
 			try {
-				administratorPermissionChecker = PermissionCheckerFactoryUtil.getPermissionCheckerFactory().create(
-						administratorUser);
+				administratorPermissionChecker =
+					PermissionCheckerFactoryUtil.getPermissionCheckerFactory().create(administratorUser);
 			}
 			catch (Exception e) {
 				throw new SystemException(e.getMessage(), e);

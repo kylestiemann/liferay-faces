@@ -21,7 +21,7 @@ import com.liferay.faces.util.helper.BooleanHelper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public enum WebConfigParam implements ConfigParam<ExternalContext> {
 

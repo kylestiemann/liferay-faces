@@ -30,7 +30,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class HeadResponseWriterBase extends HeadResponseWriter {
 
@@ -174,8 +174,8 @@ public abstract class HeadResponseWriterBase extends HeadResponseWriter {
 
 		if ("title".equals(name)) {
 
-			logger.warn(
-				"Title removed because multiple <title> elements are invalid and the portlet container controls the <title>.");
+			logger
+				.warn("Title removed because multiple <title> elements are invalid and the portlet container controls the <title>.");
 			titleElement = true;
 		}
 		else {

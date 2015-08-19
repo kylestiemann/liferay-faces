@@ -24,7 +24,7 @@ import javax.faces.view.facelets.TagAttributeException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MethodMetadata extends Metadata {
 

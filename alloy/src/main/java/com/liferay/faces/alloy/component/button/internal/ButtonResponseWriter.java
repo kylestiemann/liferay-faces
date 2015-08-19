@@ -23,7 +23,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ButtonResponseWriter extends DelegationResponseWriterBase {
 
@@ -61,10 +61,10 @@ public class ButtonResponseWriter extends DelegationResponseWriterBase {
 	@Override
 	public void writeAttribute(String name, Object value, String property) throws IOException {
 
-		if ("disabled".equalsIgnoreCase(name) || "type".equalsIgnoreCase(name) ||
-				("onclick".equalsIgnoreCase(name) && !writeOnclick) || "class".equalsIgnoreCase(name) ||
-				ButtonRenderer.ONBLUR.equals(name) || ButtonRenderer.ONFOCUS.equals(name) ||
-				"value".equalsIgnoreCase(name) || Styleable.STYLE.equals(name)) {
+		if ("disabled".equalsIgnoreCase(name) || "type".equalsIgnoreCase(name)
+			|| ("onclick".equalsIgnoreCase(name) && !writeOnclick) || "class".equalsIgnoreCase(name)
+			|| ButtonRenderer.ONBLUR.equals(name) || ButtonRenderer.ONFOCUS.equals(name)
+			|| "value".equalsIgnoreCase(name) || Styleable.STYLE.equals(name)) {
 			// no-op Because writing of these attributes need to be controlled directly by ButtonRender.
 		}
 		else {

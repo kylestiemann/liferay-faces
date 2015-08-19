@@ -28,7 +28,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class IncongruityContextWrapper extends IncongruityContext implements FacesWrapper<IncongruityContext> {
 

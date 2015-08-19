@@ -32,7 +32,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "bookingsBackingBean")
 @RequestScoped
@@ -53,15 +53,15 @@ public class BookingsBackingBean implements Serializable {
 
 	@BridgePreDestroy
 	public void bridgePreDestroy() {
-		logger.trace(
-			"@BridgePreDestroy annotation worked -- should only be called if com.liferay.faces.bridge.preferPreDestroy init param is false in portlet.xml");
+		logger
+			.trace("@BridgePreDestroy annotation worked -- should only be called if com.liferay.faces.bridge.preferPreDestroy init param is false in portlet.xml");
 	}
 
 	@BridgeRequestScopeAttributeAdded
 	public void bridgeRequestScopeAttributeAdded() {
 		okToHandlePreDestroy = false;
-		logger.trace(
-			"@BridgeRequestScopeAttributeAdded annotation worked -- should only be called for remote WSRP portlets");
+		logger
+			.trace("@BridgeRequestScopeAttributeAdded annotation worked -- should only be called for remote WSRP portlets");
 	}
 
 	@PostConstruct

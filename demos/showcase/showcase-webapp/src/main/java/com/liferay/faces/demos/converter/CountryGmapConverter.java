@@ -29,7 +29,7 @@ import com.liferay.faces.demos.service.CountryService;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesConverter(value = "convertGmapCountry")
 public class CountryGmapConverter implements Converter {

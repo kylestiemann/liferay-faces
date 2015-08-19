@@ -28,7 +28,7 @@ import com.liferay.taglib.ui.HeaderTag;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(componentFamily = Header.COMPONENT_FAMILY, rendererType = Header.RENDERER_TYPE)

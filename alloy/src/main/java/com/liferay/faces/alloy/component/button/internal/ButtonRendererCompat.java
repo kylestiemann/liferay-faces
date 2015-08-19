@@ -24,12 +24,12 @@ import com.liferay.faces.util.render.DelegatingRendererBase;
 /**
  * This class isolates differences between JSF 2.2 and JSF 2.1 in order to minimize diffs across branches.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ButtonRendererCompat extends DelegatingRendererBase {
 
 	protected boolean isVisualComponent(UIComponent uiComponent) {
-		return (!(uiComponent instanceof UIParameter)) || (!(uiComponent instanceof UIViewAction)) ||
-			(!(uiComponent instanceof UIViewParameter));
+		return (!(uiComponent instanceof UIParameter)) || (!(uiComponent instanceof UIViewAction))
+			|| (!(uiComponent instanceof UIViewParameter));
 	}
 }

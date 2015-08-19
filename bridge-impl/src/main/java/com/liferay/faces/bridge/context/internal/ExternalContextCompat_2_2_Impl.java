@@ -34,7 +34,7 @@ import com.liferay.faces.util.config.ApplicationConfig;
 /**
  * This class provides a compatibility layer that isolates differences between JSF 2.1 and JSF 2.2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextCompat_2_1_Impl {
 
@@ -51,7 +51,7 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @since  JSF 1.0
+	 * @since JSF 1.0
 	 */
 	@Override
 	public String encodeActionURL(String url) {
@@ -64,7 +64,7 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodeBookmarkableURL(String baseUrl, Map<String, List<String>> parameters) {
@@ -77,7 +77,7 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodePartialActionURL(String url) {
@@ -90,7 +90,7 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodeRedirectURL(String baseUrl, Map<String, List<String>> parameters) {
@@ -169,8 +169,8 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getApplicationContextPath()}
-	 * @since  JSF 2.2
+	 * @see {@link ExternalContext#getApplicationContextPath()}
+	 * @since JSF 2.2
 	 */
 	@Override
 	public String getApplicationContextPath() {
@@ -185,8 +185,8 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getClientWindow()}
-	 * @since  JSF 2.2
+	 * @see {@link ExternalContext#getClientWindow()}
+	 * @since JSF 2.2
 	 */
 	@Override
 	public ClientWindow getClientWindow() {
@@ -194,8 +194,8 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @see    {@link ExternalContext#setClientWindow(ClientWindow)}
-	 * @since  JSF 2.2
+	 * @see {@link ExternalContext#setClientWindow(ClientWindow)}
+	 * @since JSF 2.2
 	 */
 	@Override
 	public void setClientWindow(ClientWindow clientWindow) {
@@ -203,7 +203,7 @@ public abstract class ExternalContextCompat_2_2_Impl extends ExternalContextComp
 	}
 
 	/**
-	 * @since  JSF 2.2
+	 * @since JSF 2.2
 	 */
 	@Override
 	public String getSessionId(boolean create) {

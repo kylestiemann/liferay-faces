@@ -26,7 +26,7 @@ import javax.servlet.ServletOutputStream;
  * current {@link PortletResponse}. This is necessary in order to hack around a Servlet-API dependencies in the Mojarra
  * implementation of JSF. Refer to usage in {@link HttpServletResponseAdapter#getOutputStream()} for more details.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ServletOutputStreamAdapter extends ServletOutputStream {
 

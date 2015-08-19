@@ -30,7 +30,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RequestHeaderValuesMap extends RequestHeaderValuesMapCompat {
 
@@ -172,9 +172,8 @@ public class RequestHeaderValuesMap extends RequestHeaderValuesMapCompat {
 	 * Adds an "Accept" header to the hashmap, according to the response content types in the specified request. Example
 	 * Value: Accept: text/html
 	 *
-	 * @param  portletRequest  The current portlet request.
-	 *
-	 * @see    <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1">RFC2616</a>
+	 * @param portletRequest The current portlet request.
+	 * @see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1">RFC2616</a>
 	 */
 	protected void addAcceptHeader(PortletRequest portletRequest) {
 		StringBuilder header = new StringBuilder();
@@ -202,9 +201,8 @@ public class RequestHeaderValuesMap extends RequestHeaderValuesMapCompat {
 	 * Adds a "Content-Type" header to the hashmap, according to the content-type and character-encoding in the
 	 * specified request. Example Value: Content-Type: text/html; charset=ISO-8859-4
 	 *
-	 * @param  portletRequest  The current portlet request.
-	 *
-	 * @see    <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">RFC2616</a>
+	 * @param portletRequest The current portlet request.
+	 * @see <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.17">RFC2616</a>
 	 */
 	protected void addContentTypeHeader(PortletRequest portletRequest) {
 

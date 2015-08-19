@@ -22,7 +22,7 @@ import javax.servlet.ServletResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeWriteBehindResponseRenderImpl extends BridgeWriteBehindResponseMimeImpl implements RenderResponse {
 

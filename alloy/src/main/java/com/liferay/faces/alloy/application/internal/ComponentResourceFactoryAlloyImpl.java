@@ -20,7 +20,7 @@ import com.liferay.faces.util.application.ComponentResourceFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ComponentResourceFactoryAlloyImpl extends ComponentResourceFactory {
 

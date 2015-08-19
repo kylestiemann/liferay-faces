@@ -54,21 +54,21 @@ import com.liferay.taglib.ui.InputSearchTag;
 
 /**
  * This class is a renderer for the {@link com.liferay.faces.portal.component.inputsearch.InputSearch} component. The
- * component has unique requirements in the sense that the corresponding JSP-based {@link
- * com.liferay.taglib.ui.InputSearchTag} renders an <input type="text">...</input> and also a <button></button> for
- * submission. From a JSF perspective, this creates a multiple-inheritance dilemma. For example, should the component
- * component extend {@link javax.faces.component.UIInput} or {@link javax.faces.component.UICommand}? The solution is to
- * have the component extend {@link javax.faces.component.UIInput}, but to dynamically create an {@link
- * javax.faces.component.html.HtmlCommandButton} child that can participate in the processing of JSF events. This design
- * is essentially a 100% Java equivalent of a JSF composite component.
+ * component has unique requirements in the sense that the corresponding JSP-based
+ * {@link com.liferay.taglib.ui.InputSearchTag} renders an <input type="text">...</input> and also a <button></button>
+ * for submission. From a JSF perspective, this creates a multiple-inheritance dilemma. For example, should the
+ * component component extend {@link javax.faces.component.UIInput} or {@link javax.faces.component.UICommand}? The
+ * solution is to have the component extend {@link javax.faces.component.UIInput}, but to dynamically create an
+ * {@link javax.faces.component.html.HtmlCommandButton} child that can participate in the processing of JSF events. This
+ * design is essentially a 100% Java equivalent of a JSF composite component.
  *
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 //J-
 @FacesRenderer(componentFamily = InputSearch.COMPONENT_FAMILY, rendererType = InputSearch.RENDERER_TYPE)
 //J+
-public class InputSearchRenderer extends DelayedPortalTagRenderer<InputSearch, InputSearchTag>
-	implements PreRenderComponentEventListener {
+public class InputSearchRenderer extends DelayedPortalTagRenderer<InputSearch, InputSearchTag> implements
+	PreRenderComponentEventListener {
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(InputSearchRenderer.class);
@@ -200,8 +200,8 @@ public class InputSearchRenderer extends DelayedPortalTagRenderer<InputSearch, I
 			children.add(htmlInputText);
 
 			// Dynamically create the HtmlCommandButton JSF child and set JSF attributes accordingly.
-			HtmlCommandButton htmlCommandButton = (HtmlCommandButton) application.createComponent(
-					HtmlCommandButton.COMPONENT_TYPE);
+			HtmlCommandButton htmlCommandButton =
+				(HtmlCommandButton) application.createComponent(HtmlCommandButton.COMPONENT_TYPE);
 			children.add(htmlCommandButton);
 
 			MethodExpression action = inputSearch.getAction();
@@ -349,8 +349,8 @@ public class InputSearchRenderer extends DelayedPortalTagRenderer<InputSearch, I
 
 		// Note that if there is an AjaxBehavior, then the rendered HtmlCommandButton can be located in the XML document
 		// via the name attribute. Otherwise it can be located in the XML document via the id attribute.
-		String htmlCommandButtonXPath = "//input[contains(@name,'" + htmlCommandButtonClientId +
-			"') and @type='submit']";
+		String htmlCommandButtonXPath =
+			"//input[contains(@name,'" + htmlCommandButtonClientId + "') and @type='submit']";
 		Element htmlCommandButtonElement = (Element) rootElement.selectSingleNode(htmlCommandButtonXPath);
 
 		if (htmlCommandButtonElement == null) {

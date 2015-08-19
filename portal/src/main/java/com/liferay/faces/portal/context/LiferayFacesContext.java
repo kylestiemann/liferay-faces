@@ -21,7 +21,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class LiferayFacesContext extends FacesContext implements FacesContextHelper, PortletHelper,
 	LiferayPortletHelper {

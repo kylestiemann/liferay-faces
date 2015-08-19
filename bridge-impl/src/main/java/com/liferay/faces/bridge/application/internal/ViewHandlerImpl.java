@@ -22,7 +22,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewHandlerImpl extends ViewHandlerCompatImpl {
 
@@ -83,12 +83,13 @@ public class ViewHandlerImpl extends ViewHandlerCompatImpl {
 
 	/**
 	 * The purpose of this method is to provide a workaround for an incompatibility with the Mojarra implementation of
-	 * JSF. Specifically, the Mojarra {@link com.sun.faces.application.view.MultiViewHandler#getActionURL(FacesContext,
-	 * String)} method does not properly handle viewId values that contain dot characters as part of the query-string.
-	 * For example, if the specified viewId is "/view.xhtml?javax.portlet.faces.PortletMode=edit" then Mojarra will
-	 * think the filename extension is ".PortletMode" instead of ".xhtml". This method works around the problem by
-	 * temporarily substituting all dot characters in the viewId query-string with a token before delegating to the
-	 * Mojarra method. After delegation, the dot characters are replaced.
+	 * JSF. Specifically, the Mojarra
+	 * {@link com.sun.faces.application.view.MultiViewHandler#getActionURL(FacesContext, String)} method does not
+	 * properly handle viewId values that contain dot characters as part of the query-string. For example, if the
+	 * specified viewId is "/view.xhtml?javax.portlet.faces.PortletMode=edit" then Mojarra will think the filename
+	 * extension is ".PortletMode" instead of ".xhtml". This method works around the problem by temporarily substituting
+	 * all dot characters in the viewId query-string with a token before delegating to the Mojarra method. After
+	 * delegation, the dot characters are replaced.
 	 */
 	@Override
 	public String getActionURL(FacesContext facesContext, String viewId) {

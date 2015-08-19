@@ -19,7 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExternalContextBrowserSnifferImpl extends ExternalContextWrapper {
 

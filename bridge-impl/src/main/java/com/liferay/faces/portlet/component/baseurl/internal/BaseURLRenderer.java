@@ -32,7 +32,7 @@ import com.liferay.faces.portlet.component.property.Property;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class BaseURLRenderer extends BaseURLRendererBase {
 
@@ -142,9 +142,8 @@ public abstract class BaseURLRenderer extends BaseURLRendererBase {
 	/**
 	 * Escapes the text so that it is safe to use in an HTML context.
 	 *
-	 * @param   text  the text to escape
-	 *
-	 * @return  the escaped HTML text, or <code>null</code> if the text is <code>null</code>
+	 * @param text the text to escape
+	 * @return the escaped HTML text, or <code>null</code> if the text is <code>null</code>
 	 */
 	private String escapeXML(String text) {
 

@@ -21,7 +21,7 @@ import com.liferay.faces.util.config.ConfiguredManagedBean;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BeanManagerImpl extends BeanManagerCompatImpl {
 

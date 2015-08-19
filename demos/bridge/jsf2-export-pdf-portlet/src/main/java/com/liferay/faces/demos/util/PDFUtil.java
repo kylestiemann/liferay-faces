@@ -23,7 +23,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PDFUtil {
 
@@ -36,8 +36,8 @@ public class PDFUtil {
 		if (htmlFragment != null) {
 			StringBuilder xhtml = new StringBuilder();
 			xhtml.append("<?xml version=\"1.0\" encoding=\"UTF-8\"?>");
-			xhtml.append(
-				"<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
+			xhtml
+				.append("<!DOCTYPE html PUBLIC \"-//W3C//DTD XHTML 1.0 Strict//EN\" \"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd\">");
 			xhtml.append("<html>");
 
 			if ((pdfTitle != null) || (description != null) || (author != null)) {

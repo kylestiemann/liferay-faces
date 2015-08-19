@@ -28,7 +28,7 @@ import com.liferay.faces.bridge.context.BridgePortalContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePortalContextImpl implements BridgePortalContext {
 
@@ -141,12 +141,13 @@ public class BridgePortalContextImpl implements BridgePortalContext {
 			// to the browser. As we support more portlet containers in the future (Pluto, etc.) we can create
 			// implementations that override this.
 			BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
-			ableToSetHttpStatusCode = bridgeContext.getInitParameter(PortletConfigParam.ContainerAbleToSetHttpStatusCode
-					.getName());
+			ableToSetHttpStatusCode =
+				bridgeContext.getInitParameter(PortletConfigParam.ContainerAbleToSetHttpStatusCode.getName());
 
 			if (ableToSetHttpStatusCode == null) {
-				ableToSetHttpStatusCode = bridgeContext.getInitParameter(
-						PortletConfigParam.ContainerAbleToSetHttpStatusCode.getAlternateName());
+				ableToSetHttpStatusCode =
+					bridgeContext.getInitParameter(PortletConfigParam.ContainerAbleToSetHttpStatusCode
+						.getAlternateName());
 			}
 		}
 

@@ -20,7 +20,7 @@ import javax.faces.bean.ManagedBean;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ApplicationScoped
 @ManagedBean(name = "applicationScopeBean")

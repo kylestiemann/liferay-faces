@@ -19,7 +19,7 @@ import javax.faces.event.ActionEvent;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

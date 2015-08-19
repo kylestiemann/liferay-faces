@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.selectmanymenu.SelectManyMenu;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = SelectManyMenu.COMPONENT_FAMILY, rendererType = SelectManyMenu.RENDERER_TYPE)
 public class SelectManyMenuRenderer extends SelectManyMenuRendererBase {

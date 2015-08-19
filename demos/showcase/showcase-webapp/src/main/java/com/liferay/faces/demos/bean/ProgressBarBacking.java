@@ -28,7 +28,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ViewScoped
 @ManagedBean
@@ -53,8 +53,9 @@ public class ProgressBarBacking implements Serializable {
 		logger.debug("progressCompleteListener: phaseId=[{0}]", phaseId.toString());
 
 		String phaseName = phaseId.getName();
-		FacesMessage facesMessage = new FacesMessage("The progressCompleteListener method was called during the " +
-				phaseName + " phase of the JSF lifecycle.");
+		FacesMessage facesMessage =
+			new FacesMessage("The progressCompleteListener method was called during the " + phaseName
+				+ " phase of the JSF lifecycle.");
 		facesContext.addMessage(null, facesMessage);
 	}
 

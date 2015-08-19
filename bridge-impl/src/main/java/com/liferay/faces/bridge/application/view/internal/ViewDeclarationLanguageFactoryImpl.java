@@ -22,7 +22,7 @@ import javax.portlet.faces.Bridge.BridgeRenderPolicy;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewDeclarationLanguageFactoryImpl extends ViewDeclarationLanguageFactory {
 
@@ -86,8 +86,8 @@ public class ViewDeclarationLanguageFactoryImpl extends ViewDeclarationLanguageF
 		ViewDeclarationLanguageFactory wrappedViewDeclarationLanguageFactory = getWrapped();
 
 		if (wrappedViewDeclarationLanguageFactory instanceof ViewDeclarationLanguageFactoryImpl) {
-			ViewDeclarationLanguageFactoryImpl viewDeclarationLanguageFactoryImpl = (ViewDeclarationLanguageFactoryImpl)
-				wrappedViewDeclarationLanguageFactory;
+			ViewDeclarationLanguageFactoryImpl viewDeclarationLanguageFactoryImpl =
+				(ViewDeclarationLanguageFactoryImpl) wrappedViewDeclarationLanguageFactory;
 			wrappedViewDeclarationLanguageFactory = viewDeclarationLanguageFactoryImpl.getWrapped();
 		}
 

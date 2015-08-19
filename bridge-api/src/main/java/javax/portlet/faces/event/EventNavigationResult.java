@@ -14,7 +14,7 @@
 package javax.portlet.faces.event;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class EventNavigationResult {
 

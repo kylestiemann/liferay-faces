@@ -41,7 +41,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * This class serves as a {@link PageContext} adapter for invoking JSP {@link Tag} classes directly (outside of JSP)
  * during the execution of the JSF lifecycle.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PageContextStringImpl extends PageContext {
 

@@ -38,7 +38,7 @@ import com.liferay.faces.util.helper.ShortHelper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortletHelperImpl implements PortletHelper, Serializable {
 
@@ -186,8 +186,8 @@ public class PortletHelperImpl implements PortletHelper, Serializable {
 
 	public Object getSessionSharedAttribute(String name) {
 		Object value = null;
-		PortletSession portletSession = (PortletSession) FacesContext.getCurrentInstance().getExternalContext()
-			.getSession(false);
+		PortletSession portletSession =
+			(PortletSession) FacesContext.getCurrentInstance().getExternalContext().getSession(false);
 
 		if (portletSession != null) {
 			value = portletSession.getAttribute(name, PortletSession.APPLICATION_SCOPE);
@@ -197,8 +197,8 @@ public class PortletHelperImpl implements PortletHelper, Serializable {
 	}
 
 	public void setSessionSharedAttribute(String name, Object value) {
-		PortletSession portletSession = (PortletSession) FacesContext.getCurrentInstance().getExternalContext()
-			.getSession(true);
+		PortletSession portletSession =
+			(PortletSession) FacesContext.getCurrentInstance().getExternalContext().getSession(true);
 
 		if (portletSession != null) {
 			portletSession.setAttribute(name, value, PortletSession.APPLICATION_SCOPE);

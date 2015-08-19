@@ -30,7 +30,7 @@ import com.liferay.faces.bridge.context.IncongruityContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class IncongruityContextBaseImpl extends IncongruityContext {
 

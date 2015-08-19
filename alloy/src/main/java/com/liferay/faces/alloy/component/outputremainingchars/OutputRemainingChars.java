@@ -23,7 +23,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = OutputRemainingChars.COMPONENT_TYPE)
 public class OutputRemainingChars extends OutputRemainingCharsBase {

@@ -20,16 +20,19 @@ import javax.portlet.StateAwareResponse;
 
 
 /**
- * <p>The purpose of this class is to provide support a vendor-specific feature of Liferay Portal that provides the
- * ability to broadcast Portlet 2.0 Events to portlets that exist on a different portal page. For more information,
- * refer to the "portlet.event.distribution" key inside of the Liferay Portal portal.properties file.</p>
+ * <p>
+ * The purpose of this class is to provide support a vendor-specific feature of Liferay Portal that provides the ability
+ * to broadcast Portlet 2.0 Events to portlets that exist on a different portal page. For more information, refer to the
+ * "portlet.event.distribution" key inside of the Liferay Portal portal.properties file.
+ * </p>
+ * <p>
+ * This class provides the ability to wrap a {@link Serializable} event payload that is intended to be sent via
+ * {@link StateAwareResponse#setEvent(String, Serializable)} or
+ * {@link StateAwareResponse#setEvent(javax.xml.namespace.QName, Serializable)}. It also provides the ability for the
+ * recipient of the event to determine whether or not a redirect is taking place.
+ * </p>
  *
- * <p>This class provides the ability to wrap a {@link Serializable} event payload that is intended to be sent via
- * {@link StateAwareResponse#setEvent(String, Serializable)} or {@link
- * StateAwareResponse#setEvent(javax.xml.namespace.QName, Serializable)}. It also provides the ability for the recipient
- * of the event to determine whether or not a redirect is taking place.</p>
- *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class EventPayloadWrapper implements FacesWrapper<Serializable>, Serializable {
 
@@ -43,8 +46,8 @@ public class EventPayloadWrapper implements FacesWrapper<Serializable>, Serializ
 	/**
 	 * Constructs a new {@link EventPayloadWrapper} instance.
 	 *
-	 * @param  payload   The {@link Serializable} payload that is to be wrapped.
-	 * @param  redirect  The flag indicating whether or not a redirect is taking place.
+	 * @param payload The {@link Serializable} payload that is to be wrapped.
+	 * @param redirect The flag indicating whether or not a redirect is taking place.
 	 */
 	public EventPayloadWrapper(Serializable payload, boolean redirect) {
 		this.wrappedPayload = payload;

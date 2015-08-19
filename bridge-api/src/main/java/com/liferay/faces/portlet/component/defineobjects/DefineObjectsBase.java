@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.portlet.component.defineobjects;
+
 //J-
 
 import javax.annotation.Generated;

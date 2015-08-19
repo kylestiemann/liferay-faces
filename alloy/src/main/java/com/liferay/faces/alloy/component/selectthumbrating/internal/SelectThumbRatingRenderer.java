@@ -24,7 +24,7 @@ import com.liferay.faces.alloy.component.selectthumbrating.SelectThumbRating;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(componentFamily = SelectThumbRating.COMPONENT_FAMILY, rendererType = SelectThumbRating.RENDERER_TYPE)

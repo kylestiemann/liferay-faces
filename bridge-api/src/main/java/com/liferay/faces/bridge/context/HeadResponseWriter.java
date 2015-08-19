@@ -20,7 +20,7 @@ import javax.faces.context.ResponseWriterWrapper;
  * This is a marker class that indicates a type of response writer that can write to the <head>...</head> section of a
  * portal page.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class HeadResponseWriter extends ResponseWriterWrapper {
 }

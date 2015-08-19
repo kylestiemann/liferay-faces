@@ -22,7 +22,7 @@ import javax.servlet.http.HttpSessionListener;
 /**
  * This interface defines a contract for managing a cache of {@link BridgeRequestScope} instances.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeRequestScopeManager {
 
@@ -30,7 +30,7 @@ public interface BridgeRequestScopeManager {
 	 * Removes all {@link BridgeRequestScope} instances that are associated with the specified {@link FacesContext}.
 	 * This should be called if the portlet container unloads an portlet individually.
 	 *
-	 * @param  portletConfig  The current {@link PortletConfig}.
+	 * @param portletConfig The current {@link PortletConfig}.
 	 */
 	public void removeBridgeRequestScopesByPortlet(PortletConfig portletConfig);
 
@@ -39,7 +39,7 @@ public interface BridgeRequestScopeManager {
 	 * specified {@link HttpSession}. This method is meant to be called from a {@link HttpSessionListener} when a
 	 * session is invalidated or expires.
 	 *
-	 * @param  httpSession  The current {@link HttpSession}.
+	 * @param httpSession The current {@link HttpSession}.
 	 */
 	void removeBridgeRequestScopesBySession(HttpSession httpSession);
 }

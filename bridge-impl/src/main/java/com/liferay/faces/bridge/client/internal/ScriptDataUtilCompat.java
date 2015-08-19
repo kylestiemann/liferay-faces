@@ -17,7 +17,7 @@ import com.liferay.portal.kernel.servlet.taglib.aui.ScriptData;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ScriptDataUtilCompat {
 

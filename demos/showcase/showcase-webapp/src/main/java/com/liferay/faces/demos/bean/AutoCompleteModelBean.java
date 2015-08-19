@@ -24,7 +24,7 @@ import com.liferay.faces.demos.service.LiferayBenefitService;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @ManagedBean
 @RequestScoped

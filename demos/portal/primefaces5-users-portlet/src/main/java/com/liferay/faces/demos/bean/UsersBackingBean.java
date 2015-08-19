@@ -39,8 +39,8 @@ import com.liferay.portal.service.UserLocalServiceUtil;
  * This class serves as a backing bean for the users.xhtml Facelet view. The bean is kept in request scope since it
  * doesn't maintain any model data.
  *
- * @author  Neil Griffin
- * @author  Kyle Stiemann
+ * @author Neil Griffin
+ * @author Kyle Stiemann
  */
 @ManagedBean(name = "usersBackingBean")
 @RequestScoped
@@ -88,8 +88,8 @@ public class UsersBackingBean {
 			PortletSession portletSession = (PortletSession) externalContext.getSession(false);
 			String uniqueFolderName = portletSession.getId();
 			org.primefaces.model.UploadedFile uploadedFile = fileUploadEvent.getFile();
-			UploadedFileWrapper uploadedFileWrapper = new UploadedFileWrapper(uploadedFile,
-					UploadedFile.Status.FILE_SAVED, uniqueFolderName);
+			UploadedFileWrapper uploadedFileWrapper =
+				new UploadedFileWrapper(uploadedFile, UploadedFile.Status.FILE_SAVED, uniqueFolderName);
 			usersModelBean.setUploadedFile(uploadedFileWrapper);
 			logger.debug("Received fileName=[{0}] absolutePath=[{1}]", uploadedFileWrapper.getName(),
 				uploadedFileWrapper.getAbsolutePath());

@@ -24,7 +24,7 @@ import com.liferay.faces.demos.service.BookingTypeService;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ApplicationScoped
 @ManagedBean(name = "listModelBean")

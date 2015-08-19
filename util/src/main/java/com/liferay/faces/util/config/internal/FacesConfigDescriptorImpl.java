@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesConfigDescriptorImpl implements FacesConfigDescriptor, Serializable {
 
@@ -40,8 +40,8 @@ public class FacesConfigDescriptorImpl implements FacesConfigDescriptor, Seriali
 		this.absoluteOrdering = facesConfigDescriptor.getAbsoluteOrdering();
 		this.ordering = facesConfigDescriptor.getOrdering();
 
-//      String[][] routes = ordering.getRoutes();
-//      System.err.println("FacesConfigDescriptorImpl: name = " + name + " routes[1][1] = " + routes[1][1]);
+		// String[][] routes = ordering.getRoutes();
+		// System.err.println("FacesConfigDescriptorImpl: name = " + name + " routes[1][1] = " + routes[1][1]);
 		this.url = facesConfigDescriptor.getURL();
 	}
 

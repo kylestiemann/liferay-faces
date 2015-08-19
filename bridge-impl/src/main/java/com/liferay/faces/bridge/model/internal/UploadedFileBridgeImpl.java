@@ -23,7 +23,7 @@ import com.liferay.faces.bridge.model.UploadedFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class UploadedFileBridgeImpl implements Serializable, UploadedFile {
 

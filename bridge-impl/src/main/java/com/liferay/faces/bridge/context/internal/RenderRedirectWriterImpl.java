@@ -20,12 +20,12 @@ import java.util.List;
 
 
 /**
- * This class supports the render-redirect feature by queuing up a list of all write operations. Calling the {@link
- * #render()} method causes the queued operations to be invoked. Conversely, not calling the method will prevent the
- * queued operations from being invoked. This is necessary because in the case of a render-redirect, any markup written
- * to the response in the initially rendered view must be discarded.
+ * This class supports the render-redirect feature by queuing up a list of all write operations. Calling the
+ * {@link #render()} method causes the queued operations to be invoked. Conversely, not calling the method will prevent
+ * the queued operations from being invoked. This is necessary because in the case of a render-redirect, any markup
+ * written to the response in the initially rendered view must be discarded.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderRedirectWriterImpl extends RenderRedirectWriter {
 
@@ -103,6 +103,7 @@ public class RenderRedirectWriterImpl extends RenderRedirectWriter {
 	}
 
 	protected interface OutputOperation {
+
 		void invoke() throws IOException;
 	}
 
@@ -137,12 +138,14 @@ public class RenderRedirectWriterImpl extends RenderRedirectWriter {
 	}
 
 	protected class CloseOperation implements OutputOperation {
+
 		public void invoke() throws IOException {
 			wrappedWriter.close();
 		}
 	}
 
 	protected class FlushOperation implements OutputOperation {
+
 		public void invoke() throws IOException {
 			wrappedWriter.flush();
 		}

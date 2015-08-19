@@ -19,7 +19,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeConfigAttributeMap extends HashMap<String, Object> {
 

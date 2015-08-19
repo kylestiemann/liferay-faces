@@ -19,7 +19,7 @@ import java.util.Map;
 /**
  * This interface defines a {@link java.util.Map} style interface for managing cache of {@link BridgeRequestScope}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeRequestScopeCache extends Map<String, BridgeRequestScope> {
 

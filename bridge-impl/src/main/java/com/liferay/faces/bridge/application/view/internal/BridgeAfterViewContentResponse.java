@@ -23,12 +23,12 @@ import com.liferay.faces.bridge.filter.internal.HttpServletResponseAdapter;
 
 
 /**
- * This class provides the ability to trick the JSF implementation into thinking that the current {@link
- * PortletResponse} is actually an {@link HttpServletResponse}. It serves as a marker class that simply extends {@link
- * HttpServletResponseAdapter}. It's only purpose is to make the code in {@link ExternalContextImpl} easier to follow by
- * providing a meaningful (self documenting) name.
+ * This class provides the ability to trick the JSF implementation into thinking that the current
+ * {@link PortletResponse} is actually an {@link HttpServletResponse}. It serves as a marker class that simply extends
+ * {@link HttpServletResponseAdapter}. It's only purpose is to make the code in {@link ExternalContextImpl} easier to
+ * follow by providing a meaningful (self documenting) name.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeAfterViewContentResponse extends HttpServletResponseAdapter {
 

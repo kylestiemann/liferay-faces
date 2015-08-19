@@ -19,7 +19,7 @@ import com.liferay.faces.util.component.ComponentUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = Messages.COMPONENT_TYPE)
 public class Messages extends MessagesBase {

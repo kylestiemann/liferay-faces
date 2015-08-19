@@ -17,7 +17,7 @@ import java.io.ByteArrayOutputStream;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class DelayedResponseOutputStream extends ByteArrayOutputStream {
 

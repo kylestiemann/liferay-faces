@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PreferenceValueIterator implements Iterator<String> {
 

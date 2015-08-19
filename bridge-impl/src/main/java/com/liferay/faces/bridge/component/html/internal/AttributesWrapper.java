@@ -21,7 +21,7 @@ import javax.faces.FacesWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class AttributesWrapper implements Map<String, Object>, FacesWrapper<Map<String, Object>> {
 

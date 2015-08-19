@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.render.internal.DelegatingAlloyRendererBase;
 /**
  * This class isolates differences between JSF 2.2 and JSF 2.1 in order to minimize diffs across branches.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class InputFileRendererCompat extends DelegatingAlloyRendererBase {
 

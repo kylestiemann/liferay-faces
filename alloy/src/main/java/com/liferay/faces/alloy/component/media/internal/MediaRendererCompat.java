@@ -26,7 +26,7 @@ import com.liferay.faces.alloy.component.media.Media;
 /**
  * This class provides a compatibility layer that isolates differences between 2.2 and earlier.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MediaRendererCompat extends MediaRendererBase {
 

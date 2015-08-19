@@ -19,9 +19,10 @@ import javax.portlet.ReadOnlyException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface Preference {
+
 	public void reset() throws ReadOnlyException;
 
 	public String getName();

@@ -28,7 +28,7 @@ import com.liferay.faces.portal.context.LiferayFacesContext;
  * This class represents a Liferay Portal CSS/JavaScript resource and is designed to be used in conjunction with the
  * {@link LiferayPortalResourceHandler}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayPortalResource extends Resource {
 

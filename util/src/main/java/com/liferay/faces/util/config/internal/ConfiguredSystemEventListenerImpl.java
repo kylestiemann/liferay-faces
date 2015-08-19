@@ -17,7 +17,7 @@ import com.liferay.faces.util.config.ConfiguredSystemEventListener;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ConfiguredSystemEventListenerImpl implements ConfiguredSystemEventListener {
 

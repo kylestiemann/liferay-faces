@@ -33,7 +33,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = Head.COMPONENT_FAMILY, rendererType = Head.RENDERER_TYPE)
@@ -50,8 +50,8 @@ import com.liferay.faces.util.product.ProductMap;
 public class HeadRenderer extends HeadRendererBase {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
 	@Override
 	public void encodeChildren(FacesContext facesContext, UIComponent uiComponent) throws IOException {
@@ -60,8 +60,8 @@ public class HeadRenderer extends HeadRendererBase {
 		// element, then encode a meta tag as a child of the head that will cause bootstrap to behave responsively.
 		if (!LIFERAY_PORTAL_DETECTED) {
 
-			ComponentResourceFactory componentResourceFactory = (ComponentResourceFactory) FactoryExtensionFinder
-				.getFactory(ComponentResourceFactory.class);
+			ComponentResourceFactory componentResourceFactory =
+				(ComponentResourceFactory) FactoryExtensionFinder.getFactory(ComponentResourceFactory.class);
 			UIViewRoot uiViewRoot = facesContext.getViewRoot();
 			List<UIComponent> componentResources = uiViewRoot.getComponentResources(facesContext, "head");
 
@@ -71,8 +71,8 @@ public class HeadRenderer extends HeadRendererBase {
 				String library = componentResource.getLibrary();
 				String name = componentResource.getName();
 
-				if ("liferay-faces-reslib".equals(library) &&
-						"build/aui-css/css/bootstrap-responsive.min.css".equals(name)) {
+				if ("liferay-faces-reslib".equals(library)
+					&& "build/aui-css/css/bootstrap-responsive.min.css".equals(name)) {
 
 					ResponseWriter responseWriter = facesContext.getResponseWriter();
 					responseWriter.startElement("meta", null);

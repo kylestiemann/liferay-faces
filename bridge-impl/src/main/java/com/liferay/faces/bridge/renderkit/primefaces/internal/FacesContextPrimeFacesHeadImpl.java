@@ -19,7 +19,7 @@ import javax.faces.context.FacesContextWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextPrimeFacesHeadImpl extends FacesContextWrapper {
 

@@ -25,7 +25,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped
@@ -42,8 +42,9 @@ public class InputSearchBacking {
 		logger.debug("searchActionListener: phaseId=[{0}]", phaseId.toString());
 
 		String phaseName = phaseId.getName();
-		FacesMessage facesMessage = new FacesMessage("The searchActionListener method was called during the " +
-				phaseName + " phase of the JSF lifecycle.");
+		FacesMessage facesMessage =
+			new FacesMessage("The searchActionListener method was called during the " + phaseName
+				+ " phase of the JSF lifecycle.");
 		facesContext.addMessage(null, facesMessage);
 	}
 

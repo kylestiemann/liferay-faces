@@ -35,10 +35,10 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * in the chain-of-responsibility (only the Mojarra/MyFaces ResourceHandlerImpl has a more inner status). In order to
  * achive this innermost status, it is registered in the application section of the bridge's faces-config.xml
  * descriptor. It is responsible for wrapping resources created by Mojarra/MyFaces so that resource URLs will work in a
- * portlet environment. It is also responsible for serving up resources via the {@link
- * #handleResourceRequest(FacesContext)} method.
+ * portlet environment. It is also responsible for serving up resources via the
+ * {@link #handleResourceRequest(FacesContext)} method.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceHandlerInnerImpl extends ResourceHandlerBridgeImpl {
 
@@ -72,8 +72,8 @@ public class ResourceHandlerInnerImpl extends ResourceHandlerBridgeImpl {
 
 		String resourceId = libraryName + "/" + resourceName;
 
-		ResourceValidatorFactory resourceValidatorFactory = (ResourceValidatorFactory) BridgeFactoryFinder.getFactory(
-				ResourceValidatorFactory.class);
+		ResourceValidatorFactory resourceValidatorFactory =
+			(ResourceValidatorFactory) BridgeFactoryFinder.getFactory(ResourceValidatorFactory.class);
 		ResourceValidator resourceValidator = resourceValidatorFactory.getResourceValidator();
 
 		// If the resource name or library name contains a banned path like WEB-INF or META-INF, then do not serve

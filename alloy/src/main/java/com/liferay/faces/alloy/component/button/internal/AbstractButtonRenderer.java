@@ -35,7 +35,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 
@@ -50,8 +50,8 @@ public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 	private static final String RETURN_FALSE = "return false;";
 
 	// Package-private Constants
-	/* package-private */ static final String ONFOCUS = "onfocus";
-	/* package-private */ static final String ONBLUR = "onblur";
+	/* package-private */static final String ONFOCUS = "onfocus";
+	/* package-private */static final String ONBLUR = "onblur";
 
 	@Override
 	public void decode(FacesContext facesContext, UIComponent uiComponent) {
@@ -59,8 +59,8 @@ public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 		if (hasMenu(uiComponent)) {
 			UIComponent nodeMenuNav = NodeMenuNavFactory.getNodeMenuNav(uiComponent);
 			RenderKit renderKit = facesContext.getRenderKit();
-			Renderer nodeMenuNavRenderer = renderKit.getRenderer(nodeMenuNav.getFamily(),
-					nodeMenuNav.getRendererType());
+			Renderer nodeMenuNavRenderer =
+				renderKit.getRenderer(nodeMenuNav.getFamily(), nodeMenuNav.getRendererType());
 			nodeMenuNavRenderer.decode(facesContext, nodeMenuNav);
 		}
 		else {
@@ -74,8 +74,8 @@ public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 		if (hasMenu(uiComponent)) {
 			UIComponent nodeMenuNav = NodeMenuNavFactory.getNodeMenuNav(uiComponent);
 			RenderKit renderKit = facesContext.getRenderKit();
-			Renderer nodeMenuNavRenderer = renderKit.getRenderer(nodeMenuNav.getFamily(),
-					nodeMenuNav.getRendererType());
+			Renderer nodeMenuNavRenderer =
+				renderKit.getRenderer(nodeMenuNav.getFamily(), nodeMenuNav.getRendererType());
 			nodeMenuNavRenderer.encodeBegin(facesContext, nodeMenuNav);
 		}
 		else {
@@ -187,8 +187,8 @@ public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 		if (hasMenu(uiComponent)) {
 			UIComponent nodeMenuNav = NodeMenuNavFactory.getNodeMenuNav(uiComponent);
 			RenderKit renderKit = facesContext.getRenderKit();
-			Renderer nodeMenuNavRenderer = renderKit.getRenderer(nodeMenuNav.getFamily(),
-					nodeMenuNav.getRendererType());
+			Renderer nodeMenuNavRenderer =
+				renderKit.getRenderer(nodeMenuNav.getFamily(), nodeMenuNav.getRendererType());
 			nodeMenuNavRenderer.encodeChildren(facesContext, nodeMenuNav);
 		}
 		else {
@@ -232,8 +232,8 @@ public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 		if (hasMenu(uiComponent)) {
 			UIComponent nodeMenuNav = NodeMenuNavFactory.getNodeMenuNav(uiComponent);
 			RenderKit renderKit = facesContext.getRenderKit();
-			Renderer nodeMenuNavRenderer = renderKit.getRenderer(nodeMenuNav.getFamily(),
-					nodeMenuNav.getRendererType());
+			Renderer nodeMenuNavRenderer =
+				renderKit.getRenderer(nodeMenuNav.getFamily(), nodeMenuNav.getRendererType());
 			nodeMenuNavRenderer.encodeEnd(facesContext, nodeMenuNav);
 		}
 		else {
@@ -266,8 +266,8 @@ public abstract class AbstractButtonRenderer extends ButtonRendererBase {
 		if (hasMenu(uiComponent)) {
 			UIComponent nodeMenuNav = NodeMenuNavFactory.getNodeMenuNav(uiComponent);
 			RenderKit renderKit = facesContext.getRenderKit();
-			Renderer nodeMenuNavRenderer = renderKit.getRenderer(nodeMenuNav.getFamily(),
-					nodeMenuNav.getRendererType());
+			Renderer nodeMenuNavRenderer =
+				renderKit.getRenderer(nodeMenuNav.getFamily(), nodeMenuNav.getRendererType());
 
 			return nodeMenuNavRenderer.getConvertedValue(facesContext, nodeMenuNav, submittedValue);
 		}

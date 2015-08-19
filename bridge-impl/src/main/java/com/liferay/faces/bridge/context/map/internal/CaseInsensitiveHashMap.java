@@ -17,7 +17,7 @@ import java.util.HashMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CaseInsensitiveHashMap<V> extends HashMap<String, V> {
 

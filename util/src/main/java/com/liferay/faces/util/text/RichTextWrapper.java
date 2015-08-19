@@ -17,7 +17,7 @@ import javax.faces.FacesWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class RichTextWrapper implements RichText, FacesWrapper<RichText> {
 

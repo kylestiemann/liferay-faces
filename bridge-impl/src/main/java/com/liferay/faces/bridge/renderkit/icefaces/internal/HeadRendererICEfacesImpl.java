@@ -28,7 +28,7 @@ import com.liferay.faces.bridge.renderkit.html_basic.internal.HeadRendererBridge
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadRendererICEfacesImpl extends HeadRendererBridgeImpl {
 
@@ -55,8 +55,8 @@ public class HeadRendererICEfacesImpl extends HeadRendererBridgeImpl {
 		if (iceFacesThemeName != null) {
 			ELContext elContext = facesContext.getELContext();
 			ExpressionFactory expressionFactory = facesContext.getApplication().getExpressionFactory();
-			ValueExpression valueExpression = expressionFactory.createValueExpression(elContext, iceFacesThemeName,
-					String.class);
+			ValueExpression valueExpression =
+				expressionFactory.createValueExpression(elContext, iceFacesThemeName, String.class);
 			iceFacesThemeName = (String) valueExpression.getValue(elContext);
 
 		}
@@ -73,8 +73,7 @@ public class HeadRendererICEfacesImpl extends HeadRendererBridgeImpl {
 			String resourceName = ICEFACES_THEME_RESOURCE_NAME;
 			String resourceLibrary = ICEFACES_THEME_PREFIX + iceFacesThemeName;
 
-			if (iceFacesThemeName.equals(ICEFACES_THEME_NAME_SAM) ||
-					iceFacesThemeName.equals(ICEFACES_THEME_NAME_RIME)) {
+			if (iceFacesThemeName.equals(ICEFACES_THEME_NAME_SAM) || iceFacesThemeName.equals(ICEFACES_THEME_NAME_RIME)) {
 				StringBuilder buf = new StringBuilder();
 				buf.append(ICEFACES_THEME_DIR);
 				buf.append("/");
@@ -85,8 +84,8 @@ public class HeadRendererICEfacesImpl extends HeadRendererBridgeImpl {
 				resourceLibrary = ICEFACES_LIBRARY_NAME_ACE;
 			}
 
-			ResourceComponent iceFacesStyleSheet = new ResourceComponent(facesContext, resourceName, resourceLibrary,
-					"head");
+			ResourceComponent iceFacesStyleSheet =
+				new ResourceComponent(facesContext, resourceName, resourceLibrary, "head");
 			resources.add(iceFacesStyleSheet);
 		}
 

@@ -33,7 +33,7 @@ import com.liferay.faces.util.model.UploadedFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = InputFile.COMPONENT_TYPE)
 public class InputFile extends InputFileBase {
@@ -70,8 +70,8 @@ public class InputFile extends InputFileBase {
 		if ((maxFileSize != null) || (contentTypeSet != null)) {
 
 			Locale locale = facesContext.getViewRoot().getLocale();
-			MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-					MessageContextFactory.class);
+			MessageContextFactory messageContextFactory =
+				(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 			MessageContext messageContext = messageContextFactory.getMessageContext();
 			String clientId = getClientId(facesContext);
 			@SuppressWarnings("unchecked")
@@ -81,9 +81,9 @@ public class InputFile extends InputFileBase {
 
 				if ((maxFileSize != null) && (maxFileSize >= 0) && (uploadedFile.getSize() > maxFileSize)) {
 
-					String errorMessage = messageContext.getMessage(locale,
-							"file-x-is-y-bytes-but-may-not-exceed-z-bytes", uploadedFile.getName(),
-							uploadedFile.getSize(), maxFileSize);
+					String errorMessage =
+						messageContext.getMessage(locale, "file-x-is-y-bytes-but-may-not-exceed-z-bytes",
+							uploadedFile.getName(), uploadedFile.getSize(), maxFileSize);
 					handleInvalidFile(facesContext, clientId, uploadedFile, errorMessage);
 				}
 
@@ -91,7 +91,8 @@ public class InputFile extends InputFileBase {
 
 				if ((contentType == null) || ((contentTypeSet != null) && !contentTypeSet.contains(contentType))) {
 
-					String errorMessage = messageContext.getMessage(locale, "file-x-has-an-invalid-content-type-y",
+					String errorMessage =
+						messageContext.getMessage(locale, "file-x-has-an-invalid-content-type-y",
 							uploadedFile.getName(), contentType);
 					handleInvalidFile(facesContext, clientId, uploadedFile, errorMessage);
 				}

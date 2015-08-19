@@ -21,7 +21,7 @@ import javax.faces.bean.ViewScoped;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @ManagedBean
 @ViewScoped

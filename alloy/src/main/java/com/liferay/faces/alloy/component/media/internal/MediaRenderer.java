@@ -38,7 +38,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class MediaRenderer extends MediaRendererCompat {
 
@@ -51,12 +51,10 @@ public abstract class MediaRenderer extends MediaRendererCompat {
 	private static final String RES_NOT_FOUND_ERROR_MSG =
 		"Resource handler=[{0}] was unable to create a resource for resourceName=[{1}] libraryName=[{2}]";
 	private static final String RES_NOT_FOUND = "RES_NOT_FOUND";
-	private static final String[] MEDIA_DOM_EVENTS = {
-			"onabort", "onblur", "oncanplay", "oncanplaythrough", "ondurationchange", "onemptied", "onended", "onerror",
-			"onfocus", "onloadeddata", "onloadedmetadata", "onloadstart", "onpause", "onplay", "onplaying",
-			"onprogress", "onratechange", "onseeked", "onseeking", "onstalled", "onsuspend", "ontimeupdate",
-			"onvolumechange", "onwaiting"
-		};
+	private static final String[] MEDIA_DOM_EVENTS = { "onabort", "onblur", "oncanplay", "oncanplaythrough",
+		"ondurationchange", "onemptied", "onended", "onerror", "onfocus", "onloadeddata", "onloadedmetadata",
+		"onloadstart", "onpause", "onplay", "onplaying", "onprogress", "onratechange", "onseeked", "onseeking",
+		"onstalled", "onsuspend", "ontimeupdate", "onvolumechange", "onwaiting" };
 
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
@@ -233,8 +231,8 @@ public abstract class MediaRenderer extends MediaRendererCompat {
 				else {
 
 					String valueAsString = value.toString();
-					firstMediaResourceURL = getEncodedResourceURL(facesContext, resourceHandler, application,
-							valueAsString);
+					firstMediaResourceURL =
+						getEncodedResourceURL(facesContext, resourceHandler, application, valueAsString);
 				}
 
 				encodeMediaSource(responseWriter, firstMediaResourceURL, contentType);
@@ -311,8 +309,8 @@ public abstract class MediaRenderer extends MediaRendererCompat {
 	protected void encodeFlashPlayer(FacesContext facesContext, ResponseWriter responseWriter, Media media,
 		String mediaResourceURL) throws IOException {
 
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		boolean browserIE = browserSniffer.isIe();
 		responseWriter.startElement("object", null);
@@ -331,8 +329,8 @@ public abstract class MediaRenderer extends MediaRendererCompat {
 		// Otherwise, get the default Alloy Flash player.
 		else {
 
-			Resource defaultFlashPlayerResource = resourceHandler.createResource(getDefaultFlashPlayerName(),
-					"liferay-faces-alloy");
+			Resource defaultFlashPlayerResource =
+				resourceHandler.createResource(getDefaultFlashPlayerName(), "liferay-faces-alloy");
 			String defaultFlashPlayerRequestPath = defaultFlashPlayerResource.getRequestPath();
 			ExternalContext externalContext = facesContext.getExternalContext();
 			flashPlayerURL = externalContext.encodeResourceURL(defaultFlashPlayerRequestPath);
@@ -343,8 +341,9 @@ public abstract class MediaRenderer extends MediaRendererCompat {
 			responseWriter.writeAttribute("classid", "clsid:d27cdb6e-ae6d-11cf-96b8-444553540000", null);
 
 			String flashPlayerVersion = media.getFlashPlayerVersion();
-			String codebaseURL = "http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=".concat(
-					flashPlayerVersion);
+			String codebaseURL =
+				"http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version="
+					.concat(flashPlayerVersion);
 			responseWriter.writeAttribute("codebase", codebaseURL, null);
 
 			responseWriter.startElement("param", null);

@@ -33,10 +33,10 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * This class provides an {@link HttpServletResponse} adapter/wrapper around the current {@link PortletResponse}.
  * Typical usage is to hack-around Servlet-API dependencies in JSF implementations.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
-public class HttpServletResponseAdapter extends HttpServletResponse_3_0_Adapter
-	implements FacesWrapper<PortletResponse> {
+public class HttpServletResponseAdapter extends HttpServletResponse_3_0_Adapter implements
+	FacesWrapper<PortletResponse> {
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(HttpServletResponseAdapter.class);

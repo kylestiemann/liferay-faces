@@ -25,7 +25,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExternalContextFactoryImpl extends ExternalContextFactory {
 
@@ -49,8 +49,8 @@ public class ExternalContextFactoryImpl extends ExternalContextFactory {
 		// initialization.
 		if (context instanceof PortletContext) {
 
-			ExternalContext externalContext = new ExternalContextImpl((PortletContext) context,
-					(PortletRequest) request, (PortletResponse) response);
+			ExternalContext externalContext =
+				new ExternalContextImpl((PortletContext) context, (PortletRequest) request, (PortletResponse) response);
 			String resourceName = externalContext.getRequestParameterMap().get("javax.faces.resource");
 
 			// Workaround for FACES-2133

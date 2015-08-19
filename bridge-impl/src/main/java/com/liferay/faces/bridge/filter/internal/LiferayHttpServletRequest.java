@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletRequestWrapper;
  * Liferay received that initiated the rendering of the current portlet.
  */
 public class LiferayHttpServletRequest extends HttpServletRequestWrapper {
+
 	private HttpServletRequest wrappedHttpServletRequest;
 
 	public LiferayHttpServletRequest(HttpServletRequest httpServletRequest) {

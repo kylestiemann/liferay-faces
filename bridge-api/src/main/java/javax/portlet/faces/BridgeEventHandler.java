@@ -19,7 +19,7 @@ import javax.portlet.faces.event.EventNavigationResult;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeEventHandler {
 

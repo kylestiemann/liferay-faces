@@ -21,7 +21,7 @@ import com.liferay.faces.bridge.context.BridgePortalContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderRequestBridgeLiferayImpl extends RenderRequestBridgeImpl {
 

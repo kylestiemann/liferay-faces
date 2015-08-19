@@ -30,11 +30,11 @@ import javax.faces.view.facelets.FaceletContext;
 
 /**
  * This class provides alloy:tab with the ability to implicitly wrap the tab's children inside of a {@link UIPanel}
- * facet. This is necessary because {@link UIData#visitTree(javax.faces.component.visit.VisitContext,
- * javax.faces.component.visit.VisitCallback)} will visit facets but not children when it is not iterating over data
- * (i.e. when the value and var attributes are unused).
+ * facet. This is necessary because
+ * {@link UIData#visitTree(javax.faces.component.visit.VisitContext, javax.faces.component.visit.VisitCallback)} will
+ * visit facets but not children when it is not iterating over data (i.e. when the value and var attributes are unused).
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class TabHandler extends ComponentHandler {
 

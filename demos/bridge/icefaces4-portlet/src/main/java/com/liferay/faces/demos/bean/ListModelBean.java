@@ -26,7 +26,7 @@ import com.liferay.faces.demos.dto.Province;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "listModelBean")
 @SessionScoped
@@ -39,7 +39,8 @@ public class ListModelBean implements Serializable {
 	private List<City> cities;
 	private List<SelectItem> filteredCities;
 	private List<Province> provinces;
-// private List<SelectItem> provinceSelectItems;
+
+	// private List<SelectItem> provinceSelectItems;
 
 	public void filterSelectItems(String cityNameStartsWith) {
 		filteredCities = new ArrayList<SelectItem>();
@@ -145,17 +146,17 @@ public class ListModelBean implements Serializable {
 	 * The getProvinceSelectItems() method is only necessary when using ice:selectOneMenu which is currently commented
 	 * out in the applicant.xhtml composition via ui:remove
 	 */
-// public List<SelectItem> getProvinceSelectItems() {
-//
-// if (provinceSelectItems == null) {
-// provinceSelectItems = new ArrayList<SelectItem>();
-// for (Province province: getProvinces()) {
-// SelectItem selectItem = new SelectItem(province.getProvinceId(), province.getProvinceName());
-// provinceSelectItems.add(selectItem);
-// }
-// }
-// return provinceSelectItems;
-// }
+	// public List<SelectItem> getProvinceSelectItems() {
+	//
+	// if (provinceSelectItems == null) {
+	// provinceSelectItems = new ArrayList<SelectItem>();
+	// for (Province province: getProvinces()) {
+	// SelectItem selectItem = new SelectItem(province.getProvinceId(), province.getProvinceName());
+	// provinceSelectItems.add(selectItem);
+	// }
+	// }
+	// return provinceSelectItems;
+	// }
 	public List<Province> getProvinces() {
 
 		if (provinces == null) {

@@ -24,7 +24,7 @@ import javax.faces.convert.DateTimeConverter;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped

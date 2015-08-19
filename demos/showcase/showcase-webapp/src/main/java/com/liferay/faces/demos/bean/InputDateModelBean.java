@@ -25,7 +25,7 @@ import javax.faces.bean.RequestScoped;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @ManagedBean
 @RequestScoped

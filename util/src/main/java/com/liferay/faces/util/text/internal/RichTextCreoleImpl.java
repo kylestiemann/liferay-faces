@@ -14,7 +14,7 @@
 package com.liferay.faces.util.text.internal;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RichTextCreoleImpl extends RichTextBaseImpl {
 

@@ -32,7 +32,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(componentFamily = DataList.COMPONENT_FAMILY, rendererType = DataList.RENDERER_TYPE)

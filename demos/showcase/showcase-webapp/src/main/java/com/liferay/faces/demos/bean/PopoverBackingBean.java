@@ -22,7 +22,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped

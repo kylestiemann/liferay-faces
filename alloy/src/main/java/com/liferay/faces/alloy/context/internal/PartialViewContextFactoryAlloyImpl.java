@@ -22,15 +22,15 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PartialViewContextFactoryAlloyImpl extends PartialViewContextFactory {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
-	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance().get(
-			ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
+	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
 
 	// Private Data Members
 	private PartialViewContextFactory wrappedPartialViewContextFactory;

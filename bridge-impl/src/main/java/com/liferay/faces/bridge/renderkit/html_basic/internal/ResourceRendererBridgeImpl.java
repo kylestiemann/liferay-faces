@@ -43,7 +43,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * the bridge to keep track of which resources are being added to the &lt;head&gt;...&lt;/head&gt; section of the portal
  * page.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ListenerFor(systemEventClass = PostAddToViewEvent.class)
 public class ResourceRendererBridgeImpl extends RendererWrapper implements ComponentSystemEventListener, StateHolder {
@@ -58,10 +58,10 @@ public class ResourceRendererBridgeImpl extends RendererWrapper implements Compo
 	/**
 	 * This zero-arg constructor is required by the {@link javax.faces.component.StateHolderSaver} class during the
 	 * RESTORE_VIEW phase of the JSF lifecycle. The reason why this class is involved in restoring state is because the
-	 * {@link javax.faces.component.UIComponent.ComponentSystemEventListenerAdapter} implements {@link
-	 * javax.faces.component.StateHolder} and will attempt to restore the state of any class in the restored view that
-	 * implements {@link ComponentSystemEventListener}. It does this first by instantiating the class with a zero-arg
-	 * constructor, and then calls the {@link #restoreState(FacesContext, Object)} method.
+	 * {@link javax.faces.component.UIComponent.ComponentSystemEventListenerAdapter} implements
+	 * {@link javax.faces.component.StateHolder} and will attempt to restore the state of any class in the restored view
+	 * that implements {@link ComponentSystemEventListener}. It does this first by instantiating the class with a
+	 * zero-arg constructor, and then calls the {@link #restoreState(FacesContext, Object)} method.
 	 */
 	public ResourceRendererBridgeImpl() {
 		// Defer initialization of wrappedRenderer until restoreState(FacesContext, Object) is called.
@@ -74,8 +74,8 @@ public class ResourceRendererBridgeImpl extends RendererWrapper implements Compo
 	@Override
 	public void encodeEnd(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		ComponentResourceFactory componentResourceFactory = (ComponentResourceFactory) FactoryExtensionFinder
-			.getFactory(ComponentResourceFactory.class);
+		ComponentResourceFactory componentResourceFactory =
+			(ComponentResourceFactory) FactoryExtensionFinder.getFactory(ComponentResourceFactory.class);
 		ComponentResource componentResource = componentResourceFactory.getComponentResource(uiComponent);
 		String resourceId = componentResource.getId();
 
@@ -133,10 +133,10 @@ public class ResourceRendererBridgeImpl extends RendererWrapper implements Compo
 	}
 
 	/**
-	 * Since the Mojarra {@link com.sun.faces.renderkit.html_basic.ScriptStyleBaseRenderer} class implements {@link
-	 * ComponentSystemEventListener}, this class must implement that interface too, since this is a wrapper type of
-	 * class. Mojarra uses this method to intercept {@link PostAddToViewEvent} in order to add script and link resources
-	 * to the head (if the target attribute has a value of "head").
+	 * Since the Mojarra {@link com.sun.faces.renderkit.html_basic.ScriptStyleBaseRenderer} class implements
+	 * {@link ComponentSystemEventListener}, this class must implement that interface too, since this is a wrapper type
+	 * of class. Mojarra uses this method to intercept {@link PostAddToViewEvent} in order to add script and link
+	 * resources to the head (if the target attribute has a value of "head").
 	 */
 	public void processEvent(ComponentSystemEvent event) throws AbortProcessingException {
 

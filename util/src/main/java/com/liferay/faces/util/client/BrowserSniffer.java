@@ -16,7 +16,7 @@ package com.liferay.faces.util.client;
 /**
  * See http://www.zytrax.com/tech/web/browser_ids.htm for examples.
  *
- * @author  Brian Wing Shun Chan
+ * @author Brian Wing Shun Chan
  */
 public interface BrowserSniffer {
 

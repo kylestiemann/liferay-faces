@@ -30,7 +30,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = InputDate.COMPONENT_TYPE)
 public class InputDate extends InputDateBase {
@@ -94,8 +94,8 @@ public class InputDate extends InputDateBase {
 
 		// Note: The following usage of SimpleDateFormat is thread-safe, since only the result of the toPattern()
 		// method is utilized.
-		SimpleDateFormat simpleDateFormat = (SimpleDateFormat) SimpleDateFormat.getDateInstance(DateFormat.MEDIUM,
-				locale);
+		SimpleDateFormat simpleDateFormat =
+			(SimpleDateFormat) SimpleDateFormat.getDateInstance(DateFormat.MEDIUM, locale);
 
 		return simpleDateFormat.toPattern();
 	}
@@ -105,8 +105,8 @@ public class InputDate extends InputDateBase {
 
 		String datePattern;
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 
 		if (browserSniffer.isMobile() && isNativeWhenMobile()) {

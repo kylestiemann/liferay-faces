@@ -27,7 +27,7 @@ import javax.servlet.jsp.tagext.BodyContent;
  * operate with Strings rather than JSPs. This provides the ability to run the lifecycle of a JSP tag so that the JSP
  * tag markup is captured in a String rather than written as output from a JSP.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class JspAdapterFactory implements FacesWrapper<JspAdapterFactory> {
 

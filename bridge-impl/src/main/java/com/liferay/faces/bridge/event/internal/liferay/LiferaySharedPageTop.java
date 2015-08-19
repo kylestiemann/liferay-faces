@@ -37,7 +37,7 @@ import com.liferay.portal.kernel.util.WebKeys;
  * attribute and remove duplicate CSS and/or JavaScript resources that are meant to be rendered in the <head>...</head>
  * section of the Liferay Portal page.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferaySharedPageTop {
 
@@ -194,8 +194,7 @@ public class LiferaySharedPageTop {
 		}
 
 		@Override
-		public void startElement(String uri, String localName, String qName, Attributes attributes)
-			throws SAXException {
+		public void startElement(String uri, String localName, String qName, Attributes attributes) throws SAXException {
 
 			if (!WebKeys.PAGE_TOP.equals(qName)) {
 				headResource = new HeadResource(qName, attributes);

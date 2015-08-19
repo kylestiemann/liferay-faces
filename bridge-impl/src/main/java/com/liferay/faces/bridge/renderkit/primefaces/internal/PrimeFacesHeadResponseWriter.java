@@ -27,7 +27,7 @@ import javax.faces.context.ResponseWriter;
  * This class is part of a workaround for FACES-2061 and is responsible for capturing inline scripts that are encoded by
  * the PrimeFaces HeadRenderer.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PrimeFacesHeadResponseWriter extends ResponseWriter {
 

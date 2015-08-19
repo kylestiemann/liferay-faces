@@ -17,8 +17,8 @@ package com.liferay.portal.kernel.log;
  * Since the Liferay CDI Portlet Bridge has a dependency on the Liferay Portal logging API, this class has been copied
  * here from the Liferay Portal API so that CDI portlets can be tested in Pluto.
  *
- * @author  Brian Wing Shun Chan
- * @author  Neil Griffin
+ * @author Brian Wing Shun Chan
+ * @author Neil Griffin
  */
 public interface Log {
 

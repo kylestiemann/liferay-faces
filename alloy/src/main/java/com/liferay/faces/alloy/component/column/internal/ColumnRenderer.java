@@ -36,18 +36,12 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesRenderer(componentFamily = Column.COMPONENT_FAMILY, rendererType = Column.RENDERER_TYPE)
 @ListenerFor(systemEventClass = PostAddToViewEvent.class, sourceClass = Column.class)
-@ResourceDependencies(
-	{
-		@ResourceDependency(library = "javax.faces", name = "jsf.js"),
-		@ResourceDependency(
-			library = "liferay-faces-reslib", name = "build/aui-css/css/bootstrap.min.css"
-		)
-	}
-)
+@ResourceDependencies({ @ResourceDependency(library = "javax.faces", name = "jsf.js"),
+	@ResourceDependency(library = "liferay-faces-reslib", name = "build/aui-css/css/bootstrap.min.css") })
 public class ColumnRenderer extends ColumnRendererBase implements ComponentSystemEventListener {
 
 	protected static Integer getColumnUnitSize(Integer width) {

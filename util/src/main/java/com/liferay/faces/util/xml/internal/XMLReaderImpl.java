@@ -37,7 +37,7 @@ import org.xml.sax.ext.LexicalHandler;
  * This class is a thread-safe implementation of {@link XMLReader}. However, it does not fully implement all of the
  * functionality of the one provided by the JRE.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class XMLReaderImpl implements XMLReader {
 
@@ -91,13 +91,12 @@ public class XMLReaderImpl implements XMLReader {
 	}
 
 	/**
-	 * This method is a finite state machine that has the ability to parse the XML contents of the specified {@link
-	 * Reader} and invoke callbacks on the registered {@link ContentHandler}.
+	 * This method is a finite state machine that has the ability to parse the XML contents of the specified
+	 * {@link Reader} and invoke callbacks on the registered {@link ContentHandler}.
 	 *
-	 * @param   reader  The reader that contains the XML markup.
-	 *
-	 * @throws  IOException   If an error occurs during the read process.
-	 * @throws  SAXException  If an error occurs in one of the {@link ContentHandler} callbacks.
+	 * @param reader The reader that contains the XML markup.
+	 * @throws IOException If an error occurs during the read process.
+	 * @throws SAXException If an error occurs in one of the {@link ContentHandler} callbacks.
 	 */
 	protected void parse(Reader reader) throws IOException, SAXException {
 

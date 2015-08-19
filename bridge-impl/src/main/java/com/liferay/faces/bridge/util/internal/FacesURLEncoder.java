@@ -25,7 +25,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class provides reflective wrapper access to methods in Mojarra and MyFaces HTML/URL encoding utility methods.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesURLEncoder {
 
@@ -48,15 +48,17 @@ public class FacesURLEncoder {
 
 		try {
 			mojarraHtmlUtilsClass = Class.forName(MOJARRA_ENCODER_FQCN);
-			mojarraMethodWriteURL = mojarraHtmlUtilsClass.getMethod(MOJARRA_METHOD_WRITE_URL,
-					new Class[] { Writer.class, String.class, char[].class, String.class });
+			mojarraMethodWriteURL =
+				mojarraHtmlUtilsClass.getMethod(MOJARRA_METHOD_WRITE_URL, new Class[] { Writer.class, String.class,
+					char[].class, String.class });
 		}
 		catch (Exception e1) {
 
 			try {
 				myFacesHTMLEncoderClass = Class.forName(MYFACES_ENCODER_FQCN);
-				myFacesMethodEncodeURIAtributte = myFacesHTMLEncoderClass.getMethod(MYFACES_METHOD_ENCODE_URI_ATTRIBUTE,
-						new Class[] { String.class, String.class });
+				myFacesMethodEncodeURIAtributte =
+					myFacesHTMLEncoderClass.getMethod(MYFACES_METHOD_ENCODE_URI_ATTRIBUTE, new Class[] { String.class,
+						String.class });
 			}
 			catch (Exception e2) {
 				// Ignore

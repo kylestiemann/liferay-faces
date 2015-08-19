@@ -42,7 +42,7 @@ import com.liferay.portal.util.PortalUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayPortletHelperImpl implements LiferayPortletHelper, Serializable {
 
@@ -57,8 +57,8 @@ public class LiferayPortletHelperImpl implements LiferayPortletHelper, Serializa
 		try {
 
 			if (!userHasPortletPermission(actionId)) {
-				throw new AuthorizationException("User " + getUserId() + " not authorized to perform action " +
-					actionId);
+				throw new AuthorizationException("User " + getUserId() + " not authorized to perform action "
+					+ actionId);
 			}
 		}
 		catch (Exception e) {
@@ -74,8 +74,8 @@ public class LiferayPortletHelperImpl implements LiferayPortletHelper, Serializa
 		boolean hasPermission = false;
 
 		try {
-			hasPermission = PortletPermissionUtil.contains(permissionChecker, themeDisplay.getPlid(), portletId,
-					actionId);
+			hasPermission =
+				PortletPermissionUtil.contains(permissionChecker, themeDisplay.getPlid(), portletId, actionId);
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
@@ -128,8 +128,8 @@ public class LiferayPortletHelperImpl implements LiferayPortletHelper, Serializa
 	protected Liferay getLiferayManagedBean() {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 
-		return (Liferay) facesContext.getApplication().getELResolver().getValue(facesContext.getELContext(), null,
-				"liferay");
+		return (Liferay) facesContext.getApplication().getELResolver()
+			.getValue(facesContext.getELContext(), null, "liferay");
 	}
 
 	public PermissionChecker getPermissionChecker() {

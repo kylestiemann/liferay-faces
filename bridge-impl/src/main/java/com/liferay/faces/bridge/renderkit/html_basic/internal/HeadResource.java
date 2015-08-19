@@ -20,7 +20,7 @@ import org.xml.sax.Attributes;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadResource {
 

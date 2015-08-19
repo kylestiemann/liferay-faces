@@ -27,7 +27,7 @@ import javax.faces.view.facelets.TagAttributes;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class TagAttributesAlloyImpl extends TagAttributes {
 
@@ -86,8 +86,8 @@ public class TagAttributesAlloyImpl extends TagAttributes {
 			TagAttribute tagAttribute = mapEntry.getValue();
 			String tagAttributeNamespace = tagAttribute.getNamespace();
 
-			if (((namespace == null) && (tagAttributeNamespace == null)) ||
-					((namespace != null) && namespace.equals(tagAttributeNamespace))) {
+			if (((namespace == null) && (tagAttributeNamespace == null))
+				|| ((namespace != null) && namespace.equals(tagAttributeNamespace))) {
 				tagAttributeList.add(tagAttribute);
 			}
 		}

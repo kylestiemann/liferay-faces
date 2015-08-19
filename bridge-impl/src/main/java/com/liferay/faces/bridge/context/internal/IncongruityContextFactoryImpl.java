@@ -18,7 +18,7 @@ import com.liferay.faces.bridge.context.IncongruityContextFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class IncongruityContextFactoryImpl extends IncongruityContextFactory {
 

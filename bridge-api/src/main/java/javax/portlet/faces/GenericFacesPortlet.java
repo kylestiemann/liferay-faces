@@ -44,7 +44,7 @@ import javax.portlet.ResourceResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class GenericFacesPortlet extends GenericPortlet {
 
@@ -118,8 +118,8 @@ public class GenericFacesPortlet extends GenericPortlet {
 		if (bridgeEventHandlerInstance != null) {
 
 			// Attribute name format: javax.portlet.faces.{portlet-name}.bridgeEventHandler
-			attributeName = Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + CHAR_DOT +
-				Bridge.BRIDGE_EVENT_HANDLER;
+			attributeName =
+				Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + CHAR_DOT + Bridge.BRIDGE_EVENT_HANDLER;
 			portletContext.setAttribute(attributeName, bridgeEventHandlerInstance);
 		}
 
@@ -132,8 +132,9 @@ public class GenericFacesPortlet extends GenericPortlet {
 		if (bridgePublicRenderParameterHandlerInstance != null) {
 
 			// Attribute name format: javax.portlet.faces.{portlet-name}.bridgePublicRenderParameterHandler
-			String bridgeEventHandlerAttributeName = Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() +
-				CHAR_DOT + Bridge.BRIDGE_PUBLIC_RENDER_PARAMETER_HANDLER;
+			String bridgeEventHandlerAttributeName =
+				Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + CHAR_DOT
+					+ Bridge.BRIDGE_PUBLIC_RENDER_PARAMETER_HANDLER;
 			portletContext.setAttribute(bridgeEventHandlerAttributeName, bridgePublicRenderParameterHandlerInstance);
 		}
 
@@ -142,8 +143,8 @@ public class GenericFacesPortlet extends GenericPortlet {
 		String defaultRenderKitId = getDefaultRenderKitId();
 
 		if (defaultRenderKitId != null) {
-			portletContext.setAttribute(Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + CHAR_DOT +
-				Bridge.DEFAULT_RENDERKIT_ID, defaultRenderKitId);
+			portletContext.setAttribute(Bridge.BRIDGE_PACKAGE_PREFIX + portletConfig.getPortletName() + CHAR_DOT
+				+ Bridge.DEFAULT_RENDERKIT_ID, defaultRenderKitId);
 		}
 	}
 
@@ -188,8 +189,8 @@ public class GenericFacesPortlet extends GenericPortlet {
 		String autoNonFacesViewDispatch = getInitParameter("javax.portlet.faces.automaticNonFacesViewDispatching");
 		String nonFacesTargetPath = renderRequest.getParameter(Bridge.NONFACES_TARGET_PATH_PARAMETER);
 
-		if ((autoNonFacesViewDispatch != null) && autoNonFacesViewDispatch.equalsIgnoreCase("true") &&
-				(nonFacesTargetPath != null)) {
+		if ((autoNonFacesViewDispatch != null) && autoNonFacesViewDispatch.equalsIgnoreCase("true")
+			&& (nonFacesTargetPath != null)) {
 
 			PortletContext portletContext = getPortletContext();
 			String responseContentType = renderRequest.getResponseContentType();
@@ -440,8 +441,8 @@ public class GenericFacesPortlet extends GenericPortlet {
 				while (initParameterNames.hasMoreElements()) {
 					String initParameterName = initParameterNames.nextElement();
 
-					if ((initParameterName != null) && initParameterName.startsWith(DEFAULT_VIEWID) &&
-							(initParameterName.length() > defaultViewIdLength)) {
+					if ((initParameterName != null) && initParameterName.startsWith(DEFAULT_VIEWID)
+						&& (initParameterName.length() > defaultViewIdLength)) {
 						String initParameterValue = getPortletConfig().getInitParameter(initParameterName);
 						String portletMode = initParameterName.substring(portletModeIndex);
 						defaultViewIdMap.put(portletMode, initParameterValue);
@@ -503,7 +504,7 @@ public class GenericFacesPortlet extends GenericPortlet {
 	}
 
 	/**
-	 * @deprecated  as of JSR 329 Spec version 1.0
+	 * @deprecated as of JSR 329 Spec version 1.0
 	 */
 	@Deprecated
 	public String getResponseCharacterSetEncoding(PortletRequest portletRequest) {
@@ -514,7 +515,7 @@ public class GenericFacesPortlet extends GenericPortlet {
 	}
 
 	/**
-	 * @deprecated  as of JSR 329 Spec version 1.0
+	 * @deprecated as of JSR 329 Spec version 1.0
 	 */
 	@Deprecated
 	public String getResponseContentType(PortletRequest portletRequest) {

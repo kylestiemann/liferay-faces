@@ -19,7 +19,7 @@ import org.apache.tools.ant.Project;
 
 
 /**
- * @author  Mika Koivisto
+ * @author Mika Koivisto
  */
 public class AntUtil {
 

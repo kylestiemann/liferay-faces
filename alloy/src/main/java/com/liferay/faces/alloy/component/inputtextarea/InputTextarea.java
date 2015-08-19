@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = InputTextarea.COMPONENT_TYPE)
 public class InputTextarea extends InputTextareaBase {

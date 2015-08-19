@@ -36,7 +36,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeWriteBehindSupportFactoryImpl extends BridgeWriteBehindSupportFactory {
 
@@ -123,8 +123,8 @@ public class BridgeWriteBehindSupportFactoryImpl extends BridgeWriteBehindSuppor
 
 			if (bridgeWriteBehindResourceResponseClass == null) {
 				String className = bridgeConfig.getWriteBehindResourceResponseWrapper();
-				bridgeWriteBehindResourceResponseClass = loadClass(className,
-						BridgeWriteBehindResponseResourceImpl.class);
+				bridgeWriteBehindResourceResponseClass =
+					loadClass(className, BridgeWriteBehindResponseResourceImpl.class);
 			}
 		}
 
@@ -146,16 +146,18 @@ public class BridgeWriteBehindSupportFactoryImpl extends BridgeWriteBehindSuppor
 				// First try to call a constructor that takes MimeResponse and ServletResponse as parameters.
 				if (portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE) {
 					@SuppressWarnings("unchecked")
-					Constructor<BridgeWriteBehindResponse> constructor = (Constructor<BridgeWriteBehindResponse>)
-						bridgeWriteBehindResponseClass.getConstructor(RenderResponse.class, ServletResponse.class);
+					Constructor<BridgeWriteBehindResponse> constructor =
+						(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass.getConstructor(
+							RenderResponse.class, ServletResponse.class);
 					bridgeWriteBehindResponse = constructor.newInstance((RenderResponse) mimeResponse, servletResponse);
 				}
 				else {
 					@SuppressWarnings("unchecked")
-					Constructor<BridgeWriteBehindResponse> constructor = (Constructor<BridgeWriteBehindResponse>)
-						bridgeWriteBehindResponseClass.getConstructor(ResourceResponse.class, ServletResponse.class);
-					bridgeWriteBehindResponse = constructor.newInstance((ResourceResponse) mimeResponse,
-							servletResponse);
+					Constructor<BridgeWriteBehindResponse> constructor =
+						(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass.getConstructor(
+							ResourceResponse.class, ServletResponse.class);
+					bridgeWriteBehindResponse =
+						constructor.newInstance((ResourceResponse) mimeResponse, servletResponse);
 				}
 			}
 			catch (NoSuchMethodException nsme1) {
@@ -164,8 +166,9 @@ public class BridgeWriteBehindSupportFactoryImpl extends BridgeWriteBehindSuppor
 
 					// Second, try to call a constructor that takes a ServletResponse as a single parameter.
 					@SuppressWarnings("unchecked")
-					Constructor<BridgeWriteBehindResponse> constructor = (Constructor<BridgeWriteBehindResponse>)
-						bridgeWriteBehindResponseClass.getConstructor(ServletResponse.class);
+					Constructor<BridgeWriteBehindResponse> constructor =
+						(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass
+							.getConstructor(ServletResponse.class);
 					bridgeWriteBehindResponse = constructor.newInstance(servletResponse);
 				}
 				catch (NoSuchMethodException nsme2) {
@@ -178,8 +181,8 @@ public class BridgeWriteBehindSupportFactoryImpl extends BridgeWriteBehindSuppor
 							// is the required signature for any class that extends RenderResponseWrapper.
 							@SuppressWarnings("unchecked")
 							Constructor<BridgeWriteBehindResponse> constructor =
-								(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass.getConstructor(
-									RenderResponse.class);
+								(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass
+									.getConstructor(RenderResponse.class);
 							bridgeWriteBehindResponse = constructor.newInstance((RenderResponse) mimeResponse);
 						}
 						else {
@@ -188,8 +191,8 @@ public class BridgeWriteBehindSupportFactoryImpl extends BridgeWriteBehindSuppor
 							// which is the required signature for any class that extends RenderResponseWrapper.
 							@SuppressWarnings("unchecked")
 							Constructor<BridgeWriteBehindResponse> constructor =
-								(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass.getConstructor(
-									ResourceResponse.class);
+								(Constructor<BridgeWriteBehindResponse>) bridgeWriteBehindResponseClass
+									.getConstructor(ResourceResponse.class);
 							bridgeWriteBehindResponse = constructor.newInstance((ResourceResponse) mimeResponse);
 						}
 					}

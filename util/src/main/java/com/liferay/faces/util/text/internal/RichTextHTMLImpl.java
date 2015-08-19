@@ -18,7 +18,7 @@ import java.util.regex.Pattern;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RichTextHTMLImpl extends RichTextBaseImpl {
 

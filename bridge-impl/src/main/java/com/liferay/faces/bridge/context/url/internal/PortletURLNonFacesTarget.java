@@ -20,7 +20,7 @@ import javax.portlet.faces.Bridge;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PortletURLNonFacesTarget extends PortletURLFacesTarget {
 

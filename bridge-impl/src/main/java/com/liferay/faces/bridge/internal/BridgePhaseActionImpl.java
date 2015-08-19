@@ -33,7 +33,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePhaseActionImpl extends BridgePhaseCompat_2_2_Impl {
 
@@ -49,12 +49,12 @@ public class BridgePhaseActionImpl extends BridgePhaseCompat_2_2_Impl {
 
 		super(portletConfig, bridgeConfig);
 
-		BridgePortletRequestFactory bridgePortletRequestFactory = (BridgePortletRequestFactory) FactoryExtensionFinder
-			.getFactory(BridgePortletRequestFactory.class);
+		BridgePortletRequestFactory bridgePortletRequestFactory =
+			(BridgePortletRequestFactory) FactoryExtensionFinder.getFactory(BridgePortletRequestFactory.class);
 		this.actionRequest = bridgePortletRequestFactory.getActionRequest(actionRequest);
 
-		BridgePortletResponseFactory bridgePortletResponseFactory = (BridgePortletResponseFactory) BridgeFactoryFinder
-			.getFactory(BridgePortletResponseFactory.class);
+		BridgePortletResponseFactory bridgePortletResponseFactory =
+			(BridgePortletResponseFactory) BridgeFactoryFinder.getFactory(BridgePortletResponseFactory.class);
 		this.actionResponse = bridgePortletResponseFactory.getActionResponse(actionResponse);
 	}
 
@@ -122,8 +122,7 @@ public class BridgePhaseActionImpl extends BridgePhaseCompat_2_2_Impl {
 			// In accordance with Section 5.1.2 of the Spec, the bridge request scope must only be maintained if a
 			// redirect or portlet mode change has not occurred.
 			if (!bridgeRequestScope.isRedirectOccurred() || !bridgeRequestScope.isPortletModeChanged()) {
-				maintainBridgeRequestScope(actionRequest, actionResponse,
-					BridgeRequestScope.Transport.RENDER_PARAMETER);
+				maintainBridgeRequestScope(actionRequest, actionResponse, BridgeRequestScope.Transport.RENDER_PARAMETER);
 			}
 
 			// Spec 6.6 (Namespacing)

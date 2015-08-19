@@ -32,7 +32,7 @@ import com.liferay.faces.util.application.FacesResource;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @RequestScoped
 @ManagedBean

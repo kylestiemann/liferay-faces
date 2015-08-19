@@ -19,7 +19,7 @@ import javax.faces.bean.RequestScoped;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

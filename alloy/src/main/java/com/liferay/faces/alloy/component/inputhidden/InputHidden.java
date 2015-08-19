@@ -21,7 +21,7 @@ import com.liferay.faces.util.component.ComponentUtil;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = InputHidden.COMPONENT_TYPE)
 public class InputHidden extends InputHiddenBase {

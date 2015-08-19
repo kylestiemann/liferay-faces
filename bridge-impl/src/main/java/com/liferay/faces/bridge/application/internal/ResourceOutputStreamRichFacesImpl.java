@@ -28,8 +28,8 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
- * @author  Vernon Singleton
+ * @author Neil Griffin
+ * @author Vernon Singleton
  */
 public class ResourceOutputStreamRichFacesImpl extends ResourceOutputStream implements Filterable {
 
@@ -43,10 +43,10 @@ public class ResourceOutputStreamRichFacesImpl extends ResourceOutputStream impl
 
 	// FACES-1214
 	protected enum RichFacesImageResource {
-		TYPE1(ResourceRichFacesImpl.ORG_RICHFACES, "../../org.richfaces.images/", "richfaces-type1"),
-		TYPE2(ResourceRichFacesImpl.ORG_RICHFACES, "../../", "richfaces-type2"),
-		TYPE3(ORG_RICHFACES_IMAGES, "../org.richfaces.images/", "richfaces-type3"),
-		TYPE4(ORG_RICHFACES_IMAGES, "org.richfaces.images/", "richfaces-type4");
+		TYPE1(ResourceRichFacesImpl.ORG_RICHFACES, "../../org.richfaces.images/", "richfaces-type1"), TYPE2(
+			ResourceRichFacesImpl.ORG_RICHFACES, "../../", "richfaces-type2"), TYPE3(ORG_RICHFACES_IMAGES,
+			"../org.richfaces.images/", "richfaces-type3"), TYPE4(ORG_RICHFACES_IMAGES, "org.richfaces.images/",
+			"richfaces-type4");
 
 		private String libraryName;
 		private String pathPrefix;
@@ -137,8 +137,8 @@ public class ResourceOutputStreamRichFacesImpl extends ResourceOutputStream impl
 
 						while (!doneFindingExtension) {
 
-							if ((extensionFinishPos < cssText.length()) &&
-									Character.isLetterOrDigit(cssText.charAt(extensionFinishPos))) {
+							if ((extensionFinishPos < cssText.length())
+								&& Character.isLetterOrDigit(cssText.charAt(extensionFinishPos))) {
 								extensionFinishPos++;
 							}
 							else {
@@ -176,8 +176,8 @@ public class ResourceOutputStreamRichFacesImpl extends ResourceOutputStream impl
 		}
 
 		for (RichFacesImageResource richFacesImageResource : RichFacesImageResource.values()) {
-			cssText = cssText.replace(richFacesImageResource.getSubstitutionToken(),
-					richFacesImageResource.getLibraryName());
+			cssText =
+				cssText.replace(richFacesImageResource.getSubstitutionToken(), richFacesImageResource.getLibraryName());
 		}
 
 		return cssText;
@@ -196,8 +196,7 @@ public class ResourceOutputStreamRichFacesImpl extends ResourceOutputStream impl
 
 			StringBuilder buf = new StringBuilder();
 			buf.append(javaScriptText.substring(0, pos));
-			buf.append(
-				"this.form.attr(\"action\", this.form.children(\"input[name='javax.faces.encodedURL']\").val() + delimiter + UID + \"=\" + this.loadableItem.uid);");
+			buf.append("this.form.attr(\"action\", this.form.children(\"input[name='javax.faces.encodedURL']\").val() + delimiter + UID + \"=\" + this.loadableItem.uid);");
 			buf.append(javaScriptText.substring(pos + token.length() + 1));
 			javaScriptText = buf.toString();
 		}

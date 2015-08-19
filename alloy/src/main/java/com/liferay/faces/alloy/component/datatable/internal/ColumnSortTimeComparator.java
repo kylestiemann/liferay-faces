@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.column.Column;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ColumnSortTimeComparator implements Comparator<Column> {
 

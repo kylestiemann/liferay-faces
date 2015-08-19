@@ -23,7 +23,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PreDestroyInvokerImpl implements PreDestroyInvoker {
 
@@ -62,7 +62,8 @@ public class PreDestroyInvokerImpl implements PreDestroyInvoker {
 						if (hasBridgePreDestroyAnnotation(method)) {
 
 							try {
-								logger.debug("Invoking @BridgePreDestroy method named [{0}] on managedBean class=[{1}]",
+								logger.debug(
+									"Invoking @BridgePreDestroy method named [{0}] on managedBean class=[{1}]",
 									method.getName(), clazz.getName());
 								method.invoke(managedBean, new Object[] {});
 							}
@@ -81,9 +82,8 @@ public class PreDestroyInvokerImpl implements PreDestroyInvoker {
 	 * that the method signature must also have a void return type an zero parameters in order for this method to return
 	 * true.
 	 *
-	 * @param   method  The method to check.
-	 *
-	 * @return  true if the specified method is annotated with a PreDestroy annotation.
+	 * @param method The method to check.
+	 * @return true if the specified method is annotated with a PreDestroy annotation.
 	 */
 	protected boolean hasBridgePreDestroyAnnotation(Method method) {
 
@@ -97,8 +97,8 @@ public class PreDestroyInvokerImpl implements PreDestroyInvoker {
 
 					for (Annotation annotation : annotations) {
 
-						if (annotation.annotationType().getName().equals(
-									"javax.portlet.faces.annotation.BridgePreDestroy")) {
+						if (annotation.annotationType().getName()
+							.equals("javax.portlet.faces.annotation.BridgePreDestroy")) {
 							return true;
 						}
 					}
@@ -114,9 +114,8 @@ public class PreDestroyInvokerImpl implements PreDestroyInvoker {
 	 * annotation. Note that the method signature must also have a void return type an zero parameters in order for this
 	 * method to return true.
 	 *
-	 * @param   method  The method to check.
-	 *
-	 * @return  true if the specified method is annotated with a PreDestroy annotation.
+	 * @param method The method to check.
+	 * @return true if the specified method is annotated with a PreDestroy annotation.
 	 */
 	protected boolean hasPreDestroyAnnotation(Method method) {
 

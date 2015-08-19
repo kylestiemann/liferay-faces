@@ -24,7 +24,7 @@ import com.liferay.faces.alloy.component.tab.TabSelectEvent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @ViewScoped

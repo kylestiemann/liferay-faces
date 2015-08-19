@@ -71,10 +71,12 @@ public class LiferayPortletRequest {
 		}
 
 		try {
-			Method method = wrappedPortletRequest.getClass().getMethod(METHOD_NAME_GET_ORIGINAL_HTTP_SERVLET_REQUEST,
+			Method method =
+				wrappedPortletRequest.getClass().getMethod(METHOD_NAME_GET_ORIGINAL_HTTP_SERVLET_REQUEST,
 					(Class[]) null);
-			this.liferayHttpServletRequest = new LiferayHttpServletRequest((HttpServletRequest) method.invoke(
-						wrappedPortletRequest, (Object[]) null));
+			this.liferayHttpServletRequest =
+				new LiferayHttpServletRequest(
+					(HttpServletRequest) method.invoke(wrappedPortletRequest, (Object[]) null));
 		}
 		catch (Exception e) {
 			logger.error(e.getMessage(), e);
@@ -135,8 +137,8 @@ public class LiferayPortletRequest {
 
 		Enumeration<String> properties = wrappedPortletRequest.getProperties(name);
 
-		if (!properties.hasMoreElements() &&
-				(HttpHeaders.USER_AGENT.equals(name) || HttpHeaders.IF_MODIFIED_SINCE.equals(name))) {
+		if (!properties.hasMoreElements()
+			&& (HttpHeaders.USER_AGENT.equals(name) || HttpHeaders.IF_MODIFIED_SINCE.equals(name))) {
 			properties = liferayHttpServletRequest.getHeaders(name);
 		}
 

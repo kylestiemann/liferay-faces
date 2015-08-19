@@ -26,7 +26,7 @@ import com.liferay.faces.util.render.internal.IdDelegationResponseWriter;
  * attributes on the autocomplete input. Since it extends {@link IdDelegationResponseWriter} it also ensures that the
  * JSF runtime writes a specific value for the "id" attribute.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class AutoCompleteInputResponseWriter extends IdDelegationResponseWriter {
 

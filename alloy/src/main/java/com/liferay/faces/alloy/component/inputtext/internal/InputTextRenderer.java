@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.inputtext.InputText;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesRenderer(componentFamily = InputText.COMPONENT_FAMILY, rendererType = InputText.RENDERER_TYPE)
 public class InputTextRenderer extends InputTextRendererBase {

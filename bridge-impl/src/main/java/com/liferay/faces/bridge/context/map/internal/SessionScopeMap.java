@@ -36,7 +36,7 @@ import com.liferay.faces.util.map.AbstractPropertyMapEntry;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SessionScopeMap extends AbstractPropertyMap<Object> {
 
@@ -50,24 +50,24 @@ public class SessionScopeMap extends AbstractPropertyMap<Object> {
 	/**
 	 * Constructs a new SessionMap object instance.
 	 *
-	 * @param  bridgeContext  The current bridge context.
-	 * @param  scope          The scope of the session map, which can be PortletSession.PORTLET_SCOPE or
-	 *                        PortletSession.APPLICATION_SCOPE
+	 * @param bridgeContext The current bridge context.
+	 * @param scope The scope of the session map, which can be PortletSession.PORTLET_SCOPE or
+	 *            PortletSession.APPLICATION_SCOPE
 	 */
 	public SessionScopeMap(BridgeContext bridgeContext, int scope) {
 
 		String appConfigAttrName = ApplicationConfig.class.getName();
 		PortletContext portletContext = bridgeContext.getPortletContext();
 		ApplicationConfig applicationConfig = (ApplicationConfig) portletContext.getAttribute(appConfigAttrName);
-		BeanManagerFactory beanManagerFactory = (BeanManagerFactory) BridgeFactoryFinder.getFactory(
-				BeanManagerFactory.class);
+		BeanManagerFactory beanManagerFactory =
+			(BeanManagerFactory) BridgeFactoryFinder.getFactory(BeanManagerFactory.class);
 		this.beanManager = beanManagerFactory.getBeanManager(applicationConfig.getFacesConfig());
 
-		ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-				ContextMapFactory.class);
+		ContextMapFactory contextMapFactory =
+			(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 		Map<String, Object> applicationScopeMap = contextMapFactory.getApplicationScopeMap(bridgeContext);
-		PreDestroyInvokerFactory preDestroyInvokerFactory = (PreDestroyInvokerFactory) BridgeFactoryFinder.getFactory(
-				PreDestroyInvokerFactory.class);
+		PreDestroyInvokerFactory preDestroyInvokerFactory =
+			(PreDestroyInvokerFactory) BridgeFactoryFinder.getFactory(PreDestroyInvokerFactory.class);
 		this.preDestroyInvoker = preDestroyInvokerFactory.getPreDestroyInvoker(applicationScopeMap);
 
 		PortletRequest portletRequest = bridgeContext.getPortletRequest();

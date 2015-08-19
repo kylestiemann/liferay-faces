@@ -17,7 +17,7 @@ import javax.faces.FacesWrapper;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class FacesRequestContextFactory implements FacesWrapper<FacesRequestContextFactory> {
 

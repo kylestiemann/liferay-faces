@@ -21,7 +21,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class OutputScriptResponseWriter extends DelegationResponseWriterBase {
 

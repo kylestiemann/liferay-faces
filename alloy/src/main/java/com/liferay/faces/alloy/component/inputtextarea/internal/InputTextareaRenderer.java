@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.inputtextarea.InputTextarea;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesRenderer(componentFamily = InputTextarea.COMPONENT_FAMILY, rendererType = InputTextarea.RENDERER_TYPE)
 public class InputTextareaRenderer extends InputTextareaRendererBase {

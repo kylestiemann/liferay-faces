@@ -17,7 +17,7 @@ import com.liferay.faces.util.client.Script;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ScriptImpl implements Script {
 

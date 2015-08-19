@@ -17,7 +17,7 @@ import javax.portlet.WindowState;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class WindowStateHelper {
 
@@ -25,9 +25,8 @@ public class WindowStateHelper {
 	public static final String WINDOW_STATE_MAXIMIZED = WindowState.MAXIMIZED.toString();
 	public static final String WINDOW_STATE_MINIMIZED = WindowState.MINIMIZED.toString();
 	public static final String WINDOW_STATE_NORMAL = WindowState.NORMAL.toString();
-	public static final String[] WINDOW_STATES = new String[] {
-			WINDOW_STATE_MAXIMIZED, WINDOW_STATE_MAXIMIZED, WINDOW_STATE_NORMAL
-		};
+	public static final String[] WINDOW_STATES = new String[] { WINDOW_STATE_MAXIMIZED, WINDOW_STATE_MAXIMIZED,
+		WINDOW_STATE_NORMAL };
 
 	public static boolean isValid(String windowState) {
 

@@ -20,7 +20,7 @@ import javax.servlet.ServletContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ServletConfigAdapter implements ServletConfig {
 

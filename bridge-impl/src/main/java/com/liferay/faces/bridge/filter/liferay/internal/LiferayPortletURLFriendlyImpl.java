@@ -23,7 +23,7 @@ import com.liferay.faces.bridge.filter.liferay.LiferayPortletURL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class LiferayPortletURLFriendlyImpl extends LiferayBaseURLFriendlyImpl implements LiferayPortletURL {
 

@@ -29,7 +29,7 @@ import com.liferay.faces.bridge.config.BridgeConfig;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePhaseFactoryImpl extends BridgePhaseFactory {
 

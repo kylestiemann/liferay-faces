@@ -23,10 +23,11 @@ import javax.portlet.PortletRequest;
 /**
  * This class represents a simple "direct" {@link BaseURL}, meaning an implementation that wraps a path and constructs
  * an absolute path URL based on the scheme, server name, and port found in the {@link PortletRequest}. The only methods
- * that are meant to be called is {@link BaseURLDirectStringImpl#toString()} and {@link
- * BaseURLDirectStringImpl#write(Writer, boolean)}. All other methods throw an {@link UnsupportedOperationException}.
+ * that are meant to be called is {@link BaseURLDirectStringImpl#toString()} and
+ * {@link BaseURLDirectStringImpl#write(Writer, boolean)}. All other methods throw an
+ * {@link UnsupportedOperationException}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BaseURLDirectStringImpl extends BaseURLNonEncodedStringImpl {
 

@@ -27,13 +27,13 @@ import com.liferay.faces.util.product.ProductMap;
  * resources should not be rendered when running in Liferay Portal, because they are already present by default in the
  * portal page.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ComponentResourceAlloyImpl extends ComponentResourceWrapper {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 	private static final Set<String> PORTAL_RESOURCE_IDS = new HashSet<String>();
 
 	static {

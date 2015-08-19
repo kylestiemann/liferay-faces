@@ -16,7 +16,7 @@ package com.liferay.faces.bridge.filter.liferay.internal;
 /**
  * See class-level JavaDoc for {@link LiferayURLGeneratorBaseImpl}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayURLGeneratorResourceImpl extends LiferayURLGeneratorBaseImpl {
 

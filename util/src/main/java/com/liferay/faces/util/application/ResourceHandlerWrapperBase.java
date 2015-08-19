@@ -39,7 +39,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * This is an abstract class provides base functionality for a {@link ResourceHandler} that can write the contents of a
  * {@link Resource} to the underlying response.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceHandlerWrapperBase extends ResourceHandlerWrapper {
 
@@ -67,9 +67,10 @@ public class ResourceHandlerWrapperBase extends ResourceHandlerWrapper {
 
 			if (!needsUpdate) {
 				needsUpdate = true;
-				logger.debug(
-					"Unable to set the status code to HttpServletResponse.SC_NOT_MODIFIED ({0}) for resourceName=[{1}]",
-					HttpServletResponse.SC_NOT_MODIFIED, resourceName);
+				logger
+					.debug(
+						"Unable to set the status code to HttpServletResponse.SC_NOT_MODIFIED ({0}) for resourceName=[{1}]",
+						HttpServletResponse.SC_NOT_MODIFIED, resourceName);
 			}
 		}
 
@@ -105,8 +106,8 @@ public class ResourceHandlerWrapperBase extends ResourceHandlerWrapper {
 
 								// Surround with isDebugEnabled check in order to avoid unnecessary creation
 								// of object array.
-								logger.debug("Handling - COPIED resource header name=[{0}] value=[{1}]",
-									new Object[] { name, value });
+								logger.debug("Handling - COPIED resource header name=[{0}] value=[{1}]", new Object[] {
+									name, value });
 							}
 						}
 					}
@@ -187,16 +188,18 @@ public class ResourceHandlerWrapperBase extends ResourceHandlerWrapper {
 					resourceOutputStream.close();
 
 					if (logger.isDebugEnabled()) {
-						logger.debug(
-							"HANDLED (SC_OK) resourceName=[{0}], libraryName[{1}], responseContentType=[{4}], responseContentLength=[{5}]",
-							new Object[] { resourceName, libraryName, responseContentType, responseContentLength });
+						logger
+							.debug(
+								"HANDLED (SC_OK) resourceName=[{0}], libraryName[{1}], responseContentType=[{4}], responseContentLength=[{5}]",
+								new Object[] { resourceName, libraryName, responseContentType, responseContentLength });
 					}
 				}
 				else {
 					externalContext.setResponseStatus(HttpServletResponse.SC_NOT_FOUND);
-					logger.error(
-						"NOT HANDLED (SC_NOT_FOUND) because InputStream was null - resourceName=[{0}], libraryName[{1}]",
-						new Object[] { resourceName, libraryName });
+					logger
+						.error(
+							"NOT HANDLED (SC_NOT_FOUND) because InputStream was null - resourceName=[{0}], libraryName[{1}]",
+							new Object[] { resourceName, libraryName });
 				}
 			}
 			catch (IOException e) {
@@ -226,8 +229,8 @@ public class ResourceHandlerWrapperBase extends ResourceHandlerWrapper {
 			if (logger.isDebugEnabled()) {
 
 				// Surround with isDebugEnabled check in order to avoid unnecessary creation of object array.
-				logger.debug("HANDLED (SC_NOT_MODIFIED) resourceName=[{0}], libraryName[{1}]",
-					new Object[] { resourceName, libraryName });
+				logger.debug("HANDLED (SC_NOT_MODIFIED) resourceName=[{0}], libraryName[{1}]", new Object[] {
+					resourceName, libraryName });
 			}
 
 		}
@@ -246,10 +249,9 @@ public class ResourceHandlerWrapperBase extends ResourceHandlerWrapper {
 	 * The default implementation in this class simply returns an instance of {@link ResourceOutputStream}. Subclasses
 	 * that {@link Override} this method can return instances that implement the optional {@link Filterable} interface.
 	 *
-	 * @param   resource  The resource that is being requested.
-	 * @param   size      The size of the buffer.
-	 *
-	 * @return  The output stream.
+	 * @param resource The resource that is being requested.
+	 * @param size The size of the buffer.
+	 * @return The output stream.
 	 */
 	protected ResourceOutputStream getResourceOutputStream(Resource resource, int size) {
 		return new ResourceOutputStream(resource, size);

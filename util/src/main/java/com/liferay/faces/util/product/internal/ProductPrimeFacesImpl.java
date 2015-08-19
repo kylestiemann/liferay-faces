@@ -20,7 +20,7 @@ import com.liferay.faces.util.product.ProductConstants;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ProductPrimeFacesImpl extends ProductBaseImpl {
 
@@ -44,8 +44,8 @@ public class ProductPrimeFacesImpl extends ProductBaseImpl {
 				Properties pomProperties = new Properties();
 				Class<?> constantsClass = Class.forName("org.primefaces.util.Constants");
 				ClassLoader classLoader = constantsClass.getClassLoader();
-				InputStream inputStream = classLoader.getResourceAsStream(
-						"META-INF/maven/org.primefaces/primefaces/pom.properties");
+				InputStream inputStream =
+					classLoader.getResourceAsStream("META-INF/maven/org.primefaces/primefaces/pom.properties");
 
 				if (inputStream != null) {
 					pomProperties.load(inputStream);

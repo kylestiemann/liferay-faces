@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesComponent(value = ResourceURL.COMPONENT_TYPE)
 public class ResourceURL extends ResourceURLBase {

@@ -22,7 +22,7 @@ import com.liferay.portal.kernel.captcha.CaptchaUtil;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

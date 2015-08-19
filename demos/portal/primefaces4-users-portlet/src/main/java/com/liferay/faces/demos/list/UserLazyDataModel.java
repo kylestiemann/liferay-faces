@@ -44,8 +44,8 @@ import com.liferay.portal.service.UserLocalServiceUtil;
  * This class extends the PrimeFaces {@link LazyDataModel} in order to provide a lazy-loaded list of {@link User}
  * objects to the p:dataTable in the users.xhtml Facelet view.
  *
- * @author  Neil Griffin
- * @author  Kyle Stiemann
+ * @author Neil Griffin
+ * @author Kyle Stiemann
  */
 public class UserLazyDataModel extends LazyDataModel<User> implements Serializable {
 
@@ -87,8 +87,9 @@ public class UserLazyDataModel extends LazyDataModel<User> implements Serializab
 			String screenName = null;
 			String emailAddress = null;
 
-			Hits hits = UserLocalServiceUtil.search(companyId, firstName, middleName, lastName, screenName,
-					emailAddress, status, params, andSearch, QueryUtil.ALL_POS, QueryUtil.ALL_POS, sort);
+			Hits hits =
+				UserLocalServiceUtil.search(companyId, firstName, middleName, lastName, screenName, emailAddress,
+					status, params, andSearch, QueryUtil.ALL_POS, QueryUtil.ALL_POS, sort);
 			totalCount = hits.getLength();
 
 		}
@@ -103,17 +104,15 @@ public class UserLazyDataModel extends LazyDataModel<User> implements Serializab
 	 * This method is called by the PrimeFaces {@link DataTable} according to the rows specified in the currently
 	 * displayed page of data.
 	 *
-	 * @param  first      The zero-relative first row index.
-	 * @param  pageSize   The number of rows to fetch.
-	 * @param  sortField  The name of the field which the table is sorted by.
-	 * @param  sortOrder  The sort order, which can be either ascending (default) or descending.
-	 * @param  filters    The query criteria. Note that in order for the filtering to work with the Liferay API, the
-	 *                    end-user must specify complete, matching words. Wildcards and partial matches are not
-	 *                    supported.
+	 * @param first The zero-relative first row index.
+	 * @param pageSize The number of rows to fetch.
+	 * @param sortField The name of the field which the table is sorted by.
+	 * @param sortOrder The sort order, which can be either ascending (default) or descending.
+	 * @param filters The query criteria. Note that in order for the filtering to work with the Liferay API, the
+	 *            end-user must specify complete, matching words. Wildcards and partial matches are not supported.
 	 */
 	@Override
-	public List<User> load(int first, int pageSize, String sortField, SortOrder sortOrder,
-		Map<String, String> filters) {
+	public List<User> load(int first, int pageSize, String sortField, SortOrder sortOrder, Map<String, String> filters) {
 
 		List<User> users = null;
 
@@ -148,15 +147,17 @@ public class UserLazyDataModel extends LazyDataModel<User> implements Serializab
 
 			// For the sake of speed, search for users in the index rather than
 			// querying the database directly.
-			Hits hits = UserLocalServiceUtil.search(companyId, firstName, middleName, lastName, screenName,
-					emailAddress, status, params, andSearch, first, liferayOneRelativeFinishRow, sort);
+			Hits hits =
+				UserLocalServiceUtil.search(companyId, firstName, middleName, lastName, screenName, emailAddress,
+					status, params, andSearch, first, liferayOneRelativeFinishRow, sort);
 
 			List<Document> documentHits = hits.toList();
 
-			logger.debug(
-				("filters firstName=[{0}] middleName=[{1}] lastName=[{2}] screenName=[{3}] emailAddress=[{4}] active=[{5}] andSearch=[{6}] startRow=[{7}] liferayOneRelativeFinishRow=[{8}] sortColumn=[{9}] reverseOrder=[{10}] hitCount=[{11}]"),
-				firstName, middleName, lastName, screenName, emailAddress, status, andSearch, first,
-				liferayOneRelativeFinishRow, sortField, sort.isReverse(), documentHits.size());
+			logger
+				.debug(
+					("filters firstName=[{0}] middleName=[{1}] lastName=[{2}] screenName=[{3}] emailAddress=[{4}] active=[{5}] andSearch=[{6}] startRow=[{7}] liferayOneRelativeFinishRow=[{8}] sortColumn=[{9}] reverseOrder=[{10}] hitCount=[{11}]"),
+					firstName, middleName, lastName, screenName, emailAddress, status, andSearch, first,
+					liferayOneRelativeFinishRow, sortField, sort.isReverse(), documentHits.size());
 
 			// Convert the results from the search index into a list of user
 			// objects.

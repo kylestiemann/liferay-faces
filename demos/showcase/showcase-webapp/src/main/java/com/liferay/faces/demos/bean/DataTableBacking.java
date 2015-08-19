@@ -42,7 +42,7 @@ import com.liferay.faces.demos.service.CustomerService;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @ViewScoped

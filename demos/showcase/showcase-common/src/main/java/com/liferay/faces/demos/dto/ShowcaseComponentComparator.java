@@ -17,7 +17,7 @@ import java.util.Comparator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ShowcaseComponentComparator implements Comparator<ShowcaseComponent> {
 

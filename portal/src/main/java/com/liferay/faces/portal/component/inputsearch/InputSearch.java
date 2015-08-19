@@ -30,7 +30,7 @@ import com.liferay.faces.util.event.PreRenderComponentEventListener;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @FacesComponent(value = InputSearch.COMPONENT_TYPE)
 @ListenersFor({ @ListenerFor(systemEventClass = PreRenderComponentEvent.class) })
@@ -60,8 +60,8 @@ public class InputSearch extends InputSearchBase implements ClientBehaviorHolder
 
 			if (renderer instanceof PreRenderComponentEventListener) {
 
-				PreRenderComponentEventListener preRenderComponentEventListener = (PreRenderComponentEventListener)
-					renderer;
+				PreRenderComponentEventListener preRenderComponentEventListener =
+					(PreRenderComponentEventListener) renderer;
 				preRenderComponentEventListener.processEvent((PreRenderComponentEvent) componentSystemEvent);
 			}
 		}

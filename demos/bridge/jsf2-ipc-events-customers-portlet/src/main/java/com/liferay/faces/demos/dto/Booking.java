@@ -20,7 +20,7 @@ import java.util.GregorianCalendar;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class Booking implements Serializable {
 

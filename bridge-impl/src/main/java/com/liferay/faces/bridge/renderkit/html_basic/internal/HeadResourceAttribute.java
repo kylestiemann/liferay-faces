@@ -17,7 +17,7 @@ import com.liferay.faces.util.lang.NameValuePair;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadResourceAttribute extends NameValuePair<String, String> {
 

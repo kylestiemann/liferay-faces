@@ -23,7 +23,7 @@ import javax.portlet.faces.Bridge;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeNavigationCase {
 
@@ -32,19 +32,19 @@ public interface BridgeNavigationCase {
 	 * parameters that are to be included for a navigation-case that contains a redirect, in a portlet environment it
 	 * must also return parameters in the non-redirect case.
 	 *
-	 * @return  The {@link Map} of parameter values.
+	 * @return The {@link Map} of parameter values.
 	 */
 	public Map<String, List<String>> getParameters();
 
 	/**
-	 * Returns the string representation of the {@link PortletMode} associated with the {@link
-	 * Bridge#PORTLET_MODE_PARAMETER} in the to-view-id value of the navigation-case.
+	 * Returns the string representation of the {@link PortletMode} associated with the
+	 * {@link Bridge#PORTLET_MODE_PARAMETER} in the to-view-id value of the navigation-case.
 	 */
 	String getPortletMode();
 
 	/**
-	 * Returns the string representation of the {@link WindowState} associated with the {@link
-	 * Bridge#PORTLET_WINDOWSTATE_PARAMETER} in the to-view-id value of the navigation-case.
+	 * Returns the string representation of the {@link WindowState} associated with the
+	 * {@link Bridge#PORTLET_WINDOWSTATE_PARAMETER} in the to-view-id value of the navigation-case.
 	 */
 	String getWindowState();
 }

@@ -14,7 +14,7 @@
 package com.liferay.faces.demos.constants;
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public enum EnumConstants {
 

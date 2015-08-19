@@ -29,13 +29,13 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeContextFactoryImpl extends BridgeContextFactory {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
 	@Override
 	public BridgeContext getBridgeContext(BridgeConfig bridgeConfig, BridgeRequestScope bridgeRequestScope,
@@ -44,11 +44,11 @@ public class BridgeContextFactoryImpl extends BridgeContextFactory {
 
 		if (LIFERAY_PORTAL_DETECTED) {
 			return new BridgeContextLiferayImpl(bridgeConfig, bridgeRequestScope, portletConfig, portletContext,
-					portletRequest, portletResponse, portletPhase, incongruityContext);
+				portletRequest, portletResponse, portletPhase, incongruityContext);
 		}
 		else {
 			return new BridgeContextImpl(bridgeConfig, bridgeRequestScope, portletConfig, portletContext,
-					portletRequest, portletResponse, portletPhase, incongruityContext);
+				portletRequest, portletResponse, portletPhase, incongruityContext);
 		}
 	}
 

@@ -25,10 +25,11 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 /**
  * This abstract class represents a simple "encoded" {@link BaseURL}, meaning an implementation that encodes a String
- * based URL. The only methods that are meant to be called is {@link BaseURLEncodedStringImpl#toString()} and {@link
- * BaseURLEncodedStringImpl#write(Writer, boolean)}. All other methods throw an {@link UnsupportedOperationException}.
+ * based URL. The only methods that are meant to be called is {@link BaseURLEncodedStringImpl#toString()} and
+ * {@link BaseURLEncodedStringImpl#write(Writer, boolean)}. All other methods throw an
+ * {@link UnsupportedOperationException}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BaseURLEncodedStringImpl extends BaseURLNonEncodedStringImpl {
 

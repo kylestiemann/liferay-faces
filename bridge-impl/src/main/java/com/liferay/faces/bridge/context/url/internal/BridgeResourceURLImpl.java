@@ -35,7 +35,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeResourceURLImpl extends BridgeURLBase implements BridgeResourceURL {
 
@@ -219,7 +219,8 @@ public class BridgeResourceURLImpl extends BridgeURLBase implements BridgeResour
 				// TCK TestPage107: encodeActionURLNonJSFViewWithWindowStateResourceTest
 				// TCK TestPage108: encodeActionURLNonJSFViewWithInvalidWindowStateResourceTest
 				PortletURL renderURL = createRenderURL(urlWithModifiedParameters);
-				baseURL = new PortletURLNonFacesTargetRenderImpl(renderURL, portletMode, windowState, secure,
+				baseURL =
+					new PortletURLNonFacesTargetRenderImpl(renderURL, portletMode, windowState, secure,
 						bridgeURI.getPath());
 			}
 		}

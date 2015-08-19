@@ -22,7 +22,7 @@ import javax.portlet.WindowStateException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class PortletURLWrapper extends BaseURLWrapper implements PortletURL, FacesWrapper<PortletURL> {
 

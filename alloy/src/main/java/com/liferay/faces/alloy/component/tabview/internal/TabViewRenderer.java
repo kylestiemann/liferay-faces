@@ -44,8 +44,8 @@ import com.liferay.faces.util.render.RendererUtil;
 /**
  * This class is a JSF {@link javax.faces.render.Renderer} for the alloy:tabView component.
  *
- * @author  Neil Griffin
- * @author  Vernon Singleton
+ * @author Neil Griffin
+ * @author Vernon Singleton
  */
 //J-
 @FacesRenderer(componentFamily = TabView.COMPONENT_FAMILY, rendererType = TabView.RENDERER_TYPE)
@@ -243,8 +243,8 @@ public class TabViewRenderer extends TabViewRendererBase {
 		responseWriter.write("'");
 		responseWriter.append(");");
 
-		responseWriter.write(
-			"var prevTabIndex=hidden.value;if(event.newVal){hidden.value=event.newVal.get('index');}else if (prevTabIndex==event.newVal.get('index')){hidden.value='';};");
+		responseWriter
+			.write("var prevTabIndex=hidden.value;if(event.newVal){hidden.value=event.newVal.get('index');}else if (prevTabIndex==event.newVal.get('index')){hidden.value='';};");
 
 		Map<String, List<ClientBehavior>> clientBehaviorMap = tabView.getClientBehaviors();
 		Collection<String> eventNames = tabView.getEventNames();
@@ -264,11 +264,12 @@ public class TabViewRenderer extends TabViewRendererBase {
 						String namingContainerId = viewRoot.getContainerClientId(facesContext);
 						parameters = new ArrayList<ClientBehaviorContext.Parameter>();
 						parameters.add(new ClientBehaviorContext.Parameter("'com.sun.faces.namingContainerId'",
-								namingContainerId));
+							namingContainerId));
 					}
 
-					ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-							facesContext, tabView, eventName, clientId, parameters);
+					ClientBehaviorContext clientBehaviorContext =
+						ClientBehaviorContext.createClientBehaviorContext(facesContext, tabView, eventName, clientId,
+							parameters);
 					String clientBehaviorScript = clientBehavior.getScript(clientBehaviorContext);
 
 					// If <f:ajax event="tabSelected" /> is specified in the view, then render a script that submits
@@ -345,8 +346,9 @@ public class TabViewRenderer extends TabViewRendererBase {
 		encodeClientId(responseWriter, SRC_NODE, tabView.getClientId(facesContext), first);
 	}
 
-	protected void encodeTabListItem(FacesContext facesContext, ResponseWriter responseWriter, Tab tab,
-		boolean selected) throws IOException {
+	protected void
+		encodeTabListItem(FacesContext facesContext, ResponseWriter responseWriter, Tab tab, boolean selected)
+			throws IOException {
 
 		responseWriter.startElement("li", tab);
 

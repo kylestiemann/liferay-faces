@@ -18,10 +18,10 @@ import javax.faces.context.ExternalContextWrapper;
 
 
 /**
- * This class serves as a fix for FACES-2133 such that the {@link #getRequestPathInfo()} and {@link
- * #getRequestServletPath()} methods work around an implicit servlet dependency in the a4j:mediaOutput component.
+ * This class serves as a fix for FACES-2133 such that the {@link #getRequestPathInfo()} and
+ * {@link #getRequestServletPath()} methods work around an implicit servlet dependency in the a4j:mediaOutput component.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class ExternalContextRichFacesBridgeImpl extends ExternalContextWrapper {
 
@@ -34,9 +34,9 @@ public class ExternalContextRichFacesBridgeImpl extends ExternalContextWrapper {
 
 	/**
 	 * When this method returns null, {@link org.richfaces.resource.ResourceUtils#getMappingForRequest()} assumes that
-	 * the Faces Servlet URL mapping is extension based and strips the extension off the value returned by {@link
-	 * ExternalContextRichFacesBridgeImpl#getRequestServletPath()}. This method always returns null to avoid adding code
-	 * in this class to detect the actual Faces Servlet URL mapping since RichFaces never uses it.
+	 * the Faces Servlet URL mapping is extension based and strips the extension off the value returned by
+	 * {@link ExternalContextRichFacesBridgeImpl#getRequestServletPath()}. This method always returns null to avoid
+	 * adding code in this class to detect the actual Faces Servlet URL mapping since RichFaces never uses it.
 	 */
 	@Override
 	public String getRequestPathInfo() {
@@ -44,12 +44,12 @@ public class ExternalContextRichFacesBridgeImpl extends ExternalContextWrapper {
 	}
 
 	/**
-	 * This method returns "/rfRes/org.richfaces.resource.MediaOutputResource.faces" so that {@link
-	 * org.richfaces.resource.ResourceUtils#decodeResourceURL()} will return
-	 * "/rfRes/org.richfaces.resource.MediaOutputResource" to {@link
-	 * org.richfaces.resource.ResourceHandlerImpl#getResourcePathFromRequest()} which will cause {@link
-	 * org.richfaces.resource.ResourceHandlerImpl} to handle the resource in this request as a {@link
-	 * org.richfaces.resource.MediaOutputResource}.
+	 * This method returns "/rfRes/org.richfaces.resource.MediaOutputResource.faces" so that
+	 * {@link org.richfaces.resource.ResourceUtils#decodeResourceURL()} will return
+	 * "/rfRes/org.richfaces.resource.MediaOutputResource" to
+	 * {@link org.richfaces.resource.ResourceHandlerImpl#getResourcePathFromRequest()} which will cause
+	 * {@link org.richfaces.resource.ResourceHandlerImpl} to handle the resource in this request as a
+	 * {@link org.richfaces.resource.MediaOutputResource}.
 	 */
 	@Override
 	public String getRequestServletPath() {

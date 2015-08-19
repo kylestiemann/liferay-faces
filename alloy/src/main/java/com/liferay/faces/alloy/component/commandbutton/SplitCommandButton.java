@@ -41,7 +41,7 @@ import com.liferay.faces.util.component.ComponentUtil;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class SplitCommandButton extends SplitCommandButtonCompat {
 
@@ -187,8 +187,8 @@ public class SplitCommandButton extends SplitCommandButtonCompat {
 	}
 
 	@Override
-	public void subscribeToEvent(Class<? extends SystemEvent> eventClass,
-		ComponentSystemEventListener componentListener) {
+	public void
+		subscribeToEvent(Class<? extends SystemEvent> eventClass, ComponentSystemEventListener componentListener) {
 		wrappedCommandButton.subscribeToEvent(eventClass, componentListener);
 	}
 

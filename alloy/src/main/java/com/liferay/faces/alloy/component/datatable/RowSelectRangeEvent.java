@@ -22,7 +22,7 @@ import javax.faces.event.PhaseId;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RowSelectRangeEvent extends AjaxBehaviorEvent {
 

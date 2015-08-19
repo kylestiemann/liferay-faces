@@ -36,7 +36,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderKitBridgeImpl extends RenderKitWrapper {
 
@@ -65,8 +65,8 @@ public class RenderKitBridgeImpl extends RenderKitWrapper {
 	 */
 	@Override
 	public ResponseWriter createResponseWriter(Writer writer, String contentTypeList, String characterEncoding) {
-		ResponseWriter wrappedResponseWriter = wrappedRenderKit.createResponseWriter(writer, contentTypeList,
-				characterEncoding);
+		ResponseWriter wrappedResponseWriter =
+			wrappedRenderKit.createResponseWriter(writer, contentTypeList, characterEncoding);
 
 		return new ResponseWriterBridgeImpl(wrappedResponseWriter);
 	}
@@ -96,25 +96,25 @@ public class RenderKitBridgeImpl extends RenderKitWrapper {
 					renderer = new HeadRendererBridgeImpl();
 				}
 			}
-			else if (JAVAX_FACES_BODY.equals(rendererType) && PRIMEFACES.isDetected() &&
-					(PRIMEFACES.getMajorVersion() >= 5)) {
+			else if (JAVAX_FACES_BODY.equals(rendererType) && PRIMEFACES.isDetected()
+				&& (PRIMEFACES.getMajorVersion() >= 5)) {
 				renderer = new BodyRendererPrimeFacesImpl();
 			}
 			else if (SCRIPT_RENDERER_TYPE.equals(rendererType) || STYLESHEET_RENDERER_TYPE.equals(rendererType)) {
 				renderer = new ResourceRendererBridgeImpl(renderer);
 			}
 		}
-		else if (UIForm.COMPONENT_FAMILY.equals(family) && JAVAX_FACES_FORM.equals(rendererType) &&
-				PRIMEFACES.isDetected()) {
+		else if (UIForm.COMPONENT_FAMILY.equals(family) && JAVAX_FACES_FORM.equals(rendererType)
+			&& PRIMEFACES.isDetected()) {
 
-			renderer = new FormRendererPrimeFacesImpl(PRIMEFACES.getMajorVersion(), PRIMEFACES.getMinorVersion(),
-					renderer);
+			renderer =
+				new FormRendererPrimeFacesImpl(PRIMEFACES.getMajorVersion(), PRIMEFACES.getMinorVersion(), renderer);
 		}
 		else if (PRIMEFACES_FAMILY.equals(family) && PrimeFacesFileUpload.RENDERER_TYPE.equals(rendererType)) {
 			renderer = new FileUploadRendererPrimeFacesImpl(renderer);
 		}
-		else if (RICHFACES_FILE_UPLOAD_FAMILY.equals(family) &&
-				RICHFACES_FILE_UPLOAD_RENDERER_TYPE.equals(rendererType)) {
+		else if (RICHFACES_FILE_UPLOAD_FAMILY.equals(family)
+			&& RICHFACES_FILE_UPLOAD_RENDERER_TYPE.equals(rendererType)) {
 			renderer = new FileUploadRendererRichFacesImpl(renderer);
 		}
 

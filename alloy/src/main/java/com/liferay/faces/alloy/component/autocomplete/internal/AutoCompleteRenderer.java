@@ -42,7 +42,7 @@ import com.liferay.faces.util.render.internal.BufferedScriptResponseWriter;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = AutoComplete.COMPONENT_FAMILY, rendererType = AutoComplete.RENDERER_TYPE)
@@ -132,8 +132,8 @@ public class AutoCompleteRenderer extends AutoCompleteRendererBase {
 			RendererUtil.encodeStyleable(responseWriter, styleable);
 
 			// Encode the text input by delegating to the renderer from the JSF runtime.
-			AutoCompleteInputResponseWriter autoCompleteInputResponseWriter = new AutoCompleteInputResponseWriter(
-					responseWriter, "input", clientId + INPUT_SUFFIX);
+			AutoCompleteInputResponseWriter autoCompleteInputResponseWriter =
+				new AutoCompleteInputResponseWriter(responseWriter, "input", clientId + INPUT_SUFFIX);
 			super.encodeAll(facesContext, uiComponent, autoCompleteInputResponseWriter);
 
 			// Encode the contentBox of the autoComplete.
@@ -290,8 +290,8 @@ public class AutoCompleteRenderer extends AutoCompleteRendererBase {
 
 						Locale locale = facesContext.getViewRoot().getLocale();
 						AutoCompleteFilterFactory autoCompleteFilterFactory = new AutoCompleteFilterFactoryImpl();
-						AutoCompleteFilter autoCompleteFilter = autoCompleteFilterFactory.getAutoCompleteFilter(
-								serverFilterType);
+						AutoCompleteFilter autoCompleteFilter =
+							autoCompleteFilterFactory.getAutoCompleteFilter(serverFilterType);
 
 						if (autoCompleteFilter != null) {
 							boolean caseSensitive = serverFilterType.contains("Case");
@@ -315,8 +315,8 @@ public class AutoCompleteRenderer extends AutoCompleteRendererBase {
 				//J-
 				// Liferay.component('clientKey')
 				//J+
-				JavaScriptFragment liferayComponentJavaScriptFragment = new JavaScriptFragment("Liferay.component('" +
-						clientKey + "')");
+				JavaScriptFragment liferayComponentJavaScriptFragment =
+					new JavaScriptFragment("Liferay.component('" + clientKey + "')");
 
 				// Build up a fragment of JavaScript that contains an array of the results.
 
@@ -398,8 +398,8 @@ public class AutoCompleteRenderer extends AutoCompleteRendererBase {
 		String clientCustomFitler = autoComplete.getClientCustomFilter();
 		String clientFilterType = autoComplete.getClientFilterType();
 
-		return (serverCustomFilter != null) || (serverFilterType != null) ||
-			((clientCustomFitler == null) && (clientFilterType == null));
+		return (serverCustomFilter != null) || (serverFilterType != null)
+			|| ((clientCustomFitler == null) && (clientFilterType == null));
 	}
 
 	protected boolean isServerFilteringEnabled(UIComponent uiComponent) {
@@ -435,8 +435,8 @@ public class AutoCompleteRenderer extends AutoCompleteRendererBase {
 
 		// If the developer has specified client-side built-in filtering and does not have a custom filter, add the
 		// "autocomplete-filters" module.
-		if (!isServerFilteringEnabled(autoComplete) && (clientFilterType != null) && (clientFilterType.length() > 0) &&
-				(clientCustomFilter == null)) {
+		if (!isServerFilteringEnabled(autoComplete) && (clientFilterType != null) && (clientFilterType.length() > 0)
+			&& (clientCustomFilter == null)) {
 			modules.add(AUTOCOMPLETE_FILTERS);
 		}
 

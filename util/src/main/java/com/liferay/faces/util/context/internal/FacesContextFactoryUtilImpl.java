@@ -20,7 +20,7 @@ import javax.faces.lifecycle.Lifecycle;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextFactoryUtilImpl extends FacesContextFactory {
 

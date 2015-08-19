@@ -42,7 +42,7 @@ import com.liferay.faces.util.render.RendererUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class InputDateTimeRenderer extends InputDateTimeRendererBase {
 
@@ -74,12 +74,12 @@ public abstract class InputDateTimeRenderer extends InputDateTimeRendererBase {
 
 		// Start the encoding of the text input by delegating to the renderer from the JSF runtime.
 		String inputClientId = clientId.concat(INPUT_SUFFIX);
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		InputDateTime inputDateTime = (InputDateTime) uiComponent;
-		InputDateTimeResponseWriter inputDateTimeResponseWriter = getInputDateTimeResponseWriter(responseWriter,
-				inputClientId, isNative(browserSniffer, inputDateTime));
+		InputDateTimeResponseWriter inputDateTimeResponseWriter =
+			getInputDateTimeResponseWriter(responseWriter, inputClientId, isNative(browserSniffer, inputDateTime));
 		super.encodeMarkupBegin(facesContext, uiComponent, inputDateTimeResponseWriter);
 	}
 
@@ -89,12 +89,12 @@ public abstract class InputDateTimeRenderer extends InputDateTimeRendererBase {
 		ResponseWriter responseWriter = facesContext.getResponseWriter();
 		String clientId = uiComponent.getClientId(facesContext);
 		String inputClientId = clientId.concat(INPUT_SUFFIX);
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		InputDateTime inputDateTime = (InputDateTime) uiComponent;
-		InputDateTimeResponseWriter inputDateTimeResponseWriter = getInputDateTimeResponseWriter(responseWriter,
-				inputClientId, isNative(browserSniffer, inputDateTime));
+		InputDateTimeResponseWriter inputDateTimeResponseWriter =
+			getInputDateTimeResponseWriter(responseWriter, inputClientId, isNative(browserSniffer, inputDateTime));
 		super.encodeMarkupEnd(facesContext, uiComponent, inputDateTimeResponseWriter);
 
 		// Determine whether or not the text input is enabled.
@@ -105,8 +105,8 @@ public abstract class InputDateTimeRenderer extends InputDateTimeRendererBase {
 		String showOn = inputDateTime.getShowOn();
 
 		if (("both".equals(showOn) || "button".equals(showOn)) && !isNative(browserSniffer, inputDateTime)) {
-			ApplicationFactory applicationFactory = (ApplicationFactory) FactoryFinder.getFactory(
-					FactoryFinder.APPLICATION_FACTORY);
+			ApplicationFactory applicationFactory =
+				(ApplicationFactory) FactoryFinder.getFactory(FactoryFinder.APPLICATION_FACTORY);
 			Application application = applicationFactory.getApplication();
 
 			// Create an icon component that is to remain detached from the component tree.
@@ -258,8 +258,8 @@ public abstract class InputDateTimeRenderer extends InputDateTimeRendererBase {
 	protected String[] getModules(String[] defaultModules, FacesContext facesContext, UIComponent uiComponent) {
 
 		List<String> modules = new ArrayList<String>();
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		InputDateTime inputDateTime = (InputDateTime) uiComponent;
 

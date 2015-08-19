@@ -27,9 +27,9 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
-/* package-private */ class AlloyRendererCommon {
+/* package-private */class AlloyRendererCommon {
 
 	// Private Constants
 	private static final String A_DOT = "A.";
@@ -39,12 +39,11 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 	private static final String NEW = "new";
 	private static final String BACKSLASH_COLON = "\\\\:";
 	private static final String REGEX_COLON = "[:]";
-	private static final char[] _HEX_DIGITS = {
-			'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'
-		};
+	private static final char[] _HEX_DIGITS = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd',
+		'e', 'f' };
 
-	/* package-private */ static void encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue,
-		boolean first) throws IOException {
+	/* package-private */static void encodeBoolean(ResponseWriter responseWriter, String attributeName,
+		Boolean attributeValue, boolean first) throws IOException {
 
 		if (!first) {
 			responseWriter.write(",");
@@ -55,15 +54,15 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write(attributeValue.toString());
 	}
 
-	/* package-private */ static void encodeClientId(ResponseWriter responseWriter, String attributeName, String clientId, boolean first)
-		throws IOException {
+	/* package-private */static void encodeClientId(ResponseWriter responseWriter, String attributeName,
+		String clientId, boolean first) throws IOException {
 
 		String escapedClientId = "#" + clientId.replaceAll(REGEX_COLON, BACKSLASH_COLON);
 		encodeString(responseWriter, attributeName, escapedClientId, first);
 	}
 
-	/* package-private */ static void encodeClientId(ResponseWriter responseWriter, String attributeName, String clientId,
-		UIComponent uiComponent, boolean first) throws IOException {
+	/* package-private */static void encodeClientId(ResponseWriter responseWriter, String attributeName,
+		String clientId, UIComponent uiComponent, boolean first) throws IOException {
 
 		UIComponent forComponent = uiComponent.findComponent(clientId);
 		String escapedClientId = clientId;
@@ -75,8 +74,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		encodeClientId(responseWriter, attributeName, escapedClientId, first);
 	}
 
-	/* package-private */ static void encodeEventCallback(ResponseWriter responseWriter, String varName, String methodName,
-		String eventName, String callback) throws IOException {
+	/* package-private */static void encodeEventCallback(ResponseWriter responseWriter, String varName,
+		String methodName, String eventName, String callback) throws IOException {
 		responseWriter.write(varName);
 		responseWriter.write(".");
 		responseWriter.write(methodName);
@@ -87,8 +86,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write("});");
 	}
 
-	/* package-private */ static void encodeFunctionCall(ResponseWriter responseWriter, String functionName, Object... parameters)
-		throws IOException {
+	/* package-private */static void encodeFunctionCall(ResponseWriter responseWriter, String functionName,
+		Object... parameters) throws IOException {
 
 		responseWriter.write(functionName);
 		responseWriter.write("(");
@@ -110,8 +109,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write(");");
 	}
 
-	/* package-private */ static void encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue,
-		boolean first) throws IOException {
+	/* package-private */static void encodeInteger(ResponseWriter responseWriter, String attributeName,
+		Integer attributeValue, boolean first) throws IOException {
 
 		if (!first) {
 			responseWriter.write(",");
@@ -122,16 +121,16 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write(attributeValue.toString());
 	}
 
-	/* package-private */ static void encodeJavaScriptBegin(FacesContext facesContext, UIComponent uiComponent, AlloyRenderer alloyRenderer,
-		String[] modules, boolean ajax, boolean sandboxed) throws IOException {
+	/* package-private */static void encodeJavaScriptBegin(FacesContext facesContext, UIComponent uiComponent,
+		AlloyRenderer alloyRenderer, String[] modules, boolean ajax, boolean sandboxed) throws IOException {
 
 		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
 		if (sandboxed) {
 
 			String yuiConfig = alloyRenderer.getYUIConfig(facesContext, responseWriter, uiComponent);
-			BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-					BrowserSnifferFactory.class);
+			BrowserSnifferFactory browserSnifferFactory =
+				(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 			BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 			String alloyBeginScript = AlloyRendererUtil.getAlloyBeginScript(modules, yuiConfig, browserSniffer);
 			responseWriter.write(alloyBeginScript);
@@ -159,8 +158,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		}
 	}
 
-	/* package-private */ static void encodeJavaScriptEnd(FacesContext facesContext, UIComponent uiComponent, boolean ajax,
-		boolean sandboxed) throws IOException {
+	/* package-private */static void encodeJavaScriptEnd(FacesContext facesContext, UIComponent uiComponent,
+		boolean ajax, boolean sandboxed) throws IOException {
 
 		ResponseWriter responseWriter = facesContext.getResponseWriter();
 
@@ -175,22 +174,22 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 	 * Example output of this function is shown below:
 	 *
 	 * <pre>
-	    {@code
-	        Liferay.component('clientKey',
-	                new A.AlloyComponent({
-	                    attribute1:value1,
-	                    attribute2:value2,
-	                    ...
-	                    attributeN:valueN
-	                })
-	        );
-	    }
+	 * 	    {@code
+	 * 	        Liferay.component('clientKey',
+	 * 	                new A.AlloyComponent({
+	 * 	                    attribute1:value1,
+	 * 	                    attribute2:value2,
+	 * 	                    ...
+	 * 	                    attributeN:valueN
+	 * 	                })
+	 * 	        );
+	 * 	    }
 	 * </pre>
 	 *
-	 * @throws  IOException
+	 * @throws IOException
 	 */
-	/* package-private */ static void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent, String alloyClassName,
-		AlloyRenderer alloyRenderer) throws IOException {
+	/* package-private */static void encodeJavaScriptMain(FacesContext facesContext, UIComponent uiComponent,
+		String alloyClassName, AlloyRenderer alloyRenderer) throws IOException {
 
 		ResponseWriter responseWriter = facesContext.getResponseWriter();
 		ClientComponent clientComponent = (ClientComponent) uiComponent;
@@ -221,7 +220,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write(");");
 	}
 
-	/* package-private */ static void encodeLiferayComponent(ResponseWriter responseWriter, String clientKey) throws IOException {
+	/* package-private */static void encodeLiferayComponent(ResponseWriter responseWriter, String clientKey)
+		throws IOException {
 
 		responseWriter.write(AlloyRenderer.LIFERAY_COMPONENT);
 		responseWriter.write("('");
@@ -231,8 +231,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write("')");
 	}
 
-	/* package-private */ static void encodeLiferayComponentVar(ResponseWriter responseWriter, String clientVarName, String clientKey)
-		throws IOException {
+	/* package-private */static void encodeLiferayComponentVar(ResponseWriter responseWriter, String clientVarName,
+		String clientKey) throws IOException {
 
 		responseWriter.write("var ");
 		responseWriter.write(clientVarName);
@@ -241,8 +241,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write(";");
 	}
 
-	/* package-private */ static void encodeNonEscapedObject(ResponseWriter responseWriter, String attributeName, Object attributeValue,
-		boolean first) throws IOException {
+	/* package-private */static void encodeNonEscapedObject(ResponseWriter responseWriter, String attributeName,
+		Object attributeValue, boolean first) throws IOException {
 
 		if (!first) {
 			responseWriter.write(",");
@@ -253,8 +253,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write(attributeValue.toString());
 	}
 
-	/* package-private */ static void encodeString(ResponseWriter responseWriter, String attributeName, Object attributeValue,
-		boolean first) throws IOException {
+	/* package-private */static void encodeString(ResponseWriter responseWriter, String attributeName,
+		Object attributeValue, boolean first) throws IOException {
 
 		String escapedAttributeValue = escapeJavaScript(attributeValue.toString());
 
@@ -268,12 +268,13 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		responseWriter.write("'");
 	}
 
-	/* package-private */ static void encodeWidgetRender(ResponseWriter responseWriter, boolean first) throws IOException {
+	/* package-private */static void encodeWidgetRender(ResponseWriter responseWriter, boolean first)
+		throws IOException {
 		encodeBoolean(responseWriter, "render", true, first);
 	}
 
 	// TODO el method
-	/* package-private */ static String escapeClientId(String clientId) {
+	/* package-private */static String escapeClientId(String clientId) {
 
 		String escapedClientId = clientId;
 
@@ -286,7 +287,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		return escapedClientId;
 	}
 
-	/* package-private */ static String escapeJavaScript(String javaScript) {
+	/* package-private */static String escapeJavaScript(String javaScript) {
 
 		StringBuilder stringBuilder = new StringBuilder();
 		char[] javaScriptCharArray = javaScript.toCharArray();
@@ -374,7 +375,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 		return new String(buffer, index, 8 - index);
 	}
 
-	/* package-private */ static String getClientVarName(FacesContext facesContext, ClientComponent clientComponent) {
+	/* package-private */static String getClientVarName(FacesContext facesContext, ClientComponent clientComponent) {
 
 		char separatorChar = UINamingContainer.getSeparatorChar(facesContext);
 		String clientId = clientComponent.getClientId();

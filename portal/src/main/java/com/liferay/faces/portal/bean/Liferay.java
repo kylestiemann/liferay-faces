@@ -37,7 +37,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "liferay")
 @ViewScoped
@@ -199,13 +199,15 @@ public class Liferay implements Serializable {
 				inlineInputEditor = Boolean.TRUE;
 			}
 			else {
-				String configOption = liferayFacesContext.getExternalContext().getInitParameter(
+				String configOption =
+					liferayFacesContext.getExternalContext().getInitParameter(
 						"com.liferay.faces.portal.inlineInputEditor");
 
 				if (configOption == null) {
 
 					// Backwards compatibility
-					configOption = liferayFacesContext.getExternalContext().getInitParameter(
+					configOption =
+						liferayFacesContext.getExternalContext().getInitParameter(
 							"org.portletfaces.liferay.faces.inlineInputEditor");
 				}
 

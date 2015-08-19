@@ -22,7 +22,7 @@ import javax.faces.context.FacesContext;
  * into the model. Handlers are registered in the portlet.xml descriptor using an init-param with name
  * "bridgePublicRenderParameterHandler" as defined in {@link Bridge#BRIDGE_PUBLIC_RENDER_PARAMETER_HANDLER}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgePublicRenderParameterHandler {
 
@@ -30,7 +30,7 @@ public interface BridgePublicRenderParameterHandler {
 	 * This method is called after the bridge has pushed public render parameter values into the model, which occurs
 	 * after the RESTORE_VIEW phase of the JSF lifecycle.
 	 *
-	 * @param  facesContext  The current FacesContext.
+	 * @param facesContext The current FacesContext.
 	 */
 	public void processUpdates(FacesContext facesContext);
 }

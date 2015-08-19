@@ -21,7 +21,7 @@ import javax.faces.bean.RequestScoped;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped

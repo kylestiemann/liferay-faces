@@ -27,7 +27,7 @@ import com.liferay.portal.util.PortalUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @RequestScoped

@@ -22,7 +22,7 @@ import javax.faces.FacesWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class UploadedFileWrapper implements UploadedFile, FacesWrapper<UploadedFile> {
 

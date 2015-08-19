@@ -20,7 +20,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ThemeImageURLMap extends HashMap<Object, String> {
 

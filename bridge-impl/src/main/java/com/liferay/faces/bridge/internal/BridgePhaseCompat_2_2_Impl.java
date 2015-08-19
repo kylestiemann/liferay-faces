@@ -23,7 +23,7 @@ import com.liferay.faces.bridge.config.BridgeConfig;
 /**
  * This class provides a compatibility layer that isolates differences related to JSF 2.2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgePhaseCompat_2_2_Impl extends BridgePhaseCompat_2_0_Impl {
 

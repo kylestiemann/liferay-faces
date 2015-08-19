@@ -19,7 +19,7 @@ import com.liferay.faces.util.component.ClientComponent;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public abstract class SelectRating extends SelectRatingBase implements ClientComponent {
 

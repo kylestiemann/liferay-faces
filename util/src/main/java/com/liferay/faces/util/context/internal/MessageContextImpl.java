@@ -30,7 +30,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MessageContextImpl implements MessageContext {
 
@@ -52,8 +52,8 @@ public class MessageContextImpl implements MessageContext {
 		facesMessage.setSummary(messageId);
 		facesMessage.setDetail(null);
 
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 
 		MessageContext messageContext = messageContextFactory.getMessageContext();
 

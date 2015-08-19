@@ -30,7 +30,7 @@ import com.liferay.faces.bridge.context.IncongruityContext;
  * This class provides a compatibility layer that contains JSF 1.0/1.1/1.2 public methods that subclasses need to
  * override.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ExternalContextCompat_1_2_Impl extends ExternalContext {
 
@@ -61,11 +61,11 @@ public abstract class ExternalContextCompat_1_2_Impl extends ExternalContext {
 
 	/**
 	 * Note: The reason why this method appears here in {@link ExternalContextCompat_1_2_Impl} is because the method was
-	 * first introduced with JSF 1.0 and and also because it needs to be overridden by {@link
-	 * ExternalContextCompat_2_2_Impl} since it has special requirements for JSF 2.2.
+	 * first introduced with JSF 1.0 and and also because it needs to be overridden by
+	 * {@link ExternalContextCompat_2_2_Impl} since it has special requirements for JSF 2.2.
 	 *
-	 * @see    {@link ExternalContext#encodeActionURL(String, Map)}
-	 * @since  JSF 1.0
+	 * @see {@link ExternalContext#encodeActionURL(String, Map)}
+	 * @since JSF 1.0
 	 */
 	@Override
 	public String encodeActionURL(String url) {

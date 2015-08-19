@@ -35,7 +35,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This is a JSF backing managed-bean for the applicant.xhtml composition.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @ManagedBean(name = "applicantBackingBean")
 @RequestScoped
@@ -62,8 +62,8 @@ public class ApplicantBackingBean implements Serializable {
 
 	public void deleteUploadedFile(ActionEvent actionEvent) {
 
-		String fileId = (String) FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get(
-				"fileId");
+		String fileId =
+			(String) FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap().get("fileId");
 
 		try {
 			List<UploadedFile> uploadedFiles = applicantModelBean.getUploadedFiles();

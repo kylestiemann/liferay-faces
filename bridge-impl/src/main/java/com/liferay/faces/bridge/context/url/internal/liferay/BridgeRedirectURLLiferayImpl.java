@@ -30,7 +30,7 @@ import com.liferay.faces.bridge.context.url.internal.BridgeRedirectURLImpl;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRedirectURLLiferayImpl extends BridgeRedirectURLImpl {
 

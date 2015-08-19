@@ -31,7 +31,7 @@ import com.liferay.faces.util.model.SortCriterion;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CustomerOnDemandDataModel extends OnDemandDataModel<Customer> implements Serializable {
 
@@ -53,8 +53,8 @@ public class CustomerOnDemandDataModel extends OnDemandDataModel<Customer> imple
 		CustomerComparator customerComparator = new CustomerComparator(sortCriteria);
 		List<Customer> customers = getCustomerService().getCustomers(startRow, finishRow, customerComparator);
 
-		FacesMessage facesMessage = new FacesMessage("OnDemandDataModel: Fetched row index range " + startRow + "-" +
-				finishRow);
+		FacesMessage facesMessage =
+			new FacesMessage("OnDemandDataModel: Fetched row index range " + startRow + "-" + finishRow);
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		facesContext.addMessage(null, facesMessage);
 

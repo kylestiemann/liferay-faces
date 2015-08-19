@@ -27,7 +27,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class CustomerEditedEventHandler implements BridgeEventHandler {
 
@@ -51,8 +51,9 @@ public class CustomerEditedEventHandler implements BridgeEventHandler {
 	protected CustomerService getCustomerService(FacesContext facesContext) {
 		String elExpression = "#{customerService}";
 		ELContext elContext = facesContext.getELContext();
-		ValueExpression valueExpression = facesContext.getApplication().getExpressionFactory().createValueExpression(
-				elContext, elExpression, CustomerService.class);
+		ValueExpression valueExpression =
+			facesContext.getApplication().getExpressionFactory()
+				.createValueExpression(elContext, elExpression, CustomerService.class);
 
 		return (CustomerService) valueExpression.getValue(elContext);
 	}

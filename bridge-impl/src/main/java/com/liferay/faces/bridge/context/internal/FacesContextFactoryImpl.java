@@ -22,7 +22,7 @@ import javax.servlet.ServletContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextFactoryImpl extends FacesContextFactory {
 
@@ -56,8 +56,8 @@ public class FacesContextFactoryImpl extends FacesContextFactory {
 
 			// NOTE: BridgeSessionListener creates classes named HttpServletRequestExpirationImpl and
 			// HttpServletResponseExpirationImpl.
-			if ((requestFQCN.length() == 0) || (responseFQCN.length() == 0) || requestFQCN.contains("expiration") ||
-					responseFQCN.contains("expiration")) {
+			if ((requestFQCN.length() == 0) || (responseFQCN.length() == 0) || requestFQCN.contains("expiration")
+				|| responseFQCN.contains("expiration")) {
 
 				ExternalContext externalContext = new ExternalContextExpirationImpl((ServletContext) context);
 

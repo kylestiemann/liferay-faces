@@ -23,7 +23,7 @@ import javax.faces.component.behavior.ClientBehaviorHolder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Column.COMPONENT_TYPE)
 public class Column extends ColumnBase implements ClientBehaviorHolder {

@@ -14,7 +14,7 @@
 package com.liferay.faces.util.lang;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface Observable {
 

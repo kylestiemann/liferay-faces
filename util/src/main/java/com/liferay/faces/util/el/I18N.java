@@ -24,7 +24,7 @@ import com.liferay.faces.util.context.ExtFacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class I18N extends I18NCompat {
 
@@ -44,10 +44,9 @@ public class I18N extends I18NCompat {
 	 * This method is primarily meant to be called via EL, providing the implementation supports passing parameters
 	 * (like JBoss EL).
 	 *
-	 * @param   messageId  The message key.
-	 * @param   arg1       The first argument, assuming that the messageId has a {0} token.
-	 *
-	 * @return  The internationalized message.
+	 * @param messageId The message key.
+	 * @param arg1 The first argument, assuming that the messageId has a {0} token.
+	 * @return The internationalized message.
 	 */
 	public String replace(String messageId, String arg1) {
 		ExtFacesContext extFacesContext = ExtFacesContext.getInstance();
@@ -61,11 +60,10 @@ public class I18N extends I18NCompat {
 	 * This method is primarily meant to be called via EL, providing the implementation supports passing parameters
 	 * (like JBoss EL).
 	 *
-	 * @param   messageId  The message key.
-	 * @param   arg1       The first argument, assuming that the messageId has a {0} token.
-	 * @param   arg2       The second argument, assuming that the messageId has a {1} token.
-	 *
-	 * @return  The internationalized message.
+	 * @param messageId The message key.
+	 * @param arg1 The first argument, assuming that the messageId has a {0} token.
+	 * @param arg2 The second argument, assuming that the messageId has a {1} token.
+	 * @return The internationalized message.
 	 */
 	public String replace(String messageId, String arg1, String arg2) {
 		ExtFacesContext extFacesContext = ExtFacesContext.getInstance();
@@ -79,12 +77,11 @@ public class I18N extends I18NCompat {
 	 * This method is primarily meant to be called via EL, providing the implementation supports passing parameters
 	 * (like JBoss EL).
 	 *
-	 * @param   messageId  The message key.
-	 * @param   arg1       The first argument, assuming that the messageId has a {0} token.
-	 * @param   arg2       The second argument, assuming that the messageId has a {1} token.
-	 * @param   arg3       The third argument, assuming that the messageId has a {2} token.
-	 *
-	 * @return  The internationalized message.
+	 * @param messageId The message key.
+	 * @param arg1 The first argument, assuming that the messageId has a {0} token.
+	 * @param arg2 The second argument, assuming that the messageId has a {1} token.
+	 * @param arg3 The third argument, assuming that the messageId has a {2} token.
+	 * @return The internationalized message.
 	 */
 	public String replace(String messageId, String arg1, String arg2, String arg3) {
 		ExtFacesContext extFacesContext = ExtFacesContext.getInstance();
@@ -98,13 +95,12 @@ public class I18N extends I18NCompat {
 	 * This method is primarily meant to be called via EL, providing the implementation supports passing parameters
 	 * (like JBoss EL).
 	 *
-	 * @param   messageId  The message key.
-	 * @param   arg1       The first argument, assuming that the messageId has a {0} token.
-	 * @param   arg2       The second argument, assuming that the messageId has a {1} token.
-	 * @param   arg3       The third argument, assuming that the messageId has a {2} token.
-	 * @param   arg4       The fourth argument, assuming that the messageId has a {3} token.
-	 *
-	 * @return  The internationalized message.
+	 * @param messageId The message key.
+	 * @param arg1 The first argument, assuming that the messageId has a {0} token.
+	 * @param arg2 The second argument, assuming that the messageId has a {1} token.
+	 * @param arg3 The third argument, assuming that the messageId has a {2} token.
+	 * @param arg4 The fourth argument, assuming that the messageId has a {3} token.
+	 * @return The internationalized message.
 	 */
 	public String replace(String messageId, String arg1, String arg2, String arg3, String arg4) {
 		ExtFacesContext extFacesContext = ExtFacesContext.getInstance();

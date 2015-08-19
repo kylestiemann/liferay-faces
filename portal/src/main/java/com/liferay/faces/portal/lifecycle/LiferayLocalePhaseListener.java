@@ -32,7 +32,7 @@ import com.liferay.portal.theme.ThemeDisplay;
  * This is done after the restore view phase (to have the correct locale during the following phases) and before the
  * render response phase (in case the view root has changed in the invoke application phase).
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayLocalePhaseListener implements PhaseListener {
 

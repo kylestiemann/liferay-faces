@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.inputsecret.InputSecret;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = InputSecret.COMPONENT_FAMILY, rendererType = InputSecret.RENDERER_TYPE)
 public class InputSecretRenderer extends InputSecretRendererBase {

@@ -22,7 +22,7 @@ import javax.portlet.faces.Bridge;
  * according to the deviation requirements of {@link javax.faces.context.ExternalContext#encodeResourceURL(String)}
  * listed in Section 6.1.3.1 of the Bridge Spec.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgeResourceURL extends BridgeURL {
 
@@ -30,14 +30,14 @@ public interface BridgeResourceURL extends BridgeURL {
 	 * Replaces the value of the "javax.portlet.BackLink" parameter with an encoded action URL that represents a link to
 	 * the current Faces viewId.
 	 *
-	 * @param  facesContext  The current {@link FacesContext} instance.
+	 * @param facesContext The current {@link FacesContext} instance.
 	 */
 	void replaceBackLinkParameter(FacesContext facesContext);
 
 	/**
 	 * Sets a flag indicating whether or not the URL must satisfy "in-protocol" resource serving.
 	 *
-	 * @param  inProtocol  <code>true</code> if the URL must satisfy "in-protocol" resource serving, otherwise <code>
+	 * @param inProtocol <code>true</code> if the URL must satisfy "in-protocol" resource serving, otherwise <code>
 	 *                     false</code>.
 	 */
 	void setInProtocol(boolean inProtocol);

@@ -28,7 +28,7 @@ import com.liferay.faces.util.helper.LongHelper;
  * This is a utility class that provides static utility methods for getting values from {@link PortletConfig} init-param
  * values.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortletConfigParamUtil {
 

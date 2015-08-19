@@ -18,7 +18,7 @@ import com.liferay.faces.util.context.MessageContextFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MessageContextFactoryPortalImpl extends MessageContextFactory {
 

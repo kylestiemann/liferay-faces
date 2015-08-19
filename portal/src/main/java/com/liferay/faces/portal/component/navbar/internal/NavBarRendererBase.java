@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.portal.component.navbar.internal;
+
 //J-
 
 

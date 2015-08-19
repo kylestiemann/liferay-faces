@@ -26,7 +26,7 @@ import javax.faces.validator.ValidatorException;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @FacesValidator("com.liferay.faces.demos.validator.EmailValidator")
 public class EmailValidator implements Validator {

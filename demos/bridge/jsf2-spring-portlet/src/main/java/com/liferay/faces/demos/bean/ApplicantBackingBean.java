@@ -36,7 +36,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This is a JSF backing managed-bean for the applicant.xhtml composition.
  *
- * @author  "Neil Griffin"
+ * @author "Neil Griffin"
  */
 @Named
 @Scope("request")
@@ -96,8 +96,8 @@ public class ApplicantBackingBean implements Serializable {
 					uploadedFile.getAbsolutePath());
 			}
 			else {
-				logger.error("Uploaded file status=[" + uploadedFile.getStatus().toString() + "] " +
-					uploadedFile.getMessage());
+				logger.error("Uploaded file status=[" + uploadedFile.getStatus().toString() + "] "
+					+ uploadedFile.getMessage());
 				FacesMessageUtil.addGlobalUnexpectedErrorMessage(FacesContext.getCurrentInstance());
 			}
 		}

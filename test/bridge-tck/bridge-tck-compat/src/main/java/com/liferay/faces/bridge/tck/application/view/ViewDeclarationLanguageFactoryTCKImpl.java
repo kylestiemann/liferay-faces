@@ -18,7 +18,7 @@ import javax.faces.view.ViewDeclarationLanguageFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewDeclarationLanguageFactoryTCKImpl extends ViewDeclarationLanguageFactory {
 

@@ -32,7 +32,7 @@ import javax.servlet.http.Part;
 /**
  * This class isolates methods that were added to {@link HttpServletRequest} in the Servlet 3.0 API.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class HttpServletRequest_3_0_Adapter extends PortletRequestWrapper implements HttpServletRequest {
 

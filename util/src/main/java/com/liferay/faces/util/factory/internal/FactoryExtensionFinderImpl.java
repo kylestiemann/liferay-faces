@@ -25,7 +25,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FactoryExtensionFinderImpl extends FactoryExtensionFinder {
 
@@ -48,8 +48,8 @@ public class FactoryExtensionFinderImpl extends FactoryExtensionFinder {
 				Class<?> factoryExtensionClass = Class.forName(factoryClassFQCN);
 				Class<?> baseFactoryExtensionClass = getBaseFactoryExtensionClass(factoryExtensionClass);
 				Object existingFactoryInstance = getFactoryInstance(baseFactoryExtensionClass);
-				Object factoryInstance = newFactoryInstance(factoryExtensionClass, baseFactoryExtensionClass,
-						existingFactoryInstance);
+				Object factoryInstance =
+					newFactoryInstance(factoryExtensionClass, baseFactoryExtensionClass, existingFactoryInstance);
 
 				factoryExtensionCache.put(baseFactoryExtensionClass, factoryInstance);
 			}
@@ -75,8 +75,8 @@ public class FactoryExtensionFinderImpl extends FactoryExtensionFinder {
 				for (Constructor<?> constructor : constructors) {
 					Class<?>[] parameterTypes = constructor.getParameterTypes();
 
-					if ((parameterTypes != null) && (parameterTypes.length == 1) &&
-							(parameterTypes[0].getName().equals(baseFactoryExtensionClass.getName()))) {
+					if ((parameterTypes != null) && (parameterTypes.length == 1)
+						&& (parameterTypes[0].getName().equals(baseFactoryExtensionClass.getName()))) {
 						wrapperConstructor = constructor;
 					}
 				}

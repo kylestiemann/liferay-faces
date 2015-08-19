@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.message.Message;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesRenderer(componentFamily = Message.COMPONENT_FAMILY, rendererType = Message.RENDERER_TYPE)
 public class MessageRenderer extends MessageRendererBase {

@@ -33,7 +33,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = Form.COMPONENT_FAMILY, rendererType = Form.RENDERER_TYPE)
@@ -97,8 +97,8 @@ public class FormRenderer extends FormRendererBase {
 			ExternalContext externalContext = facesContext.getExternalContext();
 			String encodedActionURL = externalContext.encodeActionURL(actionURLBuilder.toString());
 			ResponseWriter responseWriter = facesContext.getResponseWriter();
-			DelegationResponseWriter delegationResponseWriter = new FormResponseWriter(responseWriter,
-					encodedActionURL);
+			DelegationResponseWriter delegationResponseWriter =
+				new FormResponseWriter(responseWriter, encodedActionURL);
 			super.encodeBegin(facesContext, uiComponent, delegationResponseWriter);
 		}
 		else {

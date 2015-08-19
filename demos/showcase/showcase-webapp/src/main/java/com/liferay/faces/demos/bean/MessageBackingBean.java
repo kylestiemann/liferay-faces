@@ -21,7 +21,7 @@ import javax.faces.event.ValueChangeEvent;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @RequestScoped
 @ManagedBean

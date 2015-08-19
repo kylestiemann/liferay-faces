@@ -32,7 +32,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ResourceValidatorBaseImpl extends ResourceValidatorWrapper {
 
@@ -58,8 +58,8 @@ public abstract class ResourceValidatorBaseImpl extends ResourceValidatorWrapper
 			Set<String> invokerServletNames = new HashSet<String>();
 			ExternalContext externalContext = facesContext.getExternalContext();
 			Map<String, Object> applicationMap = externalContext.getApplicationMap();
-			ApplicationConfig applicationConfig = (ApplicationConfig) applicationMap.get(ApplicationConfig.class
-					.getName());
+			ApplicationConfig applicationConfig =
+				(ApplicationConfig) applicationMap.get(ApplicationConfig.class.getName());
 			WebConfig webConfig = applicationConfig.getWebConfig();
 			List<ConfiguredServlet> configuredServlets = webConfig.getConfiguredServlets();
 

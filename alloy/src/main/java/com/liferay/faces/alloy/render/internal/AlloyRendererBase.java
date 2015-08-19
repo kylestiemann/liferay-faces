@@ -26,7 +26,7 @@ import com.liferay.faces.util.render.RendererUtil;
 /**
  * This is an abstract class that provides base rendering functionality for AlloyUI JavaScript components.
  *
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class AlloyRendererBase extends ClientComponentRendererBase implements AlloyRenderer {
 
@@ -42,8 +42,9 @@ public abstract class AlloyRendererBase extends ClientComponentRendererBase impl
 	}
 
 	@Override
-	public void encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue,
-		boolean first) throws IOException {
+	public void
+		encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue, boolean first)
+			throws IOException {
 		AlloyRendererCommon.encodeBoolean(responseWriter, attributeName, attributeValue, first);
 	}
 
@@ -72,8 +73,9 @@ public abstract class AlloyRendererBase extends ClientComponentRendererBase impl
 	}
 
 	@Override
-	public void encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue,
-		boolean first) throws IOException {
+	public void
+		encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue, boolean first)
+			throws IOException {
 		AlloyRendererCommon.encodeInteger(responseWriter, attributeName, attributeValue, first);
 	}
 

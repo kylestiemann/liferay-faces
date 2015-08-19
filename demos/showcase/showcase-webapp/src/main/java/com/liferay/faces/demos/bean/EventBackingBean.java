@@ -20,7 +20,7 @@ import javax.faces.event.ComponentSystemEvent;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @ManagedBean
 @RequestScoped

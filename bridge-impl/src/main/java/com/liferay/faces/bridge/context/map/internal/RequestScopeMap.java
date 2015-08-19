@@ -44,13 +44,13 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RequestScopeMap extends AbstractPropertyMap<Object> {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 	private static final boolean NULL_PATH_ATTRIBUTES;
 	private static final String REQUEST_SCOPED_FQCN = "javax.faces.bean.RequestScoped";
 
@@ -78,8 +78,8 @@ public class RequestScopeMap extends AbstractPropertyMap<Object> {
 		String appConfigAttrName = ApplicationConfig.class.getName();
 		PortletContext portletContext = bridgeContext.getPortletContext();
 		ApplicationConfig applicationConfig = (ApplicationConfig) portletContext.getAttribute(appConfigAttrName);
-		BeanManagerFactory beanManagerFactory = (BeanManagerFactory) BridgeFactoryFinder.getFactory(
-				BeanManagerFactory.class);
+		BeanManagerFactory beanManagerFactory =
+			(BeanManagerFactory) BridgeFactoryFinder.getFactory(BeanManagerFactory.class);
 		this.beanManager = beanManagerFactory.getBeanManager(applicationConfig.getFacesConfig());
 
 		// Determines whether or not JSF @ManagedBean classes annotated with @RequestScoped should be distinct for
@@ -89,8 +89,8 @@ public class RequestScopeMap extends AbstractPropertyMap<Object> {
 		PortletConfig portletConfig = bridgeContext.getPortletConfig();
 
 		if (LIFERAY_PORTAL_DETECTED) {
-			distinctRequestScopedManagedBeans = PortletConfigParam.DistinctRequestScopedManagedBeans.getBooleanValue(
-					portletConfig);
+			distinctRequestScopedManagedBeans =
+				PortletConfigParam.DistinctRequestScopedManagedBeans.getBooleanValue(portletConfig);
 		}
 
 		this.distinctRequestScopedManagedBeans = distinctRequestScopedManagedBeans;
@@ -103,11 +103,11 @@ public class RequestScopeMap extends AbstractPropertyMap<Object> {
 		// over the @BridgePreDestroy annotation.
 		this.preferPreDestroy = PortletConfigParam.PreferPreDestroy.getBooleanValue(portletConfig);
 
-		ContextMapFactory contextMapFactory = (ContextMapFactory) BridgeFactoryFinder.getFactory(
-				ContextMapFactory.class);
+		ContextMapFactory contextMapFactory =
+			(ContextMapFactory) BridgeFactoryFinder.getFactory(ContextMapFactory.class);
 		Map<String, Object> applicationScopeMap = contextMapFactory.getApplicationScopeMap(bridgeContext);
-		PreDestroyInvokerFactory preDestroyInvokerFactory = (PreDestroyInvokerFactory) BridgeFactoryFinder.getFactory(
-				PreDestroyInvokerFactory.class);
+		PreDestroyInvokerFactory preDestroyInvokerFactory =
+			(PreDestroyInvokerFactory) BridgeFactoryFinder.getFactory(PreDestroyInvokerFactory.class);
 		this.preDestroyInvoker = preDestroyInvokerFactory.getPreDestroyInvoker(applicationScopeMap);
 
 		BridgeRequestScope bridgeRequestScope = bridgeContext.getBridgeRequestScope();
@@ -152,8 +152,8 @@ public class RequestScopeMap extends AbstractPropertyMap<Object> {
 	@Override
 	protected Object getProperty(String name) {
 
-		if ((NULL_PATH_ATTRIBUTES) &&
-				("javax.servlet.include.path_info".equals(name) || "javax.servlet.include.servlet_path".equals(name))) {
+		if ((NULL_PATH_ATTRIBUTES)
+			&& ("javax.servlet.include.path_info".equals(name) || "javax.servlet.include.servlet_path".equals(name))) {
 			return null;
 		}
 		else {

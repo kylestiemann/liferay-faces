@@ -14,7 +14,7 @@
 package com.liferay.portal.util;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class WebKeys {
 

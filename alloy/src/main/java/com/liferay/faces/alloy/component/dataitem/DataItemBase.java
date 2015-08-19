@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.alloy.component.dataitem;
+
 //J-
 
 import javax.annotation.Generated;

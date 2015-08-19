@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.outputlink.OutputLink;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = OutputLink.COMPONENT_FAMILY, rendererType = OutputLink.RENDERER_TYPE)
 public class OutputLinkRenderer extends OutputLinkRendererBase {

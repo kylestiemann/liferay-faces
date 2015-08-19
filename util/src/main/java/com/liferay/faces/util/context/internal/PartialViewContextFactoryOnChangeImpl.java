@@ -19,7 +19,7 @@ import javax.faces.context.PartialViewContextFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PartialViewContextFactoryOnChangeImpl extends PartialViewContextFactory {
 

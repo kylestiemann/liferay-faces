@@ -37,7 +37,7 @@ import com.liferay.faces.bridge.model.UploadedFile;
  * This class provides a convenient mechanism for converting an ICEfaces {@link FileInfo} object to an instance of the
  * {@link UploadedFile} interface provided by the Liferay Faces Bridge implementation.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class UploadedFileWrapper implements Serializable, UploadedFile, FacesWrapper<FileInfo> {
 

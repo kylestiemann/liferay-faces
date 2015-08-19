@@ -22,15 +22,14 @@ import com.liferay.faces.util.render.internal.IdDelegationResponseWriter;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class InputDateTimeResponseWriter extends IdDelegationResponseWriter {
 
 	// Private Data Members
 	private boolean nativeInputDateTime;
 
-	public InputDateTimeResponseWriter(ResponseWriter responseWriter, String inputClientId,
-		boolean nativeInputDateTime) {
+	public InputDateTimeResponseWriter(ResponseWriter responseWriter, String inputClientId, boolean nativeInputDateTime) {
 		super(responseWriter, "input", inputClientId);
 		this.nativeInputDateTime = nativeInputDateTime;
 	}

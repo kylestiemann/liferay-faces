@@ -22,37 +22,34 @@ import javax.portlet.WindowState;
 /**
  * This interface defines a contract for generating URLs that are compatible with Liferay Portal.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface LiferayURLGenerator {
 
 	/**
 	 * Generates a Liferay-compatible URL with the specified additional URL parameters.
 	 *
-	 * @param   additionalParameterMap  Additional URL parameters.
-	 *
-	 * @return  The Liferay-compatible URL.
+	 * @param additionalParameterMap Additional URL parameters.
+	 * @return The Liferay-compatible URL.
 	 */
 	public String generateURL(Map<String, String[]> additionalParameterMap);
 
 	/**
 	 * Generates a Liferay-compatible URL with the specified additional URL parameters and resource ID.
 	 *
-	 * @param   additionalParameterMap  Additional URL parameters.
-	 * @param   resourceId              The resource ID.
-	 * @param   cacheability            The resource's cacheability level.
-	 *
-	 * @return  The Liferay-compatible URL.
+	 * @param additionalParameterMap Additional URL parameters.
+	 * @param resourceId The resource ID.
+	 * @param cacheability The resource's cacheability level.
+	 * @return The Liferay-compatible URL.
 	 */
 	public String generateURL(Map<String, String[]> additionalParameterMap, String cacheability, String resourceId);
 
 	/**
 	 * Generates a Liferay-compatible URL with the specified additional URL parameters, portlet mode, and window state.
 	 *
-	 * @param   additionalParameterMap  Additional URL parameters.
-	 * @param   portletMode             The portlet mode.
-	 * @param   windowState             The window state.
-	 *
+	 * @param additionalParameterMap Additional URL parameters.
+	 * @param portletMode The portlet mode.
+	 * @param windowState The window state.
 	 * @return
 	 */
 	public String generateURL(Map<String, String[]> additionalParameterMap, PortletMode portletMode,

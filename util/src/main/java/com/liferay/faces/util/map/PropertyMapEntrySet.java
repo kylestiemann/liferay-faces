@@ -19,7 +19,7 @@ import java.util.Map;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PropertyMapEntrySet<V> extends HashSet<Map.Entry<String, V>> {
 

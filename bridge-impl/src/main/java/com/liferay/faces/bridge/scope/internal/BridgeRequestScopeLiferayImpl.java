@@ -41,7 +41,7 @@ import com.liferay.portal.kernel.util.JavaConstants;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRequestScopeLiferayImpl extends BridgeRequestScopeImpl {
 
@@ -53,10 +53,9 @@ public class BridgeRequestScopeLiferayImpl extends BridgeRequestScopeImpl {
 
 	// Private Constants
 	private static final String[] LIFERAY_ATTRIBUTE_NAMES;
-	private static final String[] PORTLET_REQUEST_ATTRIBUTE_NAMES = new String[] {
-			PortletRequest.CCPP_PROFILE, PortletRequest.LIFECYCLE_PHASE, PortletRequest.RENDER_HEADERS,
-			PortletRequest.RENDER_MARKUP, PortletRequest.RENDER_PART, PortletRequest.USER_INFO
-		};
+	private static final String[] PORTLET_REQUEST_ATTRIBUTE_NAMES = new String[] { PortletRequest.CCPP_PROFILE,
+		PortletRequest.LIFECYCLE_PHASE, PortletRequest.RENDER_HEADERS, PortletRequest.RENDER_MARKUP,
+		PortletRequest.RENDER_PART, PortletRequest.USER_INFO };
 
 	static {
 
@@ -116,8 +115,8 @@ public class BridgeRequestScopeLiferayImpl extends BridgeRequestScopeImpl {
 				// also includes an attribute named "javax.portlet.portlet" that is the current GenericFacesPortlet
 				// (which extends GenericPortlet). But since GenericPortlet implements the PortletConfig interface, need
 				// to prevent it from being excluded as well.
-				if (!JavaConstants.JAVAX_PORTLET_CONFIG.equals(attributeName) &&
-						!JavaConstants.JAVAX_PORTLET_PORTLET.equals(attributeName)) {
+				if (!JavaConstants.JAVAX_PORTLET_CONFIG.equals(attributeName)
+					&& !JavaConstants.JAVAX_PORTLET_PORTLET.equals(attributeName)) {
 					excluded = true;
 				}
 			}
@@ -135,14 +134,14 @@ public class BridgeRequestScopeLiferayImpl extends BridgeRequestScopeImpl {
 					excluded = true;
 				}
 			}
-			else if ((attributeValue instanceof PortalContext) || (attributeValue instanceof PortletContext) ||
-					(attributeValue instanceof PortletPreferences) || (attributeValue instanceof PortletSession)) {
+			else if ((attributeValue instanceof PortalContext) || (attributeValue instanceof PortletContext)
+				|| (attributeValue instanceof PortletPreferences) || (attributeValue instanceof PortletSession)) {
 
 				excluded = true;
 			}
-			else if ((attributeValue instanceof HttpSession) || (attributeValue instanceof ServletConfig) ||
-					(attributeValue instanceof ServletContext) || (attributeValue instanceof ServletRequest) ||
-					(attributeValue instanceof ServletResponse)) {
+			else if ((attributeValue instanceof HttpSession) || (attributeValue instanceof ServletConfig)
+				|| (attributeValue instanceof ServletContext) || (attributeValue instanceof ServletRequest)
+				|| (attributeValue instanceof ServletResponse)) {
 
 				// Can only exclude attributes that are not Liferay objects. For example, Liferay Portal includes
 				// a request attribute named "com.liferay.portal.kernel.servlet.PortletServletRequest" that must not be
@@ -166,9 +165,9 @@ public class BridgeRequestScopeLiferayImpl extends BridgeRequestScopeImpl {
 
 		boolean excluded = false;
 
-		if (isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_FACES) ||
-				isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET) ||
-				isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET_INCLUDE)) {
+		if (isNamespaceMatch(attributeName, EXCLUDED_NAMESPACE_JAVAX_FACES)
+			|| isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET)
+			|| isNamespaceMatch(attributeName, EXCLUCED_NAMESPACE_JAVAX_SERVLET_INCLUDE)) {
 
 			// Always safe to exclude when running under Liferay Portal.
 			excluded = true;

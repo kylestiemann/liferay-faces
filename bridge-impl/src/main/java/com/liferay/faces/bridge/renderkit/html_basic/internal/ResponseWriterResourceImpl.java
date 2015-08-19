@@ -27,7 +27,7 @@ import com.liferay.faces.bridge.util.internal.FacesURLEncoder;
  * &lt;script&gt; element or the "href" attribute of a &lt;link&gt; element. For more info, see: <a
  * href="http://issues.liferay.com/browse/FACES-1236">FACES-1236</a>.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResponseWriterResourceImpl extends ResponseWriterWrapper {
 

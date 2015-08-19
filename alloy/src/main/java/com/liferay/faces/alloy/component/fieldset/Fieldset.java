@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = Fieldset.COMPONENT_TYPE)
 public class Fieldset extends FieldsetBase {

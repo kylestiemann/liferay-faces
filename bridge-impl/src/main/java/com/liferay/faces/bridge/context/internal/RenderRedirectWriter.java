@@ -22,7 +22,7 @@ import javax.portlet.PortletResponse;
 /**
  * Wraps a {@link PortletResponse} {@link Writer} in order to support render-redirect by buffering response output.
  *
- * @author  ngriffin
+ * @author ngriffin
  */
 public abstract class RenderRedirectWriter extends WriterWrapper {
 
@@ -34,7 +34,7 @@ public abstract class RenderRedirectWriter extends WriterWrapper {
 	/**
 	 * Renders the buffered response output to the wrapped {@link Writer}.
 	 *
-	 * @throws  IOException
+	 * @throws IOException
 	 */
 	public abstract void render() throws IOException;
 

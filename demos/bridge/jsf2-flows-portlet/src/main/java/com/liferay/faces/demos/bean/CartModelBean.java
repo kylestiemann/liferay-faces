@@ -27,7 +27,7 @@ import com.liferay.faces.demos.dto.Booking;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named
 @ViewScoped

@@ -29,7 +29,7 @@ import com.liferay.faces.util.view.facelets.MethodMetadata;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class AutoCompleteHandler extends ComponentHandler {
 

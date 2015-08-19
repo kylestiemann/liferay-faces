@@ -24,7 +24,7 @@ import com.liferay.faces.alloy.component.inputfile.InputFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class InputFileMockImpl extends InputFile {
 

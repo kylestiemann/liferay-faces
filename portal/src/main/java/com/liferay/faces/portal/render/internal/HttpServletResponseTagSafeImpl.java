@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponseWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HttpServletResponseTagSafeImpl extends HttpServletResponseWrapper {
 

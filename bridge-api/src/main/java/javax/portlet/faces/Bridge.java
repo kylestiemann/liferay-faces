@@ -25,7 +25,7 @@ import javax.portlet.ResourceResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface Bridge {
 
@@ -61,14 +61,14 @@ public interface Bridge {
 	public static final String VIEWID_HISTORY = "javax.portlet.faces.viewIdHistory";
 
 	/**
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	public static enum PortletPhase {
 		ACTION_PHASE, EVENT_PHASE, RENDER_PHASE, RESOURCE_PHASE
 	}
 
 	/**
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	public static enum BridgeRenderPolicy {
 		DEFAULT, ALWAYS_DELEGATE, NEVER_DELEGATE,

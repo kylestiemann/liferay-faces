@@ -23,7 +23,7 @@ import com.liferay.faces.portlet.component.actionurl.ActionURL;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = ActionURL.COMPONENT_FAMILY, rendererType = ActionURL.RENDERER_TYPE)

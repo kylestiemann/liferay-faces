@@ -23,7 +23,7 @@ import com.liferay.faces.demos.dto.Title;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named("titleService")
 @ApplicationScoped

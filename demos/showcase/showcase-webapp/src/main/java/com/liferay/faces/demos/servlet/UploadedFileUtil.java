@@ -14,7 +14,7 @@
 package com.liferay.faces.demos.servlet;
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class UploadedFileUtil {
 

@@ -39,7 +39,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeNavigationHandlerImpl extends BridgeNavigationHandler {
 
@@ -162,8 +162,8 @@ public class BridgeNavigationHandlerImpl extends BridgeNavigationHandler {
 	public NavigationCase getNavigationCase(FacesContext facesContext, String fromAction, String outcome) {
 
 		if (wrappedNavigationHandler instanceof ConfigurableNavigationHandler) {
-			ConfigurableNavigationHandler wrappedConfigurableNavigationHandler = (ConfigurableNavigationHandler)
-				wrappedNavigationHandler;
+			ConfigurableNavigationHandler wrappedConfigurableNavigationHandler =
+				(ConfigurableNavigationHandler) wrappedNavigationHandler;
 
 			return wrappedConfigurableNavigationHandler.getNavigationCase(facesContext, fromAction, outcome);
 		}
@@ -181,8 +181,8 @@ public class BridgeNavigationHandlerImpl extends BridgeNavigationHandler {
 	public Map<String, Set<NavigationCase>> getNavigationCases() {
 
 		if (wrappedNavigationHandler instanceof ConfigurableNavigationHandler) {
-			ConfigurableNavigationHandler wrappedConfigurableNavigationHandler = (ConfigurableNavigationHandler)
-				wrappedNavigationHandler;
+			ConfigurableNavigationHandler wrappedConfigurableNavigationHandler =
+				(ConfigurableNavigationHandler) wrappedNavigationHandler;
 
 			return wrappedConfigurableNavigationHandler.getNavigationCases();
 		}

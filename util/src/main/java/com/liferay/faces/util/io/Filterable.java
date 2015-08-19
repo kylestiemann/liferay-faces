@@ -17,7 +17,7 @@ import java.io.IOException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface Filterable {
 

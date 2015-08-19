@@ -28,7 +28,7 @@ import javax.servlet.jsp.tagext.BodyContent;
  * their {@link BodyContent} to an underlying String rather than to a JSP, which is helpful when invoking {@link Tag}
  * classes directly for use with Facelets.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BodyContentStringImpl extends BodyContent {
 

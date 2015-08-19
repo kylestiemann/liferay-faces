@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.test.util;
+
 //J-
 
 import java.util.logging.Level;

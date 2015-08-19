@@ -37,8 +37,8 @@ import com.liferay.faces.util.render.internal.BufferedScriptResponseWriter;
 
 
 /**
- * @author  Bruno Basto
- * @author  Kyle Stiemann
+ * @author Bruno Basto
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = ProgressBar.COMPONENT_FAMILY, rendererType = ProgressBar.RENDERER_TYPE)
@@ -116,8 +116,8 @@ public class ProgressBarRenderer extends ProgressBarRendererBase {
 			buf.append("var event = null;");
 
 			String clientId = progressBar.getClientId(facesContext);
-			ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-					facesContext, progressBar, "poll", clientId, null);
+			ClientBehaviorContext clientBehaviorContext =
+				ClientBehaviorContext.createClientBehaviorContext(facesContext, progressBar, "poll", clientId, null);
 			int size = pollEventClientBehaviors.size();
 
 			//J-
@@ -133,13 +133,13 @@ public class ProgressBarRenderer extends ProgressBarRendererBase {
 				if (i == 0) {
 
 					AjaxBehavior firstPollEventAjaxBehavior = (AjaxBehavior) pollEventClientBehavior;
-					String stopPollingFunction = "function(){".concat(liferayComponent.toString()).concat(
-							".stopPolling();}");
+					String stopPollingFunction =
+						"function(){".concat(liferayComponent.toString()).concat(".stopPolling();}");
 
 					// Ensure that render is '@this', execute is '@this', the pollingFunction is called onsuccess, and
 					// the stopPolling function is called onerror.
-					pollEventClientBehavior = new ProgressBarAjaxBehavior(firstPollEventAjaxBehavior, "pollingFunction",
-							stopPollingFunction);
+					pollEventClientBehavior =
+						new ProgressBarAjaxBehavior(firstPollEventAjaxBehavior, "pollingFunction", stopPollingFunction);
 				}
 
 				buf.append(pollEventClientBehavior.getScript(clientBehaviorContext));
@@ -284,8 +284,9 @@ public class ProgressBarRenderer extends ProgressBarRendererBase {
 
 			if ((clientBehaviorsForComplete != null) && !clientBehaviorsForComplete.isEmpty()) {
 
-				ClientBehaviorContext clientBehaviorContext = ClientBehaviorContext.createClientBehaviorContext(
-						facesContext, progressBar, "progressComplete", clientId, null);
+				ClientBehaviorContext clientBehaviorContext =
+					ClientBehaviorContext.createClientBehaviorContext(facesContext, progressBar, "progressComplete",
+						clientId, null);
 
 				for (ClientBehavior clientBehaviorForComplete : clientBehaviorsForComplete) {
 					onCompleteBuilder.append(clientBehaviorForComplete.getScript(clientBehaviorContext));
@@ -312,7 +313,9 @@ public class ProgressBarRenderer extends ProgressBarRendererBase {
 		if ((label != null) && label.contains(TOKEN)) {
 
 			String escapedLabel = escapeJavaScript(label);
-			encodeNonEscapedObject(responseWriter, VALUE_CHANGE,
+			encodeNonEscapedObject(
+				responseWriter,
+				VALUE_CHANGE,
 				"function(event){this.set('label','".concat(escapedLabel).concat(
 					"'.replace(LFAI.TOKEN_REGEX, event.newVal));}"), onFirst);
 			onFirst = false;

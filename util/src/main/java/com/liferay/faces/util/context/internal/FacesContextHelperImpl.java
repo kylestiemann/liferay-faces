@@ -46,7 +46,7 @@ import com.liferay.faces.util.helper.LongHelper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextHelperImpl implements FacesContextHelper, Serializable {
 
@@ -116,14 +116,14 @@ public class FacesContextHelperImpl implements FacesContextHelper, Serializable 
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalSuccessInfoMessage()
+	 * @see FacesContextHelper#addGlobalSuccessInfoMessage()
 	 */
 	public void addGlobalSuccessInfoMessage() {
 		addGlobalInfoMessage(SUCCESS_INFO_MSG_ID);
 	}
 
 	/**
-	 * @see  FacesContextHelper#addGlobalUnexpectedErrorMessage()
+	 * @see FacesContextHelper#addGlobalUnexpectedErrorMessage()
 	 */
 	public void addGlobalUnexpectedErrorMessage() {
 		addGlobalErrorMessage(UNEXPECTED_ERROR_MSG_ID);
@@ -176,8 +176,8 @@ public class FacesContextHelperImpl implements FacesContextHelper, Serializable 
 	}
 
 	public void registerPhaseListener(PhaseListener phaseListener) throws IllegalStateException {
-		LifecycleFactory lifecycleFactory = (LifecycleFactory) FactoryFinder.getFactory(
-				FactoryFinder.LIFECYCLE_FACTORY);
+		LifecycleFactory lifecycleFactory =
+			(LifecycleFactory) FactoryFinder.getFactory(FactoryFinder.LIFECYCLE_FACTORY);
 
 		for (Iterator<String> lifecycleIds = lifecycleFactory.getLifecycleIds(); lifecycleIds.hasNext();) {
 			String lifecycleId = lifecycleIds.next();
@@ -296,8 +296,8 @@ public class FacesContextHelperImpl implements FacesContextHelper, Serializable 
 	}
 
 	protected MessageContext getMessageContext() {
-		MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder.getFactory(
-				MessageContextFactory.class);
+		MessageContextFactory messageContextFactory =
+			(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 
 		return messageContextFactory.getMessageContext();
 	}
@@ -334,8 +334,8 @@ public class FacesContextHelperImpl implements FacesContextHelper, Serializable 
 	}
 
 	public String getRequestParameter(String name) {
-		HttpServletRequest httpServletRequest = (HttpServletRequest) FacesContext.getCurrentInstance()
-			.getExternalContext().getRequest();
+		HttpServletRequest httpServletRequest =
+			(HttpServletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 
 		return httpServletRequest.getParameter(name);
 	}

@@ -23,24 +23,26 @@ import javax.portlet.faces.Bridge;
 
 
 /**
- * <p>This abstract class defines the contract for a brige-specific {@link NavigationHandler} that fortifies the JSF
- * runtime with the ability to handle to-view-id entries in navigaion-case blocks that respect the {@link
- * Bridge#PORTLET_MODE_PARAMETER} parameter for switching to a different {@link PortletMode} and the {@link
- * Bridge#PORTLET_WINDOWSTATE_PARAMETER} parameter for switching to a different {@link WindowState}. It also has the
- * ability to react to changes in portlet modes that were done programattically by portlet developers that called {@link
- * StateAwareResponse#setWindowState(WindowState)} during the INVOKE_APPLICATION phase of the JSF lifecycle.</p>
+ * <p>
+ * This abstract class defines the contract for a brige-specific {@link NavigationHandler} that fortifies the JSF
+ * runtime with the ability to handle to-view-id entries in navigaion-case blocks that respect the
+ * {@link Bridge#PORTLET_MODE_PARAMETER} parameter for switching to a different {@link PortletMode} and the
+ * {@link Bridge#PORTLET_WINDOWSTATE_PARAMETER} parameter for switching to a different {@link WindowState}. It also has
+ * the ability to react to changes in portlet modes that were done programattically by portlet developers that called
+ * {@link StateAwareResponse#setWindowState(WindowState)} during the INVOKE_APPLICATION phase of the JSF lifecycle.
+ * </p>
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeNavigationHandler extends ConfigurableNavigationHandler {
 
 	/**
 	 * This method is defined in the {@link NavigationHandler} superclass and must be overridden in the bridge
-	 * implementation so that it can handle to-view-id entries in navigaion-case blocks that respect the {@link
-	 * Bridge#PORTLET_MODE_PARAMETER} parameter for switching to a different {@link PortletMode} and the {@link
-	 * Bridge#PORTLET_WINDOWSTATE_PARAMETER} parameter for switching to a different {@link WindowState}.
+	 * implementation so that it can handle to-view-id entries in navigaion-case blocks that respect the
+	 * {@link Bridge#PORTLET_MODE_PARAMETER} parameter for switching to a different {@link PortletMode} and the
+	 * {@link Bridge#PORTLET_WINDOWSTATE_PARAMETER} parameter for switching to a different {@link WindowState}.
 	 *
-	 * @see  {@link NavigationHandler#handleNavigation(FacesContext, String, String)}
+	 * @see {@link NavigationHandler#handleNavigation(FacesContext, String, String)}
 	 */
 	@Override
 	public abstract void handleNavigation(FacesContext facesContext, String fromAction, String outcome);
@@ -50,10 +52,10 @@ public abstract class BridgeNavigationHandler extends ConfigurableNavigationHand
 	 * called {@link StateAwareResponse#setWindowState(WindowState)} during the INVOKE_APPLICATION phase of the JSF
 	 * lifecycle. The viewId to be rendered is the current viewId in the UIViewRoot.
 	 *
-	 * @param  facesContext     The current FacesContext.
-	 * @param  fromPortletMode  The PortletMode that was rendered prior to the developer calling {@link
-	 *                          StateAwareResponse#setWindowState(WindowState)}.
-	 * @param  toPortletMode    The PortletMode that is to be switched to.
+	 * @param facesContext The current FacesContext.
+	 * @param fromPortletMode The PortletMode that was rendered prior to the developer calling
+	 *            {@link StateAwareResponse#setWindowState(WindowState)}.
+	 * @param toPortletMode The PortletMode that is to be switched to.
 	 */
 	public abstract void handleNavigation(FacesContext facesContext, PortletMode fromPortletMode,
 		PortletMode toPortletMode);

@@ -34,8 +34,8 @@ import com.liferay.portal.service.UserLocalServiceUtil;
  * This class serves as a JSF2 {@link ResourceHandler} that has the ability to write the contents of either the uploaded
  * file or the portrait image from the Liferay database to the underlying portlet {@link ResourceResponse}.
  *
- * @author  Neil Griffin
- * @author  Kyle Stiemann
+ * @author Neil Griffin
+ * @author Kyle Stiemann
  */
 public class UserPortraitResourceHandler extends ResourceHandlerWrapper {
 

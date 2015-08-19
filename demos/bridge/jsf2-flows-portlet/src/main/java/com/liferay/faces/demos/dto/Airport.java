@@ -17,7 +17,7 @@ import java.io.Serializable;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class Airport implements Serializable {
 

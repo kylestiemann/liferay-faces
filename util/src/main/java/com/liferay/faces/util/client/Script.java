@@ -14,7 +14,7 @@
 package com.liferay.faces.util.client;
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public interface Script {
 

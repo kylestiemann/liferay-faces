@@ -22,7 +22,7 @@ import javax.faces.context.ResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PrimeFacesInlineScript extends UIComponentBase {
 

@@ -33,7 +33,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ResponseWriterBridgeCompat_2_0_Impl extends ResponseWriterWrapper {
 
@@ -82,27 +82,29 @@ public abstract class ResponseWriterBridgeCompat_2_0_Impl extends ResponseWriter
 		BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 		PortletRequest portletRequest = bridgeContext.getPortletRequest();
 		PortalContext portalContext = portletRequest.getPortalContext();
-		String namespacedParametersSupport = portalContext.getProperty(
-				BridgePortalContext.STRICT_NAMESPACED_PARAMETERS_SUPPORT);
+		String namespacedParametersSupport =
+			portalContext.getProperty(BridgePortalContext.STRICT_NAMESPACED_PARAMETERS_SUPPORT);
 		this.namespacedParameters = (namespacedParametersSupport != null) && JSF_RUNTIME_SUPPORTS_NAMESPACING_VIEWSTATE;
 	}
 
 	/**
-	 * <p>The main purpose of this method is to solve the jsf.js limitation #1 as described in the class header
-	 * comments.</p>
-	 *
-	 * <p>The Mojarra JSF implementation has a vendor-specific com.sun.faces.facelets.compiler.UIInstructions class that
-	 * will render the following markers:</p>
-	 *
+	 * <p>
+	 * The main purpose of this method is to solve the jsf.js limitation #1 as described in the class header comments.
+	 * </p>
+	 * <p>
+	 * The Mojarra JSF implementation has a vendor-specific com.sun.faces.facelets.compiler.UIInstructions class that
+	 * will render the following markers:
+	 * </p>
 	 * <ul>
-	 *   <li>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</li>
-	 *   <li>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	 *     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</li>
+	 * <li>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</li>
+	 * <li>&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	 * "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;</li>
 	 * </ul>
-	 *
-	 * <p>This method will ensure that such markers are not rendered to the response, as they should not be rendered as
+	 * <p>
+	 * This method will ensure that such markers are not rendered to the response, as they should not be rendered as
 	 * part of a portlet, since portlets are simply HTML fragment that are aggregated together into a single HTML
-	 * document by the portlet container.</p>
+	 * document by the portlet container.
+	 * </p>
 	 */
 	@Override
 	public void write(char[] cbuf, int off, int len) throws IOException {

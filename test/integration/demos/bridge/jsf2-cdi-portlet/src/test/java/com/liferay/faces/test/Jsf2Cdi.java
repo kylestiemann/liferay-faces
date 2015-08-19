@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.test;
+
 //J-
 
 import java.util.logging.Logger;

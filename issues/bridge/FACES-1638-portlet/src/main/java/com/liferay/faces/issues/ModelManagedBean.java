@@ -21,7 +21,7 @@ import javax.faces.bean.ViewScoped;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @ViewScoped

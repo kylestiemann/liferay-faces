@@ -22,7 +22,7 @@ import com.liferay.faces.util.map.AbstractPropertyMapEntry;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ServletContextAttributeMap extends AbstractPropertyMap<Object> {
 

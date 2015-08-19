@@ -35,7 +35,7 @@ import com.liferay.faces.demos.dto.Booking;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ApplicationScoped
 public class FlightServiceMockImpl implements FlightService {

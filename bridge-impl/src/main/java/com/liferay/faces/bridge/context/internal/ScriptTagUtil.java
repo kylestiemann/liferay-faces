@@ -31,7 +31,7 @@ import com.liferay.faces.util.product.ProductMap;
  * signatures of the class have undergone changes since Liferay Portal 6.0.11 which requires the use of version
  * detection and reflection in this class.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ScriptTagUtil {
 
@@ -57,8 +57,8 @@ public class ScriptTagUtil {
 
 				try {
 					Class<?> scriptTagClass = Class.forName(SCRIPT_TAG_FQCN);
-					flushScriptDataMethod = scriptTagClass.getMethod(FLUSH_SCRIPT_DATA,
-							new Class[] { PageContext.class });
+					flushScriptDataMethod =
+						scriptTagClass.getMethod(FLUSH_SCRIPT_DATA, new Class[] { PageContext.class });
 				}
 				catch (Exception e) {
 					logger.error(e);

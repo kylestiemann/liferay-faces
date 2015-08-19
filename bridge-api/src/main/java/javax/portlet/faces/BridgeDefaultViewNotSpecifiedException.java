@@ -14,7 +14,7 @@
 package javax.portlet.faces;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeDefaultViewNotSpecifiedException extends BridgeException {
 

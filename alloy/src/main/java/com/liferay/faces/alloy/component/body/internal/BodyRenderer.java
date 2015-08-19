@@ -35,14 +35,14 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesRenderer(componentFamily = Body.COMPONENT_FAMILY, rendererType = Body.RENDERER_TYPE)
 public class BodyRenderer extends BodyRendererBase {
 
 	// Private Constants
-	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance().get(
-			ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
+	private static final boolean LIFERAY_FACES_BRIDGE_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_FACES_BRIDGE).isDetected();
 
 	// Logger
 	private static final Logger logger = LoggerFactory.getLogger(BodyRenderer.class);
@@ -81,14 +81,14 @@ public class BodyRenderer extends BodyRendererBase {
 		}
 		else {
 			ResponseWriter responseWriter = facesContext.getResponseWriter();
-			BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-					BrowserSnifferFactory.class);
+			BrowserSnifferFactory browserSnifferFactory =
+				(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 			ExternalContext externalContext = facesContext.getExternalContext();
 			BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(externalContext);
 			PartialViewContext partialViewContext = facesContext.getPartialViewContext();
 			boolean ajaxRequest = partialViewContext.isAjaxRequest();
-			BodyResponseWriter delegationResponseWriter = new BodyResponseWriter(responseWriter, browserSniffer,
-					ajaxRequest);
+			BodyResponseWriter delegationResponseWriter =
+				new BodyResponseWriter(responseWriter, browserSniffer, ajaxRequest);
 			super.encodeEnd(facesContext, uiComponent, delegationResponseWriter);
 		}
 	}

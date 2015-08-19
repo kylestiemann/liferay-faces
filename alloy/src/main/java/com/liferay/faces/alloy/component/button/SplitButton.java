@@ -40,7 +40,7 @@ import com.liferay.faces.util.component.ComponentUtil;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SplitButton extends SplitButtonCompat {
 
@@ -176,8 +176,8 @@ public class SplitButton extends SplitButtonCompat {
 	}
 
 	@Override
-	public void subscribeToEvent(Class<? extends SystemEvent> eventClass,
-		ComponentSystemEventListener componentListener) {
+	public void
+		subscribeToEvent(Class<? extends SystemEvent> eventClass, ComponentSystemEventListener componentListener) {
 		wrappedButton.subscribeToEvent(eventClass, componentListener);
 	}
 

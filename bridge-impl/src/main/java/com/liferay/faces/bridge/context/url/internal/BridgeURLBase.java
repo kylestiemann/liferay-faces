@@ -54,7 +54,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * Bridge Spec is concerned with. The getter methods in this class make heavy use of lazy-initialization for performance
  * reasons, because it is unlikely that every method will be called.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeURLBase implements BridgeURL {
 
@@ -130,7 +130,7 @@ public abstract class BridgeURLBase implements BridgeURL {
 	/**
 	 * Returns a {@link BaseURL} representation of the bridge URL.
 	 *
-	 * @throws  MalformedURLException
+	 * @throws MalformedURLException
 	 */
 	protected abstract BaseURL toBaseURL() throws MalformedURLException;
 
@@ -184,8 +184,8 @@ public abstract class BridgeURLBase implements BridgeURL {
 
 				// Only add the "javax.portlet.faces.PortletMode" parameter if it has a valid value.
 				if (parameterValue != null) {
-					addParameter = bridgeContext.getPortletRequest().isPortletModeAllowed(new PortletMode(
-								parameterValue));
+					addParameter =
+						bridgeContext.getPortletRequest().isPortletModeAllowed(new PortletMode(parameterValue));
 				}
 			}
 			else if (Bridge.PORTLET_SECURE_PARAMETER.equals(parameterName)) {
@@ -207,8 +207,7 @@ public abstract class BridgeURLBase implements BridgeURL {
 				addParameter = true;
 			}
 
-			if ((addParameter) &&
-					((excludedParameterNames == null) || !excludedParameterNames.contains(parameterName))) {
+			if ((addParameter) && ((excludedParameterNames == null) || !excludedParameterNames.contains(parameterName))) {
 
 				if (firstParam) {
 					firstParam = false;
@@ -294,8 +293,8 @@ public abstract class BridgeURLBase implements BridgeURL {
 		BridgeContext bridgeContext = BridgeContext.getCurrentInstance();
 		Bridge.PortletPhase portletRequestPhase = bridgeContext.getPortletRequestPhase();
 
-		if ((portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE) ||
-				(portletRequestPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
+		if ((portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE)
+			|| (portletRequestPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
 
 			try {
 				logger.debug("createRenderURL fromURL=[" + fromURL + "]");
@@ -349,8 +348,8 @@ public abstract class BridgeURLBase implements BridgeURL {
 					resourceName = resourceName.substring(slashPos + 1);
 				}
 				else {
-					logger.error("There is no slash after the [{0}] token in resourceURL=[{1}]", "javax.faces.resource",
-						fromURL);
+					logger.error("There is no slash after the [{0}] token in resourceURL=[{1}]",
+						"javax.faces.resource", fromURL);
 				}
 
 				resourceURL.setParameter("javax.faces.resource", resourceName);
@@ -371,11 +370,10 @@ public abstract class BridgeURLBase implements BridgeURL {
 	/**
 	 * Determines whether or not the specified files have the same path (prefix) and extension (suffix).
 	 *
-	 * @param   file1  The first file to compare.
-	 * @param   file2  The second file to compare.
-	 *
-	 * @return  <code>true</code> if the specified files have the same path (prefix) and extension (suffix), otherwise
-	 *          <code>false</code>.
+	 * @param file1 The first file to compare.
+	 * @param file2 The second file to compare.
+	 * @return <code>true</code> if the specified files have the same path (prefix) and extension (suffix), otherwise
+	 *         <code>false</code>.
 	 */
 	protected boolean matchPathAndExtension(String file1, String file2) {
 
@@ -422,11 +420,9 @@ public abstract class BridgeURLBase implements BridgeURL {
 	/**
 	 * Parses the specified URL and returns a list of query parameters that are found.
 	 *
-	 * @param   url  The URL to parse.
-	 *
-	 * @return  The list of query parameters found.
-	 *
-	 * @throws  MalformedURLException
+	 * @param url The URL to parse.
+	 * @return The list of query parameters found.
+	 * @throws MalformedURLException
 	 */
 	protected List<RequestParameter> parseRequestParameters(String url) throws MalformedURLException {
 
@@ -452,8 +448,8 @@ public abstract class BridgeURLBase implements BridgeURL {
 							String name = nameValueArray[0].trim();
 
 							if (name.length() == 0) {
-								throw new MalformedURLException("Invalid name/value pair=[" + queryParameter +
-									"]: name cannot be empty.");
+								throw new MalformedURLException("Invalid name/value pair=[" + queryParameter
+									+ "]: name cannot be empty.");
 							}
 							else {
 								requestParameters.add(new RequestParameter(name, ""));
@@ -464,8 +460,8 @@ public abstract class BridgeURLBase implements BridgeURL {
 							String name = nameValueArray[0].trim();
 
 							if (name.length() == 0) {
-								throw new MalformedURLException("Invalid name/value pair=[" + queryParameter +
-									"]: name cannot be empty.");
+								throw new MalformedURLException("Invalid name/value pair=[" + queryParameter
+									+ "]: name cannot be empty.");
 							}
 							else {
 
@@ -576,9 +572,9 @@ public abstract class BridgeURLBase implements BridgeURL {
 
 				// Note that preserved action parameters, parameters that already exist in the URL string,
 				// and "javax.faces.ViewState" must not be copied.
-				if (!ResponseStateManager.VIEW_STATE_PARAM.equals(publicParameterName) &&
-						!preservedActionParams.containsKey(publicParameterName) &&
-						!urlParameterMap.containsKey(publicParameterName)) {
+				if (!ResponseStateManager.VIEW_STATE_PARAM.equals(publicParameterName)
+					&& !preservedActionParams.containsKey(publicParameterName)
+					&& !urlParameterMap.containsKey(publicParameterName)) {
 					baseURL.setParameter(publicParameterName, mapEntry.getValue());
 				}
 			}
@@ -595,9 +591,9 @@ public abstract class BridgeURLBase implements BridgeURL {
 
 				// Note that preserved action parameters, parameters that already exist in the URL string,
 				// and "javax.faces.ViewState" must not be copied.
-				if (!ResponseStateManager.VIEW_STATE_PARAM.equals(privateParameterName) &&
-						!preservedActionParams.containsKey(privateParameterName) &&
-						!urlParameterMap.containsKey(privateParameterName)) {
+				if (!ResponseStateManager.VIEW_STATE_PARAM.equals(privateParameterName)
+					&& !preservedActionParams.containsKey(privateParameterName)
+					&& !urlParameterMap.containsKey(privateParameterName)) {
 					baseURL.setParameter(privateParameterName, mapEntry.getValue());
 				}
 			}
@@ -660,9 +656,10 @@ public abstract class BridgeURLBase implements BridgeURL {
 					}
 
 					if ((viewId != null) && (matchPathAndExtension(viewId, potentialFacesViewId))) {
-						logger.debug(
-							"Regarding path=[{0}] as a Faces view since it has the same path and extension as the current viewId=[{1}]",
-							potentialFacesViewId, viewId);
+						logger
+							.debug(
+								"Regarding path=[{0}] as a Faces view since it has the same path and extension as the current viewId=[{1}]",
+								potentialFacesViewId, viewId);
 						facesViewTarget = Boolean.TRUE;
 					}
 					else {

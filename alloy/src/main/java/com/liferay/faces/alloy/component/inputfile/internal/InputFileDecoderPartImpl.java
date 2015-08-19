@@ -35,7 +35,7 @@ import com.liferay.faces.util.model.UploadedFileFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class InputFileDecoderPartImpl extends InputFileDecoderBase {
 
@@ -64,8 +64,8 @@ public class InputFileDecoderPartImpl extends InputFileDecoderBase {
 
 		uploadedFileMap = new HashMap<String, List<UploadedFile>>();
 
-		UploadedFileFactory uploadedFileFactory = (UploadedFileFactory) FactoryExtensionFinder.getFactory(
-				UploadedFileFactory.class);
+		UploadedFileFactory uploadedFileFactory =
+			(UploadedFileFactory) FactoryExtensionFinder.getFactory(UploadedFileFactory.class);
 
 		// Begin parsing the request for file parts:
 		try {
@@ -134,7 +134,8 @@ public class InputFileDecoderPartImpl extends InputFileDecoderBase {
 
 									if (trimmedKeyValuePair.startsWith("charset")) {
 										int equalsPos = trimmedKeyValuePair.indexOf("=");
-										charSet = trimmedKeyValuePair.substring(equalsPos + 2,
+										charSet =
+											trimmedKeyValuePair.substring(equalsPos + 2,
 												trimmedKeyValuePair.length() - 1);
 									}
 								}
@@ -145,9 +146,10 @@ public class InputFileDecoderPartImpl extends InputFileDecoderBase {
 							Map<String, Object> attributeMap = new HashMap<String, Object>();
 							String id = Long.toString(((long) hashCode()) + System.currentTimeMillis());
 							String message = null;
-							UploadedFile uploadedFile = uploadedFileFactory.getUploadedFile(copiedFileAbsolutePath,
-									attributeMap, charSet, contentType, headersMap, id, message, fileName,
-									part.getSize(), UploadedFile.Status.FILE_SAVED);
+							UploadedFile uploadedFile =
+								uploadedFileFactory.getUploadedFile(copiedFileAbsolutePath, attributeMap, charSet,
+									contentType, headersMap, id, message, fileName, part.getSize(),
+									UploadedFile.Status.FILE_SAVED);
 
 							addUploadedFile(uploadedFileMap, fieldName, uploadedFile);
 							logger.debug("Received uploaded file fieldName=[{0}] fileName=[{1}]", fieldName, fileName);

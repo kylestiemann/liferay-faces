@@ -24,7 +24,7 @@ import com.liferay.faces.util.io.ResourceOutputStream;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExpressionResourceOutputStream extends ResourceOutputStream implements Filterable {
 
@@ -61,8 +61,9 @@ public class ExpressionResourceOutputStream extends ResourceOutputStream impleme
 
 						if (requestPath != null) {
 							String resourceURL = facesContext.getExternalContext().encodeResourceURL(requestPath);
-							text = text.substring(0, startPos) + resourceURL +
-								text.substring(finishPos + RESOURCE_TOKEN_END.length());
+							text =
+								text.substring(0, startPos) + resourceURL
+									+ text.substring(finishPos + RESOURCE_TOKEN_END.length());
 						}
 					}
 				}

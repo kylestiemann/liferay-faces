@@ -38,8 +38,8 @@ import com.liferay.portal.service.ImageServiceUtil;
 /**
  * This class serves as a JSF2 {@link Resource} for a Liferay {@link User} portrait (image).
  *
- * @author  Neil Griffin
- * @author  Kyle Stiemann
+ * @author Neil Griffin
+ * @author Kyle Stiemann
  */
 public class UserPortraitResource extends Resource {
 
@@ -63,10 +63,9 @@ public class UserPortraitResource extends Resource {
 	 * This constructor should be called during the JSF lifecycle when it is necessary to determine the URL of the
 	 * resource by subsequently calling {@link #getRequestPath()}.
 	 *
-	 * @param  imagePath       The URL prefix to the Liferay image servlet.
-	 * @param  user            The user associated with the portrait image.
-	 * @param  uploadedFileId  The id of the uploaded file. If a file has not been uploaded then the value should be
-	 *                         null.
+	 * @param imagePath The URL prefix to the Liferay image servlet.
+	 * @param user The user associated with the portrait image.
+	 * @param uploadedFileId The id of the uploaded file. If a file has not been uploaded then the value should be null.
 	 */
 	public UserPortraitResource(String imagePath, User user, String uploadedFileId) {
 		this(imagePath, user, uploadedFileId, null);
@@ -76,9 +75,9 @@ public class UserPortraitResource extends Resource {
 	 * This constructor should be called outside of the JSF lifecycle by a {@link ResourceHandler} that subsequently
 	 * needs to call {@link #getInputStream()}.
 	 *
-	 * @param  user            The user associated with the portrait image.
-	 * @param  uploadedFileId  The id of the uploaded file as specified in the request parameter.
-	 * @param  sessionId       The current session id.
+	 * @param user The user associated with the portrait image.
+	 * @param uploadedFileId The id of the uploaded file as specified in the request parameter.
+	 * @param sessionId The current session id.
 	 */
 	public UserPortraitResource(User user, String uploadedFileId, String sessionId) {
 		this(null, user, uploadedFileId, sessionId);

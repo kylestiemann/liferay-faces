@@ -18,10 +18,10 @@ import javax.portlet.PortletConfig;
 
 
 /**
- * This abstract class provides a contract for defining a factory that knows how to create instances of type {@link
- * BridgeConfig} and {@link PortletConfig}.
+ * This abstract class provides a contract for defining a factory that knows how to create instances of type
+ * {@link BridgeConfig} and {@link PortletConfig}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeConfigFactory implements FacesWrapper<BridgeConfigFactory> {
 

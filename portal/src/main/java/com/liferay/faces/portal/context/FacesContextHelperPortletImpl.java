@@ -24,7 +24,7 @@ import com.liferay.faces.util.context.internal.FacesContextHelperImpl;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesContextHelperPortletImpl extends FacesContextHelperImpl implements Serializable {
 
@@ -56,8 +56,8 @@ public class FacesContextHelperPortletImpl extends FacesContextHelperImpl implem
 
 	@Override
 	public String getRequestParameter(String name) {
-		PortletRequest portletRequest = (PortletRequest) FacesContext.getCurrentInstance().getExternalContext()
-			.getRequest();
+		PortletRequest portletRequest =
+			(PortletRequest) FacesContext.getCurrentInstance().getExternalContext().getRequest();
 
 		return portletRequest.getParameter(name);
 	}

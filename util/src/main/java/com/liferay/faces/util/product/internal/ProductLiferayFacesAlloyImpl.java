@@ -17,7 +17,7 @@ import com.liferay.faces.util.product.ProductConstants;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ProductLiferayFacesAlloyImpl extends ProductBaseImpl {
 

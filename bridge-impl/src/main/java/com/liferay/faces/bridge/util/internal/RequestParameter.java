@@ -14,7 +14,7 @@
 package com.liferay.faces.bridge.util.internal;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RequestParameter extends com.liferay.faces.util.lang.NameValuePair<String, String> {
 

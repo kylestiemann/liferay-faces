@@ -43,7 +43,7 @@ import com.liferay.faces.util.product.ProductMap;
  * This is a resource handler that is only necessary in a non-Liferay (webapp) environment. The purpose of this class is
  * to provide Alloy/YUI/Bootstrap resources.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResLibResourceHandler extends ResourceHandlerWrapperBase {
 
@@ -52,8 +52,8 @@ public class ResLibResourceHandler extends ResourceHandlerWrapperBase {
 
 	// Private Constants
 	private static final String LIFERAY_JS = "liferay.js";
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 	private static final String MINIFIER_TYPE = "minifierType";
 	private static final Set<String> PROTECTED_PARAMTERS;
 
@@ -115,8 +115,8 @@ public class ResLibResourceHandler extends ResourceHandlerWrapperBase {
 
 				// Otherwise, if the resource that is to be rendered is a combo or script module resource, then let this
 				// resource handler write the contents of the resource to the response.
-				else if (ComboResource.RESOURCE_NAME.equals(resourceName) ||
-						ScriptResource.RESOURCE_NAME.equals(resourceName)) {
+				else if (ComboResource.RESOURCE_NAME.equals(resourceName)
+					|| ScriptResource.RESOURCE_NAME.equals(resourceName)) {
 
 					List<String> modulePaths = getModulePaths(externalContext);
 					boolean modulePathExtensionsValid = validateModulePathExtensions(externalContext, modulePaths);
@@ -164,8 +164,8 @@ public class ResLibResourceHandler extends ResourceHandlerWrapperBase {
 	}
 
 	protected boolean validateModulePathExtensions(ExternalContext externalContext, List<String> modulePaths) {
-		String[] comboAllowedFileExtensions = ResLibConfigParam.ComboAllowedFileExtensions.getStringValue(
-				externalContext).split(",");
+		String[] comboAllowedFileExtensions =
+			ResLibConfigParam.ComboAllowedFileExtensions.getStringValue(externalContext).split(",");
 
 		boolean modulePathExtensionsValid = true;
 
@@ -240,8 +240,8 @@ public class ResLibResourceHandler extends ResourceHandlerWrapperBase {
 						String configuredExtension = configuredFacesServletMapping.getExtension();
 
 						if (servletPath.endsWith(configuredExtension)) {
-							resourceName = resourceName.substring(0,
-									resourceName.length() - configuredExtension.length());
+							resourceName =
+								resourceName.substring(0, resourceName.length() - configuredExtension.length());
 
 							break;
 						}

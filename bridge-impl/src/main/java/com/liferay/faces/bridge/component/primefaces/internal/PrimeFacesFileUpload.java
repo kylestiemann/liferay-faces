@@ -26,7 +26,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * This is a wrapper around the org.primefaces.component.fileupload.FileUpload component that has decorator methods that
  * call the wrapped component via reflection in order to avoid a compile-time dependency.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PrimeFacesFileUpload extends UIInputWrapper {
 

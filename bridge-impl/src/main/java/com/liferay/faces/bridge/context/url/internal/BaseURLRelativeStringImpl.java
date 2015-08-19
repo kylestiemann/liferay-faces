@@ -23,11 +23,11 @@ import com.liferay.faces.bridge.context.BridgeContext;
 
 /**
  * This class represents a relative {@link BaseURL}, meaning an implementation that simply wraps a String based URL that
- * starts with "../" and does not require encoding. The only methods that are meant to be called is {@link
- * BaseURLRelativeStringImpl#toString()} and {@link BaseURLRelativeStringImpl#write(Writer, boolean)}. All other methods
- * throw an {@link UnsupportedOperationException}.
+ * starts with "../" and does not require encoding. The only methods that are meant to be called is
+ * {@link BaseURLRelativeStringImpl#toString()} and {@link BaseURLRelativeStringImpl#write(Writer, boolean)}. All other
+ * methods throw an {@link UnsupportedOperationException}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BaseURLRelativeStringImpl extends BaseURLNonEncodedStringImpl {
 

@@ -20,7 +20,7 @@ import com.liferay.portal.service.persistence.UserUtil;
 /**
  * This is a Data Transfer Object (DTO) that will contain form field data for the new registrant.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class Registrant extends UserWrapper {
 

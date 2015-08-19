@@ -26,7 +26,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @ManagedBean
 @RequestScoped
@@ -49,8 +49,9 @@ public class SelectBooleanCheckboxBackingBean {
 		logger.debug("valueChangeListener: phaseId=[{0}]", phaseId.toString());
 
 		String phaseName = phaseId.getName();
-		FacesMessage facesMessage = new FacesMessage("The valueChangeListener method was called during the " +
-				phaseName + " phase of the JSF lifecycle.");
+		FacesMessage facesMessage =
+			new FacesMessage("The valueChangeListener method was called during the " + phaseName
+				+ " phase of the JSF lifecycle.");
 		facesContext.addMessage(null, facesMessage);
 	}
 

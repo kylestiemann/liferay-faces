@@ -31,7 +31,7 @@ import com.liferay.faces.alloy.component.inputtime.InputTime;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 @FacesValidator("com.liferay.faces.demos.validator.WorkHoursValidator")
 public class WorkHoursValidator implements Validator {

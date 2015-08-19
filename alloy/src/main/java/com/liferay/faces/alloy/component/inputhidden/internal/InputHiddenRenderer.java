@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.inputhidden.InputHidden;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = InputHidden.COMPONENT_FAMILY, rendererType = InputHidden.RENDERER_TYPE)
 public class InputHiddenRenderer extends InputHiddenRendererBase {

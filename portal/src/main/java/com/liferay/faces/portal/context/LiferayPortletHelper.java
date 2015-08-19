@@ -30,7 +30,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface LiferayPortletHelper {
 
@@ -39,11 +39,9 @@ public interface LiferayPortletHelper {
 	 * be an action defined for the current portlet). If the authorization fails, a PrincipalException is thrown. Any
 	 * other errors that occur will be caught and re-thrown, wrapped in a PortletRuntimeException.
 	 *
-	 * @param   actionId
-	 *
-	 * @throws  AuthorizationException
-	 *
-	 * @see     #userHasPortletPermission(String)
+	 * @param actionId
+	 * @throws AuthorizationException
+	 * @see #userHasPortletPermission(String)
 	 */
 	public abstract void checkUserPortletPermission(String actionId) throws AuthorizationException;
 
@@ -52,9 +50,8 @@ public interface LiferayPortletHelper {
 	 * be an action defined for the current portlet). Any errors that occur will be caught and re-thrown, wrapped in a
 	 * PortletRuntimeException.
 	 *
-	 * @param  actionId
-	 *
-	 * @see    #checkUserPortletPermission(String)
+	 * @param actionId
+	 * @see #checkUserPortletPermission(String)
 	 */
 	public abstract boolean userHasPortletPermission(String actionId);
 
@@ -118,7 +115,7 @@ public interface LiferayPortletHelper {
 	 * it is exposed as getPortletInstanceId(). This is because the Liferay API getPortletId() actually returns the
 	 * "instance id" of the portlet, whereas most of the time developers really want the "root id" instead.
 	 *
-	 * @see  #getPortletName()
+	 * @see #getPortletName()
 	 */
 	public abstract String getPortletInstanceId();
 
@@ -128,7 +125,7 @@ public interface LiferayPortletHelper {
 	 * it is exposed as getPortletInstanceId(). This is because the Liferay API getPortletId() actually returns the
 	 * "instance id" of the portlet, whereas most of the time developers really want the "root id" instead.
 	 *
-	 * @see  #getPortletName()
+	 * @see #getPortletName()
 	 */
 	public abstract String getPortletRootId();
 

@@ -21,7 +21,7 @@ import com.liferay.portlet.expando.model.ExpandoColumnConstants;
 /**
  * This is an enumeration of attributes that fortify/enhance the Liferay User entity.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public enum UserExpando {
 

@@ -23,14 +23,13 @@ import javax.portlet.filter.ResourceRequestWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceRequestPlutoTCKImpl extends ResourceRequestWrapper {
 
 	// Private Constants
-	private static final String[] USER_AGENT_HEADER_VALUES = new String[] {
-			"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:13.0) Gecko/20100101 Firefox/13.0.1"
-		};
+	private static final String[] USER_AGENT_HEADER_VALUES =
+		new String[] { "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.7; rv:13.0) Gecko/20100101 Firefox/13.0.1" };
 
 	public ResourceRequestPlutoTCKImpl(ResourceRequest resourceRequest) {
 		super(resourceRequest);

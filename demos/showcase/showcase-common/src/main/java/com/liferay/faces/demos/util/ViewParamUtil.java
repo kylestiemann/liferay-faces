@@ -23,7 +23,7 @@ import com.liferay.faces.demos.bean.ShowcaseModelBean.ViewParameters;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ViewParamUtil {
 
@@ -33,8 +33,8 @@ public class ViewParamUtil {
 		Application application = facesContext.getApplication();
 		ELResolver elResolver = application.getELResolver();
 		ELContext elContext = facesContext.getELContext();
-		ShowcaseModelBean showcaseModelBean = (ShowcaseModelBean) elResolver.getValue(elContext, null,
-				"showcaseModelBean");
+		ShowcaseModelBean showcaseModelBean =
+			(ShowcaseModelBean) elResolver.getValue(elContext, null, "showcaseModelBean");
 		ViewParameters viewParameters = showcaseModelBean.getViewParameters();
 		String usage = viewParameters.getComponentUseCase();
 

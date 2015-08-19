@@ -29,8 +29,8 @@ import javax.faces.event.FacesEvent;
 
 
 /**
- * @author  Bruno Basto
- * @author  Kyle Stiemann
+ * @author Bruno Basto
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = ProgressBar.COMPONENT_TYPE)
 public class ProgressBar extends ProgressBarBase implements ClientBehaviorHolder {
@@ -40,7 +40,7 @@ public class ProgressBar extends ProgressBarBase implements ClientBehaviorHolder
 
 	// Private Constants
 	private static final Collection<String> EVENT_NAMES = Collections.unmodifiableCollection(Arrays.asList(
-				"progressComplete", "poll"));
+		"progressComplete", "poll"));
 
 	@Override
 	public void queueEvent(FacesEvent facesEvent) {

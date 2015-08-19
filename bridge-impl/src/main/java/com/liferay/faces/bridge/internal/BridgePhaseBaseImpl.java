@@ -50,7 +50,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgePhaseBaseImpl implements BridgePhase {
 
@@ -83,26 +83,26 @@ public abstract class BridgePhaseBaseImpl implements BridgePhase {
 		this.portletConfig = portletConfig;
 		this.bridgeConfig = bridgeConfig;
 		this.portletName = portletConfig.getPortletName();
-		this.bridgeRequestScopePreserved = PortletConfigParam.BridgeRequestScopePreserved.getBooleanValue(
-				portletConfig);
+		this.bridgeRequestScopePreserved =
+			PortletConfigParam.BridgeRequestScopePreserved.getBooleanValue(portletConfig);
 
-		BridgePortletContextFactory bridgePortletContextFactory = (BridgePortletContextFactory) BridgeFactoryFinder
-			.getFactory(BridgePortletContextFactory.class);
+		BridgePortletContextFactory bridgePortletContextFactory =
+			(BridgePortletContextFactory) BridgeFactoryFinder.getFactory(BridgePortletContextFactory.class);
 		this.portletContext = bridgePortletContextFactory.getPortletContext(portletConfig.getPortletContext());
 
 		// Initialize the incongruity context implementation.
-		IncongruityContextFactory incongruityContextFactory = (IncongruityContextFactory) FactoryExtensionFinder
-			.getFactory(IncongruityContextFactory.class);
+		IncongruityContextFactory incongruityContextFactory =
+			(IncongruityContextFactory) FactoryExtensionFinder.getFactory(IncongruityContextFactory.class);
 		this.incongruityContext = incongruityContextFactory.getIncongruityContext();
 
 		// Get the bridge request scope cache from the factory.
-		BridgeRequestScopeCacheFactory bridgeRequestScopeCacheFactory = (BridgeRequestScopeCacheFactory)
-			BridgeFactoryFinder.getFactory(BridgeRequestScopeCacheFactory.class);
+		BridgeRequestScopeCacheFactory bridgeRequestScopeCacheFactory =
+			(BridgeRequestScopeCacheFactory) BridgeFactoryFinder.getFactory(BridgeRequestScopeCacheFactory.class);
 		this.bridgeRequestScopeCache = bridgeRequestScopeCacheFactory.getBridgeRequestScopeCache(portletContext);
 
 		// Get the default lifecycle instance from the factory.
-		LifecycleFactory lifecycleFactory = (LifecycleFactory) FactoryFinder.getFactory(
-				FactoryFinder.LIFECYCLE_FACTORY);
+		LifecycleFactory lifecycleFactory =
+			(LifecycleFactory) FactoryFinder.getFactory(FactoryFinder.LIFECYCLE_FACTORY);
 		String lifecycleId = this.portletContext.getInitParameter(FacesServlet.LIFECYCLE_ID_ATTR);
 
 		if (lifecycleId == null) {
@@ -161,8 +161,8 @@ public abstract class BridgePhaseBaseImpl implements BridgePhase {
 		}
 	}
 
-	protected void init(PortletRequest portletRequest, PortletResponse portletResponse,
-		Bridge.PortletPhase portletPhase) {
+	protected void
+		init(PortletRequest portletRequest, PortletResponse portletResponse, Bridge.PortletPhase portletPhase) {
 
 		// Save the Bridge.PortletPhase as a request attribute so that it can be picked up by the
 		// BridgeRequestAttributeListener.
@@ -172,10 +172,11 @@ public abstract class BridgePhaseBaseImpl implements BridgePhase {
 		initBridgeRequestScope(portletRequest, portletResponse, portletPhase);
 
 		// Get the bridge context.
-		BridgeContextFactory bridgeContextFactory = (BridgeContextFactory) BridgeFactoryFinder.getFactory(
-				BridgeContextFactory.class);
-		bridgeContext = bridgeContextFactory.getBridgeContext(bridgeConfig, bridgeRequestScope, portletConfig,
-				portletContext, portletRequest, portletResponse, portletPhase, incongruityContext);
+		BridgeContextFactory bridgeContextFactory =
+			(BridgeContextFactory) BridgeFactoryFinder.getFactory(BridgeContextFactory.class);
+		bridgeContext =
+			bridgeContextFactory.getBridgeContext(bridgeConfig, bridgeRequestScope, portletConfig, portletContext,
+				portletRequest, portletResponse, portletPhase, incongruityContext);
 
 		// Save the BridgeContext as a request attribute for legacy versions of ICEfaces.
 		setBridgeContextAttribute(portletRequest, bridgeContext);
@@ -263,9 +264,10 @@ public abstract class BridgePhaseBaseImpl implements BridgePhase {
 
 					if (bridgeRequestScope != null) {
 
-						logger.debug(
-							"Found (and removed) session-attribute name=[{0}] value=[{1}] and cached bridgeRequestScope=[{2}]",
-							bridgeRequestScopeKey, bridgeRequestScopeId, bridgeRequestScope);
+						logger
+							.debug(
+								"Found (and removed) session-attribute name=[{0}] value=[{1}] and cached bridgeRequestScope=[{2}]",
+								bridgeRequestScopeKey, bridgeRequestScopeId, bridgeRequestScope);
 
 						if (portletResponse instanceof StateAwareResponse) {
 							logger.debug("Setting former session-attribute as render parameter name=[{0}] value=[{1}]",
@@ -277,19 +279,20 @@ public abstract class BridgePhaseBaseImpl implements BridgePhase {
 					}
 					else {
 
-						logger.error(
-							"Found session attribute name=[{0}] value=[{1}] but bridgeRequestScope is not in the cache",
-							bridgeRequestScopeKey, bridgeRequestScopeId);
+						logger
+							.error(
+								"Found session attribute name=[{0}] value=[{1}] but bridgeRequestScope is not in the cache",
+								bridgeRequestScopeKey, bridgeRequestScopeId);
 					}
 				}
 			}
 
 			// Otherwise, return a new factory created instance.
 			if (bridgeRequestScope == null) {
-				BridgeRequestScopeFactory bridgeRequestScopeFactory = (BridgeRequestScopeFactory) FactoryExtensionFinder
-					.getFactory(BridgeRequestScopeFactory.class);
-				bridgeRequestScope = bridgeRequestScopeFactory.getBridgeRequestScope(portletRequest, portletConfig,
-						bridgeConfig);
+				BridgeRequestScopeFactory bridgeRequestScopeFactory =
+					(BridgeRequestScopeFactory) FactoryExtensionFinder.getFactory(BridgeRequestScopeFactory.class);
+				bridgeRequestScope =
+					bridgeRequestScopeFactory.getBridgeRequestScope(portletRequest, portletConfig, bridgeConfig);
 			}
 		}
 	}
@@ -350,8 +353,8 @@ public abstract class BridgePhaseBaseImpl implements BridgePhase {
 	protected FacesContext getFacesContext(PortletRequest portletRequest, PortletResponse portletResponse,
 		Lifecycle lifecycle) {
 
-		FacesContext newFacesContext = getFacesContextFactory().getFacesContext(portletContext, portletRequest,
-				portletResponse, lifecycle);
+		FacesContext newFacesContext =
+			getFacesContextFactory().getFacesContext(portletContext, portletRequest, portletResponse, lifecycle);
 
 		// TCK TestPage203 (JSF_ELTest) ensure that the #{facesContext} implicit object is set to the current instance.
 		ELContext elContext = newFacesContext.getELContext();

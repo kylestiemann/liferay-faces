@@ -54,7 +54,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 
@@ -153,7 +153,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	}
 
 	/**
-	 * @see  ExternalContext#encodeNamespace(String)
+	 * @see ExternalContext#encodeNamespace(String)
 	 */
 	@Override
 	public String encodeNamespace(String name) {
@@ -172,7 +172,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	}
 
 	/**
-	 * @see  ExternalContext#encodeResourceURL(String)
+	 * @see ExternalContext#encodeResourceURL(String)
 	 */
 	@Override
 	public String encodeResourceURL(String url) {
@@ -199,10 +199,10 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	 * than once during the JSF lifecycle. Other values will be cached lazily, or might not be cached since their getter
 	 * methods may never get called.
 	 *
-	 * @param  requestChanged   Flag indicating that this method is being called because {@link #setRequest(Object)} was
-	 *                          called.
-	 * @param  responseChanged  Flag indicating that this method is being called because {@link #setResponse(Object)}
-	 *                          was called.
+	 * @param requestChanged Flag indicating that this method is being called because {@link #setRequest(Object)} was
+	 *            called.
+	 * @param responseChanged Flag indicating that this method is being called because {@link #setResponse(Object)} was
+	 *            called.
 	 */
 	protected void preInitializeObjects(boolean requestChanged, boolean responseChanged) {
 
@@ -288,13 +288,14 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 		// explicit casts to HttpServletRequest.
 		if (bridgeContext.isProcessingAfterViewContent()) {
 
-			if ((bridgeAfterViewContentRequest == null) ||
-					(bridgeAfterViewContentRequest.getWrapped() != portletRequest)) {
+			if ((bridgeAfterViewContentRequest == null)
+				|| (bridgeAfterViewContentRequest.getWrapped() != portletRequest)) {
 
-				BridgeWriteBehindSupportFactory bridgeWriteBehindSupportFactory = (BridgeWriteBehindSupportFactory)
-					BridgeFactoryFinder.getFactory(BridgeWriteBehindSupportFactory.class);
-				bridgeAfterViewContentRequest = bridgeWriteBehindSupportFactory.getBridgeAfterViewContentRequest(
-						portletRequest);
+				BridgeWriteBehindSupportFactory bridgeWriteBehindSupportFactory =
+					(BridgeWriteBehindSupportFactory) BridgeFactoryFinder
+						.getFactory(BridgeWriteBehindSupportFactory.class);
+				bridgeAfterViewContentRequest =
+					bridgeWriteBehindSupportFactory.getBridgeAfterViewContentRequest(portletRequest);
 			}
 
 			return bridgeAfterViewContentRequest;
@@ -352,8 +353,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	}
 
 	@Override
-	public void setRequestCharacterEncoding(String encoding) throws UnsupportedEncodingException,
-		IllegalStateException {
+	public void setRequestCharacterEncoding(String encoding) throws UnsupportedEncodingException, IllegalStateException {
 
 		// Although the JSF API's ViewHandler.initView(FacesContext) method will call this method during the portlet
 		// RENDER_PHASE, the RenderRequest does not implement the ClientDataRequest interface, which means it does not
@@ -481,7 +481,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	/**
 	 * This method returns the relative path to the viewId that is to be rendered.
 	 *
-	 * @see  javax.faces.context.ExternalContext#getRequestPathInfo()
+	 * @see javax.faces.context.ExternalContext#getRequestPathInfo()
 	 */
 	@Override
 	public String getRequestPathInfo() {
@@ -524,12 +524,14 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 
 			if (facesImplementationServletResponse == null) {
 
-				if ((bridgeAfterViewContentResponse == null) ||
-						(bridgeAfterViewContentResponse.getWrapped() != portletResponse)) {
-					BridgeWriteBehindSupportFactory bridgeWriteBehindSupportFactory = (BridgeWriteBehindSupportFactory)
-						BridgeFactoryFinder.getFactory(BridgeWriteBehindSupportFactory.class);
-					bridgeAfterViewContentResponse = bridgeWriteBehindSupportFactory.getBridgeAfterViewContentResponse(
-							portletResponse, getRequestLocale());
+				if ((bridgeAfterViewContentResponse == null)
+					|| (bridgeAfterViewContentResponse.getWrapped() != portletResponse)) {
+					BridgeWriteBehindSupportFactory bridgeWriteBehindSupportFactory =
+						(BridgeWriteBehindSupportFactory) BridgeFactoryFinder
+							.getFactory(BridgeWriteBehindSupportFactory.class);
+					bridgeAfterViewContentResponse =
+						bridgeWriteBehindSupportFactory.getBridgeAfterViewContentResponse(portletResponse,
+							getRequestLocale());
 				}
 
 				return bridgeAfterViewContentResponse;
@@ -574,15 +576,16 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 				ServletResponse wrappedServletResponse = httpServletResponseWrapper.getResponse();
 
 				if (wrappedServletResponse instanceof BridgeAfterViewContentResponse) {
-					BridgeAfterViewContentResponse bridgeAfterViewContentPreResponse = (BridgeAfterViewContentResponse)
-						wrappedServletResponse;
+					BridgeAfterViewContentResponse bridgeAfterViewContentPreResponse =
+						(BridgeAfterViewContentResponse) wrappedServletResponse;
 					PortletResponse wrappedPortletResponse = bridgeAfterViewContentPreResponse.getWrapped();
 
-					BridgeWriteBehindSupportFactory bridgeWriteBehindSupportFactory = (BridgeWriteBehindSupportFactory)
-						BridgeFactoryFinder.getFactory(BridgeWriteBehindSupportFactory.class);
+					BridgeWriteBehindSupportFactory bridgeWriteBehindSupportFactory =
+						(BridgeWriteBehindSupportFactory) BridgeFactoryFinder
+							.getFactory(BridgeWriteBehindSupportFactory.class);
 					BridgeWriteBehindResponse bridgeWriteBehindResponse =
-						bridgeWriteBehindSupportFactory.getBridgeWriteBehindResponse((MimeResponse)
-							wrappedPortletResponse, facesImplementationServletResponse);
+						bridgeWriteBehindSupportFactory.getBridgeWriteBehindResponse(
+							(MimeResponse) wrappedPortletResponse, facesImplementationServletResponse);
 
 					// Note: See comments in BridgeContextImpl#dispatch(String) regarding Liferay's inability to
 					// accept a wrapped response. This is indeed supported in Pluto.
@@ -601,8 +604,8 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 			// bridge's response object that it originally got from calling the ExternalContext#getResponse() method
 			// prior to wrapping with it's ViewHandlerResponseWrapper.
 			else if (response instanceof BridgeAfterViewContentResponse) {
-				BridgeAfterViewContentResponse bridgeAfterViewContentResponse = (BridgeAfterViewContentResponse)
-					response;
+				BridgeAfterViewContentResponse bridgeAfterViewContentResponse =
+					(BridgeAfterViewContentResponse) response;
 				this.portletResponse = bridgeAfterViewContentResponse.getWrapped();
 			}
 
@@ -651,8 +654,8 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 
 				if (portletResponse instanceof StateAwareResponse) {
 
-					String characterEncoding = (String) bridgeContext.getAttributes().get(
-							ViewHandlerImpl.RESPONSE_CHARACTER_ENCODING);
+					String characterEncoding =
+						(String) bridgeContext.getAttributes().get(ViewHandlerImpl.RESPONSE_CHARACTER_ENCODING);
 
 					if (characterEncoding != null) {
 
@@ -674,7 +677,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	}
 
 	/**
-	 * @see  ExternalContext#setResponseCharacterEncoding(String)
+	 * @see ExternalContext#setResponseCharacterEncoding(String)
 	 */
 	@Override
 	public void setResponseCharacterEncoding(String encoding) {
@@ -699,7 +702,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	}
 
 	/**
-	 * @see  {@link ExternalContext#getResponseContentType()}
+	 * @see {@link ExternalContext#getResponseContentType()}
 	 */
 	@Override
 	public String getResponseContentType() {
@@ -725,7 +728,7 @@ public class ExternalContextImpl extends ExternalContextCompat_2_2_Impl {
 	}
 
 	/**
-	 * @see  {@link ExternalContext#getSession(boolean)}
+	 * @see {@link ExternalContext#getSession(boolean)}
 	 */
 	@Override
 	public Object getSession(boolean create) {

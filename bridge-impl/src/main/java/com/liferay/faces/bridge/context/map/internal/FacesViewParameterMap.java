@@ -27,7 +27,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 /**
  * This class represents a {@link Map} of URL parameters that are found in the query-string of a Faces view.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FacesViewParameterMap extends HashMap<String, String> implements Map<String, String> {
 

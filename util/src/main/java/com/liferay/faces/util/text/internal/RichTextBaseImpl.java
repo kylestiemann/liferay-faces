@@ -17,7 +17,7 @@ import com.liferay.faces.util.text.RichText;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class RichTextBaseImpl implements RichText {
 

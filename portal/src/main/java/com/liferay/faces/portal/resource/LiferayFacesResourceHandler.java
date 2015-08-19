@@ -19,8 +19,8 @@ import javax.faces.application.ResourceHandlerWrapper;
 
 
 /**
- * @author  Neil Griffin
- * @author  Joe Ssemwogerere
+ * @author Neil Griffin
+ * @author Joe Ssemwogerere
  */
 public class LiferayFacesResourceHandler extends ResourceHandlerWrapper {
 

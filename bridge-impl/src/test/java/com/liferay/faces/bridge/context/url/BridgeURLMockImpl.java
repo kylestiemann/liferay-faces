@@ -24,7 +24,7 @@ import com.liferay.faces.bridge.context.url.internal.BridgeURLBase;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeURLMockImpl extends BridgeURLBase {
 

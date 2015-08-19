@@ -29,7 +29,7 @@ import org.w3c.dom.UserDataHandler;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ElementImpl implements Element {
 

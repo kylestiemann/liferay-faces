@@ -22,7 +22,7 @@ import javax.faces.application.ResourceHandlerWrapper;
  * This class serves as a JSF {@link ResourceHandler} that has the ability to create resources with the "liferayportal"
  * library name.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayPortalResourceHandler extends ResourceHandlerWrapper {
 

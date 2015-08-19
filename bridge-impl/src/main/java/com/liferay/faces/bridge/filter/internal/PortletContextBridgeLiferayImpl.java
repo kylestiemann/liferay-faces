@@ -18,7 +18,7 @@ import javax.portlet.PortletRequestDispatcher;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortletContextBridgeLiferayImpl extends PortletContextWrapper {
 

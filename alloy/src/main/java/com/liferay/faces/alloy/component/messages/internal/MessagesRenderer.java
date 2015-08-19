@@ -27,7 +27,7 @@ import com.liferay.faces.alloy.component.messages.Messages;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesRenderer(componentFamily = Messages.COMPONENT_FAMILY, rendererType = Messages.RENDERER_TYPE)
 @ResourceDependency(library = "liferay-faces-alloy", name = "alloy.css")
@@ -46,8 +46,8 @@ public class MessagesRenderer extends MessagesRendererBase {
 			while (messages.hasNext()) {
 				FacesMessage facesMessage = messages.next();
 
-				if ((facesMessage.getSeverity() == FacesMessage.SEVERITY_WARN) &&
-						facesMessage.getSummary().contains(MOJARRA_BOGUS_WARNING)) {
+				if ((facesMessage.getSeverity() == FacesMessage.SEVERITY_WARN)
+					&& facesMessage.getSummary().contains(MOJARRA_BOGUS_WARNING)) {
 					messages.remove();
 				}
 			}

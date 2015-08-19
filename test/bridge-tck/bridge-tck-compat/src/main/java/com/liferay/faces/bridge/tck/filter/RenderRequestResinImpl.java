@@ -21,7 +21,7 @@ import javax.portlet.filter.RenderRequestWrapper;
  * This class implements a workaround for <a href="http://issues.liferay.com/browse/FACES-1629">FACES-1629</a> by
  * providing a wrapper around the Liferay Portal {@link RenderRequest} implementation.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RenderRequestResinImpl extends RenderRequestWrapper {
 

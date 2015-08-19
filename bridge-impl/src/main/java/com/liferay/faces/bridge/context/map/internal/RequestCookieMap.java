@@ -22,7 +22,7 @@ import javax.servlet.http.Cookie;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RequestCookieMap implements Map<String, Object> {
 

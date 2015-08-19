@@ -21,7 +21,7 @@ import javax.faces.context.ResponseWriterWrapper;
  * This class provides a concrete implementation of {@link ResponseWriterWrapper} that is intended to be used (or
  * extended) by renderers that implement {@link RendererDelegator}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class DelegationResponseWriterBase extends DelegationResponseWriter {
 

@@ -30,11 +30,11 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 /**
  * This class represents a simple "non-encoded" {@link BaseURL}, meaning an implementation that simply wraps a String
- * based URL without providing any encoding. The only methods that are meant to be called is {@link
- * BaseURLNonEncodedStringImpl#toString()} and {@link BaseURLNonEncodedStringImpl#write(Writer, boolean)}. All other
- * methods throw an {@link UnsupportedOperationException}.
+ * based URL without providing any encoding. The only methods that are meant to be called is
+ * {@link BaseURLNonEncodedStringImpl#toString()} and {@link BaseURLNonEncodedStringImpl#write(Writer, boolean)}. All
+ * other methods throw an {@link UnsupportedOperationException}.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BaseURLNonEncodedStringImpl implements BaseURL {
 
@@ -188,8 +188,8 @@ public class BaseURLNonEncodedStringImpl implements BaseURL {
 					}
 
 					if ((name == null) || (name.length() == 0)) {
-						logger.error("Invalid name=value pair=[{0}] in URL=[{1}]: name cannot be empty", queryParameter,
-							url);
+						logger.error("Invalid name=value pair=[{0}] in URL=[{1}]: name cannot be empty",
+							queryParameter, url);
 					}
 					else if ((values == null) || (values.length == 0)) {
 

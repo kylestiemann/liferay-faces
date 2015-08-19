@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 /**
  * This class provides a compatibility layer that isolates differences between different versions of Liferay Portal.
  *
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class PortalUtilCompat extends PortalUtil {
 
@@ -30,9 +30,9 @@ public class PortalUtilCompat extends PortalUtil {
 		HttpSession session = httpServletRequest.getSession();
 		Boolean httpsInitial = (Boolean) session.getAttribute(WebKeys.HTTPS_INITIAL);
 
-		if (PropsValuesCompat.COMPANY_SECURITY_AUTH_REQUIRES_HTTPS &&
-				!PropsValuesCompat.SESSION_ENABLE_PHISHING_PROTECTION && (httpsInitial != null) &&
-				!httpsInitial.booleanValue()) {
+		if (PropsValuesCompat.COMPANY_SECURITY_AUTH_REQUIRES_HTTPS
+			&& !PropsValuesCompat.SESSION_ENABLE_PHISHING_PROTECTION && (httpsInitial != null)
+			&& !httpsInitial.booleanValue()) {
 
 			portalURL = PortalUtil.getPortalURL(httpServletRequest, false);
 		}

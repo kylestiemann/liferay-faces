@@ -14,7 +14,7 @@
 package com.liferay.faces.util.application;
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class FacesResource {
 

@@ -32,7 +32,7 @@ import java.util.Locale;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 class AutoCompleteFilterWordMatchImpl extends AutoCompleteFilterWordMatchBaseImpl implements AutoCompleteFilter {
 

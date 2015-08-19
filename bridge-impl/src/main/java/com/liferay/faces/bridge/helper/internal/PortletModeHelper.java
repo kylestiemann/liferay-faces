@@ -17,7 +17,7 @@ import javax.portlet.PortletMode;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PortletModeHelper {
 
@@ -25,8 +25,7 @@ public class PortletModeHelper {
 	public static final String PORTLET_MODE_VIEW = PortletMode.VIEW.toString();
 	public static final String PORTLET_MODE_EDIT = PortletMode.EDIT.toString();
 	public static final String PORTLET_MODE_HELP = PortletMode.HELP.toString();
-	public static final String[] PORTLET_MODE_NAMES = new String[] {
-			PORTLET_MODE_VIEW, PORTLET_MODE_EDIT, PORTLET_MODE_HELP
-		};
+	public static final String[] PORTLET_MODE_NAMES = new String[] { PORTLET_MODE_VIEW, PORTLET_MODE_EDIT,
+		PORTLET_MODE_HELP };
 
 }

@@ -18,7 +18,7 @@ import java.util.List;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ShowcaseComponentImpl implements Serializable, ShowcaseComponent {
 

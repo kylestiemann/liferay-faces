@@ -28,7 +28,7 @@ import com.liferay.faces.bridge.filter.liferay.LiferayActionURL;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class LiferayActionURLWrapper implements LiferayActionURL, FacesWrapper<LiferayActionURL> {
 

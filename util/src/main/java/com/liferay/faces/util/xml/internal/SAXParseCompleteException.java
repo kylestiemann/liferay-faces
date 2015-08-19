@@ -17,7 +17,7 @@ import org.xml.sax.SAXException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class SAXParseCompleteException extends SAXException {
 

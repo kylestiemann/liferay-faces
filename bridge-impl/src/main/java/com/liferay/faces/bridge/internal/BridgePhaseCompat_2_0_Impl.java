@@ -31,7 +31,7 @@ import com.liferay.faces.bridge.renderkit.html_basic.internal.HeadManagedBean;
 /**
  * This class provides a compatibility layer that isolates differences related to JSF 2.0.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgePhaseCompat_2_0_Impl extends BridgePhaseCompat_1_2_Impl {
 

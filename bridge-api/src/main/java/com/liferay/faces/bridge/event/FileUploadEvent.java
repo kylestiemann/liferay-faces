@@ -21,7 +21,7 @@ import com.liferay.faces.bridge.model.UploadedFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class FileUploadEvent extends FacesEvent {
 

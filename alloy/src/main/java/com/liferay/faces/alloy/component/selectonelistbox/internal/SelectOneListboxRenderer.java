@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.selectonelistbox.SelectOneListbox;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = SelectOneListbox.COMPONENT_FAMILY, rendererType = SelectOneListbox.RENDERER_TYPE)
 public class SelectOneListboxRenderer extends SelectOneListboxRendererBase {

@@ -28,10 +28,10 @@ import javax.portlet.filter.ResourceResponseWrapper;
 
 
 /**
- * This is a wrapper style decorator class that is modeled after the {@link RenderResponseWrapper} and {@link
- * ResourceResponseWrapper} found in the Portlet API.
+ * This is a wrapper style decorator class that is modeled after the {@link RenderResponseWrapper} and
+ * {@link ResourceResponseWrapper} found in the Portlet API.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MimeResponseWrapper extends PortletResponseWrapper implements MimeResponse {
 

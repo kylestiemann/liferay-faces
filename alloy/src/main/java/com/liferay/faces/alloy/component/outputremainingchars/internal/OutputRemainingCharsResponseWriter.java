@@ -22,8 +22,8 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * @author  Neil Griffin
- * @author  Vernon Singleton
+ * @author Neil Griffin
+ * @author Vernon Singleton
  */
 public class OutputRemainingCharsResponseWriter extends DelegationResponseWriterBase {
 

@@ -29,7 +29,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class IncongruityContextCompatImpl extends IncongruityContextBaseImpl {
 
@@ -47,7 +47,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	private static final String RESPONSE_STATUS = "responseStatus";
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void addResponseCookie(String name, String value, Map<String, Object> properties) {
@@ -55,7 +55,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void addResponseHeader(String name, String value) {
@@ -63,7 +63,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodeBookmarkableURL(String baseUrl, Map<String, List<String>> parameters) {
@@ -71,7 +71,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodePartialActionURL(String url) {
@@ -79,7 +79,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String encodeRedirectURL(String baseUrl, Map<String, List<String>> parameters) {
@@ -87,7 +87,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void invalidateSession() {
@@ -95,7 +95,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void responseFlushBuffer() throws IOException {
@@ -103,7 +103,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void responseReset() {
@@ -111,7 +111,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void responseSendError(int statusCode, String message) throws IOException {
@@ -145,8 +145,8 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 			externalContext.setResponseContentType(responseContentType);
 		}
 		else if (incongruousAction == IncongruousAction.WRITE_RESPONSE_OUTPUT_WRITER) {
-			DelayedResponseOutputWriter delayedResponseOutputWriter = (DelayedResponseOutputWriter)
-				getResponseOutputWriter();
+			DelayedResponseOutputWriter delayedResponseOutputWriter =
+				(DelayedResponseOutputWriter) getResponseOutputWriter();
 			String delayedOutput = delayedResponseOutputWriter.toString();
 			logger.debug("writing responseOutputWriter, delayedOutput=[{0}]", delayedOutput);
 
@@ -156,8 +156,8 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 			}
 		}
 		else if (incongruousAction == IncongruousAction.WRITE_RESPONSE_OUTPUT_STREAM) {
-			DelayedResponseOutputStream delayedResponseOutputStream = (DelayedResponseOutputStream)
-				getResponseOutputStream();
+			DelayedResponseOutputStream delayedResponseOutputStream =
+				(DelayedResponseOutputStream) getResponseOutputStream();
 			byte[] delayedOutputByteArray = delayedResponseOutputStream.toByteArray();
 			int length = 0;
 
@@ -176,7 +176,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getContextName() {
@@ -184,7 +184,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public boolean isResponseCommitted() {
@@ -199,7 +199,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public Flash getFlash() {
@@ -207,7 +207,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getMimeType(String file) {
@@ -215,7 +215,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getRealPath(String path) {
@@ -223,7 +223,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getRequestContentLength() {
@@ -231,7 +231,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setRequestContentLength(int length) {
@@ -239,7 +239,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getRequestScheme() {
@@ -247,7 +247,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getRequestServerName() {
@@ -255,7 +255,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getRequestServerPort() {
@@ -263,7 +263,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getResponseBufferSize() {
@@ -271,7 +271,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseBufferSize(int size) {
@@ -280,7 +280,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseCommitted(boolean committed) {
@@ -288,7 +288,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public int getResponseContentLength() {
@@ -296,7 +296,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseContentLength(int length) {
@@ -305,7 +305,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public String getResponseContentType() {
@@ -313,7 +313,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseContentType(String contentType) {
@@ -322,7 +322,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseHeader(String name, String value) {
@@ -330,7 +330,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public OutputStream getResponseOutputStream() throws IOException {
@@ -345,7 +345,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public Writer getResponseOutputWriter() throws IOException {
@@ -360,7 +360,7 @@ public abstract class IncongruityContextCompatImpl extends IncongruityContextBas
 	}
 
 	/**
-	 * @since  JSF 2.0
+	 * @since JSF 2.0
 	 */
 	@Override
 	public void setResponseStatus(int statusCode) {

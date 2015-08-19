@@ -14,7 +14,7 @@
 package com.liferay.faces.demos.dto;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ShowcaseCategory {
 

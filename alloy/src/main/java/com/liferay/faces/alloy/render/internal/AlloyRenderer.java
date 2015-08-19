@@ -23,7 +23,7 @@ import com.liferay.faces.util.component.ClientComponent;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public interface AlloyRenderer extends ClientComponentRenderer {
 
@@ -37,11 +37,13 @@ public interface AlloyRenderer extends ClientComponentRenderer {
 
 	public void decodeClientBehaviors(FacesContext facesContext, UIComponent uiComponent);
 
-	public void encodeAlloyAttributes(FacesContext facesContext, ResponseWriter respoonseWriter,
-		UIComponent uiComponent) throws IOException;
+	public void
+		encodeAlloyAttributes(FacesContext facesContext, ResponseWriter respoonseWriter, UIComponent uiComponent)
+			throws IOException;
 
-	public void encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue,
-		boolean first) throws IOException;
+	public void
+		encodeBoolean(ResponseWriter responseWriter, String attributeName, Boolean attributeValue, boolean first)
+			throws IOException;
 
 	public void encodeClientId(ResponseWriter responseWriter, String attributeName, String clientId, boolean first)
 		throws IOException;
@@ -55,8 +57,9 @@ public interface AlloyRenderer extends ClientComponentRenderer {
 	public void encodeFunctionCall(ResponseWriter responseWriter, String functionName, Object... parameters)
 		throws IOException;
 
-	public void encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue,
-		boolean first) throws IOException;
+	public void
+		encodeInteger(ResponseWriter responseWriter, String attributeName, Integer attributeValue, boolean first)
+			throws IOException;
 
 	public void encodeLiferayComponentVar(ResponseWriter responseWriter, String clientVarName, String clientKey)
 		throws IOException;

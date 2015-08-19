@@ -30,7 +30,7 @@ import com.liferay.portal.util.PortalUtil;
 /**
  * This class provides a compatibility layer that isolates differences between JSF1 and JSF2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferyPageTopPhaseListenerCompat implements PhaseListener {
 

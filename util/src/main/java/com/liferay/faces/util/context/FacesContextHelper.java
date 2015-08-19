@@ -26,7 +26,7 @@ import javax.faces.event.PhaseListener;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface FacesContextHelper {
 
@@ -162,16 +162,16 @@ public interface FacesContextHelper {
 	/**
 	 * Sets the current JSF navigation to the specified outcome.
 	 *
-	 * @param  fromAction  The "from action" as specified in a JSF navigation rule. Can be null to if no action is
-	 *                     specified in the rule.
-	 * @param  outcome     The "from outcome" as specified in a JSF navigation rule
+	 * @param fromAction The "from action" as specified in a JSF navigation rule. Can be null to if no action is
+	 *            specified in the rule.
+	 * @param outcome The "from outcome" as specified in a JSF navigation rule
 	 */
 	public abstract void navigate(String fromAction, String outcome);
 
 	/**
 	 * Sets the current JSF navigation to the specified outcome.
 	 *
-	 * @param  outcome  The "from outcome" as specified in a JSF navigation rule
+	 * @param outcome The "from outcome" as specified in a JSF navigation rule
 	 */
 	public abstract void navigateTo(String outcome);
 
@@ -186,7 +186,7 @@ public interface FacesContextHelper {
 	 * Register a {@link PhaseListener} programatically (instead of in the faces-config.xml). Such a PhaseListener can
 	 * therefore be controlled by spring and use dependency injection, which is not possible otherwise.
 	 *
-	 * @param  phaseListener
+	 * @param phaseListener
 	 */
 	public abstract void registerPhaseListener(PhaseListener phaseListener);
 
@@ -194,7 +194,7 @@ public interface FacesContextHelper {
 	 * clear component tree since input fields will not be refreshed. See <a
 	 * href="http://wiki.apache.org/myfaces/ClearInputComponents">ClearInputComponents</a> for more information.
 	 *
-	 * @param  clientId  all children of the component with this id are cleared.
+	 * @param clientId all children of the component with this id are cleared.
 	 */
 	public abstract void removeChildrenFromComponentTree(String clientId);
 
@@ -224,14 +224,14 @@ public interface FacesContextHelper {
 	 * accessed. This addresses the problem that immediate actions cannot change the values of input components. To
 	 * clear these values, use this method.
 	 *
-	 * @param  uiComponent
+	 * @param uiComponent
 	 */
 	public abstract void removeParentFormFromComponentTree(final UIComponent uiComponent);
 
 	/**
 	 * Causes the current view's component tree to be discarded and re-rendered.
 	 *
-	 * @see  #resetView(boolean)
+	 * @see #resetView(boolean)
 	 */
 	public abstract void resetView();
 
@@ -240,9 +240,8 @@ public interface FacesContextHelper {
 	 * action causes navigation back to the current view, but the data in the backing bean(s) has changed substantially.
 	 * The view is rendered as if the user is visiting for the first time.
 	 *
-	 * @param  renderResponse  causes the response to be rendered immediately if true.
-	 *
-	 * @see    <a href="http://wiki.apache.org/myfaces/ClearInputComponents">ClearInputComponents</a>
+	 * @param renderResponse causes the response to be rendered immediately if true.
+	 * @see <a href="http://wiki.apache.org/myfaces/ClearInputComponents">ClearInputComponents</a>
 	 */
 	public abstract void resetView(boolean renderResponse);
 
@@ -294,9 +293,8 @@ public interface FacesContextHelper {
 	/**
 	 * Return the parent form of the given component.
 	 *
-	 * @param   uiComponent
-	 *
-	 * @return  the parent form or <code>null</code> if no parent form is found.
+	 * @param uiComponent
+	 * @return the parent form or <code>null</code> if no parent form is found.
 	 */
 	public abstract UIForm getParentForm(final UIComponent uiComponent);
 
@@ -311,8 +309,8 @@ public interface FacesContextHelper {
 	public abstract void setRequestAttribute(String name, Object value);
 
 	/**
-	 * @return  the request context path. {@link FacesContext#getExternalContext()} {@link
-	 *          ExternalContext#getRequestContextPath()}
+	 * @return the request context path. {@link FacesContext#getExternalContext()}
+	 *         {@link ExternalContext#getRequestContextPath()}
 	 */
 	public abstract String getRequestContextPath();
 
@@ -345,7 +343,7 @@ public interface FacesContextHelper {
 	/**
 	 * Returns the map of request parameters from the ExternalContext.
 	 *
-	 * @see  ExternalContext#getRequestParameterMap()
+	 * @see ExternalContext#getRequestParameterMap()
 	 */
 	public abstract Map<String, String> getRequestParameterMap();
 
@@ -363,7 +361,7 @@ public interface FacesContextHelper {
 	/**
 	 * Returns the session object associated with the current FacesContext.
 	 *
-	 * @param  create  Flag indicating whether or not a session should be created if it doesn't yet exist.
+	 * @param create Flag indicating whether or not a session should be created if it doesn't yet exist.
 	 */
 	public abstract Object getSession(boolean create);
 

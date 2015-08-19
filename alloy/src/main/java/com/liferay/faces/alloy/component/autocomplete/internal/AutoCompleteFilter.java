@@ -18,7 +18,7 @@ import java.util.Locale;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public interface AutoCompleteFilter {
 

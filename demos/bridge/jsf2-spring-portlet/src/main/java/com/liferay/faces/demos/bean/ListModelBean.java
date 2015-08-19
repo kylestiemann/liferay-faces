@@ -26,7 +26,7 @@ import com.liferay.faces.demos.dto.Province;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named
 @Scope("singleton")

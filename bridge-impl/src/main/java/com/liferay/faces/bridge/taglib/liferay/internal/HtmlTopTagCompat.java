@@ -21,7 +21,7 @@ import java.io.Serializable;
  * Specifically, the {@link com.liferay.taglib.util.HtmlTopTag} works fine on Liferay Portal 6.0 (and above) but
  * requires an override of {@link com.liferay.taglib.util.HtmlTopTag#doAfterBody()} for Liferay 5.2.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HtmlTopTagCompat extends com.liferay.taglib.util.HtmlTopTag implements Serializable {
 

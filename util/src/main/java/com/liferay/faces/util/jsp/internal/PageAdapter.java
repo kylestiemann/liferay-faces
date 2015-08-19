@@ -23,7 +23,7 @@ import javax.servlet.ServletResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PageAdapter implements Servlet {
 

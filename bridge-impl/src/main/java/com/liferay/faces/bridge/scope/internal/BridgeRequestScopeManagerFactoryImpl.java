@@ -18,7 +18,7 @@ import com.liferay.faces.bridge.scope.BridgeRequestScopeManagerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRequestScopeManagerFactoryImpl extends BridgeRequestScopeManagerFactory {
 

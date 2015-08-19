@@ -33,7 +33,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public abstract class InputDateTime extends InputDateTimeBase implements ClientComponent {
 
@@ -64,11 +64,12 @@ public abstract class InputDateTime extends InputDateTimeBase implements ClientC
 					String minDateString = simpleDateFormat.format(minDate);
 					String maxDateString = simpleDateFormat.format(maxDate);
 					Locale locale = getObjectAsLocale(getLocale(facesContext));
-					MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder
-						.getFactory(MessageContextFactory.class);
+					MessageContextFactory messageContextFactory =
+						(MessageContextFactory) FactoryExtensionFinder.getFactory(MessageContextFactory.class);
 					MessageContext messageContext = messageContextFactory.getMessageContext();
-					String message = messageContext.getMessage(locale, "please-enter-a-value-between-x-and-x",
-							minDateString, maxDateString);
+					String message =
+						messageContext.getMessage(locale, "please-enter-a-value-between-x-and-x", minDateString,
+							maxDateString);
 					facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message);
 				}
 
@@ -132,8 +133,7 @@ public abstract class InputDateTime extends InputDateTimeBase implements ClientC
 		return locale;
 	}
 
-	public final Date getObjectAsDate(Object dateAsObject, String datePattern, TimeZone timeZone)
-		throws FacesException {
+	public final Date getObjectAsDate(Object dateAsObject, String datePattern, TimeZone timeZone) throws FacesException {
 
 		Date date = null;
 

@@ -20,7 +20,7 @@ import com.liferay.faces.alloy.component.selectmanycheckbox.SelectManyCheckbox;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = SelectManyCheckbox.COMPONENT_FAMILY, rendererType = SelectManyCheckbox.RENDERER_TYPE)
 @ResourceDependency(library = "liferay-faces-alloy", name = "alloy.css")

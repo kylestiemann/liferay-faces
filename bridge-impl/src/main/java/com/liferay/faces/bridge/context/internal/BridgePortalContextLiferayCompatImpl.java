@@ -27,7 +27,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePortalContextLiferayCompatImpl extends BridgePortalContextImpl {
 

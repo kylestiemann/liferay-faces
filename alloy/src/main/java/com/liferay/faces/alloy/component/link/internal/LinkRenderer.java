@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.link.Link;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = Link.COMPONENT_FAMILY, rendererType = Link.RENDERER_TYPE)
 public class LinkRenderer extends LinkRendererBase {

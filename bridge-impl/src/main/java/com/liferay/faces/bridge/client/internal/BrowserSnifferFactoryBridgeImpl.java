@@ -26,13 +26,13 @@ import com.liferay.portal.util.PortalUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class BrowserSnifferFactoryBridgeImpl extends BrowserSnifferFactory {
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 
 	// Private Data Memebers
 	private BrowserSnifferFactory wrappedBrowserSnifferFactory;

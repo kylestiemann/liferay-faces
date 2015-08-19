@@ -60,7 +60,7 @@ import com.liferay.faces.util.model.UploadedFileFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcessor {
 
@@ -125,8 +125,8 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 			}
 		}
 
-		UploadedFileFactory uploadedFileFactory = (UploadedFileFactory) BridgeFactoryFinder.getFactory(
-				UploadedFileFactory.class);
+		UploadedFileFactory uploadedFileFactory =
+			(UploadedFileFactory) BridgeFactoryFinder.getFactory(UploadedFileFactory.class);
 
 		// Begin parsing the request for file parts:
 		try {
@@ -174,8 +174,8 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 						// Copy the stream of file data to a temporary file. NOTE: This is necessary even if the
 						// current field is a simple form-field because the call below to diskFileItem.getString()
 						// will fail otherwise.
-						DiskFileItem diskFileItem = (DiskFileItem) diskFileItemFactory.createItem(fieldName,
-								contentType, formField, fileName);
+						DiskFileItem diskFileItem =
+							(DiskFileItem) diskFileItemFactory.createItem(fieldName, contentType, formField, fileName);
 						Streams.copy(fieldStream.openStream(), diskFileItem.getOutputStream(), true);
 
 						// If the current field is a simple form-field, then save the form field value in the map.
@@ -210,8 +210,8 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 
 								String copiedFileName = stripIllegalCharacters(fileName);
 
-								String copiedFileAbsolutePath = tempFileAbsolutePath.replace(tempFileName,
-										copiedFileName);
+								String copiedFileAbsolutePath =
+									tempFileAbsolutePath.replace(tempFileName, copiedFileName);
 								File copiedFile = new File(copiedFileAbsolutePath);
 								FileUtils.copyFile(tempFile, copiedFile);
 
@@ -219,8 +219,8 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 								// HTTP/1.1 (http://www.w3.org/Protocols/rfc2616/rfc2616-sec4.html#sec4.2), header names
 								// are case-insensitive. In order to support this, use a TreeMap with case insensitive
 								// keys.
-								Map<String, List<String>> headersMap = new TreeMap<String, List<String>>(
-										String.CASE_INSENSITIVE_ORDER);
+								Map<String, List<String>> headersMap =
+									new TreeMap<String, List<String>>(String.CASE_INSENSITIVE_ORDER);
 								FileItemHeaders fileItemHeaders = fieldStream.getHeaders();
 
 								if (fileItemHeaders != null) {
@@ -251,10 +251,10 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 								Map<String, Object> attributeMap = new HashMap<String, Object>();
 								String id = Long.toString(((long) hashCode()) + System.currentTimeMillis());
 								String message = null;
-								UploadedFile uploadedFile = uploadedFileFactory.getUploadedFile(copiedFileAbsolutePath,
-										attributeMap, diskFileItem.getCharSet(), diskFileItem.getContentType(),
-										headersMap, id, message, fileName, diskFileItem.getSize(),
-										UploadedFile.Status.FILE_SAVED);
+								UploadedFile uploadedFile =
+									uploadedFileFactory.getUploadedFile(copiedFileAbsolutePath, attributeMap,
+										diskFileItem.getCharSet(), diskFileItem.getContentType(), headersMap, id,
+										message, fileName, diskFileItem.getSize(), UploadedFile.Status.FILE_SAVED);
 
 								facesRequestParameterMap.addValue(fieldName, copiedFileAbsolutePath);
 								addUploadedFile(uploadedFileMap, fieldName, uploadedFile);
@@ -264,8 +264,9 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 							else {
 
 								if ((fileName != null) && (fileName.trim().length() > 0)) {
-									Exception e = new IOException("Failed to copy the stream of uploaded file=[" +
-											fileName + "] to a temporary file (possibly a zero-length uploaded file)");
+									Exception e =
+										new IOException("Failed to copy the stream of uploaded file=[" + fileName
+											+ "] to a temporary file (possibly a zero-length uploaded file)");
 									UploadedFile uploadedFile = uploadedFileFactory.getUploadedFile(e);
 									addUploadedFile(uploadedFileMap, fieldName, uploadedFile);
 								}
@@ -330,7 +331,7 @@ public class MultiPartFormDataProcessorImpl implements MultiPartFormDataProcesso
 	 * Since {@link PortletFileUpload#parseRequest(ActionRequest)} only works with {@link ActionRequest}, this adapter
 	 * class is necessary to force commons-fileupload to work with ResourceRequest (Ajax file upload).
 	 *
-	 * @author  Neil Griffin
+	 * @author Neil Griffin
 	 */
 	protected class ActionRequestAdapter implements ActionRequest {
 

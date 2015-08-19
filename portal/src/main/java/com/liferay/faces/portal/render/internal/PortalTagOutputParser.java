@@ -17,7 +17,7 @@ import javax.servlet.jsp.JspWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface PortalTagOutputParser {
 

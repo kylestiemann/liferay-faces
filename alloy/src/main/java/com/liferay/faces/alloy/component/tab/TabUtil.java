@@ -21,7 +21,7 @@ import javax.faces.component.UIData;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class TabUtil {
 

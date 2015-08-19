@@ -18,7 +18,7 @@ import java.util.EnumMap;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class OrderingImpl implements Ordering {
 

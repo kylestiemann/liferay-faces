@@ -23,7 +23,7 @@ import com.liferay.taglib.aui.NavItemTag;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 //J-
 @FacesRenderer(componentFamily = NavItem.COMPONENT_FAMILY, rendererType = NavItem.RENDERER_TYPE)

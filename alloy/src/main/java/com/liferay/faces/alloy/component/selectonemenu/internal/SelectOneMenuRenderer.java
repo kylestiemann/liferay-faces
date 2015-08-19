@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.selectonemenu.SelectOneMenu;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = SelectOneMenu.COMPONENT_FAMILY, rendererType = SelectOneMenu.RENDERER_TYPE)
 public class SelectOneMenuRenderer extends SelectOneMenuRendererBase {

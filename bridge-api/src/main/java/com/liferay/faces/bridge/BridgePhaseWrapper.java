@@ -19,7 +19,7 @@ import javax.portlet.faces.BridgeException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgePhaseWrapper implements BridgePhase, FacesWrapper<BridgePhase> {
 

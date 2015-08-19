@@ -23,7 +23,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeRequestScopeCacheFactoryImpl extends BridgeRequestScopeCacheFactory {
 
@@ -40,8 +40,8 @@ public class BridgeRequestScopeCacheFactoryImpl extends BridgeRequestScopeCacheF
 		BridgeRequestScopeCache bridgeRequestScopeCache = null;
 
 		synchronized (portletContext) {
-			bridgeRequestScopeCache = (BridgeRequestScopeCache) portletContext.getAttribute(
-					ATTR_BRIDGE_REQUEST_SCOPE_CACHE);
+			bridgeRequestScopeCache =
+				(BridgeRequestScopeCache) portletContext.getAttribute(ATTR_BRIDGE_REQUEST_SCOPE_CACHE);
 
 			if (bridgeRequestScopeCache == null) {
 

@@ -28,8 +28,8 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Bruno Basto
- * @author  Kyle Stiemann
+ * @author Bruno Basto
+ * @author Kyle Stiemann
  */
 @FacesComponent(value = InputTime.COMPONENT_TYPE)
 public class InputTime extends InputTimeBase {
@@ -74,8 +74,8 @@ public class InputTime extends InputTimeBase {
 
 		String timePattern;
 		FacesContext facesContext = FacesContext.getCurrentInstance();
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 
 		if (browserSniffer.isMobile() && isNativeWhenMobile()) {

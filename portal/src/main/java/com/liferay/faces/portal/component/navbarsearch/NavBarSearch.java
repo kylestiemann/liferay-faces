@@ -17,7 +17,7 @@ import javax.faces.component.FacesComponent;
 
 
 /**
- * @author  Juan Gonzalez
+ * @author Juan Gonzalez
  */
 @FacesComponent(value = NavBarSearch.COMPONENT_TYPE)
 public class NavBarSearch extends NavBarSearchBase {

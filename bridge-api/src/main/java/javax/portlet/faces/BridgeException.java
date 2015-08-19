@@ -17,7 +17,7 @@ import javax.faces.FacesException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeException extends FacesException {
 

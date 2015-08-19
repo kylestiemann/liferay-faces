@@ -41,7 +41,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * This class replaces the PrimeFaces HeadRenderer because it renders a &lt;head&gt;...&lt;/head&gt; element to the
  * response writer which is forbidden in a portlet environment.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class HeadRendererPrimeFacesImpl extends HeadRendererBridgeImpl {
 
@@ -112,8 +112,8 @@ public class HeadRendererPrimeFacesImpl extends HeadRendererBridgeImpl {
 				String resourceName = null;
 				String libraryName = null;
 				String decodedExternalResourceURL = URLDecoder.decode(externalResourceURL, "UTF-8");
-				Map<String, String[]> parsedParameterMapValuesArray = URLUtil.parseParameterMapValuesArray(
-						decodedExternalResourceURL);
+				Map<String, String[]> parsedParameterMapValuesArray =
+					URLUtil.parseParameterMapValuesArray(decodedExternalResourceURL);
 
 				if (parsedParameterMapValuesArray != null) {
 
@@ -134,11 +134,11 @@ public class HeadRendererPrimeFacesImpl extends HeadRendererBridgeImpl {
 				// resource and add it to the view root.
 				if ((resourceName != null) && (libraryName != null)) {
 
-					if (resourceName.equals(PRIMEFACES_THEME_RESOURCE_NAME) &&
-							libraryName.startsWith(PRIMEFACES_THEME_PREFIX)) {
+					if (resourceName.equals(PRIMEFACES_THEME_RESOURCE_NAME)
+						&& libraryName.startsWith(PRIMEFACES_THEME_PREFIX)) {
 
-						ResourceComponent primefacesThemeResource = new ResourceComponent(facesContext, resourceName,
-								libraryName, namespace);
+						ResourceComponent primefacesThemeResource =
+							new ResourceComponent(facesContext, resourceName, libraryName, namespace);
 						Map<Object, Object> facesContextAttributes = facesContext.getAttributes();
 						facesContextAttributes.put("primefacesTheme", primefacesThemeResource);
 					}
@@ -191,8 +191,8 @@ public class HeadRendererPrimeFacesImpl extends HeadRendererBridgeImpl {
 		}
 
 		Map<Object, Object> facesContextAttributes = facesContext.getAttributes();
-		ResourceComponent primefacesThemeResource = (ResourceComponent) facesContextAttributes.remove(
-				"primefacesTheme");
+		ResourceComponent primefacesThemeResource =
+			(ResourceComponent) facesContextAttributes.remove("primefacesTheme");
 
 		if (primefacesThemeResource != null) {
 			firstResources.add(primefacesThemeResource);

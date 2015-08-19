@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.bridge.component.inputfile;
+
 //J-
 
 import javax.annotation.Generated;

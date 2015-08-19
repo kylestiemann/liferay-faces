@@ -28,21 +28,22 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriter;
  * methods of a different renderer, as well as utilize an alternate {@link ResponseWriter} in order to control/filter
  * the encoding of elements and attributes.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface DelegatingRenderer {
 
 	/**
 	 * Convenience method that calls the delegate renderer's {@link Renderer#encodeBegin(FacesContext, UIComponent)},
-	 * {@link Renderer#encodeChildren(FacesContext, UIComponent)}, and {@link Renderer#encodeEnd(FacesContext,
-	 * UIComponent)} methods.
+	 * {@link Renderer#encodeChildren(FacesContext, UIComponent)}, and
+	 * {@link Renderer#encodeEnd(FacesContext, UIComponent)} methods.
 	 */
 	public void encodeAll(FacesContext facesContext, UIComponent uiComponent) throws IOException;
 
 	/**
 	 * Convenience method that calls the delegate renderer's {@link Renderer#encodeBegin(FacesContext, UIComponent)},
-	 * {@link Renderer#encodeChildren(FacesContext, UIComponent)}, and {@link Renderer#encodeEnd(FacesContext,
-	 * UIComponent)} methods using the specified {@link DelegationResponseWriter}.
+	 * {@link Renderer#encodeChildren(FacesContext, UIComponent)}, and
+	 * {@link Renderer#encodeEnd(FacesContext, UIComponent)} methods using the specified
+	 * {@link DelegationResponseWriter}.
 	 */
 	public void encodeAll(FacesContext facesContext, UIComponent uiComponent,
 		DelegationResponseWriter delegationResponseWriter) throws IOException;

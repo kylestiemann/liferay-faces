@@ -22,7 +22,7 @@ import com.liferay.faces.util.render.internal.DelegationResponseWriterBase;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 public class NodeMenuNavMenuResponseWriter extends DelegationResponseWriterBase {
 

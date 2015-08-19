@@ -32,7 +32,7 @@ import com.liferay.faces.portlet.component.renderurl.RenderURLBase;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class AbstractRenderURLRenderer extends RenderURLRendererBase {
 

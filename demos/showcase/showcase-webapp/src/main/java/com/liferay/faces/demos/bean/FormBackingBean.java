@@ -20,7 +20,7 @@ import javax.faces.context.FacesContext;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @RequestScoped
 @ManagedBean
@@ -35,8 +35,8 @@ public class FormBackingBean {
 			facesMessage = new FacesMessage("The form was submitted via Ajax and re-rendered with updates to the DOM.");
 		}
 		else {
-			facesMessage = new FacesMessage(
-					"The form was submitted as a full page postback and the entire page was re-rendered.");
+			facesMessage =
+				new FacesMessage("The form was submitted as a full page postback and the entire page was re-rendered.");
 		}
 
 		facesContext.addMessage(null, facesMessage);

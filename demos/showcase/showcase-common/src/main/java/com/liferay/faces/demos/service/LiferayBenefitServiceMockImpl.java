@@ -23,7 +23,7 @@ import com.liferay.faces.demos.dto.LiferayBenefit;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean(name = "liferayBenefitService", eager = true)
 @ApplicationScoped
@@ -34,20 +34,19 @@ public class LiferayBenefitServiceMockImpl implements LiferayBenefitService {
 	static {
 		LIFERAY_BENEFITS = new ArrayList<LiferayBenefit>();
 		LIFERAY_BENEFITS.add(new LiferayBenefit(1, "Compatible", "Compatible With Your IT",
-				"Liferay lets you reuse the enterprise software and skills you already have in-house.",
-				"compatible.png"));
+			"Liferay lets you reuse the enterprise software and skills you already have in-house.", "compatible.png"));
 		LIFERAY_BENEFITS.add(new LiferayBenefit(2, "Enterprise Ready", "Enterprise Ready",
-				"Liferay is designed for scalability, reliablity, and high performance both on-premise and in the cloud.",
-				"enterprise.png"));
+			"Liferay is designed for scalability, reliablity, and high performance both on-premise and in the cloud.",
+			"enterprise.png"));
 		LIFERAY_BENEFITS.add(new LiferayBenefit(3, "Powerful Integration", "Powerful Integration",
-				"Liferay is designed for integrating with both enterprise systems and web-based resources.",
-				"integration.png"));
+			"Liferay is designed for integrating with both enterprise systems and web-based resources.",
+			"integration.png"));
 		LIFERAY_BENEFITS.add(new LiferayBenefit(4, "Lightweight", "Lightweight and Agile",
-				"With Liferay, projects are completed faster and with smaller budgets so you can see immediate results.",
-				"lightweight.png"));
+			"With Liferay, projects are completed faster and with smaller budgets so you can see immediate results.",
+			"lightweight.png"));
 		LIFERAY_BENEFITS.add(new LiferayBenefit(5, "Open Source", "Built With Open Source",
-				"Our open source community fosters innovation, increase security, and improves quality of the software.",
-				"open-source.png"));
+			"Our open source community fosters innovation, increase security, and improves quality of the software.",
+			"open-source.png"));
 	}
 
 	@Override

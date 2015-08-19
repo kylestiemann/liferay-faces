@@ -26,7 +26,7 @@ import com.liferay.faces.bridge.util.internal.FacesURLEncoder;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class LiferayBaseURLImpl implements LiferayBaseURL {
 

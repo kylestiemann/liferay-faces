@@ -19,7 +19,7 @@ import com.liferay.faces.util.config.WebConfigParamUtil;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public enum AlloyWebConfigParam {
 

@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.alloy.component.selectmanycheckbox;
+
 //J-
 
 import javax.annotation.Generated;

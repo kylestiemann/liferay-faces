@@ -28,7 +28,7 @@ import com.liferay.portal.kernel.portlet.LiferayPortletMode;
 /**
  * This class provides useful extensions to the {@link GenericFacesPortlet} found in the Bridge API.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class GenericLiferayFacesPortlet extends GenericFacesPortlet {
 
@@ -38,8 +38,8 @@ public class GenericLiferayFacesPortlet extends GenericFacesPortlet {
 
 		PortletMode portletMode = renderRequest.getPortletMode();
 
-		if (portletMode.equals(PortletMode.VIEW) || portletMode.equals(PortletMode.EDIT) ||
-				portletMode.equals(PortletMode.HELP)) {
+		if (portletMode.equals(PortletMode.VIEW) || portletMode.equals(PortletMode.EDIT)
+			|| portletMode.equals(PortletMode.HELP)) {
 			super.doDispatch(renderRequest, renderResponse);
 		}
 		else if (portletMode.equals(LiferayPortletMode.ABOUT)) {

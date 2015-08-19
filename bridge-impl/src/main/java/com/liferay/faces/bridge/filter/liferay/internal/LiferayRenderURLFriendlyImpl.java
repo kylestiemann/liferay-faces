@@ -21,7 +21,7 @@ import com.liferay.faces.bridge.filter.liferay.LiferayURLGenerator;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class LiferayRenderURLFriendlyImpl extends LiferayPortletURLFriendlyImpl implements LiferayRenderURL,
 	FacesWrapper<PortletURL> {
@@ -42,7 +42,7 @@ public class LiferayRenderURLFriendlyImpl extends LiferayPortletURLFriendlyImpl 
 		PortletURL renderURL = getWrapped();
 
 		return new LiferayURLGeneratorRenderImpl(renderURL.toString(), renderURL.getPortletMode(), responseNamespace,
-				renderURL.getWindowState());
+			renderURL.getWindowState());
 	}
 
 	@Override

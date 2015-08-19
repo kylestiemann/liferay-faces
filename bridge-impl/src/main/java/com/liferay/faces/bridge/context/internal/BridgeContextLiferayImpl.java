@@ -34,7 +34,7 @@ import com.liferay.portal.theme.ThemeDisplay;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeContextLiferayImpl extends BridgeContextImpl {
 
@@ -94,8 +94,8 @@ public class BridgeContextLiferayImpl extends BridgeContextImpl {
 	 * Liferay Hack: Need to save some stuff that's only available at RenderRequest time in order to have
 	 * getResourceURL() work properly later.
 	 */
-	protected void saveRenderAttributes(PortletMode portletMode, WindowState windowState, PortletDisplay portletDisplay,
-		PortletContext portletContext) {
+	protected void saveRenderAttributes(PortletMode portletMode, WindowState windowState,
+		PortletDisplay portletDisplay, PortletContext portletContext) {
 
 		try {
 

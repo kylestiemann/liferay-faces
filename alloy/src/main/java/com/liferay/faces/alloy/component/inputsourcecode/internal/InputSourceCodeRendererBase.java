@@ -12,6 +12,7 @@
  * details.
  */
 package com.liferay.faces.alloy.component.inputsourcecode.internal;
+
 //J-
 
 import java.io.IOException;

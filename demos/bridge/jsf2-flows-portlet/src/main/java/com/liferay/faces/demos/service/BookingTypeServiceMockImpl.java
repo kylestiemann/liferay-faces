@@ -27,7 +27,7 @@ import com.liferay.faces.demos.dto.BookingType;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @Named("bookingTypeService")
 @ApplicationScoped

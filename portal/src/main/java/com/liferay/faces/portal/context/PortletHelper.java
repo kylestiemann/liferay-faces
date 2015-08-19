@@ -29,7 +29,7 @@ import javax.portlet.WindowState;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface PortletHelper {
 

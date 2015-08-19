@@ -42,7 +42,7 @@ import com.liferay.faces.util.product.ProductMap;
 /**
  * This class provides the ability to cleanup session-scoped and view-scoped managed-beans upon session expiration.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeSessionListener implements HttpSessionListener, ServletContextListener {
 
@@ -99,8 +99,8 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 			Product jsf = productMap.get(ProductConstants.JSF);
 			boolean mojarraAbleToCleanup = true;
 
-			if (jsf.getTitle().equals(ProductConstants.MOJARRA) && (jsf.getMajorVersion() == 2) &&
-					(jsf.getMinorVersion() == 1)) {
+			if (jsf.getTitle().equals(ProductConstants.MOJARRA) && (jsf.getMajorVersion() == 2)
+				&& (jsf.getMinorVersion() == 1)) {
 
 				if (jsf.getRevisionVersion() < 18) {
 					mojarraAbleToCleanup = false;
@@ -110,8 +110,8 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 
 					if (iceFaces.isDetected()) {
 
-						if ((iceFaces.getMajorVersion() == 2) ||
-								((iceFaces.getMajorVersion() == 3) && (iceFaces.getMinorVersion() <= 2))) {
+						if ((iceFaces.getMajorVersion() == 2)
+							|| ((iceFaces.getMajorVersion() == 3) && (iceFaces.getMinorVersion() <= 2))) {
 
 							// Versions of ICEfaces prior to 3.3 can only go as high as Mojarra 2.1.6 so don't bother to
 							// log the warning.
@@ -120,9 +120,9 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 					}
 
 					if (logWarning) {
-						logger.warn("Unable to cleanup ViewScoped managed-beans upon session expiration. " +
-							"Please upgrade to Mojarra 2.1.18 or newer. " +
-							"For more info, see: http://issues.liferay.com/browse/FACES-1470");
+						logger.warn("Unable to cleanup ViewScoped managed-beans upon session expiration. "
+							+ "Please upgrade to Mojarra 2.1.18 or newer. "
+							+ "For more info, see: http://issues.liferay.com/browse/FACES-1470");
 					}
 				}
 			}
@@ -133,8 +133,9 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 
 			try {
 				beanManagerFactory = (BeanManagerFactory) BridgeFactoryFinder.getFactory(BeanManagerFactory.class);
-				bridgeRequestScopeManagerFactory = (BridgeRequestScopeManagerFactory) BridgeFactoryFinder.getFactory(
-						BridgeRequestScopeManagerFactory.class);
+				bridgeRequestScopeManagerFactory =
+					(BridgeRequestScopeManagerFactory) BridgeFactoryFinder
+						.getFactory(BridgeRequestScopeManagerFactory.class);
 			}
 			catch (Exception e) {
 
@@ -154,9 +155,10 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 					}
 				}
 
-				logger.error(
-					"Unable to discover factories for contextPath=[{0}] possibly because the portlet never received a RenderRequest",
-					contextPath);
+				logger
+					.error(
+						"Unable to discover factories for contextPath=[{0}] possibly because the portlet never received a RenderRequest",
+						contextPath);
 			}
 
 			if ((beanManagerFactory != null) && (bridgeRequestScopeManagerFactory != null)) {
@@ -170,8 +172,8 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 				// For each session attribute:
 				String appConfigAttrName = ApplicationConfig.class.getName();
 				ServletContext servletContext = httpSession.getServletContext();
-				ApplicationConfig applicationConfig = (ApplicationConfig) servletContext.getAttribute(
-						appConfigAttrName);
+				ApplicationConfig applicationConfig =
+					(ApplicationConfig) servletContext.getAttribute(appConfigAttrName);
 				BeanManager beanManager = beanManagerFactory.getBeanManager(applicationConfig.getFacesConfig());
 
 				try {
@@ -206,8 +208,9 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 									// one would get cleaned-up by Mojarra.
 									if (beanManager.isManagedBean(attributeName, attributeValue)) {
 
-										PreDestroyInvokerFactory preDestroyInvokerFactory = (PreDestroyInvokerFactory)
-											BridgeFactoryFinder.getFactory(PreDestroyInvokerFactory.class);
+										PreDestroyInvokerFactory preDestroyInvokerFactory =
+											(PreDestroyInvokerFactory) BridgeFactoryFinder
+												.getFactory(PreDestroyInvokerFactory.class);
 										ExpirationApplicationMap expirationApplicationMap =
 											new ExpirationApplicationMap(servletContext);
 										PreDestroyInvoker preDestroyInvoker =
@@ -221,8 +224,8 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 										// If the current session attribute is Mojarra-vendor-specific, then
 										String attributeValueClassName = attributeValue.getClass().getName();
 
-										if (attributeName.contains(MOJARRA_ACTIVE_VIEW_MAPS) ||
-												attributeValueClassName.contains(MOJARRA_PACKAGE_PREFIX)) {
+										if (attributeName.contains(MOJARRA_ACTIVE_VIEW_MAPS)
+											|| attributeValueClassName.contains(MOJARRA_PACKAGE_PREFIX)) {
 
 											// Rename the namespaced attribute by stripping off the standard portlet
 											// prefix. This will enable Mojarra's session expiration features to find
@@ -251,14 +254,15 @@ public class BridgeSessionListener implements HttpSessionListener, ServletContex
 													// Renaming each namespaced attribute to
 													// "com.sun.faces.application.view.activeViewMaps" would only enable
 													// Mojarra to cleanup the last one.
-													HttpSessionListener viewScopeManager = (HttpSessionListener)
-														servletContext.getAttribute(MOJARRA_VIEW_SCOPE_MANAGER);
+													HttpSessionListener viewScopeManager =
+														(HttpSessionListener) servletContext
+															.getAttribute(MOJARRA_VIEW_SCOPE_MANAGER);
 
 													if (viewScopeManager != null) {
 
 														try {
-															logger.debug(
-																"Asking Mojarra ViewScopeManager to cleanup @ViewScoped managed-beans");
+															logger
+																.debug("Asking Mojarra ViewScopeManager to cleanup @ViewScoped managed-beans");
 															viewScopeManager.sessionDestroyed(httpSessionEvent);
 														}
 														catch (Exception e) {

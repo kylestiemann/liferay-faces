@@ -17,7 +17,7 @@ import com.liferay.faces.util.application.ComponentResource;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ComponentResourceImpl implements ComponentResource {
 

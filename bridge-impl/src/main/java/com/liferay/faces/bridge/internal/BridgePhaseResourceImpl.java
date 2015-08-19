@@ -46,7 +46,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 
@@ -54,8 +54,8 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 	private static final Logger logger = LoggerFactory.getLogger(BridgePhaseResourceImpl.class);
 
 	// Private Constants
-	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance().get(ProductConstants.LIFERAY_PORTAL)
-		.isDetected();
+	private static final boolean LIFERAY_PORTAL_DETECTED = ProductMap.getInstance()
+		.get(ProductConstants.LIFERAY_PORTAL).isDetected();
 	private static final String[] URL_SEPARATOR_CHARS = new String[] { "?", "#", ";" };
 
 	// Private Data Members
@@ -67,12 +67,12 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 
 		super(portletConfig, bridgeConfig);
 
-		BridgePortletRequestFactory bridgePortletRequestFactory = (BridgePortletRequestFactory) FactoryExtensionFinder
-			.getFactory(BridgePortletRequestFactory.class);
+		BridgePortletRequestFactory bridgePortletRequestFactory =
+			(BridgePortletRequestFactory) FactoryExtensionFinder.getFactory(BridgePortletRequestFactory.class);
 		this.resourceRequest = bridgePortletRequestFactory.getResourceRequest(resourceRequest);
 
-		BridgePortletResponseFactory bridgePortletResponseFactory = (BridgePortletResponseFactory) BridgeFactoryFinder
-			.getFactory(BridgePortletResponseFactory.class);
+		BridgePortletResponseFactory bridgePortletResponseFactory =
+			(BridgePortletResponseFactory) BridgeFactoryFinder.getFactory(BridgePortletResponseFactory.class);
 		this.resourceResponse = bridgePortletResponseFactory.getResourceResponse(resourceResponse);
 	}
 
@@ -99,13 +99,13 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 				logger.debug("Detected non-Faces resource");
 
 				String resourceId = resourceRequest.getResourceID();
-				String autoResourceDispatch = portletConfig.getInitParameter(
-						"javax.portlet.automaticResourceDispatching");
+				String autoResourceDispatch =
+					portletConfig.getInitParameter("javax.portlet.automaticResourceDispatching");
 
 				if ((autoResourceDispatch != null) && autoResourceDispatch.equalsIgnoreCase("true")) {
 
-					ResourceValidatorFactory resourceValidatorFactory = (ResourceValidatorFactory) BridgeFactoryFinder
-						.getFactory(ResourceValidatorFactory.class);
+					ResourceValidatorFactory resourceValidatorFactory =
+						(ResourceValidatorFactory) BridgeFactoryFinder.getFactory(ResourceValidatorFactory.class);
 					ResourceValidator resourceValidator = resourceValidatorFactory.getResourceValidator();
 
 					// If the resourceId contains a banned path like WEB-INF or META-INF, then do not serve the
@@ -157,8 +157,8 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 
 							if (LIFERAY_PORTAL_DETECTED) {
 
-								logger.warn(
-									"Invalid request for resourceId=[] possibly due to Liferay Portal enforcing the portlet.resource.id.banned.paths.regexp property.");
+								logger
+									.warn("Invalid request for resourceId=[] possibly due to Liferay Portal enforcing the portlet.resource.id.banned.paths.regexp property.");
 							}
 							else {
 								logger.warn("Invalid request for resourceId=[].");
@@ -190,23 +190,26 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 
 								if (explicitFacesServletExtensionMapping != null) {
 
-									logger.warn(
-										"Invalid request for resource that is EXPLICITLY extension-mapped to the FacesServlet: resourceId=[{0}] resourcePath=[{1}] servlet-mapping extension=[{2}]",
-										resourceId, resourcePath, explicitFacesServletExtensionMapping.getExtension());
+									logger
+										.warn(
+											"Invalid request for resource that is EXPLICITLY extension-mapped to the FacesServlet: resourceId=[{0}] resourcePath=[{1}] servlet-mapping extension=[{2}]",
+											resourceId, resourcePath,
+											explicitFacesServletExtensionMapping.getExtension());
 									mappedToFacesServlet = true;
 
 									resourceResponse.setProperty(ResourceResponse.HTTP_STATUS_CODE,
 										Integer.toString(HttpServletResponse.SC_NOT_FOUND));
 								}
 								else {
-									ConfiguredServletMapping facesServletPathMapping = getFacesServletPathMapping(
-											resourceId);
+									ConfiguredServletMapping facesServletPathMapping =
+										getFacesServletPathMapping(resourceId);
 
 									if (facesServletPathMapping != null) {
 
-										logger.warn(
-											"Invalid request for resource that is path-mapped to the FacesServlet: resourceId=[{0}] resourcePath=[{1}] servlet-mapping url-pattern=[{2}]",
-											resourceId, resourcePath, facesServletPathMapping.getUrlPattern());
+										logger
+											.warn(
+												"Invalid request for resource that is path-mapped to the FacesServlet: resourceId=[{0}] resourcePath=[{1}] servlet-mapping url-pattern=[{2}]",
+												resourceId, resourcePath, facesServletPathMapping.getUrlPattern());
 
 										mappedToFacesServlet = true;
 
@@ -250,8 +253,8 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 				if (logger.isDebugEnabled()) {
 
 					ExternalContext externalContext = facesContext.getExternalContext();
-					String facesAjaxParameter = externalContext.getRequestParameterMap().get(
-							BridgeExt.FACES_AJAX_PARAMETER);
+					String facesAjaxParameter =
+						externalContext.getRequestParameterMap().get(BridgeExt.FACES_AJAX_PARAMETER);
 
 					if (BooleanHelper.isTrueToken(facesAjaxParameter)) {
 						logger.debug("Detected Ajax ResourceRequest");
@@ -322,8 +325,8 @@ public class BridgePhaseResourceImpl extends BridgePhaseCompat_2_2_Impl {
 
 		for (ConfiguredServletMapping facesServletMapping : facesServletMappings) {
 
-			if (facesServletMapping.isMatch(resourceId) && facesServletMapping.isExtensionMapped() &&
-					!facesServletMapping.isImplicit()) {
+			if (facesServletMapping.isMatch(resourceId) && facesServletMapping.isExtensionMapped()
+				&& !facesServletMapping.isImplicit()) {
 
 				explicitFacesServletExtensionMapping = facesServletMapping;
 

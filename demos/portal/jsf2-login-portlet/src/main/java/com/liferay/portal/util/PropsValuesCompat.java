@@ -22,13 +22,13 @@ import com.liferay.portal.kernel.util.PropsUtil;
  * This class provides a compatibility layer that isolates differences between different versions of Liferay Portal. It
  * contains constants that appear in Liferay Portal's implementation but are not exposed in Liferay Portal's API.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PropsValuesCompat {
 
-	public static final boolean COMPANY_SECURITY_AUTH_REQUIRES_HTTPS = GetterUtil.getBoolean(PropsUtil.get(
-				PropsKeys.COMPANY_SECURITY_AUTH_REQUIRES_HTTPS));
+	public static final boolean COMPANY_SECURITY_AUTH_REQUIRES_HTTPS = GetterUtil.getBoolean(PropsUtil
+		.get(PropsKeys.COMPANY_SECURITY_AUTH_REQUIRES_HTTPS));
 	public static final boolean PORTAL_JAAS_ENABLE = GetterUtil.getBoolean(PropsUtil.get(PropsKeys.PORTAL_JAAS_ENABLE));
-	public static final boolean SESSION_ENABLE_PHISHING_PROTECTION = GetterUtil.getBoolean(PropsUtil.get(
-				PropsKeys.SESSION_ENABLE_PHISHING_PROTECTION));
+	public static final boolean SESSION_ENABLE_PHISHING_PROTECTION = GetterUtil.getBoolean(PropsUtil
+		.get(PropsKeys.SESSION_ENABLE_PHISHING_PROTECTION));
 }

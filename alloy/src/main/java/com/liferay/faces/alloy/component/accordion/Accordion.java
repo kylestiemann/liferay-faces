@@ -35,14 +35,14 @@ import com.liferay.faces.util.helper.IntegerHelper;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesComponent(value = Accordion.COMPONENT_TYPE)
 public class Accordion extends AccordionBase implements ClientBehaviorHolder {
 
 	// Private Constants
 	private static final Collection<String> EVENT_NAMES = Collections.unmodifiableCollection(Arrays.asList(
-				TabCollapseEvent.TAB_COLLAPSE, TabExpandEvent.TAB_EXPAND));
+		TabCollapseEvent.TAB_COLLAPSE, TabExpandEvent.TAB_EXPAND));
 
 	@Override
 	public void queueEvent(FacesEvent facesEvent) {

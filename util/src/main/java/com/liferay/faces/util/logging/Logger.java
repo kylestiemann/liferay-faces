@@ -14,7 +14,7 @@
 package com.liferay.faces.util.logging;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface Logger {
 

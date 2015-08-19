@@ -14,7 +14,7 @@
 package com.liferay.faces.portal.security;
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class AuthorizationException extends RuntimeException {
 

@@ -40,7 +40,7 @@ import com.liferay.portlet.expando.service.ExpandoTableLocalServiceUtil;
 /**
  * This is a startup action hook that registers the expando attributes.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class RegisterExpandoAction extends SimpleAction {
 
@@ -83,8 +83,9 @@ public class RegisterExpandoAction extends SimpleAction {
 			logger.debug("Expando column=[{0}] exists for modelClassName=[{1}]", expandoColumnName, modelClassName);
 		}
 		else {
-			expandoColumn = ExpandoColumnLocalServiceUtil.addColumn(expandoTable.getTableId(), expandoColumnName,
-					expandoColumnType);
+			expandoColumn =
+				ExpandoColumnLocalServiceUtil
+					.addColumn(expandoTable.getTableId(), expandoColumnName, expandoColumnType);
 			logger.debug("Added expando column=[{0}] to modelClassName=[{1}]", expandoColumnName, modelClassName);
 		}
 

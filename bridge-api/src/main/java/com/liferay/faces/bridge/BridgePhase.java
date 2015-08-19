@@ -18,7 +18,7 @@ import javax.portlet.faces.BridgeException;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface BridgePhase {
 

@@ -33,7 +33,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ResourceHandlerBridgeImpl extends ResourceHandlerWrapperBase {
 
@@ -53,9 +53,8 @@ public class ResourceHandlerBridgeImpl extends ResourceHandlerWrapperBase {
 	/**
 	 * Determines whether or not the specified URL has already been encoded.
 	 *
-	 * @param   url  The URL to check.
-	 *
-	 * @return  True if the specified URL is already encoded.
+	 * @param url The URL to check.
+	 * @return True if the specified URL is already encoded.
 	 */
 	public static boolean isEncodedFacesResourceURL(String url) {
 
@@ -70,9 +69,8 @@ public class ResourceHandlerBridgeImpl extends ResourceHandlerWrapperBase {
 	/**
 	 * Determines whether or not the specified URL is a Faces URL.
 	 *
-	 * @param   url  The URL to check.
-	 *
-	 * @return  True if the specified URL is a Faces URL.
+	 * @param url The URL to check.
+	 * @return True if the specified URL is a Faces URL.
 	 */
 	public static boolean isFacesResourceURL(String url) {
 
@@ -130,7 +128,7 @@ public class ResourceHandlerBridgeImpl extends ResourceHandlerWrapperBase {
 		Map<String, String> requestParameterMap = externalContext.getRequestParameterMap();
 		String resourceName = requestParameterMap.get("javax.faces.resource");
 
-		// Assume that the resource  ExternalContext.encodeResourceURL(String) was properly called, and that
+		// Assume that the resource ExternalContext.encodeResourceURL(String) was properly called, and that
 		// which adds the "javax.faces.resource" request parameter.
 		// If the "javax.faces.resource" request parameter was found, then ask Faces to create the resource and
 		// assume that calling resource.getInputStream() will provide the ability to send the contents of the
@@ -141,8 +139,8 @@ public class ResourceHandlerBridgeImpl extends ResourceHandlerWrapperBase {
 			if (logger.isTraceEnabled()) {
 
 				// Surround with isTraceEnabled check in order to avoid unnecessary creation of object array.
-				logger.trace("Handling - resourceName=[{0}], libraryName[{1}]",
-					new Object[] { resourceName, libraryName });
+				logger.trace("Handling - resourceName=[{0}], libraryName[{1}]", new Object[] { resourceName,
+					libraryName });
 			}
 
 			// FACES-57: Provide the opportunity for applications to decorate the createResource methods of this
@@ -205,8 +203,8 @@ public class ResourceHandlerBridgeImpl extends ResourceHandlerWrapperBase {
 		String resourceId = requestParameterMap.get("javax.faces.resource");
 
 		if (resourceId != null) {
-			logger.debug("Found {0} request parameter and recognized resourceId=[{1}] as a resource",
-				new Object[] { "javax.faces.resource", resourceId });
+			logger.debug("Found {0} request parameter and recognized resourceId=[{1}] as a resource", new Object[] {
+				"javax.faces.resource", resourceId });
 
 			return true;
 		}

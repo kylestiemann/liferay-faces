@@ -25,7 +25,7 @@ import com.liferay.faces.alloy.config.internal.AlloyWebConfigParam;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 public class TagDecoratorAlloyImpl implements TagDecorator {
 
@@ -35,8 +35,8 @@ public class TagDecoratorAlloyImpl implements TagDecorator {
 		Tag decoratedTag = null;
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 		ExternalContext externalContext = facesContext.getExternalContext();
-		boolean alloyTagDecoratorEnabled = AlloyWebConfigParam.AlloyTagDecoratorEnabled.getBooleanValue(
-				externalContext);
+		boolean alloyTagDecoratorEnabled =
+			AlloyWebConfigParam.AlloyTagDecoratorEnabled.getBooleanValue(externalContext);
 
 		if (alloyTagDecoratorEnabled) {
 
@@ -45,8 +45,8 @@ public class TagDecoratorAlloyImpl implements TagDecorator {
 
 			if ("element".equals(elementName) && (attributes != null)) {
 
-				TagAttribute elementNameAttribute = attributes.get("http://xmlns.jcp.org/jsf/passthrough",
-						Renderer.PASSTHROUGH_RENDERER_LOCALNAME_KEY);
+				TagAttribute elementNameAttribute =
+					attributes.get("http://xmlns.jcp.org/jsf/passthrough", Renderer.PASSTHROUGH_RENDERER_LOCALNAME_KEY);
 
 				if (elementNameAttribute != null) {
 
@@ -58,12 +58,12 @@ public class TagDecoratorAlloyImpl implements TagDecorator {
 			String namespace = tag.getNamespace();
 
 			if ("video".equals(elementName) && !"http://liferay.com/faces/alloy".equals(namespace)) {
-				decoratedTag = new Tag(tag.getLocation(), "http://liferay.com/faces/alloy", "video", "alloy:video",
-						attributes);
+				decoratedTag =
+					new Tag(tag.getLocation(), "http://liferay.com/faces/alloy", "video", "alloy:video", attributes);
 			}
 			else if ("audio".equals(elementName) && !"http://liferay.com/faces/alloy".equals(namespace)) {
-				decoratedTag = new Tag(tag.getLocation(), "http://liferay.com/faces/alloy", "audio", "alloy:audio",
-						attributes);
+				decoratedTag =
+					new Tag(tag.getLocation(), "http://liferay.com/faces/alloy", "audio", "alloy:audio", attributes);
 			}
 		}
 

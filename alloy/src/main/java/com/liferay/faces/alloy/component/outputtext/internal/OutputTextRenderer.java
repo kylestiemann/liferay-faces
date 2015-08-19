@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.outputtext.OutputText;
 
 
 /**
- * @author  Vernon Singleton
+ * @author Vernon Singleton
  */
 @FacesRenderer(componentFamily = OutputText.COMPONENT_FAMILY, rendererType = OutputText.RENDERER_TYPE)
 public class OutputTextRenderer extends OutputTextRendererBase {

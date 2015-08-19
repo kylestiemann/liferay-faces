@@ -36,7 +36,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
  * rendering the &lt;body&gt; and &lt;/body&gt; elements, which is what is done by the JSF implementation's version of
  * this renderer. This class will render &lt;div&gt; and &lt;/div&gt; elements instead.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 
@@ -46,17 +46,16 @@ public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 	// Private Constants
 	private static final String ATTR_STYLE_CLASS = "styleClass";
 	private static final String ELEMENT_DIV = "div";
-	private static final String[] BODY_PASS_THRU_ATTRIBUTES = new String[] {
-			"onclick", "ondblclick", "onkeydown", "onkeypress", "onkeyup", "onload", "onmousedown", "onmousemove",
-			"onmouseout", "onmouseover", "onmouseup", "onunload", ATTR_STYLE_CLASS, "title"
-		};
+	private static final String[] BODY_PASS_THRU_ATTRIBUTES = new String[] { "onclick", "ondblclick", "onkeydown",
+		"onkeypress", "onkeyup", "onload", "onmousedown", "onmousemove", "onmouseout", "onmouseover", "onmouseup",
+		"onunload", ATTR_STYLE_CLASS, "title" };
 	private static final String STYLE_CLASS_PORTLET_BODY = "liferay-faces-bridge-body";
 
 	/**
 	 * It is forbidden for a portlet to render the &amp;&lt;body&amp;&gt; element, so instead, render a
 	 * &amp;&lt;div&amp;&gt;element.
 	 *
-	 * @see  Renderer#encodeBegin(FacesContext, UIComponent)
+	 * @see Renderer#encodeBegin(FacesContext, UIComponent)
 	 */
 	@Override
 	public void encodeBegin(FacesContext facesContext, UIComponent uiComponent) throws IOException {
@@ -99,8 +98,8 @@ public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 
 		if (uiComponentResources != null) {
 
-			ComponentResourceFactory componentResourceFactory = (ComponentResourceFactory) FactoryExtensionFinder
-				.getFactory(ComponentResourceFactory.class);
+			ComponentResourceFactory componentResourceFactory =
+				(ComponentResourceFactory) FactoryExtensionFinder.getFactory(ComponentResourceFactory.class);
 
 			for (UIComponent uiComponentResource : uiComponentResources) {
 
@@ -108,8 +107,8 @@ public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 
 				if ("head".equals(originalTarget)) {
 
-					ComponentResource componentResource = componentResourceFactory.getComponentResource(
-							uiComponentResource);
+					ComponentResource componentResource =
+						componentResourceFactory.getComponentResource(uiComponentResource);
 
 					if (componentResource.isRenderable()) {
 						uiComponentResource.encodeAll(facesContext);
@@ -118,14 +117,13 @@ public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 
 							if (logger.isDebugEnabled()) {
 
-								logger.debug(
-									"Rendering resource just after opening liferay-faces-bridge-body <div> name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
-									new Object[] {
-										componentResource.getName(), componentResource.getLibrary(),
-										uiComponentResource.getRendererType(),
-										ComponentResourceUtil.getComponentValue(uiComponentResource),
-										uiComponentResource.getClass().getName(),
-									});
+								logger
+									.debug(
+										"Rendering resource just after opening liferay-faces-bridge-body <div> name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
+										new Object[] { componentResource.getName(), componentResource.getLibrary(),
+											uiComponentResource.getRendererType(),
+											ComponentResourceUtil.getComponentValue(uiComponentResource),
+											uiComponentResource.getClass().getName(), });
 							}
 						}
 					}
@@ -146,8 +144,8 @@ public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 
 		if (uiComponentResources != null) {
 
-			ComponentResourceFactory componentResourceFactory = (ComponentResourceFactory) FactoryExtensionFinder
-				.getFactory(ComponentResourceFactory.class);
+			ComponentResourceFactory componentResourceFactory =
+				(ComponentResourceFactory) FactoryExtensionFinder.getFactory(ComponentResourceFactory.class);
 
 			for (UIComponent uiComponentResource : uiComponentResources) {
 
@@ -155,22 +153,21 @@ public class BodyRendererBridgeImpl extends BodyRendererBridgeCompatImpl {
 
 				if (!"head".equals(originalTarget)) {
 
-					ComponentResource componentResource = componentResourceFactory.getComponentResource(
-							uiComponentResource);
+					ComponentResource componentResource =
+						componentResourceFactory.getComponentResource(uiComponentResource);
 
 					if (componentResource.isRenderable()) {
 						uiComponentResource.encodeAll(facesContext);
 
 						if (logger.isDebugEnabled()) {
 
-							logger.debug(
-								"Rendering resource just before closing liferay-faces-bridge-body </div> name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
-								new Object[] {
-									componentResource.getName(), componentResource.getLibrary(),
-									uiComponentResource.getRendererType(),
-									ComponentResourceUtil.getComponentValue(uiComponentResource),
-									uiComponentResource.getClass().getName(),
-								});
+							logger
+								.debug(
+									"Rendering resource just before closing liferay-faces-bridge-body </div> name=[{0}] library=[{1}] rendererType=[{2}] value=[{3}] className=[{4}]",
+									new Object[] { componentResource.getName(), componentResource.getLibrary(),
+										uiComponentResource.getRendererType(),
+										ComponentResourceUtil.getComponentValue(uiComponentResource),
+										uiComponentResource.getClass().getName(), });
 						}
 					}
 					else {

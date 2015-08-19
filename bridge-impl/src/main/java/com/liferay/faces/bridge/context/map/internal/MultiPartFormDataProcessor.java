@@ -24,7 +24,7 @@ import com.liferay.faces.util.model.UploadedFile;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public interface MultiPartFormDataProcessor {
 
@@ -33,11 +33,10 @@ public interface MultiPartFormDataProcessor {
 	 * map of uploaded files. This method pre-supposes that the user agent submitted an HTML form with
 	 * enctype="multipart/form-data".
 	 *
-	 * @param   clientDataRequest         The client data request that is to be processed.
-	 * @param   portletConfig             The portlet configuration.
-	 * @param   facesRequestParameterMap  The mutable namespaced paramter map that is to be populated.
-	 *
-	 * @return  The map of uploaded files.
+	 * @param clientDataRequest The client data request that is to be processed.
+	 * @param portletConfig The portlet configuration.
+	 * @param facesRequestParameterMap The mutable namespaced paramter map that is to be populated.
+	 * @return The map of uploaded files.
 	 */
 	public Map<String, List<UploadedFile>> process(ClientDataRequest clientDataRequest, PortletConfig portletConfig,
 		FacesRequestParameterMap facesRequestParameterMap);

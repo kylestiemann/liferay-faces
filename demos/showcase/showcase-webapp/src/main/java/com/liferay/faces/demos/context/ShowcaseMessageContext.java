@@ -21,7 +21,7 @@ import com.liferay.faces.util.context.MessageContextWrapper;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ShowcaseMessageContext extends MessageContextWrapper {
 

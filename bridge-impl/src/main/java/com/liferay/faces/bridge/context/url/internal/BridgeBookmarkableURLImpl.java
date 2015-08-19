@@ -29,7 +29,7 @@ import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgeBookmarkableURLImpl extends BridgeURLBase {
 
@@ -78,8 +78,8 @@ public class BridgeBookmarkableURLImpl extends BridgeURLBase {
 		// If this is executing during the RENDER_PHASE or RESOURCE_PHASE of the portlet lifecycle, then
 		Bridge.PortletPhase portletRequestPhase = BridgeUtil.getPortletRequestPhase();
 
-		if ((portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE) ||
-				(portletRequestPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
+		if ((portletRequestPhase == Bridge.PortletPhase.RENDER_PHASE)
+			|| (portletRequestPhase == Bridge.PortletPhase.RESOURCE_PHASE)) {
 
 			baseURL = createRenderURL(uri);
 			baseURL.setParameter(viewIdRenderParameterName, viewId);

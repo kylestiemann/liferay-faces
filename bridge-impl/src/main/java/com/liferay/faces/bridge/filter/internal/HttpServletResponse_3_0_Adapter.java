@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * This class isolates methods that were added to {@link HttpServletResponse} in the Servlet 3.0 API.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class HttpServletResponse_3_0_Adapter implements HttpServletResponse {
 

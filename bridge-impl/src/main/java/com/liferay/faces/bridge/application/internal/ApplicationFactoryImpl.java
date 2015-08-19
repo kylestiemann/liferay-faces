@@ -18,7 +18,7 @@ import javax.faces.application.ApplicationFactory;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class ApplicationFactoryImpl extends ApplicationFactory {
 

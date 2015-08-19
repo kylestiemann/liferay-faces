@@ -52,7 +52,7 @@ import com.liferay.portal.util.PropsValuesCompat;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @ManagedBean
 @RequestScoped
@@ -102,8 +102,8 @@ public class LoginBackingBean {
 
 		try {
 
-			LoginUtilCompat.invokeLogin(httpServletRequest, httpServletResponse, handle, password, rememberMe,
-				authType);
+			LoginUtilCompat
+				.invokeLogin(httpServletRequest, httpServletResponse, handle, password, rememberMe, authType);
 
 			authenticated = true;
 		}

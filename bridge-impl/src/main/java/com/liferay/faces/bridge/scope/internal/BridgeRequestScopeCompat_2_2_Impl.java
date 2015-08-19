@@ -18,7 +18,7 @@ import javax.faces.lifecycle.ClientWindow;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class BridgeRequestScopeCompat_2_2_Impl extends BridgeRequestScopeCompatImpl {
 

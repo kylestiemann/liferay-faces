@@ -20,7 +20,7 @@ import java.util.List;
 /**
  * The purpose of this class is to isolate source code differences between different versions of Liferay Portal.
  *
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class TestPages {
 
@@ -40,15 +40,11 @@ public class TestPages {
 		BRIDGE_DEMO_PAGES.add(new PortalPage("JSF2-SPRING", "1_WAR_jsf2springportlet_INSTANCE_"));
 		BRIDGE_DEMO_PAGES.add(new PortalPage("JSF2-JSP", "1_WAR_jsf2jspportlet_INSTANCE_"));
 		BRIDGE_DEMO_PAGES.add(new PortalPage("JSF2-PDF", "1_WAR_jsf2exportpdfportlet"));
-		BRIDGE_DEMO_PAGES.add(new PortalPage("JSF2-EVENTS",
-				new String[] {
-					"customers_WAR_jsf2ipceventscustomersportlet", "bookings_WAR_jsf2ipceventsbookingsportlet"
-				}));
-		BRIDGE_DEMO_PAGES.add(new PortalPage("JSF2-PRP",
-				new String[] {
-					"customersPortlet_WAR_jsf2ipcpubrenderparamsportlet",
-					"bookingsPortlet_WAR_jsf2ipcpubrenderparamsportlet"
-				}));
+		BRIDGE_DEMO_PAGES.add(new PortalPage("JSF2-EVENTS", new String[] {
+			"customers_WAR_jsf2ipceventscustomersportlet", "bookings_WAR_jsf2ipceventsbookingsportlet" }));
+		BRIDGE_DEMO_PAGES
+			.add(new PortalPage("JSF2-PRP", new String[] { "customersPortlet_WAR_jsf2ipcpubrenderparamsportlet",
+				"bookingsPortlet_WAR_jsf2ipcpubrenderparamsportlet" }));
 		BRIDGE_DEMO_PAGES.add(new PortalPage("ICE4", "1_WAR_icefaces4portlet_INSTANCE_"));
 		BRIDGE_DEMO_PAGES.add(new PortalPage("LF4", "1_WAR_liferayfaces4portlet_INSTANCE_"));
 		BRIDGE_DEMO_PAGES.add(new PortalPage("PRIME4", "1_WAR_primefaces4portlet_INSTANCE_"));
@@ -62,8 +58,8 @@ public class TestPages {
 		BRIDGE_ISSUE_PAGES.add(new PortalPage("FACES-1470", "1_WAR_FACES1470portlet"));
 		BRIDGE_ISSUE_PAGES.add(new PortalPage("FACES-1478", "1_WAR_FACES1478portlet"));
 		BRIDGE_ISSUE_PAGES.add(new PortalPage("FACES-1618", "1_WAR_FACES1618portlet"));
-		BRIDGE_ISSUE_PAGES.add(new PortalPage("FACES-1635",
-				new String[] { "1_WAR_jsf2portlet_INSTANCE_", "1_WAR_primefaces4portlet_INSTANCE_" }));
+		BRIDGE_ISSUE_PAGES.add(new PortalPage("FACES-1635", new String[] { "1_WAR_jsf2portlet_INSTANCE_",
+			"1_WAR_primefaces4portlet_INSTANCE_" }));
 		BRIDGE_ISSUE_PAGES.add(new PortalPage("FACES-1638", "1_WAR_FACES1638portlet"));
 	}
 

@@ -19,7 +19,7 @@ import com.liferay.faces.alloy.component.panelgrid.PanelGrid;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 @FacesRenderer(componentFamily = PanelGrid.COMPONENT_FAMILY, rendererType = PanelGrid.RENDERER_TYPE)
 public class PanelGridRenderer extends PanelGridRendererBase {

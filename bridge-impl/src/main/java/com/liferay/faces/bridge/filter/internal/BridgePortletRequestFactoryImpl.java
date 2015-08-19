@@ -29,7 +29,7 @@ import com.liferay.faces.util.product.ProductMap;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class BridgePortletRequestFactoryImpl extends BridgePortletRequestFactory {
 
@@ -43,8 +43,8 @@ public class BridgePortletRequestFactoryImpl extends BridgePortletRequestFactory
 		PortalContext portalContext = actionRequest.getPortalContext();
 
 		if (LIFERAY_PORTAL_DETECTED) {
-			BridgePortalContext bridgePortalContext = new BridgePortalContextLiferayImpl(portalContext, actionRequest,
-					LIFERAY_PORTAL);
+			BridgePortalContext bridgePortalContext =
+				new BridgePortalContextLiferayImpl(portalContext, actionRequest, LIFERAY_PORTAL);
 
 			return new ActionRequestBridgeLiferayImpl(actionRequest, bridgePortalContext);
 		}
@@ -61,8 +61,8 @@ public class BridgePortletRequestFactoryImpl extends BridgePortletRequestFactory
 		PortalContext portalContext = eventRequest.getPortalContext();
 
 		if (LIFERAY_PORTAL_DETECTED) {
-			BridgePortalContext bridgePortalContext = new BridgePortalContextLiferayImpl(portalContext, eventRequest,
-					LIFERAY_PORTAL);
+			BridgePortalContext bridgePortalContext =
+				new BridgePortalContextLiferayImpl(portalContext, eventRequest, LIFERAY_PORTAL);
 
 			return new EventRequestBridgeLiferayImpl(eventRequest, bridgePortalContext);
 		}
@@ -79,8 +79,8 @@ public class BridgePortletRequestFactoryImpl extends BridgePortletRequestFactory
 		PortalContext portalContext = renderRequest.getPortalContext();
 
 		if (LIFERAY_PORTAL_DETECTED) {
-			BridgePortalContext bridgePortalContext = new BridgePortalContextLiferayImpl(portalContext, renderRequest,
-					LIFERAY_PORTAL);
+			BridgePortalContext bridgePortalContext =
+				new BridgePortalContextLiferayImpl(portalContext, renderRequest, LIFERAY_PORTAL);
 
 			return new RenderRequestBridgeLiferayImpl(renderRequest, bridgePortalContext);
 		}
@@ -97,8 +97,8 @@ public class BridgePortletRequestFactoryImpl extends BridgePortletRequestFactory
 		PortalContext portalContext = resourceRequest.getPortalContext();
 
 		if (LIFERAY_PORTAL_DETECTED) {
-			BridgePortalContext bridgePortalContext = new BridgePortalContextLiferayImpl(portalContext, resourceRequest,
-					LIFERAY_PORTAL);
+			BridgePortalContext bridgePortalContext =
+				new BridgePortalContextLiferayImpl(portalContext, resourceRequest, LIFERAY_PORTAL);
 
 			return new ResourceRequestBridgeLiferayImpl(resourceRequest, bridgePortalContext);
 		}

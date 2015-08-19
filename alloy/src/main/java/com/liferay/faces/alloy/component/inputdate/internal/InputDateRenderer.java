@@ -40,7 +40,7 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
 /**
- * @author  Kyle Stiemann
+ * @author Kyle Stiemann
  */
 //J-
 @FacesRenderer(componentFamily = InputDate.COMPONENT_FAMILY, rendererType = InputDate.RENDERER_TYPE)
@@ -90,8 +90,8 @@ public class InputDateRenderer extends InputDateRendererBase {
 	@Override
 	public void encodeJavaScriptCustom(FacesContext facesContext, UIComponent uiComponent) throws IOException {
 
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		InputDate inputDate = (InputDate) uiComponent;
 		String showOn = inputDate.getShowOn();
@@ -123,8 +123,8 @@ public class InputDateRenderer extends InputDateRendererBase {
 					String datePattern = inputDate.getPattern();
 					String timeZoneString = inputDate.getTimeZone();
 					TimeZone timeZone = TimeZone.getTimeZone(timeZoneString);
-					SimpleDateFormat simpleDateFormat = new SimpleDateFormat(InputDate.DEFAULT_HTML5_DATE_PATTERN,
-							Locale.ENGLISH);
+					SimpleDateFormat simpleDateFormat =
+						new SimpleDateFormat(InputDate.DEFAULT_HTML5_DATE_PATTERN, Locale.ENGLISH);
 
 					if (maxDateObject != null) {
 						Date maxDate = inputDate.getObjectAsDate(maxDateObject, datePattern, timeZone);
@@ -182,8 +182,8 @@ public class InputDateRenderer extends InputDateRendererBase {
 		boolean showOnButton = "button".equals(showOn);
 		Map<String, List<ClientBehavior>> clientBehaviorMap = inputDate.getClientBehaviors();
 		List<ClientBehavior> valueChangeClientBehaviors = clientBehaviorMap.get(VALUE_CHANGE);
-		boolean valueChangeClientBehaviorsNotEmpty = (valueChangeClientBehaviors != null) &&
-			!valueChangeClientBehaviors.isEmpty();
+		boolean valueChangeClientBehaviorsNotEmpty =
+			(valueChangeClientBehaviors != null) && !valueChangeClientBehaviors.isEmpty();
 
 		if (showOnButton || valueChangeClientBehaviorsNotEmpty) {
 
@@ -237,11 +237,11 @@ public class InputDateRenderer extends InputDateRendererBase {
 	}
 
 	@Override
-	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter, InputDate inputDate,
-		boolean first) throws IOException {
+	protected void encodeHiddenAttributes(FacesContext facesContext, ResponseWriter responseWriter,
+		InputDate inputDate, boolean first) throws IOException {
 
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 
 		if (!isNative(browserSniffer, inputDate)) {
@@ -267,8 +267,8 @@ public class InputDateRenderer extends InputDateRendererBase {
 	public String getAlloyClassName(FacesContext facesContext, UIComponent uiComponent) {
 
 		String alloyClassName = super.getAlloyClassName(facesContext, uiComponent);
-		BrowserSnifferFactory browserSnifferFactory = (BrowserSnifferFactory) FactoryExtensionFinder.getFactory(
-				BrowserSnifferFactory.class);
+		BrowserSnifferFactory browserSnifferFactory =
+			(BrowserSnifferFactory) FactoryExtensionFinder.getFactory(BrowserSnifferFactory.class);
 		BrowserSniffer browserSniffer = browserSnifferFactory.getBrowserSniffer(facesContext.getExternalContext());
 		InputDate inputDate = (InputDate) uiComponent;
 

@@ -23,7 +23,7 @@ import javax.servlet.http.HttpServletResponse;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public abstract class ExternalContextCompat_2_0_FlashImpl extends ExternalContextCompat_1_2_Impl {
 
@@ -48,8 +48,8 @@ public abstract class ExternalContextCompat_2_0_FlashImpl extends ExternalContex
 	}
 
 	/**
-	 * @see    {@link ExternalContext#getFlash()}
-	 * @since  JSF 2.0
+	 * @see {@link ExternalContext#getFlash()}
+	 * @since JSF 2.0
 	 */
 	@Override
 	public Flash getFlash() {

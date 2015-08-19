@@ -20,7 +20,7 @@ import javax.faces.context.PartialResponseWriter;
 
 
 /**
- * @author  Neil Griffin
+ * @author Neil Griffin
  */
 public class PartialResponseWriterWrapper extends PartialResponseWriter {
 
