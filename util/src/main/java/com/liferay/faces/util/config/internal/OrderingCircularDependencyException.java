@@ -23,7 +23,6 @@ import java.util.List;
  */
 public class OrderingCircularDependencyException extends Exception {
 
-
 	public OrderingCircularDependencyException(Ordering.Path path, List<FacesConfigDescriptor> facesConfigs) {
 		super(createMessage(path, facesConfigs));
 	}
@@ -38,7 +37,7 @@ public class OrderingCircularDependencyException extends Exception {
 
 		for (FacesConfigDescriptor facesConfigDescriptor : facesConfigs) {
 			Ordering someOrdering = facesConfigDescriptor.getOrdering();
-			EnumMap<Ordering.Path,String[]> someRoutes = someOrdering.getRoutes();
+			EnumMap<Ordering.Path, String[]> someRoutes = someOrdering.getRoutes();
 			String[] someNames = someRoutes.get(path);
 
 			if (someNames.length != 0) {

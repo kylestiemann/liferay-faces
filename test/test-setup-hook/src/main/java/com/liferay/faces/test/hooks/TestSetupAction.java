@@ -120,16 +120,6 @@ public class TestSetupAction extends TestSetupCompatAction {
 		}
 	}
 
-	protected void setupLSVIssuesSite(long companyId, long userId) throws Exception {
-		Group site = getSiteForSetup(companyId, userId, "LSV Issues");
-		long groupId = site.getGroupId();
-		addAllUsersToSite(companyId, groupId);
-
-		for (PortalPage portalPage : TestPages.LSV_ISSUE_PAGES) {
-			setupPublicPage(companyId, userId, groupId, portalPage);
-		}
-	}
-
 	protected void setupBridgeTCKSite(long companyId, long userId) throws Exception, DocumentException {
 		Group site = getSiteForSetup(companyId, userId, "Bridge TCK");
 		long groupId = site.getGroupId();
@@ -180,6 +170,16 @@ public class TestSetupAction extends TestSetupCompatAction {
 		addAllUsersToSite(companyId, groupId);
 
 		for (PortalPage portalPage : TestPages.GUEST_PAGES) {
+			setupPublicPage(companyId, userId, groupId, portalPage);
+		}
+	}
+
+	protected void setupLSVIssuesSite(long companyId, long userId) throws Exception {
+		Group site = getSiteForSetup(companyId, userId, "LSV Issues");
+		long groupId = site.getGroupId();
+		addAllUsersToSite(companyId, groupId);
+
+		for (PortalPage portalPage : TestPages.LSV_ISSUE_PAGES) {
 			setupPublicPage(companyId, userId, groupId, portalPage);
 		}
 	}

@@ -13,17 +13,18 @@
  */
 package com.liferay.faces.util.application.internal;
 
-import com.liferay.faces.util.application.ResourceValidator;
-import com.liferay.faces.util.application.ResourceValidatorFactory;
-import com.liferay.faces.util.logging.Logger;
-import com.liferay.faces.util.logging.LoggerFactory;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.regex.Pattern;
 
 import javax.faces.application.ResourceHandler;
 import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.regex.Pattern;
+
+import com.liferay.faces.util.application.ResourceValidator;
+import com.liferay.faces.util.application.ResourceValidatorFactory;
+import com.liferay.faces.util.logging.Logger;
+import com.liferay.faces.util.logging.LoggerFactory;
 
 
 /**

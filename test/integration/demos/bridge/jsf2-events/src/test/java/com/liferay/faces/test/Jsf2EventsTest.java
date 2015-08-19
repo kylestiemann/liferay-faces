@@ -136,7 +136,7 @@ public class Jsf2EventsTest extends TesterBase {
 		try {
 			waitForElement(browser, firstNameXpath);
 		}
-		catch (Exception e) { 
+		catch (Exception e) {
 			logger.log(Level.INFO, "Exception e.getMessage() = " + e.getMessage());
 			assertTrue("firstField should be visible, " +
 			"but " + firstNameXpath + " is not visible.", false);

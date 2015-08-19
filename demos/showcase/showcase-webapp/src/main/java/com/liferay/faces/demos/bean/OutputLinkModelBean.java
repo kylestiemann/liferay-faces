@@ -33,7 +33,7 @@ public class OutputLinkModelBean {
 	private CountryService countryService;
 
 	// Private properties
-	private Country	country;
+	private Country country;
 
 	@PostConstruct
 	public void postConstruct() {

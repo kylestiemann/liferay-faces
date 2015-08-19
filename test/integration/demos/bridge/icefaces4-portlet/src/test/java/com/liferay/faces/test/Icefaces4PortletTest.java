@@ -320,14 +320,14 @@ public class Icefaces4PortletTest extends TesterBase {
 	@RunAsClient
 	@InSequence(1500)
 	public void dataEntry() throws Exception {
-		
+
 		String foo = "";
 
 		logger.log(Level.INFO, "clicking into the firstNameField ...");
 		firstNameField.click();
 		logger.log(Level.INFO, "tabbing into the next field ...");
 		firstNameField.sendKeys(Keys.TAB);
-		
+
 		logger.log(Level.INFO, "firstNameField.getAttribute('value') = " + firstNameField.getAttribute("value"));
 		logger.log(Level.INFO, "isThere(browser, firstNameFieldErrorXpath) = " + isThere(browser, firstNameFieldErrorXpath));
 
@@ -491,13 +491,13 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("emailAddressField should be clear," +
 			" but " + emailAddressFieldXpath + " contains '" + foo + "'", false);
 		}
-		
+
 		logger.log(Level.INFO, "Entering a valid email address 'test@liferay.com' ...");
 		emailAddressField.click();
 		emailAddressField.sendKeys("test@liferay.com");
 		emailAddressField.sendKeys(Keys.TAB);
 		phoneNumberField.click();
-		
+
 		logger.log(Level.INFO, "Waiting for the emailAddressFieldError to contain 'test@liferay.com' ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
@@ -578,7 +578,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("dateOfBirthField should be visible after navigating to " + url + "," +
 			" but " + dateOfBirthFieldXpath + " is not visible.", false);
 		}
-		
+
 		logger.log(Level.INFO, "dateOfBirthField.getAttribute('value') = " + dateOfBirthField.getAttribute("value"));
 		logger.log(Level.INFO,
 			"dateOfBirthField.getAttribute('value').length() = " + dateOfBirthField.getAttribute("value").length());
@@ -669,7 +669,7 @@ public class Icefaces4PortletTest extends TesterBase {
 		}
 
 		selectEditMode(browser, portal);
-		
+
 		logger.log(Level.INFO, "Waiting for the resetButton to show on the page ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
@@ -686,7 +686,7 @@ public class Icefaces4PortletTest extends TesterBase {
 
 		logger.log(Level.INFO, "resetButton.click() ...");
 		resetButton.click();
-		
+
 		logger.log(Level.INFO, "Waiting for the firstNameField to show on the page ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
@@ -700,7 +700,7 @@ public class Icefaces4PortletTest extends TesterBase {
 		}
 
 	}
-	
+
 	// because some test failures throw us into a strange state,
 	// let's refresh the browser to get back to the page we need to test
 	public void refreshBrowser() throws Exception {
@@ -732,7 +732,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("firstNameField should be visible after reset," +
 			" but " + firstNameFieldXpath + " is not visible.", false);
 		}
-		
+
 		logger.log(Level.INFO, "clearing fields ...");
 		firstNameField.clear();
 		lastNameField.clear();
@@ -806,7 +806,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("cityField should be visible after submitting the form," +
 			" but " + cityFieldXpath + " is not visible.", false);
 		}
-		
+
 		logger.log(Level.INFO, "before cityField.getAttribute('value') = " + cityField.getAttribute("value"));
 		logger.log(Level.INFO,
 			"before provinceIdField.getAttribute('value') = " + provinceIdField.getAttribute("value"));
@@ -818,7 +818,7 @@ public class Icefaces4PortletTest extends TesterBase {
 
 		postalCodeField.sendKeys("32801");
 		phoneNumberField.click();
-		
+
 		logger.log(Level.INFO, "Waiting for the cityField to contain 'Orlando' ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
@@ -871,7 +871,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("showCommentsLink should be visible," +
 			" but " + showCommentsLinkXpath + " is not visible.", false);
 		}
-		 	
+
 		showCommentsLink.click();
 
 		logger.log(Level.INFO, "Waiting for the hideCommentsLink to contain 'Hide Comments' ...");
@@ -884,10 +884,10 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("'Hide Comments' should be visible after clicking 'Show Comments'," +
 			" but //a[contains(text(),'Hide Comments')] is not visible.", false);
 		}
-		
+
 		logger.log(Level.INFO, "comments.isDisplayed() = " + comments.isDisplayed());
 		assertTrue("comments textarea is displayed", comments.isDisplayed());
-		
+
 		comments.sendKeys(testing123);
 		phoneNumberField.click();
 
@@ -930,7 +930,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("comments should be visible after clicking 'Hide Comments'," +
 			" but " + commentsXpath + " is not visible.", false);
 		}
-		
+
 		assertTrue("comments should be there after hide and then show, but comments value is '" +
 			comments.getAttribute("value") +"' after clicking show comments.", testing123.equals(comments.getAttribute("value")));
 
@@ -985,7 +985,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("dateOfBirthField should contain '12/34/5678'," +
 			" but " + dateOfBirthFieldXpath + " contains '" + foo + "'.", false);
 		}
-		
+
 		submitButton.click();
 
 		logger.log(Level.INFO, "Waiting for the dateOfBirthFieldError to contain 'Invalid date format' ...");
@@ -1007,7 +1007,7 @@ public class Icefaces4PortletTest extends TesterBase {
 
 		// checks with no dateOfBirth
 		dateOfBirthField.clear();
-		
+
 		logger.log(Level.INFO, "Waiting for the dateOfBirthField to contain '' ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
@@ -1023,7 +1023,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("dateOfBirthField should be empty after clearing," +
 			" but " + dateOfBirthFieldXpath + " contains '" + foo + "'.", false);
 		}
-		
+
 		phoneNumberField.click();
 
 		logger.log(Level.INFO, "Waiting for the dateOfBirthFieldError to contain 'Value is required' ...");
@@ -1060,7 +1060,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("dateOfBirthField should be empty after clearing," +
 			" but " + dateOfBirthFieldXpath + " contains '" + foo + "'.", false);
 		}
-		
+
 		logger.log(Level.INFO, "Entering a valid dateOfBirth = 01/02/3456 ...");
 		dateOfBirthField.sendKeys("01/02/3456");
 		logger.log(Level.INFO, "Clicking into the phoneNumberField ...");
@@ -1093,7 +1093,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			logger.log(Level.INFO, "isThere(browser, fileUploadChooserXpath) = " + isThere(browser, fileUploadChooserXpath));
 		}
 		else {
-			
+
 			// the ice1-portlet seems to render the input type="file" in a separate iframe ... why bother?
 			// assuming that this is the jsf2-jsp-portlet and waiting for its 'Add Attachment' button to appear
 			logger.log(Level.INFO, "Waiting for the //input[@type='submit' and @value='Add Attachment'] to show on the page ...");
@@ -1187,7 +1187,7 @@ public class Icefaces4PortletTest extends TesterBase {
 			assertTrue("submitFile should be visible," +
 			" but " + submitFileXpath + " is not visible.", false);
 		}
-		
+
 		logger.log(Level.INFO, "submitting the uploaded file ...");
 		submitFile.click();
 
@@ -1223,7 +1223,7 @@ public class Icefaces4PortletTest extends TesterBase {
 
 		String foo = "";
 		logger.log(Level.INFO, "clearing fields ...");
-		
+
 		logger.log(Level.INFO, "Waiting for the dateOfBirthField to show on the page ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
@@ -1275,7 +1275,7 @@ public class Icefaces4PortletTest extends TesterBase {
 				assertTrue("comments textarea should be visible after clicking 'Show Comments'," +
 				" but " + commentsXpath + " is not visible.", false);
 			}
-			
+
 			commentsTextAreas = browser.findElements(By.xpath(commentsXpath)).size();
 			logger.log(Level.INFO, "# of commentsTextAreas = " + commentsTextAreas);
 		}
@@ -1367,10 +1367,10 @@ public class Icefaces4PortletTest extends TesterBase {
 			"but it is '" + comments.getAttribute("value") + "'",
 			comments.getAttribute("value").equals(genesis11));
 
-		logger.log(Level.INFO, "Correct data asserted.  Clicking submit button ...");
+		logger.log(Level.INFO, "Correct data asserted.	Clicking submit button ...");
 		submitButton.click();
 
-		logger.log(Level.INFO, "Waiting for the text 'Dear ' to show on the page ...");		
+		logger.log(Level.INFO, "Waiting for the text 'Dear ' to show on the page ...");
 		try {
 			WebDriverWait wait = new WebDriverWait(browser, 10);
 			wait.until(ExpectedConditions.textToBePresentInElementLocated(By.xpath(formTagXpath), "Dear "));

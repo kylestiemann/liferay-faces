@@ -13,8 +13,9 @@
  */
 package com.liferay.faces.bridge.bean.internal;
 
-import javax.faces.FacesWrapper;
 import java.util.Map;
+
+import javax.faces.FacesWrapper;
 
 
 /**

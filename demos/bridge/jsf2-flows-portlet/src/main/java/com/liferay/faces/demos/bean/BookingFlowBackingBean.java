@@ -61,6 +61,7 @@ public class BookingFlowBackingBean {
 
 	public void bookingTypeIdChanged(ValueChangeEvent valueChangeEvent) {
 		Long bookingTypeId = (Long) valueChangeEvent.getNewValue();
+
 		if (bookingTypeId != null) {
 			String bookingTypeName = bookingTypeService.getName(bookingTypeId);
 			bookingFlowModelBean.setBookingTypeName(bookingTypeName);

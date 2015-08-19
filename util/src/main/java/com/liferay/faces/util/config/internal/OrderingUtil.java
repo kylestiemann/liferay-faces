@@ -86,7 +86,8 @@ public class OrderingUtil {
 
 			if (value == null) {
 				value = 1;
-			} else {
+			}
+			else {
 				value += 1;
 			}
 
@@ -100,7 +101,8 @@ public class OrderingUtil {
 
 			if (value == null) {
 				value = 1;
-			} else {
+			}
+			else {
 				value += 1;
 			}
 
@@ -503,8 +505,8 @@ public class OrderingUtil {
 		innerSort(configs);
 
 		// This is the final sort which checks the list from left to right to see if they are in the specified order and
-		// if they are not, it moves the incorrectly placed document(s) to the right into its proper place, and 
-		// shifts others left as necessary.
+		// if they are not, it moves the incorrectly placed document(s) to the right into its proper place, and shifts
+		// others left as necessary.
 		postSort(configs);
 
 		return new ArrayList<FacesConfigDescriptor>(Arrays.asList(configs));
