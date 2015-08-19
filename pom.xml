@@ -444,6 +444,21 @@
 		</pluginManagement>
 		<plugins>
 			<plugin>
+				<groupId>net.revelc.code</groupId>
+				<artifactId>formatter-maven-plugin</artifactId>
+				<version>0.5.2</version>
+				<configuration>
+					<configFile>/Users/kylestiemann/Projects/liferay.com/faces/liferay-faces-formatting.xml</configFile>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>format</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>buildnumber-maven-plugin</artifactId>
 			</plugin>
@@ -868,11 +883,11 @@
 				</war.packaging.excludes>
 			</properties>
 			<dependencies>
-			    <dependency>
-			        <groupId>xerces</groupId>
-			        <artifactId>xercesImpl</artifactId>
-			        <version>${weblogic.xerces.version}</version>
-			    </dependency>
+				<dependency>
+					<groupId>xerces</groupId>
+					<artifactId>xercesImpl</artifactId>
+					<version>${weblogic.xerces.version}</version>
+				</dependency>
 			</dependencies>
 			<dependencyManagement>
 				<dependencies>
@@ -1147,14 +1162,14 @@
 				<artifactId>jstl-impl</artifactId>
 				<version>${jstl.version}</version>
 				<exclusions>
-				    <exclusion>
-				        <groupId>javax.servlet</groupId>
-				        <artifactId>servlet-api</artifactId>
-				    </exclusion>
-				    <exclusion>
-				        <groupId>javax.servlet.jsp</groupId>
-				        <artifactId>jsp-api</artifactId>
-				    </exclusion>
+					<exclusion>
+						<groupId>javax.servlet</groupId>
+						<artifactId>servlet-api</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>javax.servlet.jsp</groupId>
+						<artifactId>jsp-api</artifactId>
+					</exclusion>
 				</exclusions>
 			</dependency>
 			<dependency>
