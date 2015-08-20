@@ -48,6 +48,7 @@ public class InputTime extends InputTimeBase {
 		if (isValid() && (newValue != null)) {
 
 			// Determine if the specified value falls between the values of the minTime and maxTime attributes.
+			String pattern = getPattern();
 			String timeZoneAsString = getTimeZone();
 			TimeZone timeZone = TimeZone.getTimeZone(timeZoneAsString);
 			SimpleDateFormat simpleDateFormat = new SimpleDateFormat(MIN_MAX_TIME_PATTERN);
@@ -57,9 +58,10 @@ public class InputTime extends InputTimeBase {
 			String maxTimeString = getMaxTime();
 
 			try {
+
 				Date minTime = simpleDateFormat.parse(minTimeString);
 				Date maxTime = simpleDateFormat.parse(maxTimeString);
-				super.validateValue(facesContext, newValue, minTime, maxTime, timeZone);
+				validateValue(facesContext, pattern, newValue, minTime, maxTime, timeZone);
 			}
 			catch (ParseException e) {
 

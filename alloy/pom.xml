@@ -33,6 +33,23 @@
 				</executions>
 			</plugin>
 			<plugin>
+				<groupId>com.liferay.faces.maven</groupId>
+				<artifactId>liferay-faces-maven-plugin</artifactId>
+				<executions>
+					<execution>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>copy-method</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<copyFromClass>com.liferay.faces.alloy.component.inputdate.InputDate</copyFromClass>
+					<methodSignature>private void validateValue(FacesContext facesContext, String pattern, Object newValue, Date minDate, Date maxDate, TimeZone timeZone)</methodSignature>
+					<copyToClass>com.liferay.faces.alloy.component.inputtime.InputTime</copyToClass>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>yuicompressor-maven-plugin</artifactId>
 				<executions>

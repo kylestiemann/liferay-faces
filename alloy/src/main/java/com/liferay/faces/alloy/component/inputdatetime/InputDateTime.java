@@ -37,6 +37,10 @@ import com.liferay.faces.util.factory.FactoryExtensionFinder;
  */
 public abstract class InputDateTime extends InputDateTimeBase implements ClientComponent {
 
+	/**
+	 * @deprecated  No replacement available.
+	 */
+	@Deprecated
 	protected final void validateValue(FacesContext facesContext, Object newValue, Date minDate, Date maxDate,
 		TimeZone timeZone) {
 

@@ -21,11 +21,15 @@ import java.util.GregorianCalendar;
 import java.util.Locale;
 import java.util.TimeZone;
 
+import javax.faces.FacesException;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.FacesComponent;
 import javax.faces.context.FacesContext;
 
 import com.liferay.faces.util.client.BrowserSniffer;
 import com.liferay.faces.util.client.BrowserSnifferFactory;
+import com.liferay.faces.util.context.MessageContext;
+import com.liferay.faces.util.context.MessageContextFactory;
 import com.liferay.faces.util.factory.FactoryExtensionFinder;
 
 
@@ -46,14 +50,14 @@ public class InputDate extends InputDateBase {
 		if (isValid() && (newValue != null)) {
 
 			// Get all necessary dates.
-			String datePattern = getPattern();
+			String pattern = getPattern();
 			Object minDateObject = getMinDate();
 			String timeZoneString = getTimeZone();
 			TimeZone timeZone = TimeZone.getTimeZone(timeZoneString);
 
-			Date minDate = getObjectAsDate(minDateObject, datePattern, timeZone);
+			Date minDate = getObjectAsDate(minDateObject, pattern, timeZone);
 			Object maxDateObject = getMaxDate();
-			Date maxDate = getObjectAsDate(maxDateObject, datePattern, timeZone);
+			Date maxDate = getObjectAsDate(maxDateObject, pattern, timeZone);
 
 			if ((minDate == null) && (maxDate == null)) {
 				setValid(true);
@@ -71,8 +75,60 @@ public class InputDate extends InputDateBase {
 				minDate = getDateAtMidnight(minDate, timeZone);
 				maxDate = getDateAtMidnight(maxDate, timeZone);
 
-				super.validateValue(facesContext, newValue, minDate, maxDate, timeZone);
+				validateValue(facesContext, pattern, newValue, minDate, maxDate, timeZone);
 			}
+		}
+	}
+
+	private void validateValue(FacesContext facesContext, String pattern, Object newValue, Date minDate, Date maxDate,
+		TimeZone timeZone) {
+
+		Date submittedDate = getObjectAsDate(newValue, pattern, timeZone);
+
+		try {
+
+			// To determine if the submitted value is valid, check if it falls between the minimum date and
+			// the maximum date.
+			if (submittedDate.before(minDate) || submittedDate.after(maxDate)) {
+
+				setValid(false);
+
+				String validatorMessage = getValidatorMessage();
+				FacesMessage facesMessage;
+
+				if (validatorMessage != null) {
+					facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, validatorMessage, validatorMessage);
+				}
+				else {
+					SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+					simpleDateFormat.setTimeZone(timeZone);
+
+					String minDateString = simpleDateFormat.format(minDate);
+					String maxDateString = simpleDateFormat.format(maxDate);
+					Locale locale = getObjectAsLocale(getLocale(facesContext));
+					MessageContextFactory messageContextFactory = (MessageContextFactory) FactoryExtensionFinder
+						.getFactory(MessageContextFactory.class);
+					MessageContext messageContext = messageContextFactory.getMessageContext();
+					String message = messageContext.getMessage(locale, "please-enter-a-value-between-x-and-x",
+							minDateString, maxDateString);
+					facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message);
+				}
+
+				String clientId = getClientId(facesContext);
+				facesContext.addMessage(clientId, facesMessage);
+			}
+			else {
+				setValid(true);
+			}
+		}
+		catch (FacesException e) {
+
+			setValid(false);
+
+			String message = e.getMessage();
+			FacesMessage facesMessage = new FacesMessage(FacesMessage.SEVERITY_ERROR, message, message);
+			String clientId = getClientId(facesContext);
+			facesContext.addMessage(clientId, facesMessage);
 		}
 	}
 
