@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>com.liferay.faces</groupId>
 		<artifactId>liferay-faces</artifactId>
-		<version>4.2.6-ga7-SNAPSHOT</version>
+		<version>${liferay.faces.version}</version>
 	</parent>
 	<artifactId>liferay-faces-reslib</artifactId>
 	<name>Liferay Faces Resource Library</name>
@@ -51,7 +51,7 @@
 									<url>https://github.com/liferay/liferay-portal/raw/6.2.x/portal-web/third-party/alloy-${alloyui.zip.version}.zip</url>
 									<unpack>true</unpack>
 									<outputDirectory>${project.build.directory}/classes/META-INF/resources</outputDirectory>
-									<md5>37cb9069053f2e181bd26bd78a216c53</md5>
+									<!-- <md5>37cb9069053f2e181bd26bd78a216c53</md5> -->
 								</configuration>
 							</execution>
 						</executions>
